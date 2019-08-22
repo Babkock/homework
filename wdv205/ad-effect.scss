@@ -1,0 +1,326 @@
+$AdWidth: 440px;
+$AdHeight: 293px;
+$RecordWidth: 210px;
+$RecordHeight: 210px;
+$AdBreak: 300px;
+$RecordBreak: 540px;
+
+$BodyZ: -200;
+$AdZ: 0;
+$VinylZ: 200;
+$RecordZ: 1000;
+
+@mixin animate($name, $dur, $del) {
+	animation-name:$name;
+	-webkit-animation-name:$name;
+	animation-duration:$dur;
+	-webkit-animation-duration:$dur;
+	animation-delay:$del;
+	-webkit-animation-delay:$del;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+
+@mixin entity($top, $left, $right, $z, $o) {
+	margin-top:$top;
+	margin-left:$left;
+	margin-right:$right;
+	z-index:$z;
+	opacity:$o;
+}
+
+body {
+	background:url('webpage.jpg');
+	width:99%;
+	height:99%;
+	z-index:$BodyZ;
+	opacity:1;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	position:absolute;
+}
+
+@keyframes adslide {
+	0% {
+		width:$AdWidth;
+		height:$AdHeight;
+		@include entity(10px, 5000px, 5000px, $AdZ, 0.5);
+	}
+	50% {
+		width:$AdWidth;
+		height:$AdHeight;
+		@include entity(10px, 1000px, 1000px, $AdZ, 0.8);
+	}
+	100% {
+		width:$AdWidth;
+		height:$AdHeight;
+		@include entity(10px, 30%, 30%, $AdZ, 1);
+	}
+}
+
+@-webkit-keyframes adslide {
+	0% {
+		width:$AdWidth;
+		height:$AdHeight;
+		@include entity(10px, 5000px, 5000px, $AdZ, 0.5);
+	}
+	50% {
+		width:$AdWidth;
+		height:$AdHeight;
+		@include entity(10px, 1000px, 1000px, $AdZ, 0.8);
+	}
+	100% {
+		width:$AdWidth;
+		height:$AdHeight;
+		@include entity(10px, 30%, 30%, $AdZ, 1);
+	}
+}
+
+@keyframes recordslide {
+	0% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(10px, 5000px, 5000px, $RecordZ, 0.4);
+		transform:scale(1, 1) rotateY(50deg);
+	}
+	25% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(100px, 4000px, 4000px, $RecordZ, 0.7);
+		transform:scale(1.4, 1.4) rotateY(95deg);
+	}
+	50% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(190px, 1000px, 1000px, $RecordZ, 0.8);
+		transform:scale(1.9, 1.9) rotateY(180deg);
+	}
+	75% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(250px, 65%, 120%, $RecordZ, 0.9);
+		transform:scale(1.3, 1.2) rotateY(240deg);
+	}
+	100% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity($AdBreak, 35%, 40%, $RecordZ, 1);
+		transform:scale(1, 1) rotateY(360deg);
+	}
+}
+
+@-webkit-keyframes recordslide {
+	0% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(10px, 5000px, 5000px, $RecordZ, 0.4);
+		transform:scale(1, 1) rotateY(50deg);
+	}
+	25% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(100px, 4000px, 4000px, $RecordZ, 0.7);
+		transform:scale(1.3, 1.3) rotateY(95deg);
+	}
+	50% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(190px, 1000px, 1000px, $RecordZ, 0.8);
+		transform:scale(1.9, 1.9) rotateY(180deg);
+	}
+	75% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(250px, 65%, 120%, $RecordZ, 0.9);
+		transform:scale(1.3, 1.2) rotateY(240deg);
+	}
+	100% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity($AdBreak, 35%, 40%, $RecordZ, 1);
+		transform:scale(1, 1) rotateY(360deg);
+	}
+}
+
+@keyframes vinylslide {
+	0% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(10px, 5000px, 5000px, $VinylZ, 0.4);
+		transform:rotate(85deg) rotateY(90deg);
+	}
+	25% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(100px, 4000px, 4000px, $VinylZ, 0.7);
+		transform:rotate(270deg) rotateY(180deg);
+	}
+	50% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(210px, 1000px, 1000px, $VinylZ, 0.8);
+		transform:rotate(390deg) rotateY(270deg);
+	}
+	75% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity($AdBreak, 35%, 40%, $VinylZ, 0.9);
+		transform:rotate(820deg) rotateY(360deg);
+	}
+	100% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity($AdBreak, 50%, 40%, $VinylZ, 1.2);
+		transform:rotate(-390deg) rotateY(0deg);
+	}
+}
+
+@-webkit-keyframes vinylslide {
+	0% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(10px, 5000px, 5000px, $VinylZ, 0.4);
+		transform:rotate(85deg) rotateY(90deg);
+	}
+	25% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(100px, 4000px, 4000px, $VinylZ, 0.7);
+		transform:rotate(270deg) rotateY(180deg);
+	}
+	50% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity(210px, 1000px, 1000px, $VinylZ, 0.8);
+		transform:rotate(390deg) rotateY(270deg);
+	}
+	75% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity($AdBreak, 35%, 40%, $VinylZ, 0.9);
+		transform:rotate(820deg) rotateY(360deg);
+	}
+	100% {
+		width:$RecordWidth;
+		height:$RecordHeight;
+		@include entity($AdBreak, 50%, 40%, $VinylZ, 1.2);
+		transform:rotate(-390deg) rotateY(0deg);
+	}
+}
+
+@keyframes link-slide {
+	0% {
+		width:40%;
+		margin-top:$RecordBreak;
+		margin-left:5000px;
+		margin-right:5000px;
+		opacity:0.2;
+	}
+	50% {
+		width:40%;
+		margin-top:$RecordBreak;
+		margin-left:1000px;
+		margin-right:1000px;
+		opacity:0.7;
+	}
+	100% {
+		width:40%;
+		margin-top:$RecordBreak;
+		margin-left:30%;
+		margin-right:30%;
+		opacity:1;
+	}
+}
+
+@-webkit-keyframes link-slide {
+	0% {
+		width:40%;
+		@include entity($RecordBreak, 5000px, 5000px, $VinylZ, 0.2);
+	}
+	50% {
+		width:40%;
+		@include entity($RecordBreak, 1000px, 1000px, $VinylZ, 0.7);
+	}
+	100% {
+		width:40%;
+		@include entity($RecordBreak, 30%, 30%, $VinylZ, 1);
+	}
+}
+
+body div a {
+	width:100%;
+	height:100%;
+}
+
+.darken {
+	background-color:black;
+	opacity:0;
+	position:absolute;
+	width:99%;
+	height:2000px;
+	z-index:-1000;
+	transition:opacity 2s ease 0s;
+	&.loaded { opacity:0.87; }
+}
+
+.ad {
+	background:url('ad.png');
+	@include animate(adslide, 2.1s, 1.9s);
+	position:absolute;
+	z-index:$AdZ;
+	&.loaded { opacity: 1.2; }
+}
+
+.record {
+	background:url('album.jpg');
+	z-index:$RecordZ;
+	position:absolute;
+	box-shadow:4px 4px black;
+	@include animate(recordslide, 4s, 1.9s);
+	&.loaded {
+		background:url('album.jpg');
+		z-index:$RecordZ;
+		position:absolute;
+		box-shadow:4px 4px black;
+		opacity:1.2;
+	}
+}
+
+.vinyl {
+	background:url('vinyl.png');
+	z-index:$VinylZ;
+	position:absolute;
+	transition:all 0.5s ease 0s;
+	@include animate(vinylslide, 5.5s, 1.8s);
+	&.loaded {
+		background:url('vinyl.png');
+		z-index:$VinylZ;
+		position:absolute;
+		transition:all 0.5s ease 0s;
+	}
+}
+
+.links {
+	text-align:center;
+	color:white;
+	margin-top:$RecordBreak;
+	z-index:$VinylZ;
+	opacity:1;
+	width:40%;
+	transition:all 0.6s ease 0s;
+	@include animate(link-slide, 2s, 0.1s);
+}
+
+.links a, .links a:visited, .links a:active, .links a:link {
+	color:#dd0305;
+	font-size:1.12em;
+	text-decoration:none;
+	transition:all 0.2s ease 0s;
+	&:hover {
+		color:#141aef;
+		font-size:1.12em;
+		text-decoration:underline;
+	}
+}

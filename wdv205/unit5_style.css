@@ -1,0 +1,139 @@
+body {
+  font-family: "Helvetica";
+  color: white;
+  background: linear-gradient(127deg, #9a1a8f, #312a8e);
+  width: 98%; }
+
+.left-side {
+  font-size: 1.2em;
+  float: left;
+  width: 29%;
+  position: relative;
+  margin-right: 10px;
+  padding: 8px;
+  background-color: rgba(205, 90, 142, 0.9);
+  border: 1px solid blue;
+  border-radius: 15px 15px 15px 15px;
+  color: white; }
+  .left-side h2 {
+    text-shadow: 3px 3px red; }
+
+.right-side {
+  font-size: 1.2em;
+  float: left;
+  width: 66%;
+  position: relative;
+  margin-left: 10px;
+  padding: 8px;
+  background-color: rgba(105, 203, 118, 0.9);
+  border: 1px solid yellow;
+  border-radius: 15px 15px 15px 15px;
+  color: white; }
+  .right-side h2 {
+    text-shadow: 3px 3px blue; }
+
+.btn {
+  background-color: darkred;
+  color: lime;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 1.3em;
+  padding: 6px;
+  border: 1px solid lime;
+  box-shadow: 4px 7px #541edd;
+  margin-left: 5px;
+  margin-right: 5px; }
+  .btn:hover {
+    background-color: #641a18;
+    color: lime;
+    border: 1px solid #17ee47;
+    padding: 6px;
+    box-shadow: 4px 7px #681a95;
+    margin-left: 5px;
+    margin-right: 5px; }
+  .btn:active {
+    background-color: lime;
+    color: darkred;
+    padding: 6px;
+    border: 1px solid red;
+    box-shadow: 4px 7px lime;
+    margin-left: 5px;
+    margin-right: 5px; }
+
+.col-btn {
+  background-color: blue;
+  color: yellow;
+  border-radius: 9px 9px 9px 9px;
+  font-size: 1.1em;
+  border: 1px solid goldenrod;
+  box-shadow: 3px 3px #127e81;
+  padding: 3px;
+  margin-left: 7px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 90%; }
+  .col-btn:hover {
+    background-color: #118095;
+    color: goldenrod;
+    padding: 3px;
+    border: 1px solid yellow;
+    box-shadow: 3px 3px #763a21;
+    margin-left: 7px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width: 90%; }
+  .col-btn:active {
+    background-color: #228ba6;
+    color: yellow;
+    padding: 3px;
+    border: 1px solid goldenrod;
+    box-shadow: 3px 3px #764a29;
+    margin-left: 7px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width: 90%; }
+
+.flex-row {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 20px 20px 20px;
+  background-color: skyblue;
+  border: 1px solid white;
+  margin-left: 10px;
+  margin-right: 10px;
+  opacity: 0.9; }
+  .flex-row a {
+    width: 31%;
+    margin-left: 10px;
+    margin-right: 10px; }
+  .flex-row a img {
+    box-shadow: 4px 4px black;
+    opacity: 0.88;
+    outline: 0;
+    border: 0; }
+  .flex-row a:hover img {
+    box-shadow: 5px 5px black;
+    opacity: 0.99;
+    outline: 0;
+    border: 0; }
+
+.flex-column {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  padding: 2px 2px 2px 2px;
+  background-color: goldenrod;
+  border: 1px solid white;
+  opacity: 0.9em;
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-bottom: 17px; }
+
+.right-side center a {
+  font-size: 1.2em;
+  color: darkblue;
+  font-weight: bold;
+  text-decoration: none; }
+  .right-side center a:hover {
+    color: darkblue;
+    text-decoration: underline; }

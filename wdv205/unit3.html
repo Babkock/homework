@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<!--	Unit 3 Assignment
+			Tanner Babcock
+			January 17, 2018
+	-->
+		<title>Unit 2 Assignment</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+		body {
+			color:black;
+			margin-left:10%;
+			margin-right:10%;
+			background: linear-gradient(-75deg, skyblue, goldenrod);
+			font-size:1.1em;
+		}
+		.code {
+			font-size:0.98em;
+			font-family:"Courier New";
+			background-color:#aaaaaa;
+			color:black;
+		}
+		a, a:link, a:active {
+			color:blue;
+			font-size:1.1em;
+			text-shadow:1px 1px green;
+			text-decoration:none;
+		}
+		a:hover {
+			color:purple;
+			font-size:1.1em;
+			text-shadow:1px 1px green;
+			text-decoration:underline;
+		}
+		
+		.container {
+			width:100%;
+		}
+		
+		.left-side, .right-side {
+			float:left;
+			position:relative;
+			width:46%;
+			margin-right:3%;
+		}
+		
+		h3 {
+			font-size:1.7em;
+			text-shadow:3px 3px red;
+		}
+		.grad-box h3 {
+			color:white;
+			font-size:1.7em;
+			text-shadow:3px 3px blue;
+		}
+		
+		.grad-box {
+			color:#1f1f1f;
+			background: linear-gradient(125deg, red, yellow);
+			opacity:0.79;
+			border:1px solid #212121;
+			border-radius:7px 7px 7px 7px;
+			width:100%;
+			padding:14px;
+			margin-bottom:28px;
+		}
+		
+		.button-box {
+			color:#f8f8f8;
+			background: linear-gradient(90deg, darkblue, darkgreen);
+			opacity:0.79;
+			border:1px solid #000000;
+			border-radius:7px 7px 7px 7px;
+			width:100%;
+			padding:14px;
+			margin-bottom:30px;
+		}
+		
+		.center {
+			text-align:center;
+		}
+		
+		button.btn, .button-box button, .button-box .btn {
+			padding:11px;
+			font-size:1.2em;
+			font-family:"Arial";
+			background-color:lime;
+			color:darkred;
+			border:1px solid darkred;
+			border-radius:9px 9px 9px 9px;
+			box-shadow:6px 8px skyblue;
+		}
+		.btn:hover {
+			padding:11px;
+			font-size:1.2em;
+			font-family:"Arial";
+			background-color:lightgreen;
+			color:darkred;
+			border:1px solid skyblue;
+			border-radius:9px 9px 9px 9px;
+			box-shadow:6px 8px goldenrod;
+		}
+		.btn:active {
+			padding:11px;
+			font-size:1.2em;
+			font-family:"Arial";
+			background-color:darkred;
+			color:lime;
+			border:1px solid lime;
+			border-radius:9px 9px 9px 9px;
+			box-shadow:6px 8px skyblue;
+		}
+		
+		h3 + p {
+			font-size:1.12em;
+			font-weight:bold;
+			text-decoration:underline;
+		}
+		
+		ol:first-child {
+			color:#ff3151;
+			background-color:black;
+			padding:3px;
+			text-decoration:underline;
+		}
+		
+		b a[href="http://www.duckduckgo.com/"] {
+			color:purple;
+			font-weight:bold;
+			font-family:"Helvetica";
+		}
+		
+		a[href="/homework/"] {
+			color:purple;
+			font-weight:bold;
+			font-family:"Helvetica";
+		}
+		
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="left-side">
+				<div class="grad-box">
+					<h3>Gradient, Opacity, Border-Radius</h3>
+					<p>This box has rounded corners. It has a gradient background, and it is transparent.</p>
+					<p>This was created using <span class="code">linear-gradient</span>, <span class="code">opacity</span>, and <span class="code">border-radius</span>.
+					<p>Here's some more text, to fill up space on the page. Look at all this text. Wow. This says nothing. I enjoy filling up space on the page, so the elements appear bigger, and it looks like I put more effort into the assignment. I actually did, because I'm typing something after all.
+					<p>I made this web site on a computer. I used an <b>Apple II</b> to write the code, and a <b>PDP-11</b> with <b>Mozilla Nightly</b> to view the output.</p>
+				</div>
+				<div class="grad-box" style="opacity:1">
+					<h3>Hey, How bout some Links?</h3>
+					<p>Hi, this is my <b><i>OFFICIAL</i></b>(tm) list of the <b>Greatest</b> search engines of all time. Give it a go! These search engines will give you mad results, bustin out phat algorithms yo.</p>
+					<ol>
+						<li><b><a href="https://www.wolframalpha.com/">Wolfram|Alpha</a></b></li>
+						<li><b><a href="https://www.duckduckgo.com/">Duck Duck Go</a></b> &larr; Use this one if you like Ducks and Privacy!</li>
+						<li><b><a href="https://www.google.de/">Google, But in German</a></b> &larr; Use this if you think Privacy is Dumb and 4 Idiots</li>
+					</ol>
+					<p>Now, this is a list of the STUPIDEST search engines.</p>
+					<ol>
+						<li><b><a href="https://www.bing.com/">Bing Bong</a></b> &larr; Yuck! Microsoft??? Why not get pregnant at a bus station</li>
+						<li><b><a href="https://www.yahoo.com/">Yahoo!</a></b></li>
+						<li><b>Ask Jeeves</b> &larr; Disbanded since 2005</li>
+					</ol>
+				</div>
+			</div>
+			<div class="right-side">
+				<div class="button-box">
+					<h3>Button Box and Columns</h3>
+					<p>This box does not have a button in it, but the one below it does.</p>
+					<p>Here is some filler text, to make the box bigger, and make the website appear longer. This text says nothing. It is here to fill up space. I hope it fills up enough space. Thanks.</p>
+				</div>
+				<div class="button-box">
+					<h3>This box has the button</h3>
+					<p>This box has a button inside of it. The button appears below, down here.</p>
+					<p>Here's some more text, to fill up the column. This text doesn't say anything. I just want to make this box bigger, and make the page longer. Anyway, here's the button:</p>
+					<div class="center"><button class="btn">My Button</button></div>
+					<p>Isn't that a nice-looking button? Wow! What a button. I worked very hard on this button. Some things I used to make this button: <span class="code">&lt;button&gt;</span>, CSS3, <span class="code">:hover</span>, and <span class="code">:active</span>. Also, programming.</p>
+				</div>
+				<div class="button-box">
+					<div class="center"><a href="/homework/index.html">&gt;&gt; Return to WDV205 Homework &lt;&lt;</a></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

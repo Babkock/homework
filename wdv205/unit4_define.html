@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+		Define CSS Preprocessor
+		Author: Tanner Babcock
+		Date: January 22, 2018
+	-->	
+	<meta charset="utf-8" />
+	<title>Define CSS Preprocessor</title>
+	<link rel="stylesheet" type="text/css" href="../school_pages.css">
+	<style type="text/css">
+	pre {
+		background-color:#202020;
+		color:#0084b5;
+		font-size:0.98em;
+		padding:6px;
+		border:1px dotted #0095a3;
+	}
+	span.code, span {
+		color:#0094b7;
+		font-size:0.94em;
+		font-family:"Courier New";
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><h3>What does a CSS Preprocessor do?</h3>
+		<p>A CSS preprocessor is a program, separate from any web client or server software, usually hosted on the programmer's machine, that optimizes and compiles
+		psuedo-CSS code from a source file. Much like a C compiler can compile a C source file into bytecode, a CSS preprocessor can compile a markup language like SASS or LESS into
+		CSS that the browser can intrepret. Note that the source code file, and the compiled product, are both in plain text.</p>
+		</li>
+		<li><h3>What are the advantages of using a CSS preprocessor?</h3>
+		<p>Using a CSS preprocessor allows the programmer or designer to use a number of tools and optimizations, that would be otherwise unavailable in standard CSS. These optimizations include: variables, mixin functions,
+		font stacks, and nested property lists. So, for example, using SASS, instead of writing this hard-coded CSS...</p>
+		<pre>
+		div {
+			background-color:cyan;
+			color:black;
+			padding:20px;
+			font-size:1.1em;
+		}
+		div ul, div table {
+			width:100%;
+			background-color:green;
+			color:black;
+			font-size:1em;
+		}
+		</pre>
+		You could write this simpler, marked up SASS.
+		<pre>
+		$BgColor1 = cyan;
+		$BgColor2 = green;
+		$Text = black;
+		
+		div {
+			background-color:$BgColor1;
+			color:$Text;
+			padding:20px;
+			font-size:1.1em;
+			ul, table {
+				width:100%;
+				background-color:$BgColor2;
+				color:$Text;
+				font-size:1em;
+			}
+		}
+		</pre></li>
+		<li><h3>What are the disadvantages or issues you need to consider when using a CSS preprocessor?</h3>
+		<p>One important difference, between using standard CSS and a preprocessor, is that raw CSS doesn't need to be compiled. You can copy the style source file to your server,
+		immediately after saving it, and the changes will take place immediately. Preprocessor CSS requires another step. The file, ending in <span class="code">.scss</span> or <span class="code">.sass</span>, is not directly interpreted by the browser,
+		and is considered useless or unreadable, until it is compiled.</p>
+		<p>Optimizing to use a Preprocessor also has the potential for breaking certain elements, or ignoring important rules, depending on the programmer's specifications or
+		oversights.</p></li>
+		
+		<li><h3>List at least five CSS preprocessors.</h3>
+		<p>SASS, LESS, Stylus, CSS-Crush, Myth.</p></li>
+	</ul>
+	<center>
+		<a href="/homework/index.html">&gt;&gt; Return to WDV205 Homework &lt;&lt;</a>
+	</center>
+</body>
+</html>

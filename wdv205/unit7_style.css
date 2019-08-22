@@ -1,0 +1,63 @@
+body { width: 99%; background-color: #876a71; color: black; font-family: "Helvetica"; font-size: 1.04em; }
+
+a, a:active, a:visited { color: pink; font-size: 1.18em; text-shadow: 3px 3px yellow; transition: all 0.3s ease 0s; text-decoration: none; }
+a:hover, a:active:hover, a:visited:hover { color: blue; text-shadow: 4px 4px goldenrod; text-decoration: none; }
+
+.code { font-family: "Courier New", monospace; font-size: 0.97em; }
+
+h3.code { font-family: "Courier New", monospace; font-size: 1.07em !important; }
+
+.littlebox { background-color: green; padding: 20px; border: 3px solid lime; margin-left: 10px; width: 97%; }
+
+.littlebox p { color: lime; font-size: 1.08em; }
+
+.container { display: grid; grid-template-areas: "header header header header" "left-side left-side right-side right-side" "footer footer footer footer"; background-color: orangered; grid-row-gap: 42px; grid-column-gap: 20px; width: 81%; margin-left: 9%; margin-right: 9%; padding-bottom: 10px; box-shadow: 4px 4px black; }
+
+.container div, .container header, .container footer { opacity: 0.89; color: #131313; text-align: center; padding: 8px; margin: 5px; }
+.container div:hover, .container header:hover, .container footer:hover { opacity: 1; color: black; }
+
+header { grid-area: header; background-color: #cc0808; border-radius: 12px 12px 12px 12px; padding: 8px; margin-bottom: 13px; width: 97%; text-align: center; }
+
+header p { color: #efefef; }
+
+.body-left { grid-area: left-side; background-color: #df8a9c; width: 93%; margin-right: 2%; margin-left: 4px; border: 2px solid red; border-radius: 12px 12px 12px 12px; box-shadow: 4px 6px purple; }
+
+.body-right { grid-area: right-side; background-color: #6872b9; width: 93%; margin-left: 2%; margin-right: 4px; border: 2px solid blue; border-radius: 12px 12px 12px 12px; box-shadow: 4px 6px green; }
+
+footer { grid-area: footer; background-color: #4a5264; border-radius: 12px 12px 12px 12px; padding: 10px; margin-top: 10px; width: 97%; }
+
+footer p { color: #efefef; }
+
+h2, h3 { color: lime; text-shadow: 3px 3px orange; }
+
+.trans-box { background-color: #481212; padding: 6px; width: 93%; margin: 4px; border-radius: 8px 8px 8px 8px; border: 2px solid red; transition: all 0.4s ease 0s; box-shadow: 3px 4px black; }
+
+.trans-box p { color: red; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.trans-box:hover { background-color: #12125a; border-radius: 8px 8px 8px 8px; border: 2px solid skyblue; padding: 6px; transform: translate(30px, 40px); -ms-transform: translate(30px, 40px); -webkit-transform: translate(30px, 40px); box-shadow: 3px 4px orangered; width: 93%; margin: 4px; }
+
+.trans-box:hover p { color: skyblue; font-size: 0.98em; }
+
+.rotate-box { background-color: #12125a; border-radius: 10px 10px 10px 10px; border: 2px solid skyblue; width: 93%; padding: 6px; transition: all 0.9s ease 0s; box-shadow: 3px 4px black; margin: 4px; }
+
+.rotate-box p { color: skyblue; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.rotate-box:hover { background-color: #481212; padding: 6px; border-radius: 8px 8px 8px 8px; border: 2px solid red; transform: rotate(179deg); -ms-transform: rotate(179deg); -webkit-transform: rotate(179deg); box-shadow: 3px 4px indigo; width: 93%; margin: 4px; }
+
+.rotate-box:hover p { color: red; font-size: 0.98em; }
+
+.scale-box { background-color: green; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid lime; transition: all 0.9s ease 0s; box-shadow: 3px 4px black; }
+
+.scale-box p { color: lime; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.scale-box:hover { background-color: Sienna; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid yellow; transform: scale(1.9, 2.5); -ms-transform: scale(1.9, 2.5); -webkit-transform: scale(1.9, 2.5); box-shadow: 3px 4px goldenrod; }
+
+.scale-box:hover p { color: yellow; font-size: 0.98em; }
+
+.skewx-box { background-color: Sienna; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid yellow; transition: all 0.9s ease 0s; box-shadow: 3px 4px goldenrod; }
+
+.skewx-box p { color: yellow; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.skewx-box:hover { background-color: green; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid lime; transform: skewX(30deg); -ms-transform: skewX(30deg); -webkit-transform: skewX(30deg); box-shadow: 3px 4px green; }
+
+.skewx-box:hover p { color: lime; font-size: 0.98em; }

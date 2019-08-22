@@ -1,0 +1,388 @@
+body {
+  background: url("webpage.jpg");
+  width: 99%;
+  height: 99%;
+  z-index: -200;
+  opacity: 1;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: absolute; }
+
+@keyframes adslide {
+  0% {
+    width: 440px;
+    height: 293px;
+    margin-top: 10px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 0;
+    opacity: 0.5; }
+  50% {
+    width: 440px;
+    height: 293px;
+    margin-top: 10px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 0;
+    opacity: 0.8; }
+  100% {
+    width: 440px;
+    height: 293px;
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    z-index: 0;
+    opacity: 1; } }
+@-webkit-keyframes adslide {
+  0% {
+    width: 440px;
+    height: 293px;
+    margin-top: 10px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 0;
+    opacity: 0.5; }
+  50% {
+    width: 440px;
+    height: 293px;
+    margin-top: 10px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 0;
+    opacity: 0.8; }
+  100% {
+    width: 440px;
+    height: 293px;
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    z-index: 0;
+    opacity: 1; } }
+@keyframes recordslide {
+  0% {
+    width: 210px;
+    height: 210px;
+    margin-top: 10px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 1000;
+    opacity: 0.4;
+    transform: scale(1, 1) rotateY(50deg); }
+  25% {
+    width: 210px;
+    height: 210px;
+    margin-top: 100px;
+    margin-left: 4000px;
+    margin-right: 4000px;
+    z-index: 1000;
+    opacity: 0.7;
+    transform: scale(1.4, 1.4) rotateY(95deg); }
+  50% {
+    width: 210px;
+    height: 210px;
+    margin-top: 190px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 1000;
+    opacity: 0.8;
+    transform: scale(1.9, 1.9) rotateY(180deg); }
+  75% {
+    width: 210px;
+    height: 210px;
+    margin-top: 250px;
+    margin-left: 65%;
+    margin-right: 120%;
+    z-index: 1000;
+    opacity: 0.9;
+    transform: scale(1.3, 1.2) rotateY(240deg); }
+  100% {
+    width: 210px;
+    height: 210px;
+    margin-top: 300px;
+    margin-left: 35%;
+    margin-right: 40%;
+    z-index: 1000;
+    opacity: 1;
+    transform: scale(1, 1) rotateY(360deg); } }
+@-webkit-keyframes recordslide {
+  0% {
+    width: 210px;
+    height: 210px;
+    margin-top: 10px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 1000;
+    opacity: 0.4;
+    transform: scale(1, 1) rotateY(50deg); }
+  25% {
+    width: 210px;
+    height: 210px;
+    margin-top: 100px;
+    margin-left: 4000px;
+    margin-right: 4000px;
+    z-index: 1000;
+    opacity: 0.7;
+    transform: scale(1.3, 1.3) rotateY(95deg); }
+  50% {
+    width: 210px;
+    height: 210px;
+    margin-top: 190px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 1000;
+    opacity: 0.8;
+    transform: scale(1.9, 1.9) rotateY(180deg); }
+  75% {
+    width: 210px;
+    height: 210px;
+    margin-top: 250px;
+    margin-left: 65%;
+    margin-right: 120%;
+    z-index: 1000;
+    opacity: 0.9;
+    transform: scale(1.3, 1.2) rotateY(240deg); }
+  100% {
+    width: 210px;
+    height: 210px;
+    margin-top: 300px;
+    margin-left: 35%;
+    margin-right: 40%;
+    z-index: 1000;
+    opacity: 1;
+    transform: scale(1, 1) rotateY(360deg); } }
+@keyframes vinylslide {
+  0% {
+    width: 210px;
+    height: 210px;
+    margin-top: 10px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 200;
+    opacity: 0.4;
+    transform: rotate(85deg) rotateY(90deg); }
+  25% {
+    width: 210px;
+    height: 210px;
+    margin-top: 100px;
+    margin-left: 4000px;
+    margin-right: 4000px;
+    z-index: 200;
+    opacity: 0.7;
+    transform: rotate(270deg) rotateY(180deg); }
+  50% {
+    width: 210px;
+    height: 210px;
+    margin-top: 210px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 200;
+    opacity: 0.8;
+    transform: rotate(390deg) rotateY(270deg); }
+  75% {
+    width: 210px;
+    height: 210px;
+    margin-top: 300px;
+    margin-left: 35%;
+    margin-right: 40%;
+    z-index: 200;
+    opacity: 0.9;
+    transform: rotate(820deg) rotateY(360deg); }
+  100% {
+    width: 210px;
+    height: 210px;
+    margin-top: 300px;
+    margin-left: 50%;
+    margin-right: 40%;
+    z-index: 200;
+    opacity: 1.2;
+    transform: rotate(-390deg) rotateY(0deg); } }
+@-webkit-keyframes vinylslide {
+  0% {
+    width: 210px;
+    height: 210px;
+    margin-top: 10px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 200;
+    opacity: 0.4;
+    transform: rotate(85deg) rotateY(90deg); }
+  25% {
+    width: 210px;
+    height: 210px;
+    margin-top: 100px;
+    margin-left: 4000px;
+    margin-right: 4000px;
+    z-index: 200;
+    opacity: 0.7;
+    transform: rotate(270deg) rotateY(180deg); }
+  50% {
+    width: 210px;
+    height: 210px;
+    margin-top: 210px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 200;
+    opacity: 0.8;
+    transform: rotate(390deg) rotateY(270deg); }
+  75% {
+    width: 210px;
+    height: 210px;
+    margin-top: 300px;
+    margin-left: 35%;
+    margin-right: 40%;
+    z-index: 200;
+    opacity: 0.9;
+    transform: rotate(820deg) rotateY(360deg); }
+  100% {
+    width: 210px;
+    height: 210px;
+    margin-top: 300px;
+    margin-left: 50%;
+    margin-right: 40%;
+    z-index: 200;
+    opacity: 1.2;
+    transform: rotate(-390deg) rotateY(0deg); } }
+@keyframes link-slide {
+  0% {
+    width: 40%;
+    margin-top: 540px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    opacity: 0.2; }
+  50% {
+    width: 40%;
+    margin-top: 540px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    opacity: 0.7; }
+  100% {
+    width: 40%;
+    margin-top: 540px;
+    margin-left: 30%;
+    margin-right: 30%;
+    opacity: 1; } }
+@-webkit-keyframes link-slide {
+  0% {
+    width: 40%;
+    margin-top: 540px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    z-index: 200;
+    opacity: 0.2; }
+  50% {
+    width: 40%;
+    margin-top: 540px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    z-index: 200;
+    opacity: 0.7; }
+  100% {
+    width: 40%;
+    margin-top: 540px;
+    margin-left: 30%;
+    margin-right: 30%;
+    z-index: 200;
+    opacity: 1; } }
+body div a {
+  width: 100%;
+  height: 100%; }
+
+.darken {
+  background-color: black;
+  opacity: 0;
+  position: absolute;
+  width: 99%;
+  height: 2000px;
+  z-index: -1000;
+  transition: opacity 2s ease 0s; }
+  .darken.loaded {
+    opacity: 0.87; }
+
+.ad {
+  background: url("ad.png");
+  animation-name: adslide;
+  -webkit-animation-name: adslide;
+  animation-duration: 2.1s;
+  -webkit-animation-duration: 2.1s;
+  animation-delay: 1.9s;
+  -webkit-animation-delay: 1.9s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  position: absolute;
+  z-index: 0; }
+  .ad.loaded {
+    opacity: 1.2; }
+
+.record {
+  background: url("album.jpg");
+  z-index: 1000;
+  position: absolute;
+  box-shadow: 4px 4px black;
+  animation-name: recordslide;
+  -webkit-animation-name: recordslide;
+  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+  animation-delay: 1.9s;
+  -webkit-animation-delay: 1.9s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+  .record.loaded {
+    background: url("album.jpg");
+    z-index: 1000;
+    position: absolute;
+    box-shadow: 4px 4px black;
+    opacity: 1.2; }
+
+.vinyl {
+  background: url("vinyl.png");
+  z-index: 200;
+  position: absolute;
+  transition: all 0.5s ease 0s;
+  animation-name: vinylslide;
+  -webkit-animation-name: vinylslide;
+  animation-duration: 5.5s;
+  -webkit-animation-duration: 5.5s;
+  animation-delay: 1.8s;
+  -webkit-animation-delay: 1.8s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+  .vinyl.loaded {
+    background: url("vinyl.png");
+    z-index: 200;
+    position: absolute;
+    transition: all 0.5s ease 0s; }
+
+.links {
+  text-align: center;
+  color: white;
+  margin-top: 540px;
+  z-index: 200;
+  opacity: 1;
+  width: 40%;
+  transition: all 0.6s ease 0s;
+  animation-name: link-slide;
+  -webkit-animation-name: link-slide;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.links a, .links a:visited, .links a:active, .links a:link {
+  color: #dd0305;
+  font-size: 1.12em;
+  text-decoration: none;
+  transition: all 0.2s ease 0s; }
+  .links a:hover, .links a:visited:hover, .links a:active:hover, .links a:link:hover {
+    color: #141aef;
+    font-size: 1.12em;
+    text-decoration: underline; }

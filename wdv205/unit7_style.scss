@@ -1,0 +1,267 @@
+$BodyLeftBg: #df8a9c;
+$BodyRightBg: #6872b9;
+$HeaderBg: #cc0808;
+$FooterBg: #4a5264;
+
+$TextDark: #131313;
+$TextLight: #efefef;
+
+$RedBg: #481212;
+$RedText: red;
+$BlueBg: #12125a;
+$BlueText: skyblue;
+$GreenBg: green;
+$GreenText: lime;
+$BrownBg: Sienna;
+$BrownText: yellow;
+
+@mixin trans($d) {
+	transform:$d;
+	-ms-transform:$d;
+	-webkit-transform:$d;
+}
+
+body {
+	width:99%;
+	background-color:#876a71;
+	color:black;
+	font-family:"Helvetica";
+	font-size:1.04em;
+}
+
+a, a:active, a:visited {
+	color:pink;
+	font-size:1.18em;
+	text-shadow:3px 3px yellow;
+	transition:all 0.3s ease 0s;
+	text-decoration:none;
+	&:hover {
+		color:blue;
+		text-shadow:4px 4px goldenrod;
+		text-decoration:none;
+	}
+}
+
+.code {
+	font-family:"Courier New", monospace;
+	font-size:0.97em;
+}
+h3.code {
+	font-family:"Courier New", monospace;
+	font-size:1.07em !important;
+}
+
+.littlebox {
+	background-color:$GreenBg;
+	padding:20px;
+	border:3px solid $GreenText;
+	margin-left:10px;
+	width:97%;
+}
+.littlebox p {
+	color:lime;
+	font-size:1.08em;
+}
+
+.container {
+	display:grid;
+	grid-template-areas:
+		"header header header header"
+		"left-side left-side right-side right-side"
+		"footer footer footer footer";
+	background-color:orangered;
+	grid-row-gap:42px;
+	grid-column-gap:20px;
+	width:81%;
+	margin-left:9%;
+	margin-right:9%;
+	padding-bottom:10px;
+	box-shadow:4px 4px black;
+}
+
+.container div, .container header, .container footer {
+	opacity:0.89;
+	color:$TextDark;
+	text-align:center;
+	padding:8px;
+	margin:5px;
+	&:hover {
+		opacity:1;
+		color:black;
+	}
+}
+
+header {
+	grid-area:header;
+	background-color:$HeaderBg;
+	border-radius:12px 12px 12px 12px;
+	padding:8px;
+	margin-bottom:13px;
+	width:97%;
+	text-align:center;
+}
+header p {
+	color:$TextLight;
+}
+
+.body-left {
+	grid-area:left-side;
+	background-color:$BodyLeftBg;
+	width:93%;
+	margin-right:2%;
+	margin-left:4px;
+	border:2px solid $RedText;
+	border-radius:12px 12px 12px 12px;
+	box-shadow:4px 6px purple;
+}
+.body-right {
+	grid-area:right-side;
+	background-color:$BodyRightBg;
+	width:93%;
+	margin-left:2%;
+	margin-right:4px;
+	border:2px solid blue;
+	border-radius:12px 12px 12px 12px;
+	box-shadow:4px 6px $GreenBg;
+}
+
+footer {
+	grid-area:footer;
+	background-color:$FooterBg;
+	border-radius:12px 12px 12px 12px;
+	padding:10px;
+	margin-top:10px;
+	width:97%;
+}
+footer p {
+	color:$TextLight;
+}
+
+h2, h3 {
+	color:lime;
+	text-shadow:3px 3px orange;
+}
+
+.trans-box {
+	background-color:$RedBg;
+	padding:6px;
+	width:93%;
+	margin:4px;
+	border-radius:8px 8px 8px 8px;
+	border:2px solid $RedText;
+	transition:all 0.4s ease 0s;
+	box-shadow:3px 4px black;
+}
+.trans-box p {
+	color:$RedText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.trans-box:hover {
+	background-color:$BlueBg;
+	border-radius:8px 8px 8px 8px;
+	border:2px solid $BlueText;
+	padding:6px;
+	@include trans(translate(30px, 40px));
+	box-shadow:3px 4px orangered;
+	width:93%;
+	margin:4px;
+}
+.trans-box:hover p {
+	color:$BlueText;
+	font-size:0.98em;
+}
+
+.rotate-box {
+	background-color:$BlueBg;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $BlueText;
+	width:93%;
+	padding:6px;
+	transition:all 0.9s ease 0s;
+	box-shadow:3px 4px black;
+	margin:4px;
+}
+.rotate-box p {
+	color:$BlueText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.rotate-box:hover {
+	background-color:$RedBg;
+	padding:6px;
+	border-radius:8px 8px 8px 8px;
+	border:2px solid $RedText;
+	@include trans(rotate(179deg));
+	box-shadow:3px 4px indigo;
+	width:93%;
+	margin:4px;
+}
+.rotate-box:hover p {
+	color:$RedText;
+	font-size:0.98em;
+}
+
+.scale-box {
+	background-color:$GreenBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $GreenText;
+	transition:all 0.9s ease 0s;
+	box-shadow:3px 4px black;
+}
+.scale-box p {
+	color:$GreenText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.scale-box:hover {
+	background-color:$BrownBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $BrownText;
+	@include trans(scale(1.9, 2.5));
+	box-shadow:3px 4px goldenrod;
+}
+.scale-box:hover p {
+	color:$BrownText;
+	font-size:0.98em;
+}
+
+.skewx-box {
+	background-color:$BrownBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $BrownText;
+	transition:all 0.9s ease 0s;
+	box-shadow:3px 4px goldenrod;
+}
+.skewx-box p {
+	color:$BrownText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.skewx-box:hover {
+	background-color:$GreenBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $GreenText;
+	@include trans(skewX(30deg));
+	box-shadow:3px 4px $GreenBg;
+}
+.skewx-box:hover p {
+	color:$GreenText;
+	font-size:0.98em;
+}

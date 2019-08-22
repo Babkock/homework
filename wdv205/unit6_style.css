@@ -1,0 +1,35 @@
+body { width: 99%; background-color: yellow; font-family: "Helvetica"; }
+
+.container { display: grid; grid-template-areas: "header header header header header header" "menu main main main right right" "menu footer footer footer footer footer"; background-color: orangered; grid-row-gap: 45px; width: 81%; margin-left: 9%; margin-right: 9%; box-shadow: 6px 6px black; padding-bottom: 10px; }
+
+.container div { opacity: 0.89; color: #131313; text-align: center; font-size: 1.05em; padding: 9px; margin: 6px; }
+.container div:hover { opacity: 1; color: black; }
+
+.block2 .btn { border-radius: 16px 16px 16px 16px; font-size: 1.37em; padding: 10px; margin-left: 2px; margin-right: 5px; margin-bottom: 9px; width: 98%; border: 1px solid lime; box-shadow: 4px 7px #541edd; background-color: darkred; color: lime; transition: all 0.14s ease 0s; }
+.block2 .btn:hover { background-color: #69181a; color: lime; border: 1px solid #17ee47; box-shadow: 4px 7px #681a95; }
+.block2 .btn:active { background-color: lime; color: darkred; border: 1px solid red; box-shadow: 4px 7px lime; }
+
+.block5 .btn { border-radius: 13px 13px 13px 13px; font-size: 1.32em; padding: 9px; margin-left: 9px; margin-top: 4px; margin-bottom: 4px; width: 23%; border: 1px solid goldenrod; box-shadow: 3px 3px #137e81; background-color: blue; color: yellow; transition: all 0.14s ease 0s; }
+.block5 .btn:hover { background-color: #117e95; color: goldenrod; border: 1px solid yellow; box-shadow: 3px 3px #763a21; }
+.block5 .btn:active { background-color: #228ba6; color: yellow; border: 1px solid goldenrod; box-shadow: 3px 3px #764b29; }
+
+.block1 { grid-area: header; background-color: goldenrod; }
+
+.block2 { grid-area: menu; background-color: skyblue; box-shadow: 5px 5px purple; border-radius: 12px 12px 12px 12px; }
+
+.block2 ul, .block2 ul li { width: 90%; text-align: left; font-size: 1.04em; line-height: 1.04em; vertical-align: bottom; }
+
+.block3 { grid-area: main; background-color: tan; border: 1px solid purple; color: black; border-radius: 13px 13px 13px 13px; }
+
+.block4 { grid-area: right; background-color: #d8745a; border: 1px solid black; border-radius: 13px 13px 13px 13px; color: white; }
+
+.block5 { grid-area: footer; background-color: #339f23; border: 1px solid lime; color: white; border-radius: 9px 9px 9px 9px; }
+
+h2, h3 { color: white; text-shadow: 4px 4px red; font-weight: bold; }
+
+h2 { font-size: 1.5em; }
+
+h3 { font-size: 1.35em; }
+
+a, a:active { color: purple; text-decoration: none; text-shadow: 2px 2px blue; transition: all 0.3s ease 0s; }
+a:hover, a:active:hover { color: orangered; text-decoration: underline; text-shadow: 3px 3px white; }

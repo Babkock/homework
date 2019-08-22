@@ -1,0 +1,320 @@
+/* Scss Document */
+
+*{
+	margin: 0;
+	padding: 0;
+}
+#background{
+	max-width: 100%;
+	position: absolute;
+	z-index: -1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes chicky {
+  0% {
+    transform: scale(1, 1) rotate(0deg) translate(-35px, 0px); }
+  15% {
+    transform: scale(1.2, 1.08) rotate(-40deg) translate(-20px, 10px); }
+  30% {
+    transform: scale(0.98, 1.05) rotate(-2deg) translate(-21px, 19px); }
+  45% {
+    transform: scale(1.3, 1.36) rotate(40deg) translate(15px, -12px); }
+  60% {
+    transform: scale(0.93, 1.05) rotate(-51deg) translate(-10px, 10px); }
+  75% {
+    transform: scale(1.15, 1.21) rotate(-40deg) translate(-30px, 14px); }
+  100% {
+    transform: scale(1, 1) rotate(0deg) translate(0px, 4px); } }
+@-webkit-keyframes chicky {
+  0% {
+    transform: scale(1, 1) rotate(0deg) translate(-35px, 0px); }
+  15% {
+    transform: scale(1.2, 1.08) rotate(-40deg) translate(-20px, 10px); }
+  30% {
+    transform: scale(0.98, 1.05) rotate(-2deg) translate(-21px, 19px); }
+  45% {
+    transform: scale(1.3, 1.36) rotate(40deg) translate(15px, -12px); }
+  60% {
+    transform: scale(0.93, 1.05) rotate(-51deg) translate(-10px, 10px); }
+  75% {
+    transform: scale(1.15, 1.21) rotate(-40deg) translate(-30px, 14px); }
+  100% {
+    transform: scale(1, 1) rotate(0deg) translate(0px, 4px); } }
+
+@keyframes logospin {
+  0% {
+    transform: rotate(-360deg) scale(1.05, 1.1); }
+  50% {
+    transform: rotate(180deg) scale(1.2, 1.24); }
+  100% {
+    transform: rotate(0deg) scale(1, 1); } }
+@-webkit-keyframes logospin {
+  0% {
+    transform: rotate(-360deg) scale(1.05, 1.1); }
+  50% {
+    transform: rotate(180deg) scale(1.2, 1.24); }
+  100% {
+    transform: rotate(0deg) scale(1, 1); } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:750px){
+
+#conatiner{
+	height: 400px;
+	width: 200px;
+	position: relative;
+	top: 75px;
+	background-color: rgba(98,178,202,1);
+	overflow: hidden;
+	margin-left: 10%;
+	z-index: -100;
+	
+	#grass{
+		position: relative;
+		z-index: 1;
+		margin-top: -75px;
+	}//end grass
+	
+	#logo{
+		width: 80%;
+		position: relative;
+		z-index: 2;
+		float: right;
+		margin-top: 15px;
+		margin-right: 15px;
+		
+		animation-name: logospin;
+  		-webkit-animation-name: logospin;
+  		animation-duration: 2s;
+  		-webkit-animation-duration: 2s;
+  		animation-delay: 3s;
+  		-webkit-animation-delay: 3s;
+  		animation-iteration-count: 1;
+  		-webkit-animation-iteration-count: 1;
+  		animation-fill-mode: forwards;
+  		-webkit-animation-fill-mode: forwards;
+		
+	} //end logo
+	
+	#chicky{
+		width: 90%;
+		position: relative;
+		z-index: 0;
+		margin-left: 10px;
+		margin-top: 100px;
+		
+		animation-name: chicky;
+  		-webkit-animation-name: chicky;
+  		animation-duration: 4s;
+ 		-webkit-animation-duration: 4s;
+  		animation-delay: 2.2s;
+  		-webkit-animation-delay: 2.2s;
+ 		animation-iteration-count: 1;
+  		-webkit-animation-iteration-count: 1;
+  		animation-fill-mode: forwards;
+  		-webkit-animation-fill-mode: forwards;
+	}//end chicky
+	
+	#text {
+	  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+	  //position: relative;
+	  color: black;
+	  //left: 0;
+	  text-shadow: 2px 3px white;
+	  //vertical-align: bottom;
+	  width: 510px;
+	  //margin-top: 340px;
+	  z-index: 3000; 
+	  display: block;
+	  //margin-top: -75px;
+	}
+	
+	
+	
+} //end #conatiner
+	
+
+	
+	
+	.ad span {
+		display: none;
+	}	
+	
+	
+} //end media query
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:750px){
+	#container{
+		display: none;
+	}
+		#grass{
+			display: none;
+		}
+		#logo{
+			display: none;
+		}
+		#chicky{
+			display: none;
+		}
+	
+
+.ad {
+  background-color: rgba(98,178,202,1);
+  width: 510px;
+  height: 384px;
+  position: absolute;
+  margin-top: 90px;
+  z-index: -1000;
+  margin-left: 30%;
+  margin-right: 30%;
+  animation-name: adslide;
+  -webkit-animation-name: adslide;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.ad span {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+  position: absolute;
+  color: black;
+  left: 0;
+  font-size: 1.9em;
+  text-shadow: 2px 3px white;
+  vertical-align: bottom;
+  text-align: center;
+  width: 510px;
+  margin-top: 340px;
+  z-index: 100; }
+
+.backgrass {
+  background-image: url("images/BannerAd-backgrass.png");
+  background-repeat: no-repeat;
+  background-position-y: 190px;
+  width: 510px;
+  height: 384px;
+  position: absolute;
+  margin-top: 95px;
+  z-index: -900;
+  margin-left: 0px;
+  margin-right: 0px; }
+
+.chick {
+  background-image: url("images/BannerAd-chick.png");
+  vertical-align: middle;
+  width: 280px;
+  height: 246px;
+  position: absolute;
+  margin-top: 120px;
+  z-index: -200;
+  margin-left: 35px;
+  animation-name: chicky;
+  -webkit-animation-name: chicky;
+  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+  animation-delay: 2.2s;
+  -webkit-animation-delay: 2.2s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.frontgrass {
+  background-image: url("images/BannerAd-frontgrass.png");
+  background-repeat: no-repeat;
+  background-position-y: 140px;
+  vertical-align: bottom;
+  width: 510px;
+  height: 384px;
+  position: absolute;
+  margin-top: 130px;
+  z-index: 0; }
+
+.logo {
+  background-image: url("images/CadburyLogo.png");
+  vertical-align: middle;
+  width: 225px;
+  height: 123px;
+  position: absolute;
+  margin-top: 30px;
+  z-index: -200;
+  margin-left: 285px;
+  animation-name: logospin;
+  -webkit-animation-name: logospin;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-delay: 3s;
+  -webkit-animation-delay: 3s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+}// end media query
+
+

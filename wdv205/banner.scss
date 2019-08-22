@@ -1,0 +1,300 @@
+$AdWidth: 510px;
+$AdHeight: 384px;
+$ChickWidth: 280px;
+$ChickHeight: 246px;
+$LogoWidth: 225px;
+$LogoHeight: 123px;
+
+$AdZ: -1000;
+$BackZ: -900;
+$ChickZ: -200;
+
+$AdTop: 90px;
+$BackTop: 95px;
+$FrontTop: 130px;
+$ChickLeft: 35px;
+$ChickTop: 120px;
+$LogoLeft: 285px;
+$LogoTop: 30px;
+$LinksTop: 480px;
+
+@mixin object($w, $h, $top, $z) {
+	width:$w;
+	height:$h;
+	position:absolute;
+	margin-top:$top;
+	z-index:$z;
+}
+
+@mixin animate($name, $dur, $del) {
+	animation-name:$name;
+	-webkit-animation-name:$name;
+	animation-duration:$dur;
+	-webkit-animation-duration:$dur;
+	animation-delay:$del;
+	-webkit-animation-delay:$del;
+	animation-iteration-count:1;
+	-webkit-animation-iteration-count:1;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+}
+
+body {
+	background-image:url('images/Background.png');
+	width:100%;
+	height:100%;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+
+@keyframes chicky {
+	0% {
+		transform:scale(1, 1) rotate(0deg) translate(-35px, 0px);
+	}
+	15% {
+		transform:scale(1.2, 1.08) rotate(-40deg) translate(-20px, 10px);
+	}
+	30% {
+		transform:scale(0.98, 1.05) rotate(-2deg) translate(-21px, 19px);
+	}
+	45% {
+		transform:scale(1.3, 1.36) rotate(40deg) translate(15px, -12px);
+	}
+	60% {
+		transform:scale(0.93, 1.05) rotate(-51deg) translate(-10px, 10px);
+	}
+	75% {
+		transform:scale(1.15, 1.21) rotate(-40deg) translate(-30px, 14px);
+	}
+	100% {
+		transform:scale(1, 1) rotate(0deg) translate(0px, 4px);
+	}
+}
+
+@-webkit-keyframes chicky {
+	0% {
+		transform:scale(1, 1) rotate(0deg) translate(-35px, 0px);
+	}
+	15% {
+		transform:scale(1.2, 1.08) rotate(-40deg) translate(-20px, 10px);
+	}
+	30% {
+		transform:scale(0.98, 1.05) rotate(-2deg) translate(-21px, 19px);
+	}
+	45% {
+		transform:scale(1.3, 1.36) rotate(40deg) translate(15px, -12px);
+	}
+	60% {
+		transform:scale(0.93, 1.05) rotate(-51deg) translate(-10px, 10px);
+	}
+	75% {
+		transform:scale(1.15, 1.21) rotate(-40deg) translate(-30px, 14px);
+	}
+	100% {
+		transform:scale(1, 1) rotate(0deg) translate(0px, 4px);
+	}
+}
+
+@keyframes adslide {
+	0% {
+		width:$AdWidth;
+		height:$AdHeight;
+		margin-left:5000px;
+		margin-right:5000px;
+		left:400px;
+	}
+	50% {
+		width:$AdWidth;
+		height:$AdHeight;
+		margin-left:1000px;
+		margin-right:1000px;
+		left:200px;
+	}
+	100% {
+		width:$AdWidth;
+		height:$AdHeight;
+		margin-left:30%;
+		margin-right:30%;
+		left:0;
+	}
+}
+
+@-webkit-keyframes adslide {
+	0% {
+		width:$AdWidth;
+		height:$AdHeight;
+		margin-left:5000px;
+		margin-right:5000px;
+		left:400px;
+	}
+	50% {
+		width:$AdWidth;
+		height:$AdHeight;
+		margin-left:1000px;
+		margin-right:1000px;
+		left:200px;
+	}
+	100% {
+		width:$AdWidth;
+		height:$AdHeight;
+		margin-left:30%;
+		margin-right:30%;
+		left:0;
+	}
+}
+
+@keyframes link-slide {
+	0% {
+		width:40%;
+		margin-top:470px;
+		margin-left:5000px;
+		margin-right:5000px;
+		opacity:0.2;
+	}
+	50% {
+		width:40%;
+		margin-top:475px;
+		margin-left:1000px;
+		margin-right:1000px;
+		opacity:0.7;
+	}
+	100% {
+		width:40%;
+		margin-top:$LinksTop;
+		margin-left:30%;
+		margin-right:30%;
+		opacity:1;
+	}
+}
+
+@-webkit-keyframes link-slide {
+	0% {
+		width:40%;
+		margin-top:470px;
+		margin-left:5000px;
+		margin-right:5000px;
+		opacity:0.2;
+	}
+	50% {
+		width:40%;
+		margin-top:475px;
+		margin-left:1000px;
+		margin-right:1000px;
+		opacity:0.7;
+	}
+	100% {
+		width:40%;
+		margin-top:$LinksTop;
+		margin-left:30%;
+		margin-right:30%;
+		opacity:1;
+	}
+}
+
+@keyframes logospin {
+	0% { transform:rotate(-360deg) scale(1.05, 1.1); }
+	50% { transform:rotate(180deg) scale(1.2, 1.24); }
+	100% { transform:rotate(0deg) scale(1, 1); }
+}
+
+@-webkit-keyframes logospin {
+	0% { transform:rotate(-360deg) scale(1.05, 1.1); }
+	50% { transform:rotate(180deg) scale(1.2, 1.24); }
+	100% { transform:rotate(0deg) scale(1, 1); }
+}
+
+.container {
+	width:100%;
+	height:100%;
+	text-align:center;
+	vertical-align:middle;
+	position:absolute;
+	display:block;
+	&:active, &:hover {
+		outline:0;
+	}
+}
+
+.ad {
+	background-color:tan;
+	border:2px solid pink;
+	@include object($AdWidth, $AdHeight, $AdTop, $AdZ);
+	margin-left:30%;
+	margin-right:30%;
+	@include animate(adslide, 2s, 0s);
+}
+
+.ad span {
+	position:absolute;
+	color:red;
+	left:0;
+	font-size:1.9em;
+	text-shadow:2px 3px #141515;
+	vertical-align:bottom;
+	text-align:center;
+	width:$AdWidth;
+	margin-top:340px;
+	z-index:100;
+}
+
+.backgrass {
+	background-image:url('images/BannerAd-backgrass.png');
+	background-repeat:no-repeat;
+	background-position-y:190px;
+	@include object($AdWidth, $AdHeight, $BackTop, $BackZ);
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.chick {
+	background-image:url('images/BannerAd-chick.png');
+	vertical-align:middle;
+	@include object($ChickWidth, $ChickHeight, $ChickTop, $ChickZ);
+	margin-left:$ChickLeft;
+	@include animate(chicky, 4s, 2.2s);
+}
+
+.frontgrass {
+	background-image:url('images/BannerAd-frontgrass.png');
+	background-repeat:no-repeat;
+	background-position-y:140px;
+	vertical-align:bottom;
+	@include object($AdWidth, $AdHeight, $FrontTop, 0);
+}
+
+.logo {
+	background-image:url('images/CadburyLogo.png');
+	vertical-align:middle;
+	@include object($LogoWidth, $LogoHeight, $LogoTop, $ChickZ);
+	margin-left:$LogoLeft;
+	@include animate(logospin, 2s, 3s);
+}
+
+.links {
+	background-color:rgba(0, 0, 0, 0.7);
+	text-align:center;
+	color:white;
+	position:absolute;
+	display:block;
+	border:1px solid white;
+	margin-top:$LinksTop;
+	margin-left:30%;
+	margin-right:30%;
+	z-index:0;
+	opacity:1;
+	width:40%;
+	transition:all 0.6s ease 0s;
+	@include animate(link-slide, 2s, 0.1s);
+}
+
+.links a, .links a:visited, .links a:active, .links a:link {
+	color:#dd0305;
+	font-size:1.12em;
+	text-decoration:none;
+	transition:all 0.2s ease 0s;
+	&:hover {
+		color:#141aef;
+		font-size:1.12em;
+		text-decoration:underline;
+	}
+}

@@ -1,0 +1,268 @@
+$BodyLeftBg: #937892;
+$BodyRightBg: #7274b9;
+$HeaderBg: #dd0808;
+$FooterBg: #4a5270;
+
+$TextDark: #131313;
+$TextLight: #efefef;
+
+$RedBg: #4a1314;
+$RedText: red;
+$BlueBg: #12125a;
+$BlueText: skyblue;
+$GreenBg: green;
+$GreenText: lime;
+$BrownBg: Sienna;
+$BrownText: yellow;
+
+@mixin trans($d) {
+	transform:$d;
+	-ms-transform:$d;
+	-webkit-transform:$d;
+}
+
+body {
+	width:99%;
+	background:url('/homework/glitchbg.jpg');
+	background-repeat:repeat-xy;
+	color:black;
+	font-family:"Helvetica";
+	font-size:1.04em;
+}
+
+a, a:active, a:visited {
+	color:yellow;
+	font-size:1.18em;
+	text-shadow:3px 3px green;
+	transition:all 0.3s ease 0s;
+	text-decoration:none;
+	&:hover {
+		color:blue;
+		text-shadow:4px 4px lime;
+		text-decoration:none;
+	}
+}
+
+.code {
+	font-family:"Courier New", monospace;
+	font-size:0.97em;
+}
+h3.code {
+	font-family:"Courier New", monospace;
+	font-size:1.07em !important;
+}
+
+.littlebox {
+	background-color:$GreenBg;
+	padding:20px;
+	border:3px solid $GreenText;
+	margin-left:10px;
+	width:97%;
+}
+.littlebox p {
+	color:lime;
+	font-size:1.08em;
+}
+
+.container {
+	display:grid;
+	grid-template-areas:
+		"header header header header"
+		"left-side left-side right-side right-side"
+		"footer footer footer footer";
+	background-color:orangered;
+	grid-row-gap:42px;
+	grid-column-gap:20px;
+	width:81%;
+	margin-left:9%;
+	margin-right:9%;
+	padding-bottom:10px;
+	box-shadow:4px 4px black;
+}
+
+.container div, .container header, .container footer {
+	opacity:0.89;
+	color:$TextDark;
+	text-align:center;
+	padding:8px;
+	margin:5px;
+	&:hover {
+		opacity:1;
+		color:black;
+	}
+}
+
+header {
+	grid-area:header;
+	background-color:$HeaderBg;
+	border-radius:12px 12px 12px 12px;
+	padding:8px;
+	margin-bottom:13px;
+	width:97%;
+	text-align:center;
+}
+header p {
+	color:$TextLight;
+}
+
+.body-left {
+	grid-area:left-side;
+	background-color:$BodyLeftBg;
+	width:93%;
+	margin-right:2%;
+	margin-left:4px;
+	border:2px solid $RedText;
+	border-radius:12px 12px 12px 12px;
+	box-shadow:4px 6px purple;
+}
+.body-right {
+	grid-area:right-side;
+	background-color:$BodyRightBg;
+	width:93%;
+	margin-left:2%;
+	margin-right:4px;
+	border:2px solid blue;
+	border-radius:12px 12px 12px 12px;
+	box-shadow:4px 6px $GreenBg;
+}
+
+footer {
+	grid-area:footer;
+	background-color:$FooterBg;
+	border-radius:12px 12px 12px 12px;
+	padding:10px;
+	margin-top:10px;
+	width:97%;
+}
+footer p {
+	color:$TextLight;
+}
+
+h2, h3 {
+	color:lime;
+	text-shadow:3px 3px orange;
+}
+
+.trans-box {
+	background-color:$BlueBg;
+	padding:6px;
+	width:93%;
+	margin:4px;
+	border-radius:8px 8px 8px 8px;
+	border:2px solid $BlueText;
+	transition:all 0.4s ease 0s;
+	box-shadow:3px 4px orangered;
+}
+.trans-box p {
+	color:$BlueText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.trans-box:hover {
+	background-color:$RedBg;
+	border-radius:8px 8px 8px 8px;
+	border:2px solid $RedText;
+	padding:6px;
+	@include trans(translate3d(-2.7rem, 1.3rem, 1rem));
+	box-shadow:3px 4px skyblue;
+	width:93%;
+	margin:4px;
+}
+.trans-box:hover p {
+	color:$RedText;
+	font-size:0.98em;
+}
+
+.rotate-box {
+	background-color:$RedBg;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $RedText;
+	width:93%;
+	padding:6px;
+	transition:all 0.9s ease 0s;
+	box-shadow:3px 4px green;
+	margin:4px;
+}
+.rotate-box p {
+	color:$RedText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.rotate-box:hover {
+	background-color:$BlueBg;
+	padding:6px;
+	border-radius:8px 8px 8px 8px;
+	border:2px solid $BlueText;
+	@include trans(rotate3d(0, 1.1, 0.9, 2.142rad));
+	box-shadow:3px 4px gold;
+	width:93%;
+	margin:4px;
+}
+.rotate-box:hover p {
+	color:$BlueText;
+	font-size:0.98em;
+}
+
+.scale-box {
+	background-color:$BrownBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $BrownText;
+	transition:all 0.9s ease 0s;
+	box-shadow:3px 4px purple;
+}
+.scale-box p {
+	color:$BrownText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.scale-box:hover {
+	background-color:$GreenBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $GreenText;
+	@include trans(scale3d(-0.9, 1.2, 0.9));
+	box-shadow:3px 4px yellow;
+}
+.scale-box:hover p {
+	color:$GreenText;
+	font-size:0.98em;
+}
+
+.skewz-box {
+	background-color:$GreenBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $GreenText;
+	transition:all 0.9s ease 0s;
+	box-shadow:3px 4px lime;
+}
+.skewz-box p {
+	color:$GreenText;
+	font-size:0.98em;
+	transition:all 0.3s ease 0s;
+}
+
+.skewz-box:hover {
+	background-color:$BrownBg;
+	width:93%;
+	padding:6px;
+	margin:4px;
+	border-radius:10px 10px 10px 10px;
+	border:2px solid $BrownText;
+	@include trans(skewX(86deg));
+	box-shadow:3px 4px $GreenBg;
+}
+.skewz-box:hover p {
+	color:$BrownText;
+	font-size:0.98em;
+}

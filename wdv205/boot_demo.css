@@ -1,0 +1,65 @@
+body {
+  background-color: #151515; }
+
+.jumbotron {
+  background-color: #151515;
+  color: #a9a9af;
+  text-shadow: -2px -2px #9f9fa5; }
+
+.container {
+  background-color: #141414 !important;
+  color: #a9a0a2; }
+  .container .row {
+    background-color: #181818 !important; }
+
+button {
+  background-color: #cf0749 !important;
+  color: #dfdfdf !important;
+  padding: 8px;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 1.13em;
+  border: 0;
+  box-shadow: 2px 2px black;
+  margin: 6px; }
+  button:hover {
+    background-color: #cd1450 !important;
+    color: #e2e7e2; }
+  button:active {
+    background-color: #657a20 !important;
+    color: #dadada; }
+
+.nav-tabs {
+  text-align: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 2px solid #141414;
+  margin-bottom: 8px; }
+  .nav-tabs li a {
+    color: #aadf89;
+    background-color: #191919;
+    padding: 9px;
+    margin: 8px;
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid #8a8b8f;
+    font-size: 1.12em; }
+  .nav-tabs li.active a {
+    color: #dda87f;
+    background-color: #252525;
+    padding: 9px;
+    margin: 8px;
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid lime; }
+  .nav-tabs li a:hover, .nav-tabs li.active a:hover, .nav-tabs li a:active, .nav-tabs li.active a:active {
+    color: #abde88;
+    font-size: 1.12em;
+    background-color: #151515;
+    padding: 9px;
+    margin: 8px;
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid #91908c; }
+
+.col-sm-4 {
+  background-color: #202020;
+  font-size: 1.06em;
+  color: #bfbfbf; }

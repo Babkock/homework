@@ -1,0 +1,22 @@
+body { width: 99%; background-color: indigo; font-family: "Helvetica"; }
+
+a, a:link, a:active, a:visited { color: indigo; text-shadow: 3px 3px orange; font-size: 1.05em; text-decoration: none; transition: background, color, border, text-shadow 0.6s ease 0s; }
+
+a:hover { color: lime; text-shadow: 3px 3px red; font-size: 1.05em; text-decoration: underline; }
+
+nav ul { width: 100%; list-style-type: none; padding: 6px; }
+
+nav ul li { list-style-type: none; width: 24%; float: left; margin-left: 4px; margin-right: 4px; margin-bottom: 10px; }
+
+nav ul li a { width: 84%; margin-left: 4px; margin-right: 4px; margin-bottom: 6px; padding: 6px; padding-left: 35%; padding-right: 35%; background-color: tan; border: 2px solid green; color: indigo; }
+nav ul li a:hover { background-color: yellow; border: 2px solid turquoise; color: lime; }
+
+.container { display: grid; grid-template-areas: "header header header header" "left left right right" "footer footer footer footer"; background-color: gray; grid-row-gap: 45px; width: 81%; margin-left: 9%; margin-right: 9%; box-shadow: 6px 6px black; padding-bottom: 10px; }
+
+.block1 { grid-area: header; font-size: 1.07em; text-align: center; padding: 7px; background-color: pink; color: black; border: 2px solid green; width: 95%; border-radius: 14px 14px 14px 14px; margin-top: 10px; margin-bottom: 10px; margin-left: 1%; margin-right: 1%; }
+
+.block2 { grid-area: left; text-align: left; font-size: 0.98em; width: 94%; margin-right: 4%; margin-left: 2%; float: left; padding: 6px; background-color: lime; color: brown; border: 2px solid Sienna; border-radius: 14px 14px 14px 14px; box-shadow: 2px 4px green; }
+
+.block3 { grid-area: right; text-align: right; font-size: 0.98em; width: 94%; margin-left: 2%; margin-right: 3%; float: left; padding: 6px; background-color: skyblue; color: orangered; border: 2px solid red; border-radius: 14px 14px 14px 14px; box-shadow: 2px 4px blue; }
+
+.block4 { grid-area: footer; text-align: center; font-size: 1.07em; width: 95%; margin-left: 2%; margin-right: 2%; padding: 6px; background-color: pink; color: black; margin-top: 10px; }

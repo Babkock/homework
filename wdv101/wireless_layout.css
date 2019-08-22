@@ -1,0 +1,18 @@
+body {
+	font-family:"Arial";
+	font-size:1.2em;
+	background-color:#e6e6fa;
+}
+
+em {
+	font-weight:bold;
+	color:green;
+}
+
+h3 {
+	color:maroon;
+	text-transform:uppercase;
+	text-align:right;
+	font-family:"Times New Roman";
+	font-size:1.3em;
+}

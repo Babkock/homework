@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--
+		Advertising Effect Project
+		Tanner Babcock
+		April 11, 2018
+	-->
+	<head>
+		<title>Advertising Effect</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="ad-effect.css" />
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementsByClassName("darken")[0].className += " loaded";
+				document.getElementsByClassName("ad")[0].className += " loaded";
+				document.getElementsByClassName("record")[0].className += " loaded";
+				document.getElementsByClassName("vinyl")[0].className += " loaded";
+			}
+			
+			function hidead() {
+				document.getElementsByClassName("darken")[0].style.display = 'none';
+				document.getElementsByClassName("ad")[0].style.display = 'none';
+				document.getElementsByClassName("record")[0].style.display = 'none';
+				document.getElementsByClassName("vinyl")[0].style.display = 'none';
+			}
+		</script>
+	</head>
+	<body>
+		<div class="darken">
+			<a href="http://tannerbabcock.com/portfolio/index" target="_blank">
+				<div class="ad"></div>
+			</a>
+			<!-- line break here -->
+			<a href="http://tannerbabcock.com/portfolio/index" target="_blank">
+				<div class="record"></div>
+			</a>
+			<a href="http://tannerbabcock.com/portfolio/index" target="_blank">
+				<div class="vinyl"></div>
+			</a>
+			<div class="links">
+				<p><a href="#" onclick="javascript:hidead();">Hide</a> &bull; <a href="ad-effect.scss" target="_blank">SASS Markup</a> &bull; <a href="ad-effect.css" target="_blank">Compiled CSS</a></p>
+				<p><a href="/portfolio/index">&gt;&gt; Return to Portfolio &lt;&lt;</a></p>
+			</div>
+		</div>
+	</body>
+</html>

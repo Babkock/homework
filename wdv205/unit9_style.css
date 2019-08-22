@@ -1,0 +1,33 @@
+@keyframes anim { from { top: 0px; background-color: skyblue; border: 3px solid blue; }
+  to { top: 200px; background-color: yellow; border: 3px solid orangered; } }
+@-webkit-keyframes anim { from { top: 0px; background-color: skyblue; border: 3px solid blue; }
+  to { top: 200px; background-color: yellow; border: 3px solid orangered; } }
+@keyframes anim2 { 0% { left: 0px; background-color: red; border: 3px solid pink; color: white; }
+  25% { left: 50px; background-color: orange; border: 3px solid red; color: black; }
+  40% { left: 100px; background-color: yellow; border: 3px solid goldenrod; color: white; }
+  60% { left: 150px; background-color: lightgreen; border: 3px solid green; color: black; }
+  80% { left: 200px; background-color: skyblue; border: 3px solid blue; color: white; }
+  100% { left: 250px; background-color: purple; border: 3px solid indigo; color: black; } }
+@-webkit-keyframes anim2 { 0% { left: 0px; background-color: red; border: 3px solid pink; color: white; }
+  25% { left: 50px; background-color: orange; border: 3px solid red; color: black; }
+  40% { left: 100px; background-color: yellow; border: 3px solid goldenrod; color: white; }
+  60% { left: 150px; background-color: lightgreen; border: 3px solid green; color: black; }
+  80% { left: 200px; background-color: skyblue; border: 3px solid blue; color: white; }
+  100% { left: 250px; background-color: purple; border: 3px solid indigo; color: black; } }
+body { background-color: gray; }
+
+.container { width: 90%; margin-left: 4%; margin-right: 4%; background-color: black; color: #ddeedd; padding: 7px; }
+
+.box1 { background-color: skyblue; margin: 8px; width: 200px; height: 200px; text-align: center; border-radius: 14px 14px 14px 14px; box-shadow: 3px 4px gray; position: relative; animation-name: anim; -webkit-animation-name: anim; animation-duration: 2.5s; -webkit-animation-duration: 2.5s; animation-delay: 2s; -webkit-animation-delay: 2s; animation-fill-mode: both; -webkit-animation-fill-mode: both; animation-direction: alternate; transition: all 1s ease 0s; }
+
+.box1:hover { transform: scale(2.1, 2.2); }
+
+.box2 { background-color: red; margin: 8px; width: 200px; height: 200px; text-align: center; border-radius: 14px 14px 14px 14px; box-shadow: 3px 4px gray; position: relative; animation-name: anim2; -webkit-animation-name: anim2; animation-duration: 4s; -webkit-animation-duration: 4s; animation-delay: 3s; -webkit-animation-delay: 3s; animation-fill-mode: both; -webkit-animation-fill-mode: both; animation-direction: alternate; transition: all 1s ease 0s; }
+
+.box2:hover { transform: scale(2.1, 2.2); }
+
+p { font-size: 1.15em; }
+
+a, a:link, a:active, a:visited { color: #ff2125; text-decoration: none; transition: all 1s ease 0s; }
+
+a:hover { color: red; text-decoration: underline; }

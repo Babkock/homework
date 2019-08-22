@@ -1,0 +1,267 @@
+body {
+  background-image: url("images/Background.png");
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden; }
+
+@keyframes chicky {
+  0% {
+    transform: scale(1, 1) rotate(0deg) translate(-35px, 0px); }
+  15% {
+    transform: scale(1.2, 1.08) rotate(-40deg) translate(-20px, 10px); }
+  30% {
+    transform: scale(0.98, 1.05) rotate(-2deg) translate(-21px, 19px); }
+  45% {
+    transform: scale(1.3, 1.36) rotate(40deg) translate(15px, -12px); }
+  60% {
+    transform: scale(0.93, 1.05) rotate(-51deg) translate(-10px, 10px); }
+  75% {
+    transform: scale(1.15, 1.21) rotate(-40deg) translate(-30px, 14px); }
+  100% {
+    transform: scale(1, 1) rotate(0deg) translate(0px, 4px); } }
+@-webkit-keyframes chicky {
+  0% {
+    transform: scale(1, 1) rotate(0deg) translate(-35px, 0px); }
+  15% {
+    transform: scale(1.2, 1.08) rotate(-40deg) translate(-20px, 10px); }
+  30% {
+    transform: scale(0.98, 1.05) rotate(-2deg) translate(-21px, 19px); }
+  45% {
+    transform: scale(1.3, 1.36) rotate(40deg) translate(15px, -12px); }
+  60% {
+    transform: scale(0.93, 1.05) rotate(-51deg) translate(-10px, 10px); }
+  75% {
+    transform: scale(1.15, 1.21) rotate(-40deg) translate(-30px, 14px); }
+  100% {
+    transform: scale(1, 1) rotate(0deg) translate(0px, 4px); } }
+@keyframes adslide {
+  0% {
+    width: 510px;
+    height: 384px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    left: 400px; }
+  50% {
+    width: 510px;
+    height: 384px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    left: 200px; }
+  100% {
+    width: 510px;
+    height: 384px;
+    margin-left: 30%;
+    margin-right: 30%;
+    left: 0; } }
+@-webkit-keyframes adslide {
+  0% {
+    width: 510px;
+    height: 384px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    left: 400px; }
+  50% {
+    width: 510px;
+    height: 384px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    left: 200px; }
+  100% {
+    width: 510px;
+    height: 384px;
+    margin-left: 30%;
+    margin-right: 30%;
+    left: 0; } }
+@keyframes link-slide {
+  0% {
+    width: 40%;
+    margin-top: 470px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    opacity: 0.2; }
+  50% {
+    width: 40%;
+    margin-top: 475px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    opacity: 0.7; }
+  100% {
+    width: 40%;
+    margin-top: 480px;
+    margin-left: 30%;
+    margin-right: 30%;
+    opacity: 1; } }
+@-webkit-keyframes link-slide {
+  0% {
+    width: 40%;
+    margin-top: 470px;
+    margin-left: 5000px;
+    margin-right: 5000px;
+    opacity: 0.2; }
+  50% {
+    width: 40%;
+    margin-top: 475px;
+    margin-left: 1000px;
+    margin-right: 1000px;
+    opacity: 0.7; }
+  100% {
+    width: 40%;
+    margin-top: 480px;
+    margin-left: 30%;
+    margin-right: 30%;
+    opacity: 1; } }
+@keyframes logospin {
+  0% {
+    transform: rotate(-360deg) scale(1.05, 1.1); }
+  50% {
+    transform: rotate(180deg) scale(1.2, 1.24); }
+  100% {
+    transform: rotate(0deg) scale(1, 1); } }
+@-webkit-keyframes logospin {
+  0% {
+    transform: rotate(-360deg) scale(1.05, 1.1); }
+  50% {
+    transform: rotate(180deg) scale(1.2, 1.24); }
+  100% {
+    transform: rotate(0deg) scale(1, 1); } }
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  display: block; }
+  .container:active, .container:hover {
+    outline: 0; }
+
+.ad {
+  background-color: tan;
+  border: 2px solid pink;
+  width: 510px;
+  height: 384px;
+  position: absolute;
+  margin-top: 90px;
+  z-index: -1000;
+  margin-left: 30%;
+  margin-right: 30%;
+  animation-name: adslide;
+  -webkit-animation-name: adslide;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.ad span {
+  position: absolute;
+  color: red;
+  left: 0;
+  font-size: 1.9em;
+  text-shadow: 2px 3px #141515;
+  vertical-align: bottom;
+  text-align: center;
+  width: 510px;
+  margin-top: 340px;
+  z-index: 100; }
+
+.backgrass {
+  background-image: url("images/BannerAd-backgrass.png");
+  background-repeat: no-repeat;
+  background-position-y: 190px;
+  width: 510px;
+  height: 384px;
+  position: absolute;
+  margin-top: 95px;
+  z-index: -900;
+  margin-left: 0px;
+  margin-right: 0px; }
+
+.chick {
+  background-image: url("images/BannerAd-chick.png");
+  vertical-align: middle;
+  width: 280px;
+  height: 246px;
+  position: absolute;
+  margin-top: 120px;
+  z-index: -200;
+  margin-left: 35px;
+  animation-name: chicky;
+  -webkit-animation-name: chicky;
+  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+  animation-delay: 2.2s;
+  -webkit-animation-delay: 2.2s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.frontgrass {
+  background-image: url("images/BannerAd-frontgrass.png");
+  background-repeat: no-repeat;
+  background-position-y: 140px;
+  vertical-align: bottom;
+  width: 510px;
+  height: 384px;
+  position: absolute;
+  margin-top: 130px;
+  z-index: 0; }
+
+.logo {
+  background-image: url("images/CadburyLogo.png");
+  vertical-align: middle;
+  width: 225px;
+  height: 123px;
+  position: absolute;
+  margin-top: 30px;
+  z-index: -200;
+  margin-left: 285px;
+  animation-name: logospin;
+  -webkit-animation-name: logospin;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-delay: 3s;
+  -webkit-animation-delay: 3s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.links {
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  color: white;
+  position: absolute;
+  display: block;
+  border: 1px solid white;
+  margin-top: 480px;
+  margin-left: 30%;
+  margin-right: 30%;
+  z-index: 0;
+  opacity: 1;
+  width: 40%;
+  transition: all 0.6s ease 0s;
+  animation-name: link-slide;
+  -webkit-animation-name: link-slide;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards; }
+
+.links a, .links a:visited, .links a:active, .links a:link {
+  color: #dd0305;
+  font-size: 1.12em;
+  text-decoration: none;
+  transition: all 0.2s ease 0s; }
+  .links a:hover, .links a:visited:hover, .links a:active:hover, .links a:link:hover {
+    color: #141aef;
+    font-size: 1.12em;
+    text-decoration: underline; }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+		CSS Selector Specificity
+		Author: Tanner Babcock
+		Date: January 17, 2018
+	-->	
+	<meta charset="utf-8" />
+	<title>CSS Selector Specificity</title>
+	<link rel="stylesheet" type="text/css" href="../school_pages.css">
+	<style type="text/css">
+	pre {
+		background-color:#202020;
+		color:#0084b5;
+		font-size:0.98em;
+		padding:6px;
+		border:1px dotted #0095a3;
+	}
+	span.code, span {
+		color:#0094b7;
+		font-size:0.94em;
+		font-family:"Courier New";
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><h3>Element Selector</h3>
+		<p>Element selectors are used to style a single element. This single element can be a <span class="code">p</span>, a <span class="code">h1</span>, or a <span class="code">table</span>.</p>
+		<pre>
+		p {
+			color:green;
+			padding:3px;
+		}
+		
+		h1 {
+			color:red;
+			font-size:2.12em;
+		}
+		</pre>
+		<p>The p selector styles all <span class="code">&lt;p&gt;</span> elements on the page.</p>
+		</li>
+		<li><h3>Group Selector</h3>
+		<p>Group selectors are used to style multiple elements, with multiple kinds of selectors, at the same time. Group selectors use a comma-separated list of selectors.</p>
+		<pre>
+		tbody tr td, thead tr td {
+			color:black;
+			font-weight:bold;
+			border:1px solid black;
+		}
+		
+		h1, h2, h3 {
+			color:red;
+			font-size:2.12em;
+			text-decoration:underline;
+		}
+		</pre>
+		<p>The first block targets elements nested in the pattern <span class="code">tbody</span> &rarr; <span class="code">tr</span> &rarr; <span class="code">td</span>, as well as
+		<span class="code">thead</span> &rarr; <span class="code">tr</span> &rarr; <span class="code">td</span>. The second block targets <span class="code">h1, h2</span> and <span class="code">h3</span> headings.
+		All the properties in the block are applied to all selectors in the comma-separated group.</p>
+		</li>
+		<li><h3>Descendent Selector</h3>
+		<p>Descendent selectors target specific elements, only if they are nested inside other elements. The <span>tbody tr td</span> used in the above code block, is a <b>descendent selector</b>. It targets the <span>td</span> element,
+		but only if that is a child of a <span>tr</span>, and only if that's a child of a <span>tbody</span>. These table tags are always nested in this predictable template, so these selectors are necessary for styling tables.</p>
+		</li>
+		<li><h3>Class selector</h3>
+		<p>In CSS, you use the period (.) to style a specified class of elements. The class is specified with the HTML <span>class</span> attribute. The period will select all elements associated with the specified class.</p>
+		<pre>
+		div.code {
+			display:block;
+			border:1px solid green;
+		}
+		
+		.code {
+			color:#88ed1a;
+			background-color:#003312;
+		}
+		</pre>
+		<p>The first selector in the above code block is a <b>dependent</b> class selector, because the specified class ".code" must be of the <span>div</span> element. The second selector in the code block, is an <b>independent</b> class selector, because it
+		selects all elements with the class ".code", regardless of the HTML tag used. The first selector would work with an element: <span>&lt;div class="code"&gt;</span>. The second selector would also apply to this element. However, given an element like this:</p>
+		<p><span>&lt;p class="code"&gt;</span></p>
+		<p>This HTML element is styled by the second block of CSS rules, but not the first, because it is not a <span>div</span> tag. It is still apart of the <span>code</span> class, so it is styled by the <b>independent</b> selector.</p>
+		</li>
+		<li><h3>ID selector</h3>
+		<p>CSS works primarily with the class attributes of a page, but also with the <span>id</span> attributes. In CSS, you use the hash (#) to style a specified ID of elements. The ID is given with the HTML <span>id</span> attribute. The hash symbol will select all elements that have been given the speicifed ID.</p>
+		<pre>
+		#contact_page {
+			font-size:0.98em;
+			color:black;
+			background-color:white;
+			padding:20px;
+		}
+		
+		#products_page {
+			font-size:1em;
+			color:darkblue;
+			background-color:skyblue;
+			padding:5px;
+		}
+		</pre>
+		<p>The first selector in the above code block selects any and all elements with the ID of <span>contact_page</span>. This HTML tag targeted by this selector would look like this: <span>&lt;div id="contact_page"&gt;</span>. However, the id "contact_page" can be used on any HTML tag, and the above CSS will apply to it.</p>
+		</li>
+		<li><h3>Universal selector</h3>
+		<p>The <b>*</b> asterisk is the universal selector.</p>
+		</li>
+		<li><h3>Pseudo selectors</h3>
+		<p>The psuedo selectors include the following:</p>
+		<ul>
+			<li><span>:hover</span> - Used when the element is being hovered over</li>
+			<li><span>:active</span> - Used to style an active link</li>
+			<li><span>:first-child</span> - Used to get the first child of any element</li>
+			<li><span>:visited</span> - Used to style a visited link</li>
+		</ul>
+		</li>
+	</ul>
+	<center>
+		<a href="/homework/index.html">&gt;&gt; Return to WDV205 Homework &lt;&lt;</a>
+	</center>
+</body>
+</html>

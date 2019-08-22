@@ -1,0 +1,63 @@
+body { width: 99%; background: url("/homework/glitchbg.jpg"); background-repeat: repeat-xy; color: black; font-family: "Helvetica"; font-size: 1.04em; }
+
+a, a:active, a:visited { color: yellow; font-size: 1.18em; text-shadow: 3px 3px green; transition: all 0.3s ease 0s; text-decoration: none; }
+a:hover, a:active:hover, a:visited:hover { color: blue; text-shadow: 4px 4px lime; text-decoration: none; }
+
+.code { font-family: "Courier New", monospace; font-size: 0.97em; }
+
+h3.code { font-family: "Courier New", monospace; font-size: 1.07em !important; }
+
+.littlebox { background-color: green; padding: 20px; border: 3px solid lime; margin-left: 10px; width: 97%; }
+
+.littlebox p { color: lime; font-size: 1.08em; }
+
+.container { display: grid; grid-template-areas: "header header header header" "left-side left-side right-side right-side" "footer footer footer footer"; background-color: orangered; grid-row-gap: 42px; grid-column-gap: 20px; width: 81%; margin-left: 9%; margin-right: 9%; padding-bottom: 10px; box-shadow: 4px 4px black; }
+
+.container div, .container header, .container footer { opacity: 0.89; color: #131313; text-align: center; padding: 8px; margin: 5px; }
+.container div:hover, .container header:hover, .container footer:hover { opacity: 1; color: black; }
+
+header { grid-area: header; background-color: #dd0808; border-radius: 12px 12px 12px 12px; padding: 8px; margin-bottom: 13px; width: 97%; text-align: center; }
+
+header p { color: #efefef; }
+
+.body-left { grid-area: left-side; background-color: #937892; width: 93%; margin-right: 2%; margin-left: 4px; border: 2px solid red; border-radius: 12px 12px 12px 12px; box-shadow: 4px 6px purple; }
+
+.body-right { grid-area: right-side; background-color: #7274b9; width: 93%; margin-left: 2%; margin-right: 4px; border: 2px solid blue; border-radius: 12px 12px 12px 12px; box-shadow: 4px 6px green; }
+
+footer { grid-area: footer; background-color: #4a5270; border-radius: 12px 12px 12px 12px; padding: 10px; margin-top: 10px; width: 97%; }
+
+footer p { color: #efefef; }
+
+h2, h3 { color: lime; text-shadow: 3px 3px orange; }
+
+.trans-box { background-color: #12125a; padding: 6px; width: 93%; margin: 4px; border-radius: 8px 8px 8px 8px; border: 2px solid skyblue; transition: all 0.4s ease 0s; box-shadow: 3px 4px orangered; }
+
+.trans-box p { color: skyblue; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.trans-box:hover { background-color: #4a1314; border-radius: 8px 8px 8px 8px; border: 2px solid red; padding: 6px; transform: translate3d(-2.7rem, 1.3rem, 1rem); -ms-transform: translate3d(-2.7rem, 1.3rem, 1rem); -webkit-transform: translate3d(-2.7rem, 1.3rem, 1rem); box-shadow: 3px 4px skyblue; width: 93%; margin: 4px; }
+
+.trans-box:hover p { color: red; font-size: 0.98em; }
+
+.rotate-box { background-color: #4a1314; border-radius: 10px 10px 10px 10px; border: 2px solid red; width: 93%; padding: 6px; transition: all 0.9s ease 0s; box-shadow: 3px 4px green; margin: 4px; }
+
+.rotate-box p { color: red; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.rotate-box:hover { background-color: #12125a; padding: 6px; border-radius: 8px 8px 8px 8px; border: 2px solid skyblue; transform: rotate3d(0, 1.1, 0.9, 2.142rad); -ms-transform: rotate3d(0, 1.1, 0.9, 2.142rad); -webkit-transform: rotate3d(0, 1.1, 0.9, 2.142rad); box-shadow: 3px 4px gold; width: 93%; margin: 4px; }
+
+.rotate-box:hover p { color: skyblue; font-size: 0.98em; }
+
+.scale-box { background-color: Sienna; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid yellow; transition: all 0.9s ease 0s; box-shadow: 3px 4px purple; }
+
+.scale-box p { color: yellow; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.scale-box:hover { background-color: green; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid lime; transform: scale3d(-0.9, 1.2, 0.9); -ms-transform: scale3d(-0.9, 1.2, 0.9); -webkit-transform: scale3d(-0.9, 1.2, 0.9); box-shadow: 3px 4px yellow; }
+
+.scale-box:hover p { color: lime; font-size: 0.98em; }
+
+.skewz-box { background-color: green; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid lime; transition: all 0.9s ease 0s; box-shadow: 3px 4px lime; }
+
+.skewz-box p { color: lime; font-size: 0.98em; transition: all 0.3s ease 0s; }
+
+.skewz-box:hover { background-color: Sienna; width: 93%; padding: 6px; margin: 4px; border-radius: 10px 10px 10px 10px; border: 2px solid yellow; transform: skewX(86deg); -ms-transform: skewX(86deg); -webkit-transform: skewX(86deg); box-shadow: 3px 4px green; }
+
+.skewz-box:hover p { color: yellow; font-size: 0.98em; }

@@ -1,0 +1,57 @@
+@import url(footer.css);
+
+body {
+	font-size:1em;
+	font-style:"Georgia";
+	margin-top:1em;
+}
+* {
+	margin:0;
+	padding:0;
+}
+#container {
+	width:960px;
+	margin:0 auto;
+	border:1px solid black;
+	background-color:#f3f6e9;
+}
+#header {
+	width:960px;
+}
+#left {
+	width:290px;
+	padding:10px;
+	border-right:3px solid teal;
+	float:left;
+}
+#middle {
+	width:290px;
+	padding:10px;
+	border-right:3px solid teal;
+	float:left;
+}
+#right {
+	width:290px;
+	padding:10px;
+	float:left;
+}
+
+h1 {
+	padding:10px;
+	color:white;
+	text-align:center;
+	background:url('images/blacktexture.jpg');
+	background-repeat:repeat;
+}
+
+h2 {
+	padding:10px;
+	margin-bottom:10px;
+	color:white;
+	background-color:navy;
+	text-align:center;
+}
+
+p {
+	text-indent:1em;
+}
