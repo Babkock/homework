@@ -1,6 +1,6 @@
 # homework
 
-Web development assignments for several classes. These homework assignments can be viewed on [my website](https://tannerbabcock.com/homework/index.html).
+Web development assignments for several classes. These homework assignments can be viewed on [my website](https://tannerbabcock.com/homework/index).
 
 Classes contained:
 
