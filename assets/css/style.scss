@@ -40,11 +40,11 @@
 	transition:display 0.9s ease 0s;
 }
 h4 a {
-	color:skyblue;
+	color:#c4a2a2;
 	border:1px solid skyblue;
-	border-radius:5px 5px 5px 5px;
-	font-size:1.7em;
-	padding:8px;
+	border-radius:7px 7px 7px 7px;
+	font-size:1.67em;
+	padding:6px;
 	background:none;
 	animation-delay:0.4s;
 	-webkit-animation-delay:0.4s;
@@ -57,11 +57,11 @@ h4 a {
 	transition:background, background-color, color, border 0.4s ease 0s;
 }
 h4 a:hover {
-	color:lime;
+	color:#d9b3b3;
 	border:1px solid lime;
-	border-radius:5px 5px 5px 5px;
-	font-size:1.7em;
-	padding:8px;
+	border-radius:7px 7px 7px 7px;
+	font-size:1.67em;
+	padding:6px;
 	animation-delay:0.4s;
 	-webkit-animation-delay:0.4s;
 	animation-name:classlink;
@@ -81,55 +81,55 @@ body {
 	width:99%;
 	margin-left:0;
 	margin-right:0;
-	background-color:#282828;
-	font-size:20px;
-	color:#fafafa;
+	background-color:#1b1b1b;
+	font-size:0.98em;
+	color:#eaeaea;
 	padding:7px;
 }
 
 a, a:link, a:active {
-	color:#22fefe;
+	color:#229e9e;
 	text-decoration:none;
 }
 
 a:hover {
-	color:#33ffff;
+	color:#33cdcd;
 	text-decoration:underline;
 }
 
-table, table tbody, table thead {
+table {
 	width:100%;
+	tbody, thead {
+		width:100%;
+		tr th, tr td {
+			background-color:#040433;
+			box-shadow:1px 1px gray;
+			margin:2px;
+			width:49%;
+			text-align:center;
+			padding:4px;
+			transition:background-color, box-shadow 0.2s ease 0s;
+		}
+		tr th:hover, tr td:hover {
+			background-color:#330702;
+			box-shadow:1px 1px red;
+			width:49%;
+			text-align:center;
+			padding:4px;
+		}
+	}
+	tbody {
+		tr td a, tr td a:link, tr td a:visited, tr td a:active {
+			color:white;
+			font-size:0.98em;
+			text-decoration:none;
+			transition:color, text-shadow, text-decoration 0.4s ease 0s;
+		}
+		tr td a:hover {
+			color:green;
+			font-size:0.98em;
+			text-decoration:underline;
+		}
+	}
 }
 
-table thead th, table tbody td {
-	background-color:#141443;
-	box-shadow:2px 2px gray;
-	margin:2px;
-	width:49%;
-	text-align:center;
-	padding:4px;
-	transition:background-color, box-shadow 0.2s ease 0s;
-}
-
-table thead th:hover, table tbody td:hover {
-	background-color:#441712;
-	box-shadow:2px 2px red;
-	width:49%;
-	text-align:center;
-	padding:4px;
-}
-
-table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, table tbody tr td a:active {
-	color:#00d4cf;
-	font-size:1.03em;
-	text-shadow:2px 3px #cc0000;
-	text-decoration:none;
-	transition:color, text-shadow, text-decoration 0.4s ease 0s;
-}
-
-table tbody tr td a:hover {
-	color:green;
-	font-size:1.03em;
-	text-shadow:2px 3px #0407cd;
-	text-decoration:underline;
-}

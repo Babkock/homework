@@ -12,8 +12,7 @@ require_once("../resources/lib/Log.php");
 $hw = new Build\Page("homework.header", "homework.index", "homework.footer");
 $hw->init("Tanner Babcock Homework", "Homework assignments for Tanner Babcock.", Codes\Portfolio);
 
-$hw->header->breadcrumbs([
-	"Homework" => "https://tannerbabcock.com/homework/index"
-]);
+$hw->middle->replace("EMAIL", "tababcock@dmacc.edu");
+
 $hw->output();
 
