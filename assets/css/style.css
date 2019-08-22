@@ -32,21 +32,19 @@
   100% { background-color: #aa0403;
     color: red; } }
 
-.container { width: 80%; margin-left: 9%; margin-right: 9%; background-color: #21212b; opacity: 1; transition: background-color 0.3s ease 0s; }
-
-.container:hover { opacity: 1; background-color: #121212; }
+.container { width: 84%; margin-left: 8%; margin-right: 7%; background-color: #21212b; opacity: 1; transition: background-color 0.3s ease 0s; }
 
 .container ul, .container div { padding: 8px; color: white; }
 
 .container div { transition: display 0.9s ease 0s; }
 
-h4 a { color: #c4a2a2; border: 1px solid skyblue; border-radius: 7px 7px 7px 7px; font-size: 1.67em; padding: 6px; background: none; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; transition: background, background-color, color, border 0.4s ease 0s; }
+h4 a { color: #c4a2a2; border: 1px solid skyblue; border-radius: 7px 7px 7px 7px; font-size: 1.7em; padding: 6px; background: none; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; transition: background, background-color, color, border 0.4s ease 0s; }
 
-h4 a:hover { color: #d9b3b3; border: 1px solid lime; border-radius: 7px 7px 7px 7px; font-size: 1.67em; padding: 6px; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; background-color: darkgreen; }
+h4 a:hover { color: #d9b3b3; border: 1px solid lime; border-radius: 7px 7px 7px 7px; font-size: 1.7em; padding: 6px; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; background-color: darkgreen; }
 
 html { background-color: #000; }
 
-body { width: 99%; margin-left: 0; margin-right: 0; background-color: #1b1b1b; font-size: 0.98em; color: #eaeaea; padding: 7px; }
+body { width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; }
 
 a, a:link, a:active { color: #229e9e; text-decoration: none; }
 
@@ -60,6 +58,6 @@ table tbody tr th, table tbody tr td, table thead tr th, table thead tr td { bac
 
 table tbody tr th:hover, table tbody tr td:hover, table thead tr th:hover, table thead tr td:hover { background-color: #330702; box-shadow: 1px 1px red; width: 49%; text-align: center; padding: 4px; }
 
-table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, table tbody tr td a:active { color: white; font-size: 0.98em; text-decoration: none; transition: color, text-shadow, text-decoration 0.4s ease 0s; }
+table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, table tbody tr td a:active { color: cyan; font-size: 1em; text-decoration: none; transition: color, text-shadow, text-decoration 0.4s ease 0s; }
 
-table tbody tr td a:hover { color: green; font-size: 0.98em; text-decoration: underline; }
+table tbody tr td a:hover { color: red; font-size: 0.98em; text-decoration: underline; }
