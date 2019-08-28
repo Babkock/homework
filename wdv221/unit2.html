@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+	<link rel="stylesheet" type="text/css" href="unit2.css" />
+	<script>
+		/*
+		 * Tanner Babcock
+		 * Unit 2 assignment
+		 * August 27, 2019
+		*/
+		let schoolName = "DMACC"; // 1
+		let courseName = "WDV221" + " " + "Intro JavaScript"; // 2
+		let testScore = 100.00; // 3
+		let courseGrade; // 4
+
+		let courseCompleted = false; // 5
+	</script>
+</head>
+<body>
+	<h2>WDV221 Intro Javascript</h2>
+	<h3>Unit-2 - Variables Assignment</h3>
+	<hr>
+	<p>Please complete the following exercises on this page. When complete 
+	post this page to your  server. Make a link in your WDV221 homework  
+	page for this assignment.</p>
+	<p>Submt this assignment on Blackboard. Please include a link to your homework page.</p>
+	<h3>For each exercise use a comment line to put the Exercise number 
+	within the script. Also place a short description of what the script is 
+	doing.</h3>
+	<hr>
+	<p>1. Define a String variable called schoolName and assign it a value of DMACC.</p>
+	<p>2. Define a String variable called courseName and assign it a value of WDV221 Intro Javascript</p>
+	<p>3. Define a Numeric variable called testScore and assign it a value of 100.00. </p>
+	<p>4. Define a Numeric variable called courseGrade. Do not give it a value.</p>
+	<p>5. Define a Boolean variable called courseCompleted. Give it a value of false.</p>
+	<p>Display the value of all the variables in their own paragraphs below. </p>
+	<p>Display the number of characters in the course name.</p>
+	<p>Display the course name as all uppercase letters.</p>
+	<p>Using the String Object determine if the course name contains the 
+	letters WDV?  Look at the String methods. Does one or more of them look 
+	inside the variable for specific content?</p>
+
+	<div class="output">
+		<script>
+			document.write("<p>schoolName: " + schoolName + "</p>");
+			document.write("<p>courseName: " + courseName + "</p>");
+			document.write("<p>testScore: " + testScore + "</p>");
+			document.write("<p>courseGrade: " + courseGrade + "</p>"); // my guess is this will print 'undefined'
+			document.write("<p>Number of characters in courseName: <b>" + courseName.length + "</b></p>");
+			document.write("<p>courseName in uppercase: <b>" + courseName.toUpperCase() + "</b></p>");
+			if (courseName.includes("WDV"))
+				document.write("<p>courseName <b><i>does</i></b> include \"WDV\"</p>");
+			else
+				document.write("<p>courseName does <b>NOT</b> include \"WDV\"</p>");
+		</script>
+	</div>
+
+	<br />
+	<center style="font-size:1.12em">
+		<a href="/homework/index">&rarr; Return to WDV221 Homework &larr;</a>
+	</center>
+</body>
+</html>
+

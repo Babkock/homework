@@ -1,0 +1,20 @@
+body {background-color:#FC6;}
+
+.highlightTitle	{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-style:italic;
+	font-size:14px;
+	text-decoration:underline;
+	color:#096;
+}
+
+div.output {
+	background-color:#a9b3a8;
+	border:1px solid red;
+	padding:7px;
+	width:95%;
+	margin-left:2%;
+	margin-right:2%;
+	color: black;
+}
+
