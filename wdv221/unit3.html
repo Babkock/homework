@@ -3,13 +3,14 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>WDV221 Intro Javascript</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 		<style>
 		div#container	{
 			width:960px;
 			margin:auto;
 			padding:10px;
-			background-color:white;	
-			border:thin solid black;
+			background-color:#271614;
+			border:thin solid white;
 		}
 		</style>
 		
@@ -24,7 +25,15 @@
 		}
 		
 		function getStudentName() {
-			studentName = prompt("Please enter your name");	
+			studentName = prompt("Please enter your name: ");
+		}
+
+		function getStudentEmail() {
+			studentEmail = prompt("Please enter your email: ");
+		}
+
+		function displayEmail() {
+			alert("Student Email: " + studentEmail);
 		}
 	
 		function displayEmailName() {
@@ -34,7 +43,21 @@
 			alert("Email name: " + studentEmail.substr(0, atSymbol) );
 		}
 
+		function displayEmailServer() {
+			var atSymbol = 0;
+			var emailServerOnly = "";
+			atSymbol = studentEmail.indexOf("@");
+			alert("Email server: " + studentEmail.substr(atSymbol + 1, studentEmail.length));
+		}
+
+		function printStudentInfo() {
+			document.write("<p>Student name: <b>" + studentName + "</b></p>");
+			document.write("<p>Student email: <b>" + studentEmail + "</b></p>");
+		}
+
 		displayGreeting();
+		getStudentName();
+		getStudentEmail();
 		</script>
 		<div id="container">
 			<h1>WDV221 Intro Javascript</h1>
@@ -58,8 +81,7 @@
 			their own paragraph.  </p>
 			
 			<script>
-			document.write("Student name: " + studentName);
-			document.write("Student email: " + studentEmail);
+			printStudentInfo();
 			</script>
   
 			<p>7. Complete the displayEmailName( ). The function should display 
@@ -67,12 +89,14 @@
 			symbol in the result. </p>
 			<p>Modify the following button to call the displayEmailName( ) with a click event handler.</p>
   
-			<p> <button id="button2">Display Email Name</button> </p>
+			<p> <button id="button2" onclick="displayEmailName()">Display Email Name</button> </p>
+			
 			<p>8. Write a function called displayEmailServer( ). The function will
 			display that portion of the studentEmail that follows the @ symbol. Do 
 			not include the @ symbol in the result.</p>
 			<p>9. Fix the  button element that will run the displayEmailServer( ) with a click event handler.</p>
-			<p> <button id="button3" onclick="dislayemailServer()">Display Email Server</button> </p>
+			
+			<p> <button id="button3" onclick="displayEmailServer()">Display Email Server</button> </p>
 			<p>&nbsp;</p>
 		</div>
 		<h2>&nbsp;</h2>
