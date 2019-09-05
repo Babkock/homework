@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>WDV221 Intro JavaScript</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+		<script src="unit4.js"></script>
+	</head>
+	<body>
+		<script>
+		printName(name1, name2);
+		</script>
+		<h1>WDV2221 Intro Javascript</h1>
+		<h2>Unit-4 Assignment - Functions with Parameters </h2>
+		<h3>Directions:</h3>
+		<p>Problem 1</p>
+		<p>a. Create a global variable called schoolName. Assign it an initial value of "Des Moines Area Community College".</p>
+		<p>b. Create a function called processString( ).</p>
+		<ul>
+			<li>the function will accept one input parameter called inValue</li>
+			<li>use the String.length property to display the number of characters to the console</li>
+			<li>use the toUpperCase( ) to display the string in capital letters to the console</li>
+			<li>display the first five letters of the string to the console</li>
+		</ul>
+		<p>c. Call this function using a button and the onclick event handler. Pass in the schoolName variable as the parameter.</p>
+		<button onclick="processString(schoolName)">Process String</button>
+		<p>Problem  2</p>
+		<p>a. Create two global variables. One called name1 and assign it a 
+		value of "Mary". The other called name2 and assign it a value of 
+		"Smith".</p>
+		<p>b. &nbsp;Create a function called printName( ).</p>
+		<ul>
+			<li>the function will accept two parameters, firstName and lastName.</li>
+			<li>concatenate the names into a single string formatted as "firstName lastName"&nbsp;and display the result to the document</li>
+			<li>concatenate the names into a single string formatted as "lastName, firstName" and display the result to the document</li>
+			<li>concatenate the names into a single string formatted as "lastName(all capitals), firstName" and display the result to the document</li>
+		</ul>
+		<p>c. Call this function during runtime. Pass in the name1 and name2 variables as the parameters.</p>
+		<p>Problem  3 </p>
+		<p>a. Create a global variable called totalSales. Assign it a value of 3435.6. It should be numeric data type.</p>
+		<p>b. Use the provided currency formatting function to display totalSales formatted as currency in the following line. </p>
+		<h3>Your Total Sales:
+			<script>
+			document.write("$" + totalSales.toFixed(2));
+			</script>
+		</h3>
+		<p>Problem 4</p>
+		<p>a. Use the provided date functions and concatenation to display today's date in the following format <strong>Monday, January 2, 2018</strong>. </p>
+		<h3>Today's date:
+			<script>
+			let theDate = new Date();
+			
+			document.write(longDays[theDate.getDay()] + ", " + longMonths[theDate.getMonth()] + " " + theDate.getDate() + ", " + (theDate.getYear() + 1899));
+			</script>
+		</h3>
+		<p>Problem 5</p>
+		<p>a. Use the provided date functions and concatenation to display today's date in the following format "mm/dd/yyy".</p>
+		<p>Today's date:
+			<script>
+			let today = new Date(); // date with no arguments means today
+			
+			document.write((today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear());
+			</script>
+		</p>
+		<footer style="text-align:center; font-size:1.05em;">
+			<p><a href="/homework/index">&rarr; Return to WDV221 Homework &larr;</a></p>
+		</footer>
+	</body>
+</html>
