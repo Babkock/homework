@@ -30,11 +30,11 @@ function changeFont(val) {
 }
 
 function bigSale() {
-	document.getElementById("sale").style.fontSize = "24";
+	document.getElementById("sale").style.fontSize = "24px";
 }
 
 function smallSale() {
-	document.getElementById("sale").style.fontSize = "14";
+	document.getElementById("sale").style.fontSize = "14px";
 }
 
 function bigFrog() {
@@ -59,6 +59,6 @@ document.getElementById("button2").addEventListener("click", bigSale);
 document.getElementById("button3").addEventListener("click", smallSale);
 document.getElementById("yellowpara").addEventListener("click", yellowPara);
 document.getElementById("button4").addEventListener("click", toggleFrog);
-document.getElementById("borderpara").addEventListener("doubleclick", borderPara);
+document.getElementById("borderpara").addEventListener("dblclick", borderPara);
 document.getElementById("removeborder").addEventListener("click", removeBorder);
 
