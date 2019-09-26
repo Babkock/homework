@@ -28,3 +28,6 @@ var today = document.getElementById("today");
 today.innerHTML = longDays[t.getDay()] + ", " + longMonths[t.getMonth()] + " " + t.getDate() + ", " + (t.getYear() + 1899);
 document.getElementById("customer").innerHTML = customerName;
 
+document.getElementById("picHtml").addEventListener("mouseover", enlargeImage("picHtml"));
+document.getElementById("picHtml").addEventListener("mouseout", originalSizeImage("picHtml"));
+
