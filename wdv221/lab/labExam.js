@@ -5,12 +5,12 @@ var customerName = "Please Sign In";
 
 function enlargeImage(inImage)	{
 	//alert("inside enlargeImage()" );
-	inImage.style.transform = "scale(2,2)";
+	document.getElementById(inImage).style.transform = "scale(2,2)";
 }
 
 function originalSizeImage(inImage)	{
 	//alert("inside originalSizeImage()");	
-	inImage.style.transform = "scale(1,1)";					
+	document.getElementById(inImage).style.transform = "scale(1,1)";					
 }
 
 function signin() {
@@ -19,8 +19,8 @@ function signin() {
 }
 
 document.getElementById("signin").addEventListener("click", signin);
-document.getElementById("picHtml").addEventListener("mouseOver", enlargeImage(this));
-document.getElementById("picHtml").addEventListener("mouseOut", originalSizeImage(this));
+document.getElementById("picHtml").addEventListener("mouseOver", enlargeImage("picHtml"));
+document.getElementById("picHtml").addEventListener("mouseOut", originalSizeImage("picHtml"));
 
 var t = new Date();
 
