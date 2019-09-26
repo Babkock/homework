@@ -71,13 +71,13 @@
             	<div>
            	  		<p><img src="images/wdvLarge.png"></p>
             	<div class="imageGallery">
-                	<img src="images/html5.png" id="picHtml" />
-                    <img src="images/css3.png" id="picCss" />
-                    <img src="images/javascript.png" id="picJs" />
-                    <img src="images/jquery.png" id="picJquery" />
-                    <img src="images/php.jpg" id="picPhp" />
-                    <img src="images/mysql.jpg" id="picMysql" />
-                    <img src="images/wordpress.jpg" id="picWp" />
+                	<img src="images/html5.png" id="picHtml" onMouseOver="enlargeImage('picHtml')" onMouseOut="originalSizeImage('picHtml')" />
+                    <img src="images/css3.png" id="picCss" onMouseOver="enlargeImage('picCss')" onMouseOut="originalSizeImage('picCss')" />
+                    <img src="images/javascript.png" id="picJs" onMouseOver="enlargeImage('picJs')" onMouseOut="originalSizeImage('picJs')" />
+                    <img src="images/jquery.png" id="picJquery" onMouseOver="enlargeImage('picJquery')" onMouseOut="originalSizeImage('picJquery')" />
+                    <img src="images/php.jpg" id="picPhp" onMouseOver="enlargeImage('picPhp')" onMouseOut="originalSizeImage('picPhp')"  />
+                    <img src="images/mysql.jpg" id="picMysql" onMouseOver="enlargeImage('picMysql')" onMouseOut="originalSizeImage('picMysql')" />
+                    <img src="images/wordpress.jpg" id="picWp" onMouseOver="enlargeImage('picWp')" onMouseOut="originalSizeImage('picWp')" />
                 <div>
                   
                 </div>
@@ -126,7 +126,7 @@
         
         <footer>
         	<h1 class="clearfix">FOOTER
-            	<span>Copyright &copy;</span>
+				<span>Copyright &copy; <span id="year"></span></span>
                 <img src="images/instagram.jpg">           
                 <img src="images/twitter.png">
             	<img src="images/facebook.png">
