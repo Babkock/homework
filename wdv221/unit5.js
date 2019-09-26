@@ -7,9 +7,9 @@ function yellowPara() {
 }
 
 function toggleGreen() {
-	if (document.getElementById("greenpara").style.backgroundColor == "#000")
+	if (document.getElementById("greenpara").style.backgroundColor != "#009900")
 		document.getElementById("greenpara").style.backgroundColor = "#009900";
-	else if (document.getElementById("greenpara").style.backgroundColor == "#009900")
+	else
 		document.getElementById("greenpara").style.backgroundColor = "#000";
 }
 
@@ -46,9 +46,9 @@ function smallFrog() {
 }
 
 function toggleFrog() {
-	if (document.getElementById("frogImage").style.display == "inline")
+	if (document.getElementById("frogImage").style.display != "none")
 		document.getElementById("frogImage").style.display = "none";
-	else if (document.getElementById("frogImage").style.display == "none")
+	else
 		document.getElementById("frogImage").style.display = "inline";
 }
 
