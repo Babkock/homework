@@ -20,13 +20,13 @@ function signin() {
 
 document.getElementById("signin").addEventListener("click", signin);
 document.getElementById("bgColor_1").addEventListener("click", function(){
-	document.getElementByTagName("body").style.backgroundColor = document.getElementById("bgColor_1").value;
+	document.getElementByTagName("body")[0].style.backgroundColor = document.getElementById("bgColor_1").value;
 });
 document.getElementById("bgColor_2").addEventListener("click", function(){
-	document.getElementByTagName("body").style.backgroundColor = document.getElementById("bgColor_2").value;
+	document.getElementByTagName("body")[0].style.backgroundColor = document.getElementById("bgColor_2").value;
 });
 document.getElementById("bgColor_3").addEventListener("click", function(){
-	document.getElementByTagName("body").style.backgroundColor = document.getElementById("bgColor_3").value;
+	document.getElementsByTagName("body")[0].style.backgroundColor = document.getElementById("bgColor_3").value;
 })
 
 var t = new Date();
