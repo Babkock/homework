@@ -9,7 +9,10 @@
 			font-size:14px;
 		}
 		#sale {
-			font-size:14px;
+			font-size:14;
+		}
+		#frogImage {
+			display:inline;
 		}
 		</style>
 	</head>
@@ -38,18 +41,18 @@
 				<input type="submit" name="button3" id="button3" value="Submit" />
 			</label>
 		</p>
-		<p>8. Use an eventhandler of your choice on this paragraph to make the paragraph background color yellow. </p>
-		<p>9. Use an onclick event to hide the Frog image shown below.</p>
+		<p id="yellowpara">8. Use an eventhandler of your choice on this paragraph to make the paragraph background color yellow. </p>
+		<p onclick="toggleFrog()">9. Use an onclick event to hide the Frog image shown below.</p>
 		<p>10. Use the following button to make the Frog image shown below reappear.</p>
 		<p>
 			<input type="submit" name="button4" id="button4" value="Submit" />
 		</p>
-		<p>11. Mouseover the Frong image to make its height and width double its original size. </p>
-		<p><img src="frog.jpg" width="100" height="100" /></p>
+		<p>11. Mouseover the Frog image to make its height and width double its original size. </p>
+		<p><img src="frog.jpg" id="frogImage" width="100" height="100" onclick="smallFrog()" onMouseOver="bigFrog()" /></p>
 		<p>12. Use a click event on the Frog image to make it return to original size. </p>
-		<p>13. Doubleclick on this paragraph to place a border around this paragraph.</p>
-		<p>14. Use an event handler of your choice to remove the border from the previous paragraph. </p>
-		<p>15. Mouseover this paragraph to turn its background color to green. When you mouseoff the paragraph return it to its normal color. </p>
+		<p id="borderpara">13. Doubleclick on this paragraph to place a border around this paragraph.</p>
+		<p id="removeborder">14. Use an event handler of your choice to remove the border from the previous paragraph. </p>
+		<p id="greenpara" onMouseOver="toggleGreen()" onMouseOut="toggleGreen()">15. Mouseover this paragraph to turn its background color to green. When you mouseoff the paragraph return it to its normal color. </p>
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
 		<center style="font-weight:1.12em">
