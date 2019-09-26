@@ -26,4 +26,5 @@ var t = new Date();
 
 var today = document.getElementById("today");
 today.innerHTML = longDays[t.getDay()] + ", " + longMonths[t.getMonth()] + " " + t.getDate() + ", " + (t.getYear() + 1899);
+document.getElementById("customer").innerHTML = customerName;
 
