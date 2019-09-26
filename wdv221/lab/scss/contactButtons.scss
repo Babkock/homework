@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Formatting for the Contact Form buttons */
+
+@mixin contactButtons()	{	
+		background-color:black;
+		color:white;
+		border:0;
+		border-radius:50px;
+		padding:3px;
+		width:75px;
+		margin-left:25px;
+}
+

@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* CSS Document */
+
+$primaryColor:lightblue;
+$secondaryColor:blue;
+$highlightColor:limegreen;
+
+
+#container	{
+	background-color:$primaryColor;	
+}
+
+
+header	{
+		margin-bottom:0;
+		
+	img	{
+		margin-top:20px;
+		margin-left:50px;
+		margin-bottom:20px;
+		margin-right:10px;
+		vertical-align:middle;
+	}
+
+}
+
+
+nav	{
+	background-color:$secondaryColor;
+	height:50px;
+	box-sizing:border-box;
+	padding-top:10px;
+	
+	h1	{
+		text-align:center;		
+		margin-top:0;
+		margin-bottom:0;	
+	}
+}
+
+/* Styles for the main content areas */
+
+/* Styles for the image gallery */
+p img	{
+	width:420px;
+	height:240px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.imageGallery  {
+	padding-left:20px;
+
+	img	{
+		width:130px;
+		height:120px;
+		background-color:transparent;
+		margin-left:10px;
+		margin-bottom:10px;
+	}
+}
+
+/* Styles for the right hand column */
+
+section h3	{
+	padding-left:15px;
+	padding-right:15px;
+}
+
+section section	{
+		padding-right:15px;	
+}
+
+/* Styles for the contact form */
+
+@import 'contactButtons';
+
+form	{
+	margin-top:20px;
+	padding-right:15px;
+	
+	p	{
+		margin-top:0px;	
+		margin-bottom:8px;
+	}
+	
+	h2	{
+		margin-top:5px;
+		margin-bottom:5px;
+		padding-left:10px;
+		text-align:left;	
+	}
+	
+	label	{
+		display:block;
+		text-align:right;
+		float:left;
+		width:25%;
+		line-height:2em;
+	}
+	
+	input[type=text],textarea	{
+		display:block;
+		width:70%;
+		text-align:left;
+		float:right;
+		line-height:2em;
+	}
+	
+	textarea	{
+		line-height:3em;	
+	}
+	
+	p:last-child	{
+		text-align:center;
+	}
+	
+	input[type=submit], input[type=reset]	{
+		@include contactButtons();	
+	}
+	
+}
+
+/* Styles for the Footer */
+
+footer	{
+	background-color:$secondaryColor;
+	line-height:50px;
+	padding-left:20px;
+
+	img	{
+		height:35px;
+		width:35px;
+		margin-top:7px;
+		margin-left:10px;
+		margin-right:10px;
+		float:right;
+	}
+}
