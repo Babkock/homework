@@ -3,14 +3,14 @@ var longDays = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday
 
 var customerName = "Please Sign In";
 
-function enlargeImage(inImage)	{
-	//alert("inside enlargeImage()" );
+function enlargeImage(inImage) {
 	document.getElementById(inImage).style.transform = "scale(2,2)";
+	document.getElementById(inImage).style.zIndex = "1000";
 }
 
 function originalSizeImage(inImage)	{
-	//alert("inside originalSizeImage()");	
-	document.getElementById(inImage).style.transform = "scale(1,1)";					
+	document.getElementById(inImage).style.transform = "scale(1,1)";
+	document.getElementById(inImage).style.zIndex = "1";
 }
 
 function signin() {
