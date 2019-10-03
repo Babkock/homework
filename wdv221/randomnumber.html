@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Random Number Generator</title>
+		<link rel="stylesheet" href="../assets/css/style.css" type="text/css" />
+		<script>
+		var theNumber = 0;
+
+		function getRandom() {
+			return Math.floor((Math.random() * 10) + 1);
+		}
+		
+		document.getElementById("the-button").addEventListener("click", function() {
+			theNumber = getRandom();
+			document.getElementById("the-number").innerHTML = "" + theNumber;
+		});
+		</script>
+	</head>
+	<body>
+		<center>
+			<h2>Random Number Generator</h2>
+			<button id="the-button">Generate Random Number</button>
+			<h1 id="the-number"></h1>
+		</center>
+		<footer style="text-align:center">
+			<p><a href="/homework/index">&rarr; Return to WDV221 Homework &larr;</a></p>
+		</footer>
+	</body>
+</html>
+
