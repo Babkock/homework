@@ -61,12 +61,12 @@ body {background-color:#C99;
     <input type="text" id="value2" />
   </p>
   <p>1.
-    <input type="submit" value="Display value1" onclick="display('value1', value1)" />
+    <input type="submit" value="Display value1" onclick="display('value1', value1); return false" />
     Display the value you entered for value1:
   <input type="text" id="display-value-1" />
   </p>
   <p>2.
-    <input type="submit" value="Display value2" onclick="display('value2', value2)" />
+    <input type="submit" value="Display value2" onclick="display('value2', value2); return false" />
     Dislplay the value you entered for value2:
   <input type="text" id="display-value-2" />
   </p>
