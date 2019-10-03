@@ -25,18 +25,15 @@ body {background-color:#C99;
 	var count = 0;
 	var value1 = 0, value2 = 0;
 
-	function display(id, num) {
+	function display(id) {
 		if (id == "value1") {
-			document.getElementById("display-value-1").value = "" + num;
+			value1 = parseInt(document.getElementById("value1").value);
+			document.getElementById("display-value-1").value = "" + value1;
 		}
 		if (id == "value2") {
-			document.getElementById("display-value-2").value = "" + num;
+			value2 = parseInt(document.getElementById("value2").value);
+			document.getElementById("display-value-2").value = "" + value2;
 		}
-	}
-
-	function init() {
-		document.getElementById("display-button-1").addEventListener("click", display("value1", value1));
-		document.getElementById("display-button-2").addEventListener("click", display("value2", value2));
 	}
 </script>
 
@@ -61,7 +58,7 @@ body {background-color:#C99;
     <input type="text" id="value2" />
   </p>
   <p>1.
-    <input type="submit" value="Display value1" onclick="display('value1', value1); return false" />
+    <input type="submit" value="Display value1" onclick="display('value1'); return false" />
     Display the value you entered for value1:
   <input type="text" id="display-value-1" />
   </p>
