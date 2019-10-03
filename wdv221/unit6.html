@@ -43,7 +43,7 @@ body {background-color:#C99;
 
 </head>
 
-<body onload="init()">
+<body>
 <h2>WDV221 Intro Javascript</h2>
 <h3>Project 3 - Operators and Textfields - Assignment</h3>
 <hr />
@@ -53,7 +53,7 @@ body {background-color:#C99;
 <hr />
 <h3>Instructions</h3>
 <p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button.  </p>
-<form name="form1" method="post" action="">
+<form name="form1" method="post">
   <p>Enter a number for value1:
     <input type="text" id="value1" />
   </p>
@@ -61,12 +61,12 @@ body {background-color:#C99;
     <input type="text" id="value2" />
   </p>
   <p>1.
-    <input type="submit" value="Display value1" id="display-button-1" />
+    <input type="submit" value="Display value1" onclick="display('value1', value1)" />
     Display the value you entered for value1:
   <input type="text" id="display-value-1" />
   </p>
   <p>2.
-    <input type="submit" value="Display value2" id="display-button-2" />
+    <input type="submit" value="Display value2" onclick="display('value2', value2)" />
     Dislplay the value you entered for value2:
   <input type="text" id="display-value-2" />
   </p>
