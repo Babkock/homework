@@ -11,13 +11,15 @@
 			return Math.floor((Math.random() * 10) + 1);
 		}
 		
-		document.getElementById("the-button").addEventListener("click", function() {
-			theNumber = getRandom();
-			document.getElementById("the-number").innerHTML = "" + theNumber;
-		});
+		function init() {
+			document.getElementById("the-button").addEventListener("click", function() {
+				theNumber = getRandom();
+				document.getElementById("the-number").innerHTML = "" + theNumber;
+			});
+		}
 		</script>
 	</head>
-	<body>
+	<body onload="init()">
 		<center>
 			<h2>Random Number Generator</h2>
 			<button id="the-button">Generate Random Number</button>
