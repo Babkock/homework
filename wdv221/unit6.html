@@ -22,17 +22,32 @@ body {background-color:#C99;
 
 
 <script>
-	var count = 0;
+	var count = 0, result = 0;
 	var value1 = 0, value2 = 0;
 
+	function increment() {
+		count++;
+	}
+
 	function display(id) {
-		if (id == "value1") {
+		if (id == "count") {
+			document.getElementById("display-count").value = "" + count;
+		}
+		else if (id == "value1") {
 			value1 = parseInt(document.getElementById("value1").value);
 			document.getElementById("display-value-1").value = "" + value1;
 		}
-		if (id == "value2") {
+		else if (id == "value2") {
 			value2 = parseInt(document.getElementById("value2").value);
 			document.getElementById("display-value-2").value = "" + value2;
+		}
+		else if (id == "1times2") {
+			result = value1 * value2;
+			document.getElementById("display-1times2").value = "" + result;
+		}
+		else if (id == "1plus2") {
+			result = value1 + value2;
+			document.getElementById("display-1plus2").value = "" + result;
 		}
 	}
 </script>
@@ -63,24 +78,24 @@ body {background-color:#C99;
   <input type="text" id="display-value-1" />
   </p>
   <p>2.
-    <input type="submit" value="Display value2" onclick="display('value2', value2); return false" />
+    <input type="submit" value="Display value2" onclick="display('value2'); return false" />
     Dislplay the value you entered for value2:
   <input type="text" id="display-value-2" />
   </p>
   <p>3.
-    <input type="submit" value="Multiply" />
+    <input type="submit" value="Multiply" onclick="display('1times2'); return false" />
     Display the value of value1 * value2:
-  <input type="text"/>
+  <input type="text" id="display-1times2" />
   </p>
   <p>4.
-    <input type="submit" value="Add" />
+    <input type="submit" value="Add" onclick="display('1plus2'); return false" />
     Display the results of value1 + value2 in the following textfield.
-  <input type="text"/>
+  <input type="text" id="display-1plus2" />
   </p>
   <p>5.
-    <input type="submit" value="Increment count" />
+    <input type="submit" value="Increment count" onclick="increment(); display('count'); return false" />
     Use the increment operator to add 1 to count and display the new value of count.
-  <input type="text"/>
+  <input type="text" id="display-count" />
   </p>
   <p>
     <input type="reset" name="Reset" id="button" value="Reset">
