@@ -16,7 +16,7 @@ page for this assignment. </p>
 <p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
 <p>Using Blackboard submit this  Assignment.</p>
 <hr>
-<form id="form1" name="form1" method="post" action="">
+<form id="form1" name="form1">
   <p>Name 1: 
     <input type="text" name="value1" id="value1" />
   </p>
@@ -24,10 +24,8 @@ page for this assignment. </p>
     <input type="text" name="value2" id="value2" />
   </p>
   <p>Result: <span id="result"></span> </p>
-  <p><input type="submit" value="Compare Names" onclick="compareNames(); return false"  /></p>
-  <p>
-    <input type="submit" name="Reset" id="button" value="Reset" onclick="reset(); return false" />
-  </p>
+  <p><button onclick="compareNames(); return false">Compare</button></p>
+  <p><button onclick="reset(); return false">Reset</button></p>
 </form>
 
 <h3>Instructions:</h3>
