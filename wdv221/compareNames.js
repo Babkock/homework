@@ -1,6 +1,5 @@
 /*
  * Tanner Babcock
- * Intro Javascript
  * October 13, 2019
  * Unit 7
 */
