@@ -1,17 +1,17 @@
 function compareNames() {
-	if (document.getElementsById("value1")[0].value == document.getElementsById("value2")[0].value) {
-		document.getElementsById("result")[0].innerHTML = "Same";
+	if (document.getElementById("value1").value == document.getElementById("value2").value) {
+		document.getElementById("result").innerHTML = "Same";
 	}
 	else {
-		document.getElementsById("result")[0].innerHTML = "Different";
+		document.getElementById("result").innerHTML = "Different";
 	}
 	return false;
 }
 
 function reset() {
-	document.getElementsById("value1")[0].value = "";
-	document.getElementsById("value2")[0].value = "";
-	document.getElementsById("result")[0].innerHTML = "";
+	document.getElementById("value1").value = "";
+	document.getElementById("value2").value = "";
+	document.getElementById("result").innerHTML = "";
 	return false;
 }
 
