@@ -5,10 +5,12 @@ function compareNames() {
 	else {
 		document.getElementsById("result")[0].innerHTML = "Different";
 	}
+	return false;
 }
 
 function reset() {
 	document.getElementsById("value1")[0].value = "";
 	document.getElementsById("value2")[0].value = "";
 	document.getElementsById("result")[0].innerHTML = "";
+	return false;
 }
