@@ -4,8 +4,8 @@
  * October 13, 2019
  * Unit 7
 */
-function compareNames() {
-	if (document.getElementById("value1").value == document.getElementById("value2").value) {
+function compareNumbers() {
+	if (parseInt(document.getElementById("value1").value) == parseInt(document.getElementById("value2").value)) {
 		document.getElementById("result").innerHTML = "Same";
 	}
 	else {
@@ -21,6 +21,6 @@ function reset() {
 	return false;
 }
 
-document.querySelector("#compare").addEventListener("click", compareNames);
+document.querySelector("#compare").addEventListener("click", compareNumbers);
 document.querySelector("#reset").addEventListener("click", reset);
 

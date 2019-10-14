@@ -1,3 +1,8 @@
+/*
+ * Tanner Babcock
+ * September 4, 2019
+ * Unit 4
+*/
 let longDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let longMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 

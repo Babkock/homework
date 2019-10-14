@@ -1,3 +1,8 @@
+/*
+ * Tanner Babcock
+ * September 25, 2019
+ * Unit 5
+*/
 function redPara() {
 	document.getElementById("redpara").style.color = "#ff0000";
 }
