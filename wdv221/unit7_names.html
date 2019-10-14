@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
@@ -18,16 +18,15 @@ page for this assignment. </p>
 <hr>
 <form id="form1" name="form1" method="post" action="">
   <p>Name 1: 
-    <input type="text" name="value1" id="value1">
+    <input type="text" name="value1" id="value1" />
   </p>
   <p>Name 2: 
-    <input type="text" name="value2" id="value2">
+    <input type="text" name="value2" id="value2" />
   </p>
-  <p>Result:  </p>
-  <p><input type="submit" value="Compare Names">
-  </p>
+  <p>Result: <span id="result"></span> </p>
+  <p><input type="submit" value="Compare Names" onclick="compareNames(); return false"  /></p>
   <p>
-    <input type="reset" name="Reset" id="button" value="Reset">
+    <input type="submit" name="Reset" id="button" value="Reset" onclick="reset(); return false" />
   </p>
 </form>
 
@@ -44,6 +43,6 @@ page for this assignment. </p>
 <footer style="text-align:center">
 	<p><a href="/homework/index">&rarr; Return to WDV221 Homework &larr;</a></p>
 </footer>
-
+	<script src="compareNames.js"></script>
 </body></html>
 
