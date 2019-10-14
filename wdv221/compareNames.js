@@ -14,3 +14,7 @@ function reset() {
 	document.getElementsById("result")[0].innerHTML = "";
 	return false;
 }
+
+document.querySelector("#compare").addEventListener("click", compareNames);
+document.querySelector("#reset").addEventListener("click", reset);
+
