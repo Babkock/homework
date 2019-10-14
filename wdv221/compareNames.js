@@ -4,7 +4,7 @@
  * Unit 7
 */
 function compareNames() {
-	if (document.getElementById("value1").value == document.getElementById("value2").value) {
+	if (document.getElementById("value1").value.toUpperCase() == document.getElementById("value2").value.toUpperCase()) {
 		document.getElementById("result").innerHTML = "Same";
 	}
 	else {
