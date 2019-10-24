@@ -2,6 +2,7 @@ function while04() {
 	var x = 0;
 	while (x < 5) {
 		document.write("<p>" + x + "</p>");
+		x++;
 	}
 }
 
