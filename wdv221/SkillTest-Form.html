@@ -71,6 +71,7 @@ function clear() {
 	document.querySelector("#itemName").value = "";
 	document.querySelector("#itemPrice").value = "";
 	document.querySelector("#itemQuantity").value = "";
+	document.querySelector("#salePrice").innerHTML = "";
 }
 
 function computeSales() {
@@ -79,7 +80,7 @@ function computeSales() {
 		total += item;
 	});
 	total = '$' + total.toFixed(2);
-	document.querySelector("#totalSales").innerHTML = "$" + total;
+	document.querySelector("#totalSales").innerHTML = total;
 }
 
 document.querySelector("#button").addEventListener("click", function() {
@@ -88,19 +89,20 @@ document.querySelector("#button").addEventListener("click", function() {
 	var quantity = parseInt(document.querySelector("#itemQuantity").value);
 
 	var totalPrice = (price * quantity);
-	document.querySelector("#salePrice").innerHTML = totalPrice.toFixed(2);
+	document.querySelector("#salePrice").innerHTML = "$" + totalPrice.toFixed(2);
 	sales.push(totalPrice);
 	computeSales();
 	
 	document.querySelector("#currentOrder").innerHTML += "<p>" + name + " " + "$" + totalPrice + "</p>";
 });
 
-document.querySelector("#button2").addEventListener("click", function() {
-	document.querySelector("#currentOrder").innerHTML = "";
-	clear();
-});
+document.querySelector("#button2").addEventListener("click", clear);
 
-document.querySelector("#button3").addEventListener("click", clear);
+document.querySelector("#button3").addEventListener("click", function() {
+	clear();
+	document.querySelector("#totalSales").innerHTML = "";
+	document.querySelector("#currentOrder").innerHTML = "";
+});
 
 </script>
 </body>
