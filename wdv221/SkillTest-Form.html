@@ -93,7 +93,7 @@ document.querySelector("#button").addEventListener("click", function() {
 	sales.push(totalPrice);
 	computeSales();
 	
-	document.querySelector("#currentOrder").innerHTML += "<p>" + name + " " + "$" + totalPrice + "</p>";
+	document.querySelector("#currentOrder").innerHTML += "<p>" + name + " " + "$" + totalPrice.toFixed(2) + "</p>";
 });
 
 document.querySelector("#button2").addEventListener("click", clear);
