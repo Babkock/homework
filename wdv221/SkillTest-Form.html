@@ -25,7 +25,7 @@
     </tr>
     <tr>
       <td>Sale Price:</td>
-      <td></td>
+      <td id="salePrice"></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -33,17 +33,19 @@
     </tr>
     <tr>
       <td>Total Sales: </td>
-      <td><p> </p></td>
+      <td><p id="totalSales"> </p></td>
     </tr>
   </table>
 </form>
   <p>
-    <input type="submit" name="button" id="button" value="Submit Order" />
-    <input type="reset" name="button2" id="button2" value="Reset" />
-    <input type="button" name="button3" id="button3" value="Clear Order" />
+	<button id="button">Submit Order</button>
+	<button id="button2">Reset</button>
+	<button id="button3">Clear Order</button>
   </p>
 <p>Your Order So Far:</p>
-<p>&nbsp;</p>
+<p id="currentOrder">
+
+</p>
 <p><em>An example display:</em></p>
 <p><em>Pens	$3.25</em></p>
 <p><em>Pens	$9.90</em></p>
@@ -61,6 +63,45 @@
   <li>The Clear Order button should clear the form fields, the Sale Price, reset the Total Sales to zero and clear the Order area.</li>
 </ul>
 <p>&nbsp;</p>
+<script>
+
+var sales = [];
+
+function clear() {
+	document.querySelector("#itemName").value = "";
+	document.querySelector("#itemPrice").value = "";
+	document.querySelector("#itemQuantity").value = "";
+}
+
+function computeSales() {
+	var total = 0.0;
+	sales.forEach(function (item, index) {
+		total += item;
+	});
+	document.querySelector("#totalSales").innerHTML = "$" + total;
+}
+
+document.querySelector("#button").addEventListener("click", function() {
+	var name = document.querySelector("#itemName").value;
+	var price = parseFloat(document.querySelector("#itemPrice").value);
+	var quantity = parseInt(document.querySelector("#itemQuantity"));
+
+	var totalPrice = (price * quantity);
+	document.querySelector("#salePrice").innerHTML = totalPrice;
+	sales.push(totalPrice);
+	computeSales();
+	
+	document.querySelector("#currentOrder").innerHTML += name + " " + "$" + totalPrice + "<br />";
+});
+
+document.querySelector("#button2").addEventListener("click", function() {
+	document.querySelector("#currentOrder").innerHTML = "";
+	clear();
+});
+
+document.querySelector("#button3").addEventListener("click", clear);
+
+</script>
 </body>
 </html>
 
