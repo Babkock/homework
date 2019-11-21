@@ -78,6 +78,7 @@ function computeSales() {
 	sales.forEach(function (item, index) {
 		total += item;
 	});
+	total = '$' + total.toFixed(2);
 	document.querySelector("#totalSales").innerHTML = "$" + total;
 }
 
@@ -87,7 +88,7 @@ document.querySelector("#button").addEventListener("click", function() {
 	var quantity = parseInt(document.querySelector("#itemQuantity").value);
 
 	var totalPrice = (price * quantity);
-	document.querySelector("#salePrice").innerHTML = totalPrice;
+	document.querySelector("#salePrice").innerHTML = totalPrice.toFixed(2);
 	sales.push(totalPrice);
 	computeSales();
 	
