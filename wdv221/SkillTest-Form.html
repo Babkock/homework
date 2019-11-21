@@ -84,14 +84,14 @@ function computeSales() {
 document.querySelector("#button").addEventListener("click", function() {
 	var name = document.querySelector("#itemName").value;
 	var price = parseFloat(document.querySelector("#itemPrice").value);
-	var quantity = parseInt(document.querySelector("#itemQuantity"));
+	var quantity = parseInt(document.querySelector("#itemQuantity").value);
 
 	var totalPrice = (price * quantity);
 	document.querySelector("#salePrice").innerHTML = totalPrice;
 	sales.push(totalPrice);
 	computeSales();
 	
-	document.querySelector("#currentOrder").innerHTML += name + " " + "$" + totalPrice + "<br />";
+	document.querySelector("#currentOrder").innerHTML += "<p>" + name + " " + "$" + totalPrice + "</p>";
 });
 
 document.querySelector("#button2").addEventListener("click", function() {
