@@ -73,10 +73,10 @@ December 4, 2019
         </ol> 
         <p>
           Choose your font:
-		  <select name="font" onchange="changeFont(this.selectedIndex.value)">
+		  <select name="font">
 			<script>
 				for (i = 0; i < fonts.length; i++) {
-					document.write("<option name=\"font\" value=\"" + fonts[i] + "\">" + fonts[i] + "</option>\n");
+					document.write("<option name=\"font\" value=\"" + fonts[i] + "\" onclick=\"changeFont('" + fonts[i] + "')\">" + fonts[i] + "</option>\n");
 				}
 			</script>
 		  </select>
