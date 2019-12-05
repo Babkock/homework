@@ -35,6 +35,7 @@
 	{
 		document.getElementById("highLowForm").reset();
 		document.getElementById("highLowResult").innerHTML = "";
+		guesses = 0;
 		return false;
 	}
 
@@ -60,11 +61,10 @@
       <p>
 		<button id="makeGuess">Make a Guess</button>
 		<button id="resetHighLowGame">Reset</button>
-        <input type="button" name="resetHighLowGame" id="resetHighLowGame" value="Reset">
       </p>
 	  <script>
-			document.getElementById("makeGuess").addEventListener("click",highLowGame);	//assign click event to form button	
-			document.getElementById("resetHighLowGame").addEventListener("click",resetHighLowGame);	
+			document.getElementById("makeGuess").addEventListener("click", highLowGame);
+			document.getElementById("resetHighLowGame").addEventListener("click", resetHighLowGame);	
       </script>
 
 <h3>Instructions:</h3>
