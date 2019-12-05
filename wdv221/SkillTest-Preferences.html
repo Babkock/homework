@@ -22,6 +22,8 @@ December 4, 2019
 </style>
 <script>
 
+	fonts = [ "Arial", "Courier New", "Times" ];
+	
 	function changeColor(inColor) {
 		document.querySelector("body").style.backgroundColor = inColor;	
 	}
@@ -72,10 +74,12 @@ December 4, 2019
         </ol> 
         <p>
           Choose your font:
-		  <select name="font" onChange="changeFont(this.selectedIndex.value)">
-			 <option name="font" value="Arial">Arial</option>
-			 <option name="font" value="Courier New">Courier New</option>
-			 <option name="font" value="Times">Times</option>
+		  <select name="font" onchange="changeFont(this.selectedIndex.value)">
+			<script>
+				for (i = 0; i < fonts.length; i++) {
+					document.write("<option name=\"font\" value=\"" + fonts[i] + "\">" + fonts[i] + "</option>\n");
+				}
+			</script>
 		  </select>
         </p>
     </section>
