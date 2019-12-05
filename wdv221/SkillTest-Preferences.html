@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript - Skill Test Preferences</title>
+<!--
+Tanner Babcock
+Skill Test: Preferences
+December 4, 2019
+-->
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+<style>
+
+	#container {
+		width:1028px;
+		margin:auto;
+	}
+	
+	ul	{
+		list-style:none;	
+	}
+</style>
+<script>
+
+	function changeColor(inColor) {
+		document.querySelector("body").style.backgroundColor = inColor;	
+	}
+
+	function changeFont(inFont) {
+		document.querySelector("body").style.fontFamily = inFont;
+	}
+
+</script>
+</head>
+<body>
+<div id="container">
+
+	<header>
+   		<h1>WDV221 Intro Javascript</h1>
+    	<h2>Skill Test - Setting Preferences</h2>
+    </header>
+
+    <section>
+    	<h3>Instructions: Change background colors:</h3>
+        <ol>
+          <li>Modify the page as needed to change the background color when a different color is selected.</li>
+          <li>Use the changeColor( ) function to change the background color when a button is selected.</li>
+        </ol>
+    
+        <ul>Choose your background color:
+            <li>
+                <input type="radio" id="choiceRed" onclick="changeColor('red')" />
+                <label for="choiceRed">Red</label>
+            </li>
+            <li>
+				<input type="radio" id="choiceGreen" onclick="changeColor('green')">
+                <label for="choiceGreen">Green </label>
+            </li>
+            <li>
+                <input type="radio" id="choiceBlue" onclick="changeColor('blue')">
+                <label for="choiceBlue">Blue</label>
+            </li>
+        </ul>
+ 	<section>
+
+	<section>
+    	<h3>Instructions: Change font selection:</h3>    
+        <ol>
+          <li>Create an array called pageFonts that contains at least three fonts.</li>
+          <li>Use javascript to populate a drop down list of available fonts.</li>
+          <li>Create a function that will allow the user to select the font of their choice. Once selected, all text on the page will change to the selected font.    </li>
+        </ol> 
+        <p>
+          Choose your font:
+		  <select name="font" onChange="changeFont(this.selectedIndex.value)">
+			 <option name="font" value="Arial">Arial</option>
+			 <option name="font" value="Courier New">Courier New</option>
+			 <option name="font" value="Times">Times</option>
+		  </select>
+        </p>
+    </section>
+
+</div>
+<footer style="text-align:center">
+	<a href="/homework/index">&rarr; Return to WDV221 Homework &larr;</a>
+</footer>
+<script>
+
+</script>
+</body>
+</html>
