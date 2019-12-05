@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <title>WDV221 Intro Javascript</title>
 <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
+<!--
+Tanner Babcock
+Skill Test: Loops and Arrays
+December 4, 2019
+-->
 <script>
 
 	var products = ["Garden Trowel","Yard Spade","Planting Spade"];
@@ -43,7 +47,7 @@
   	3. How did your hear about us? Please select all that apply:<br>
 		<script>
 			for (i = 0; i < references.length; i++) {
-				document.write("<input type=\"checkbox\" name=\"references\" value=\"" + references[i] + "\"> " + references[i] + "<br>");
+				document.write("<input type=\"checkbox\" name=\"references\" value=\"" + references[i] + "\"> <label>" + references[i] + "</label><br>");
 			}
 		</script>
 		<button id="submitForm">Submit</button>
