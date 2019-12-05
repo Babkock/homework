@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript</title>
+
+<script>
+	numberToGuess = Math.floor(Math.random() * 10) + 1;
+	guesses = 0;
+
+	function highLowGame()
+	{
+		var inValue = parseInt( document.getElementById("inputGuess").value );	//get value from the form
+		
+		if (inValue == numberToGuess)
+		{
+			document.getElementById("highLowResult").innerHTML = "Congratulations!  That is the number.";
+			document.getElementById("highLowForm").style.backgroundColor = "skyblue";
+			document.getElementById("highLowForm").style.color = "black";
+			guesses = 0;
+		}
+		else
+		{
+			guesses++;
+			document.getElementById("highLowResult").innerHTML = "" + guesses + " Wrong Guess(es)";
+			if (guesses >= 4) {
+				document.getElementById("highLowForm").style.backgroundColor = "red";
+				document.getElementById("highLowForm").style.color = "white";
+			}
+		}
+		return false;
+	}
+
+	function resetHighLowGame()
+	{
+		document.getElementById("highLowForm").reset();
+		document.getElementById("highLowResult").innerHTML = "";
+		return false;
+	}
+
+
+</script>
+</head>
+<body>
+<h1>WDV221 Intro Javascript</h1>
+
+    <h2>Skill Test - Finish High-Low Game</h2>
+
+    <form name="highLowForm" id="highLowForm" method="post" action="">
+    <fieldset>
+    	<legend>High Low Game</legend>
+    	<p>
+        	<label>Input a number from 1-10
+          		<input type="text" name="inputGuess" id="inputGuess">
+        	</label>
+       </p>
+      <p>Result! <span id="highLowResult"></span></p>
+	</fieldset>
+	</form>
+      <p>
+		<button id="makeGuess">Make a Guess</button>
+		<button id="resetHighLowGame">Reset</button>
+        <input type="button" name="resetHighLowGame" id="resetHighLowGame" value="Reset">
+      </p>
+	  <script>
+			document.getElementById("makeGuess").addEventListener("click",highLowGame);	//assign click event to form button	
+			document.getElementById("resetHighLowGame").addEventListener("click",resetHighLowGame);	
+      </script>
+
+<h3>Instructions:</h3>
+<p>1. Complete the highLowGame function to play the game. </p>
+<p>2. Change the function to include a guess counter. Display the number of guesses each time.</p>
+<p>3. Change the background color of the Result area to light blue for a correct answer. </p>
+<p>4. If the users takes more than 4 guesses change the background of the guess counter display to light red.</p>
+<p>5. Change the reset function to reset the presentation changes.</p>
+<p>&nbsp;</p>
+    
+<footer style="text-align:center">
+	<a href="/homework/index">&rarr; Return to WDV221 Homework &larr;</a>
+</footer>
+</body>
+</html>
