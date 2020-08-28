@@ -148,7 +148,7 @@
         
         <p>
         	<label for="topNumber">Choose: </label>
-            <select id="topNumber" onChange="getTargetNumber()">
+            <select id="topNumber" onChange="getTargetNumber(this)">
             	<option>Choose a number</option>
             </select>
       	</p>
@@ -185,7 +185,7 @@
 	<script>
 	for (var v in numberRanges) {
 		var option = document.createElement("option");
-		option.value = "" + v;
+		option.value = " " + v;
 		document.querySelector("select#topNumber").appendChild(option);
 	}
 	</script>
