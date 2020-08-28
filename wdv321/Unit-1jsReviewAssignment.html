@@ -77,9 +77,9 @@
 		//2. Use the numberRanges array to populate the topNumber dropdown list
 		
 	
-		function getTargetNumber() {
+		function getTargetNumber(event) {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
-			let choice = parseInt(document.querySelector("select#topNumber option[selected]").value);
+			var choice = this.value;
 			alert("Choice is " + choice);
 			randomNumber(choice);
 
