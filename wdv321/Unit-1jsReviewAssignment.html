@@ -75,11 +75,7 @@
 		//1. Create an array called numberRanges for the following numbers 5,10,20
 		
 		//2. Use the numberRanges array to populate the topNumber dropdown list
-		for (const v of numberRanges) {
-			var option = document.createElement("option");
-			option.value = v;
-			document.getElementById("topNumber").appendChild(option);
-		}
+		
 	
 		function getTargetNumber() {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
@@ -185,6 +181,14 @@
     
 	<div class="clearFloat"></div>
     
+	<script>
+	for (var v of numberRanges) {
+		var option = document.createElement("option");
+		option.value = v;
+		document.querySelector("select#topNumber").appendChild(option);
+	}
+	</script>
+
 	<footer>
 			<center><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></center>
         	<p>Copyright &copy;2019 jhgullion.com. All rights reserved.
