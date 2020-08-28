@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DMACC WDV221 Intro Javascript</title>
+
+	<style>
+
+	
+		body {
+			height:100%;
+			background-repeat:no-repeat;
+			background-image: linear-gradient(lightblue,white);
+		}
+		
+		header h1, header h2, header h3 {
+			text-align:center;	
+		}
+	
+		#container	{
+			width:70%;
+			background-color:#80FFFF;
+			margin:auto;
+		}
+		
+		form	{
+			background-color:lightgray;
+			width:80%;
+			margin:auto;
+			padding-left:5px;	
+		}
+		
+		.navbar	{
+			display:flex;
+			justify-content:space-between;
+			align-items:center;	
+		}
+		 .navbar ul	{
+			list-style:none; 
+			margin-right:20px;
+		 }	
+		
+		.navbar-links	{
+			display:flex;
+			justify-content:space-between;
+			width:300px;	
+		}
+		
+		section {
+			box-sizing:border-box;	
+		}		
+		
+		.floatLeft	{
+			float:left;	
+			width:50%;
+			padding-right:20px;
+		}
+		
+		.clearFloat	{
+			clear:both;	
+		}
+		
+		footer p	{
+			text-align:center;	
+		}
+
+	</style>
+    
+    <script>
+	
+		let targetNumber=0;	//this global variable will store the target number to be guessed in the Hi-Low Game
+		
+		let numberRanges = [ 5, 10, 20 ];
+
+		//1. Create an array called numberRanges for the following numbers 5,10,20
+		
+		//2. Use the numberRanges array to populate the topNumber dropdown list
+		let dropdown = document.querySelector("#topNumber");
+		for (const v of numberRanges) {
+			var option = document.createElement("option");
+			option.value = v;
+			dropdown.appendChild(option);
+		}
+	
+		function getTargetNumber() {
+			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
+			console.log(this);
+			
+			//4. Call the randomNumber function and pass it the chosen number as a parameter. Capture the retun value in targetNumber	
+		}//end getTargetNumber()
+	
+	
+		function hiLowGame()	{
+			//alert("inside redGreenGame()");	
+			
+			let inNumb = document.querySelector("#inputNumber").value;
+			
+			if( inNumb = targetNumber )		//5. There is a problem with the if statement
+			{
+				//6. display CORRECT!!!	
+			}
+			else
+			{
+				if( inNumb < targetNumber)
+				{
+					//7. display HIGHER!	
+				}
+				else
+				{
+					//8. display LOWER	
+				}
+			}
+			
+		}//end hiLowGame()
+		
+		function randomNumber(inTopNum) {
+			return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
+		}
+	
+	
+	</script>
+
+</head>
+
+<body>
+
+	<header>
+    	<h1>WDV321 Intro Javascript</h1>
+        <h2>UNIT-1 Introduction to Javascript</h2> 
+        <h3>Assignment: Javascript Review </h3>   
+	</header>
+
+
+	<div id="container">
+    
+
+	<nav class="navbar">
+        <a href="https://wwwd.dmacc.edu">DMACC</a>
+        <ul class="navbar-links">
+          <li class="navbar-item"><a href="#">Schedules</a></li>
+          <li class="navbar-item"><a href="#">Registration</a></li>
+          <li class="navbar-item"><a href="#">Programs</a></li>
+          <li class="navbar-item"><a href="#">Sign in</a></li>
+        </ul>
+    </nav>
+        
+	<section class="floatLeft">
+    
+		<h3>Setting up the "Hi-Lo" game.</h3>
+        <p>Please select the top number for your game. A random number from 1 to the number you selected will be used for your game.</p>
+        
+        <p>
+        	<label for="topNumber">Choose: </label>
+            <select id="topNumber" onChange="getTargetNumber()">
+            	<option value="">Choose a number</option>
+                <option>test</option>
+            </select>
+      	</p>
+        
+                
+	</section>
+    
+    <section class="floatLeft">
+    
+        <h3>Playing the &quot;Hi-Lo&quot; game.</h3>
+		<p>Use the following form to play the game.</p> 
+        
+        <form>
+        
+        	<p>
+        	<label for="inputNumber">Your guess: </label>
+            <input id="inputNumber" name="inputNumber">
+        	<p>
+            
+            <p>
+            <input type="button" value="Guess?" onClick="hiLowGame()">
+            <input type="reset">
+            <span id="outResults"></span> <!-- results go here -->
+            </p>
+
+        </form>
+
+		<p>Some script is already provided for you. Your assignment is to finish the game. You are welcome to add or modify as needed to complete the assignment. </p>
+        
+	</section>
+    
+	<div class="clearFloat"></div>
+    
+	<footer>
+			<center><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></center>
+        	<p>Copyright &copy;2019 jhgullion.com. All rights reserved.
+	</footer>
+    
+    
+    
+    
+    </div>
+
+</body>
+</html>
