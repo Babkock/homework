@@ -79,8 +79,10 @@
 	
 		function getTargetNumber() {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
-			console.log(this);
-			
+			let choice = parseInt(document.querySelector("select#topNumber option[selected]").value);
+			alert("Choice is " + choice);
+			randomNumber(choice);
+
 			//4. Call the randomNumber function and pass it the chosen number as a parameter. Capture the retun value in targetNumber	
 		}//end getTargetNumber()
 	
@@ -147,8 +149,7 @@
         <p>
         	<label for="topNumber">Choose: </label>
             <select id="topNumber" onChange="getTargetNumber()">
-            	<option value="">Choose a number</option>
-                <option>test</option>
+            	<option>Choose a number</option>
             </select>
       	</p>
         
@@ -182,9 +183,9 @@
 	<div class="clearFloat"></div>
     
 	<script>
-	for (var v of numberRanges) {
+	for (var v in numberRanges) {
 		var option = document.createElement("option");
-		option.value = v;
+		option.value = "" + v;
 		document.querySelector("select#topNumber").appendChild(option);
 	}
 	</script>
