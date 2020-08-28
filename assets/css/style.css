@@ -50,7 +50,7 @@ ul, li { list-style-type: none; }
 
 html { background-color: #000; }
 
-body { width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; }
+body { width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; overflow-x: hidden; }
 
 a, a:link, a:active { color: #229e9e; text-decoration: none; }
 

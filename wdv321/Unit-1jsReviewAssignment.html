@@ -1,8 +1,8 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>DMACC WDV221 Intro Javascript</title>
+<title>WDV321 Unit 1 Tanner Babcock</title>
 
 	<style>
 
@@ -80,31 +80,24 @@
 		function getTargetNumber(event) {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
 			
-			alert(event);
-//			randomNumber(choice);
+			alert(event.value);
+			targetNumber = randomNumber(event.value);
 
-			//4. Call the randomNumber function and pass it the chosen number as a parameter. Capture the retun value in targetNumber	
 		}//end getTargetNumber()
 	
 	
-		function hiLowGame()	{
-			//alert("inside redGreenGame()");	
-			
+		function hiLowGame()	{			
 			let inNumb = document.querySelector("#inputNumber").value;
 			
-			if( inNumb = targetNumber )		//5. There is a problem with the if statement
-			{
-				//6. display CORRECT!!!	
+			if (inNumb == targetNumber) {
+				document.getElementById("outResults").innerHTML = "<b>You win!</b> You guessed correct!";
 			}
-			else
-			{
-				if( inNumb < targetNumber)
-				{
-					//7. display HIGHER!	
+			else {
+				if (inNumb < targetNumber) {
+					document.getElementById("outResults").innerHTML = "The correct number is <b>higher</b> than that";
 				}
-				else
-				{
-					//8. display LOWER	
+				else {
+					document.getElementById("outResults").innerHTML = "The correct number is <b>lower</b> than that";
 				}
 			}
 			
@@ -114,6 +107,10 @@
 			return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
 		}
 	
+		function reset() {
+			targetNumber = 0;
+			document.getElementById("outResults").innerHTML = "";
+		}
 	
 	</script>
 
@@ -170,7 +167,7 @@
             
             <p>
             <input type="button" value="Guess?" onClick="hiLowGame()">
-            <input type="reset">
+            <input type="reset" onClick="reset()">
             <span id="outResults"></span> <!-- results go here -->
             </p>
 
@@ -183,9 +180,10 @@
 	<div class="clearFloat"></div>
     
 	<script>
-	for (var v in numberRanges) {
+	for (var i = 0; i < numberRanges.length; i++) {
 		var option = document.createElement("option");
-		option.value = " " + v;
+		option.value = "" + numberRanges[i];
+		option.innerHTML = " " + numberRanges[i];
 		document.querySelector("select#topNumber").appendChild(option);
 	}
 	</script>
