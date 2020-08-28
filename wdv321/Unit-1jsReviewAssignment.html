@@ -79,9 +79,9 @@
 	
 		function getTargetNumber(event) {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
-			var choice = this.value;
-			alert("Choice is " + choice);
-			randomNumber(choice);
+			
+			alert(event);
+//			randomNumber(choice);
 
 			//4. Call the randomNumber function and pass it the chosen number as a parameter. Capture the retun value in targetNumber	
 		}//end getTargetNumber()
