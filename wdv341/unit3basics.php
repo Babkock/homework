@@ -6,7 +6,7 @@
 -->
 <html lang="en">
 <head>
-	<title>WDV341 Unit 3-1 PHP Basics</title>
+	<title>Unit 3: PHP Basics</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
@@ -35,5 +35,6 @@
 		echo "}\n";
 		?>
 	</script>
+	<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a>
 </body>
 </html>
