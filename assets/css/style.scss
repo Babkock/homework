@@ -48,38 +48,40 @@ span.cc {
 		transition:display 0.9s ease 0s;
 	}
 }
-h4 a {
-	color:#c4a2a2;
-	border:1px solid skyblue;
-	border-radius:7px 7px 7px 7px;
-	font-size:1.7em;
-	padding:6px;
-	background:none;
-	animation-delay:0.4s;
-	-webkit-animation-delay:0.4s;
-	animation-name:classlink;
-	-webkit-animation-name:classlink;
-	animation-duration:5s;
-	-webkit-animation-duration:5s;
-	animation-iteration-count:infinite;
-	-webkit-animation-iteration-count:infinite;
-	transition:background, background-color, color, border 0.4s ease 0s;
-}
-h4 a:hover {
-	color:#d9b3b3;
-	border:1px solid lime;
-	border-radius:7px 7px 7px 7px;
-	font-size:1.7em;
-	padding:6px;
-	animation-delay:0.4s;
-	-webkit-animation-delay:0.4s;
-	animation-name:classlink;
-	-webkit-animation-name:classlink;
-	animation-duration:5s;
-	-webkit-animation-duration:5s;
-	animation-iteration-count:infinite;
-	-webkit-animation-iteration-count:infinite;
-	background-color:darkgreen;
+h4 {
+	a {
+		color:#c4a2a2;
+		border:1px solid skyblue;
+		border-radius:7px 7px 7px 7px;
+		font-size:1.7em;
+		padding:6px;
+		background:none;
+		animation-delay:0.4s;
+		-webkit-animation-delay:0.4s;
+		animation-name:classlink;
+		-webkit-animation-name:classlink;
+		animation-duration:5s;
+		-webkit-animation-duration:5s;
+		animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		transition:background, background-color, color, border 0.4s ease 0s;
+	}
+	a:hover {
+		color:#d9b3b3;
+		border:1px solid lime;
+		border-radius:7px 7px 7px 7px;
+		font-size:1.7em;
+		padding:6px;
+		animation-delay:0.4s;
+		-webkit-animation-delay:0.4s;
+		animation-name:classlink;
+		-webkit-animation-name:classlink;
+		animation-duration:5s;
+		-webkit-animation-duration:5s;
+		animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		background-color:darkgreen;
+	}
 }
 
 ul, li {
