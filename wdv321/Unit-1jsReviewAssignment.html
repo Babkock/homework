@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+	Unit 1: Review Assignment
+	Tanner Babcock
+	August 27, 2020
+-->
 <head>
 <meta charset="utf-8">
 <title>WDV321 Unit 1 Tanner Babcock</title>
@@ -79,12 +84,8 @@
 	
 		function getTargetNumber(event) {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
-			
-			alert(event.value);
 			targetNumber = randomNumber(event.value);
-
-		}//end getTargetNumber()
-	
+		}
 	
 		function hiLowGame()	{			
 			let inNumb = document.querySelector("#inputNumber").value;
@@ -100,8 +101,7 @@
 					document.getElementById("outResults").innerHTML = "The correct number is <b>lower</b> than that";
 				}
 			}
-			
-		}//end hiLowGame()
+		}
 		
 		function randomNumber(inTopNum) {
 			return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
@@ -120,8 +120,7 @@
 
 	<header>
     	<h1>WDV321 Intro Javascript</h1>
-        <h2>UNIT-1 Introduction to Javascript</h2> 
-        <h3>Assignment: Javascript Review </h3>   
+        <h2>UNIT-2 Hi-Lo Game jQuery</h2> 
 	</header>
 
 

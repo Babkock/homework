@@ -80,45 +80,6 @@
 		//1. Create an array called numberRanges for the following numbers 5,10,20
 		
 		//2. Use the numberRanges array to populate the topNumber dropdown list
-		
-		$("select#topNumber").on('change', function() {
-			targetNumber = randomNumber($(this).value);
-			$("#target").html("" + targetNumber);
-		});
-	
-		function getTargetNumber(event) {
-			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
-			
-			targetNumber = randomNumber(event.value);
-			$("#target").html("" + targetNumber);
-		}//end getTargetNumber()
-	
-		$("#guess").click(function() {
-			let inNumb = $("#inputNumber").value;
-			
-			if (inNumb == targetNumber) {
-				$("#outResults").html("<b>You win!</b> You guessed correct!");
-			}
-			else {
-				if (inNumb < targetNumber) {
-					$("#outResults").html("The correct number is <b>higher</b> than that.");
-				}
-				else {
-					$("#outResults").html("The correct number is <b>lower</b> than that.");
-				}
-			}
-		});
-		
-		function randomNumber(inTopNum) {
-			return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
-		}
-	
-		$("#reset").click(function() {
-			targetNumber = 0;
-			$("#target").html("");
-			$("#outResults").html("");
-		});
-	
 	</script>
 
 </head>
@@ -164,7 +125,7 @@
     
         <h3>Playing the &quot;Hi-Lo&quot; game.</h3>
 		<p>Use the following form to play the game.</p> 
-		<center><b id="target"></b></center>
+		<center><b id="target" style="display:none"></b></center>
         
         <form>
         
@@ -176,6 +137,7 @@
             <p>
             <input type="button" value="Guess?" id="guess" />
             <input type="reset" id="reset" />
+            <input type="button" value="Show Me the Number" id="showme" /><br />
             <span id="outResults"></span> <!-- results go here -->
             </p>
 
@@ -188,6 +150,41 @@
 	<div class="clearFloat"></div>
     
 	<script>
+	function randomNumber(inTopNum) {
+		return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
+	}
+	
+	$("#topNumber").on('change', function() {
+		targetNumber = randomNumber(parseInt($("#topNumber option:selected").val()));
+		$("#target").html("" + targetNumber);
+	});
+	
+	$("#guess").click(function() {
+		let inNumb = $("#inputNumber").val();
+		
+		if (inNumb == targetNumber) {
+			$("#outResults").html("<b>You win!</b> You guessed correct!");
+		}
+		else {
+			if (inNumb < targetNumber) {
+				$("#outResults").html("The correct number is <b>higher</b> than that.");
+			}
+			else {
+				$("#outResults").html("The correct number is <b>lower</b> than that.");
+			}
+		}
+	});
+	
+	$("#showme").click(function() {
+		$("#target").css("display", "inline");
+	});
+
+	$("#reset").click(function() {
+		targetNumber = 0;
+		$("#target").html("");
+		$("#outResults").html("");
+	});
+	
 	for (var i = 0; i < numberRanges.length; i++) {
 		var option = document.createElement("option");
 		option.value = "" + numberRanges[i];
