@@ -81,6 +81,10 @@
 		
 		//2. Use the numberRanges array to populate the topNumber dropdown list
 		
+		$("select#topNumber").on('change', function() {
+			targetNumber = randomNumber($(this).value);
+			$("#target").html("" + targetNumber);
+		});
 	
 		function getTargetNumber(event) {
 			//3. The onChange event handler fires it will call this function. Get the selected value from the list using document.querySelector()
@@ -111,6 +115,7 @@
 	
 		$("#reset").click(function() {
 			targetNumber = 0;
+			$("#target").html("");
 			$("#outResults").html("");
 		});
 	
@@ -147,7 +152,7 @@
         
         <p>
         	<label for="topNumber">Choose: </label>
-            <select id="topNumber" onChange="getTargetNumber(this)">
+            <select id="topNumber">
             	<option>Choose a number</option>
             </select>
       	</p>
@@ -187,7 +192,7 @@
 		var option = document.createElement("option");
 		option.value = "" + numberRanges[i];
 		option.innerHTML = " " + numberRanges[i];
-		$("select#topNumber").appendChild(option);
+		$("select#topNumber").append(option);
 	}
 	var d = new Date();
 	var year = d.getFullYear();
@@ -197,8 +202,6 @@
 			<center><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></center>
         	<p>Copyright &copy;<script>document.write("" + year);</script> jhgullion.com. All rights reserved.
 	</footer>
-    
-    
     
     
     </div>
