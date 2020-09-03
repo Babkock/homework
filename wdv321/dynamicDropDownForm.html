@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV321 Advanced Javascript Dynamic Form Example</title>
+
+<script>
+
+var productsArray = new Array("Pen","Paper","Pencil");
+
+var colorsArray = new Array("Red","Yellow","Green");
+
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>WDV321 Advanced Javascript</h1>
+<h3>Dynamic Form Example</h3>
+<p>
+  Add Products
+  <input type="radio" name="radio" id="addProducts" value="addProducts" />
+</p>
+<p>Add Colors 
+  <input type="radio" name="radio" id="addColors" value="addColors" />
+</p>
+<p>Result Drop Down Box</p>
+<p>
+  <select name="displayItems" id="displayItems">
+  <script>
+	for(i=0; i<productsArray.length; i++)
+	{
+	document.write("<option>" + productsArray[i] + "</option>" );
+	}  
+  </script>
+  </select>
+</p>
+
+
+
+
+
+
+<p>&nbsp;</p>
+<p>Example Drop Down Lists</p>
+
+<p>
+  <select name="example2" id="exampleProducts">
+    <option value="bright red">Red</option>
+    <option value="gold">Yellow</option>
+    <option value="sea green">Green</option>
+  </select>
+</p>
+<p>
+  <select name="example1" id="exampleColors">
+    <option value="Bic Roller">Pen</option>
+    <option value="500ct 90">Paper</option>
+    <option value="No. 2 Lead">Pencil</option>
+  </select>
+</p>
+</body>
+</html>
