@@ -3,7 +3,7 @@
 <!--
     Unit 3: Dynamic Structure Form
     Tanner Babcock
-    September 4, 2020
+    September 3, 2020
 -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,32 +35,37 @@
 <form action="" id="dynamic">
 </form>
 <script>
-$("#contactType").on('change', function() {
-    var choice = $("#contactType option:selected").val();
-    if (choice == 'C') {
-        $("#dynamic").empty();
-        $("#dynamic").append("<select name=\"complaints\" id=\"complaints\">");
-        $("#dynamic select").append("<option value=\"c1\">Poor Customer Service</option>");
-        $("#dynamic select").append("<option value=\"c2\">Roach Infestation at Front Desk</option>");
-        $("#dynamic select").append("<option value=\"c3\">Employee Misconduct</option>");
-        $("#dynamic select").append("<option value=\"c4\">Food Truck in the Parking Lot is Double Parked</option>");
-    }
-    else if (choice == 'T') {
-        $("#dynamic").empty();
-        $("#dynamic").append("<p><input type=\"checkbox\" name=\"t1\" value=\"kernel\" /> <label for=\"t1\">Kernel Panics Every Time :(</label></p>");
-        $("#dynamic").append("<p><input type=\"checkbox\" name=\"t2\" value=\"data\" /> <label for=\"t2\">Data is Frequently Corrupted</label></p>");
-        $("#dynamic").append("<p><input type=\"checkbox\" name=\"t3\" value=\"sparks\" /> <label for=\"t3\">Sparks When I Open the CD Tray</label></p>");
-        $("#dynamic").append("<p><input type=\"checkbox\" name=\"t4\" value=\"loud\" /> <label for=\"t4\">Loud Screeching Sound When I Open Firefox</label></p>");
-    }
-    else if (choice == 'P') {
-        $("#dynamic").empty();
-        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"smells\" /> <label for=\"p1\">Smells Bad</label></p>");
-        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"dusty\" /> <label for=\"p2\">Hardware is Dusty</label></p>");
-        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"toohot\" /> <label for=\"p3\">Computer Gets Too Hot</label></p>");
-        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"badday\" /> <label for=\"p4\">I'm Having a Bad Day</label></p>");
-    }
-    $("#dynamic").append("<p><input type=\"submit\" value=\"Submit My Complaining\" /></p>");
-});
+$(document).ready(function() {
+    $("#contactType").on('change', function() {
+        var choice = $("#contactType option:selected").val();
+        if (choice == 'C') {
+            $("#dynamic").empty();
+            $("#dynamic").append("<select name=\"complaints\" id=\"complaints\">");
+            $("#dynamic select").append("<option value=\"c1\">Poor Customer Service</option>");
+            $("#dynamic select").append("<option value=\"c2\">Roach Infestation at Front Desk</option>");
+            $("#dynamic select").append("<option value=\"c3\">Employee Misconduct</option>");
+            $("#dynamic select").append("<option value=\"c4\">Food Truck in the Parking Lot is Double Parked</option>");
+        }
+        else if (choice == 'T') {
+            $("#dynamic").empty();
+            $("#dynamic").append("<p><input type=\"checkbox\" name=\"t1\" value=\"kernel\" /> <label for=\"t1\">Kernel Panics Every Time :(</label></p>");
+            $("#dynamic").append("<p><input type=\"checkbox\" name=\"t2\" value=\"data\" /> <label for=\"t2\">Data is Frequently Corrupted</label></p>");
+            $("#dynamic").append("<p><input type=\"checkbox\" name=\"t3\" value=\"sparks\" /> <label for=\"t3\">Sparks When I Open the CD Tray</label></p>");
+            $("#dynamic").append("<p><input type=\"checkbox\" name=\"t4\" value=\"loud\" /> <label for=\"t4\">Loud Screeching Sound When I Open Firefox</label></p>");
+        }
+        else if (choice == 'P') {
+            $("#dynamic").empty();
+            $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"smells\" /> <label for=\"p1\">Smells Bad</label></p>");
+            $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"dusty\" /> <label for=\"p2\">Hardware is Dusty</label></p>");
+            $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"toohot\" /> <label for=\"p3\">Computer Gets Too Hot</label></p>");
+            $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"badday\" /> <label for=\"p4\">I'm Having a Bad Day</label></p>");
+        }
+        $("#dynamic").append("<p><input type=\"submit\" value=\"Submit My Complaining\" /></p>");
+    });
+    $("#dynamic").on('submit', function() {
+        return false;
+    });
+}
 </script>
 <p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
 </center>
