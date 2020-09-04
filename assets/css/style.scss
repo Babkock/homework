@@ -148,11 +148,23 @@ table {
 	}
 }
 
+input[type="submit"], form p input[type="submit"], button, form button, form p button {
+	padding:5px;
+	font-size:1.18em;
+	background-color:#221010;
+	color:white;
+	margin:2px;
+	border:1px solid gray;
+}
+
 select {
 	-moz-appearance:none !important;
 	appearance:none !important;
 	margin:4px;
 	padding:5px;
+	background-color:#222222;
+	color:white;
+	border:1px solid gray;
 }
 center select option, center form select option {
 	-moz-appearance:none !important;
@@ -168,13 +180,12 @@ form {
 	margin-right:5%;
 	background-color:#202c21;
 	border:1px solid #ccc;
-}
-form p input[type="checkbox"], form p input[type="radio"] {
-	padding:3px;
-	height:40px;
-	width:40px;
-}
-form p input[type="submit"] {
-	padding:5px;
-	font-size:1.18em;
+	label {
+		font-size:1.15em;
+	}
+	p input[type="checkbox"], form p input[type="radio"] {
+		padding:3px;
+		height:30px;
+		width:30px;
+	}
 }
