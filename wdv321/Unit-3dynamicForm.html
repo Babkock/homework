@@ -19,6 +19,7 @@
 <center>
   <label>Please Select your reason for contacting us.</label>
     <select name="contactType" id="contactType">
+      <option selected>Choose One</option>
       <option value="C">Complaints</option>
       <option value="T">Technical Problems</option>
       <option value="P">Product Issues</option>
@@ -31,7 +32,7 @@
   <li>When a new option is selected your script should remove any of the dynamic content. </li>
 </ol>
 <center>
-<form id="dynamic">
+<form action="" id="dynamic">
 </form>
 <script>
 $("#contactType").on('change', function() {
@@ -53,10 +54,10 @@ $("#contactType").on('change', function() {
     }
     else if (choice == 'P') {
         $("#dynamic").empty();
-        $("#dynamic").append("<p><input type=\"radio\" name=\"p1\" value=\"smells\" /> <label for=\"p1\">Smells Bad</label></p>");
-        $("#dynamic").append("<p><input type=\"radio\" name=\"p2\" value=\"dusty\" /> <label for=\"p2\">Hardware is Dusty</label></p>");
-        $("#dynamic").append("<p><input type=\"radio\" name=\"p3\" value=\"toohot\" /> <label for=\"p3\">Computer Gets Too Hot</label></p>");
-        $("#dynamic").append("<p><input type=\"radio\" name=\"p4\" value=\"badday\" /> <label for=\"p4\">I'm Having a Bad Day</label></p>");
+        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"smells\" /> <label for=\"p1\">Smells Bad</label></p>");
+        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"dusty\" /> <label for=\"p2\">Hardware is Dusty</label></p>");
+        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"toohot\" /> <label for=\"p3\">Computer Gets Too Hot</label></p>");
+        $("#dynamic").append("<p><input type=\"radio\" name=\"issues\" value=\"badday\" /> <label for=\"p4\">I'm Having a Bad Day</label></p>");
     }
     $("#dynamic").append("<p><input type=\"submit\" value=\"Submit My Complaining\" /></p>");
 });

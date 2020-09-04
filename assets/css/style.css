@@ -68,10 +68,12 @@ table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, tabl
 
 table tbody tr td a:hover { color: skyblue; font-size: 1em; text-decoration: underline; }
 
-center select, center form select { margin: 4px; }
+select { -moz-appearance: none !important; appearance: none !important; margin: 4px; padding: 5px; }
 
-center select option, center form select option { padding: 4px; font-size: 1.19em; background-color: #202020; color: white; }
+center select option, center form select option { -moz-appearance: none !important; appearance: none !important; padding: 5px; font-size: 1.19em; background-color: #202020; color: white; }
 
-form { width: 90%; margin-left: 5%; margin-right: 5%; }
+form { width: 90%; margin-left: 5%; margin-right: 5%; background-color: #202c21; border: 1px solid #ccc; }
 
 form p input[type="checkbox"], form p input[type="radio"] { padding: 3px; height: 40px; width: 40px; }
+
+form p input[type="submit"] { padding: 5px; font-size: 1.18em; }
