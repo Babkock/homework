@@ -83,3 +83,5 @@ form label { font-size: 1.15em; }
 form select { padding: 5px !important; font-size: 1.19em; background-color: #202020 !important; color: white; -moz-appearance: none !important; appearance: none !important; }
 
 form p input[type="checkbox"], form p input[type="radio"] { padding: 3px; height: 30px; width: 30px; }
+
+.box { width: 90%; background-color: #201d1c; border: 1px solid gray; color: #dfdfdf; padding: 5px; padding-left: 7px; margin-left: 5%; margin-right: 5%; }
