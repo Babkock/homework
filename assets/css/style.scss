@@ -204,6 +204,14 @@ form {
 	}
 }
 
+ul.classes {
+	display:flex;
+	width:100%;
+	li {
+		margin:3px;
+	}
+}
+
 .box {
 	width:90%;
 	background-color:#201d1c;

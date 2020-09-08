@@ -84,4 +84,8 @@ form select { padding: 5px !important; font-size: 1.19em; background-color: #202
 
 form p input[type="checkbox"], form p input[type="radio"] { padding: 3px; height: 30px; width: 30px; }
 
+ul.classes { display: flex; width: 100%; }
+
+ul.classes li { margin: 3px; }
+
 .box { width: 90%; background-color: #201d1c; border: 1px solid gray; color: #dfdfdf; padding: 5px; padding-left: 7px; margin-left: 5%; margin-right: 5%; }
