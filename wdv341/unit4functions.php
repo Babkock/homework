@@ -53,7 +53,7 @@ function cashFormat($m) {
 }
 
 ?>
-	<h1>Today is <?php echo date("l, M d Y", mktime()); ?></h1>
+	<h1>Today is <?php echo date("l, F d Y", mktime()); ?></h1>
 	<h2><?php echo dateToString(mktime()); ?></h2>
 	<h3><?php echo intDateToString(mktime()); ?></h3>
 	<br />
@@ -73,7 +73,10 @@ function cashFormat($m) {
 	</div>
 	<br />
 	<center>
-		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a></p>
+		<p>
+			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
+			 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit4functions.php">View Source Code</a>
+		</p>
 	</center>
 </body>
 </html>

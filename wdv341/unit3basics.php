@@ -21,20 +21,27 @@
 	$number2 = 22;
 	$total = $number1 + $number2;
 	?>
-	<ul>
-		<li>number1 = <?php echo "".$number1; ?></li>
-		<li>number2 = <?php echo "".$number2; ?></li>
-		<li>total = <?php echo "".$total; ?></li>
-	</ul>
-	<p>Here is my languages array:</p>
-	<script>
-		<?php
-		echo "var langs = ['HTML', 'PHP', 'Javascript'];\n\n";
-		echo "for (var i = 0; i < langs.length; i++) {\n";
-		echo "\tdocument.write(i + ': ' + langs[i] + '<br />');\n";
-		echo "}\n";
-		?>
-	</script>
-	<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a>
+	<div class="box">
+		<ul>
+			<li>number1 = <?php echo "".$number1; ?></li>
+			<li>number2 = <?php echo "".$number2; ?></li>
+			<li>total = <?php echo "".$total; ?></li>
+		</ul>
+		<p>Here is my languages array:</p>
+		<script>
+			<?php
+			echo "var langs = ['HTML', 'PHP', 'Javascript'];\n\n";
+			echo "for (var i = 0; i < langs.length; i++) {\n";
+			echo "\tdocument.write(i + ': ' + langs[i] + '<br />');\n";
+			echo "}\n";
+			?>
+		</script>
+	</div>
+	<center>
+		<p>
+			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
+			 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit3basics.php" target="_blank">View Source Code</a>
+		</p>
+	</center>
 </body>
 </html>
