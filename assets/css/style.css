@@ -42,9 +42,9 @@ span.cc { background: black; font-family: monospace; padding: 2px; border: 1px s
 
 .container div { transition: display 0.9s ease 0s; }
 
-h4 a { color: #c4a2a2; border: 1px solid skyblue; border-radius: 7px 7px 7px 7px; font-size: 1.7em; padding: 6px; background: none; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; transition: background, background-color, color, border 0.4s ease 0s; }
+h4 a { color: #c4a2a2; /* border:1px solid skyblue; border-radius:7px 7px 7px 7px; */ font-size: 1.7em; padding: 6px; background: none; }
 
-h4 a:hover { color: #d9b3b3; border: 1px solid lime; border-radius: 7px 7px 7px 7px; font-size: 1.7em; padding: 6px; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; background-color: darkgreen; }
+h4 a:hover { color: #d9b3b3; /* border:1px solid lime; border-radius:7px 7px 7px 7px; */ font-size: 1.7em; padding: 6px; }
 
 ul, li { list-style-type: none; }
 
@@ -84,8 +84,8 @@ form select { padding: 5px !important; font-size: 1.19em; background-color: #202
 
 form p input[type="checkbox"], form p input[type="radio"] { padding: 3px; height: 30px; width: 30px; }
 
-ul.classes { display: flex; width: 100%; }
+ul.classes { display: flex; width: 100%; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; transition: background, background-color, color, border 0.4s ease 0s; }
 
-ul.classes li { margin: 3px; }
+ul.classes li { margin: 3px; width: 29% !important; height: 240px; margin-left: 2px; margin-right: 2px; border: 1px solid white; background: none; }
 
 .box { width: 90%; background-color: #201d1c; border: 1px solid gray; color: #dfdfdf; padding: 5px; padding-left: 7px; margin-left: 5%; margin-right: 5%; }

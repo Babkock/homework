@@ -51,36 +51,19 @@ span.cc {
 h4 {
 	a {
 		color:#c4a2a2;
-		border:1px solid skyblue;
-		border-radius:7px 7px 7px 7px;
+		/* border:1px solid skyblue;
+		border-radius:7px 7px 7px 7px; */
 		font-size:1.7em;
 		padding:6px;
 		background:none;
-		animation-delay:0.4s;
-		-webkit-animation-delay:0.4s;
-		animation-name:classlink;
-		-webkit-animation-name:classlink;
-		animation-duration:5s;
-		-webkit-animation-duration:5s;
-		animation-iteration-count:infinite;
-		-webkit-animation-iteration-count:infinite;
-		transition:background, background-color, color, border 0.4s ease 0s;
+		
 	}
 	a:hover {
 		color:#d9b3b3;
-		border:1px solid lime;
-		border-radius:7px 7px 7px 7px;
+		/* border:1px solid lime;
+		border-radius:7px 7px 7px 7px; */
 		font-size:1.7em;
 		padding:6px;
-		animation-delay:0.4s;
-		-webkit-animation-delay:0.4s;
-		animation-name:classlink;
-		-webkit-animation-name:classlink;
-		animation-duration:5s;
-		-webkit-animation-duration:5s;
-		animation-iteration-count:infinite;
-		-webkit-animation-iteration-count:infinite;
-		background-color:darkgreen;
 	}
 }
 
@@ -207,8 +190,23 @@ form {
 ul.classes {
 	display:flex;
 	width:100%;
+	animation-delay:0.4s;
+	-webkit-animation-delay:0.4s;
+	animation-name:classlink;
+	-webkit-animation-name:classlink;
+	animation-duration:5s;
+	-webkit-animation-duration:5s;
+	animation-iteration-count:infinite;
+	-webkit-animation-iteration-count:infinite;
+	transition:background, background-color, color, border 0.4s ease 0s;
 	li {
 		margin:3px;
+		width:29% !important;
+		height:240px;
+		margin-left:2px;
+		margin-right:2px;
+		border:1px solid white;
+		background:none;
 	}
 }
 
