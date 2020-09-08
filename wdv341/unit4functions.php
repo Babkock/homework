@@ -75,7 +75,7 @@ function cashFormat($m) {
 	<center>
 		<p>
 			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
-			 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit4functions.php">View Source Code</a>
+			 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit4functions.php" target="_blank">View Source Code</a>
 		</p>
 	</center>
 </body>
