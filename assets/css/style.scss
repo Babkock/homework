@@ -238,7 +238,7 @@ nav {
 	padding:5px;
 	text-align:center;
 	ul {
-		width:100%;
+		width:90%;
 		text-align:center;
 		display:flex;
 		li {
@@ -248,12 +248,20 @@ nav {
 			margin-right:1%;
 			font-size:1.13em;
 			color:white;
+			border:1px solid gray;
+			a {
+				width:100%;
+			}
 		}
 		li:hover {
 			color:#efdfdf;
 			font-size:1.13em;
 			text-decoration:underline;
 			list-style-type:none;
+			border:1px solid white;
+			a {
+				width:100%;
+			}
 		}
 	}
 }
