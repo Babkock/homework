@@ -251,6 +251,7 @@ nav {
 			border:1px solid gray;
 			a {
 				width:100%;
+				display:block;
 			}
 		}
 		li:hover {
@@ -259,9 +260,6 @@ nav {
 			text-decoration:underline;
 			list-style-type:none;
 			border:1px solid white;
-			a {
-				width:100%;
-			}
 		}
 	}
 }

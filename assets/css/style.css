@@ -100,10 +100,8 @@ nav ul { width: 90%; text-align: center; display: flex; }
 
 nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%; font-size: 1.13em; color: white; border: 1px solid gray; }
 
-nav ul li a { width: 100%; }
+nav ul li a { width: 100%; display: block; }
 
 nav ul li:hover { color: #efdfdf; font-size: 1.13em; text-decoration: underline; list-style-type: none; border: 1px solid white; }
-
-nav ul li:hover a { width: 100%; }
 
 input[type="text"] { -moz-appearance: none !important; appearance: none !important; background-color: #191e1d; color: white; border: 1px solid gray; padding: 5px; font-size: 1.14em; }

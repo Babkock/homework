@@ -32,7 +32,7 @@ $(document).ready(function() {
 	$("button.create").click(function() {
 		newCookie("authentication", "ff7371c78b19c0a7297", 122);
 		console.log("Authentication cookie created\n");
-		$(".login").css.display = "block";
+		$(".box").append("<p><a href=\"about.html\">Continue to About Page</a></p>");
 	});
 
 	$("button.destroy").click(function() {
