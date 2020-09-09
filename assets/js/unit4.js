@@ -39,5 +39,6 @@ $(document).ready(function() {
 		delCookie("authentication");
 		delCookie("analytics");
 		delCookie("display");
+		$(".box").append("<p><a href=\"home.html\">Logging Out...</a></p>");
 	});
 });
