@@ -28,11 +28,16 @@ function delCookie(n) {
 	newCookie(n, "", -1);
 }
 
+var pushed = 0;
+
 $(document).ready(function() {
 	$("button.create").click(function() {
-		newCookie("authentication", "ff7371c78b19c0a7297", 122);
-		console.log("Authentication cookie created\n");
-		$(".box").append("<p><a href=\"about.html\">Continue to About Page</a></p>");
+		if (pushed != 1) {
+			newCookie("authentication", "ff7371c78b19c0a7297", 122);
+			console.log("Authentication cookie created\n");
+			$(".box").append("<p><a href=\"about.html\">Continue to About Page</a></p>");
+			pushed = 1;
+		}
 	});
 
 	$("button.destroy").click(function() {

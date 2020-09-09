@@ -139,25 +139,24 @@ input[type="text"] {
 }
 
 input[type="submit"], form p input[type="submit"], button, form button, form p button {
-	padding:9px;
+	padding:7px;
 	font-size:1.18em;
 	background-color:#221010;
 	color:white;
-	margin:4px;
+	margin:5px;
 	border:1px solid gray;
-	box-shadow:1px 2px white;
+	box-shadow:1px 1px white;
 	margin-bottom:5px;
 	&:hover {
 		background-color:#392020;
 		color:white;
 		border:1px solid white;
-		box-shadow:1px 2px red;
+		box-shadow:1px 1px red;
 	}
-	&:active, &:focus {
+	&:active {
 		background-color:#203718;
 		color:white;
 		border:1px solid green;
-		box-shadow:none !important;
 	}
 }
 
