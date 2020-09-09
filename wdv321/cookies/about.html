@@ -12,11 +12,34 @@
 		<ul>
 			<li><a href="home.html" title="Cookiebar Home Page" alt="Cookiebar Home Page">Home</a></li>
 			<li><a href="about.html" title="About Cookiebar Crunch" alt="About Cookiebar Crunch">About</a></li>
+			<li><a href="#" title="Dummy Link" alt="Dummy Link">Contact</a></li>
+			<li><a href="#" title="Dummy Link" alt="Dummy Link">Staff</a></li>
 		</ul>
 	</nav>
 	<div class="box">
 		<h2>Cookie Information</h2>
+		<script>
+		var auth = readCookie("authentication");
+		if (auth.localeCompare("ff7371c78b19c0a7297") != 0) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv321/cookies/home.html";
+		}
 
+		var visits = readCookie("display");
+		if (!visits || (parseInt(visits) == 0)) {
+			document.write("<p><b>No display cookie!</b></p>");
+		}
+		else {
+			document.write("<p>Number of visits: <b>" + parseInt(visits) + "</b></p>");
+		}
+
+		var analytics = readCookie("analytics");
+		if (!analytics) {
+			document.write("<p><b>No analytics/referrer cookie!</b></p>");
+		}
+		else {
+			document.write("<p>Referrer URL: <b>" + analytics + "</b>.</p>");
+		}
+		</script>
 		<button class="destroy">Destroy All Cookies</button>
 	</div>
 	<center>

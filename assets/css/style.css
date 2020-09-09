@@ -93,3 +93,5 @@ ul.classes li:hover { filter: invert(1); background: rgba(100, 200, 150, 0.31); 
 ul.classes:hover { filter: invert(1); }
 
 .box { width: 90%; background-color: #201d1c; border: 1px solid gray; color: #dfdfdf; padding: 5px; padding-left: 7px; margin-left: 5%; margin-right: 5%; }
+
+nav { width: 90%; margin-left: 5%; margin-right: 5%; border: 1px solid gray; padding: 5px; text-align: center; }
