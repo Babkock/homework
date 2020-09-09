@@ -48,7 +48,7 @@
 		<h2>Login</h2>
 		<script>
 		var auth = readCookie("authentication");
-		if (auth.localeCompare("ff7371c78b19c0a7297") == 0) {
+		if ((auth != null) && (auth.localeCompare("ff7371c78b19c0a7297") == 0)) {
 			document.write("<p style=\"color:lime\">You are authenticated!</p>");
 		}
 		</script>
