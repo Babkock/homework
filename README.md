@@ -8,8 +8,7 @@ Classes with work here:
 * WDV 131 - Intro to Photoshop and Fireworks
 * WDV 205 - Advanced CSS
 * WDV 221 - Intro to Javascript
-
-* WDV 321 - **Advanced Javascript**
+* WDV 321 - Advanced Javascript
 * WDV 341 - Intro to PHP
 
 [Looking for Python?](https://github.com/Babkock/python)

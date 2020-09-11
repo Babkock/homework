@@ -35,7 +35,7 @@ $(document).ready(function() {
 		if (pushed != 1) {
 			newCookie("authentication", "ff7371c78b19c0a7297", 122);
 			console.log("Authentication cookie created\n");
-			$(".box").append("<p><a href=\"about.html\">Continue to About Page</a></p>");
+			$(".box").append("<center><p><a href=\"about.html\" style=\"color:green\">Continue to About Page</a></p></center>");
 			pushed = 1;
 		}
 	});
@@ -44,6 +44,6 @@ $(document).ready(function() {
 		delCookie("authentication");
 		delCookie("analytics");
 		delCookie("display");
-		$(".box").append("<p><a href=\"home.html\">Logging Out...</a></p>");
+		$(".box").append("<center><p><a href=\"home.html\" style=\"color:red\">Logging Out...</a></p></center>");
 	});
 });
