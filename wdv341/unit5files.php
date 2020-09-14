@@ -12,7 +12,6 @@
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
 </head>
 <body>
-	<h1>File Upload Form</h1>
 <?php
 	if (!empty($_POST)) {
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
@@ -35,18 +34,17 @@
 				else {
 					move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/upload/" . $filename);
 					echo "<p class=\"success\">File was uploaded successfully.</p>";
-					echo "<center><img src=\"upload/" . $filename . "\" /></center>";
+					echo "<center class=\"imgOutput\"><img src=\"upload/" . $filename . "\" /></center>";
 				}
 			}
-			else {
-				echo "<p class=\"error\">Filetype not allowed.</p>";
-			}
-		} else {
+		}
+		else {
 			echo "<p class=\"error\">Error: " . $_FILES['image']['error'] . "</p>";
 		}
 	}
 ?>
 	<div class="box">
+		<h1>File Upload Form</h1>
 		<form action="./unit5files" method="post" enctype="multipart/form-data">
 			<p>
 				<label>Upload a file here: </label>
@@ -55,6 +53,7 @@
 			<p><input type="submit" name="submit" value="Submit" />
 		</form>
 	</div>
+	<br />
 	<center>
 		<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
 		 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit5files.php" target="_blank">View Source Code</a>

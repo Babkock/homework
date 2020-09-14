@@ -113,3 +113,9 @@ nav ul li:hover { color: #efdfdf; font-size: 1.13em; text-decoration: underline;
 p.error { color: red; }
 
 p.success { color: lime; }
+
+.imgOutput { border: 1px solid gray; background-color: #201d1c; color: #dfdfdf; width: 80%; margin-left: 10%; margin-right: 9%; padding: 4px; text-align: center; }
+
+.imgOutput img { max-width: 90%; width: auto; height: auto; opacity: 0.85; box-shadow: 2px 2px black; }
+
+.imgOutput img:hover { opacity: 1; border: 1px solid gray; box-shadow: 2px 2px black; }
