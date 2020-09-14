@@ -161,6 +161,22 @@ input[type="submit"], form p input[type="submit"], button, form button, form p b
 	}
 }
 
+input[type="file"] {
+	appearance:none;
+	-moz-appearance:none;
+	padding:4px;
+	font-size:1.18em;
+	color:white;
+	background-color:rgba(0, 0, 0, 0.3);
+	border:1px solid gray;
+	margin:6px;
+	&:active {
+		color:lime;
+		background-color:#203718;
+		border:1px solid lime;
+	}
+}
+
 select {
 	-moz-appearance:none !important;
 	appearance:none !important;

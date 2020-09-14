@@ -76,6 +76,10 @@ input[type="submit"]:hover, form p input[type="submit"]:hover, button:hover, for
 
 input[type="submit"]:active, form p input[type="submit"]:active, button:active, form button:active, form p button:active { background-color: #203718; color: white; border: 1px solid green; box-shadow: none !important; }
 
+input[type="file"] { appearance: none; -moz-appearance: none; padding: 4px; font-size: 1.18em; color: white; background-color: rgba(0, 0, 0, 0.3); border: 1px solid gray; margin: 6px; }
+
+input[type="file"]:active { color: lime; background-color: #203718; border: 1px solid lime; }
+
 select { -moz-appearance: none !important; appearance: none !important; margin: 4px; padding: 5px; background-color: #222222; color: white; border: 1px solid gray; }
 
 center select option, center form select option { -moz-appearance: none !important; appearance: none !important; padding: 5px; font-size: 1.19em; background-color: #202020; color: white; }
