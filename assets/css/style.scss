@@ -303,12 +303,15 @@ p.success {
 	margin-right:9%;
 	padding:4px;
 	text-align:center;
+	margin-top:4px;
+	margin-bottom:6px;
 	img {
 		max-width:90%;
 		width:auto;
 		height:auto;
 		opacity:0.85;
 		box-shadow:2px 2px black;
+		border:1px solid black;
 	}
 	img:hover {
 		opacity:1;

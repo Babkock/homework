@@ -33,7 +33,7 @@
 				}
 				else {
 					move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/upload/" . $filename);
-					echo "<p class=\"success\">File was uploaded successfully.</p>";
+					echo "<p class=\"success\">{$filename} was uploaded successfully!</p>";
 					echo "<center class=\"imgOutput\"><img src=\"upload/" . $filename . "\" /></center>";
 				}
 			}
