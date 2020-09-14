@@ -6,12 +6,11 @@
 	Tanner Babcock
 -->
 <head>
-<meta charset="utf-8">
-<title>WDV321 Unit 2 Tanner Babcock</title>
+	<meta charset="utf-8">
+	<title>WDV321 Unit 2 Tanner Babcock</title>
 	<script src="jquery-3.5.1.min.js"></script>
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<style>
-
-	
 		body {
 			height:100%;
 			background-repeat:no-repeat;
@@ -68,11 +67,9 @@
 		footer p	{
 			text-align:center;	
 		}
-
 	</style>
     
-    <script>
-	
+    <script>	
 		let targetNumber=0;	//this global variable will store the target number to be guessed in the Hi-Low Game
 		
 		let numberRanges = [ 5, 10, 20 ];
@@ -81,127 +78,105 @@
 		
 		//2. Use the numberRanges array to populate the topNumber dropdown list
 	</script>
-
 </head>
-
 <body>
-
 	<header>
     	<h1>WDV321 Intro Javascript</h1>
         <h2>UNIT-1 Introduction to Javascript</h2> 
         <h3>Assignment: Javascript Review </h3>   
 	</header>
-
-
 	<div id="container">
-    
+		<nav class="navbar">
+			<a href="https://wwwd.dmacc.edu">DMACC</a>
+			<ul class="navbar-links">
+				<li class="navbar-item"><a href="#">Schedules</a></li>
+				<li class="navbar-item"><a href="#">Registration</a></li>
+				<li class="navbar-item"><a href="#">Programs</a></li>
+				<li class="navbar-item"><a href="#">Sign in</a></li>
+			</ul>
+		</nav>
+	        
+		<section class="floatLeft">
+			<h3>Setting up the "Hi-Lo" game.</h3>
+			<p>Please select the top number for your game. A random number from 1 to the number you selected will be used for your game.</p>
+			<p>
+				<label for="topNumber">Choose: </label>
+				<select id="topNumber">
+					<option>Choose a number</option>
+				</select>
+			</p>
+		</section>
+		<section class="floatLeft">
+	        <h3>Playing the &quot;Hi-Lo&quot; game.</h3>
+			<p>Use the following form to play the game.</p> 
+			<center><b id="target" style="display:none"></b></center>
+	        <form>
+	        	<p>
+					<label for="inputNumber">Your guess: </label>
+					<input id="inputNumber" name="inputNumber" />
+				</p>
 
-	<nav class="navbar">
-        <a href="https://wwwd.dmacc.edu">DMACC</a>
-        <ul class="navbar-links">
-          <li class="navbar-item"><a href="#">Schedules</a></li>
-          <li class="navbar-item"><a href="#">Registration</a></li>
-          <li class="navbar-item"><a href="#">Programs</a></li>
-          <li class="navbar-item"><a href="#">Sign in</a></li>
-        </ul>
-    </nav>
-        
-	<section class="floatLeft">
-    
-		<h3>Setting up the "Hi-Lo" game.</h3>
-        <p>Please select the top number for your game. A random number from 1 to the number you selected will be used for your game.</p>
-        
-        <p>
-        	<label for="topNumber">Choose: </label>
-            <select id="topNumber">
-            	<option>Choose a number</option>
-            </select>
-      	</p>
-        
-                
-	</section>
-    
-    <section class="floatLeft">
-    
-        <h3>Playing the &quot;Hi-Lo&quot; game.</h3>
-		<p>Use the following form to play the game.</p> 
-		<center><b id="target" style="display:none"></b></center>
-        
-        <form>
-        
-        	<p>
-        	<label for="inputNumber">Your guess: </label>
-            <input id="inputNumber" name="inputNumber" />
-        	<p>
-            
-            <p>
-            <input type="button" value="Guess?" id="guess" />
-            <input type="reset" id="reset" />
-            <input type="button" value="Show Me the Number" id="showme" /><br />
-            <span id="outResults"></span> <!-- results go here -->
-            </p>
-
-        </form>
-
-		<p>Some script is already provided for you. Your assignment is to finish the game. You are welcome to add or modify as needed to complete the assignment. </p>
-        
-	</section>
-    
-	<div class="clearFloat"></div>
-    
-	<script>
-	function randomNumber(inTopNum) {
-		return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
-	}
-	
-	$("#topNumber").on('change', function() {
-		targetNumber = randomNumber(parseInt($("#topNumber option:selected").val()));
-		$("#target").html("" + targetNumber);
-	});
-	
-	$("#guess").click(function() {
-		let inNumb = $("#inputNumber").val();
+				<p>
+					<input type="button" value="Guess?" id="guess" />
+					<input type="reset" id="reset" />
+					<input type="button" value="Show Me the Number" id="showme" /><br />
+					<span id="outResults"></span> <!-- results go here -->
+				</p>
+			</form>
+			<p>Some script is already provided for you. Your assignment is to finish the game. You are welcome to add or modify as needed to complete the assignment. </p>        
+		</section>
 		
-		if (inNumb == targetNumber) {
-			$("#outResults").html("<b>You win!</b> You guessed correct!");
+		<div class="clearFloat"></div>
+		<script>
+		function randomNumber(inTopNum) {
+			return Math.floor(Math.random()* inTopNum) + 1;	//random number from 1 to inTopNum	
 		}
-		else {
-			if (inNumb < targetNumber) {
-				$("#outResults").html("The correct number is <b>higher</b> than that.");
+		
+		$("#topNumber").on('change', function() {
+			targetNumber = randomNumber(parseInt($("#topNumber option:selected").val()));
+			$("#target").html("" + targetNumber);
+		});
+		
+		$("#guess").click(function() {
+			let inNumb = $("#inputNumber").val();
+			
+			if (inNumb == targetNumber) {
+				$("#outResults").html("<b>You win!</b> You guessed correct!");
 			}
 			else {
-				$("#outResults").html("The correct number is <b>lower</b> than that.");
+				if (inNumb < targetNumber) {
+					$("#outResults").html("The correct number is <b>higher</b> than that.");
+				}
+				else {
+					$("#outResults").html("The correct number is <b>lower</b> than that.");
+				}
 			}
+		});
+		
+		$("#showme").click(function() {
+			$("#target").css("display", "inline");
+		});
+
+		$("#reset").click(function() {
+			targetNumber = 0;
+			$("#target").html("");
+			$("#outResults").html("");
+		});
+		
+		for (var i = 0; i < numberRanges.length; i++) {
+			var option = document.createElement("option");
+			option.value = "" + numberRanges[i];
+			option.innerHTML = " " + numberRanges[i];
+			$("select#topNumber").append(option);
 		}
-	});
-	
-	$("#showme").click(function() {
-		$("#target").css("display", "inline");
-	});
+		var d = new Date();
+		var year = d.getFullYear();
+		</script>
 
-	$("#reset").click(function() {
-		targetNumber = 0;
-		$("#target").html("");
-		$("#outResults").html("");
-	});
-	
-	for (var i = 0; i < numberRanges.length; i++) {
-		var option = document.createElement("option");
-		option.value = "" + numberRanges[i];
-		option.innerHTML = " " + numberRanges[i];
-		$("select#topNumber").append(option);
-	}
-	var d = new Date();
-	var year = d.getFullYear();
-	</script>
-
-	<footer>
+		<footer>
 			<center><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></center>
-        	<p>Copyright &copy;<script>document.write("" + year);</script> jhgullion.com. All rights reserved.
-	</footer>
-    
-    
-    </div>
-
+			<p>Copyright &copy;<script>document.write("" + year);</script> jhgullion.com. All rights reserved.</p>
+		</footer>
+	</div>
 </body>
 </html>

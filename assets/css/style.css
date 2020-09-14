@@ -109,3 +109,7 @@ nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%
 nav ul li a { width: 100%; display: block; }
 
 nav ul li:hover { color: #efdfdf; font-size: 1.13em; text-decoration: underline; list-style-type: none; border: 1px solid white; }
+
+p.error { color: red; }
+
+p.success { color: lime; }
