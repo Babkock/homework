@@ -38,6 +38,9 @@
 				}
 			}
 		}
+		else if ($_FILES['image']['error'] == 4) {
+			echo "<p class=\"error\">No file selected for upload.</p>";
+		}
 		else {
 			echo "<p class=\"error\">Error: " . $_FILES['image']['error'] . "</p>";
 		}
