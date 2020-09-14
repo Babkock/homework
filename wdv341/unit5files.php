@@ -52,6 +52,7 @@
 				<label>Upload a file here: </label>
 				<input type="file" name="image" id="fileUpload" />
 			</p>
+			<p><input type="submit" name="submit" value="Submit" />
 		</form>
 	</div>
 	<center>
