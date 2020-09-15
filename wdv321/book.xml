@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<Book>
+		<ISBN>0-596-00016-2</ISBN>
+		<Title>Java and XML</Title>
+		<Price>39.95</Price>
+		<Publisher>O'Reilly &amp; Associates</Publisher>
+		<Authors>
+			<Author>
+				<Fname>Brett</Fname>
+				<Lname>McLaughlin</Lname>
+				<Price>22.00</Price>
+			</Author>
+		</Authors>
+		<Copyright>2000</Copyright>
+		<Comments>Update required</Comments>
+	</Book>
+	
+	<Book>
+		<ISBN>1-861003-32-3</ISBN>
+		<Title>Professional Visual Basic 6 XML</Title>
+		<Price>49.99</Price>
+		<Publisher>Wrox Press</Publisher>
+		<Authors>
+			<Author>
+				<Fname>James</Fname>
+				<Lname>Britt</Lname>
+			</Author>
+			<Author>
+				<Fname>Tuen</Fname>
+				<Lname>Duynstee</Lname>
+			</Author>
+		</Authors>
+		<Copyright>2000</Copyright>
+		<Comments>Outdated text. Switch to C#</Comments>
+	</Book>
