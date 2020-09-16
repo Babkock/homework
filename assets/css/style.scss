@@ -136,9 +136,18 @@ table {
 			background-color:#181818;
 			width:auto;
 			max-width:24% !important;
-			padding:3px;
+			padding:4px;
 			margin:2px;
 			font-size:1.09em;
+			text-align:left;
+		}
+		tr td:hover {
+			background-color:#181818 !important;
+			width:auto !important;
+			max-width:24% !important;
+			text-align:left;
+			font-size:1.09em !important;
+			padding:4px;
 		}
 	}
 }

@@ -72,7 +72,9 @@ table tbody tr td a:hover { color: skyblue; font-size: 1em; text-decoration: und
 
 .js tbody, .js thead { width: 100%; }
 
-.js tbody tr td, .js thead tr td { background-color: #181818; width: auto; max-width: 24% !important; padding: 3px; margin: 2px; font-size: 1.09em; }
+.js tbody tr td, .js thead tr td { background-color: #181818; width: auto; max-width: 24% !important; padding: 4px; margin: 2px; font-size: 1.09em; text-align: left; }
+
+.js tbody tr td:hover, .js thead tr td:hover { background-color: #181818 !important; width: auto !important; max-width: 24% !important; text-align: left; font-size: 1.09em !important; padding: 4px; }
 
 input[type="text"] { -moz-appearance: none !important; appearance: none !important; background-color: #191e1d; color: white; border: 1px solid gray; padding: 5px; font-size: 1.14em; }
 
