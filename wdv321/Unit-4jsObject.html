@@ -12,8 +12,7 @@
 		<script src="../assets/js/jquery-3.5.1.min.js"></script>
 		<script>
 			$(document).ready(function() {
-				var xml = `
-<?xml version="1.0" encoding="utf-8"?>
+				var xml = `<?xml version="1.0" encoding="utf-8"?>
 <doc>
 	<Book>
 		<ISBN>0-596-00016-2</ISBN>
@@ -48,8 +47,7 @@
 		<Copyright>2000</Copyright>
 		<Comments>Outdated text. Switch to C#</Comments>
 	</Book>
-</doc>
-`;
+</doc>`;
 				var xmlDoc = $.parseXML(xml);
 				var $xml = $(xmlDoc);
 
