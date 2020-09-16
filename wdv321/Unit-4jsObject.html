@@ -12,18 +12,55 @@
 		<script src="../assets/js/jquery-3.5.1.min.js"></script>
 		<script>
 			$(document).ready(function() {
-				$.ajax({
-					type: "GET",
-					url: "book.xml",
-					dataType: "xml",
-					success: function(xml) {
-						$(xml).find('Book').each(function() {
-							console.log($(this).text());
-						});
-					},
-					error: function(error) {
-						console.log(error);
-					}
+				var xml = `
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<Book>
+		<ISBN>0-596-00016-2</ISBN>
+		<Title>Java and XML</Title>
+		<Price>39.95</Price>
+		<Publisher>O'Reilly &amp; Associatess</Publisher>
+		<Authors>
+			<Author>
+				<Fname>Brett</Fname>
+				<Lname>McLaughlin</Lname>
+				<Price>22.00</Price>
+			</Author>
+		</Authors>
+		<Copyright>2000</Copyright>
+		<Comments>Update required</Comments>
+	</Book>
+	<Book>
+		<ISBN>1-861003-32-3</ISBN>
+		<Title>Professional Visual Basic 6 XML</Title>
+		<Price>49.99</Price>
+		<Publisher>Wrox Press</Publisher>
+		<Authors>
+			<Author>
+				<Fname>James</Fname>
+				<Lname>Britt</Lname>
+			</Author>
+			<Author>
+				<Fname>Tuen</Fname>
+				<Lname>Duynstee</Lname>
+			</Author>
+		</Authors>
+		<Copyright>2000</Copyright>
+		<Comments>Outdated text. Switch to C#</Comments>
+	</Book>
+</doc>
+`;
+				var xmlDoc = $.parseXML(xml);
+				var $xml = $(xmlDoc);
+
+				var $books = $xml.find('Book');
+				$books.each(function() {
+					var title = $(this).find('Title').text();
+					var publisher = $(this).find('Publisher').text();
+					var price = $(this).find('Price').text();
+					console.log("Title: " + title + "\n");
+					console.log("Publisher: " + publisher + "\n");
+					console.log("Price: $" + price + "\n");
 				});
 			});
 		</script>
