@@ -21,6 +21,9 @@
 							$("#xmlList").append("<li><i>" + $(this).find('Title').text() + "</i> <b>" + $(this).find('Price').text() + "</b></li>");
 
 						});
+					},
+					error: function(error) {
+						console.log(error);
 					}
 				});
 			});
@@ -30,7 +33,7 @@
 		<h1>Create Javascript Object</h1>
 		<div class="box">
 			<ul id="xmlList">
-				
+
 			</ul>
 		</div>
 		<center>
