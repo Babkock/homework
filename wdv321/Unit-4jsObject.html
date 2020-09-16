@@ -9,8 +9,45 @@
 		<title>Unit 4: Create Javascript Object</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="../assets/css/style.css" />
+		<style>
+		ul li { font-size:1.14em; }
+		</style>
 		<script src="../assets/js/jquery-3.5.1.min.js"></script>
 		<script>
+			class Book {
+				constructor(t = "", p = "", pri = 0, i = "", copy = "") {
+					this.title = t;
+					this.publisher = p;
+					this.price = pri;
+					this.isbn = i;
+					this.copyright = copy;
+				}
+
+				setAuthor(a) {
+					this.author = a;
+					console.log("Author has been set to " + a.first + " " + a.last + "\n");
+				}
+
+				setAuthors(a) {
+					this.authors = a;
+					console.log("Authors has been set to an array of " + a.length + "\n");
+					console.log("The first Author is " + a[0].first + " " + a[0].last + "\n");
+					if (a.length > 1) {
+						console.log("The second Author is " + a[1].first + " " + a[1].last + "\n");
+					}
+				}
+			}
+			class Author {
+				constructor(first, last) {
+					this.first = first;
+					this.last = last;
+				}
+			}
+
+			var jsJavaBook = new Book();
+			var jsVBBook = new Book();
+			var jsTextbooks = [];
+
 			$(document).ready(function() {
 				var xml = `<?xml version="1.0" encoding="utf-8"?>
 <doc>
@@ -18,7 +55,7 @@
 		<ISBN>0-596-00016-2</ISBN>
 		<Title>Java and XML</Title>
 		<Price>39.95</Price>
-		<Publisher>O'Reilly &amp; Associatess</Publisher>
+		<Publisher>O'Reilly &amp; Associates</Publisher>
 		<Authors>
 			<Author>
 				<Fname>Brett</Fname>
@@ -52,24 +89,79 @@
 				var $xml = $(xmlDoc);
 
 				var $books = $xml.find('Book');
+				var x = 0;
 				$books.each(function() {
 					var title = $(this).find('Title').text();
 					var publisher = $(this).find('Publisher').text();
-					var price = $(this).find('Price').text();
-					console.log("Title: " + title + "\n");
-					console.log("Publisher: " + publisher + "\n");
-					console.log("Price: $" + price + "\n");
+					var price = parseFloat($(this).find('Price').text());
+					var isbn = $(this).find('ISBN').text();
+					var copyright = $(this).find('Copyright').text();
+
+					if (x == 0) {
+						jsJavaBook.title = title;
+						jsJavaBook.publisher = publisher;
+						jsJavaBook.price = price;
+						jsJavaBook.isbn = isbn;
+						jsJavaBook.copyright = copyright;
+						var auth = new Author($(this).find('Authors').find('Author').find('Fname').text(), $(this).find('Authors').find('Author').find('Lname').text());
+						jsJavaBook.setAuthor(auth);
+					}
+					else if (x == 1) {
+						jsVBBook.title = title;
+						jsVBBook.publisher = publisher;
+						jsVBBook.price = price;
+						jsVBBook.isbn = isbn;
+						jsVBBook.copyright = copyright;
+
+						var auth = [];
+						$(this).find('Authors').find('Author').each(function() {
+							auth.push(new Author($(this).find('Fname').text(), $(this).find('Lname').text()));
+						});
+						jsVBBook.setAuthors(auth);
+					}
+
+					console.log("\tTitle: " + title + "\n");
+					console.log("\tPublisher: " + publisher + "\n");
+					console.log("\tPrice: $" + price + "\n");
+					if (Array.isArray(auth)) {
+						var str = "" + auth[0].first + " " + auth[0].last;
+						console.log("\tAuthor: " + str + "\n");
+					}
+					else {
+						var str = "" + auth.first + " " + auth.last;
+						console.log("\tAuthor: " + str + "\n");
+					}
+					console.log("\tISBN: " + isbn);
+					console.log("\tCopyright year: " + copyright);
+					$("#xmlList").append("<tr><td><i>" + title + "</i></td><td>" + str + "</td><td>" + isbn + "</td><td>" + publisher + "</td><td><b>$" + price + "</b></td></tr>");
+					x++;
 				});
+
+				jsTextbooks.push(jsJavaBook);
+				jsTextbooks.push(jsVBBook);
+				console.log(jsTextbooks);
 			});
 		</script>
 	</head>
 	<body>
 		<h1>Create Javascript Object</h1>
 		<div class="box">
-			<ul id="xmlList">
+			<table class="js">
+				<thead>
+					<tr>
+						<td><b>Title</b></td>
+						<td><b>Author</b></td>
+						<td><b>ISBN</b></td>
+						<td><b>Publisher</b></td>
+						<td><b>Price</b></td>
+					</tr>
+				</thead>
+				<tbody id="xmlList">
 
-			</ul>
+				</tbody>
+			</table>
 		</div>
+		<br />
 		<center>
 			<a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a>
 		</center>

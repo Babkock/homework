@@ -128,6 +128,21 @@ table {
 	}
 }
 
+.js {
+	width:100%;
+	tbody, thead {
+		width:100%;
+		tr td {
+			background-color:#181818;
+			width:auto;
+			max-width:24% !important;
+			padding:3px;
+			margin:2px;
+			font-size:1.09em;
+		}
+	}
+}
+
 input[type="text"] {
 	-moz-appearance:none !important;
 	appearance:none !important;
