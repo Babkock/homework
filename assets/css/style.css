@@ -56,6 +56,8 @@ a, a:link, a:active { color: #229e9e; text-decoration: none; }
 
 a:hover { color: #33cdcd; text-decoration: underline; }
 
+footer { text-align: center; margin-top: 5px; margin-bottom: 4px; }
+
 table { width: 100%; }
 
 table tbody, table thead { width: 100%; }
