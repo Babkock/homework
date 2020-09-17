@@ -64,9 +64,9 @@ table tbody tr th, table tbody tr td, table thead tr th, table thead tr td { bac
 
 table tbody tr th:hover, table tbody tr td:hover, table thead tr th:hover, table thead tr td:hover { background-color: #330702; width: 49%; text-align: center; padding: 4px; }
 
-table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, table tbody tr td a:active { color: cyan; font-size: 1.1em; text-decoration: none; transition: color, text-shadow, text-decoration 0.4s ease 0s; }
+table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, table tbody tr td a:active { color: cyan; font-size: 1.15em; text-decoration: none; transition: color, text-shadow, text-decoration 0.4s ease 0s; }
 
-table tbody tr td a:hover { color: skyblue; font-size: 1.1em; text-decoration: underline; }
+table tbody tr td a:hover { color: skyblue; font-size: 1.15em; text-decoration: underline; }
 
 table.files tbody tr td:hover, table.files thead tr td:hover { box-shadow: 1px 1px red; }
 
@@ -78,7 +78,9 @@ table.files tbody tr td:hover, table.files thead tr td:hover { box-shadow: 1px 1
 
 .js tbody tr td:hover, .js thead tr td:hover { background-color: #181818 !important; width: auto !important; max-width: 24% !important; text-align: left; font-size: 1.1em !important; padding: 4px; }
 
-code.json { background-color: #050505; color: #dedede; border: 1px solid gray; padding: 4px; font-family: monospace; font-size: 1.08em; display: block; width: 94%; margin-left: 3%; margin-right: 3%; }
+code.json { background-color: #050505; color: #dedede; border: 1px solid gray; padding: 4px; font-family: monospace; font-size: 1.17em; display: block; width: 94%; margin-left: 3%; margin-right: 3%; white-space: pre; line-height: 1.1; }
+
+code.json:hover { border: 1px solid white; }
 
 input[type="text"] { -moz-appearance: none !important; appearance: none !important; background-color: #191e1d; color: white; border: 1px solid gray; padding: 5px; font-size: 1.14em; }
 
@@ -108,7 +110,7 @@ form p input[type="checkbox"], form p input[type="radio"] { padding: 3px; height
 
 ul.classes { display: flex; justify-content: center; flex-wrap: nowrap; flex-flow: row; width: 100%; animation-delay: 0.4s; -webkit-animation-delay: 0.4s; animation-name: classlink; -webkit-animation-name: classlink; animation-duration: 5s; -webkit-animation-duration: 5s; animation-iteration-count: infinite; -webkit-animation-iteration-count: infinite; transition: background, background-color 0.4s ease 0s; }
 
-ul.classes li { margin: 3px; width: 32% !important; height: auto; min-height: 120px; max-height: 140px; margin-left: 2px; margin-right: 2px; border: 2px solid green; background: rgba(0, 0, 0, 0.21); }
+ul.classes li { margin: 3px; padding: 5px; width: 32% !important; height: auto; min-height: 120px; max-height: 140px; margin-left: 2px; margin-right: 2px; border: 2px solid green; background: rgba(0, 0, 0, 0.21); }
 
 ul.classes li:hover { filter: invert(1); background: rgba(100, 200, 150, 0.31); border: 2px solid red; }
 
