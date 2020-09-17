@@ -155,7 +155,7 @@ table.files tbody tr td:hover, table.files thead tr td:hover {
 	}
 }
 
-code.json {
+code {
 	background-color:#050505;
 	color:#dedede;
 	border:1px solid gray;
@@ -166,7 +166,6 @@ code.json {
 	width:94%;
 	margin-left:3%;
 	margin-right:3%;
-	white-space:pre;
 	line-height:1.1;
 	&:hover {
 		border:1px solid white;

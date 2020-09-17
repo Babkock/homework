@@ -78,9 +78,9 @@ table.files tbody tr td:hover, table.files thead tr td:hover { box-shadow: 1px 1
 
 .js tbody tr td:hover, .js thead tr td:hover { background-color: #181818 !important; width: auto !important; max-width: 24% !important; text-align: left; font-size: 1.1em !important; padding: 4px; }
 
-code.json { background-color: #050505; color: #dedede; border: 1px solid gray; padding: 4px; font-family: monospace; font-size: 1.17em; display: block; width: 94%; margin-left: 3%; margin-right: 3%; white-space: pre; line-height: 1.1; }
+code { background-color: #050505; color: #dedede; border: 1px solid gray; padding: 4px; font-family: monospace; font-size: 1.17em; display: block; width: 94%; margin-left: 3%; margin-right: 3%; line-height: 1.1; }
 
-code.json:hover { border: 1px solid white; }
+code:hover { border: 1px solid white; }
 
 input[type="text"] { -moz-appearance: none !important; appearance: none !important; background-color: #191e1d; color: white; border: 1px solid gray; padding: 5px; font-size: 1.14em; }
 
