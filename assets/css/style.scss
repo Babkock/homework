@@ -107,7 +107,6 @@ table {
 		}
 		tr th:hover, tr td:hover {
 			background-color:#330702;
-			box-shadow:1px 1px red;
 			width:49%;
 			text-align:center;
 			padding:4px;
@@ -116,16 +115,20 @@ table {
 	tbody {
 		tr td a, tr td a:link, tr td a:visited, tr td a:active {
 			color:cyan;
-			font-size:1em;
+			font-size:1.1em;
 			text-decoration:none;
 			transition:color, text-shadow, text-decoration 0.4s ease 0s;
 		}
 		tr td a:hover {
 			color:skyblue;
-			font-size:1em;
+			font-size:1.1em;
 			text-decoration:underline;
 		}
 	}
+}
+
+table.files tbody tr td:hover, table.files thead tr td:hover {
+	box-shadow:1px 1px red;
 }
 
 .js {
@@ -138,7 +141,7 @@ table {
 			max-width:24% !important;
 			padding:4px;
 			margin:2px;
-			font-size:1.09em;
+			font-size:1.1em;
 			text-align:left;
 		}
 		tr td:hover {
@@ -146,7 +149,7 @@ table {
 			width:auto !important;
 			max-width:24% !important;
 			text-align:left;
-			font-size:1.09em !important;
+			font-size:1.1em !important;
 			padding:4px;
 		}
 	}

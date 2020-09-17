@@ -110,6 +110,7 @@
 						var auth = new Author($(this).find('Authors').find('Author').find('Fname').text(), $(this).find('Authors').find('Author').find('Lname').text());
 						JavaBook.setAuthor(auth);
 						textbooks.JavaBook = JavaBook;
+						console.log(JSON.stringify(JavaBook));
 					}
 					else if (x == 1) {
 						VB6Book.title = title;
@@ -124,6 +125,7 @@
 						});
 						VB6Book.setAuthors(auth);
 						textbooks.VB6Book = VB6Book;
+						console.log(JSON.stringify(VB6Book));
 					}
 
 					/* console.log("\tTitle: " + title + "\n");
@@ -139,7 +141,7 @@
 					}
 					console.log("\tISBN: " + isbn);
 					console.log("\tCopyright year: " + copyright); */
-					$x++;
+					x++;
 				});
 				var textJson = JSON.stringify(textbooks);
 				console.log(textJson);
