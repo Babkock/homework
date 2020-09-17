@@ -152,6 +152,19 @@ table {
 	}
 }
 
+code.json {
+	background-color:#050505;
+	color:#dedede;
+	border:1px solid gray;
+	padding:4px;
+	font-family:monospace;
+	font-size:1.08em;
+	display:block;
+	width:94%;
+	margin-left:3%;
+	margin-right:3%;
+}
+
 input[type="text"] {
 	-moz-appearance:none !important;
 	appearance:none !important;

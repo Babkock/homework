@@ -76,6 +76,8 @@ table tbody tr td a:hover { color: skyblue; font-size: 1em; text-decoration: und
 
 .js tbody tr td:hover, .js thead tr td:hover { background-color: #181818 !important; width: auto !important; max-width: 24% !important; text-align: left; font-size: 1.09em !important; padding: 4px; }
 
+code.json { background-color: #050505; color: #dedede; border: 1px solid gray; padding: 4px; font-family: monospace; font-size: 1.08em; display: block; width: 94%; margin-left: 3%; margin-right: 3%; }
+
 input[type="text"] { -moz-appearance: none !important; appearance: none !important; background-color: #191e1d; color: white; border: 1px solid gray; padding: 5px; font-size: 1.14em; }
 
 input[type="submit"], form p input[type="submit"], button, form button, form p button { padding: 7px; font-size: 1.18em; background-color: #221010; color: white; margin: 5px; border: 1px solid gray; box-shadow: 1px 1px white; margin-bottom: 5px; }

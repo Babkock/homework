@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--
-	Unit 4: Create Javascript Object
+	Unit 4: Create JSON Object
 	Tanner Babcock
-	September 15, 2020
+	September 17, 2020
 -->
 <html lang="en">
 	<head>
-		<title>Unit 4: Create Javascript Object</title>
+		<title>Unit 4: Create JSON Object</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="../assets/css/style.css" />
 		<link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -42,9 +42,16 @@
 				}
 			}
 
-			var jsJavaBook = new Book();
-			var jsVBBook = new Book();
-			var jsTextbooks = [];
+			var JavaBook = new Book();
+			var VB6Book = new Book();
+			var textbooks = {
+				"JavaBook": {
+
+				},
+				"VB6Book": {
+
+				}
+			};
 
 			$(document).ready(function() {
 				var xml = `<?xml version="1.0" encoding="utf-8"?>
@@ -86,9 +93,8 @@
 				var xmlDoc = $.parseXML(xml);
 				var $xml = $(xmlDoc);
 
-				var $books = $xml.find('Book');
 				var x = 0;
-				$books.each(function() {
+				$xml.find('Book').each(function() {
 					var title = $(this).find('Title').text();
 					var publisher = $(this).find('Publisher').text();
 					var price = parseFloat($(this).find('Price').text());
@@ -96,29 +102,31 @@
 					var copyright = $(this).find('Copyright').text();
 
 					if (x == 0) {
-						jsJavaBook.title = title;
-						jsJavaBook.publisher = publisher;
-						jsJavaBook.price = price;
-						jsJavaBook.isbn = isbn;
-						jsJavaBook.copyright = copyright;
+						JavaBook.title = title;
+						JavaBook.publisher = publisher;
+						JavaBook.price = price;
+						JavaBook.isbn = isbn;
+						JavaBook.copyright = copyright;
 						var auth = new Author($(this).find('Authors').find('Author').find('Fname').text(), $(this).find('Authors').find('Author').find('Lname').text());
-						jsJavaBook.setAuthor(auth);
+						JavaBook.setAuthor(auth);
+						textbooks.JavaBook = JavaBook;
 					}
 					else if (x == 1) {
-						jsVBBook.title = title;
-						jsVBBook.publisher = publisher;
-						jsVBBook.price = price;
-						jsVBBook.isbn = isbn;
-						jsVBBook.copyright = copyright;
+						VB6Book.title = title;
+						VB6Book.publisher = publisher;
+						VB6Book.price = price;
+						VB6Book.isbn = isbn;
+						VB6Book.copyright = copyright;
 
 						var auth = [];
 						$(this).find('Authors').find('Author').each(function() {
 							auth.push(new Author($(this).find('Fname').text(), $(this).find('Lname').text()));
 						});
-						jsVBBook.setAuthors(auth);
+						VB6Book.setAuthors(auth);
+						textbooks.VB6Book = VB6Book;
 					}
 
-					console.log("\tTitle: " + title + "\n");
+					/* console.log("\tTitle: " + title + "\n");
 					console.log("\tPublisher: " + publisher + "\n");
 					console.log("\tPrice: $" + price + "\n");
 					if (Array.isArray(auth)) {
@@ -130,40 +138,27 @@
 						console.log("\tAuthor: " + str + "\n");
 					}
 					console.log("\tISBN: " + isbn);
-					console.log("\tCopyright year: " + copyright);
-					$("#xmlList").append("<tr><td><i>" + title + "</i></td><td>" + str + "</td><td>" + isbn + "</td><td>" + publisher + "</td><td><b>$" + price + "</b></td></tr>");
-					x++;
+					console.log("\tCopyright year: " + copyright); */
+					$x++;
 				});
-
-				jsTextbooks.push(jsJavaBook);
-				jsTextbooks.push(jsVBBook);
-				console.log(jsTextbooks);
+				var textJson = JSON.stringify(textbooks);
+				console.log(textJson);
+				$("code.json").html(textJson);
 			});
+
 		</script>
 	</head>
 	<body>
-		<h1>Create Javascript Object</h1>
+		<h1>Create JSON Object</h1>
 		<h3>Tanner Babcock</h3>
-		<p>There are messages in the console, and I've printed the array of two Books.</p>
 		<div class="box">
-			<table class="js">
-				<thead>
-					<tr>
-						<td><b>Title</b></td>
-						<td><b>Author</b></td>
-						<td><b>ISBN</b></td>
-						<td><b>Publisher</b></td>
-						<td><b>Price</b></td>
-					</tr>
-				</thead>
-				<tbody id="xmlList">
+			<code class="json">
 
-				</tbody>
-			</table>
+			</code>
 		</div>
 		<br />
 		<center>
-			<a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a>
+			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
 		</center>
 	</body>
 </html>
