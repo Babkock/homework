@@ -11,12 +11,6 @@
 <script src="../assets/js/jquery-3.5.1.min.js"></script>
 <link rel="icon" type="image/png" href="/images/favicon.png" />
 <link rel="stylesheet" href="../assets/css/style.css" />
-<style>
-input[type="checkbox"], input[type="radio"] {
-  appearance:default !important;
-  -moz-appearance:default !important;
-}
-</style>
 </head>
 
 <body>
@@ -42,9 +36,11 @@ input[type="checkbox"], input[type="radio"] {
 <form action="" id="dynamic">
 </form>
 <script>
+var choice = 'A';
+
 $(document).ready(function() {
     $("#contactType").on('change', function() {
-        var choice = $("#contactType option:selected").val();
+        choice = $("#contactType option:selected").val();
         if (choice == 'C') {
             $("#dynamic").empty();
             $("#dynamic").append("<select name=\"complaints\" id=\"complaints\">");
@@ -70,6 +66,12 @@ $(document).ready(function() {
         $("#dynamic").append("<p><input type=\"submit\" value=\"Submit My Complaining\" /></p>");
     });
     $("#dynamic").on('submit', function() {
+        if (choice == 'C')
+            alert("Sorry to hear about your Complaints!");
+        else if (choice == 'T')
+            alert("Sorry to hear about your Technical Problems!");
+        else if (choice == 'P')
+            alert("Sorry to hear about your Product Issues!");
         return false;
     });
 });

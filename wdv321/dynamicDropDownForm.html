@@ -40,19 +40,26 @@ var colorsArray = ["Red", "Yellow", "Green", "Blue"];
 $(document).ready(function() {
     $("#addProducts").click(function() {
         $("#displayItems").empty();
+        choice = 1;
         for (var i = 0; i < productsArray.length; i++) {
-            $("#displayItems").append("<option>" + productsArray[i] + "</option>");
+            $("#displayItems").append("<option value=\"" + productsArray[i] + "\">" + productsArray[i] + "</option>");
         }
     });
 
     $("#addColors").click(function() {
         $("#displayItems").empty();
+        choice = 2;
         for (var i = 0; i < colorsArray.length; i++) {
-            $("#displayItems").append("<option>" + colorsArray[i] + "</option>");
+            $("#displayItems").append("<option value=\"" + colorsArray[i] + "\">" + colorsArray[i] + "</option>");
         }
     });
 
     $("#dynamic").on('submit', function() {
+        var c = $("#displayItems option[selected]").val();
+        if (choice == 1)
+            alert("You selected " + c + " from the products array");
+        else
+            alert("You selected " + c + " from the colors array.");
         return false;
     });
 });

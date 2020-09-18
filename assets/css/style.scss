@@ -1,12 +1,12 @@
 @keyframes classlink {
-	0% { background-color:#aa0202; color:red; }
+	0% { background-color:#ba1010; color:red; }
 	15% { background-color:orange; color:blue; }
 	30% { background-color:tan; color:purple; }
 	45% { background-color:darkgreen; color:lime; }
 	60% { background-color:blue; color:lightgreen; }
-	75% { background-color:#0012a9; color:orangered; }
-	90% { background-color:#95028e; color:skyblue; }
-	100% { background-color:#aa0403; color:red; }
+	75% { background-color:#1032c9; color:orangered; }
+	90% { background-color:#a5129e; color:skyblue; }
+	100% { background-color:#b31413; color:red; }
 }
 
 @-webkit-keyframes classlink {
@@ -49,17 +49,15 @@ span.cc {
 	}
 }
 h4 {
-	font-weight:bold;
 	a {
-		color:#101010;
 		font-size:1.64em;
 		padding:5px;
 		background:none;
 		text-shadow:none;
-		transition:color, background, text-shadow, font-size;
+		transition:color, background, text-shadow, font-size 0.3s ease 0s;
 	}
 	a:hover {
-		color:#1f1212;
+		color:#efefef;
 		font-size:1.67em;
 		padding:5px;
 		text-shadow:1px 1px white;
@@ -302,15 +300,14 @@ ul.classes {
 		margin-right:2px;
 		border:2px solid white;
 		background:rgba(0, 0, 0, 0.21);
-		transition:background, border;
+		transition:background, border 0.2s ease 0s;
 	}
 	li:hover {
-		filter:hue-rotate(90deg);
 		background:rgba(100, 200, 150, 0.31);
 		border:2px solid red;
 	}
 	&:hover {
-		filter:invert(1);
+		filter:invert(1) hue-rotate(90deg);
 	}
 }
 

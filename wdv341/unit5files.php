@@ -45,6 +45,7 @@
 			echo "<p class=\"error\">Error: " . $_FILES['image']['error'] . "</p>";
 		}
 	}
+	else {
 ?>
 	<div class="box">
 		<h1>File Upload Form</h1>
@@ -58,9 +59,12 @@
 		</form>
 	</div>
 	<br />
-	<center>
+<?php
+}
+?>
+	<footer>
 		<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
 		 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit5files.php" target="_blank">View Source Code</a>
-	</center>
+	</footer>
 </body>
 </html>
