@@ -62,7 +62,7 @@ p { font-size: 1.07em; }
 
 footer { text-align: center; margin-top: 5px; margin-bottom: 4px; }
 
-table { width: 92%; margin-left: 4%; margin-right: 3.5%; }
+table { width: 100%; }
 
 table tbody, table thead { width: 100%; }
 
