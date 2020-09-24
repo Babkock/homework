@@ -13,7 +13,6 @@ try {
 	<title>Unit 6: Connection File</title>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
-	<link rel="stylesheet" href="/assets/css/fonts.css" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
