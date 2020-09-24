@@ -50,21 +50,25 @@ ul, li { list-style-type: none; }
 
 html { background-color: #000; }
 
-body { width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; overflow-x: hidden; }
+body { font-family: "Mercury Text G1 A", "Mercury Text G1 B"; font-feature-settings: "liga", "kern"; font-stretch: normal; width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; overflow-x: hidden; }
 
 a, a:link, a:active { color: #229e9e; text-decoration: none; }
 
 a:hover { color: #33cdcd; text-decoration: underline; }
 
+h1, h2, h3, h4 { font-family: "Gotham Narrow A", "Gotham Narrow B"; }
+
+p { font-size: 1.07em; }
+
 footer { text-align: center; margin-top: 5px; margin-bottom: 4px; }
 
-table { width: 100%; }
+table { width: 92%; margin-left: 4%; margin-right: 3.5%; }
 
 table tbody, table thead { width: 100%; }
 
-table tbody tr th, table tbody tr td, table thead tr th, table thead tr td { background-color: #040433; box-shadow: 1px 1px gray; margin: 2px; width: 49%; text-align: center; padding: 4px; transition: background-color, box-shadow 0.2s ease 0s; }
+table tbody tr th, table tbody tr td, table thead tr th, table thead tr td { background-color: #040433; box-shadow: 1px 1px gray; font-size: 1.09em; margin: 3px; width: 49%; text-align: center; padding: 6px; transition: background-color, box-shadow 0.2s ease 0s; }
 
-table tbody tr th:hover, table tbody tr td:hover, table thead tr th:hover, table thead tr td:hover { background-color: #330702; width: 49%; text-align: center; padding: 4px; }
+table tbody tr th:hover, table tbody tr td:hover, table thead tr th:hover, table thead tr td:hover { background-color: #330702; width: 49%; font-size: 1.09em; text-align: center; padding: 6px; }
 
 table tbody tr td a, table tbody tr td a:link, table tbody tr td a:visited, table tbody tr td a:active { color: cyan; font-size: 1.15em; text-decoration: none; transition: color, text-shadow, text-decoration 0.4s ease 0s; }
 
@@ -76,9 +80,9 @@ table.files tbody tr td:hover, table.files thead tr td:hover { box-shadow: 1px 1
 
 .js tbody, .js thead { width: 100%; }
 
-.js tbody tr td, .js thead tr td { background-color: #181818; width: auto; max-width: 24% !important; padding: 4px; margin: 2px; font-size: 1.1em; text-align: left; }
+.js tbody tr td, .js thead tr td { background-color: #181818; width: auto; max-width: 24% !important; font-size: 1.08em; padding: 6px; margin: 2px; font-size: 1.1em; text-align: left; }
 
-.js tbody tr td:hover, .js thead tr td:hover { background-color: #181818 !important; width: auto !important; max-width: 24% !important; text-align: left; font-size: 1.1em !important; padding: 4px; }
+.js tbody tr td:hover, .js thead tr td:hover { background-color: #181818 !important; width: auto !important; max-width: 24% !important; font-size: 1.08em; text-align: left; font-size: 1.1em !important; padding: 6px; }
 
 code { background-color: #050505; color: #dedede; border: 1px solid gray; padding: 4px; font-family: monospace; font-size: 1.17em; display: block; width: 94%; margin-left: 3%; margin-right: 3%; line-height: 1.1; }
 

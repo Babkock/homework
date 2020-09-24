@@ -13,18 +13,19 @@ try {
 	<title>Unit 6: Connection File</title>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
+	<link rel="stylesheet" href="/assets/css/fonts.css" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
 	<h1>Unit 6: Connection File</h1>
 	<h3>tababcock_wdv341</h3>
 	<div class="box">
-		<table><thead>
+		<table class="js"><thead>
 			<tr>
-				<td>ID</td>
-				<td>Event Name</td>
-				<td>Presenter</td>
-				<td>Date</td>
+				<td><b>ID</b></td>
+				<td><b>Event Name</b></td>
+				<td><b>Presenter</b></td>
+				<td><b>Date</b></td>
 			</tr>
 		</thead><tbody>
 <?php
