@@ -30,14 +30,15 @@ try {
 <?php
 	$st = $db->prepare("SELECT * FROM `wdv341_events`");
 	$st->execute();
+	$st->bind_result($e_id, $e_name, $e_description, $e_presenter, $e_date, $e_time);
 
-	foreach ($st->fetch(PDO::FETCH_OBJ) as $row) {
+	while ($st->fetch()) {
 		$out = <<<EOF
 			<tr>
-				<td>{$row->event_id}</td>
-				<td>{$row->event_name}</td>
-				<td>{$row->event_presenter}</td>
-				<td>{$row->event_date}</td>
+				<td>{$e_id}</td>
+				<td>{$e_name}</td>
+				<td>{$e_presenter}</td>
+				<td>{$e_date}</td>
 			</tr>
 EOF;
 		echo $out;
