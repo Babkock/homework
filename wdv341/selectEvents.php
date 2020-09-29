@@ -31,7 +31,7 @@ try {
 	$st = $db->prepare("SELECT * FROM `wdv341_events`");
 	$st->execute();
 
-	while ($row = $st->fetchAll()) {
+	while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 		$out = <<<EOF
 			<tr>
 				<td>{$row['event_id']}</td>
