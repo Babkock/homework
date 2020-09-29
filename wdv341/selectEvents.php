@@ -28,7 +28,7 @@ try {
 			</tr>
 		</thead><tbody>
 <?php
-	$st = $db->prepare("SELECT * from `wdv341_events`");
+	$st = $db->prepare("SELECT `event_id`, `event_name`, `event_presenter`, `event_date` from `wdv341_events`");
 	$st->execute();
 
 	foreach ($st->fetch(PDO::FETCH_ASSOC) as $row) {
