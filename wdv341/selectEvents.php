@@ -28,16 +28,16 @@ try {
 			</tr>
 		</thead><tbody>
 <?php
-	$st = $db->prepare("SELECT `event_id`, `event_name`, `event_presenter`, `event_date` from `wdv341_events`");
+	$st = $db->prepare("SELECT * FROM `wdv341_events`");
 	$st->execute();
 
-	foreach ($st->fetch(PDO::FETCH_ASSOC) as $row) {
+	foreach ($st->fetch(PDO::FETCH_OBJ) as $row) {
 		$out = <<<EOF
 			<tr>
-				<td>{$row['event_id']}</td>
-				<td>{$row['event_name']}</td>
-				<td>{$row['event_presenter']}</td>
-				<td>{$row['event_date']}</td>
+				<td>{$row->event_id}</td>
+				<td>{$row->event_name}</td>
+				<td>{$row->event_presenter}</td>
+				<td>{$row->event_date}</td>
 			</tr>
 EOF;
 		echo $out;
