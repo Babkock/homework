@@ -34,10 +34,10 @@ try {
 	while ($row = $st->fetchAll()) {
 		$out = <<<EOF
 			<tr>
-				<td>{$row->event_id}</td>
-				<td>{$row->event_name}</td>
-				<td>{$row->event_presenter}</td>
-				<td>{$row->event_date}</td>
+				<td>{$row['event_id']}</td>
+				<td>{$row['event_name']}</td>
+				<td>{$row['event_presenter']}</td>
+				<td>{$row['event_date']}</td>
 			</tr>
 EOF;
 		echo $out;
