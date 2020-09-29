@@ -50,13 +50,13 @@ ul, li { list-style-type: none; }
 
 html { background-color: #000; }
 
-body { font-family: "Mercury Text G1 A", "Mercury Text G1 B"; font-feature-settings: "liga", "kern"; font-stretch: normal; width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; overflow-x: hidden; }
+b.error { color: red; }
+
+body { width: 99%; margin-left: 0; margin-right: 0; font-size: 1.01em; color: #eaeaea; padding: 7px; overflow-x: hidden; }
 
 a, a:link, a:active { color: #229e9e; text-decoration: none; }
 
 a:hover { color: #33cdcd; text-decoration: underline; }
-
-h1, h2, h3, h4 { font-family: "Gotham Narrow A", "Gotham Narrow B"; }
 
 p { font-size: 1.07em; }
 

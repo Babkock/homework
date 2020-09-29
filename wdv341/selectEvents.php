@@ -17,7 +17,7 @@ try {
 </head>
 <body>
 	<h1>Unit 7: Create selectEvents.php</h1>
-	<h3>tababcock_wdv341</h3>
+	<h3>Database: tababcock_wdv341</h3>
 	<div class="box">
 		<table class="js"><thead>
 			<tr>
@@ -51,7 +51,7 @@ EOF;
 	</footer><?php
 }
 catch (PDOException $e) {
-	echo "<b>{$e->getMessage()}</b><br />";
+	echo "<b class=\"error\">{$e->getMessage()}</b><br />";
 }
 finally {
 	?>
