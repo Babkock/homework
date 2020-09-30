@@ -148,6 +148,41 @@ table.files tbody tr td:hover, table.files thead tr td:hover {
 	box-shadow:1px 1px red;
 }
 
+.eventBlock {
+	display:flex;
+	width:98%;
+	margin-left:1%;
+	margin-right:1%;
+	flex-wrap:nowrap;
+	flex-direction:row;
+	justify-content:center;
+	background-color:#431010;
+	div {
+		width:auto;
+		min-width:20%;
+		max-width:30%;
+		border:1px solid #ddd;
+		color:#efefef;
+		background-color:rgba(0, 0, 0, 0.2);
+		padding:6px;
+		margin:1px;
+	}
+}
+
+.displayEvent {
+	text_align:left;
+	font-size:18px;	
+}
+
+.displayDescription {
+	margin-left:100px;
+}
+
+.soon {
+	font-weight:bold;
+	color:#ef0000;
+}
+
 .js {
 	width:100%;
 	tbody, thead {

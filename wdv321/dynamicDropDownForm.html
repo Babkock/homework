@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>WDV321 Dynamic Dropdown Form</title>
 <link rel="stylesheet" href="../assets/css/style.css" />
+<link rel="icon" type="image/png" href="/images/favicon.png" />
 <script src="../assets/js/jquery-3.5.1.min.js"></script>
 <script>
 var productsArray = ["Apples", "Bananas", "Oranges", "Broccoli"];
@@ -55,7 +56,7 @@ $(document).ready(function() {
     });
 
     $("#dynamic").on('submit', function() {
-        var c = $("#displayItems option[selected]").val();
+        var c = $("#displayItems option:selected").text();
         if (choice == 1)
             alert("You selected " + c + " from the products array");
         else
