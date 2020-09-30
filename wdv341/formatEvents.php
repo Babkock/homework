@@ -7,7 +7,6 @@
 try {
 	require_once("dbConnect.php");
 
-	$res = $db->query("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, DATE_FORMAT(`event_date`, '%a %M %D, %Y'), `event_time` FROM `wdv341_events` SORT BY `event_id` DESC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,7 @@ try {
 	<h2>Example Code - Display Events as formatted output blocks</h2>   
 	<h3>??? Events are available today.</h3>
 <?php
-	foreach ($res as $row) {
+	foreach ($db->query("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, DATE_FORMAT(`event_date`, '%a %M %D, %Y'), `event_time` FROM `wdv341_events` SORT BY `event_id` DESC") as $row) {
 ?>
 		<div class="eventBlock">	
 			<div>
