@@ -29,8 +29,8 @@ try {
 		<div class="eventBlock">	
 			<div>
 				<span class="displayEvent">Event: <?php
-				if ((strtotime($row[4])) < (strtotime("+1 month"))) {
-					if ((strtotime($row[4])) > (strtotime("now"))) {
+				if (strtotime($row[4]) < strtotime("+1 month")) {
+					if (strtotime($row[4]) > strtotime("now")) {
 						echo "<span class=\"soon\"><i>{$row[1]}</i></span>";
 					}
 					else {
@@ -38,7 +38,7 @@ try {
 					}
 				}
 				else {
-					if ((strtotime($row[4])) > (strtotime("now"))) {
+					if (strtotime($row[4]) > strtotime("now")) {
 						echo "<i>{$row[1]}</i>";
 					}
 					else {
