@@ -22,21 +22,28 @@ try {
 	<h3>??? Events are available today.</h3>
 <?php
 	foreach ($db->query("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, DATE_FORMAT(`event_date`, '%a %M %D, %Y'), `event_time` FROM `wdv341_events` SORT BY `event_id` DESC") as $row) {
-		print_r($row);
 ?>
 		<div class="eventBlock">
 			<div>
 				<span class="displayEvent">Event: <?php
-				/* if (time() )
-						echo "<span class=\"soon\"><i>{$row[1]}</i></span>";
-				
-						echo "<span class=\"soon\">{$row[1]}</span>";
-				
+				$evmonth = date("m", strtotime($row[4]));
+				$month = date("m", mktime());
 
+				if (strcmp($evmonth, $month) == 0) {
+					if (time() < strtotime($row[4])) {
+						echo "<span class=\"soon\"><i>{$row[1]}</i></span>";
+					}
+					else {
+						echo "<span class=\"soon\">{$row[1]}</span>";
+					}
+				} else {
+					if (time() < strtotime($row[4])) {
 						echo "<i>{$row[1]}</i>";
-				
+					} else {
 						echo $row[1];
-				*/
+					}
+				}
+				
 				?></span>
 				<span>Presenter: <?php echo $row[3]; ?></span>
 			</div>
