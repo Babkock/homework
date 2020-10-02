@@ -19,12 +19,27 @@ try {
 <body>
 	<h1>WDV341 Intro PHP</h1>
 	<h2>Example Code - Display Events as formatted output blocks</h2>   
-	<h3>??? Events are available today.</h3>
-<?php
-	$st = $db->prepare("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, DATE_FORMAT(`event_date`, '%a %M %D, %Y'), `event_time` FROM `wdv341_events` SORT BY `event_id` DESC");
-	$st->execute();
+	<h3><?php
+		$st1 = $db->prepare("SELECT `event_date` FROM `wdv341_events`");
+		$st1->execute();
+		$total = 0;
 
-	while ($row = $st->fetch(PDO::FETCH_NUM)) {
+		while ($row = $st1->fetch(PDO::FETCH_NUM)) {
+			$evday = date("d-m-Y", strtotime($row[0]));
+			$day = date("d-m-Y", mktime());
+
+			if (strcmp($evday, $day) == 0) {
+				$total++;
+			}
+		}
+		echo $total;
+	?> Events are available today.</h3>
+
+<?php
+	$st2 = $db->prepare("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, DATE_FORMAT(`event_date`, '%a %M %D, %Y'), `event_time` FROM `wdv341_events` ORDER BY `event_id` DESC");
+	$st2->execute();
+
+	while ($row = $st2->fetch(PDO::FETCH_BOTH)) {
 ?>
 		<div class="eventBlock">
 			<div>
@@ -34,30 +49,33 @@ try {
 
 				if (strcmp($evmonth, $month) == 0) {
 					if (time() < strtotime($row[4])) {
-						echo "<span class=\"soon\"><i>{$row[1]}</i></span>";
+						echo "<span class=\"soon\"><i>{$row['event_name']}</i></span>";
 					}
 					else {
-						echo "<span class=\"soon\">{$row[1]}</span>";
+						echo "<span class=\"soon\">{$row['event_name']}</span>";
 					}
 				} else {
 					if (time() < strtotime($row[4])) {
-						echo "<i>{$row[1]}</i>";
+						echo "<i>{$row['event_name']}</i>";
 					} else {
-						echo $row[1];
+						echo $row['event_name'];
 					}
 				}
 				
+				?></span><br />
+				<span>with <b><?php echo $row['event_presenter']; ?></b></span>
+			</div>
+			<div>
+				<span class="displayDescription"><?php echo $row['event_description']; ?></span>
+			</div>
+			<div>
+				<span class="displayTime"><?php
+				$t = date('h:i A', strtotime($row['event_time']));
+				echo $t;
 				?></span>
-				<span>Presenter: <?php echo $row[3]; ?></span>
 			</div>
 			<div>
-				<span class="displayDescription">Description: <?php echo $row[2]; ?></span>
-			</div>
-			<div>
-				<span class="displayTime">Time: <?php echo $row[5]; ?></span>
-			</div>
-			<div>
-				<span class="displayDate">Date: <?php echo $row[4]; ?></span>
+				<span class="displayDate"><?php echo $row[4]; ?></span>
 			</div>
 		</div>
 <?php

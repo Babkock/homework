@@ -153,19 +153,20 @@ table.files tbody tr td:hover, table.files thead tr td:hover {
 	width:98%;
 	margin-left:1%;
 	margin-right:1%;
+	padding-top:5%;
+	padding-bottom:5%;
 	flex-wrap:nowrap;
 	flex-direction:row;
-	justify-content:center;
-	background-color:#431010;
+	justify-content:left;
+	background-color:#202020;
 	div {
-		width:auto;
-		min-width:20%;
-		max-width:30%;
+		width:25%;
 		border:1px solid #ddd;
 		color:#efefef;
-		background-color:rgba(0, 0, 0, 0.2);
+		background-color:#121c12;
 		padding:6px;
-		margin:1px;
+		margin:2px;
+		text-align:left;
 	}
 }
 
