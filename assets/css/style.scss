@@ -153,18 +153,19 @@ table.files tbody tr td:hover, table.files thead tr td:hover {
 	width:98%;
 	margin-left:1%;
 	margin-right:1%;
-	padding-top:5%;
-	padding-bottom:5%;
+	padding-top:2px;
+	padding-bottom:2px;
 	flex-wrap:nowrap;
 	flex-direction:row;
 	justify-content:left;
 	background-color:#202020;
 	div {
 		width:25%;
-		border:1px solid #ddd;
+		font-size:1.09em;
+		border:1px solid #bbb;
 		color:#efefef;
 		background-color:#121c12;
-		padding:6px;
+		padding:7px;
 		margin:2px;
 		text-align:left;
 	}
@@ -175,13 +176,10 @@ table.files tbody tr td:hover, table.files thead tr td:hover {
 	font-size:18px;	
 }
 
-.displayDescription {
-	margin-left:100px;
-}
-
 .soon {
 	font-weight:bold;
 	color:#ef0000;
+	font-size:1.12em;
 }
 
 .js {

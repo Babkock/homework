@@ -35,6 +35,21 @@ try {
 		echo $total;
 	?> Events are available today.</h3>
 
+	<div class="eventBlock">
+		<div>
+			<p><b>Event Name and Presenter</b></p>
+		</div>
+		<div>
+			<p><b>Description</b></p>
+		</div>
+		<div>
+			<p><b>Time</b></p>
+		</div>
+		<div>
+			<p><b>Date</b></p>
+		</div>
+	</div>
+
 <?php
 	$st2 = $db->prepare("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, DATE_FORMAT(`event_date`, '%a %M %D, %Y'), `event_time` FROM `wdv341_events` ORDER BY `event_id` DESC");
 	$st2->execute();
