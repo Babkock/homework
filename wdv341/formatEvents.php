@@ -12,7 +12,7 @@ try {
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>PHP Formatted Content</title>
+	<title>Unit 8: PHP Formatted Content</title>
 	<link rel="stylesheet" href="../assets/css/style.css" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
 </head>

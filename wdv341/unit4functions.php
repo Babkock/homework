@@ -73,11 +73,14 @@ function cashFormat($m) {
 		?>
 	</div>
 	<br />
-	<center>
+	<footer>
+		<p>
+			<a href="/homework/wdv341/unit3basics" alt="Previous assignment" title="Previous assignment">Unit 3: PHP Basics</a> &bull; <a href="/homework/wdv341/unit5files" alt="Next assignment" title="Next assignment">Unit 5: File Upload</a>
+		</p>
 		<p>
 			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
 			 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit4functions.php" target="_blank">View Source Code</a>
 		</p>
-	</center>
+	</footer>
 </body>
 </html>
