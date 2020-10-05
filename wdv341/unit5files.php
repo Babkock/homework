@@ -64,7 +64,7 @@
 ?>
 	<footer>
 		<p>
-			<a href="/homework/wdv341/unit4functions">Unit 4: Functions</a> &bull; <a href="/homework/wdv341/selectEvents">Unit 7: Create selectEvents.php</a>
+			<a href="/homework/wdv341/unit4functions" alt="Previous assignment" title="Previous assignment">Unit 4: PHP Functions</a> &bull; <a href="/homework/wdv341/selectEvents" alt="Next assignment" title="Next assignment">Unit 7: Create selectEvents.php</a>
 		</p>
 		<p>
 			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;

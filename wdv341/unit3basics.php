@@ -37,11 +37,14 @@
 			?>
 		</script>
 	</div>
-	<center>
+	<footer>
+		<p>
+			<a href="/homework/wdv341/unit4functions" alt="Next assignment" title="Next assignment">Unit 4: PHP Functions</a>
+		</p>
 		<p>
 			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
 			 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit3basics.php" target="_blank">View Source Code</a>
 		</p>
-	</center>
+	</footer>
 </body>
 </html>

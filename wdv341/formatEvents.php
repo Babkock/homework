@@ -59,8 +59,8 @@ try {
 		<div class="eventBlock">
 			<div>
 				<span class="displayEvent">Event: <?php
-				$evmonth = date("m", strtotime($row[4]));
-				$month = date("m", mktime());
+				$evmonth = date("m-Y", strtotime($row[4]));
+				$month = date("m-Y", mktime());
 
 				if (strcmp($evmonth, $month) == 0) {
 					if (time() < strtotime($row[4])) {
