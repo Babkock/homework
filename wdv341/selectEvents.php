@@ -47,7 +47,10 @@ EOF;
 	</div>
 	<p>I remembered not to commit my <b>dbConnect.php</b> file!</p>
 	<footer>
-		<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/selectEvents.php" target="_blank">View Source Code</a>
+		<p>
+			<a href="/homework/wdv341/unit5files">Unit 5: File Upload</a> &bull; <a href="/homework/wdv341/formatEvents">Unit 8: PHP Formatted Content</a>
+		</p>
+		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/selectEvents.php" target="_blank">View Source Code</a></p>
 	</footer><?php
 }
 catch (PDOException $e) {

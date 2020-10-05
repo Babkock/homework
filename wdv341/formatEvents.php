@@ -1,7 +1,7 @@
 <?php
 /*
 	Unit 8: PHP Formatted Content
-	October 1, 2020
+	October 4, 2020
 	Tanner Babcock
 */
 try {
@@ -12,7 +12,7 @@ try {
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>WDV341 Intro PHP  - Display Events Example</title>
+	<title>PHP Formatted Content</title>
 	<link rel="stylesheet" href="../assets/css/style.css" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
 </head>
@@ -103,6 +103,7 @@ catch (PDOException $e) {
 ?>
 </div>
 <footer>
+	<p><a href="/homework/wdv341/selectEvents" alt="Previous assignment" title="Previous assignment">Unit 7: Create selectEvents.php</a></p>
 	<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/formatEvents.php" target="_blank">View Source Code</a></p>
 </footer>
 </body>

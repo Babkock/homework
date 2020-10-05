@@ -63,8 +63,13 @@
 }
 ?>
 	<footer>
-		<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
-		 <a href="https://github.com/Babkock/homework/blob/master/wdv341/unit5files.php" target="_blank">View Source Code</a>
+		<p>
+			<a href="/homework/wdv341/unit4functions">Unit 4: Functions</a> &bull; <a href="/homework/wdv341/selectEvents">Unit 7: Create selectEvents.php</a>
+		</p>
+		<p>
+			<a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull;
+		 	<a href="https://github.com/Babkock/homework/blob/master/wdv341/unit5files.php" target="_blank">View Source Code</a>
+		 </p>
 	</footer>
 </body>
 </html>
