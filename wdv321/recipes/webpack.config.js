@@ -15,7 +15,8 @@ const config = require('./package.json');
 module.exports = {
 	mode: process.env.NODE_ENV,
 	entry: {
-		display: "./src/js/display.js"
+		display: "./src/js/display.js",
+		editor: "./src/js/editor.js"
 	},
 	output: {
 		path: path.resolve(__dirname, "./assets/js"),

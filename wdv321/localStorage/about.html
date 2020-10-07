@@ -6,7 +6,7 @@
 -->
 <html lang="en">
 <head>
-	<title>Local Storage &bull; About</title>
+	<title>Local Storager &bull; About</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="../../assets/css/style.css" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -24,33 +24,34 @@
 		</ul>
 	</nav>
 	<div class="box">
-		<h2>Cookie Information</h2>
+		<h2>Local Storage Information</h2>
 		<script>
-		var auth = readCookie("authentication");
+		var storage = window.localStorage;
+		var auth = storage.getItem("authentication");
 		if (!auth || auth == null) {
-			window.location.href = "https://tannerbabcock.com/homework/wdv321/cookies/home.html";
+			window.location.href = "https://tannerbabcock.com/homework/wdv321/localStorage/home.html";
 		}
 		else {
 			document.write("<p>Authentication: <b>" + auth + "</b></p>");
 		}
 
-		var visits = readCookie("display");
+		var visits = storage.getItem("display");
 		if (!visits || (parseInt(visits) == 0)) {
-			document.write("<p><b>No display cookie!</b></p>");
+			document.write("<p><b>No display item!</b></p>");
 		}
 		else {
 			document.write("<p>Number of visits: <b>" + parseInt(visits) + "</b></p>");
 		}
 
-		var analytics = readCookie("analytics");
+		var analytics = storage.getItem("analytics");
 		if (!analytics) {
-			document.write("<p><b>No analytics/referrer cookie!</b></p>");
+			document.write("<p><b>No analytics/referrer item!</b></p>");
 		}
 		else {
 			document.write("<p>Referrer URL: <b>" + analytics + "</b>.</p>");
 		}
 		</script>
-		<button class="destroy">Destroy All Cookies</button>
+		<button class="destroy">Destroy All Storage Items</button>
 	</div>
 	<footer>
 		<p><a href="/homework/wdv321/cookies/home.html" alt="Previous assignment" title="Previous assignment">Unit 5: Cookies</a> &bull; <a href="/homework/wdv321/recipes/home.html" alt="Next assignment" title="Next assignment">Dynamic Recipes Project</a></p>

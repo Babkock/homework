@@ -6,7 +6,7 @@
 -->
 <html lang="en">
 <head>
-	<title>Local Storage &bull; Home</title>
+	<title>Local Storager &bull; Home</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="../../assets/css/style.css" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -14,27 +14,28 @@
 	<script src="../../assets/js/unit6.js"></script>
 	<script>
 	$(document).ready(function() {
-		var analytics = readCookie("analytics");
+		var storage = window.localStorage;
+		var analytics = storage.getItem("analytics");
 		if (!analytics) {
-			newCookie("analytics", document.referrer, 3);
+			storage.setItem("analytics", document.referrer);
 			console.log("Created analytics cookie\n");
 		}
 		else {
-			delCookie("analytics");
-			newCookie("analytics", document.referrer, 3);
-			console.log("Changed analytics cookie to " + document.referrer + "\n");
+			storage.removeItem("analytics");
+			storage.setItem("analytics", document.referrer);
+			console.log("Changed analytics storage item to " + document.referrer + "\n");
 		}
 
-		var visits = readCookie("display");
+		var visits = storage.getItem("display");
 		if (!visits || (parseInt(visits) == 0)) {
-			newCookie("display", "1", 3);
+			storage.setItem("display", "1");
 			console.log("Starting new display cookie\n");
 		}
 		else {
 			visits = parseInt(visits);
 			visits++;
-			delCookie("display");
-			newCookie("display", ""+visits, 3);
+			storage.removeItem("display");
+			storage.setItem("display", ""+visits, 3);
 			console.log("Incremented display cookie to " + visits + ".\n");
 		}
 	});
@@ -50,10 +51,12 @@
 			<li><a href="#" title="Dummy Link" alt="Dummy Link">Staff</a></li>
 		</ul>
 	</nav>
+	<p>This assignment looks like the Cookiebar Crunch one, but it is different in that it uses local storage instead.</p>
 	<div class="box">
 		<h2>Login</h2>
 		<script>
-		var auth = readCookie("authentication");
+		var storage = window.localStorage;
+		var auth = storage.getItem("authentication");
 		if ((auth != null) && (auth.localeCompare("ff7371c78b19c0a7297") == 0)) {
 			document.write("<p style=\"color:lime\">You are authenticated!</p>");
 		}
@@ -61,7 +64,7 @@
 		<center>
 			<input type="text" placeholder="Username" disabled />
 			<input type="text" placeholder="Password" disabled />
-			<button class="create">Secure Authentication Cookie</button>
+			<button class="create">Secure Authentication Storage Item</button>
 		</center>
 	</div>
 	<footer>
