@@ -34,8 +34,8 @@ var app = new Vue({
 	},
 
 	methods: {
-		hello = function() {
-			console.log("This is a function")
+		hello: function() {
+			console.log("This is a function");
 		}
 	},
 
