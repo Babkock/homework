@@ -16,7 +16,7 @@
 		"build": "cross-env NODE_ENV=production webpack --color --hide-modules --mode production"
 	},
 	"dependencies": {
-		"vue": "2.6.11",
+		"vue": "2.6.11"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
