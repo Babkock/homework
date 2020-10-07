@@ -12,6 +12,9 @@
 	"description": "WDV321 Dynamic Recipes Project. Uses local storage and Vue.js.",
 	"license": "UNLICENSED",
 	"private": true,
+	"scripts": {
+		"build": "cross-env NODE_ENV=production webpack --color --hide-modules --mode production"
+	},
 	"dependencies": {
 		"vue": "2.6.11",
 	},
