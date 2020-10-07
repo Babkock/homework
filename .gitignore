@@ -3,3 +3,10 @@
 *.mp4
 /glitchbg.jpg
 wdv341/dbConnect.php
+node_modules
+node_modules/*
+wdv321/*/node_modules
+wdv321/*/node_modules/*
+package-lock.json
+wdv321/*/package-lock.json
+

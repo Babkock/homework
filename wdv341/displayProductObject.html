@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+	Unit 9: Formatting JSON Output
+	Tanner Babcock
+	October 7, 2020
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Unit 9: Formatting JSON Output</title>
+	<script>
+	function getProductObject() {
+		alert("insideGetProductObject()");
+
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				console.log(this.responseText);
+				var myObj = JSON.parse(this.responseText);
+				document.getElementById("displayProduct").innerHTML = myObj.productName;
+			}
+		};
+		xmlhttp.open("GET", "deliverProduct.php", true);
+		xmlhttp.send();
+	}
+	</script>
+</head>
+<body>
+	<h1>WDV341 Intro PHP</h1>
+	<h2>PHP-JSON-AJAX Example</h2>
+	<p>This page will use AJAX to call for a PHP page on your server. The PHP page will create a JSON object and 'send' it back to this page where it will be consumed by the page 	and the contents displayed.</p>
+	<p>Product Information: <span id="displayProduct"></span></p>
+	<p><button onClick="getProductObject()">Display Product</button></p>
+	<footer>
+		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/deliverProduct.php">View Source Code</a></p>
+	</footer>
+</body>
+</html>

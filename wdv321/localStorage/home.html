@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+	Unit 6: Local Storage
+	Tanner Babcock
+	October 6, 2020
+-->
+<html lang="en">
+<head>
+	<title>Local Storage &bull; Home</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../../assets/css/style.css" />
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
+	<script src="../../assets/js/jquery-3.5.1.min.js"></script>
+	<script src="../../assets/js/unit6.js"></script>
+	<script>
+	$(document).ready(function() {
+		var analytics = readCookie("analytics");
+		if (!analytics) {
+			newCookie("analytics", document.referrer, 3);
+			console.log("Created analytics cookie\n");
+		}
+		else {
+			delCookie("analytics");
+			newCookie("analytics", document.referrer, 3);
+			console.log("Changed analytics cookie to " + document.referrer + "\n");
+		}
+
+		var visits = readCookie("display");
+		if (!visits || (parseInt(visits) == 0)) {
+			newCookie("display", "1", 3);
+			console.log("Starting new display cookie\n");
+		}
+		else {
+			visits = parseInt(visits);
+			visits++;
+			delCookie("display");
+			newCookie("display", ""+visits, 3);
+			console.log("Incremented display cookie to " + visits + ".\n");
+		}
+	});
+	</script>
+</head>
+<body>
+	<h1>Local Storager</h1>
+	<nav>
+		<ul>
+			<li><a href="home.html" title="Local Storager Home Page" alt="Local Storager Home Page">Home</a></li>
+			<li><a href="about.html" title="About Local Storager" alt="About Local Storager">About</a></li>
+			<li><a href="#" title="Dummy Link" alt="Dummy Link">Contact</a></li>
+			<li><a href="#" title="Dummy Link" alt="Dummy Link">Staff</a></li>
+		</ul>
+	</nav>
+	<div class="box">
+		<h2>Login</h2>
+		<script>
+		var auth = readCookie("authentication");
+		if ((auth != null) && (auth.localeCompare("ff7371c78b19c0a7297") == 0)) {
+			document.write("<p style=\"color:lime\">You are authenticated!</p>");
+		}
+		</script>
+		<center>
+			<input type="text" placeholder="Username" disabled />
+			<input type="text" placeholder="Password" disabled />
+			<button class="create">Secure Authentication Cookie</button>
+		</center>
+	</div>
+	<footer>
+		<p><a href="/homework/wdv321/cookies/home.html" alt="Previous assignment" title="Previous assignment">Unit 5: Cookies</a> &bull; <a href="/homework/wdv321/recipes/home.html" alt="Next assignment" title="Next assignment">Dynamic Recipes Project</a></p>
+		<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
+	</footer>
+</body>
+</html>

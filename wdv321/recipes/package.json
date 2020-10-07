@@ -1,0 +1,50 @@
+{
+	"name": "dynamicRecipesProject",
+	"author": {
+		"name": "Tanner Babcock",
+		"email": "tababcock@dmacc.edu",
+		"url": "https://tannerbabcock.com/homework/index"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Babkock/homework"
+	},
+	"description": "WDV321 Dynamic Recipes Project. Uses local storage and Vue.js.",
+	"license": "UNLICENSED",
+	"private": true,
+	"dependencies": {
+		"vue": "2.6.11",
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^8.0.6",
+		"babel-plugin-transform-runtime": "^6.23.0",
+		"cross-env": "^6.0.3",
+		"css-loader": "^3.4.0",
+		"eslint": "^6.8.0",
+		"eslint-config-standard": "^14.1.0",
+		"eslint-friendly-formatter": "^4.0.1",
+		"eslint-import-resolver-webpack": "^0.12.0",
+		"eslint-loader": "^3.0.3",
+		"eslint-plugin-html": "^6.0.0",
+		"eslint-plugin-node": "^11.0.0",
+		"eslint-plugin-import": "^2.19.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-standard": "^4.0.1",
+		"extract-loader": "^3.1.0",
+		"file-loader": "^5.0.2",
+		"node-sass": "^4.13.0",
+		"sass": "^1.3.0",
+		"sass-loader": "^7.0.0",
+		"style-loader": "^1.1.2",
+		"vue": "2.6.11",
+		"vue-class-component": "^7.1.0",
+		"vue-loader": "^15.8.3",
+		"vue-style-loader": "^4.1.2",
+		"vue-template-compiler": "2.6.11",
+		"webpack": "^4.41.5",
+		"webpack-cli": "^3.3.10"
+	},
+	"homepage": "https://tannerbabcock.com/homework/index"
+}

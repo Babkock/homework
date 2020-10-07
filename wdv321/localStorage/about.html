@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+	Unit 5: Cookies
+	Tanner Babcock
+	September 9, 2020
+-->
+<html lang="en">
+<head>
+	<title>Local Storage &bull; About</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../../assets/css/style.css" />
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
+	<script src="../../assets/js/jquery-3.5.1.min.js"></script>
+	<script src="../../assets/js/unit6.js"></script>
+</head>
+<body>
+	<h1>About Local Storager</h1>
+	<nav>
+		<ul>
+			<li><a href="home.html" title="Local Storager Home Page" alt="Local Storager Home Page">Home</a></li>
+			<li><a href="about.html" title="About Local Storager" alt="About Local Storager">About</a></li>
+			<li><a href="#" title="Dummy Link" alt="Dummy Link">Contact</a></li>
+			<li><a href="#" title="Dummy Link" alt="Dummy Link">Staff</a></li>
+		</ul>
+	</nav>
+	<div class="box">
+		<h2>Cookie Information</h2>
+		<script>
+		var auth = readCookie("authentication");
+		if (!auth || auth == null) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv321/cookies/home.html";
+		}
+		else {
+			document.write("<p>Authentication: <b>" + auth + "</b></p>");
+		}
+
+		var visits = readCookie("display");
+		if (!visits || (parseInt(visits) == 0)) {
+			document.write("<p><b>No display cookie!</b></p>");
+		}
+		else {
+			document.write("<p>Number of visits: <b>" + parseInt(visits) + "</b></p>");
+		}
+
+		var analytics = readCookie("analytics");
+		if (!analytics) {
+			document.write("<p><b>No analytics/referrer cookie!</b></p>");
+		}
+		else {
+			document.write("<p>Referrer URL: <b>" + analytics + "</b>.</p>");
+		}
+		</script>
+		<button class="destroy">Destroy All Cookies</button>
+	</div>
+	<footer>
+		<p><a href="/homework/wdv321/Unit-4json.html" alt="Previous assignment" title="Previous assignment">Unit 4: Create JSON Object</a></p>
+		<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
+	</footer>
+</body>
+</html>
