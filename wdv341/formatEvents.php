@@ -103,7 +103,7 @@ catch (PDOException $e) {
 ?>
 </div>
 <footer>
-	<p><a href="/homework/wdv341/selectEvents" alt="Previous assignment" title="Previous assignment">Unit 7: Create selectEvents.php</a></p>
+	<p><a href="/homework/wdv341/selectEvents" alt="Previous assignment" title="Previous assignment">Unit 7: Create selectEvents.php</a> &bull; <a href="/homework/wdv341/displayProductObject.html" alt="Next assignment" title="Next assignment">Unit 9: Formatting JSON Output/AJAX</a></p>
 	<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/formatEvents.php" target="_blank">View Source Code</a></p>
 </footer>
 </body>
