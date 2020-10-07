@@ -10,7 +10,7 @@ class Ingredient {
 	constructor(ingName, ingQuantity, ingQuantMst, optional) {
 		this.name = ingName;
 		this.quantity = ingQuantity;
-		this.measurement = ingQantMst;
+		this.measurement = ingQuantMst;
 		this.optional = optional;
 	}
 
