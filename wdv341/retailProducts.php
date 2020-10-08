@@ -69,7 +69,7 @@ try {
 		}
 		.productName {
 			text-align:center;
-			font-size: large;
+			margin-top:6px;
 		}
 		.productDesc {
 			margin-left:10px;
@@ -130,7 +130,7 @@ try {
 			<div class="productImage">
 				<img src="productImages/<?php echo $row['product_image']; ?>">
 			</div>
-			<p class="productName"><?php echo $row['product_name']; ?></p>	
+			<h3 class="productName"><?php echo $row['product_name']; ?></h3>	
 			<p class="productDesc"><?php echo $row['product_description']; ?></p>
 			<p class="productPrice">$<?php echo $row['product_price']; ?></p>
 			<?php
