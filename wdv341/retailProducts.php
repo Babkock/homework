@@ -43,12 +43,13 @@ try {
 			color:#dfdfdf;
 			padding:4px;
 			padding-top:5px;
-			border:thin solid yellow;
+			border:1px solid lightblue;
 			transition:background, color 0.2s ease 0s;
 		}
 		.productBlock:hover {
 			background:rgba(80, 25, 10, 0.5);
 			color:#efefef;
+			border:1px solid white;
 		}
 		
 		.productImage img {
@@ -78,9 +79,13 @@ try {
 		.productPrice {
 			text-align: center;
 			font-size:larger;
-			color:#d2d2f3;
+			color:#c2e3c3;
 			text-shadow:1px 1px green;
-		}		
+		}
+		.productPrice:hover {
+			color:#d3f3d3;
+			text-shadow:1px 1px lime;
+		}
 		.productStatus {
 			text-align:center;
 			font-weight:bolder;
@@ -93,6 +98,8 @@ try {
 		.updated {
 			color:#989898;
 			font-style:italic;
+			text-align:center;
+			font-size:0.98em;
 		}
 
 		.productLowInventory, .error {
@@ -133,10 +140,10 @@ try {
 
 			$class = (($row['product_inStock'] < 10) ? "productLowInventory" : "");
 			
-			$nd = date("M d, Y", strtotime($row['product_update_date']));
+			$nd = date("F j, Y", strtotime($row['product_update_date']));
 			?>
 			<p class="productInventory <?php echo $class; ?>"><?php echo $row['product_inStock']; ?> in Stock!</p>
-			<p class="updated"><?php echo $nd; ?></p>
+			<p class="updated">[ Last updated <?php echo $nd; ?> ]</p>
 		</div>
 <?php
 	}
