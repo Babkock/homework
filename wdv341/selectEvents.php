@@ -48,9 +48,9 @@ EOF;
 	<p>I remembered not to commit my <b>dbConnect.php</b> file!</p>
 	<footer>
 		<p>
-			<a href="/homework/wdv341/unit5files">Unit 5: File Upload</a> &bull; <a href="/homework/wdv341/formatEvents">Unit 8: PHP Formatted Content</a>
+			<a href="/homework/wdv341/unit5files" alt="Previous assignment" title="Previous assignment">Unit 5: File Upload</a> &bull; <a href="/homework/wdv341/retailProducts" alt="Next assignment" title="Next assignment">Unit 8: PHP Formatted Content</a>
 		</p>
-		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/selectEvents.php" target="_blank">View Source Code</a></p>
+		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/selectEvents.php" target="_blank" alt="GitHub" title="GitHub">View Source Code</a></p>
 	</footer><?php
 }
 catch (PDOException $e) {

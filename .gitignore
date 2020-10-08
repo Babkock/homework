@@ -5,6 +5,8 @@
 wdv341/dbConnect.php
 node_modules
 node_modules/*
+wdv341/productImages
+wdv341/productImages/*
 wdv321/*/node_modules
 wdv321/*/node_modules/*
 package-lock.json
