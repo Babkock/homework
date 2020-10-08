@@ -16,17 +16,28 @@ try {
 		body {
 			background:linear-gradient(darkblue, #103d3d);
 			color:white;
+			font-size:1.08em;
 		}
 		main {
 			width:90%;
 			margin-left:5%;
 			margin-right:5%;
-			padding:5px;
+			padding:3px;
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:center;
+		}
+		a, a:link, a:visited, a:active {
+			color:lightblue;
+		}
+		a:hover {
+			color:lime;
 		}
 
 		.productBlock {
-			
-			width:300px;
+			width:18%;
+			margin-left:0.5%;
+			margin-right:0.5%;
 			background: rgba(50, 15, 10, 0.3);
 			color:#dfdfdf;
 			padding:4px;
@@ -34,7 +45,7 @@ try {
 			transition:background, color 0.2s ease 0s;
 		}
 		.productBlock:hover {
-			background:rgba(70, 25, 10, 0.5);
+			background:rgba(70, 25, 10, 0.4);
 			color:#efefef;
 		}
 		
@@ -46,12 +57,10 @@ try {
 			height:280px;
 			opacity:0.9;
 			border:1px solid #cfcfcf;
-			transition:width, height, border, opacity 0.2s ease 0s;
+			transition:border, opacity 0.2s ease 0s;
 		}
 		.productImage img:hover {
 			display:block;
-			width:295px;
-			height:295px;
 			opacity:1;
 			border:1px solid #efefef;
 		}
@@ -86,12 +95,20 @@ try {
 		.productLowInventory, .error {
 			color:red;
 		}
+		footer {
+			text-align:center;
+			display:block;
+			width:90%;
+			margin-left:5%;
+			margin-right:5%;
+		}
 	</style>
 </head>
 <body>
-	
-	<h1>DMACC Electronics Store!</h1>
-	<h2>Products for your Home and School Office</h2>
+	<header>
+		<h1>DMACC Electronics Store!</h1>
+		<h2>Products for your Home and School Office</h2>
+	</header>
 	<main>
 <?php
 	$st = $db->prepare("SELECT * FROM `wdv341_products` ORDER BY `product_name` DESC");
@@ -101,7 +118,7 @@ try {
 ?>
 		<div class="productBlock">
 			<div class="productImage">
-				<img src="<?php echo $row['product_image']; ?>">
+				<img src="productImages/<?php echo $row['product_image']; ?>">
 			</div>
 			<p class="productName"><?php echo $row['product_name']; ?></p>	
 			<p class="productDesc"><?php echo $row['product_description']; ?></p>

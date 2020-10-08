@@ -4,6 +4,8 @@
 	October 4, 2020
 	Tanner Babcock
 */
+header('Location: https://tannerbabcock.com/homework/wdv341/retailProducts');
+/*
 try {
 	require_once("dbConnect.php");
 
@@ -107,4 +109,4 @@ catch (PDOException $e) {
 	<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/formatEvents.php" target="_blank">View Source Code</a></p>
 </footer>
 </body>
-</html>
+</html> */
