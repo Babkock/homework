@@ -18,6 +18,10 @@ class ProductContainer {
 		$this->productISBN = $isbn;
 	}
 
+	public function getName() { return $this->productName; }
+	public function setName($s) { $this->productName = $s; }
+	public function getPrice() { return $this->productPrice; }
+	public function setPrice($p) { $this->productPrice = $p; }
 }
 
 	$productObj = new ProductContainer();

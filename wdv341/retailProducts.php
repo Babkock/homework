@@ -38,14 +38,16 @@ try {
 			width:18%;
 			margin-left:0.5%;
 			margin-right:0.5%;
-			background: rgba(50, 15, 10, 0.3);
+			margin-top:20px;
+			background: rgba(60, 15, 10, 0.3);
 			color:#dfdfdf;
 			padding:4px;
-			border:thin solid white;
+			padding-top:5px;
+			border:thin solid yellow;
 			transition:background, color 0.2s ease 0s;
 		}
 		.productBlock:hover {
-			background:rgba(70, 25, 10, 0.4);
+			background:rgba(80, 25, 10, 0.5);
 			color:#efefef;
 		}
 		
@@ -64,34 +66,35 @@ try {
 			opacity:1;
 			border:1px solid #efefef;
 		}
-	
 		.productName {
 			text-align:center;
 			font-size: large;
-		}	
-		
+		}
 		.productDesc {
 			margin-left:10px;
 			margin-right:10px;
 			text-align:justify;
 		}
-		
 		.productPrice {
 			text-align: center;
 			font-size:larger;
-			color:#c0c0ef;
-		}
-		
+			color:#d2d2f3;
+			text-shadow:1px 1px green;
+		}		
 		.productStatus {
 			text-align:center;
 			font-weight:bolder;
+			font-size:1.12em;
 			color:#c2efc2;
 		}
-		
 		.productInventory {
 			text-align:center;
 		}
-		
+		.updated {
+			color:#989898;
+			font-style:italic;
+		}
+
 		.productLowInventory, .error {
 			color:red;
 		}
@@ -116,7 +119,7 @@ try {
 
 	while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 ?>
-		<div class="productBlock">
+		<div class="productBlock" id="product<?php echo $row['product_id']; ?>">
 			<div class="productImage">
 				<img src="productImages/<?php echo $row['product_image']; ?>">
 			</div>
@@ -130,8 +133,10 @@ try {
 
 			$class = (($row['product_inStock'] < 10) ? "productLowInventory" : "");
 			
+			$nd = date("M d, Y", strtotime($row['product_update_date']));
 			?>
 			<p class="productInventory <?php echo $class; ?>"><?php echo $row['product_inStock']; ?> in Stock!</p>
+			<p class="updated"><?php echo $nd; ?></p>
 		</div>
 <?php
 	}
