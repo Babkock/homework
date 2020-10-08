@@ -19,12 +19,13 @@ try {
 			font-size:1.08em;
 		}
 		main {
-			width:90%;
-			margin-left:5%;
-			margin-right:5%;
-			padding:3px;
+			width:98%;
+			margin-left:1%;
+			margin-right:1%;
+			padding:2px;
 			display:flex;
 			flex-wrap:wrap;
+			flex-direction:row;
 			justify-content:center;
 		}
 		a, a:link, a:visited, a:active {
@@ -35,11 +36,12 @@ try {
 		}
 
 		.productBlock {
-			width:18%;
-			margin-left:0.5%;
-			margin-right:0.5%;
+			width:22%;
+			margin-left:1%;
+			margin-right:1%;
 			margin-top:20px;
 			background: rgba(60, 15, 10, 0.3);
+			font-size:1.09em;
 			color:#dfdfdf;
 			padding:4px;
 			padding-top:5px;
