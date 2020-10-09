@@ -14,3 +14,18 @@ class Ingredient {
 		return JSON.stringify(this);
 	}
 }
+
+class TimeIs {
+	constructor(quant, mst) {
+		this.quantity = quant;
+		this.measurement = mst;
+	}
+
+	stringify() {
+		return this.quantity + " " + this.measurement;
+	}
+
+	json() {
+		return JSON.stringify(this);
+	}
+}

@@ -26,6 +26,10 @@
 		</header>
 		<main id="displaySlider">
 			<h2>Test</h2>
+			<div class="box" v-if="this.recipes[0]">
+				<recipe v-for="(recip, index) in this.recipes" :key="index" :myid="index">
+				</recipe>
+			</div>
 		</main>
 		<script src="assets/js/display.min.js"></script>
 		<footer>

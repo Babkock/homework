@@ -22,19 +22,16 @@ var app = new Vue({
 				{
 					numberOfIngreds: 3,
 					numberOfSteps: 3,
-					name: "",
-					image: "",
+					name: "Test Recipe Hellow",
+					image: "../../wdv341/productImages/flashDrive.jpg",
 					serves: 0,
 					difficulty: "",
-					preparation: {
-						quantity: "25",
-						measurement: "minutes"
-					},
-					cooking: {
-						quantity: "6",
-						measurement: "hours"
-					},
+					preparation: new TimeIs("25", "minutes"),
+					cooking: new TimeIs("6", "hours"),
 					ingredients: [
+						new Ingredient("chili powder", 2, "cups", false),
+						new Ingredient("sugar", 9, "gallons", false)
+					/*
 						{
 							quantity: "",
 							measurement: "",
@@ -53,6 +50,7 @@ var app = new Vue({
 							name: "",
 							opt: "",
 						}
+					*/
 					],
 					steps: [
 						"This is step one",
