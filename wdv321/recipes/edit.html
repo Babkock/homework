@@ -10,6 +10,7 @@
 	<title>Edit Recipes</title>
 	<link rel="stylesheet" href="assets/css/style.css" />
 	<script src="https://unpkg.com/vue@2.6.11"></script>
+	<script src="assets/js/ingredient.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -27,7 +28,7 @@
 		<main id="editor">
 			<form method="post" enctype="multipart/form-data">
 				<table><tbody v-if="this.recipe.ingredients">
-					<tr is="ingredient" v-for="(ings, index) in this.recipe.ingredients" v-bind:key="index" :id="index" :value="index" title="Enter the number of the given ingredient"></tr>
+					<ingredient v-for="(ings, index) in this.recipe.ingredients" v-bind:key="index" :id="index" :value="index" title="Enter the number of the given ingredient"></ingredient>
 				</tbody></table>
 			</form>
 		</main>
