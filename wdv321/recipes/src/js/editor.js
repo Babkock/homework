@@ -17,12 +17,14 @@ var app = new Vue({
 		return {
 			ingredients: 3,
 			steps: 3,
+			lastStorageItem: "",
 			recipe: {
 				numberOfIngreds: 3,
 				numberOfSteps: 3,
 				name: "",
 				image: "",
 				serves: 0,
+				difficulty: "",
 				preparation: {
 					quantity: "25",
 					measurement: "minutes"
@@ -90,6 +92,7 @@ var app = new Vue({
 			this.recipe.numberOfSteps--;
 		},
 
+		/* AJAX form handler */
 		submitData() {
 			this.ajaxResult = "";
 
@@ -103,14 +106,47 @@ var app = new Vue({
 			});
 		},
 
-		StoreObjectAs(x) {
+		/* Store current recipe object using lastStorageItem */
+		StoreObject() {
 			var storage = window.localStorage;
-			console.log("Storing object in local storage");
-			storage.setItem(x, JSON.stringify(this.recipe));
+			console.log("Updating storage object " + this.lastStorageItem);
+			storage.removeItem(this.lastStorageItem);
+			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
 		},
 
-		LoadObject() {
-			
+		/* Store current recipe object under new name */
+		StoreObjectAs(x) {
+			var storage = window.localStorage;
+			console.log("Storing object " + x + " in local storage");
+			storage.setItem(x, JSON.stringify(this.recipe));
+
+			this.lastStorageItem = x;
+		},
+
+		LoadObject(x) {
+			var storage = window.localStorage;
+			console.log("Loading object " + x);
+			var jso = {};
+			var object = {};
+
+			if (jso = storage.getItem(x)) {
+				object = JSON.parse(jso);
+
+				this.ingredients = object.numberOfIngreds;
+				this.steps = object.numberOfSteps;
+				this.lastStorageItem = x;
+				this.recipe = object;
+			}
+			else {
+				console.error("Could not load specified item " + x + " from local storage");
+			}
+		},
+
+		DeleteObject(x) {
+			var storage = window.localStorage;
+			console.log("Deleting stored recipe object '" + x + "'");
+			storage.removeItem(x);
+			this.lastStorageItem = "";
 		}
 	}
 })

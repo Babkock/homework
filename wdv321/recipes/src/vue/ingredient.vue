@@ -1,11 +1,11 @@
 <template>
-	<tr class="ingredient">
+	<tr class="ingredient" :id="myid">
 		<td>
 			#
 			<input type="text" :v-model="numVmodl" :value="value" :title="title" :alt="title" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
 		</td>
 		<td>
-			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" v-on:change="changeunit">
+			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" v-on:change="changeunit($event.target.value)">
 				<option value="" selected>Units per...</option>
 				<option value="whole">whole</option>
 				<option value="tbsp">tbsp.</option>
@@ -74,8 +74,8 @@ export default {
 	},
 
 	methods: {
-		changeunit() {
-
+		changeunit(val) {
+			this.recipe.ingredients[this.id - 1].measurement = val;
 		}
 	}
 };

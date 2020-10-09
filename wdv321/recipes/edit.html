@@ -26,9 +26,9 @@
 		</header>
 		<main id="editor">
 			<form method="post" enctype="multipart/form-data">
-				<ingredient>
-
-				</ingredient>
+				<table><tbody v-if="this.recipe.ingredients">
+					<tr is="ingredient" v-for="(ings, index) in this.recipe.ingredients" :id="index" :value="index" title="Enter the number of the given ingredient"></tr>
+				</tbody></table>
 			</form>
 		</main>
 		<footer>
