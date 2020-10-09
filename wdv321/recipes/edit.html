@@ -28,7 +28,7 @@
 		<main id="editor">
 			<form method="post" enctype="multipart/form-data">
 				<table><tbody v-if="this.recipe.ingredients">
-					<ingredient v-for="(ings, index) in this.recipe.ingredients" v-bind:key="index" :id="index" :value="index" title="Enter the number of the given ingredient"></ingredient>
+					<ingredient v-for="(ings, index) in this.recipe.ingredients" v-bind:key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient"></ingredient>
 				</tbody></table>
 			</form>
 		</main>

@@ -3,7 +3,6 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
-require('./ingredient.js');
 
 var app = new Vue({
 	el: "#editor",
