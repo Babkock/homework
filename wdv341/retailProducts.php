@@ -12,6 +12,7 @@ try {
 <head>
 	<meta charset="utf-8" />
 	<title>Unit 8: PHP Formatted Output</title>
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<style>
 		body {
 			background:linear-gradient(darkblue, #103d3d);

@@ -22,6 +22,11 @@ class ProductContainer {
 	public function setName($s) { $this->productName = $s; }
 	public function getPrice() { return $this->productPrice; }
 	public function setPrice($p) { $this->productPrice = $p; }
+	public function getPageCount() { return $this->productPageCount; }
+	public function setPageCount($c) { $this->productPageCount = $c; }
+	public function getISBN() { return $this->productISBN; }
+	public function setISBN($i) { $this->productISBN = $i; }
+	
 }
 
 	$productObj = new ProductContainer();
