@@ -8,13 +8,13 @@ import Recipe from "../vue/recipe.vue";
 Vue.mixin ({
 	data: () => {
 		return {
-			numberOfRecipes: 0,
+			numberOfRecipes: 1,
 			recipes: [
 				{
 					title: "Chunks of Hunk... Yum",
 					image: "shit.jpg",
 					serves: 9,
-					preptime: new TimeIs("20 minutes"),
+					preparation: new TimeIs("20 minutes"),
 					cooking: new TimeIs("15 hours"),
 					ingredients: [
 						new Ingredient("chili powder", "1", "tbsp", false),
