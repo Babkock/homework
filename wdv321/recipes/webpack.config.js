@@ -19,7 +19,7 @@ module.exports = {
 		editor: "./src/js/editor.js"
 	},
 	output: {
-		path: path.resolve(__dirname, "./assets/js"),
+		path: path.resolve(__dirname, "../../assets/js"),
 		filename: "[name].min.js",
 		libraryTarget: "umd",
 		umdNamedDefine: true
