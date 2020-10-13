@@ -34,5 +34,28 @@ export default {
 </script>
 
 <style lang="scss">
-
+.recipe {
+	color:white;
+	background-color:rgba(0, 0, 0, 0.1);
+	h2 {
+		color:aqua;
+		text-shadow:1px 2px #004455;
+	}
+	p {
+		font-size:1.09em;
+	}
+	p b {
+		font-size:1.1em;
+	}
+	ol {
+		border:1px solid gray;
+		padding:3px;
+		text-align:left;
+		margin-left:3px;
+		li {
+			font-size:1.08em;
+			line-height:1.2;
+		}
+	}
+}
 </style>

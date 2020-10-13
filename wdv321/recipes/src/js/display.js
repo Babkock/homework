@@ -3,6 +3,8 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
+require("../css/recipesProject.scss");
+
 import Recipe from "../vue/recipe.vue";
 
 Vue.mixin ({
