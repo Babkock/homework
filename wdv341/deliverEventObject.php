@@ -8,7 +8,7 @@
 try {
 	require_once("dbConnect.php");
 
-	$st = $db->prepare("SELECT * FROM `wdv341_events` LIMIT 1");
+	$st = $db->prepare("SELECT * FROM `wdv341_events` WHERE `event_id`=1");
 
 	$row = $st->fetch(PDO::FETCH_ASSOC);
 
@@ -28,9 +28,11 @@ try {
 	$output->event_date = $row['event_date'];
 	$output->event_time = $row['event_time'];
 
-	$db = null;
+	header('Content-Type: application/json');
 
 	echo json_encode($output);
+
+	$db = null;
 
 }
 catch (PDOException $e) {
