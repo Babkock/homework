@@ -10,7 +10,7 @@ Vue.component('ingredient', Ingredient)
 Vue.mixin({
 	data: () => {
 		return {
-			recipeFiles: [],
+			recipeFiles: ["test"],
 			ingredients: 3,
 			steps: 3,
 			lastStorageItem: "",
