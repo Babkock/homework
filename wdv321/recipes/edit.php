@@ -33,7 +33,7 @@
 		<main id="menu">
 			<ul v-if="this.recipeFiles.length > 0">
 				<li v-for="(f, index) in this.recipeFiles" :key="index">
-					<a :href="editurl(f)" title="Edit this file in the Recipe Editor" alt="Edit this file in the Recipe Editor">{{ this.recipeFiles[index] }}</a>
+					<a :href="editurl(f)" title="Edit this file in the Recipe Editor" alt="Edit this file in the Recipe Editor">{{ f }}</a>
 				</li>
 			</ul>
 		</main>

@@ -10,7 +10,7 @@ Vue.component('ingredient', Ingredient)
 Vue.mixin({
 	data: () => {
 		return {
-			recipeFiles: ["test"],
+			recipeFiles: ["test", "hello", "world"],
 			ingredients: 3,
 			steps: 3,
 			lastStorageItem: "",
@@ -148,6 +148,10 @@ var app = new Vue({
 			this.recipe.steps.splice(this.steps-1, 1);
 			this.steps--;
 			this.recipe.numberOfSteps--;
+		},
+
+		editurl(x) {
+			return "edit?fname=" + x;
 		}
 	},
 
