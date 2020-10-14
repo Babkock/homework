@@ -9,7 +9,7 @@ try {
 	require_once("dbConnect.php");
 
 	$st = $db->prepare("SELECT * FROM `wdv341_events` WHERE `event_id`=1");
-
+	$st->execute();
 	$row = $st->fetch(PDO::FETCH_ASSOC);
 
 	$output = new class {
@@ -29,9 +29,7 @@ try {
 	$output->event_time = $row['event_time'];
 
 	header('Content-Type: application/json');
-
 	echo json_encode($output);
-
 	$db = null;
 
 }
