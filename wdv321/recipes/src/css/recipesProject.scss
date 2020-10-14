@@ -82,3 +82,70 @@ footer {
 	width:100%;
 	margin-top:3px;
 }
+
+form {
+	width:92%;
+	margin-left:4%;
+	margin-right:4%;
+	display:block;
+	background:rgba(10, 10, 30, 0.3);
+	border:1px solid white;
+	padding:4px;
+	.formflex {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:nowrap;
+		width:99%;
+		justify-content:center;
+		span {
+			width:auto;
+			min-width:32%;
+			max-width:49%;
+			margin-right:1%;
+			font-size:1.08em;
+			text-align:right;
+			padding:4px;
+		}
+		input, select {
+			text-align:left;
+			width:auto;
+			-moz-appearance:none;
+			appearance:none;
+			color:white !important;
+			background-color:#121212;
+			border:1px solid #141414;
+			font-size:1.08em !important;
+			padding:4px;
+			min-width:31%;
+			max-width:48%;
+			margin-left:1%;
+			margin-right:1%;
+		}
+	}
+	table, table tbody, table thead {
+		width:100%;
+		tr {
+			width:100%;
+		}
+		tr td {
+			background-color:#12121f;
+			padding:4px;
+			font-size:1.08em;
+			width:24%;
+			margin-left:1px;
+			margin-right:1px;
+			border:1px solid gray;
+			color:white;
+			input {
+				-moz-appearance:none;
+				appearance:none;
+				color:white !important;
+				background-color:#121212 !important;
+				border:1px solid #171717 !important;
+				font-size:1.08em;
+				padding:4px;
+				width:80%;
+			}
+		}
+	}
+}

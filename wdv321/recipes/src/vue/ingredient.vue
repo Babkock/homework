@@ -2,7 +2,7 @@
 	<tr class="ingredient" :id="myid">
 		<td>
 			#
-			<input type="text" :v-model="numVmodl" :value="value" :title="title" :alt="title" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
+			<input type="text" :v-model="numVmodl" :value="myid" :title="title" :alt="title" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
 		</td>
 		<td>
 			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" v-on:change="changeunit($event.target.value)">
@@ -42,10 +42,6 @@ export default {
 			type: Number,
 			required: true
 		},
-		value: {
-			type: String,
-			required: true
-		},
 		title: {
 			type: String,
 			required: true
@@ -66,16 +62,16 @@ export default {
 		ingName: function() { return "ingred" + this.id + "_name"; },
 		selName: function() { return "ingred" + this.id + "_measurement"; },
 		optName: function() { return "ingred" + this.id + "_optional"; },
-		numVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].quantity"; },
-		ingVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].name"; },
-		selVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].measurement"; },
-		optVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].optional"; }
+		numVmodl: function() { return "this.recipe.ingredients[" + this.id + "].quantity"; },
+		ingVmodl: function() { return "this.recipe.ingredients[" + this.id + "].name"; },
+		selVmodl: function() { return "this.recipe.ingredients[" + this.id + "].measurement"; },
+		optVmodl: function() { return "this.recipe.ingredients[" + this.id + "].optional"; }
 
 	},
 
 	methods: {
 		changeunit(val) {
-			this.recipe.ingredients[this.id - 1].measurement = val;
+			this.recipe.ingredients[this.id].measurement = val;
 		}
 	}
 };

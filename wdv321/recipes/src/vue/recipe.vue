@@ -57,10 +57,10 @@ export default {
 		border:1px solid gray;
 		padding:3px;
 		text-align:left;
-		margin-left:3px;
+		margin-left:1.2em;
 		li {
 			font-size:1.08em;
-			line-height:1.2;
+			line-height:1.5;
 		}
 	}
 

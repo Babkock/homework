@@ -10,14 +10,16 @@ Vue.component('ingredient', Ingredient)
 Vue.mixin({
 	data: () => {
 		return {
+			recipeFiles: [],
 			ingredients: 3,
 			steps: 3,
 			lastStorageItem: "",
 			recipe: {
 				numberOfIngreds: 3,
 				numberOfSteps: 3,
-				name: "",
+				title: "",
 				image: "",
+				filename: "test",
 				serves: 0,
 				difficulty: "",
 				preparation: {
@@ -60,7 +62,7 @@ Vue.mixin({
 		/* Store current recipe object using lastStorageItem */
 		StoreObject() {
 			var storage = window.localStorage;
-			console.log("Updating storage object " + this.lastStorageItem);
+			console.log("Updating storage object '" + this.lastStorageItem + "'");
 			storage.removeItem(this.lastStorageItem);
 			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
 		},
@@ -68,10 +70,12 @@ Vue.mixin({
 		/* Store current recipe object under new name */
 		StoreObjectAs(x) {
 			var storage = window.localStorage;
-			console.log("Storing object " + x + " in local storage");
+			console.log("Storing object '" + x + "' in local storage");
 			storage.setItem(x, JSON.stringify(this.recipe));
 
 			this.lastStorageItem = x;
+			this.recipeFiles.push(x);
+			storage.setItem("recipeFiles", this.recipeFiles);
 		},
 
 		LoadObject(x) {
@@ -89,7 +93,7 @@ Vue.mixin({
 				this.recipe = object;
 			}
 			else {
-				console.error("Could not load specified item " + x + " from local storage");
+				console.error("Could not load specified item '" + x + "' from local storage");
 			}
 		},
 
@@ -144,20 +148,14 @@ var app = new Vue({
 			this.recipe.steps.splice(this.steps-1, 1);
 			this.steps--;
 			this.recipe.numberOfSteps--;
-		},
+		}
+	},
 
-		/* AJAX form handler */
-		submitData() {
-			this.ajaxResult = "";
-
-			var form = document.querySelector("form");
-			var data = new FormData(form);
-
-			this.$http.post("", data).then((response) => {
-				this.ajaxResult = response.data;
-			}, () => {
-				this.ajaxResult = "<p style=\"color:red;\">Communication with the server failed. Please try again later.</p>";
-			});
+	mounted() {
+		var storage = window.localStorage;
+		this.recipeFiles = storage.getItem("recipeFiles");
+		if (!this.recipeFiles) {
+			console.error("Could not load recipeFiles");
 		}
 	}
 })
