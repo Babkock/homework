@@ -63,5 +63,17 @@ export default {
 			line-height:1.2;
 		}
 	}
+
+	.imgbox {
+		text-align:center;
+		border:1px solid #dfdfdf;
+		opacity:0.9;
+		margin-left:4%;
+		margin-right:4%;
+		&:hover {
+			opacity:1;
+			border:1px solid white;
+		}
+	}
 }
 </style>

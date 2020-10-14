@@ -24,8 +24,4 @@ p.success { color: lime; }
 
 #displaySlider .box { width: 24%; margin-left: 2px; margin-right: 2px; border: 1px solid white; background: rgba(10, 10, 30, 0.3); padding: 4px; }
 
-.imgbox { text-align: center; border: 1px solid #dfdfdf; opacity: 0.9; margin-left: 4%; margin-right: 4%; }
-
-.imgbox:hover { opacity: 1; border: 1px solid white; }
-
 footer { display: block; text-align: center; font-size: 0.98em; width: 100%; margin-top: 3px; }
