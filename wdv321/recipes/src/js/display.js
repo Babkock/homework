@@ -15,7 +15,7 @@ Vue.mixin({
 			recipes: [
 				{
 					title: "Chunks of Hunk... Yum",
-					image: "shit.jpg",
+					image: "pizza.jpg",
 					serves: 9,
 					preparation: new TimeIs("20 minutes"),
 					cooking: new TimeIs("15 hours"),

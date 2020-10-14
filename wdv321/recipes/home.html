@@ -27,15 +27,15 @@
 		</header>
 		<main id="displaySlider" v-if="this.recipes.length > 0">
 			<div class="box" v-for="(recip, index) in this.recipes">
-				<recipe :key="index" :myid="index" :name="index">
+				<recipe :key="index" :myid="index" :name="index" filename="chunks">
 				</recipe>
 			</div>
 		</main>
-		<script src="/homework/assets/js/display.min.js"></script>
 		<footer>
 			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
 		</footer>
 	</div>
+	<script src="/homework/assets/js/display.min.js"></script>
 </body>
 </html>
