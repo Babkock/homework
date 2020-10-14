@@ -161,5 +161,36 @@ var app = new Vue({
 		if (!this.recipeFiles) {
 			console.error("Could not load recipeFiles");
 		}
+		var filename = prompt("Which file would you like to edit? Enter nothing for new file");
+
+		if (filename) {
+			var json = storage.getItem(filename);
+			var obj = JSON.parse(json);
+
+			if ((obj != null) && (obj.ingredients.length > 1)) {
+				this.recipe.numberOfIngreds = obj.ingredients.length;
+				this.ingredients = obj.ingredients.length;
+				this.recipe.numberOfSteps = obj.steps.length;
+				this.steps = obj.steps.length;
+			}
+			this.recipe.title = obj.title;
+			this.recipe.image = obj.image;
+
+			this.recipe.ingredients = [];
+			obj.ingredients.forEach(function(ing, index) {
+				this.recipe.ingredients.push(
+					new Ingredient(ing.name, ing.quantity, ing.measurement, ing.optional)
+				);
+			});
+
+			this.recipe.steps = [];
+			obj.steps.forEach(function(s, index) {
+				this.recipe.steps.push(s);
+			});
+
+		}
+		else {
+			this.recipe.title = "New Recipe Title!";
+		}
 	}
 })

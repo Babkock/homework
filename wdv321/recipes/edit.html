@@ -21,44 +21,29 @@
 			<nav>
 				<ul>
 					<li><a href="home.html" title="Awesome Recipes Home Page" alt="Awesome Recipes Home Page">Home</a></li>
-					<li><a href="edit" title="Go to Recipe Editor" alt="Go to Recipe Editor">Edit Recipes</a></li>
+					<li><a href="edit.html" title="Go to Recipe Editor" alt="Go to Recipe Editor">Edit Recipes</a></li>
 					<li><a href="#" title="Dummy Link" alt="Dummy Link">Contact</a></li>
 					<li><a href="#" title="Dummy Link" alt="Dummy Link">Staff</a></li>
 				</ul>
 			</nav>
 		</header>
-		<?php
-		if (!isset($_GET['fname'])) {
-		?>
-		<main id="menu">
-			<ul v-if="this.recipeFiles.length > 0">
-				<li v-for="(f, index) in this.recipeFiles" :key="index">
-					<a :href="editurl(f)" title="Edit this file in the Recipe Editor" alt="Edit this file in the Recipe Editor">{{ f }}</a>
-				</li>
-			</ul>
-		</main>
-		<?php
-		}
-		else {
-
-		?>
 		<main id="editor">
 			<form method="post" enctype="multipart/form-data">
 				<div class="formflex large">
 					<span><b>Filename of Recipe</b></span>
-					<input type="text" v-model="this.recipe.filename" placeholder="Filename" />
+					<input type="text" v-model="this.recipe.filename" placeholder="Filename" @blur="this.recipe.file = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Title of Recipe:</b></span>
-					<input type="text" v-model="this.recipe.title" placeholder="Pepperjack Mac n Cheese" />
+					<input type="text" v-model="this.recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="this.recipe.title = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Image Filename:</b></span>
-					<input type="text" v-model="this.recipe.image" placeholder="img/test.jpg" />
+					<input type="text" v-model="this.recipe.image" placeholder="img/test.jpg" @blur="this.recipe.image = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Difficulty:</b></span>
-					<select v-model="this.recipe.difficulty">
+					<select v-model="this.recipe.difficulty" @change="this.recipe.difficulty = $event.target.value">
 						<option value="easy">Easy</option>
 						<option value="medium">Medium</option>
 						<option value="hard">Hard</option>
@@ -66,8 +51,8 @@
 				</div>
 				<div class="formflex">
 					<span><b>Preparation Time:</b></span>
-					<input type="number" v-model="this.recipe.preparation.quantity" />
-					<select v-model="this.recipe.preparation.measurement">
+					<input type="number" v-model="this.recipe.preparation.quantity" @blur="this.recipe.preparation.quantity = parseInt($event.target.value)" />
+					<select v-model="this.recipe.preparation.measurement" @change="this.recipe.preparation.measurement = $event.target.value">
 						<option value="seconds">seconds</option>
 						<option value="minutes">minutes</option>
 						<option value="hours">hours</option>
@@ -75,16 +60,20 @@
 					</select>
 				</div>
 				<table><tbody v-if="this.recipe.ingredients">
-					<tr is="ingredient" v-for="(ings, index) in this.recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient"></tr>
+					<tr is="ingredient" v-for="(ings, index) in this.recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ings.optional = $event" @numinput="ings.quantity = $event" @inginput="ings.name = $event" @measinput="ings.measurement = $event"></tr>
 				</tbody></table>
-				<button @click="StoreObjectAs(this.recipe.filename); alert('Recipe saved successfully');">Save Recipe</button>
+				<center>
+					<p>
+						<button @click="$event.preventDefault(); AddIngredient()">Add Ingredient</button> &nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); RemoveIngredient()">Remove Last Ingredient</button>
+					</p>
+
+					<button @click="$event.preventDefault(); StoreObjectAs(this.recipe.filename); alert('Recipe saved successfully');">Save Recipe</button>
+				</center>
 			</form>
 		</main>
-		<?php
-
-		}
-		?>
 		<footer>
+			<p><a href="/homework/wdv321/localStorage/home.html" title="Previous assignment" alt="Previous assignment">Unit 6: Demonstrate Local Storage</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
 			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 		</footer>

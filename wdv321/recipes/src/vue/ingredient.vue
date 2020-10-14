@@ -5,7 +5,7 @@
 			<input type="text" :v-model="numVmodl" :value="myid" :title="title" :alt="title" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
 		</td>
 		<td>
-			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" v-on:change="changeunit($event.target.value)">
+			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
 				<option value="" selected>Units per...</option>
 				<option value="whole">whole</option>
 				<option value="tbsp">tbsp.</option>

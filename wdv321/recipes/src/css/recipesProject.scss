@@ -110,8 +110,7 @@ form {
 		}
 		input, select {
 			text-align:left;
-			width:auto;
-			color:white !important;
+			color:#efefef !important;
 			background-color:#121212;
 			border:1px solid #141414;
 			font-size:1.08em !important;
@@ -121,12 +120,19 @@ form {
 			max-width:48%;
 			margin-left:1%;
 			margin-right:1%;
+			&:hover {
+				background-color:#203120;
+				color:white !important;
+				border:1px solid #304130;
+			}
 		}
 	}
 	table, table tbody, table thead {
 		width:100%;
 		tr {
 			width:100%;
+			margin-top:2px;
+			margin-bottom:2px;
 		}
 		tr td {
 			background-color:#12121f;
@@ -137,15 +143,24 @@ form {
 			margin-right:1px;
 			border:1px solid gray;
 			color:white;
-			input {
+			input:not(input[type="checkbox"]) {
 				-moz-appearance:none;
 				appearance:none;
 				color:white !important;
 				background-color:#121212 !important;
 				border:1px solid #171717 !important;
 				font-size:1.08em;
-				padding:4px;
+				padding:5px;
 				width:80% !important;
+			}
+			select {
+				-moz-appearance:none;
+				appearance:none;
+				color:white;
+				padding:5px;
+				width:100% !important;
+				background-color:#122312 !important;
+				border:1px solid #192919;
 			}
 		}
 	}
