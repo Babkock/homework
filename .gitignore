@@ -13,3 +13,5 @@ package-lock.json
 wdv321/*/package-lock.json
 wdv321/cookies.jpg
 wdv321/storage.jpg
+wdv321/recipes/img
+wdv321/recipes/img/*

@@ -62,13 +62,13 @@ export default {
 
 	computed: {
 		myid: function() { return "ingred" + this.id; },
-		numName: function() { return "ingred" + this.id + "_quantity"; }
-		ingName: function() { return "ingred" + this.id + "_name"; }
-		selName: function() { return "ingred" + this.id + "_measurement"; }
-		optName: function() { return "ingred" + this.id + "_optional"; }
-		numVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].quantity"; }
-		ingVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].name"; }
-		selVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].measurement"; }
+		numName: function() { return "ingred" + this.id + "_quantity"; },
+		ingName: function() { return "ingred" + this.id + "_name"; },
+		selName: function() { return "ingred" + this.id + "_measurement"; },
+		optName: function() { return "ingred" + this.id + "_optional"; },
+		numVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].quantity"; },
+		ingVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].name"; },
+		selVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].measurement"; },
 		optVmodl: function() { return "this.recipe.ingredients[" + (this.id - 1) + "].optional"; }
 
 	},

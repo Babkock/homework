@@ -3,11 +3,12 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
-require("../css/recipesProject.scss");
+require("../css/recipesProject.scss")
 
 import Recipe from "../vue/recipe.vue";
+Vue.component('recipe', Recipe)
 
-Vue.mixin ({
+Vue.mixin({
 	data: () => {
 		return {
 			numberOfRecipes: 1,
@@ -29,7 +30,7 @@ Vue.mixin ({
 						new Ingredient("red beans", 2, "cans", false),
 						new Ingredient("kidney beans", 2, "cans", false)
 					],
-					instructions: [
+					steps: [
 						"Heat cooking oil in 2 quart skillet",
 						"Saute onions and peppers for 5 minutes.",
 						"Add spices and stir for 30 seconds.",
@@ -42,10 +43,8 @@ Vue.mixin ({
 	}
 })
 
-Vue.component('recipe', Recipe);
-
 var app = new Vue({
-	el: "#displaySlider",
+	el: ".container",
 
 	http: {
 		emulateHTTP: true,
@@ -59,7 +58,7 @@ var app = new Vue({
 	methods: {
 		LoadObject: function(x) {
 			var storage = window.localStorage;
-			console.log("Loading object " + x);
+			console.log("Loading recipe " + x);
 			var jso = {};
 			var object = {};
 
@@ -70,12 +69,16 @@ var app = new Vue({
 				this.numberOfRecipes++;
 			}
 			else {
-				console.error("Could not load specified item " + x + " from local storage");
+				console.error("Could not load specified recipe '" + x + "' from local storage");
 			}
 		},
 
 		SaveObject: function(x) {
 			var storage = window.localStorage;
+			console.log("Saving recipe " + x);
+			var obj = JSON.stringify(this.recipes);
+
+			storage.setItem(x, obj);
 		}
 	},
 

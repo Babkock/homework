@@ -4,14 +4,10 @@
 	Copyright (c) 2020 Tanner Babcock
 */
 
-var app = new Vue({
-	el: "#editor",
+import Ingredient from "../vue/ingredient.vue";
+Vue.component('ingredient', Ingredient)
 
-	http: {
-		emulateJSON: true,
-		emulateHTTP: true
-	},
-
+Vue.mixin({
 	data: () => {
 		return {
 			ingredients: 3,
@@ -57,6 +53,65 @@ var app = new Vue({
 					"This is step two"
 				]
 			},
+		};
+	},
+
+	methods: {
+		/* Store current recipe object using lastStorageItem */
+		StoreObject() {
+			var storage = window.localStorage;
+			console.log("Updating storage object " + this.lastStorageItem);
+			storage.removeItem(this.lastStorageItem);
+			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
+		},
+
+		/* Store current recipe object under new name */
+		StoreObjectAs(x) {
+			var storage = window.localStorage;
+			console.log("Storing object " + x + " in local storage");
+			storage.setItem(x, JSON.stringify(this.recipe));
+
+			this.lastStorageItem = x;
+		},
+
+		LoadObject(x) {
+			var storage = window.localStorage;
+			console.log("Loading object " + x);
+			var jso = {};
+			var object = {};
+
+			if (jso = storage.getItem(x)) {
+				object = JSON.parse(jso);
+
+				this.ingredients = object.numberOfIngreds;
+				this.steps = object.numberOfSteps;
+				this.lastStorageItem = x;
+				this.recipe = object;
+			}
+			else {
+				console.error("Could not load specified item " + x + " from local storage");
+			}
+		},
+
+		DeleteObject(x) {
+			var storage = window.localStorage;
+			console.log("Deleting stored recipe object '" + x + "'");
+			storage.removeItem(x);
+			this.lastStorageItem = "";
+		}
+	}
+})
+
+var app = new Vue({
+	el: "#editor",
+
+	http: {
+		emulateJSON: true,
+		emulateHTTP: true
+	},
+
+	data: () => {
+		return {
 			ajaxResult: ""
 		};
 	},
@@ -103,49 +158,6 @@ var app = new Vue({
 			}, () => {
 				this.ajaxResult = "<p style=\"color:red;\">Communication with the server failed. Please try again later.</p>";
 			});
-		},
-
-		/* Store current recipe object using lastStorageItem */
-		StoreObject() {
-			var storage = window.localStorage;
-			console.log("Updating storage object " + this.lastStorageItem);
-			storage.removeItem(this.lastStorageItem);
-			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
-		},
-
-		/* Store current recipe object under new name */
-		StoreObjectAs(x) {
-			var storage = window.localStorage;
-			console.log("Storing object " + x + " in local storage");
-			storage.setItem(x, JSON.stringify(this.recipe));
-
-			this.lastStorageItem = x;
-		},
-
-		LoadObject(x) {
-			var storage = window.localStorage;
-			console.log("Loading object " + x);
-			var jso = {};
-			var object = {};
-
-			if (jso = storage.getItem(x)) {
-				object = JSON.parse(jso);
-
-				this.ingredients = object.numberOfIngreds;
-				this.steps = object.numberOfSteps;
-				this.lastStorageItem = x;
-				this.recipe = object;
-			}
-			else {
-				console.error("Could not load specified item " + x + " from local storage");
-			}
-		},
-
-		DeleteObject(x) {
-			var storage = window.localStorage;
-			console.log("Deleting stored recipe object '" + x + "'");
-			storage.removeItem(x);
-			this.lastStorageItem = "";
 		}
 	}
 })
