@@ -25,9 +25,9 @@
 				</ul>
 			</nav>
 		</header>
-		<main id="displaySlider">
+		<main id="displaySlider" v-if="this.recipes.length > 0">
 			<h2>Test</h2>
-			<div class="box" v-if="this.recipes.length > 0" v-for="(recip, index) in this.recipes">
+			<div class="box" v-for="(recip, index) in this.recipes">
 				<recipe :key="index" :myid="index" :name="index">
 				</recipe>
 			</div>
