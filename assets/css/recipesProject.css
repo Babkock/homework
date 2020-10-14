@@ -34,14 +34,26 @@ form .formflex span { width: auto; min-width: 32%; max-width: 49%; margin-right:
 
 form .formflex input, form .formflex select { text-align: left; color: #efefef !important; background-color: #121212; border: 1px solid #141414; font-size: 1.08em !important; padding: 6px; width: auto; min-width: 31%; max-width: 48%; margin-left: 1%; margin-right: 1%; }
 
-form .formflex input:hover, form .formflex select:hover { background-color: #203120; color: white !important; border: 1px solid #304130; }
+form .formflex input:hover, form .formflex select:hover { background-color: #203020; color: white !important; border: 1px solid #304130; }
 
 form table, form table tbody, form table thead { width: 100%; }
 
-form table tr, form table tbody tr, form table thead tr { width: 100%; margin-top: 2px; margin-bottom: 2px; }
+form table tr, form table tbody tr, form table thead tr { width: 100%; margin-top: 3px; margin-bottom: 3px; }
 
 form table tr td, form table tbody tr td, form table thead tr td { background-color: #12121f; padding: 4px; font-size: 1.08em; width: 24%; margin-left: 1px; margin-right: 1px; border: 1px solid gray; color: white; }
 
+form table tr td input[type="text"], form table tbody tr td input[type="text"], form table thead tr td input[type="text"] { background-color: #121412 !important; -moz-appearance: none; appearance: none !important; border: 1px solid #171717 !important; padding: 5px; color: #eee !important; font-size: 1.08em; margin: 1px; }
+
+form table tr td input[type="text"]:hover, form table tbody tr td input[type="text"]:hover, form table thead tr td input[type="text"]:hover { background-color: #203020 !important; color: white !important; border: 1px solid #304130 !important; }
+
 form table tr td input:not(input[type="checkbox"]), form table tbody tr td input:not(input[type="checkbox"]), form table thead tr td input:not(input[type="checkbox"]) { -moz-appearance: none; appearance: none; color: white !important; background-color: #121212 !important; border: 1px solid #171717 !important; font-size: 1.08em; padding: 5px; width: 80% !important; }
 
-form table tr td select, form table tbody tr td select, form table thead tr td select { -moz-appearance: none; appearance: none; color: white; padding: 5px; width: 100% !important; background-color: #122312 !important; border: 1px solid #192919; }
+form table tr td select, form table tbody tr td select, form table thead tr td select { -moz-appearance: none; appearance: none; color: white; padding: 5px; width: 100% !important; background-color: #121212 !important; border: 1px solid #192919; }
+
+form table tr td select:hover, form table tbody tr td select:hover, form table thead tr td select:hover { background-color: #203020; color: white !important; border: 1px solid #304130; }
+
+button, input[type="submit"] { -moz-appearance: none; appearance: none; background-color: #112311; font-family: "Arial" !important; color: #eee; border: 1px solid #225722; border-radius: 22px; font-size: 1.08em; padding: 6px; margin: 3px; box-shadow: 2px 2px black; }
+
+button:hover, input[type="submit"]:hover { background-color: #173018; color: white !important; border: 1px solid #285e28; box-shadow: 0px !important; }
+
+button:active, button:focus, input[type="submit"]:active, input[type="submit"]:focus { outline: 0 !important; background-color: #0d270d; color: #dedede; border: 1px solid #205320; box-shadow: -2px -2px black; }

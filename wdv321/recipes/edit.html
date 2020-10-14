@@ -31,19 +31,19 @@
 			<form method="post" enctype="multipart/form-data">
 				<div class="formflex large">
 					<span><b>Filename of Recipe</b></span>
-					<input type="text" v-model="this.recipe.filename" placeholder="Filename" @blur="this.recipe.file = $event.target.value" />
+					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.file = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Title of Recipe:</b></span>
-					<input type="text" v-model="this.recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="this.recipe.title = $event.target.value" />
+					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Image Filename:</b></span>
-					<input type="text" v-model="this.recipe.image" placeholder="img/test.jpg" @blur="this.recipe.image = $event.target.value" />
+					<input type="text" v-model="recipe.image" placeholder="img/test.jpg" @blur="recipe.image = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Difficulty:</b></span>
-					<select v-model="this.recipe.difficulty" @change="this.recipe.difficulty = $event.target.value">
+					<select v-model="recipe.difficulty" @change="recipe.difficulty = $event.target.value">
 						<option value="easy">Easy</option>
 						<option value="medium">Medium</option>
 						<option value="hard">Hard</option>
@@ -51,16 +51,16 @@
 				</div>
 				<div class="formflex">
 					<span><b>Preparation Time:</b></span>
-					<input type="number" v-model="this.recipe.preparation.quantity" @blur="this.recipe.preparation.quantity = parseInt($event.target.value)" />
-					<select v-model="this.recipe.preparation.measurement" @change="this.recipe.preparation.measurement = $event.target.value">
+					<input type="number" v-model="recipe.preparation.quantity" @blur="recipe.preparation.quantity = parseInt($event.target.value)" />
+					<select v-model="recipe.preparation.measurement" @change="recipe.preparation.measurement = $event.target.value">
 						<option value="seconds">seconds</option>
 						<option value="minutes">minutes</option>
 						<option value="hours">hours</option>
 						<option value="days">days</option>
 					</select>
 				</div>
-				<table><tbody v-if="this.recipe.ingredients">
-					<tr is="ingredient" v-for="(ings, index) in this.recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ings.optional = $event" @numinput="ings.quantity = $event" @inginput="ings.name = $event" @measinput="ings.measurement = $event"></tr>
+				<table><tbody v-if="recipe.ingredients">
+					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ing.optional = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 				<center>
 					<p>
@@ -68,7 +68,7 @@
 						<button @click="$event.preventDefault(); RemoveIngredient()">Remove Last Ingredient</button>
 					</p>
 
-					<button @click="$event.preventDefault(); StoreObjectAs(this.recipe.filename); alert('Recipe saved successfully');">Save Recipe</button>
+					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename); alert('Recipe saved successfully');">Save Recipe</button>
 				</center>
 			</form>
 		</main>

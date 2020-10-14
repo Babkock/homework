@@ -1,6 +1,6 @@
 .recipe { color: white; background-color: rgba(0, 0, 0, 0.1);
 }
-.recipe h2 { color: aqua; text-shadow: 1px 2px #004455;
+.recipe h2 { color: aqua; text-shadow: 2px 2px #004455;
 }
 .recipe p { font-size: 1.09em;
 }
@@ -13,4 +13,6 @@
 .recipe .imgbox { text-align: center; border: 1px solid #dfdfdf; opacity: 0.9; margin-left: 4%; margin-right: 4%;
 }
 .recipe .imgbox:hover { opacity: 1; border: 1px solid white;
+}
+.recipe .imgbox img { width: 100%; height: 100%;
 }

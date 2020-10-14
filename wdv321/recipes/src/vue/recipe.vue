@@ -45,7 +45,7 @@ export default {
 	background-color:rgba(0, 0, 0, 0.1);
 	h2 {
 		color:aqua;
-		text-shadow:1px 2px #004455;
+		text-shadow:2px 2px #004455;
 	}
 	p {
 		font-size:1.09em;
@@ -73,6 +73,10 @@ export default {
 		&:hover {
 			opacity:1;
 			border:1px solid white;
+		}
+		img {
+			width:100%;
+			height:100%;
 		}
 	}
 }

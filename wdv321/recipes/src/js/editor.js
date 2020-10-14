@@ -148,10 +148,6 @@ var app = new Vue({
 			this.recipe.steps.splice(this.steps-1, 1);
 			this.steps--;
 			this.recipe.numberOfSteps--;
-		},
-
-		editurl(x) {
-			return "edit?fname=" + x;
 		}
 	},
 
