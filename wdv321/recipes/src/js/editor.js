@@ -147,7 +147,7 @@ var app = new Vue({
 				opt: ""
 			});
 			this.ingredients = parseInt(this.ingredients) + 1;
-			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds);
+			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) + 1;
 		},
 
 		RemoveIngredient() {

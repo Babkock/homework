@@ -5,11 +5,9 @@ body {
 }
 
 .container {
-	color:white;
+	color:#ededed;
 	font-family:"Arial" !important;
-	width:90%;
-	margin-left:5%;
-	margin-right:5%;
+	@include WidthMargins(90%, 5%, 5%);
 }
 
 a, a:link, a:visited, a:active {
@@ -35,7 +33,6 @@ nav {
 		li {
 			list-style-type:none;
 			@include WidthMargins(23%, 1%, 1%);
-			font-size:1.13em;
 			border:1px solid gray;
 			a {
 				width:100%;

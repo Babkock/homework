@@ -32,24 +32,25 @@
 				<input type="hidden" v-model="recipe.numberOfIngreds" id="numberOfIngreds" />
 				<input type="hidden" v-model="recipe.numberOfSteps" id="numberOfSteps" />
 				<div class="formflex large">
-					<span><b>Filename of Recipe</b></span>
-					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" />
+					<span><b>Filename of Recipe:</b></span>
+					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" title="What should this recipe's filename be in local storage?" alt="What should this recipe's filename be in local storage?" />
 				</div>
 				<div class="formflex">
 					<span><b>Title of Recipe:</b></span>
-					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" />
+					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" title="What is this recipe for? (Casserole, etc)" alt="What is this recipe for? (Casserole, etc)" />
 				</div>
 				<div class="formflex">
 					<span><b>Image Filename:</b></span>
-					<input type="text" v-model="recipe.image" placeholder="img/test.jpg" @blur="recipe.image = $event.target.value" />
+					<input type="text" v-model="recipe.image" placeholder="img/test.jpg" @blur="recipe.image = $event.target.value" title="Filename of the image of the food" alt="Filename of the image of the food" />
 				</div>
 				<div class="formflex">
 					<span><b>Serves:</b></span>
-					<input type="number" v-model="recipe.serves" @blur="recipe.serves = parseInt($event.target.value)" />
+					<input type="number" v-model="recipe.serves" @change="recipe.serves = parseInt($event.target.value)" title="How many does this serve?" alt="How many does this serve?" />
 				</div>
 				<div class="formflex">
 					<span><b>Difficulty:</b></span>
-					<select v-model="recipe.difficulty" @change="recipe.difficulty = $event.target.value">
+					<select v-model="recipe.difficulty" @change="recipe.difficulty = $event.target.value" title="How easy is this recipe to follow?" alt="How easy is this recipe to follow?">
+						<option selected>Choose Difficulty</option>
 						<option value="easy">Easy</option>
 						<option value="medium">Medium</option>
 						<option value="hard">Hard</option>
@@ -57,7 +58,7 @@
 				</div>
 				<div class="formflex">
 					<span><b>Preparation Time:</b></span>
-					<input type="number" v-model="recipe.preparation.quantity" @blur="recipe.preparation.quantity = parseInt($event.target.value)" />
+					<input type="number" v-model="recipe.preparation.quantity" @change="recipe.preparation.quantity = parseInt($event.target.value)" />
 					<select v-model="recipe.preparation.measurement" @change="recipe.preparation.measurement = $event.target.value">
 						<option value="seconds">seconds</option>
 						<option value="minutes">minutes</option>
@@ -67,7 +68,7 @@
 				</div>
 				<div class="formflex">
 					<span><b>Cooking Time:</b></span>
-					<input type="number" v-model="recipe.cooking.quantity" @blur="recipe.cooking.quantity = parseInt($event.target.value)" />
+					<input type="number" v-model="recipe.cooking.quantity" @change="recipe.cooking.quantity = parseInt($event.target.value)" />
 					<select v-model="recipe.cooking.measurement" @change="recipe.cooking.measurement = $event.target.value">
 						<option value="seconds">seconds</option>
 						<option value="minutes">minutes</option>
@@ -77,7 +78,7 @@
 				</div>
 
 				<h2>Ingredients:</h2>
-				<table><tbody v-if="recipe.ingredients" class="ings">
+				<table><tbody v-if="ingredients > 0" class="ings">
 					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ing.opt = $event" @numinput="ing.quantity = parseInt($event)" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 				<center>
@@ -89,7 +90,7 @@
 
 				<h2>Steps:</h2>
 				<p>Don't bother typing "1.", "2.", etc. The recipe steps will be listed in order on the display page.</p>
-				<table><tbody v-if="recipe.steps" class="steps">
+				<table><tbody v-if="steps > 0" class="steps">
 					<tr class="step" v-for="(st, index) in recipe.steps" :key="index" :id="index">
 						<td><input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" placeholder="Make awesome food!" size="100" maxlength="200" /></td>
 					</tr>
@@ -97,15 +98,15 @@
 				<center>
 					<p>
 						<button @click="$event.preventDefault(); AddStep()" title="Add a Step to the end of the list" alt="Add a Step to the end of the list of instructions">Add Step</button>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-						<button @click="$event.preventDefault(); RemoveStep()" title="Remove the last Step from the end of the list" alt="Remove the last Step from the end of the list">Remove Step</button>
+						<button @click="$event.preventDefault(); RemoveStep()" title="Remove the last Step from the end of the list" alt="Remove the last Step from the end of the list">Remove Last Step</button>
 					</p>
 
-					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename); alert('Recipe saved successfully');">Save Recipe</button>
+					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename)" title="Save the recipe under the given filename, if you're finished!" alt="Save the recipe under the given filename, if you're finished!">Save Recipe</button>
 				</center>
 			</form>
 		</main>
 		<footer>
-			<p><a href="/homework/wdv321/localStorage/home.html" title="Previous assignment" alt="Previous assignment">Unit 6: Demonstrate Local Storage</a></p>
+			<p><a href="/homework/wdv321/Unit-7ajax.html" title="Previous assignment" alt="Previous assignment">Unit 7: AJAX</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
 			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 		</footer>
