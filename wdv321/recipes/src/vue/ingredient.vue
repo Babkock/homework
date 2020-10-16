@@ -5,27 +5,27 @@
 		</td>
 		<td>
 			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :id="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
-				<option value="" selected>Units per...</option>
-				<option value="whole">whole</option>
-				<option value="tbsp">tbsp.</option>
-				<option value="tsp">tsp.</option>
-				<option value="cups">cups</option>
-				<option value="cans">cans</option>
-				<option value="cubes">cubes</option>
-				<option value="g">grams</option>
-				<option value="ounces">ounces</option>
-				<option value="mg">milligrams</option>
-				<option value="lbs">lbs.</option>
-				<option value="kg">kilograms</option>
-				<option value="gallon">gallons</option>
-				<option value="quarts">quarts</option>
-				<option value="pints">pints</option>
-				<option value="L">liters</option>
-				<option value="mL">milliliters</option>
+				<option value="" :selected="!mmnt">Units</option>
+				<option value="whole" :selected="mmnt.equals('whole')">whole</option>
+				<option value="tbsp" :selected="mmnt.equals('tbsp')">tbsp.</option>
+				<option value="tsp" :selected="mmnt.equals('tsp')">tsp.</option>
+				<option value="cups" :selected="mmnt.equals('cups')">cups</option>
+				<option value="cans" :selected="mmnt.equals('cans')">cans</option>
+				<option value="cubes" :selected="mmnt.equals('cubes')">cubes</option>
+				<option value="g" :selected="mmnt.equals('g')">grams</option>
+				<option value="oz" :selected="mmnt.equals('oz')">ounces</option>
+				<option value="mg" :selected="mmnt.equals('mg')">milligrams</option>
+				<option value="lbs" :selected="mmnt.equals('lbs')">lbs.</option>
+				<option value="kg" :selected="mmnt.equals('kg')">kilograms</option>
+				<option value="gallon" :selected="mmnt.equals('gallon')">gallons</option>
+				<option value="quarts" :selected="mmnt.equals('quarts')">quarts</option>
+				<option value="pints" :selected="mmnt.equals('pints')">pints</option>
+				<option value="L" :selected="mmnt.equals('L')">liters</option>
+				<option value="mL" :selected="mmnt.equals('mL')">milliliters</option>
 			</select>
 		</td>
 		<td>
-			<input type="text" :size="ingSize" :maxlength="ingSize" :v-model="ingVmodl" placeholder="Name of the ingredient (sugar, oil, ginger, etc)" :name="ingName" :id="ingName" @blur="$emit('inginput', $event.target.value)" />
+			<input type="text" :size="ingSize" :maxlength="ingSize" title="Enter the name of the ingredient" alt="Enter the name of the ingredient" :v-model="ingVmodl" placeholder="Name of the ingredient (sugar, oil, ginger, etc)" :name="ingName" :id="ingName" @blur="$emit('inginput', $event.target.value)" />
 		</td>
 		<td>
 			Optional?
@@ -52,6 +52,10 @@ export default {
 		ingSize: {
 			type: String,
 			default: "50"
+		},
+		mmnt: {
+			type: String,
+			default: ""
 		}
 	},
 
@@ -134,5 +138,8 @@ export default {
 .ingredient td:first-child {
 	text-align:right;
 	margin-right:3px;
+	input {
+		text-align:right;
+	}
 }
 </style>

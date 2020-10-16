@@ -16,3 +16,5 @@
 }
 .ingredient td:first-child { text-align: right; margin-right: 3px;
 }
+.ingredient td:first-child input { text-align: right;
+}
