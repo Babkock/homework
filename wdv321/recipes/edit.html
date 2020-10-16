@@ -29,6 +29,8 @@
 		</header>
 		<main id="editor">
 			<form method="post" enctype="multipart/form-data">
+				<input type="hidden" v-model="recipe.numberOfIngreds" id="numberOfIngreds" />
+				<input type="hidden" v-model="recipe.numberOfSteps" id="numberOfSteps" />
 				<div class="formflex large">
 					<span><b>Filename of Recipe</b></span>
 					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" />

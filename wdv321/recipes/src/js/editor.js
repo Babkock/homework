@@ -15,6 +15,7 @@ Vue.mixin({
 			console.log("Updating storage object '" + this.lastStorageItem + "'");
 			storage.removeItem(this.lastStorageItem);
 			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
+			console.log(JSON.stringify(this.recipe));
 		},
 
 		/* Store current recipe object under new name */
@@ -22,23 +23,47 @@ Vue.mixin({
 			var storage = window.localStorage;
 			console.log("Storing object '" + x + "' in local storage");
 			storage.setItem(x, JSON.stringify(this.recipe));
+			console.log(JSON.stringify(this.recipe));
 
 			this.lastStorageItem = x;
 		},
 
 		LoadObject(x) {
 			var storage = window.localStorage;
-			console.log("Loading object " + x);
+			console.log("Loading object '" + x + "'");
 			var jso = {};
 			var object = {};
 
 			if (jso = storage.getItem(x)) {
 				object = JSON.parse(jso);
 
-				this.ingredients = object.numberOfIngreds;
-				this.steps = object.numberOfSteps;
+				this.ingredients = object.ingredients.length;
+				this.steps = object.steps.length;
 				this.lastStorageItem = x;
-				this.recipe = object;
+				
+				// more here......
+
+				this.recipe.numberOfIngreds = object.ingredients.length;
+				this.recipe.numberOfSteps = object.steps.length;
+				this.recipe.title = object.title;
+				this.recipe.image = object.image;
+				this.recipe.filename = object.filename;
+				this.recipe.serves = object.serves;
+				this.recipe.difficulty = object.difficulty;
+				this.recipe.cooking.quantity = parseInt(object.cooking.quantity);
+				this.recipe.cooking.measurement = object.cooking.measurement;
+				this.recipe.preparation.quantity = parseInt(object.preparation.quantity);
+				this.recipe.preparation.measurement = object.preparation.measurement;
+				this.recipe.ingredients = [];
+
+				object.ingredients.forEach((ing, index) => {
+					this.recipe.ingredients.push(new Ingredient(ing.name, ing.quantity, ing.measurement, ing.opt));
+				});
+
+				this.recipe.steps = [];
+				object.steps.forEach((st, index) => {
+					this.recipe.steps.push(st);
+				});
 			}
 			else {
 				console.error("Could not load specified item '" + x + "' from local storage");
@@ -77,11 +102,11 @@ var app = new Vue({
 				serves: 0,
 				difficulty: "",
 				preparation: {
-					quantity: "25",
+					quantity: 25,
 					measurement: "minutes"
 				},
 				cooking: {
-					quantity: "6",
+					quantity: 6,
 					measurement: "hours"
 				},
 				ingredients: [
@@ -120,59 +145,34 @@ var app = new Vue({
 				name: "",
 				opt: ""
 			});
-			this.ingredients++;
-			this.recipe.numberOfIngreds++;
+			this.ingredients = parseInt(this.ingredients) + 1;
+			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds);
 		},
 
 		RemoveIngredient() {
 			this.recipe.ingredients.splice(this.ingredients-1, 1);
-			this.ingredients--;
-			this.recipe.numberOfIngreds--;
+			this.ingredients = parseInt(this.ingredients) - 1;
+			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) - 1;
 		},
 
 		AddStep() {
-			this.recipe.steps.push("Enter your next step here");
-			this.steps++;
-			this.recipe.numberOfSteps++;
+			this.recipe.steps.push("");
+			this.steps = parseInt(this.steps) + 1;
+			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) + 1;
 		},
 
 		RemoveStep() {
 			this.recipe.steps.splice(this.steps-1, 1);
-			this.steps--;
-			this.recipe.numberOfSteps--;
+			this.steps = parseInt(this.steps) - 1;
+			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) - 1;
 		}
 	},
 
-	mounted() {
-		var storage = window.localStorage;
-		
+	mounted() {		
 		var filename = prompt("Which file would you like to edit? Enter nothing for new file");
 
 		if (filename) {
-			var json = storage.getItem(filename);
-			var obj = JSON.parse(json);
-
-			if ((obj != null) && (obj.ingredients.length > 1)) {
-				this.recipe.numberOfIngreds = obj.ingredients.length;
-				this.ingredients = obj.ingredients.length;
-				this.recipe.numberOfSteps = obj.steps.length;
-				this.steps = obj.steps.length;
-			}
-			this.recipe.title = obj.title;
-			this.recipe.image = obj.image;
-
-			this.recipe.ingredients = [];
-			obj.ingredients.forEach(function(ing, index) {
-				this.recipe.ingredients.push(
-					new Ingredient(ing.name, ing.quantity, ing.measurement, ing.optional)
-				);
-			});
-
-			this.recipe.steps = [];
-			obj.steps.forEach(function(s, index) {
-				this.recipe.steps.push(s);
-			});
-
+			this.LoadObject(filename);
 		}
 		else {
 			this.recipe.title = "New Recipe Title!";
