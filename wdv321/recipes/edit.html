@@ -31,7 +31,7 @@
 			<form method="post" enctype="multipart/form-data">
 				<div class="formflex large">
 					<span><b>Filename of Recipe</b></span>
-					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.file = $event.target.value" />
+					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" />
 				</div>
 				<div class="formflex">
 					<span><b>Title of Recipe:</b></span>
@@ -40,6 +40,10 @@
 				<div class="formflex">
 					<span><b>Image Filename:</b></span>
 					<input type="text" v-model="recipe.image" placeholder="img/test.jpg" @blur="recipe.image = $event.target.value" />
+				</div>
+				<div class="formflex">
+					<span><b>Serves:</b></span>
+					<input type="number" v-model="recipe.serves" @blur="recipe.serves = parseInt($event.target.value)" />
 				</div>
 				<div class="formflex">
 					<span><b>Difficulty:</b></span>
@@ -59,13 +63,39 @@
 						<option value="days">days</option>
 					</select>
 				</div>
+				<div class="formflex">
+					<span><b>Cooking Time:</b></span>
+					<input type="number" v-model="recipe.cooking.quantity" @blur="recipe.cooking.quantity = parseInt($event.target.value)" />
+					<select v-model="recipe.cooking.measurement" @change="recipe.cooking.measurement = $event.target.value">
+						<option value="seconds">seconds</option>
+						<option value="minutes">minutes</option>
+						<option value="hours">hours</option>
+						<option value="days">days</option>
+					</select>
+				</div>
+
+				<h2>Ingredients:</h2>
 				<table><tbody v-if="recipe.ingredients">
 					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ing.optional = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 				<center>
 					<p>
-						<button @click="$event.preventDefault(); AddIngredient()">Add Ingredient</button> &nbsp;&bull;&nbsp;&nbsp;
-						<button @click="$event.preventDefault(); RemoveIngredient()">Remove Last Ingredient</button>
+						<button @click="$event.preventDefault(); AddIngredient()" title="Add an Ingredient to the end of the list" alt="Add an Ingredient to the end of the list">Add Ingredient</button> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); RemoveIngredient()" title="Remove the last Ingredient from the end of the list" alt="Remove the last Ingredient from the end of the list">Remove Last Ingredient</button>
+					</p>
+				</center>
+
+				<h2>Steps:</h2>
+				<p>Don't bother typing "1.", "2.", etc. The recipe steps will be listed in order on the display page.</p>
+				<table><tbody v-if="recipe.steps">
+					<tr class="step" v-for="(st, index) in recipe.steps" :key="index" :id="index">
+						<td><input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" size="100" maxlength="200" /></td>
+					</tr>
+				</tbody></table>
+				<center>
+					<p>
+						<button @click="$event.preventDefault(); AddStep()" title="Add a Step to the end of the list" alt="Add a Step to the end of the list of instructions">Add Step</button>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); RemoveStep()" title="Remove the last Step from the end of the list" alt="Remove the last Step from the end of the list">Remove Step</button>
 					</p>
 
 					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename); alert('Recipe saved successfully');">Save Recipe</button>
