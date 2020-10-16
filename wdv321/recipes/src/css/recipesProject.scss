@@ -43,7 +43,6 @@ nav {
 				text-decoration:none;
 				&:hover {
 					color:$LinkHover;
-					font-size:1.13em;
 					background-color:#676;
 					text-decoration:none;
 					border:1px solid white;
@@ -133,7 +132,7 @@ form {
 		tr {
 			width:100%;
 			td {
-				width:100%;
+				@include WidthMargins(80%, 10%, 9%);
 				input {
 					color:$InputFg;
 					-moz-appearance:none;
@@ -141,6 +140,7 @@ form {
 					background-color:$InputBg;
 					border:1px solid $InputBord;
 					padding:6px;
+					font-size:1.08em;
 					@include WidthMargins(98%, 1%, 1%);
 					margin-top:1px;
 					margin-bottom:1px;

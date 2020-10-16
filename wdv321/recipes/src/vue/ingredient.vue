@@ -90,7 +90,7 @@ export default {
 	font-size:1.08em;
 	@include WidthMargins(24%, 1px, 1px);
 	color:#efefef;
-	input[type="text"] {
+	input[type="text"], input[type="number"] {
 		background-color: $InputBg !important;
 		-moz-appearance: none;
 		appearance: none;
@@ -106,16 +106,6 @@ export default {
 			color:$InputHoverFg !important;
 			border:1px solid $InputHoverBord !important;
 		}
-	}
-	input:not(input[type="checkbox"]) {
-		-moz-appearance:none;
-		appearance:none;
-		color:white !important;
-		background-color:$InputBg !important;
-		border:1px solid $InputBord !important;
-		font-size:1.08em;
-		padding:5px;
-		width:80% !important;
 	}
 	select {
 		color:white;

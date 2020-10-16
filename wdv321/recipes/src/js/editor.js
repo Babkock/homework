@@ -24,8 +24,6 @@ Vue.mixin({
 			storage.setItem(x, JSON.stringify(this.recipe));
 
 			this.lastStorageItem = x;
-			this.recipeFiles.push(x);
-			storage.setItem("recipeFiles", this.recipeFiles);
 		},
 
 		LoadObject(x) {
@@ -147,10 +145,7 @@ var app = new Vue({
 
 	mounted() {
 		var storage = window.localStorage;
-		this.recipeFiles = storage.getItem("recipeFiles");
-		if (!this.recipeFiles) {
-			console.error("Could not load recipeFiles");
-		}
+		
 		var filename = prompt("Which file would you like to edit? Enter nothing for new file");
 
 		if (filename) {

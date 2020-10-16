@@ -14,7 +14,7 @@ nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%
 
 nav ul li a { width: 100%; display: block; text-decoration: none; }
 
-nav ul li a:hover { color: #efefef; font-size: 1.13em; background-color: #676; text-decoration: none; border: 1px solid white; }
+nav ul li a:hover { color: #efefef; background-color: #676; text-decoration: none; border: 1px solid white; }
 
 p.error { color: red; }
 
@@ -38,9 +38,9 @@ form .formflex input:hover, form .formflex select:hover { background-color: #202
 
 form .steps tr { width: 100%; }
 
-form .steps tr td { width: 100%; }
+form .steps tr td { width: 80%; margin-left: 10%; margin-right: 9%; }
 
-form .steps tr td input { color: #dfdfdf; -moz-appearance: none; appearance: none; background-color: #131313; border: 1px solid #203020; padding: 6px; width: 98%; margin-left: 1%; margin-right: 1%; margin-top: 1px; margin-bottom: 1px; }
+form .steps tr td input { color: #dfdfdf; -moz-appearance: none; appearance: none; background-color: #131313; border: 1px solid #203020; padding: 6px; font-size: 1.08em; width: 98%; margin-left: 1%; margin-right: 1%; margin-top: 1px; margin-bottom: 1px; }
 
 form table, form table tbody, form table thead { width: 100%; }
 
