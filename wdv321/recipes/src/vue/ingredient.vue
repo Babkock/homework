@@ -1,10 +1,10 @@
 <template>
 	<tr class="ingredient" :id="myid">
 		<td>
-			<input type="number" :v-model="numVmodl" :value="id" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', parseInt($event.target.value))" />
+			<input type="number" :v-model="numVmodl" :value="id" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', parseInt($event.target.value))" />
 		</td>
 		<td>
-			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
+			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :id="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
 				<option value="" selected>Units per...</option>
 				<option value="whole">whole</option>
 				<option value="tbsp">tbsp.</option>
@@ -25,11 +25,11 @@
 			</select>
 		</td>
 		<td>
-			<input type="text" :size="ingSize" :maxlength="ingSize" :v-model="ingVmodl" placeholder="Name of the ingredient (sugar, oil, ginger, etc)" @blur="$emit('inginput', $event.target.value)" />
+			<input type="text" :size="ingSize" :maxlength="ingSize" :v-model="ingVmodl" placeholder="Name of the ingredient (sugar, oil, ginger, etc)" :name="ingName" :id="ingName" @blur="$emit('inginput', $event.target.value)" />
 		</td>
 		<td>
 			Optional?
-			<input type="checkbox" :v-model="optVmodl" :name="optName" value="yes" @blur="$emit('optinput', $event.target.value)" />
+			<input type="checkbox" :v-model="optVmodl" :name="optName" :id="optName" value="yes" @blur="$emit('optinput', $event.target.value)" />
 		</td>
 	</tr>
 </template>
@@ -60,11 +60,11 @@ export default {
 		numName: function() { return "ingred" + this.id + "_quantity"; },
 		ingName: function() { return "ingred" + this.id + "_name"; },
 		selName: function() { return "ingred" + this.id + "_measurement"; },
-		optName: function() { return "ingred" + this.id + "_optional"; },
+		optName: function() { return "ingred" + this.id + "_opt"; },
 		numVmodl: function() { return "recipe.ingredients[" + this.id + "].quantity"; },
 		ingVmodl: function() { return "recipe.ingredients[" + this.id + "].name"; },
 		selVmodl: function() { return "recipe.ingredients[" + this.id + "].measurement"; },
-		optVmodl: function() { return "recipe.ingredients[" + this.id + "].optional"; }
+		optVmodl: function() { return "recipe.ingredients[" + this.id + "].opt"; }
 
 	},
 

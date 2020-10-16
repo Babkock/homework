@@ -196,6 +196,13 @@ var app = new Vue({
 
 		if (filename) {
 			this.LoadObject(filename);
+
+			this.recipe.ingredients.forEach((ing, index) => {
+				document.querySelector("input#ingred" + index + "_name").value = ing.name;
+				document.querySelector("input#ingred" + index + "_quantity").value = "" + ing.quantity;
+				document.querySelector("input#ingred" + index + "_measurement").value = ing.measurement;
+				document.querySelector("input#ingred" + index + "_opt").selected = ing.opt;
+			});
 		}
 		else {
 			this.recipe.title = "New Recipe Title!";
