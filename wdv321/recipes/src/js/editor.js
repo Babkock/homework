@@ -3,6 +3,7 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
+require("../../../../assets/js/ingredient.js");
 
 import Ingredient from "../vue/ingredient.vue";
 Vue.component('ingredient', Ingredient)
@@ -111,19 +112,19 @@ var app = new Vue({
 				},
 				ingredients: [
 					{
-						quantity: "",
+						quantity: 1,
 						measurement: "",
 						name: "",
 						opt: "",
 					},
 					{
-						quantity: "",
+						quantity: 1,
 						measurement: "",
 						name: "",
 						opt: "",
 					},
 					{
-						quantity: "",
+						quantity: 1,
 						measurement: "",
 						name: "",
 						opt: "",
