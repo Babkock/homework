@@ -28,14 +28,15 @@
 		</header>
 		<main id="editor">
 			<form method="post" enctype="multipart/form-data">
+				<h2>Editing Recipe "<span v-text="recipe.filename"></span>"</h2>
 				<input type="hidden" v-model="recipe.numberOfIngreds" id="numberOfIngreds" />
 				<input type="hidden" v-model="recipe.numberOfSteps" id="numberOfSteps" />
 				<div class="formflex large">
-					<span><b>Filename of Recipe:</b></span>
+					<span><b>Filename:</b></span>
 					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" title="What should this recipe's filename be in local storage?" alt="What should this recipe's filename be in local storage?" />
 				</div>
 				<div class="formflex">
-					<span><b>Title of Recipe:</b></span>
+					<span><b>Title:</b></span>
 					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" title="What is this recipe for? (Casserole, etc)" alt="What is this recipe for? (Casserole, etc)" />
 				</div>
 				<div class="formflex">
@@ -49,10 +50,10 @@
 				<div class="formflex">
 					<span><b>Difficulty:</b></span>
 					<select v-model="recipe.difficulty" @change="recipe.difficulty = $event.target.value" title="How easy is this recipe to follow?" alt="How easy is this recipe to follow?">
-						<option selected>Choose Difficulty</option>
-						<option value="easy">Easy</option>
-						<option value="medium">Medium</option>
-						<option value="hard">Hard</option>
+						<option :selected="!recipe.difficulty">Choose Difficulty</option>
+						<option value="easy" :selected="recipe.difficulty === 'easy'">Easy</option>
+						<option value="medium" :selected="recipe.difficulty === 'medium'">Medium</option>
+						<option value="hard" :selected="recipe.difficulty === 'hard'">Hard</option>
 					</select>
 				</div>
 				<div class="formflex">

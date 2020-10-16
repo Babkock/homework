@@ -6,15 +6,11 @@
 }
 .ingredient td input[type="text"]:hover, .ingredient td input[type="number"]:hover { background-color: #202020 !important; color: white !important; border: 1px solid #304130 !important;
 }
-.ingredient td select { color: white; font-size: 1.08em !important; padding: 5px; width: 100% !important; background-color: #131313 !important; border: 1px solid #203020;
+.ingredient td select { color: white; font-size: 1.08em !important; padding: 5px; width: 100% !important; background-color: #131313; border: 1px solid #203020;
 }
-.ingredient td select:hover { background-color: #202020; color: white !important; border: 1px solid #304130;
-}
-.ingredient td select option { padding: 5px; background-color: #131313 !important; border: 1px solid #203020;
-}
-.ingredient td select option:hover { background-color: green !important; border: 1px solid #192c19;
+.ingredient td select:hover { background-color: #202020 !important; color: white !important; border: 1px solid #304130;
 }
 .ingredient td:first-child { text-align: right; margin-right: 3px;
 }
-.ingredient td:first-child input { text-align: right;
+.ingredient td:first-child input { text-align: right; letter-spacing: 0.9em;
 }

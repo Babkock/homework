@@ -116,21 +116,12 @@ export default {
 		font-size:1.08em !important;
 		padding:5px;
 		width:100% !important;
-		background-color:$InputBg !important;
+		background-color:$InputBg;
 		border:1px solid $InputBord;
 		&:hover {
-			background-color:$InputHoverBg;
+			background-color:$InputHoverBg !important;
 			color:$InputHoverFg !important;
 			border:1px solid $InputHoverBord;
-		}
-		option {
-			padding:5px;
-			background-color:$InputBg !important;
-			border:1px solid $InputBord;
-			&:hover {
-				background-color:green !important;
-				border:1px solid #192c19;
-			}
 		}
 	}
 }
@@ -140,6 +131,7 @@ export default {
 	margin-right:3px;
 	input {
 		text-align:right;
+		letter-spacing:0.9em;
 	}
 }
 </style>

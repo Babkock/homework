@@ -1,4 +1,4 @@
-body { background: linear-gradient(#114352, #24102c); }
+body { background: radial-gradient(#255362, #34203c); }
 
 .container { color: #ededed; font-family: "Arial" !important; width: 90%; margin-left: 5%; margin-right: 5%; }
 
@@ -6,13 +6,15 @@ a, a:link, a:visited, a:active { color: tan; text-decoration: none; }
 
 a:hover { color: #efefef; text-decoration: underline; }
 
+h1, h2 { text-align: center; }
+
 nav { width: 90%; margin-left: 5%; margin-right: 5%; padding: 5px; text-align: center; background-color: rgba(10, 20, 10, 0.2); border-radius: 34px 34px 0px 0px; }
 
 nav ul { width: 90%; text-align: center; display: flex; }
 
-nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%; border: 1px solid gray; }
+nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%; border: 1px solid gray; transition: border 0.2s ease 0s; }
 
-nav ul li a { width: 100%; display: block; text-decoration: none; }
+nav ul li a { width: 100%; display: block; text-decoration: none; transition: background-color, color 0.2s ease 0s; }
 
 nav ul li a:hover { color: #efefef; background-color: #676; text-decoration: none; }
 
@@ -28,13 +30,13 @@ p.success { color: lime; }
 
 footer { display: block; text-align: center; font-size: 0.98em; width: 100%; margin-top: 3px; }
 
-form { width: 92%; margin-left: 4%; margin-right: 4%; display: block; background: rgba(10, 10, 30, 0.35); border: 1px solid white; padding: 4px; }
+form { width: 92%; margin-left: 4%; margin-right: 4%; display: block; background: rgba(10, 10, 30, 0.35); border: 1px solid rgba(0, 0, 0, 0); border-radius: 20px 20px 34px 34px; padding: 5px; }
 
 form .formflex { display: flex; flex-direction: row; flex-wrap: nowrap; width: 99%; justify-content: center; margin-top: 3px; margin-bottom: 3px; }
 
 form .formflex span { width: auto; min-width: 32%; max-width: 49%; margin-right: 1%; font-size: 1.08em; text-align: right; padding: 5px; }
 
-form .formflex input, form .formflex select { text-align: left; color: #dfdfdf; background-color: #131313; border: 1px solid #203020; font-size: 1.08em !important; padding: 6px; width: auto; min-width: 31%; max-width: 48%; margin-left: 1%; margin-right: 1%; }
+form .formflex input, form .formflex select { text-align: left; color: #dfdfdf; background-color: #131313; border: 1px solid #203020; font-size: 1.08em !important; padding: 6px; width: auto; margin-left: 1%; margin-right: 1%; min-width: 31%; max-width: 48%; }
 
 form .formflex input:hover, form .formflex select:hover { background-color: #202020; color: white !important; border: 1px solid #304130; }
 
@@ -42,7 +44,9 @@ form .steps tr { width: 100%; }
 
 form .steps tr td { width: 80%; margin-left: 10%; margin-right: 9%; }
 
-form .steps tr td input { color: #dfdfdf; -moz-appearance: none; appearance: none; background-color: #131313; border: 1px solid #203020; padding: 6px; font-size: 1.08em; width: 98%; margin-left: 1%; margin-right: 1%; margin-top: 1px; margin-bottom: 1px; }
+form .steps tr td input { color: #dfdfdf; -moz-appearance: none; appearance: none; background-color: #131313; border: 1px solid #203020; padding: 6px; font-size: 1.08em; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 1px; margin-bottom: 1px; }
+
+form .steps tr td input:hover { background-color: #202020; color: white !important; border: 1px solid #304130; }
 
 form table, form table tbody, form table thead { width: 100%; }
 
