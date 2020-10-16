@@ -11,50 +11,6 @@ Vue.mixin({
 	data: () => {
 		return {
 			recipeFiles: ["test", "hello", "world"],
-			ingredients: 3,
-			steps: 3,
-			lastStorageItem: "",
-			recipe: {
-				numberOfIngreds: 3,
-				numberOfSteps: 3,
-				title: "",
-				image: "",
-				filename: "test",
-				serves: 0,
-				difficulty: "",
-				preparation: {
-					quantity: "25",
-					measurement: "minutes"
-				},
-				cooking: {
-					quantity: "6",
-					measurement: "hours"
-				},
-				ingredients: [
-					{
-						quantity: "",
-						measurement: "",
-						name: "",
-						opt: "",
-					},
-					{
-						quantity: "",
-						measurement: "",
-						name: "",
-						opt: "",
-					},
-					{
-						quantity: "",
-						measurement: "",
-						name: "",
-						opt: "",
-					},
-				],
-				steps: [
-					"This is step one",
-					"This is step two"
-				]
-			},
 		};
 	},
 
@@ -116,7 +72,51 @@ var app = new Vue({
 
 	data: () => {
 		return {
-			ajaxResult: ""
+			ajaxResult: "",
+			ingredients: 3,
+			steps: 3,
+			lastStorageItem: "",
+			recipe: {
+				numberOfIngreds: 3,
+				numberOfSteps: 3,
+				title: "",
+				image: "",
+				filename: "test",
+				serves: 0,
+				difficulty: "",
+				preparation: {
+					quantity: "25",
+					measurement: "minutes"
+				},
+				cooking: {
+					quantity: "6",
+					measurement: "hours"
+				},
+				ingredients: [
+					{
+						quantity: "",
+						measurement: "",
+						name: "",
+						opt: "",
+					},
+					{
+						quantity: "",
+						measurement: "",
+						name: "",
+						opt: "",
+					},
+					{
+						quantity: "",
+						measurement: "",
+						name: "",
+						opt: "",
+					},
+				],
+				steps: [
+					"This is step one",
+					"This is step two"
+				]
+			},
 		};
 	},
 	

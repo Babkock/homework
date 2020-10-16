@@ -8,7 +8,7 @@
 }
 .ingredient td input:not(input[type="checkbox"]) { -moz-appearance: none; appearance: none; color: white !important; background-color: #121212 !important; border: 1px solid #171717 !important; font-size: 1.08em; padding: 5px; width: 80% !important;
 }
-.ingredient td select { -moz-appearance: none; appearance: none; color: white; padding: 5px; width: 100% !important; background-color: #121212 !important; border: 1px solid #192919;
+.ingredient td select { -moz-appearance: none; appearance: none; color: white; font-size: 1.08em; padding: 5px; width: 100% !important; background-color: #121212 !important; border: 1px solid #192919;
 }
 .ingredient td select:hover { background-color: #203020; color: white !important; border: 1px solid #304130;
 }

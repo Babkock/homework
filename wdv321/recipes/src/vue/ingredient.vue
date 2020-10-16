@@ -121,6 +121,7 @@ export default {
 		-moz-appearance:none;
 		appearance:none;
 		color:white;
+		font-size:1.08em;
 		padding:5px;
 		width:100% !important;
 		background-color:#121212 !important;
