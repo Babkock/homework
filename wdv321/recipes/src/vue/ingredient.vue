@@ -4,24 +4,24 @@
 			<input type="number" :v-model="numVmodl" :value="id" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', parseInt($event.target.value))" />
 		</td>
 		<td>
-			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :id="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
+			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :value="mmnt" :id="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
 				<option value="" :selected="!mmnt">Units</option>
-				<option value="whole" :selected="mmnt.equals('whole')">whole</option>
-				<option value="tbsp" :selected="mmnt.equals('tbsp')">tbsp.</option>
-				<option value="tsp" :selected="mmnt.equals('tsp')">tsp.</option>
-				<option value="cups" :selected="mmnt.equals('cups')">cups</option>
-				<option value="cans" :selected="mmnt.equals('cans')">cans</option>
-				<option value="cubes" :selected="mmnt.equals('cubes')">cubes</option>
-				<option value="g" :selected="mmnt.equals('g')">grams</option>
-				<option value="oz" :selected="mmnt.equals('oz')">ounces</option>
-				<option value="mg" :selected="mmnt.equals('mg')">milligrams</option>
-				<option value="lbs" :selected="mmnt.equals('lbs')">lbs.</option>
-				<option value="kg" :selected="mmnt.equals('kg')">kilograms</option>
-				<option value="gallon" :selected="mmnt.equals('gallon')">gallons</option>
-				<option value="quarts" :selected="mmnt.equals('quarts')">quarts</option>
-				<option value="pints" :selected="mmnt.equals('pints')">pints</option>
-				<option value="L" :selected="mmnt.equals('L')">liters</option>
-				<option value="mL" :selected="mmnt.equals('mL')">milliliters</option>
+				<option value="whole" :selected="mmnt === 'whole'">whole</option>
+				<option value="tbsp" :selected="mmnt === 'tbsp'">tbsp.</option>
+				<option value="tsp" :selected="mmnt === 'tsp'">tsp.</option>
+				<option value="cups" :selected="mmnt === 'cups'">cups</option>
+				<option value="cans" :selected="mmnt === 'cans'">cans</option>
+				<option value="cubes" :selected="mmnt === 'cubes'">cubes</option>
+				<option value="g" :selected="mmnt === 'g'">grams</option>
+				<option value="oz" :selected="mmnt === 'oz'">ounces</option>
+				<option value="mg" :selected="mmnt === 'mg'">milligrams</option>
+				<option value="lbs" :selected="mmnt === 'lbs'">lbs.</option>
+				<option value="kg" :selected="mmnt === 'kg'">kilograms</option>
+				<option value="gallon" :selected="mmnt === 'gallon'">gallons</option>
+				<option value="quarts" :selected="mmnt === 'quarts'">quarts</option>
+				<option value="pints" :selected="mmnt === 'pints'">pints</option>
+				<option value="L" :selected="mmnt === 'L'">liters</option>
+				<option value="mL" :selected="mmnt === 'mL'">milliliters</option>
 			</select>
 		</td>
 		<td>
