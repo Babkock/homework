@@ -77,7 +77,7 @@
 				</div>
 
 				<h2>Ingredients:</h2>
-				<table><tbody v-if="ingredients > 0" class="ings">
+				<table><tbody v-if="recipe.ingredients" class="ings">
 					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" :mmnt="ing.measurement" @optinput="ing.opt = $event" @numinput="ing.quantity = parseInt($event)" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 				<center>
@@ -89,7 +89,7 @@
 
 				<h2>Steps:</h2>
 				<p>Don't bother typing "1.", "2.", etc. The recipe steps will be listed in order on the display page.</p>
-				<table><tbody v-if="steps > 0" class="steps">
+				<table><tbody v-if="recipe.steps" class="steps">
 					<tr class="step" v-for="(st, index) in recipe.steps" :key="index" :id="index">
 						<td><input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" placeholder="Make awesome food!" size="100" maxlength="200" /></td>
 					</tr>
