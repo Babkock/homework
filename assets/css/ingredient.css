@@ -1,6 +1,6 @@
 .ingredient { width: 100%; margin-top: 3px; margin-bottom: 3px;
 }
-.ingredient td { background-color: #12121f; padding: 4px; font-size: 1.08em; width: 24%; margin-left: 1px; margin-right: 1px; color: white;
+.ingredient td { /* background-color:#12121f; */ padding: 4px; font-size: 1.08em; width: 24%; margin-left: 1px; margin-right: 1px; color: white;
 }
 .ingredient td input[type="text"] { background-color: #121212 !important; -moz-appearance: none; appearance: none !important; border: 1px solid #171717 !important; padding: 5px; color: #eee !important; font-size: 1.08em; margin: 1px; transition: background-color, color, border 0.2s ease 0s;
 }

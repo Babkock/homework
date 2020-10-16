@@ -62,10 +62,10 @@ export default {
 		ingName: function() { return "ingred" + this.id + "_name"; },
 		selName: function() { return "ingred" + this.id + "_measurement"; },
 		optName: function() { return "ingred" + this.id + "_optional"; },
-		numVmodl: function() { return "this.recipe.ingredients[" + this.id + "].quantity"; },
-		ingVmodl: function() { return "this.recipe.ingredients[" + this.id + "].name"; },
-		selVmodl: function() { return "this.recipe.ingredients[" + this.id + "].measurement"; },
-		optVmodl: function() { return "this.recipe.ingredients[" + this.id + "].optional"; }
+		numVmodl: function() { return "recipe.ingredients[" + this.id + "].quantity"; },
+		ingVmodl: function() { return "recipe.ingredients[" + this.id + "].name"; },
+		selVmodl: function() { return "recipe.ingredients[" + this.id + "].measurement"; },
+		optVmodl: function() { return "recipe.ingredients[" + this.id + "].optional"; }
 
 	},
 
@@ -84,7 +84,7 @@ export default {
 	margin-bottom:3px;
 }
 .ingredient td {
-	background-color:#12121f;
+	/* background-color:#12121f; */
 	padding:4px;
 	font-size:1.08em;
 	width:24%;
