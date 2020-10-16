@@ -42,8 +42,10 @@ nav {
 					color:$LinkHover;
 					background-color:#676;
 					text-decoration:none;
-					border:1px solid white;
 				}
+			}
+			&:hover {
+				border:1px solid white;
 			}
 		}
 	}
