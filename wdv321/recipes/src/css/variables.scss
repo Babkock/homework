@@ -10,3 +10,28 @@ $xs: 20em;		// mobile only
 	}
 }
 
+@mixin WidthMargins($w, $ml, $mr) {
+	width:$w;
+	margin-left:$ml;
+	margin-right:$mr;
+}
+
+$InputFg: #dfdfdf;
+$InputBg: #131313;
+$InputBord: #203020;
+$InputHoverFg: white;
+$InputHoverBg: #202020;
+$InputHoverBord: #304130;
+$LinkColor: tan;
+$LinkHover: #efefef;
+$NavBg: rgba(10, 20, 10, 0.2);
+$FormBg: rgba(10, 10, 30, 0.35);
+$ButtonBg: #2a3f2a;
+$ButtonBord: #336f33;
+$ButtonFg: #dfdfdf;
+$ButtonHoverBg: #314c31;
+$ButtonHoverBord: #437d43;
+$ButtonHoverFg: white;
+$ButtonActiveBg: #0d270d;
+$ButtonActiveBord: #205320;
+$ButtonActiveFg: #c0c0c0;

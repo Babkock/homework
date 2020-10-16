@@ -1,8 +1,7 @@
 <template>
 	<tr class="ingredient" :id="myid">
 		<td>
-			#
-			<input type="text" :v-model="numVmodl" :value="id" :title="title" :alt="title" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
+			<input type="number" :v-model="numVmodl" :value="id" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :size="numSize" :maxlength="numSize" placeholder="#" @blur="$emit('numinput', parseInt($event.target.value))" />
 		</td>
 		<td>
 			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
@@ -78,6 +77,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../css/variables.scss";
+
 .ingredient {
 	width:100%;
 	margin-top:3px;
@@ -87,59 +88,61 @@ export default {
 	/* background-color:#12121f; */
 	padding:4px;
 	font-size:1.08em;
-	width:24%;
-	margin-left:1px;
-	margin-right:1px;
-	color:white;
+	@include WidthMargins(24%, 1px, 1px);
+	color:#efefef;
 	input[type="text"] {
-		background-color: #121212 !important;
+		background-color: $InputBg !important;
 		-moz-appearance: none;
-		appearance: none !important;
-		border: 1px solid #171717 !important;
+		appearance: none;
+		border: 1px solid $InputBord !important;
 		padding: 5px;
-		color: #eee !important;
+		color: $InputFg;
 		font-size: 1.08em;
 		margin:1px;
+		width:80% !important;
 		transition:background-color, color, border 0.2s ease 0s;
 		&:hover {
-			background-color: #202020 !important;
-			color:white !important;
-			border:1px solid #303d30 !important;
+			background-color: $InputHoverBg !important;
+			color:$InputHoverFg !important;
+			border:1px solid $InputHoverBord !important;
 		}
 	}
 	input:not(input[type="checkbox"]) {
 		-moz-appearance:none;
 		appearance:none;
 		color:white !important;
-		background-color:#121212 !important;
-		border:1px solid #171717 !important;
+		background-color:$InputBg !important;
+		border:1px solid $InputBord !important;
 		font-size:1.08em;
 		padding:5px;
 		width:80% !important;
 	}
 	select {
-		-moz-appearance:none;
-		appearance:none;
 		color:white;
-		font-size:1.08em;
+		font-size:1.08em !important;
 		padding:5px;
 		width:100% !important;
-		background-color:#121212 !important;
-		border:1px solid #192919;
+		background-color:$InputBg !important;
+		border:1px solid $InputBord;
 		&:hover {
-			background-color:#203020;
-			color:white !important;
-			border:1px solid #304130;
+			background-color:$InputHoverBg;
+			color:$InputHoverFg !important;
+			border:1px solid $InputHoverBord;
 		}
 		option {
 			padding:5px;
-			background-color:#121212 !important;
-			border:1px solid #191919;
+			background-color:$InputBg !important;
+			border:1px solid $InputBord;
 			&:hover {
 				background-color:green !important;
 				border:1px solid #192c19;
 			}
 		}
 	}
+}
+
+.ingredient td:first-child {
+	text-align:right;
+	margin-right:3px;
 }
 </style>

@@ -8,12 +8,6 @@ import Ingredient from "../vue/ingredient.vue";
 Vue.component('ingredient', Ingredient)
 
 Vue.mixin({
-	data: () => {
-		return {
-			recipeFiles: ["test", "hello", "world"],
-		};
-	},
-
 	methods: {
 		/* Store current recipe object using lastStorageItem */
 		StoreObject() {
@@ -123,7 +117,7 @@ var app = new Vue({
 	methods: {
 		AddIngredient() {
 			this.recipe.ingredients.push({
-				quantity: "",
+				quantity: 0,
 				measurement: "",
 				name: "",
 				opt: ""

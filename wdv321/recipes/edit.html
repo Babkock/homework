@@ -75,8 +75,8 @@
 				</div>
 
 				<h2>Ingredients:</h2>
-				<table><tbody v-if="recipe.ingredients">
-					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ing.optional = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
+				<table><tbody v-if="recipe.ingredients" class="ings">
+					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :value="index" :name="index" title="Enter the number of the given ingredient" @optinput="ing.opt = $event" @numinput="ing.quantity = parseInt($event)" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 				<center>
 					<p>
