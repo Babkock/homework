@@ -3,10 +3,27 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
-require("../../../../assets/js/ingredient.js");
+// require("../../../../assets/js/ingredient.js");
 
 import Ingredient from "../vue/ingredient.vue";
 Vue.component('ingredient', Ingredient)
+
+class Ing {
+	constructor(ingName, ingQuantity, ingQuantMst, optional) {
+		this.name = ingName;
+		this.quantity = ingQuantity;
+		this.measurement = ingQuantMst;
+		this.optional = optional;
+	}
+
+	stringify() {
+		return this.quantity + " " + this.measurement + " " + this.name;
+	}
+
+	json() {
+		return JSON.stringify(this);
+	}
+}
 
 Vue.mixin({
 	methods: {
@@ -58,7 +75,12 @@ Vue.mixin({
 				this.recipe.ingredients = [];
 
 				object.ingredients.forEach((ing, index) => {
-					this.recipe.ingredients.push(new Ingredient(ing.name, ing.quantity, ing.measurement, ing.opt));
+					this.recipe.ingredients.push({
+						name: ing.name, 
+						quantity: ing.quantity,
+						measurement: ing.measurement,
+						opt: ing.opt
+					});
 				});
 
 				this.recipe.steps = [];
@@ -96,7 +118,7 @@ var app = new Vue({
 			lastStorageItem: "",
 			recipe: {
 				numberOfIngreds: 3,
-				numberOfSteps: 3,
+				numberOfSteps: 2,
 				title: "",
 				image: "",
 				filename: "test",
