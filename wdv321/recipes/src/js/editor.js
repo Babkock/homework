@@ -9,6 +9,13 @@ import Ingredient from "../vue/ingredient.vue";
 Vue.component('ingredient', Ingredient)
 
 Vue.mixin({
+	data: () => {
+		return {
+			topStatus: "",
+			bottomStatus: ""
+		};
+	},
+
 	methods: {
 		/* Store current recipe object using lastStorageItem */
 		StoreObject() {
@@ -73,6 +80,7 @@ Vue.mixin({
 			}
 			else {
 				console.error("Could not load specified item '" + x + "' from local storage");
+				this.bottomStatus = "<p class=\"error\">Could not load specified file '<b>" + x + "</b>' from local storage.</p>";
 			}
 		},
 
@@ -153,24 +161,28 @@ var app = new Vue({
 			});
 			this.ingredients = parseInt(this.ingredients) + 1;
 			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) + 1;
+			this.topStatus = "<p class=\"success\">Added ingredient.</p>";
 		},
 
 		RemoveIngredient() {
 			this.recipe.ingredients.splice(this.ingredients-1, 1);
 			this.ingredients = parseInt(this.ingredients) - 1;
 			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) - 1;
+			this.topStatus = "<p class=\"error\">Removed ingredient.</p>";
 		},
 
 		AddStep() {
 			this.recipe.steps.push("");
 			this.steps = parseInt(this.steps) + 1;
 			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) + 1;
+			this.bottomStatus = "<p class=\"success\">Added step.</p>";
 		},
 
 		RemoveStep() {
 			this.recipe.steps.splice(this.steps-1, 1);
 			this.steps = parseInt(this.steps) - 1;
 			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) - 1;
+			this.bottomStatus = "<p class=\"error\">Removed ingredient.</p>";
 		}
 	},
 
@@ -180,14 +192,18 @@ var app = new Vue({
 		if (filename) {
 			this.LoadObject(filename);
 
+			this.topStatus = "<p class=\"success\">Loaded file '<b>" + filename + "</b>' from local storage.</p>";
+
 			this.recipe.ingredients.forEach((ing, index) => {
 				document.querySelector("input#ingred" + index + "_name").value = ing.name;
 				document.querySelector("input#ingred" + index + "_quantity").value = "" + ing.quantity;
 				document.querySelector("select#ingred" + index + "_measurement").value = ing.measurement;
-				document.querySelector("input#ingred" + index + "_opt").selected = ing.opt;
+				document.querySelector("input#ingred" + index + "_opt").value = ing.opt;
 			});
 		}
 		else {
+			this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
+
 			this.recipe.title = "New Recipe Title!";
 		}
 	}

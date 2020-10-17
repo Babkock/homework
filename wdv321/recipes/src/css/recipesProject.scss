@@ -81,6 +81,28 @@ p.success {
 	}
 }
 
+.status {
+	height:89px;
+	padding:3px;
+	@include WidthMargins(90%, 5%, 5%);
+	background-color:rgba(190, 170, 164, 0.3);
+	p {
+		display:block;
+		font-size:1.08em;
+		padding:5px;
+		color:#101010;
+		@include WidthMargins(97%, 1%, 1%);
+	}
+	p.success {
+		background-color:green;
+		border:1px solid $ButtonHoverBord;
+	}
+	p.error {
+		background-color:#401212;
+		border:1px solid red;
+	}
+}
+
 footer {
 	display:block;
 	text-align:center;
@@ -158,6 +180,11 @@ form {
 	table, table tbody, table thead {
 		width:100%;
 	}
+}
+
+.buttons {
+	display:block;
+	text-align:center;
 }
 
 button, input[type="submit"] {
