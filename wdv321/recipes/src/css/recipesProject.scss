@@ -82,10 +82,11 @@ p.success {
 }
 
 .status {
-	height:89px;
+	height:82px;
 	padding:3px;
 	@include WidthMargins(90%, 5%, 5%);
 	background-color:rgba(190, 170, 164, 0.3);
+	border:1px solid rgba(0, 0, 0, 0);
 	p {
 		display:block;
 		font-size:1.08em;
@@ -94,12 +95,23 @@ p.success {
 		@include WidthMargins(97%, 1%, 1%);
 	}
 	p.success {
-		background-color:green;
+		color:white;
+		background-color:$ButtonHoverBg;
 		border:1px solid $ButtonHoverBord;
 	}
 	p.error {
+		color:white;
 		background-color:#401212;
 		border:1px solid red;
+	}
+	&.top {
+		border-radius:0px 0px 32px 32px;
+		margin-bottom:5px;
+	}
+	&.bottom {
+		width:80% !important;
+		margin-left:10% !important;
+		margin-right:10% !important;
 	}
 }
 

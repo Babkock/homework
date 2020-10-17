@@ -105,14 +105,14 @@ var app = new Vue({
 		return {
 			ajaxResult: "",
 			ingredients: 3,
-			steps: 3,
+			steps: 2,
 			lastStorageItem: "",
 			recipe: {
 				numberOfIngreds: 3,
 				numberOfSteps: 2,
 				title: "",
 				image: "",
-				filename: "test",
+				filename: "",
 				serves: 0,
 				difficulty: "",
 				preparation: {
@@ -194,12 +194,19 @@ var app = new Vue({
 
 			this.topStatus = "<p class=\"success\">Loaded file '<b>" + filename + "</b>' from local storage.</p>";
 
-			this.recipe.ingredients.forEach((ing, index) => {
+			for (var i = 0; i < this.recipe.ingredients.length; i++) {
+				document.querySelector("input#ingred" + i + "_name").value = this.recipe.ingredients[i].name;
+				document.querySelector("input#ingred" + i + "_quantity").value = this.recipe.ingredients[i].quantity;
+				document.querySelector("select#ingred" + i + "_measurement").value = this.recipe.ingredients[i].measurement;
+				document.querySelector("input#ingred" + i + "_opt").value = this.recipe.ingredients[i].opt;
+			}
+
+			/* this.recipe.ingredients.forEach((ing, index) => {
 				document.querySelector("input#ingred" + index + "_name").value = ing.name;
 				document.querySelector("input#ingred" + index + "_quantity").value = "" + ing.quantity;
 				document.querySelector("select#ingred" + index + "_measurement").value = ing.measurement;
 				document.querySelector("input#ingred" + index + "_opt").value = ing.opt;
-			});
+			}); */
 		}
 		else {
 			this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
