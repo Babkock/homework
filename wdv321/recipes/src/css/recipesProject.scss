@@ -82,11 +82,12 @@ p.success {
 }
 
 .status {
-	height:82px;
+	height:62px;
 	padding:3px;
 	@include WidthMargins(90%, 5%, 5%);
 	background-color:rgba(190, 170, 164, 0.3);
 	border:1px solid rgba(0, 0, 0, 0);
+	opacity:0.9;
 	p {
 		display:block;
 		font-size:1.08em;
@@ -112,6 +113,7 @@ p.success {
 		width:80% !important;
 		margin-left:10% !important;
 		margin-right:10% !important;
+		border-radius:0px 0px 32px 32px;
 	}
 }
 

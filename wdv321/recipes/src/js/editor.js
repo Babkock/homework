@@ -71,6 +71,7 @@ Vue.mixin({
 						measurement: ing.measurement,
 						opt: ing.opt
 					});
+					console.log("Pushing ingredient " + index + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
 				});
 
 				this.recipe.steps = [];
