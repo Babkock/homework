@@ -24,6 +24,15 @@ Vue.mixin({
 			storage.removeItem(this.lastStorageItem);
 			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
 			console.log(JSON.stringify(this.recipe));
+			
+			var isInRecipeFiles = false;
+			this.recipeFiles.forEach((f, index) => {
+				if (f === this.lastStorageItem)
+					isInRecipeFiles = true;
+			});
+			if (!isInRecipeFiles) {
+				this.recipeFiles.push(this.lastStorageItem);
+			}
 		},
 
 		/* Store current recipe object under new name */
@@ -90,6 +99,10 @@ Vue.mixin({
 			console.log("Deleting stored recipe object '" + x + "'");
 			storage.removeItem(x);
 			this.lastStorageItem = "";
+		},
+
+		SetRecipeForEditor(x) {
+
 		}
 	}
 })
@@ -104,7 +117,8 @@ var app = new Vue({
 
 	data: () => {
 		return {
-			ajaxResult: "",
+			recipeFiles: ["hello"],	// This is loaded as its own localStorage file. "recipeFiles"
+			fileToLoad: "",			// This localStorage item is set on the view.html page
 			ingredients: 3,
 			steps: 2,
 			lastStorageItem: "",
@@ -187,8 +201,23 @@ var app = new Vue({
 		}
 	},
 
-	mounted() {		
-		var filename = prompt("Which file would you like to edit? Enter nothing for new file");
+	mounted() {
+		var storage = window.localStorage;
+		var toLoad = storage.getItem("fileToLoad");
+		var recipes = storage.getItem("recipeFiles");
+		if (!fileToLoad) {
+			var filename = prompt("Which file would you like to edit? Enter nothing for new file");
+		}
+		else {
+			this.fileToLoad = toLoad;
+			var filename = this.fileToLoad;
+		}
+		if (!recipes) {
+			this.recipeFiles.push("hello");
+		}
+		else {
+			this.recipeFiles = recipes;
+		}
 
 		if (filename) {
 			this.LoadObject(filename);
