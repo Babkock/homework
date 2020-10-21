@@ -16,7 +16,8 @@ module.exports = {
 	mode: process.env.NODE_ENV,
 	entry: {
 		display: "./src/js/display.js",
-		editor: "./src/js/editor.js"
+		editor: "./src/js/editor.js",
+		view: "./src/js/view.js"
 	},
 	output: {
 		path: path.resolve(__dirname, "../../assets/js"),
