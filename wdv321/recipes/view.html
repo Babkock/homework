@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
+	<meta name="description" content="Awesome Recipes viewer. Use this page to select Recipe storage files to edit." />
 	<title>Awesome Recipes &bull; View Recipes</title>
 	<link rel="stylesheet" href="/homework/assets/css/recipesProject.css" />
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -25,8 +26,8 @@
 				</ul>
 			</nav>
 		</header>
-		<div class="recipe-files" v-if="recipeFiles">
-			<table><tbody>
+		<div class="container" v-if="recipeFiles">
+			<table class="recipes"><tbody>
 				<tr v-for="(rec, index) in recipeFiles">
 					<td>{{ index + 1 }}. <b>{{ rec }}</b></td>
 					<td>

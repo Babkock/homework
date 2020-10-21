@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
+	<meta name="description" content="The Awesome Recipe Editor for the Awesome Recipes app. This page can edit existing recipes or start new ones." />
 	<title>Awesome Recipe Editor</title>
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<link rel="stylesheet" href="/homework/assets/css/recipesProject.css" />
@@ -96,7 +97,7 @@
 				<p>Don't bother typing "1.", "2.", etc. The recipe steps will be listed in order on the display page.</p>
 				<table><tbody v-if="recipe.steps" class="steps">
 					<tr class="step" v-for="(st, index) in recipe.steps" :key="index" :id="index">
-						<td><input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" placeholder="Make awesome food!" size="100" maxlength="200" /></td>
+						<td>{{ index + 1 }}. <input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" placeholder="Make awesome food!" size="100" maxlength="200" /></td>
 					</tr>
 				</tbody></table>
 				<div class="buttons">
