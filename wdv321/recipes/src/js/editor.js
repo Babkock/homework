@@ -229,10 +229,15 @@ var app = new Vue({
 			var filename = this.fileToLoad;
 		}
 		if (!recipes) {
-			this.recipeFiles.push("hello");
+			this.recipeFiles = ["hello"];
 		}
 		else {
-			this.recipeFiles = JSON.parse(recipes);
+			var x = JSON.parse(recipes);
+			if (!x) {
+				this.recipeFiles = ["hello"];
+			} else {
+				this.recipeFiles = x;
+			}
 		}
 
 		if (filename) {
