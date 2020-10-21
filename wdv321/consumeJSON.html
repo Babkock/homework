@@ -17,16 +17,6 @@
 	-->
 
 	<style>
-		.studentCard	{
-			width:200px;
-			box-sizing:border-box;
-			background-color:lightblue;
-			padding-left:5px;
-			padding-top:3px;
-			border:thin solid blue;
-			box-shadow: 2px 2px 2px grey;		
-		}
-		
 		.studentCard h3	{
 			margin:0px;	
 		}
@@ -44,47 +34,48 @@
 		<h2>Unit 8 JSON Objects</h2>
 		<h3>Creating and consuming a JSON object</h3>
 	</header>
+	<div class="students">
+		<div class="studentCard" id="one">
+			<h3>Student ID: <span id="studentId1"></span></h3>
+	    	<p>Student GPA: <span id="studentGpa1"></span></p>
+			<p>Student Courses:
+	    		<ul>
+	    			<script>
+	    				student1.student_courses.forEach((el, index) => {
+	    					document.write("<li>" + el + "</li>");
+	    				});
+	    			</script>
+	    		</ul>
+	    	</p>
+		</div>
 
-	<div class="studentCard" id="one">
-		<h3>Student ID: <span id="studentId1"></span></h3>
-    	<p>Student GPA: <span id="studentGpa1"></span></p>
-		<p>Student Courses:
-    		<ul>
-    			<script>
-    				student1.student_courses.forEach((el, index) => {
-    					document.write("<li>" + el + "</li>");
-    				});
-    			</script>
-    		</ul>
-    	</p>
-	</div>
+		<div class="studentCard" id="two">
+			<h3>Student ID: <span id="studentId2"></span></h3>
+	    	<p>Student GPA: <span id="studentGpa2"></span></p>
+			<p>Student Courses:
+	    		<ul>
+	    			<script>
+	    				student2.student_courses.forEach((el, index) => {
+	    					document.write("<li>" + el + "</li>");
+	    				});
+	    			</script>
+	    		</ul>
+	    	</p>
+		</div>
 
-	<div class="studentCard" id="two">
-		<h3>Student ID: <span id="studentId2"></span></h3>
-    	<p>Student GPA: <span id="studentGpa2"></span></p>
-		<p>Student Courses:
-    		<ul>
-    			<script>
-    				student2.student_courses.forEach((el, index) => {
-    					document.write("<li>" + el + "</li>");
-    				});
-    			</script>
-    		</ul>
-    	</p>
-	</div>
-
-	<div class="studentCard" id="three">
-		<h3>Student ID: <span id="studentId3"></span></h3>
-		<p>Student GPA: <span id="studentGpa3"></span></p>
-		<p>Student Courses:
-			<ul>
-				<script>
-					student3.student_courses.forEach((el, index) => {
-						document.write("<li>" + el + "</li>");
-					});
-				</script>
-			</ul>
-		</p>
+		<div class="studentCard" id="three">
+			<h3>Student ID: <span id="studentId3"></span></h3>
+			<p>Student GPA: <span id="studentGpa3"></span></p>
+			<p>Student Courses:
+				<ul>
+					<script>
+						student3.student_courses.forEach((el, index) => {
+							document.write("<li>" + el + "</li>");
+						});
+					</script>
+				</ul>
+			</p>
+		</div>
 	</div>
 	<script>
 	document.querySelector("#studentId1").innerHTML = "" + student1.student_id;

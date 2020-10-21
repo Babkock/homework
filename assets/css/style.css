@@ -80,6 +80,14 @@ table.files tbody tr td:hover, table.files thead tr td:hover { box-shadow: 1px 1
 
 .eventBlock div { width: 25%; font-size: 1.09em; border: 1px solid #bbb; color: #efefef; background-color: #121c12; padding: 7px; margin: 2px; text-align: left; }
 
+.students { display: flex; flex-direction: row; flex-wrap: nowrap; width: 90%; margin-left: 5%; margin-right: 5%; justify-content: center; text-align: center; }
+
+.students .studentCard { display: inline; width: 31%; margin-left: 1%; margin-right: 1%; text-align: left; background-color: #353510; border: 1px solid #cfcfcf; color: white; padding: 5px; box-shadow: 2px 2px yellow; font-size: 1.08em; }
+
+.students .studentCard ul { list-style-type: none; }
+
+.students .studentCard ul li { font-size: 1.09em; }
+
 .displayEvent { text_align: left; font-size: 18px; }
 
 .soon { font-weight: bold; color: #ef0000; font-size: 1.12em; }

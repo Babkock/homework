@@ -171,6 +171,36 @@ table.files tbody tr td:hover, table.files thead tr td:hover {
 	}
 }
 
+.students {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	width:90%;
+	margin-left:5%;
+	margin-right:5%;
+	justify-content:center;
+	text-align:center;
+	.studentCard {
+		display:inline;
+		width:31%;
+		margin-left:1%;
+		margin-right:1%;
+		text-align:left;
+		background-color:#353510;
+		border:1px solid #cfcfcf;
+		color:white;
+		padding:5px;
+		box-shadow:2px 2px yellow;
+		font-size:1.08em;
+		ul {
+			list-style-type:none;
+			li {
+				font-size:1.09em;
+			}
+		}
+	}
+}
+
 .displayEvent {
 	text_align:left;
 	font-size:18px;	
