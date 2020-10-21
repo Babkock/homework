@@ -26,12 +26,19 @@
 			</nav>
 		</header>
 		<div class="recipe-files" v-if="recipeFiles">
-			<ol>
-				<li v-for="(rec, index) in recipeFiles">
-					<b>{{ rec }}</b> &bull; <button @click="OpenEditor(rec)" title="Open this file in the Awesome Recipe Editor" alt="Open this file in the Awesome Recipe Editor">Edit</button>
-				</li>
-			</ol>
-			<button @click="DeleteAll(); window.location = 'edit.html';" title="Deletes all recipes in recipeFiles storage item!" alt="Deletes all recipes in recipeFiles storage item!">Delete All Recipes</button>
+			<table><tbody>
+				<tr v-for="(rec, index) in recipeFiles">
+					<td>{{ index + 1 }}. <b>{{ rec }}</b></td>
+					<td>
+						<button @click="OpenEditor(rec)" title="Open this file in the Awesome Recipe Editor" alt="Open this file in the Awesome Recipe Editor">Edit</button>
+					</td>
+				</tr>
+			</tbody></table>
+			<div class="buttons">
+				<button @click="NewRecipe" title="Starts a new Recipe in the Editor" alt="Starts a new Recipe in the Editor">New Recipe</button>
+				&bull;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button @click="DeleteAll" title="Deletes all recipes in recipeFiles storage item!" alt="Deletes all recipes in recipeFiles storage item!">Delete All Recipes</button>
+			</div>
 		</div>
 		<footer>
 			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>

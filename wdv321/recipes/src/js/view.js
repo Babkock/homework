@@ -9,9 +9,15 @@ var app = new Vue({
 	},
 
 	methods: {
+		NewRecipe() {
+			var storage = window.localStorage;
+			storage.removeItem("fileToLoad");
+
+			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
+		},
+
 		OpenEditor(r) {
 			var storage = window.localStorage;
-
 			storage.setItem("fileToLoad", r);
 
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
@@ -37,6 +43,8 @@ var app = new Vue({
 			}); */
 
 			this.recipeFiles = [];
+
+			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		}
 	},
 

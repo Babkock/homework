@@ -34,6 +34,8 @@ Vue.mixin({
 				this.recipeFiles.push(this.lastStorageItem);
 			}
 			StoreRecipeFiles();
+
+			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
 		},
 
 		/* Store current recipe object under new name */
@@ -54,6 +56,8 @@ Vue.mixin({
 				this.recipeFiles.push(x);
 			}
 			this.StoreRecipeFiles();
+
+			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
 		},
 
 		LoadObject(x) {
