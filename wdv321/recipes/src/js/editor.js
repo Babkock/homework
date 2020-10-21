@@ -218,7 +218,7 @@ var app = new Vue({
 	mounted() {
 		var storage = window.localStorage;
 		var toLoad = storage.getItem("fileToLoad");		// view.html should set this when user clicks a button
-		var recipes = JSON.parse(storage.getItem("recipeFiles"));	// view.html should read this and editor should set this
+		var recipes = storage.getItem("recipeFiles");	// view.html should read this and editor should set this
 
 		if (!toLoad) {
 			// prompt if not coming from the view page
@@ -232,7 +232,7 @@ var app = new Vue({
 			this.recipeFiles.push("hello");
 		}
 		else {
-			this.recipeFiles = recipes;
+			this.recipeFiles = JSON.parse(recipes);
 		}
 
 		if (filename) {
