@@ -29,7 +29,7 @@
 		</header>
 		<main id="displaySlider" v-if="this.recipes.length > 0">
 			<div class="box" v-for="(recip, index) in this.recipes">
-				<recipe :key="index" :myid="index" :name="index" filename="chunks">
+				<recipe v-if="recip.filename !== null" :key="index" :myid="index" :name="index" :filename="recip.filename">
 				</recipe>
 			</div>
 		</main>

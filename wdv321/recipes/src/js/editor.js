@@ -89,7 +89,7 @@ Vue.mixin({
 						name: ing.name,
 						quantity: ing.quantity,
 						measurement: ing.measurement,
-						opt: ((ing.opt) ? "yes" : "no")
+						opt: ing.opt
 					});
 					console.log("Pushing ingredient " + index + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
 				});

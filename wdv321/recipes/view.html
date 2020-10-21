@@ -27,7 +27,7 @@
 		</header>
 		<div class="recipe-files" v-if="recipeFiles">
 			<ol>
-				<li v-for="(rec, index) in recipeFiles">
+				<li v-for="(rec, index) in recipeFiles.splice(recipeFiles.indexOf(''), 1)">
 					<b>{{ rec }}</b> &bull; <button @click="OpenEditor(rec)" title="Open this file in the Awesome Recipe Editor" alt="Open this file in the Awesome Recipe Editor">Edit</button>
 				</li>
 			</ol>
