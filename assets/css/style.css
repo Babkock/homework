@@ -106,11 +106,11 @@ code:hover { border: 1px solid white; }
 
 input[type="text"] { -moz-appearance: none !important; appearance: none !important; background-color: #191e1d; color: white; border: 1px solid gray; padding: 5px; font-size: 1.14em; }
 
-input[type="submit"], form p input[type="submit"], button, form button, form p button { padding: 7px; font-size: 1.18em; background-color: #221010; color: white; margin: 5px; border: 1px solid gray; box-shadow: 1px 1px white; margin-bottom: 5px; }
+input[type="submit"], form p input[type="submit"], button, form button, form p button, input[type="reset"] { padding: 7px; font-size: 1.18em; background-color: #221010; color: white; margin: 5px; border: 1px solid gray; border-radius: 18px; box-shadow: 1px 1px white; margin-bottom: 5px; }
 
-input[type="submit"]:hover, form p input[type="submit"]:hover, button:hover, form button:hover, form p button:hover { background-color: #392020; color: white; border: 1px solid white; box-shadow: 1px 1px red; }
+input[type="submit"]:hover, form p input[type="submit"]:hover, button:hover, form button:hover, form p button:hover, input[type="reset"]:hover { background-color: #392020; color: white; border: 1px solid white; box-shadow: 1px 1px red; }
 
-input[type="submit"]:active, form p input[type="submit"]:active, button:active, form button:active, form p button:active { background-color: #203718; color: white; border: 1px solid green; box-shadow: none !important; }
+input[type="submit"]:active, form p input[type="submit"]:active, button:active, form button:active, form p button:active, input[type="reset"]:active { background-color: #203718; color: white; border: 1px solid green; box-shadow: none !important; }
 
 input[type="file"] { appearance: none; -moz-appearance: none; padding: 4px; font-size: 1.18em; color: white; background-color: rgba(0, 0, 0, 0.3); border: 1px solid gray; margin: 6px; }
 
@@ -160,8 +160,10 @@ p.success { color: lime; }
 
 .imgOutput img:hover { opacity: 1; border: 1px solid gray; box-shadow: 2px 2px black; }
 
-.ftable tbody tr td { font-family: monospace; font-size: 1.17em; padding-top: 3px; padding-bottom: 3px; }
+.ftable tbody tr td, .ftable thead tr td { background-color: #121412; font-family: monospace; font-size: 1.2em !important; padding: 9px; }
 
-.ftable tbody tr td:hover { background-color: initial; }
+.ftable tbody tr td:hover, .ftable thead tr td:hover { background-color: #171917 !important; font-size: 1.2em !important; background-color: initial; padding: 9px !important; }
+
+.ftable thead tr td { font-weight: bold; }
 
 .box.big { font-size: 1.15em; }

@@ -265,13 +265,14 @@ input[type="text"] {
 	font-size:1.14em;
 }
 
-input[type="submit"], form p input[type="submit"], button, form button, form p button {
+input[type="submit"], form p input[type="submit"], button, form button, form p button, input[type="reset"] {
 	padding:7px;
 	font-size:1.18em;
 	background-color:#221010;
 	color:white;
 	margin:5px;
 	border:1px solid gray;
+	border-radius:18px;
 	box-shadow:1px 1px white;
 	margin-bottom:5px;
 	&:hover {
@@ -464,14 +465,20 @@ p.success {
 	}
 }
 
-.ftable tbody tr td {
+.ftable tbody tr td, .ftable thead tr td {
+	background-color:#121412;
 	font-family:monospace;
-	font-size:1.17em;
-	padding-top:3px;
-	padding-bottom:3px;
+	font-size:1.2em !important;
+	padding:9px;
 	&:hover {
+		background-color:#171917 !important;
+		font-size:1.2em !important;
 		background-color:initial;
+		padding:9px !important;
 	}
+}
+.ftable thead tr td {
+	font-weight:bold;
 }
 
 .box.big {

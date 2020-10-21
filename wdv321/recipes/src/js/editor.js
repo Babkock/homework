@@ -52,7 +52,7 @@ Vue.mixin({
 			if (!isInRecipeFiles) {
 				this.recipeFiles.push(x);
 			}
-			StoreRecipeFiles();
+			this.StoreRecipeFiles();
 		},
 
 		LoadObject(x) {
