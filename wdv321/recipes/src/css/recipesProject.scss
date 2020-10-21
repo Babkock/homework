@@ -179,7 +179,7 @@ form {
 					border:1px solid $InputBord;
 					padding:6px;
 					font-size:1.08em;
-					@include WidthMargins(90%, 5%, 5%);
+					@include WidthMargins(85%, 2%, 7%);
 					margin-top:1px;
 					margin-bottom:1px;
 					&:hover {
