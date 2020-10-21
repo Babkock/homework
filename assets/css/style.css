@@ -159,3 +159,9 @@ p.success { color: lime; }
 .imgOutput img { max-width: 90%; width: auto; height: auto; opacity: 0.85; box-shadow: 2px 2px black; border: 1px solid black; }
 
 .imgOutput img:hover { opacity: 1; border: 1px solid gray; box-shadow: 2px 2px black; }
+
+.ftable tbody tr td { font-family: monospace; font-size: 1.17em; padding-top: 3px; padding-bottom: 3px; }
+
+.ftable tbody tr td:hover { background-color: initial; }
+
+.box.big { font-size: 1.15em; }

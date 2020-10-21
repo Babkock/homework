@@ -239,16 +239,30 @@ var app = new Vue({
 			this.topStatus = "<p class=\"success\">Loaded file '<b>" + filename + "</b>' from local storage.</p>";
 
 			for (var i = 0; i < this.recipe.ingredients.length; i++) {
-				/*
-				document.querySelector("input#ingred" + i + "_name").value = this.recipe.ingredients[i].name;
-				document.querySelector("input#ingred" + i + "_quantity").value = this.recipe.ingredients[i].quantity;
-				document.querySelector("select#ingred" + i + "_measurement").value = this.recipe.ingredients[i].measurement;
-				document.querySelector("input#ingred" + i + "_opt").value = this.recipe.ingredients[i].opt;
-				*/
-				document.querySelector("input[type=\"text\"]")[i].value = this.recipe.ingredients[i].name;
-				document.querySelector("input[type=\"number\"]")[i].value = "" + this.recipe.ingredients[i].quantity;
-				document.querySelector("select")[i].value = this.recipe.ingredients[i].measurement;
-				document.querySelector("input[type=\"checkbox\"]")[i].value = this.recipe.ingredients[i].opt;
+				if (!document.querySelector("input#ingred" + i + "_name")) {
+					console.error("DEBUG: It's the name that failed");
+				}
+				else {
+					document.querySelector("input#ingred" + i + "_name").value = this.recipe.ingredients[i].name;
+				}
+				if (!document.querySelector("input#ingred" + i + "_quantity")) {
+					console.error("DEBUG: It's the quantity that failed");
+				}
+				else {
+					document.querySelector("input#ingred" + i + "_quantity").value = this.recipe.ingredients[i].quantity;
+				}
+				if (!document.querySelector("select#ingred" + i + "_measurement")) {
+					console.error("DEBUG: It's the measurement that failed");
+				}
+				else {
+					document.querySelector("select#ingred" + i + "_measurement").value = this.recipe.ingredients[i].measurement;
+				}
+				if (!document.querySelector("input#ingred" + i + "_opt")) {
+					console.error("DEBUG: It's the opt that failed");
+				}
+				else {
+					document.querySelector("input#ingred" + i + "_opt").value = this.recipe.ingredients[i].opt;
+				}
 			}
 
 			/* this.recipe.ingredients.forEach((ing, index) => {

@@ -13,7 +13,7 @@
 	{
 		$tableBody .= "<tr>";				//formats beginning of the row
 		$tableBody .= "<td>$key</td>";		//dsiplay the name of the name-value pair from the form
-		$tableBody .= "<td>$value</td>";	//dispaly the value of the name-value pair from the form
+		$tableBody .= "<td>\"$value\"</td>";	//dispaly the value of the name-value pair from the form
 		$tableBody .= "</tr>";				//End this row
 	} 
 	
@@ -45,7 +45,7 @@
 	<p>The PHP page has been formatted to use the Model-View-Controller (MVC) concepts. </p>
 	<h3>Display the values from the form using Method 1. Uses a loop to process through the $_POST array</h3>
 	<p>
-		<table><tbody>
+		<table class="ftable"><tbody>
 			<tr>
 				<th>Field Name</th>
 				<th>Value of Field</th>
@@ -54,7 +54,7 @@
 		</tbody></table>
 	</p>
 	<h3>Display the values from the form using Method 2. Displays the individual values.</h3>
-	<div class="box">
+	<div class="box big">
 		<p>School: <b><?php echo $inSchool; ?></b></p>
 		<p>First Name: <b><?php echo $inFirstName; ?></b></p>
 		<p>Last Name: <b><?php echo $inLastName; ?></b></p>
@@ -63,8 +63,8 @@
 		<p>Major: <b><?php echo $major; ?></b></p>
 	</div>
 	<footer>
-		<p><a href="deliverEventObject" alt="Previous assignment" title="Previous assignment">Unit 9: Formatting JSON Output/AJAX</a></p>
-		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a></p>
+		<p><a href="../deliverEventObject" alt="Previous assignment" title="Previous assignment">Unit 9: Formatting JSON Output/AJAX</a></p>
+		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/form/formHandler.php">View Source Code</a></p>
 	</footer>
 </body>
 </html>

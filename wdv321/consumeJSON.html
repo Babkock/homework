@@ -23,9 +23,9 @@
 	</style>
 	<script src="createJSON.js"></script>
 	<script>
-		let student1 = JSON.parse(window.localStorage.getItem("332443"));
-		let student2 = JSON.parse(window.localStorage.getItem("545467"));
-		let student3 = JSON.parse(window.localStorage.getItem("128574"));
+		let stud1 = JSON.parse(window.localStorage.getItem("332443"));
+		let stud2 = JSON.parse(window.localStorage.getItem("545467"));
+		let stud3 = JSON.parse(window.localStorage.getItem("128574"));
 	</script>
 </head>
 <body>
@@ -34,6 +34,7 @@
 		<h2>Unit 8 JSON Objects</h2>
 		<h3>Creating and consuming a JSON object</h3>
 	</header>
+	<p>Each of these student objects were loaded from <b>localStorage</b>. The objects are created in <a href="createJSON.js">this file</a>.</p>
 	<div class="students">
 		<div class="studentCard" id="one">
 			<h3>Student ID: <span id="studentId1"></span></h3>
@@ -41,7 +42,7 @@
 			<p>Student Courses:
 	    		<ul>
 	    			<script>
-	    				student1.student_courses.forEach((el, index) => {
+	    				stud1.student_courses.forEach((el, index) => {
 	    					document.write("<li>" + el + "</li>");
 	    				});
 	    			</script>
@@ -55,7 +56,7 @@
 			<p>Student Courses:
 	    		<ul>
 	    			<script>
-	    				student2.student_courses.forEach((el, index) => {
+	    				stud2.student_courses.forEach((el, index) => {
 	    					document.write("<li>" + el + "</li>");
 	    				});
 	    			</script>
@@ -69,7 +70,7 @@
 			<p>Student Courses:
 				<ul>
 					<script>
-						student3.student_courses.forEach((el, index) => {
+						stud3.student_courses.forEach((el, index) => {
 							document.write("<li>" + el + "</li>");
 						});
 					</script>
@@ -87,6 +88,7 @@
 	</script>
 
 	<footer>
+		<p><a href="Unit-7ajax" title="Previous assignment" alt="Previous assignment">Unit 7: AJAX</a></p>
 		<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
 	</footer>
 </body>
