@@ -68,7 +68,7 @@
 			}
 			else {
 				console.log("recipeFiles detected");
-				this.recipeFiles = recipes;
+				this.recipeFiles = JSON.parse(recipes);
 			}
 			if (toLoad) {
 				storage.removeItem("fileToLoad");

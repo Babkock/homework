@@ -259,20 +259,25 @@ input[type="text"] {
 	-moz-appearance:none !important;
 	appearance:none !important;
 	background-color:#191e1d;
-	color:white;
+	color:#efefef;
 	border:1px solid gray;
 	padding:5px;
 	font-size:1.14em;
+	&:hover {
+		background-color:#292e2d;
+		color:white;
+		border:1px solid #efefef;
+	}
 }
 
 input[type="submit"], form p input[type="submit"], button, form button, form p button, input[type="reset"] {
-	padding:7px;
+	padding:9px;
 	font-size:1.18em;
 	background-color:#221010;
 	color:white;
 	margin:5px;
 	border:1px solid gray;
-	border-radius:18px;
+	border-radius:25px;
 	box-shadow:1px 1px white;
 	margin-bottom:5px;
 	&:hover {

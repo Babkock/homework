@@ -114,7 +114,7 @@ Vue.mixin({
 		StoreRecipeFiles() {
 			var storage = window.localStorage;
 			console.log("Saving recipeFiles array");
-			storage.setItem("recipeFiles", this.recipeFiles);
+			storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
 		}
 	}
 })
