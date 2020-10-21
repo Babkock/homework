@@ -229,8 +229,9 @@ button, input[type="submit"] {
 }
 
 .recipes {
-	thead, tbody { width: 94%; margin-left:3%; margin-right:3%; }
-	thead tr, tbody tr { width: 100%; margin-top:1px; margin-bottom:1px; }
+	width:100% !important;
+	thead, tbody { width:100%; }
+	thead tr, tbody tr { width:100%; margin-top:1px; margin-bottom:1px; }
 	tbody tr td, thead tr td {
 		width:32%;
 		margin:2px;

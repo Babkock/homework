@@ -70,7 +70,9 @@ button:hover, input[type="submit"]:hover { background-color: #314c31; color: whi
 
 button:active, input[type="submit"]:active { outline: 0 !important; background-color: #0d270d; color: #c0c0c0; border: 1px solid #205320; box-shadow: -2px -2px black; }
 
-.recipes thead, .recipes tbody { width: 94%; margin-left: 3%; margin-right: 3%; }
+.recipes { width: 100% !important; }
+
+.recipes thead, .recipes tbody { width: 100%; }
 
 .recipes thead tr, .recipes tbody tr { width: 100%; margin-top: 1px; margin-bottom: 1px; }
 
