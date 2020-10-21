@@ -24,9 +24,27 @@
 	$inFirstName = $_POST["firstName"];		//Get the value entered in the first name field
 	$inLastName = $_POST["lastName"];		//Get the value entered in the last name field
 	$inSchool = $_POST["school"];			//Get the value entered in the school field
-	$attendanceType = $_POST["attendance"];
-	$services = $_POST["services"];
-	$major = $_POST["major"];
+	if (!isset($_POST["attendance"])) {
+		echo "<p><b>Error:</b> No attendance selected</p>";
+		$attendanceType = "";
+	}
+	else {
+		$attendanceType = $_POST["attendance"];
+	}
+	if (!isset($_POST["services"])) {
+		echo "<p><b>Error:</b> No services selected</p>";
+		$services = "";
+	}
+	else {
+		$services = $_POST["services"];
+	}
+	if (strcmp($_POST["major"], "Choose a Major") == 0) {
+		echo "<p><b>Error:</b> No major selected</p>";
+		$major = "None";
+	}
+	else {
+		$major = $_POST["major"];
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,8 +65,8 @@
 	<p>
 		<table class="ftable"><tbody>
 			<tr>
-				<th>Field Name</th>
-				<th>Value of Field</th>
+				<td>Field Name</td>
+				<td>Value of Field</td>
 			</tr>
 		<?php echo $tableBody;  ?>
 		</tbody></table>
