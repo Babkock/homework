@@ -25,6 +25,7 @@
 	$inLastName = $_POST["lastName"];		//Get the value entered in the last name field
 	$inSchool = $_POST["school"];			//Get the value entered in the school field
 	$attendanceType = $_POST["attendance"];
+	$services = $_POST["services"];
 
 ?>
 <!DOCTYPE html>
@@ -42,11 +43,11 @@
 	<p>The PHP page has been formatted to use the Model-View-Controller (MVC) concepts. </p>
 	<h3>Display the values from the form using Method 1. Uses a loop to process through the $_POST array</h3>
 	<p>
-		<table border='a'>
-	    <tr>
-	    	<th>Field Name</th>
-	        <th>Value of Field</th>
-	    </tr>
+		<table><tbody>
+			<tr>
+				<th>Field Name</th>
+				<th>Value of Field</th>
+			</tr>
 		<?php echo $tableBody;  ?>
 		</table>
 	</p>
