@@ -40,8 +40,6 @@ Vue.mixin({
 		StoreObjectAs(x) {
 			var storage = window.localStorage;
 
-			if (document.querySelector(""))
-
 			console.log("Storing object '" + x + "' in local storage");
 			storage.setItem(x, JSON.stringify(this.recipe));
 			console.log(JSON.stringify(this.recipe));
