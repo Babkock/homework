@@ -32,9 +32,9 @@ var app = new Vue({
 			storage.removeItem("fileToLoad");
 			this.fileToLoad = "";
 
-			this.recipeFiles.forEach((el, index) => {
+			/* this.recipeFiles.forEach((el, index) => {
 				this.DeleteObject(el);
-			});
+			}); */
 
 			this.recipeFiles = [];
 		}
