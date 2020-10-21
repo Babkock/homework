@@ -1,26 +1,14 @@
 <template>
 	<div class="recipe" :id="myid">
-		<h2>{{ recipes[myid].title }}</h2>
+		<h2><slot name="title"></slot></h2>
 		<div class="imgbox">
-			<img :src="recipes[myid].image" />
+			<slot name="img"></slot>
 		</div>
-		<p><b>Serves: {{ recipes[myid].serves }}</b></p>
-		<p><b>Preparation Time:</b> {{ recipes[myid].preparation.quantity }} {{ this.recipes[myid].preparation.measurement }}</p>
-		<p><b>Cooking Time:</b> {{ recipes[myid].cooking.quantity }} {{ this.recipes[myid].cooking.measurement }}</p>
-		<p><b>Difficulty:</b> {{ recipes[myid].difficulty }}</p>
+		<slot name="info"></slot>
 		<h3>Ingredients:</h3>
-		<ul v-if="recipes[myid].ingredients">
-			<li v-for="(ing, index) in recipes[myid].ingredients" :key="index">
-				<b v-text="ing.quantity"></b> {{ ing.measurement }} {{ ing.name }}
-				<i v-if="ing.optional">(Optional)</i>
-			</li>
-		</ul>
+		<slot name="ingredients"></slot>
 		<br />
-		<ol v-if="recipes[myid].steps">
-			<li v-for="(step, index) in recipes[myid].steps" :key="index">
-				{{ step }}
-			</li>
-		</ol>
+		<slot name="steps"></slot>
 	</div>
 </template>
 

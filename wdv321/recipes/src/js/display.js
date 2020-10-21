@@ -12,7 +12,7 @@ Vue.mixin({
 	data: () => {
 		return {
 			numberOfRecipes: 1,
-			recipes: [/*
+			recipes: [
 				{
 					title: "Chunks of Hunk... Yum",
 					image: "img/pizza.jpg",
@@ -38,7 +38,7 @@ Vue.mixin({
 						"Add meat and cook until browned. Approximately 15 minutes.",
 						"Pour contents of skillet into 3 quart crock pot"
 					]
-				} */
+				}
 			],
 			recipeFiles: []
 		};
@@ -47,11 +47,6 @@ Vue.mixin({
 
 var app = new Vue({
 	el: ".container",
-
-	http: {
-		emulateHTTP: true,
-		emulateJSON: true
-	},
 
 	data: () => {
 		return 0;

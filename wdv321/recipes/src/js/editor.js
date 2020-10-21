@@ -122,11 +122,6 @@ Vue.mixin({
 var app = new Vue({
 	el: "#editor",
 
-	http: {
-		emulateJSON: true,
-		emulateHTTP: true
-	},
-
 	data: () => {
 		return {
 			recipeFiles: [],		// This is loaded as its own localStorage file. "recipeFiles"

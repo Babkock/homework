@@ -30,6 +30,29 @@
 		<main id="displaySlider" v-if="this.recipes.length > 0">
 			<div class="box" v-for="(recip, index) in this.recipes">
 				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
+					<template slot="title">{{ recip.title }}</template>
+					<template slot="img"><img :src="recip.image" /></template>
+					<template slot="info">
+						<p><b>Serves: {{ recip.serves }}</b></p>
+						<p><b>Preparation Time:</b> {{ recip.preparation.quantity }} {{ recip.preparation.measurement }}</p>
+						<p><b>Cooking Time:</b> {{ recip.cooking.quantity }} {{ recip.cooking.measurement }}</p>
+						<p><b>Difficulty:</b> {{ recip.difficulty }}</p>
+					</template>
+					<template slot="ingredients">
+						<ul v-if="recip.ingredients">
+							<li v-for="(ing, i) in recip.ingredients" :key="i">
+								<b v-text="ing.quantity"></b> {{ ing.measurement }} {{ ing.name }}
+								<i v-if="ing.optional">(Optional)</i>
+							</li>
+						</ul>
+					</template>
+					<template slot="steps">
+						<ol v-if="recip.steps">
+							<li v-for="(step, i) in recip.steps" :key="i">
+								{{ step }}
+							</li>
+						</ol>
+					</template>
 				</recipe>
 			</div>
 		</main>
