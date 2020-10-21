@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+	Dynamic Recipes Project
+	October - November 2020
+	Tanner Babcock
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Awesome Recipes &bull; View Recipes</title>
+	<link rel="stylesheet" href="/homework/assets/css/recipesProject.css" />
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
+	<script src="https://unpkg.com/vue@2.6.11"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Awesome Recipes</h1>
+			<nav>
+				<ul>
+					<li><a href="home.html" title="Awesome Recipes Home Page" alt="Awesome Recipes Home Page">Home</a></li>
+					<li><a href="view.html" title="Awesome Recipes Recipe Browser" alt="Awesome Recipes Recipe Browser">View Recipes</a></li>
+					<li><a href="edit.html" title="Go to Recipe Editor" alt="Go to Recipe Editor">Editor</a></li>
+					<li><a href="about.html" title="About Awesome Recipes" alt="About Awesome Recipes">About</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="recipe-files" v-if="recipeFiles">
+			<ol>
+				<li v-for="(rec, index) in recipeFiles">
+					<b>{{ rec }}</b> &bull; <button @click="OpenEditor(rec)" title="Open this file in the Awesome Recipe Editor" alt="Open this file in the Awesome Recipe Editor">Edit</button>
+				</li>
+			</ol>
+		</div>
+		<footer>
+			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
+		</footer>
+	</div>
+	<script>
+	var app = new Vue({
+		el: ".container",
+
+		data: () => {
+			return {
+				recipeFiles: [],
+				fileToLoad: ""
+			};
+		},
+
+		methods: {
+			OpenEditor(r) {
+				var storage = window.localStorage;
+
+				storage.setItem("fileToLoad", r);
+
+				window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
+			}
+		},
+
+		mounted() {
+			var storage = window.localStorage;
+			var toLoad = storage.getItem("fileToLoad");
+			var recipes = storage.getItem("recipeFiles");
+
+			if (!recipes) {
+				console.log("No recipeFiles detected, creating new one");
+				this.recipeFiles = ["hello"];
+			}
+			else {
+				console.log("recipeFiles detected");
+				this.recipeFiles = recipes;
+			}
+			if (toLoad) {
+				storage.removeItem("fileToLoad");
+			}
+		},
+	});
+	</script>
+</body>
+</html>

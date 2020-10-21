@@ -19,15 +19,25 @@
 	<p>Field '<strong>name</strong>' - The value of the name attribute from the HTML form element.</p>
 	<p>Field <strong>'value</strong>' - The value entered in the field. This will vary depending upon the HTML form element.</p>
 	<form id="form1" name="form1" method="post" action="formHandler">
-		<p>First Name: 
+		<p><b>First Name:</b> 
 			<input type="text" name="firstName" id="firstName" />
 		</p>
-		<p>Last Name: 
+		<p><b>Last Name:</b> 
 			<input type="text" name="lastName" id="lastName" />
 		</p>
-		<p>School: 
+		<p><b>School:</b> 
 			<input type="text" name="school" id="school" />
 		</p>
+		<p><b>Attendance:</b></p>
+		<p><input type="radio" name="attendance" value="fulltime" /> <label>Full Time In-Person</label></p>
+		<p><input type="radio" name="attendance" value="parttime" /> <label>Part Time In-Person</label></p>
+		<p><input type="radio" name="attendance" value="fullonline" /> <label>Full Time Virtual</label></p>
+		<p><input type="radio" name="attendance" value="partonline" /> <label>Part Time Virtual</label></p>
+		<p><input type="radio" name="attendance" value="both" /> <label>Full Time: Both Virtual and In-Person</label></p>
+		<p><b>Additional Services:</b></p>
+		<p><input type="checkbox" name="services" value="dorm" /> <label>$300 On Campus Dormatory</label></p>
+		<p><input type="checkbox" name="services" value="parkingpass" /> <label>$20 Parking Pass</label></p>
+		<p><input type="checkbox" name="services" value="buspass" /> <label>$10 Bus Pass</label></p>
 		<p>
 			<input type="submit" name="button" id="button" value="Submit" />
 			<input type="reset" name="button2" id="button2" value="Reset" />

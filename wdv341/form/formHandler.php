@@ -24,7 +24,7 @@
 	$inFirstName = $_POST["firstName"];		//Get the value entered in the first name field
 	$inLastName = $_POST["lastName"];		//Get the value entered in the last name field
 	$inSchool = $_POST["school"];			//Get the value entered in the school field
-	
+	$attendanceType = $_POST["attendance"];
 
 ?>
 <!DOCTYPE html>

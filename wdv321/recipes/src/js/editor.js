@@ -203,9 +203,11 @@ var app = new Vue({
 
 	mounted() {
 		var storage = window.localStorage;
-		var toLoad = storage.getItem("fileToLoad");
-		var recipes = storage.getItem("recipeFiles");
-		if (!fileToLoad) {
+		var toLoad = storage.getItem("fileToLoad");		// view.html should set this when user clicks a button
+		var recipes = storage.getItem("recipeFiles");	// view.html should read this and editor should set this
+
+		if (!toLoad) {
+			// prompt if not coming from the view page
 			var filename = prompt("Which file would you like to edit? Enter nothing for new file");
 		}
 		else {

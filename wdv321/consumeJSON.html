@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+	Create JSON Object
+	October 20, 2020
+	JSON Team Project: Tanner, Raymond, Justin, Robby
+-->
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>WDV321 Advanced Javascript - JSON</title>
+	<link rel="stylesheet" href="/homework/assets/css/style.css" />
+	<!--
+		Instructions:
+			1. Incorporate the createJSON.js file into this page as an external javascript file.
+			2. Access the JSON object in local storage and convert it into a Javascript object.
+			3. Use the information in the object to complete the student card.   
+	-->
+
+	<style>
+		.studentCard	{
+			width:200px;
+			box-sizing:border-box;
+			background-color:lightblue;
+			padding-left:5px;
+			padding-top:3px;
+			border:thin solid blue;
+			box-shadow: 2px 2px 2px grey;		
+		}
+		
+		.studentCard h3	{
+			margin:0px;	
+		}
+	</style>
+	<script src="createJSON.js"></script>
+	<script>
+		let student1 = JSON.parse(window.localStorage.getItem("332443"));
+		let student2 = JSON.parse(window.localStorage.getItem("545467"));
+		let student3 = JSON.parse(window.localStorage.getItem("128574"));
+	</script>
+</head>
+<body>
+	<header>
+		<h1>WDV321 Advanced Javascript</h1>
+		<h2>Unit 8 JSON Objects</h2>
+		<h3>Creating and consuming a JSON object</h3>
+	</header>
+
+	<div class="studentCard" id="one">
+		<h3>Student ID: <span id="studentId1"></span></h3>
+    	<p>Student GPA: <span id="studentGpa1"></span></p>
+		<p>Student Courses:
+    		<ul>
+    			<script>
+    				student1.student_courses.forEach((el, index) => {
+    					document.write("<li>" + el + "</li>");
+    				});
+    			</script>
+    		</ul>
+    	</p>
+	</div>
+
+	<div class="studentCard" id="two">
+		<h3>Student ID: <span id="studentId2"></span></h3>
+    	<p>Student GPA: <span id="studentGpa2"></span></p>
+		<p>Student Courses:
+    		<ul>
+    			<script>
+    				student2.student_courses.forEach((el, index) => {
+    					document.write("<li>" + el + "</li>");
+    				});
+    			</script>
+    		</ul>
+    	</p>
+	</div>
+
+	<div class="studentCard" id="three">
+		<h3>Student ID: <span id="studentId3"></span></h3>
+		<p>Student GPA: <span id="studentGpa3"></span></p>
+		<p>Student Courses:
+			<ul>
+				<script>
+					student3.student_courses.forEach((el, index) => {
+						document.write("<li>" + el + "</li>");
+					});
+				</script>
+			</ul>
+		</p>
+	</div>
+	<script>
+	document.querySelector("#studentId1").innerHTML = "" + student1.student_id;
+	document.querySelector("#studentId2").innerHTML = "" + student2.student_id;
+	document.querySelector("#studentId3").innerHTML = "" + student3.student_id;
+	document.querySelector("#studentGpa1").innerHTML = "" + student1.student_gpa;
+	document.querySelector("#studentGpa2").innerHTML = "" + student2.student_gpa;
+	document.querySelector("#studentGpa3").innerHTML = "" + student3.student_gpa;
+	</script>
+
+	<footer>
+		<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
+	</footer>
+</body>
+</html>
