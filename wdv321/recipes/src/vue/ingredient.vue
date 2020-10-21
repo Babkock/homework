@@ -1,7 +1,7 @@
 <template>
 	<tr class="ingredient" :id="myid">
 		<td>
-			<input type="number" :v-model="numVmodl" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" :value="parseInt(quant)" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
+			<input type="text" style="width:80%" :v-model="numVmodl" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" :value="quant" placeholder="###" @blur="$emit('numinput', parseInt($event.target.value))" />
 		</td>
 		<td>
 			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :value="mmnt" :id="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
@@ -96,7 +96,6 @@ export default {
 	margin-bottom:3px;
 }
 .ingredient td {
-	/* background-color:#12121f; */
 	padding:4px;
 	font-size:1.08em;
 	@include WidthMargins(24%, 1px, 1px);

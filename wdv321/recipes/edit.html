@@ -89,7 +89,7 @@
 				</div>
 
 				<table><tbody v-if="recipe.ingredients" class="ings">
-					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :quant="ing.quantity.toString()" :mmnt="ing.measurement" :ing="ing.name" :opt="((ing.opt) ? 'yes' : 'no')" @optinput="ing.opt = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
+					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :quant="ing.quantity" :mmnt="ing.measurement" :ing="ing.name" :opt="((ing.opt) ? 'yes' : 'no')" @optinput="ing.opt = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 
 				<h2>Steps:</h2>
