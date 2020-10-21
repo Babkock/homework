@@ -201,7 +201,7 @@ form {
 	text-align:center;
 }
 
-button, input[type="submit"] {
+button, input[type="submit"], input[type="reset"] {
 	-moz-appearance:none;
 	appearance:none;
 	background-color:$ButtonBg;

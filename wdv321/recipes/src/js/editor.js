@@ -33,6 +33,7 @@ Vue.mixin({
 			if (!isInRecipeFiles) {
 				this.recipeFiles.push(this.lastStorageItem);
 			}
+			StoreRecipeFiles();
 		},
 
 		/* Store current recipe object under new name */
@@ -43,6 +44,15 @@ Vue.mixin({
 			console.log(JSON.stringify(this.recipe));
 
 			this.lastStorageItem = x;
+			var isInRecipeFiles = false;
+			this.recipeFiles.forEach((f, index) => {
+				if (f === this.lastStorageItem)
+					isInRecipeFiles = true;
+			});
+			if (!isInRecipeFiles) {
+				this.recipeFiles.push(x);
+			}
+			StoreRecipeFiles();
 		},
 
 		LoadObject(x) {
@@ -75,7 +85,7 @@ Vue.mixin({
 
 				object.ingredients.forEach((ing, index) => {
 					this.recipe.ingredients.push({
-						name: ing.name, 
+						name: ing.name,
 						quantity: ing.quantity,
 						measurement: ing.measurement,
 						opt: ing.opt
@@ -101,8 +111,10 @@ Vue.mixin({
 			this.lastStorageItem = "";
 		},
 
-		SetRecipeForEditor(x) {
-
+		StoreRecipeFiles() {
+			var storage = window.localStorage;
+			console.log("Saving recipeFiles array");
+			storage.setItem("recipeFiles", this.recipeFiles);
 		}
 	}
 })
@@ -117,7 +129,7 @@ var app = new Vue({
 
 	data: () => {
 		return {
-			recipeFiles: ["hello"],	// This is loaded as its own localStorage file. "recipeFiles"
+			recipeFiles: [],		// This is loaded as its own localStorage file. "recipeFiles"
 			fileToLoad: "",			// This localStorage item is set on the view.html page
 			ingredients: 3,
 			steps: 2,
@@ -183,7 +195,7 @@ var app = new Vue({
 			this.recipe.ingredients.splice(this.ingredients-1, 1);
 			this.ingredients = parseInt(this.ingredients) - 1;
 			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) - 1;
-			this.topStatus = "<p class=\"error\">Removed ingredient.</p>";
+			this.topStatus = "<p class=\"error\">Removed last ingredient.</p>";
 		},
 
 		AddStep() {
@@ -197,7 +209,7 @@ var app = new Vue({
 			this.recipe.steps.splice(this.steps-1, 1);
 			this.steps = parseInt(this.steps) - 1;
 			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) - 1;
-			this.bottomStatus = "<p class=\"error\">Removed ingredient.</p>";
+			this.bottomStatus = "<p class=\"error\">Removed last step.</p>";
 		}
 	},
 
@@ -227,10 +239,16 @@ var app = new Vue({
 			this.topStatus = "<p class=\"success\">Loaded file '<b>" + filename + "</b>' from local storage.</p>";
 
 			for (var i = 0; i < this.recipe.ingredients.length; i++) {
+				/*
 				document.querySelector("input#ingred" + i + "_name").value = this.recipe.ingredients[i].name;
 				document.querySelector("input#ingred" + i + "_quantity").value = this.recipe.ingredients[i].quantity;
 				document.querySelector("select#ingred" + i + "_measurement").value = this.recipe.ingredients[i].measurement;
 				document.querySelector("input#ingred" + i + "_opt").value = this.recipe.ingredients[i].opt;
+				*/
+				document.querySelector("input[type=\"text\"]")[i].value = this.recipe.ingredients[i].name;
+				document.querySelector("input[type=\"number\"]")[i].value = "" + this.recipe.ingredients[i].quantity;
+				document.querySelector("select")[i].value = this.recipe.ingredients[i].measurement;
+				document.querySelector("input[type=\"checkbox\"]")[i].value = this.recipe.ingredients[i].opt;
 			}
 
 			/* this.recipe.ingredients.forEach((ing, index) => {

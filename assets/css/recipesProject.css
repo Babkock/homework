@@ -64,8 +64,8 @@ form table, form table tbody, form table thead { width: 100%; }
 
 .buttons { display: block; text-align: center; }
 
-button, input[type="submit"] { -moz-appearance: none; appearance: none; background-color: #2a3f2a; font-family: "Arial" !important; color: #dfdfdf; border: 1px solid #336f33; border-radius: 22px; font-size: 1.1em; padding: 8px; margin: 3px; box-shadow: 2px 2px black; }
+button, input[type="submit"], input[type="reset"] { -moz-appearance: none; appearance: none; background-color: #2a3f2a; font-family: "Arial" !important; color: #dfdfdf; border: 1px solid #336f33; border-radius: 22px; font-size: 1.1em; padding: 8px; margin: 3px; box-shadow: 2px 2px black; }
 
-button:hover, input[type="submit"]:hover { background-color: #314c31; color: white !important; border: 1px solid #437d43; box-shadow: 0px !important; }
+button:hover, input[type="submit"]:hover, input[type="reset"]:hover { background-color: #314c31; color: white !important; border: 1px solid #437d43; box-shadow: 0px !important; }
 
-button:active, input[type="submit"]:active { outline: 0 !important; background-color: #0d270d; color: #c0c0c0; border: 1px solid #205320; box-shadow: -2px -2px black; }
+button:active, input[type="submit"]:active, input[type="reset"]:active { outline: 0 !important; background-color: #0d270d; color: #c0c0c0; border: 1px solid #205320; box-shadow: -2px -2px black; }

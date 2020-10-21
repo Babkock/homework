@@ -26,7 +26,7 @@
 	$inSchool = $_POST["school"];			//Get the value entered in the school field
 	$attendanceType = $_POST["attendance"];
 	$services = $_POST["services"];
-
+	$major = $_POST["major"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +37,10 @@
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
 </head>
 <body>
-	<h1>WDV341 Intro PHP</h1>
-	<h2>Form Handler Result Page - Code Example</h2>
+	<header>
+		<h1>WDV341 Intro PHP</h1>
+		<h2>Form Handler Result Page - Code Example</h2>
+	</header>
 	<p>This page displays the results of the Server side processing. </p>
 	<p>The PHP page has been formatted to use the Model-View-Controller (MVC) concepts. </p>
 	<h3>Display the values from the form using Method 1. Uses a loop to process through the $_POST array</h3>
@@ -49,11 +51,20 @@
 				<th>Value of Field</th>
 			</tr>
 		<?php echo $tableBody;  ?>
-		</table>
+		</tbody></table>
 	</p>
 	<h3>Display the values from the form using Method 2. Displays the individual values.</h3>
-	<p>School: <?php echo $inSchool; ?></p>
-	<p>First Name: <?php echo $inFirstName; ?></p>
-	<p>Last Name: <?php echo $inLastName; ?></p>
+	<div class="box">
+		<p>School: <b><?php echo $inSchool; ?></b></p>
+		<p>First Name: <b><?php echo $inFirstName; ?></b></p>
+		<p>Last Name: <b><?php echo $inLastName; ?></b></p>
+		<p>Attending: <b><?php echo $attendanceType; ?></b></p>
+		<p>Services: <b><?php echo $services; ?></b></p>
+		<p>Major: <b><?php echo $major; ?></b></p>
+	</div>
+	<footer>
+		<p><a href="deliverEventObject" alt="Previous assignment" title="Previous assignment">Unit 9: Formatting JSON Output/AJAX</a></p>
+		<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a></p>
+	</footer>
 </body>
 </html>
