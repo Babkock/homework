@@ -33,16 +33,21 @@
 					<td>
 						<button @click="OpenEditor(rec)" title="Open this file in the Awesome Recipe Editor" alt="Open this file in the Awesome Recipe Editor">Edit</button>
 					</td>
+					<td>
+						<button @click="DeleteObject(rec)" title="Delete this Recipe file" alt="Delete this Recipe file">Delete</button>
+					</td>
 				</tr>
 			</tbody></table>
 			<div class="buttons">
 				<button @click="NewRecipe" title="Starts a new Recipe in the Editor" alt="Starts a new Recipe in the Editor">New Recipe</button>
 				&bull;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<button @click="DeleteAll" title="Deletes all recipes in recipeFiles storage item!" alt="Deletes all recipes in recipeFiles storage item!">Delete All Recipes</button>
+				<button @click="DeleteAll" title="Deletes all Recipes in local storage!" alt="Deletes all Recipes in local storage!">Delete All Recipes</button>
 			</div>
 		</div>
 		<footer>
+			<p><a href="/homework/wdv321/Unit-7ajax.html" title="Previous assignment" alt="Previous assignment">Unit 7: AJAX</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
+			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 		</footer>
 	</div>
 	<script src="/homework/assets/js/view.min.js"></script>

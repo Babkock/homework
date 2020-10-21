@@ -30,6 +30,9 @@ var app = new Vue({
 			// this should remove the entry specified in x from recipeFiles
 
 			this.recipeFiles.splice(this.recipeFiles.indexOf(x), 1);
+			storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
+
+			console.log(JSON.stringify(this.recipeFiles));
 		},
 
 		DeleteAll() {
@@ -38,11 +41,7 @@ var app = new Vue({
 			storage.removeItem("fileToLoad");
 			this.fileToLoad = "";
 
-			/* this.recipeFiles.forEach((el, index) => {
-				this.DeleteObject(el);
-			}); */
-
-			this.recipeFiles = [];
+			this.recipeFiles = ["hello"];
 
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		}

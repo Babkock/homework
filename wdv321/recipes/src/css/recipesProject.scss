@@ -229,7 +229,7 @@ button, input[type="submit"] {
 }
 
 .recipes {
-	width:100% !important;
+	width:101% !important;
 	thead, tbody { width:100%; }
 	thead tr, tbody tr { width:100%; margin-top:1px; margin-bottom:1px; }
 	tbody tr td, thead tr td {
@@ -240,5 +240,8 @@ button, input[type="submit"] {
 		font-size:1.1em;
 		background-color:rgba(10, 12, 10, 0.2);
 		color:#efefef;
+	}
+	tbody tr td:first-child {
+		text-align:right;
 	}
 }
