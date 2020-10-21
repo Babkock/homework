@@ -14,3 +14,7 @@
 }
 .ingredient td:first-child input { text-align: right; letter-spacing: 0.9em;
 }
+.ingredient td:nth-child(3) { width: 35%;
+}
+.ingredient td:nth-child(4) { width: 15%;
+}

@@ -12,7 +12,7 @@ Vue.mixin({
 	data: () => {
 		return {
 			numberOfRecipes: 1,
-			recipes: [
+			recipes: [/*
 				{
 					title: "Chunks of Hunk... Yum",
 					image: "img/pizza.jpg",
@@ -38,8 +38,9 @@ Vue.mixin({
 						"Add meat and cook until browned. Approximately 15 minutes.",
 						"Pour contents of skillet into 3 quart crock pot"
 					]
-				}
-			]
+				} */
+			],
+			recipeFiles: []
 		};
 	}
 })
@@ -57,7 +58,7 @@ var app = new Vue({
 	},
 
 	methods: {
-		LoadObject: function(x) {
+		LoadObject(x) {
 			var storage = window.localStorage;
 			console.log("Loading recipe " + x);
 			var jso = {};
@@ -74,16 +75,23 @@ var app = new Vue({
 			}
 		},
 
-		SaveObject: function(x) {
+		/*
+		SaveObject(x) {
 			var storage = window.localStorage;
 			console.log("Saving recipe " + x);
 			var obj = JSON.stringify(this.recipes);
 
 			storage.setItem(x, obj);
-		}
+		} */
 	},
 
 	mounted() {
-		
+		var storage = window.localStorage;
+		var rfiles = JSON.parse(storage.getItem("recipeFiles"));
+
+		this.recipeFiles = rfiles;
+		this.recipeFiles.forEach((el, index) => {
+			this.LoadObject(el);
+		});
 	}
 })

@@ -1,7 +1,7 @@
 <template>
 	<tr class="ingredient" :id="myid">
 		<td>
-			<input type="number" :v-model="numVmodl" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" :value="quant" placeholder="#" @blur="$emit('numinput', $event.target.value)" />
+			<input type="number" :v-model="numVmodl" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" :value="quant" placeholder="#" @blur="$emit('numinput', parseInt($event.target.value))" />
 		</td>
 		<td>
 			<select alt="Select a unit of measurement" title="Select a unit of measurement" :name="selName" :value="mmnt" :id="selName" :v-model="selVmodl" @change="$emit('measinput', $event.target.value)">
@@ -25,11 +25,11 @@
 			</select>
 		</td>
 		<td>
-			<input type="text" :size="ingSize" :maxlength="ingSize" title="Enter the name of the ingredient" alt="Enter the name of the ingredient" :v-model="ingVmodl" placeholder="Name of the ingredient (sugar, oil, ginger, etc)" :name="ingName" :id="ingName" @blur="$emit('inginput', $event.target.value)" />
+			<input type="text" :size="ingSize" :maxlength="ingSize" title="Enter the name of the ingredient" alt="Enter the name of the ingredient" :v-model="ingVmodl" placeholder="Name of the ingredient (sugar, oil, ginger, etc)" :name="ingName" :id="ingName" :value="ing" @blur="$emit('inginput', $event.target.value)" />
 		</td>
 		<td>
 			Optional?
-			<input type="checkbox" :v-model="optVmodl" :name="optName" :id="optName" value="yes" @blur="$emit('optinput', $event.target.value)" />
+			<input type="checkbox" :v-model="optVmodl" :name="optName" :id="optName" value="yes" :checked="opt === 'yes'" @blur="$emit('optinput', $event.target.value)" />
 		</td>
 	</tr>
 </template>
@@ -39,10 +39,6 @@ export default {
 	props: {
 		id: {
 			type: Number,
-			required: true
-		},
-		title: {
-			type: String,
 			required: true
 		},
 		numSize: {
@@ -58,8 +54,16 @@ export default {
 			default: ""
 		},
 		quant: {
+			type: Number,
+			required: true
+		},
+		ing: {
 			type: String,
-			default: "0"
+			required: true
+		},
+		opt: {
+			type: String,
+			default: "no"
 		}
 	},
 
@@ -73,7 +77,6 @@ export default {
 		ingVmodl: function() { return "recipe.ingredients[" + this.id + "].name"; },
 		selVmodl: function() { return "recipe.ingredients[" + this.id + "].measurement"; },
 		optVmodl: function() { return "recipe.ingredients[" + this.id + "].opt"; }
-
 	},
 
 	methods: {
@@ -138,4 +141,12 @@ export default {
 		letter-spacing:0.9em;
 	}
 }
+
+.ingredient td:nth-child(3) {
+	width:35%;
+}
+.ingredient td:nth-child(4) {
+	width:15%;
+}
+
 </style>

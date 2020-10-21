@@ -39,6 +39,9 @@ Vue.mixin({
 		/* Store current recipe object under new name */
 		StoreObjectAs(x) {
 			var storage = window.localStorage;
+
+			if (document.querySelector(""))
+
 			console.log("Storing object '" + x + "' in local storage");
 			storage.setItem(x, JSON.stringify(this.recipe));
 			console.log(JSON.stringify(this.recipe));
@@ -88,7 +91,7 @@ Vue.mixin({
 						name: ing.name,
 						quantity: ing.quantity,
 						measurement: ing.measurement,
-						opt: ing.opt
+						opt: ((ing.opt) ? "yes" : "no")
 					});
 					console.log("Pushing ingredient " + index + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
 				});
@@ -104,17 +107,16 @@ Vue.mixin({
 			}
 		},
 
-		DeleteObject(x) {
-			var storage = window.localStorage;
-			console.log("Deleting stored recipe object '" + x + "'");
-			storage.removeItem(x);
-			this.lastStorageItem = "";
-		},
-
 		StoreRecipeFiles() {
 			var storage = window.localStorage;
-			console.log("Saving recipeFiles array");
-			storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
+
+			if (this.recipeFiles.length > 0) {
+				console.log("Saving recipeFiles array");
+				storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
+			}
+			else {
+				console.error("DEBUG: Something wrong with this.recipeFiles");
+			}
 		}
 	}
 })
@@ -216,7 +218,7 @@ var app = new Vue({
 	mounted() {
 		var storage = window.localStorage;
 		var toLoad = storage.getItem("fileToLoad");		// view.html should set this when user clicks a button
-		var recipes = storage.getItem("recipeFiles");	// view.html should read this and editor should set this
+		var recipes = JSON.parse(storage.getItem("recipeFiles"));	// view.html should read this and editor should set this
 
 		if (!toLoad) {
 			// prompt if not coming from the view page
@@ -237,40 +239,6 @@ var app = new Vue({
 			this.LoadObject(filename);
 
 			this.topStatus = "<p class=\"success\">Loaded file '<b>" + filename + "</b>' from local storage.</p>";
-
-			for (var i = 0; i < this.recipe.ingredients.length; i++) {
-				if (!document.querySelector("input#ingred" + i + "_name")) {
-					console.error("DEBUG: It's the name that failed");
-				}
-				else {
-					document.querySelector("input#ingred" + i + "_name").value = this.recipe.ingredients[i].name;
-				}
-				if (!document.querySelector("input#ingred" + i + "_quantity")) {
-					console.error("DEBUG: It's the quantity that failed");
-				}
-				else {
-					document.querySelector("input#ingred" + i + "_quantity").value = this.recipe.ingredients[i].quantity;
-				}
-				if (!document.querySelector("select#ingred" + i + "_measurement")) {
-					console.error("DEBUG: It's the measurement that failed");
-				}
-				else {
-					document.querySelector("select#ingred" + i + "_measurement").value = this.recipe.ingredients[i].measurement;
-				}
-				if (!document.querySelector("input#ingred" + i + "_opt")) {
-					console.error("DEBUG: It's the opt that failed");
-				}
-				else {
-					document.querySelector("input#ingred" + i + "_opt").value = this.recipe.ingredients[i].opt;
-				}
-			}
-
-			/* this.recipe.ingredients.forEach((ing, index) => {
-				document.querySelector("input#ingred" + index + "_name").value = ing.name;
-				document.querySelector("input#ingred" + index + "_quantity").value = "" + ing.quantity;
-				document.querySelector("select#ingred" + index + "_measurement").value = ing.measurement;
-				document.querySelector("input#ingred" + index + "_opt").value = ing.opt;
-			}); */
 		}
 		else {
 			this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
