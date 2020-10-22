@@ -42,8 +42,8 @@
 			<p>Student Courses:
 	    		<ul>
 	    			<script>
-	    				stud1.student_courses.forEach((el, index) => {
-	    					document.write("<li>" + el + "</li>");
+	    				stud1.student_courses.forEach(function (el, index) {
+	    					document.write("<li>" + index + ". " + el + "</li>");
 	    				});
 	    			</script>
 	    		</ul>
@@ -79,12 +79,12 @@
 		</div>
 	</div>
 	<script>
-	document.querySelector("#studentId1").innerHTML = "" + student1.student_id;
-	document.querySelector("#studentId2").innerHTML = "" + student2.student_id;
-	document.querySelector("#studentId3").innerHTML = "" + student3.student_id;
-	document.querySelector("#studentGpa1").innerHTML = "" + student1.student_gpa;
-	document.querySelector("#studentGpa2").innerHTML = "" + student2.student_gpa;
-	document.querySelector("#studentGpa3").innerHTML = "" + student3.student_gpa;
+	document.querySelector("#studentId1").innerHTML = student1.student_id;
+	document.querySelector("#studentId2").innerHTML =  student2.student_id;
+	document.querySelector("#studentId3").innerHTML =  student3.student_id;
+	document.querySelector("#studentGpa1").innerHTML =  student1.student_gpa;
+	document.querySelector("#studentGpa2").innerHTML =  student2.student_gpa;
+	document.querySelector("#studentGpa3").innerHTML =  student3.student_gpa;
 	</script>
 
 	<footer>

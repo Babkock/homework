@@ -3,11 +3,11 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
-// require("../../../../assets/js/ingredient.js");
-
 import Ingredient from "../vue/ingredient.vue";
 Vue.component('ingredient', Ingredient)
 
+/* Global data and methods for the entire Vue app. Can be accessed from
+   components and the initial HTML itself. */
 Vue.mixin({
 	data: () => {
 		return {
@@ -60,6 +60,7 @@ Vue.mixin({
 			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
 		},
 
+		/* Load a recipe object into DOM */
 		LoadObject(x) {
 			var storage = window.localStorage;
 			console.log("Loading object '" + x + "'");
@@ -73,8 +74,6 @@ Vue.mixin({
 				this.steps = object.steps.length;
 				this.lastStorageItem = x;
 				
-				// more here......
-
 				this.recipe.numberOfIngreds = object.ingredients.length;
 				this.recipe.numberOfSteps = object.steps.length;
 				this.recipe.title = object.title;
@@ -109,6 +108,7 @@ Vue.mixin({
 			}
 		},
 
+		/* Store the recipeFiles array in local storage, for use with other pages */
 		StoreRecipeFiles() {
 			var storage = window.localStorage;
 
@@ -123,9 +123,22 @@ Vue.mixin({
 	}
 })
 
+/* This is the actual editor Vue instance. Please note that the initial values for "ingredients", "steps",
+   "numberOfIngreds", etc. must actually match the amount of objects and strings, respectively in those
+   properties */
 var app = new Vue({
 	el: "#editor",
 
+	/* Global data for the application. This is passed to Ingredient components through their
+	   "props" arrays (attributes) defined in the .vue files. These components then can update
+	   these properties by firing events with the $emit() function. The component's markup in the
+	   HTML, therefore, must have corresponding event listeners as attributes. */
+	/*
+	   |  In the component template          |  In the actual HTML response |
+	   |-------------------------------------|------------------------------|
+	   | $emit('input1', $event.target.value)| @input1="myfield = $event"   |
+	   |_____________________________________|______________________________|
+	*/
 	data: () => {
 		return {
 			recipeFiles: [],		// This is loaded as its own localStorage file. "recipeFiles"

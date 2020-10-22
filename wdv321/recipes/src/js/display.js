@@ -8,6 +8,7 @@ require("../css/recipesProject.scss")
 import Recipe from "../vue/recipe.vue";
 Vue.component('recipe', Recipe)
 
+/* The big comment block is a default recipe object for testing purposes */
 Vue.mixin({
 	data: () => {
 		return {
@@ -68,16 +69,7 @@ var app = new Vue({
 			else {
 				console.error("Could not load specified recipe '" + x + "' from local storage");
 			}
-		},
-
-		/*
-		SaveObject(x) {
-			var storage = window.localStorage;
-			console.log("Saving recipe " + x);
-			var obj = JSON.stringify(this.recipes);
-
-			storage.setItem(x, obj);
-		} */
+		}
 	},
 
 	mounted() {
