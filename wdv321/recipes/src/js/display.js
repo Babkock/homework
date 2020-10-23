@@ -54,6 +54,7 @@ var app = new Vue({
 	},
 
 	methods: {
+		/* Load a recipe object from storage with filename 'x' */
 		LoadObject(x) {
 			var storage = window.localStorage;
 			console.log("Loading recipe " + x);

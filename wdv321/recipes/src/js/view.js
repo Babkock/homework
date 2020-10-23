@@ -9,6 +9,7 @@ var app = new Vue({
 	},
 
 	methods: {
+		/* Prep the Recipe Editor for a new recipe */
 		NewRecipe() {
 			var storage = window.localStorage;
 			storage.removeItem("fileToLoad");
@@ -16,6 +17,7 @@ var app = new Vue({
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		},
 
+		/* Open filename 'r' with the Recipe Editor */
 		OpenEditor(r) {
 			var storage = window.localStorage;
 			storage.setItem("fileToLoad", r);
@@ -23,6 +25,7 @@ var app = new Vue({
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		},
 
+		/* Delete recipe object 'x' from local storage */
 		DeleteObject(x) {
 			var storage = window.localStorage;
 			console.log("Deleting stored recipe object '" + x + "'");
@@ -35,6 +38,7 @@ var app = new Vue({
 			console.log(JSON.stringify(this.recipeFiles));
 		},
 
+		/* Delete all recipes in local storage */
 		DeleteAll() {
 			var storage = window.localStorage;
 			console.log("Deleting all recipes stored in local storage");

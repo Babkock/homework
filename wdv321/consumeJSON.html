@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-	Create JSON Object
+	Consume JSON Object
 	October 20, 2020
 	JSON Team Project: Tanner, Raymond, Justin, Robby
 -->
@@ -8,14 +8,14 @@
 <head>
 	<meta charset="utf-8" />
 	<title>WDV321 Advanced Javascript - JSON</title>
-	<link rel="stylesheet" href="/homework/assets/css/style.css" />
 	<!--
 		Instructions:
 			1. Incorporate the createJSON.js file into this page as an external javascript file.
 			2. Access the JSON object in local storage and convert it into a Javascript object.
 			3. Use the information in the object to complete the student card.   
 	-->
-
+	<link rel="stylesheet" href="/homework/assets/css/style.css" />
+	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<style>
 		.studentCard h3	{
 			margin:0px;	
@@ -35,7 +35,7 @@
 		<h3>Creating and consuming a JSON object</h3>
 	</header>
 	<p>Each of these student objects were loaded from <b>localStorage</b>. The objects are created in <a href="createJSON.js">this file</a>.</p>
-	<div class="students">
+	<main class="students">
 		<div class="studentCard" id="one">
 			<h3>Student ID: <span id="studentId1"></span></h3>
 	    	<p>Student GPA: <span id="studentGpa1"></span></p>
@@ -77,7 +77,7 @@
 				</ul>
 			</p>
 		</div>
-	</div>
+	</main>
 	<script>
 	document.querySelector("#studentId1").innerHTML = student1.student_id;
 	document.querySelector("#studentId2").innerHTML =  student2.student_id;

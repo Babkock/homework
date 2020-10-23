@@ -38,7 +38,7 @@ Vue.mixin({
 			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
 		},
 
-		/* Store current recipe object under new name */
+		/* Store current recipe object under new filename 'x' */
 		StoreObjectAs(x) {
 			var storage = window.localStorage;
 
@@ -60,7 +60,7 @@ Vue.mixin({
 			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
 		},
 
-		/* Load a recipe object into DOM */
+		/* Load recipe object 'x' into DOM */
 		LoadObject(x) {
 			var storage = window.localStorage;
 			console.log("Loading object '" + x + "'");
