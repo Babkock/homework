@@ -34,7 +34,6 @@
 
 				let p = document.createElement("P");
 				p.appendChild(document.createTextNode("Student GPA: " + student.student_gpa));
-
 				let ul = document.createElement("UL");
 
 				student.student_courses.forEach((course) => {
@@ -42,6 +41,8 @@
 					li.appendChild(document.createTextNode(course));
 					ul.appendChild(li);
 				});
+				card.appendChild(p);
+				card.appendChild(ul);
 
 				document.querySelector("body main").appendChild(card);
 			});
