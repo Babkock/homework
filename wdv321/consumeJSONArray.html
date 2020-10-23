@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WDV321 Advanced Javascript - JSON</title>
+	<!--
+    Instructions:
+    	1. Incorporate the createJSONArray.js file into this page as an external javascript file.
+        2. Access the JSON object in local storage and convert it into a javascript object.
+        3. Use the information in the object to complete a student card for EACH student object.
+        4. Account for the fact that there could be a random number of student objects. 
+        5. Use Jquery commands whenever possible.  
+	-->
+	<link rel="stylesheet" href="/homework/assets/css/style.css" />
+	<link rel="favicon" href="/images/favicon.png" />
+	<style type="text/css">	
+		.studentCard h3	{
+			margin:0px;	
+		}
+	</style>
+	<script src="createJSONArray.js"></script>
+	<script>
+		let studentArr = JSON.parse(window.localStorage.getItem("studentInfo"));
+
+		console.log(studentArr);
+		window.addEventListener("DOMContentLoaded", () => {
+			studentArr.records.forEach((student) => {
+				let card = document.createElement("DIV");
+				card.className = "studentCard";
+
+				let h3 = document.createElement("H3");
+				h3.appendChild(document.createTextNode("Student ID: " + student.student_id));
+				card.appendChild(h3);
+
+				let p = document.createElement("P");
+				p.appendChild(document.createTextNode("Student GPA: " + student.student_gpa));
+
+				let ul = document.createElement("UL");
+
+				student.student_courses.forEach((course) => {
+					let li = document.createElement("LI");
+					li.appendChild(document.createTextNode(course));
+					ul.appendChild(li);
+				});
+
+				document.querySelector("body main").appendChild(card);
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<h1>WDV321 Advanced Javascript</h1>
+		<h2>Unit-8 JSON Objects</h2>
+		<h3>Creating and consuming a JSON object</h3>
+	</header>
+	<main class="students">
+		<!-- <div class="studentCard">
+			<h3>Student ID:</h3>
+    		<p>Student GPA:</p>
+			<p>Student Courses:
+    			<ul>
+    			</ul>
+    		</p>
+		</div> -->
+	</main>    
+	<footer>
+		<p><a href="/homework/wdv321/consumeJSON.html" title="Other assignment" alt="Other assignment">JSON Team Project: Consume JSON</a></p>
+		<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a></p>
+	</footer>
+</body>
+</html>
