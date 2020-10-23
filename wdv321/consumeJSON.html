@@ -42,8 +42,8 @@
 			<p>Student Courses:
 	    		<ul>
 	    			<script>
-	    				stud1.student_courses.forEach(function (el, index) {
-	    					document.write("<li>" + index + ". " + el + "</li>");
+	    				stud1.student_courses.forEach(function (el) {
+	    					document.write("<li>" + el + "</li>");
 	    				});
 	    			</script>
 	    		</ul>
@@ -56,7 +56,7 @@
 			<p>Student Courses:
 	    		<ul>
 	    			<script>
-	    				stud2.student_courses.forEach((el, index) => {
+	    				stud2.student_courses.forEach((el) => {
 	    					document.write("<li>" + el + "</li>");
 	    				});
 	    			</script>
@@ -70,7 +70,7 @@
 			<p>Student Courses:
 				<ul>
 					<script>
-						stud3.student_courses.forEach((el, index) => {
+						stud3.student_courses.forEach((el) => {
 							document.write("<li>" + el + "</li>");
 						});
 					</script>
