@@ -9,7 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/Babkock/homework"
 	},
-	"description": "WDV321 Dynamic Recipes Project. Uses local storage and Vue.js.",
+	"description": "Dynamic Recipes Project for WDV321 Advanced Javascript. Uses local storage and Vue.js.",
 	"license": "UNLICENSED",
 	"private": true,
 	"scripts": {
