@@ -1,7 +1,13 @@
 // JavaScript Document
+/*
+   Unit 10: Mocha-Chai Test Automation
+   October 24, 2020
+   Tanner Babcock
+*/
 
-var assert = require('chai').assert;	//Chai assertion library
+var assert = require('chai').assert;
 var validInput = require('../app/validateRequiredField');
+var validatePhoneNumber = require('../app/validatePhoneNumber.js');
 
 describe("Testing Input Required", function(){
 	
@@ -41,9 +47,18 @@ describe("Testing Input Required", function(){
 
 describe("Testing Valid Phone Number", function(){
 	
-	it("Input is required");
-	it("Input must be numeric");
-	it("Input must be integers");
-	it("Input must be 10 numbers");
+	it("Input is required", function() {
+		assert.isTrue(validatePhoneNumber(5553210220));
+	});
+	it("Input must be numeric", function() {
+		assert.isFalse(validatePhoneNumber("astring"));
+	});
+	it("Input must be integers", function() {
+		assert.isFalse(validatePhoneNumber(5.34));
+	});
+	it("Input must be 10 numbers", function() {
+		assert.isTrue(validatePhoneNumber(5554442468));
+		assert.isFalse(validatePhoneNumber(444321));
+	});
 	
 });

@@ -1,7 +1,7 @@
 {
-  "name": "mochaTestValidations",
-  "description": "WDV321 Unit 6: Mocha Chai Test Automation",
+  "name": "mochaBoxTest",
   "version": "1.0.0",
+  "description": "WDV321 Advanced Javascript. Example mocha test.",
   "main": "index.js",
   "directories": {
     "test": "test"
