@@ -60,5 +60,12 @@ describe("Testing Valid Phone Number", function(){
 		assert.isTrue(validatePhoneNumber(5554442468));
 		assert.isFalse(validatePhoneNumber(444321));
 	});
-	
+	it("Input must not be a string", function() {
+		assert.isFalse(validatePhoneNumber("5554442468"));
+		assert.isTrue(validatePhoneNumber(5554442468));
+	});
+	it("Input must not be undefined", function() {
+		assert.isFalse(validatePhoneNumber(undefined));
+		assert.isFalse(validatePhoneNumber(null));
+	});
 });
