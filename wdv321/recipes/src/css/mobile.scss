@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 body {
-	background:radial-gradient(#dd5050, #cd4040);
+	background:radial-gradient(#bd501a, #0779bd);
 	color:black;
 }
 
@@ -12,8 +12,11 @@ body {
 }
 
 a, a:link, a:visited, a:active {
-	color:pink;
+	color:black;
 	text-decoration:none;
+}
+a:hover {
+	color:navy;
 }
 
 nav {
@@ -21,7 +24,7 @@ nav {
 	border-radius:34px 34px 34px 34px;
 	padding:6px;
 	margin-bottom:4px;
-	background-color:#bfbfa2;
+	background-color:rgba(210, 210, 180, 0.3);
 	color:black;
 	ul {
 		display:inline;
@@ -33,12 +36,16 @@ nav {
 			border:1px solid gray;
 			margin-top:4px;
 			margin-bottom:5px;
+			border-radius:30px 30px 30px 30px;
 			a {
 				font-size:1.29em;
 				padding:5px;
+				color:black;
+				border-radius:30px 30px 30px 30px;
 				&:hover {
 					padding:5px !important;
-					background-color:#676;
+					background-color:#df6061;
+					color:white;
 				}
 			}
 		}
@@ -53,6 +60,15 @@ nav {
 	.box {
 		padding:6px;
 		@include WidthMargins(98%, 1%, 1%);
+		border:2px solid #80bd1d;
+		background:rgba(220, 250, 240, 0.4);
+		margin-top:5px;
+		margin-bottom:5px;
+		border-radius:32px 32px 32px 32px;
+		color:black;
+		h2 {
+			color:#802865 !important;
+		}
 	}
 }
 
