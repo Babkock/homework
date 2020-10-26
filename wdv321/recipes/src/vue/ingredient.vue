@@ -94,6 +94,7 @@ export default {
 	width:100%;
 	margin-top:3px;
 	margin-bottom:3px;
+	text-align:center;
 	@include responsive($med) {
 		width:100%;
 		margin-top:4px;
@@ -112,6 +113,8 @@ export default {
 		width:98% !important;
 		margin-left:1%;
 		margin-right:1%;
+		margin-top:3px;
+		margin-bottom:3px;
 		display:inline;
 	}
 	input[type="text"], input[type="number"] {
@@ -146,12 +149,17 @@ export default {
 		border:1px solid $InputBord;
 		@include responsive($med) {
 			font-size:1.2em !important;
-			padding:6px;
+			padding:5px;
+			width:80% !important;
 		}
 		&:hover {
 			background-color:$InputHoverBg !important;
 			color:$InputHoverFg !important;
 			border:1px solid $InputHoverBord;
+			@include responsive($med) {
+				width:80% !important;
+				font-size:1.2em !important;
+			}
 		}
 	}
 }

@@ -2,10 +2,6 @@
 
 body {
 	background:radial-gradient(#255362, #34203c);
-	@include responsive($med) {
-		background:radial-gradient(#dd5050, #cd4040);
-		color:black;
-	}
 }
 
 .container {
@@ -17,10 +13,6 @@ body {
 a, a:link, a:visited, a:active {
 	color:$LinkColor;
 	text-decoration:none;
-	@include responsive($med) {
-		color:pink;
-		text-decoration:none;
-	}
 }
 
 a:hover {
@@ -38,32 +30,13 @@ nav {
 	text-align:center;
 	background-color:$NavBg;
 	border-radius:34px 34px 0px 0px;
-	@include responsive($med) {
-		width:100%;
-		margin-left:0%;
-		margin-right:0%;
-		border-radius:34px 34px 34px 34px;
-		padding:6px;
-		margin-bottom:4px;
-	}
 	ul {
 		width:90%;
 		text-align:center;
 		display:flex;
-		@include responsive($med) {
-			display:inline;
-		}
 		li {
 			list-style-type:none;
 			@include WidthMargins(23%, 1%, 1%);
-			@include responsive($med) {
-				width:90%;
-				margin-left:5%;
-				margin-right:5%;
-				border:1px solid gray;
-				margin-top:4px;
-				margin-bottom:5px;
-			}
 			border:1px solid gray;
 			transition:border 0.2s ease 0s;
 			a {
@@ -78,10 +51,6 @@ nav {
 					padding:3px;
 					background-color:#676;
 					text-decoration:none;
-				}
-				@include responsive($med) {
-					font-size:1.29em;
-					padding:5px;
 				}
 			}
 			&:hover {
@@ -104,24 +73,12 @@ p.success {
 	flex-wrap:wrap;
 	flex-direction:row;
 	justify-content:center;
-	@include responsive($med) {
-		display:flex;
-		flex-wrap:wrap;
-		flex-direction:column;
-		justify-content:center;
-	}
 	.box {
 		@include WidthMargins(24%, 2px, 2px);
 		border:1px solid white;
 		background:$FormBg;
 		padding:4px;
 		padding-left:5px;
-		@include responsive($med) {
-			padding:6px;
-			width:98%;
-			margin-left:1%;
-			margin-right:1%;
-		}
 	}
 }
 
@@ -176,12 +133,6 @@ form {
 	border:1px solid rgba(0, 0, 0, 0);
 	border-radius:20px 20px 34px 34px;
 	padding:5px;
-	@include responsive($med) {
-		display:block;
-		padding:7px;
-		border:1px solid rgba(0, 0, 0, 0);
-		border-radius:34px 34px 34px 34px;
-	}
 	.formflex {
 		display:flex;
 		flex-direction:row;

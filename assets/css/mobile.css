@@ -1,0 +1,21 @@
+body { background: radial-gradient(#dd5050, #cd4040); color: black; }
+
+.container { color: black; font-family: "Arial" !important; width: 90%; margin-left: 5%; margin-right: 5%; }
+
+a, a:link, a:visited, a:active { color: pink; text-decoration: none; }
+
+nav { width: 100%; margin-left: 0%; margin-right: 0%; border-radius: 34px 34px 34px 34px; padding: 6px; margin-bottom: 4px; background-color: #bfbfa2; color: black; }
+
+nav ul { display: inline; text-align: center; width: 90%; }
+
+nav ul li { list-style-type: none; width: 90%; margin-left: 5%; margin-right: 5%; border: 1px solid gray; margin-top: 4px; margin-bottom: 5px; }
+
+nav ul li a { font-size: 1.29em; padding: 5px; }
+
+nav ul li a:hover { padding: 5px !important; background-color: #676; }
+
+#displaySlider { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; }
+
+#displaySlider .box { padding: 6px; width: 98%; margin-left: 1%; margin-right: 1%; }
+
+form { font-size: 1.2em; display: block; padding: 7px; border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 3px; margin-bottom: 3px; }

@@ -4,6 +4,8 @@
 	Copyright (c) 2020 Tanner Babcock
 */
 require("../css/recipesProject.scss")
+require("../css/mobile.scss")
+require("../css/landscape.scss")
 
 import Recipe from "../vue/recipe.vue";
 Vue.component('recipe', Recipe)
