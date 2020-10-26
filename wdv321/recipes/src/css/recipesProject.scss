@@ -2,7 +2,7 @@
 
 body {
 	background:radial-gradient(#255362, #34203c);
-	@include responsive($med) {
+	@include responsive($sm) {
 		background-color:radial-gradient(#dd5050, #cd4040);
 		color:black;
 	}
@@ -17,7 +17,7 @@ body {
 a, a:link, a:visited, a:active {
 	color:$LinkColor;
 	text-decoration:none;
-	@include responsive($med) {
+	@include responsive($sm) {
 		color:pink;
 		text-decoration:none;
 	}
