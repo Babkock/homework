@@ -1,12 +1,12 @@
 body { background: radial-gradient(#255362, #34203c); }
 
-@media (min-width: 28em) { body { background-color: radial-gradient(#dd5050, #cd4040); color: black; } }
+@media (max-width: 40em) { body { background: radial-gradient(#dd5050, #cd4040); color: black; } }
 
 .container { color: #ededed; font-family: "Arial" !important; width: 90%; margin-left: 5%; margin-right: 5%; }
 
 a, a:link, a:visited, a:active { color: tan; text-decoration: none; }
 
-@media (min-width: 28em) { a, a:link, a:visited, a:active { color: pink; text-decoration: none; } }
+@media (max-width: 40em) { a, a:link, a:visited, a:active { color: pink; text-decoration: none; } }
 
 a:hover { color: #efefef; text-decoration: underline; }
 
