@@ -2,6 +2,10 @@
 
 body {
 	background:radial-gradient(#255362, #34203c);
+	@include responsive($med) {
+		background-color:radial-gradient(#dd5050, #cd4040);
+		color:black;
+	}
 }
 
 .container {
@@ -13,6 +17,10 @@ body {
 a, a:link, a:visited, a:active {
 	color:$LinkColor;
 	text-decoration:none;
+	@include responsive($med) {
+		color:pink;
+		text-decoration:none;
+	}
 }
 
 a:hover {

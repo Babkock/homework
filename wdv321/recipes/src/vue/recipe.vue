@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../css/variables.scss";
+
 .recipe {
 	color:white;
 	background-color:rgba(0, 0, 0, 0.1);
