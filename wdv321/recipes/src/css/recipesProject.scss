@@ -49,6 +49,9 @@ nav {
 		width:90%;
 		text-align:center;
 		display:flex;
+		@include responsive($med) {
+			display:inline;
+		}
 		li {
 			list-style-type:none;
 			@include WidthMargins(23%, 1%, 1%);
@@ -57,6 +60,8 @@ nav {
 				margin-left:5%;
 				margin-right:5%;
 				border:1px solid gray;
+				margin-top:4px;
+				margin-bottom:5px;
 			}
 			border:1px solid gray;
 			transition:border 0.2s ease 0s;

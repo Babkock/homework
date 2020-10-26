@@ -32,25 +32,52 @@ export default {
 
 .recipe {
 	color:white;
-	background-color:rgba(0, 0, 0, 0.1);
 	h2 {
 		color:aqua;
 		text-shadow:2px 2px #004455;
+		@include responsive($med) {
+			color:tan;
+			text-shadow:2px 3px #201817;
+		}
 	}
 	p {
 		font-size:1.09em;
+		@include responsive($med) {
+			font-size:1.19em;
+		}
 	}
 	p b {
 		font-size:1.1em;
+		@include responsive($med) {
+			font-size:1.2em;
+		}
 	}
 	ol {
 		border:1px solid gray;
 		padding:3px;
 		text-align:left;
 		margin-left:1.2em;
+		@include responsive($med) {
+			border:0 !important;
+			padding:5px;
+		}
 		li {
 			font-size:1.08em;
 			line-height:1.5;
+			@include responsive($med) {
+				font-size:1.18em;
+				line-height:1.5;
+			}
+		}
+	}
+	ul {
+		li {
+			font-size:1.08em;
+			line-height:1.5;
+			@include responsive($med) {
+				font-size:1.18em;
+				line-height:1.5;
+			}
 		}
 	}
 

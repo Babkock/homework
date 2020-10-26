@@ -18,9 +18,11 @@ nav { width: 90%; margin-left: 5%; margin-right: 5%; padding: 5px; text-align: c
 
 nav ul { width: 90%; text-align: center; display: flex; }
 
+@media (max-width: 40em) { nav ul { display: inline; } }
+
 nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%; border: 1px solid gray; transition: border 0.2s ease 0s; }
 
-@media (max-width: 40em) { nav ul li { width: 90%; margin-left: 5%; margin-right: 5%; border: 1px solid gray; } }
+@media (max-width: 40em) { nav ul li { width: 90%; margin-left: 5%; margin-right: 5%; border: 1px solid gray; margin-top: 4px; margin-bottom: 5px; } }
 
 nav ul li a { width: 100%; display: block; font-size: 1.08em; text-decoration: none; padding: 3px; transition: background-color, color 0.2s ease 0s; }
 

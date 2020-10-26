@@ -1,14 +1,40 @@
-.recipe { color: white; background-color: rgba(0, 0, 0, 0.1);
+.recipe { color: white;
 }
 .recipe h2 { color: aqua; text-shadow: 2px 2px #004455;
 }
+@media (max-width: 40em) {
+.recipe h2 { color: tan; text-shadow: 2px 3px #201817;
+}
+}
 .recipe p { font-size: 1.09em;
+}
+@media (max-width: 40em) {
+.recipe p { font-size: 1.19em;
+}
 }
 .recipe p b { font-size: 1.1em;
 }
+@media (max-width: 40em) {
+.recipe p b { font-size: 1.2em;
+}
+}
 .recipe ol { border: 1px solid gray; padding: 3px; text-align: left; margin-left: 1.2em;
 }
+@media (max-width: 40em) {
+.recipe ol { border: 0 !important; padding: 5px;
+}
+}
 .recipe ol li { font-size: 1.08em; line-height: 1.5;
+}
+@media (max-width: 40em) {
+.recipe ol li { font-size: 1.18em; line-height: 1.5;
+}
+}
+.recipe ul li { font-size: 1.08em; line-height: 1.5;
+}
+@media (max-width: 40em) {
+.recipe ul li { font-size: 1.18em; line-height: 1.5;
+}
 }
 .recipe .imgbox { text-align: center; border: 1px solid #dfdfdf; opacity: 0.9; margin-left: 4%; margin-right: 4%;
 }
