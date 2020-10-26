@@ -14,7 +14,7 @@ h1, h2 { text-align: center; }
 
 nav { width: 90%; margin-left: 5%; margin-right: 5%; padding: 5px; text-align: center; background-color: rgba(10, 20, 10, 0.2); border-radius: 34px 34px 0px 0px; }
 
-@media (max-width: 40em) { nav { width: 100%; margin-left: 0%; margin-right: 0%; border-radius: 34px 34px 34px 34px; padding: 6px; } }
+@media (max-width: 40em) { nav { width: 100%; margin-left: 0%; margin-right: 0%; border-radius: 34px 34px 34px 34px; padding: 6px; margin-bottom: 4px; } }
 
 nav ul { width: 90%; text-align: center; display: flex; }
 
@@ -24,9 +24,9 @@ nav ul li { list-style-type: none; width: 23%; margin-left: 1%; margin-right: 1%
 
 @media (max-width: 40em) { nav ul li { width: 90%; margin-left: 5%; margin-right: 5%; border: 1px solid gray; margin-top: 4px; margin-bottom: 5px; } }
 
-nav ul li a { width: 100%; display: block; font-size: 1.08em; text-decoration: none; padding: 3px; transition: background-color, color 0.2s ease 0s; }
+nav ul li a { width: 98%; display: block; font-size: 1.08em; text-decoration: none; padding: 3px; transition: background-color, color 0.2s ease 0s; }
 
-nav ul li a:hover { color: #efefef; background-color: #676; text-decoration: none; }
+nav ul li a:hover { color: #efefef; padding: 3px; background-color: #676; text-decoration: none; }
 
 @media (max-width: 40em) { nav ul li a { font-size: 1.29em; padding: 5px; } }
 

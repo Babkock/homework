@@ -3,7 +3,7 @@
 .recipe h2 { color: aqua; text-shadow: 2px 2px #004455;
 }
 @media (max-width: 40em) {
-.recipe h2 { color: tan; text-shadow: 2px 3px #201817;
+.recipe h2 { color: tan; text-shadow: 2px 3px #201817; font-size: 1.3em;
 }
 }
 .recipe p { font-size: 1.09em;

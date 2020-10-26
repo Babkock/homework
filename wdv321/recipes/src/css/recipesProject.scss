@@ -44,6 +44,7 @@ nav {
 		margin-right:0%;
 		border-radius:34px 34px 34px 34px;
 		padding:6px;
+		margin-bottom:4px;
 	}
 	ul {
 		width:90%;
@@ -66,7 +67,7 @@ nav {
 			border:1px solid gray;
 			transition:border 0.2s ease 0s;
 			a {
-				width:100%;
+				width:98%;
 				display:block;
 				font-size:1.08em;
 				text-decoration:none;
@@ -74,6 +75,7 @@ nav {
 				transition:background-color, color 0.2s ease 0s;
 				&:hover {
 					color:$LinkHover;
+					padding:3px;
 					background-color:#676;
 					text-decoration:none;
 				}

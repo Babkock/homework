@@ -38,6 +38,7 @@ export default {
 		@include responsive($med) {
 			color:tan;
 			text-shadow:2px 3px #201817;
+			font-size:1.3em;
 		}
 	}
 	p {
