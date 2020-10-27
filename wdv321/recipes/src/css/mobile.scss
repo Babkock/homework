@@ -19,8 +19,14 @@ a:hover {
 	color:#202020;
 }
 
-p, li, a, b, span {
-	font-size:1.85em;
+p, li, a, b {
+	font-size:1.55em;
+}
+
+h1 {
+	font-size: 2.4em;
+	text-shadow: 2px 2px skyblue;
+	color: #202020;
 }
 
 nav {
@@ -28,7 +34,7 @@ nav {
 	border-radius:34px 34px 34px 34px;
 	padding:6px;
 	margin-bottom:4px;
-	background-color:rgba(210, 210, 180, 0.3);
+	background-color:$MobileNavBg;
 	color:black;
 	ul {
 		display:inline;
@@ -37,6 +43,7 @@ nav {
 		li {
 			list-style-type:none;
 			@include WidthMargins(90%, 5%, 5%);
+			background-color:$MobileLinkBg;
 			border:1px solid gray;
 			margin-top:4px;
 			margin-bottom:5px;
@@ -48,7 +55,7 @@ nav {
 				border-radius:30px 30px 30px 30px;
 				&:hover {
 					padding:5px !important;
-					background-color:#df6061;
+					background-color:$MobileLinkHoverBg;
 					color:white;
 				}
 			}
@@ -66,14 +73,26 @@ nav {
 	.box {
 		padding:6px;
 		@include WidthMargins(98%, 1%, 1%);
-		border:2px solid #80bd1d;
-		background:rgba(220, 250, 240, 0.4);
+		border:2px solid $MobileBoxBord;
+		background:$MobileBoxBg;
 		margin-top:5px;
 		margin-bottom:5px;
-		border-radius:32px 32px 32px 32px;
+		border-radius:31px 31px 32px 32px;
 		color:black;
 		h2 {
-			color:#802865 !important;
+			color:tan;
+			text-shadow:2px 3px #201817;
+			font-size:1.75em;
+		}
+		ul, ol {
+			border:0 !important;
+			padding:5px;
+			li {
+				font-size:1.49em;
+				line-height:1.5;
+				margin-top:3px;
+				margin-bottom:3px;
+			}
 		}
 	}
 }
@@ -82,8 +101,98 @@ form {
 	font-size:1.62em;
 	display:block;
 	padding:7px;
+	background:$MobileFormBg;
 	border:1px solid rgba(0, 0, 0, 0);
 	border-radius:34px 34px 34px 34px;
 	margin-top:3px;
 	margin-bottom:3px;
+	.formflex {
+		display:inline;
+		input, select {
+			color:$MobileInputFg;
+			font-size:1.5em;
+			@include WidthMargins(90%, 1%, 1%);
+			background-color:$MobileInputBg;
+			border:1px solid $MobileInputBord;
+			padding:7px !important;
+			&:hover {
+				color:black !important;
+				border:1px solid #efefef;
+				background-color:$MobileInputHoverBg;
+				padding:7px !important;
+			}
+		}
+		span {
+			font-size:1.6em;
+			width:100%;
+			margin-top:2px;
+			margin-bottom:3px;
+		}
+	}
+}
+
+button {
+	width:90%;
+	padding-top:12px;
+	padding-bottom:14px;
+	background-color:$MobileButtonBg;
+	border:1px solid #dfdfdf;
+	&:hover {
+		width:90%;
+		padding-top:12px;
+		padding-bottom:14px;
+		background-color:$MobileButtonHoverBg;
+		border:1px solid white;
+	}
+}
+
+.ingredient {
+	display:inline;
+	background:rgba(10, 10, 10, 0.1);
+	td {
+		width:100% !important;
+		float:left;
+		margin-top:4px;
+		margin-bottom:4px;
+		color:$MobileInputFg;
+		input, select {
+			color:$MobileInputFg;
+			font-size:1.5em;
+			@include WidthMargins(92%, 1%, 1%);
+			background-color:$MobileInputBg;
+			border:1px solid $MobileInputBord;
+			padding:7px !important;
+			&:hover {
+				color:black !important;
+				border:1px solid #efefef;
+				background-color:$MobileInputHoverBg;
+				padding:7px !important;
+			}
+		}
+	}
+}
+
+form .steps tr td {
+	input {
+		color:$MobileInputFg;
+		font-size:1.5em;
+		background-color:$MobileInputBg;
+		border:1px solid $MobileInputBord;
+		padding:7px;
+		width:70%;
+		margin-left:1%;
+		&:hover {
+			color:black !important;
+			border:1px solid #efefef;
+			padding:7px !important;
+			width:80%;
+		}
+	}
+}
+
+footer {
+	font-size:1.25em;
+	p a {
+		display:none;
+	}
 }
