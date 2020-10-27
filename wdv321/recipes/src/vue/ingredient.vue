@@ -148,15 +148,9 @@ export default {
 }
 
 .ingredient td:nth-child(3) {
-	@include responsive($med) {
-		width:98%;
-	}
 	width:35%;
 }
 .ingredient td:nth-child(4) {
-	@include responsive($med) {
-		width:98%;
-	}
 	width:15%;
 }
 

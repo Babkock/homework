@@ -120,18 +120,22 @@ form {
 			border:1px solid $MobileInputBord;
 			padding:7px !important;
 			width:100% !important;
+			max-width:100% !important;
+			min-width:100% !important;
 			&:hover {
 				color:black !important;
 				border:1px solid #efefef;
 				background-color:$MobileInputHoverBg;
 				padding:7px !important;
+				width:100% !important;
+				max-width:100% !important;
+				min-width:100% !important;
 			}
 		}
 		span {
-			font-size:1.45em;
-			width:100%;
-			margin-top:2px;
-			margin-bottom:3px;
+			font-size:1.35em;
+			margin-top:4px;
+			margin-bottom:4px;
 			width:100%;
 		}
 	}

@@ -20,13 +20,5 @@
 }
 .ingredient td:nth-child(3) { width: 35%;
 }
-@media (max-width: 40em) {
-.ingredient td:nth-child(3) { width: 98%;
-}
-}
 .ingredient td:nth-child(4) { width: 15%;
-}
-@media (max-width: 40em) {
-.ingredient td:nth-child(4) { width: 98%;
-}
 }
