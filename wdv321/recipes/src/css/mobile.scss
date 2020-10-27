@@ -80,13 +80,17 @@ nav {
 		border-radius:31px 31px 32px 32px;
 		color:black;
 		h2 {
-			color:tan;
+			color:skyblue;
 			text-shadow:2px 3px #201817;
 			font-size:1.75em;
+		}
+		h3 {
+			font-size:1.65em;
 		}
 		ul, ol {
 			border:0 !important;
 			padding:5px;
+			margin-left:2em;
 			li {
 				font-size:1.49em;
 				line-height:1.5;
@@ -115,6 +119,7 @@ form {
 			background-color:$MobileInputBg;
 			border:1px solid $MobileInputBord;
 			padding:7px !important;
+			width:100% !important;
 			&:hover {
 				color:black !important;
 				border:1px solid #efefef;
@@ -123,31 +128,38 @@ form {
 			}
 		}
 		span {
-			font-size:1.6em;
+			font-size:1.45em;
 			width:100%;
 			margin-top:2px;
 			margin-bottom:3px;
+			width:100%;
 		}
 	}
 }
 
 button {
-	width:90%;
+	width:100%;
 	padding-top:12px;
 	padding-bottom:14px;
 	background-color:$MobileButtonBg;
 	border:1px solid #dfdfdf;
+	margin-top:3px;
+	margin-bottom:4px;
 	&:hover {
-		width:90%;
+		width:100%;
 		padding-top:12px;
 		padding-bottom:14px;
 		background-color:$MobileButtonHoverBg;
 		border:1px solid white;
+		margin-top:3px;
+		margin-bottom:4px;
 	}
 }
 
 .ingredient {
 	display:inline;
+	text-align:center;
+	width:100%;
 	background:rgba(10, 10, 10, 0.1);
 	td {
 		width:100% !important;
@@ -172,6 +184,13 @@ button {
 	}
 }
 
+.ingredient td:nth-child(3) {
+	width:100%;
+}
+.ingredient td:nth-child(4) {
+	width:100%;
+}
+
 form .steps tr td {
 	input {
 		color:$MobileInputFg;
@@ -179,15 +198,28 @@ form .steps tr td {
 		background-color:$MobileInputBg;
 		border:1px solid $MobileInputBord;
 		padding:7px;
-		width:70%;
+		width:80%;
 		margin-left:1%;
 		&:hover {
 			color:black !important;
-			border:1px solid #efefef;
+			border:1px solid $MobileInputHoverBord;
 			padding:7px !important;
-			width:80%;
+			width:80% !important;
+			background-color:$MobileInputHoverBg;
+			margin-left:1%;
+			font-size:1.5em;
 		}
 	}
+}
+
+.recipes tbody tr td, .recipes thead tr td {
+	background:none;
+	width:95%;
+	float:left;
+}
+
+.recipes tbody tr td:first-child {
+	text-align:center;
 }
 
 footer {

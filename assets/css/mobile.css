@@ -24,11 +24,13 @@ nav ul li a:hover { padding: 5px !important; background-color: #df6061; color: w
 
 #displaySlider { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; }
 
-#displaySlider .box { padding: 6px; width: 98%; margin-left: 1%; margin-right: 1%; border: 2px solid #80bd1d; background: rgba(220, 250, 240, 0.4); margin-top: 5px; margin-bottom: 5px; border-radius: 31px 31px 32px 32px; color: black; }
+#displaySlider .box { padding: 6px; width: 98%; margin-left: 1%; margin-right: 1%; border: 2px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 5px; margin-bottom: 5px; border-radius: 31px 31px 32px 32px; color: black; }
 
-#displaySlider .box h2 { color: tan; text-shadow: 2px 3px #201817; font-size: 1.75em; }
+#displaySlider .box h2 { color: skyblue; text-shadow: 2px 3px #201817; font-size: 1.75em; }
 
-#displaySlider .box ul, #displaySlider .box ol { border: 0 !important; padding: 5px; }
+#displaySlider .box h3 { font-size: 1.65em; }
+
+#displaySlider .box ul, #displaySlider .box ol { border: 0 !important; padding: 5px; margin-left: 2em; }
 
 #displaySlider .box ul li, #displaySlider .box ol li { font-size: 1.49em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
 
@@ -36,17 +38,17 @@ form { font-size: 1.62em; display: block; padding: 7px; background: rgba(240, 23
 
 form .formflex { display: inline; }
 
-form .formflex input, form .formflex select { color: #101010; font-size: 1.5em; width: 90%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px !important; }
+form .formflex input, form .formflex select { color: #101010; font-size: 1.5em; width: 90%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px !important; width: 100% !important; }
 
 form .formflex input:hover, form .formflex select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 7px !important; }
 
-form .formflex span { font-size: 1.6em; width: 100%; margin-top: 2px; margin-bottom: 3px; }
+form .formflex span { font-size: 1.45em; width: 100%; margin-top: 2px; margin-bottom: 3px; width: 100%; }
 
-button { width: 90%; padding-top: 12px; padding-bottom: 14px; background-color: #208410; border: 1px solid #dfdfdf; }
+button { width: 100%; padding-top: 12px; padding-bottom: 14px; background-color: #208410; border: 1px solid #dfdfdf; margin-top: 3px; margin-bottom: 4px; }
 
-button:hover { width: 90%; padding-top: 12px; padding-bottom: 14px; background-color: #c86060; border: 1px solid white; }
+button:hover { width: 100%; padding-top: 12px; padding-bottom: 14px; background-color: #c86060; border: 1px solid white; margin-top: 3px; margin-bottom: 4px; }
 
-.ingredient { display: inline; background: rgba(10, 10, 10, 0.1); }
+.ingredient { display: inline; text-align: center; width: 100%; background: rgba(10, 10, 10, 0.1); }
 
 .ingredient td { width: 100% !important; float: left; margin-top: 4px; margin-bottom: 4px; color: #101010; }
 
@@ -54,9 +56,17 @@ button:hover { width: 90%; padding-top: 12px; padding-bottom: 14px; background-c
 
 .ingredient td input:hover, .ingredient td select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 7px !important; }
 
-form .steps tr td input { color: #101010; font-size: 1.5em; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px; width: 70%; margin-left: 1%; }
+.ingredient td:nth-child(3) { width: 100%; }
 
-form .steps tr td input:hover { color: black !important; border: 1px solid #efefef; padding: 7px !important; width: 80%; }
+.ingredient td:nth-child(4) { width: 100%; }
+
+form .steps tr td input { color: #101010; font-size: 1.5em; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px; width: 80%; margin-left: 1%; }
+
+form .steps tr td input:hover { color: black !important; border: 1px solid #efefef; padding: 7px !important; width: 80% !important; background-color: #c9bfaf; margin-left: 1%; font-size: 1.5em; }
+
+.recipes tbody tr td, .recipes thead tr td { background: none; width: 95%; float: left; }
+
+.recipes tbody tr td:first-child { text-align: center; }
 
 footer { font-size: 1.25em; }
 

@@ -95,45 +95,24 @@ export default {
 	margin-top:3px;
 	margin-bottom:3px;
 	text-align:center;
-	@include responsive($med) {
-		width:100%;
-		margin-top:4px;
-		margin-bottom:4px;
-		border:1px solid white;
-		background:rgba(10, 10, 10, 0.3);
-		padding:2px;
-	}
 }
+
 .ingredient td {
 	padding:4px;
 	font-size:1.08em;
 	@include WidthMargins(24%, 1px, 1px);
 	color:#efefef;
-	@include responsive($med) {
-		width:98% !important;
-		margin-left:1%;
-		margin-right:1%;
-		margin-top:3px;
-		margin-bottom:3px;
-		display:inline;
-	}
 	input[type="text"], input[type="number"] {
-		background-color: $InputBg !important;
+		background-color: $InputBg;
 		-moz-appearance: none;
 		appearance: none;
-		border: 1px solid $InputBord !important;
+		border: 1px solid $InputBord;
 		padding: 5px;
 		color: $InputFg;
 		font-size: 1.08em;
 		margin:1px;
 		width:80% !important;
 		transition:background-color, color, border 0.2s ease 0s;
-		@include responsive($med) {
-			font-size:1.21em;
-			margin:2px;
-			width:80%;
-			padding:6px;
-		}
 		&:hover {
 			background-color: $InputHoverBg !important;
 			color:$InputHoverFg !important;
@@ -147,11 +126,6 @@ export default {
 		width:100% !important;
 		background-color:$InputBg;
 		border:1px solid $InputBord;
-		@include responsive($med) {
-			font-size:1.2em !important;
-			padding:5px;
-			width:80% !important;
-		}
 		&:hover {
 			background-color:$InputHoverBg !important;
 			color:$InputHoverFg !important;
