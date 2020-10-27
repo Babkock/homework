@@ -1,7 +1,7 @@
 /* Dynamic Recipes Project October - November 2020 Copyright (c) 2020 Tanner Babcock. */
-.ingredient.mob { display: none;
-}
 .ingredient { width: 100%; margin-top: 3px; margin-bottom: 3px; text-align: center;
+}
+.ingredient td.mobile { display: none;
 }
 .ingredient td { padding: 4px; font-size: 1.08em; width: 24%; margin-left: 1px; margin-right: 1px; color: #efefef;
 }

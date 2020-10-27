@@ -1,10 +1,8 @@
 <template>
-	<tr class="ingredient mob">
-		<td colspan="4">
+	<tr class="ingredient" :id="myid">
+		<td class="mobile">
 			Ingredient #{{ id + 1 }}
 		</td>
-	</tr>
-	<tr class="ingredient" :id="myid">
 		<td>
 			<input type="text" style="width:80%" :v-model="numVmodl" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" :value="quant" placeholder="###" @blur="$emit('numinput', parseInt($event.target.value))" />
 		</td>
@@ -95,15 +93,15 @@ export default {
 <style lang="scss">
 @import "../css/variables.scss";
 
-.ingredient.mob {
-	display:none;
-}
-
 .ingredient {
 	width:100%;
 	margin-top:3px;
 	margin-bottom:3px;
 	text-align:center;
+}
+
+.ingredient td.mobile {
+	display:none;
 }
 
 .ingredient td {

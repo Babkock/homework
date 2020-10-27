@@ -167,7 +167,7 @@ button {
 	border:3px solid #dfdfdf;
 	margin-top:10px;
 	margin-bottom:10px;
-	font-size:2.12em;
+	font-size:2.05em;
 	&:hover {
 		width:100%;
 		padding-left:12px;
@@ -178,16 +178,14 @@ button {
 		border:3px solid white;
 		margin-top:10px;
 		margin-bottom:10px;
-		font-size:2.12em;
+		font-size:2.05em;
 	}
 }
 
-.ingredient, .ingredient.mob {
+.ingredient {
 	display:inline;
 	text-align:center;
 	width:100%;
-	background:rgba(10, 10, 10, 0.1);
-	border:6px dashed white;
 	td {
 		width:100% !important;
 		float:left;
@@ -212,6 +210,10 @@ button {
 				margin-bottom:7px;
 			}
 		}
+	}
+	td.mobile {
+		display:inline !important;
+		font-size:2em;
 	}
 }
 
