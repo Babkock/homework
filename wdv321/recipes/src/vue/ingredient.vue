@@ -123,26 +123,22 @@ export default {
 		width:80%;
 		transition:background-color, color, border 0.2s ease 0s;
 		&:hover {
-			background-color: $InputHoverBg;
+			background-color:$InputHoverBg;
 			color:$InputHoverFg;
 			border:1px solid $InputHoverBord;
 		}
 	}
 	select {
 		color:white;
-		font-size:1.08em !important;
+		font-size:1.08em;
 		padding:5px;
-		width:100% !important;
+		width:100%;
 		background-color:$InputBg;
 		border:1px solid $InputBord;
 		&:hover {
-			background-color:$InputHoverBg !important;
-			color:$InputHoverFg !important;
+			background-color:$InputHoverBg;
+			color:$InputHoverFg;
 			border:1px solid $InputHoverBord;
-			@include responsive($med) {
-				width:80% !important;
-				font-size:1.2em !important;
-			}
 		}
 	}
 }
