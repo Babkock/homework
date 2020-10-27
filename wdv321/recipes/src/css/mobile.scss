@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 body {
-	background:radial-gradient(#bd501a, #0779bd);
+	background:$MobileBg;
 	color:black;
 }
 
@@ -16,7 +16,11 @@ a, a:link, a:visited, a:active {
 	text-decoration:none;
 }
 a:hover {
-	color:navy;
+	color:#202020;
+}
+
+p, li, a, b, span {
+	font-size:1.85em;
 }
 
 nav {
@@ -38,7 +42,7 @@ nav {
 			margin-bottom:5px;
 			border-radius:30px 30px 30px 30px;
 			a {
-				font-size:1.29em;
+				font-size:1.89em;
 				padding:5px;
 				color:black;
 				border-radius:30px 30px 30px 30px;
@@ -51,6 +55,8 @@ nav {
 		}
 	}
 }
+
+.recipe { color:black !important; }
 
 #displaySlider {
 	display:flex;
@@ -73,7 +79,7 @@ nav {
 }
 
 form {
-	font-size:1.2em;
+	font-size:1.62em;
 	display:block;
 	padding:7px;
 	border:1px solid rgba(0, 0, 0, 0);

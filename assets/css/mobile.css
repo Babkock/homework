@@ -4,7 +4,9 @@ body { background: radial-gradient(#bd501a, #0779bd); color: black; }
 
 a, a:link, a:visited, a:active { color: black; text-decoration: none; }
 
-a:hover { color: navy; }
+a:hover { color: #202020; }
+
+p, li, a, b, span { font-size: 1.85em; }
 
 nav { width: 100%; margin-left: 0%; margin-right: 0%; border-radius: 34px 34px 34px 34px; padding: 6px; margin-bottom: 4px; background-color: rgba(210, 210, 180, 0.3); color: black; }
 
@@ -12,9 +14,11 @@ nav ul { display: inline; text-align: center; width: 90%; }
 
 nav ul li { list-style-type: none; width: 90%; margin-left: 5%; margin-right: 5%; border: 1px solid gray; margin-top: 4px; margin-bottom: 5px; border-radius: 30px 30px 30px 30px; }
 
-nav ul li a { font-size: 1.29em; padding: 5px; color: black; border-radius: 30px 30px 30px 30px; }
+nav ul li a { font-size: 1.89em; padding: 5px; color: black; border-radius: 30px 30px 30px 30px; }
 
 nav ul li a:hover { padding: 5px !important; background-color: #df6061; color: white; }
+
+.recipe { color: black !important; }
 
 #displaySlider { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; }
 
@@ -22,4 +26,4 @@ nav ul li a:hover { padding: 5px !important; background-color: #df6061; color: w
 
 #displaySlider .box h2 { color: #802865 !important; }
 
-form { font-size: 1.2em; display: block; padding: 7px; border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 3px; margin-bottom: 3px; }
+form { font-size: 1.62em; display: block; padding: 7px; border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 3px; margin-bottom: 3px; }
