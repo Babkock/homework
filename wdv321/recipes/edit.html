@@ -50,8 +50,8 @@
 					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" title="What is this recipe for? (Casserole, etc)" alt="What is this recipe for? (Casserole, etc)" />
 				</div>
 				<div class="formflex">
-					<span><b>Image Filename:</b></span>
-					<input type="text" v-model="recipe.image" placeholder="img/test.jpg" @blur="recipe.image = $event.target.value" title="Filename of the image of the food" alt="Filename of the image of the food" />
+					<span><b>Image URL:</b></span>
+					<input type="text" v-model="recipe.image" placeholder="https://site.com/test.jpg" @blur="recipe.image = $event.target.value" title="URL for the image of the food" alt="URL for the image of the food" />
 				</div>
 				<div class="formflex">
 					<span><b>Serves:</b></span>

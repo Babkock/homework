@@ -33,3 +33,82 @@ h1 {
 	text-shadow: 4px 4px skyblue;
 	color: #202020;
 }
+
+nav {
+	@include WidthMargins(96%, 2%, 2%);
+	border-radius:32px 32px 32px 32px;
+	padding:6px;
+	margin-bottom:7px;
+	background-color:$MobileNavBg;
+	color:black;
+	ul {
+		display:inline;
+		text-align:center;
+		width:90%;
+		li {
+			list-style-type:none;
+			@include WidthMargins(90%, 5%, 5%);
+			background-color:$MobileLinkBg;
+			border:1px solid gray;
+			margin-top:14px;
+			margin-bottom:14px;
+			border-radius:30px 30px 30px 30px;
+			a {
+				font-size:2.15em;
+				padding:6px;
+				color:black;
+				border-radius:30px 30px 30px 30px;
+				&:hover {
+					padding:6px !important;
+					font-size:2.15em;
+					background-color:$MobileLinkHoverBg;
+					color:white;
+				}
+			}
+		}
+	}
+}
+
+.recipe { color:black !important; }
+
+#displaySlider {
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:column;
+	justify-content:center;
+	.box {
+		text-align:left;
+		padding:5px;
+		@include WidthMargins(47%, 1%, 1%);
+		border:2px solid $MobileBoxBord;
+		background:$MobileBoxBg;
+		margin-top:6px;
+		margin-bottom:6px;
+		border-radius:32px 32px 32px 32px;
+		font-size:1.7em;
+		color:black;
+		h2 {
+			color:skyblue;
+			text-shadow:2px 2px #201817;
+			font-size:2.1em;
+			margin-top:4px;
+			margin-bottom:4px;
+		}
+		h3 {
+			font-size:2em;
+			margin-top:4px;
+			margin-bottom:4px;
+		}
+		ul, ol {
+			border:0 !important;
+			padding:6px;
+			margin-left:2em;
+			li {
+				font-size:1.7em;
+				line-height:1.5;
+				margin-top:3px;
+				margin-bottom:3px;
+			}
+		}
+	}
+}

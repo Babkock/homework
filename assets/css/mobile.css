@@ -20,17 +20,17 @@ nav { width: 100%; margin-left: 0%; margin-right: 0%; border-radius: 39px 39px 3
 
 nav ul { display: inline; text-align: center; width: 90%; }
 
-nav ul li { list-style-type: none; width: 90%; margin-left: 5%; margin-right: 5%; background-color: #afafaf; border: 1px solid gray; margin-top: 10px; margin-bottom: 10px; border-radius: 30px 30px 30px 30px; }
+nav ul li { list-style-type: none; width: 90%; margin-left: 5%; margin-right: 5%; background-color: #afafaf; border: 1px solid gray; margin-top: 20px; margin-bottom: 20px; border-radius: 30px 30px 30px 30px; }
 
-nav ul li a { font-size: 2.35em; padding: 6px; color: black; border-radius: 30px 30px 30px 30px; }
+nav ul li a { font-size: 2.4em; padding: 8px; color: black; border-radius: 30px 30px 30px 30px; }
 
-nav ul li a:hover { padding: 6px !important; font-size: 2.35em; background-color: #df6061; color: white; }
+nav ul li a:hover { padding: 8px !important; font-size: 2.4em; background-color: #df6061; color: white; }
 
 .recipe { color: black !important; }
 
 #displaySlider { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; }
 
-#displaySlider .box { padding: 6px; width: 98%; margin-left: 1%; margin-right: 1%; border: 2px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 5px; margin-bottom: 5px; border-radius: 45px 45px 45px 45px; font-size: 2em; color: black; }
+#displaySlider .box { text-align: left; padding: 7px; width: 98%; margin-left: 1%; margin-right: 1%; border: 3px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 6px; margin-bottom: 6px; border-radius: 45px 45px 45px 45px; font-size: 2em; color: black; }
 
 #displaySlider .box h2 { color: skyblue; text-shadow: 2px 3px #201817; font-size: 2.7em; margin-top: 5px; margin-bottom: 5px; }
 
@@ -38,7 +38,7 @@ nav ul li a:hover { padding: 6px !important; font-size: 2.35em; background-color
 
 #displaySlider .box ul, #displaySlider .box ol { border: 0 !important; padding: 6px; margin-left: 2em; }
 
-#displaySlider .box ul li, #displaySlider .box ol li { font-size: 2.1em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
+#displaySlider .box ul li, #displaySlider .box ol li { font-size: 2.1em; line-height: 1.5; margin-top: 5px; margin-bottom: 5px; }
 
 form { font-size: 1.92em; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 6px; margin-bottom: 6px; }
 
@@ -48,19 +48,19 @@ form .formflex input, form .formflex select { color: #101010; font-size: 2.1em !
 
 form .formflex input:hover, form .formflex select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 8px !important; width: 90% !important; max-width: 100% !important; min-width: 50% !important; margin-top: 20px; margin-bottom: 20px; }
 
-form .formflex span { font-size: 1.94em; margin-top: 20px; margin-bottom: 20px; width: 90%; }
+form .formflex span { font-size: 1.83em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
 
-button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid #dfdfdf; margin-top: 10px; margin-bottom: 10px; font-size: 2.05em; }
+button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid #dfdfdf; margin-top: 10px; margin-bottom: 10px; font-size: 1.97em; }
 
-button:hover { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #c86060; border: 3px solid white; margin-top: 10px; margin-bottom: 10px; font-size: 2.05em; }
+button:hover { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #c86060; border: 3px solid white; margin-top: 10px; margin-bottom: 10px; font-size: 1.97em; }
 
 .ingredient { display: inline; text-align: center; width: 100%; }
 
 .ingredient td { width: 100% !important; float: left; margin-top: 8px; margin-bottom: 8px; color: #101010; }
 
-.ingredient td input, .ingredient td select { color: #101010 !important; font-size: 2em; width: 92%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef !important; border: 2px solid #cfbfdf !important; padding: 9px !important; margin-top: 7px; margin-bottom: 7px; }
+.ingredient td input, .ingredient td select { color: #101010 !important; font-size: 2em; width: 92%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef !important; border: 2px solid #cfbfdf !important; padding: 9px !important; margin-top: 20px !important; margin-bottom: 20px !important; }
 
-.ingredient td input:hover, .ingredient td select:hover { color: black !important; border: 2px solid #efefef; background-color: #c9bfaf !important; padding: 9px !important; margin-top: 7px; margin-bottom: 7px; }
+.ingredient td input:hover, .ingredient td select:hover { color: black !important; border: 2px solid #efefef; background-color: #c9bfaf !important; padding: 9px !important; margin-top: 20px !important; margin-bottom: 20px !important; font-size: 2em; }
 
 .ingredient td.mobile { display: inline !important; font-size: 2em; }
 

@@ -50,17 +50,17 @@ nav {
 			@include WidthMargins(90%, 5%, 5%);
 			background-color:$MobileLinkBg;
 			border:1px solid gray;
-			margin-top:10px;
-			margin-bottom:10px;
+			margin-top:20px;
+			margin-bottom:20px;
 			border-radius:30px 30px 30px 30px;
 			a {
-				font-size:2.35em;
-				padding:6px;
+				font-size:2.4em;
+				padding:8px;
 				color:black;
 				border-radius:30px 30px 30px 30px;
 				&:hover {
-					padding:6px !important;
-					font-size:2.35em;
+					padding:8px !important;
+					font-size:2.4em;
 					background-color:$MobileLinkHoverBg;
 					color:white;
 				}
@@ -77,12 +77,13 @@ nav {
 	flex-direction:column;
 	justify-content:center;
 	.box {
-		padding:6px;
+		text-align:left;
+		padding:7px;
 		@include WidthMargins(98%, 1%, 1%);
-		border:2px solid $MobileBoxBord;
+		border:3px solid $MobileBoxBord;
 		background:$MobileBoxBg;
-		margin-top:5px;
-		margin-bottom:5px;
+		margin-top:6px;
+		margin-bottom:6px;
 		border-radius:45px 45px 45px 45px;
 		font-size:2em;
 		color:black;
@@ -105,8 +106,8 @@ nav {
 			li {
 				font-size:2.1em;
 				line-height:1.5;
-				margin-top:3px;
-				margin-bottom:3px;
+				margin-top:5px;
+				margin-bottom:5px;
 			}
 		}
 	}
@@ -149,9 +150,9 @@ form {
 			}
 		}
 		span {
-			font-size:1.94em;
-			margin-top:20px;
-			margin-bottom:20px;
+			font-size:1.83em;
+			margin-top:30px;
+			margin-bottom:30px;
 			width:90%;
 		}
 	}
@@ -167,7 +168,7 @@ button {
 	border:3px solid #dfdfdf;
 	margin-top:10px;
 	margin-bottom:10px;
-	font-size:2.05em;
+	font-size:1.97em;
 	&:hover {
 		width:100%;
 		padding-left:12px;
@@ -178,7 +179,7 @@ button {
 		border:3px solid white;
 		margin-top:10px;
 		margin-bottom:10px;
-		font-size:2.05em;
+		font-size:1.97em;
 	}
 }
 
@@ -199,15 +200,16 @@ button {
 			background-color:$MobileInputBg !important;
 			border:2px solid $MobileInputBord !important;
 			padding:9px !important;
-			margin-top:7px;
-			margin-bottom:7px;
+			margin-top:20px !important;
+			margin-bottom:20px !important;
 			&:hover {
 				color:black !important;
 				border:2px solid #efefef;
 				background-color:$MobileInputHoverBg !important;
 				padding:9px !important;
-				margin-top:7px;
-				margin-bottom:7px;
+				margin-top:20px !important;
+				margin-bottom:20px !important;
+				font-size:2em;
 			}
 		}
 	}
