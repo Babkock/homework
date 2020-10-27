@@ -29,7 +29,7 @@ p, li, a, b {
 }
 
 h1 {
-	font-size: 3.1em;
+	font-size: 4.1em !important;
 	text-shadow: 4px 4px skyblue;
 	color: #202020;
 }
@@ -49,7 +49,7 @@ nav {
 			list-style-type:none;
 			@include WidthMargins(90%, 5%, 5%);
 			background-color:$MobileLinkBg;
-			border:4px solid gray;
+			border:1px solid gray;
 			margin-top:10px;
 			margin-bottom:10px;
 			border-radius:30px 30px 30px 30px;
@@ -57,7 +57,6 @@ nav {
 				font-size:2.35em;
 				padding:6px;
 				color:black;
-				font-size:2.35em;
 				border-radius:30px 30px 30px 30px;
 				&:hover {
 					padding:6px !important;
@@ -84,22 +83,23 @@ nav {
 		background:$MobileBoxBg;
 		margin-top:5px;
 		margin-bottom:5px;
-		border-radius:31px 31px 32px 32px;
+		border-radius:45px 45px 45px 45px;
+		font-size:2em;
 		color:black;
 		h2 {
 			color:skyblue;
 			text-shadow:2px 3px #201817;
-			font-size:2.4em;
+			font-size:2.7em;
 		}
 		h3 {
-			font-size:2.1em;
+			font-size:2.54em;
 		}
 		ul, ol {
 			border:0 !important;
 			padding:5px;
 			margin-left:2em;
 			li {
-				font-size:1.92em;
+				font-size:2.1em;
 				line-height:1.5;
 				margin-top:3px;
 				margin-bottom:3px;
