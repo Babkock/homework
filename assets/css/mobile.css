@@ -1,3 +1,9 @@
+/*
+	Dynamic Recipes Project
+	October - November 2020
+	Copyright (c) 2020 Tanner Babcock.
+*/
+/* Dynamic Recipes Project October - November 2020 Copyright (c) 2020 Tanner Babcock. */
 body { background: radial-gradient(#bd501a, #0779bd); color: black; }
 
 .container { color: black; font-family: "Arial" !important; width: 90%; margin-left: 5%; margin-right: 5%; }
@@ -6,19 +12,19 @@ a, a:link, a:visited, a:active { color: black; text-decoration: none; }
 
 a:hover { color: #202020; }
 
-p, li, a, b { font-size: 1.55em; }
+p, li, a, b { font-size: 2.1em; }
 
-h1 { font-size: 2.4em; text-shadow: 2px 2px skyblue; color: #202020; }
+h1 { font-size: 3.1em; text-shadow: 4px 4px skyblue; color: #202020; }
 
 nav { width: 100%; margin-left: 0%; margin-right: 0%; border-radius: 34px 34px 34px 34px; padding: 6px; margin-bottom: 4px; background-color: rgba(210, 210, 180, 0.3); color: black; }
 
 nav ul { display: inline; text-align: center; width: 90%; }
 
-nav ul li { list-style-type: none; width: 90%; margin-left: 5%; margin-right: 5%; background-color: #afafaf; border: 1px solid gray; margin-top: 4px; margin-bottom: 5px; border-radius: 30px 30px 30px 30px; }
+nav ul li { list-style-type: none; width: 90%; margin-left: 5%; margin-right: 5%; background-color: #afafaf; border: 4px solid gray; margin-top: 10px; margin-bottom: 10px; border-radius: 30px 30px 30px 30px; }
 
-nav ul li a { font-size: 1.89em; padding: 5px; color: black; border-radius: 30px 30px 30px 30px; }
+nav ul li a { font-size: 2.35em; padding: 6px; color: black; font-size: 2.35em; border-radius: 30px 30px 30px 30px; }
 
-nav ul li a:hover { padding: 5px !important; background-color: #df6061; color: white; }
+nav ul li a:hover { padding: 6px !important; font-size: 2.35em; background-color: #df6061; color: white; }
 
 .recipe { color: black !important; }
 
@@ -26,48 +32,60 @@ nav ul li a:hover { padding: 5px !important; background-color: #df6061; color: w
 
 #displaySlider .box { padding: 6px; width: 98%; margin-left: 1%; margin-right: 1%; border: 2px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 5px; margin-bottom: 5px; border-radius: 31px 31px 32px 32px; color: black; }
 
-#displaySlider .box h2 { color: skyblue; text-shadow: 2px 3px #201817; font-size: 1.75em; }
+#displaySlider .box h2 { color: skyblue; text-shadow: 2px 3px #201817; font-size: 2.4em; }
 
-#displaySlider .box h3 { font-size: 1.65em; }
+#displaySlider .box h3 { font-size: 2.1em; }
 
 #displaySlider .box ul, #displaySlider .box ol { border: 0 !important; padding: 5px; margin-left: 2em; }
 
-#displaySlider .box ul li, #displaySlider .box ol li { font-size: 1.49em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
+#displaySlider .box ul li, #displaySlider .box ol li { font-size: 1.92em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
 
-form { font-size: 1.62em; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 3px; margin-bottom: 3px; }
+form { font-size: 1.92em; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 6px; margin-bottom: 6px; }
 
-form .formflex { display: inline; }
+form .formflex { display: inline; text-align: center; }
 
-form .formflex input, form .formflex select { color: #101010; font-size: 1.5em; width: 90%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px !important; width: 100% !important; max-width: 100% !important; min-width: 100% !important; }
+form .formflex input, form .formflex select { color: #101010; font-size: 2.1em; width: 90%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px !important; width: 90% !important; max-width: 100% !important; min-width: 50% !important; margin-top: 10px; margin-bottom: 10px; }
 
-form .formflex input:hover, form .formflex select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 7px !important; width: 100% !important; max-width: 100% !important; min-width: 100% !important; }
+form .formflex input:hover, form .formflex select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 7px !important; width: 90% !important; max-width: 100% !important; min-width: 50% !important; margin-top: 10px; margin-bottom: 10px; }
 
-form .formflex span { font-size: 1.35em; margin-top: 4px; margin-bottom: 4px; width: 100%; }
+form .formflex span { font-size: 1.94em; margin-top: 10px; margin-bottom: 10px; width: 90%; }
 
-button { width: 100%; padding-top: 12px; padding-bottom: 14px; background-color: #208410; border: 1px solid #dfdfdf; margin-top: 3px; margin-bottom: 4px; }
+button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid #dfdfdf; margin-top: 10px; margin-bottom: 10px; font-size: 2.12em; }
 
-button:hover { width: 100%; padding-top: 12px; padding-bottom: 14px; background-color: #c86060; border: 1px solid white; margin-top: 3px; margin-bottom: 4px; }
+button:hover { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #c86060; border: 3px solid white; margin-top: 10px; margin-bottom: 10px; font-size: 2.12em; }
 
-.ingredient { display: inline; text-align: center; width: 100%; background: rgba(10, 10, 10, 0.1); }
+.ingredient { display: inline; text-align: center; width: 100%; background: rgba(10, 10, 10, 0.1); border: 6px dashed white; }
 
-.ingredient td { width: 100% !important; float: left; margin-top: 4px; margin-bottom: 4px; color: #101010; }
+.ingredient td { width: 100% !important; float: left; margin-top: 8px; margin-bottom: 8px; color: #101010; }
 
-.ingredient td input, .ingredient td select { color: #101010; font-size: 1.5em; width: 92%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px !important; }
+.ingredient td input, .ingredient td select { color: #101010 !important; font-size: 2em; width: 92%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef !important; border: 2px solid #cfbfdf !important; padding: 9px !important; margin-top: 7px; margin-bottom: 7px; }
 
-.ingredient td input:hover, .ingredient td select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 7px !important; }
+.ingredient td input:hover, .ingredient td select:hover { color: black !important; border: 2px solid #efefef; background-color: #c9bfaf !important; padding: 9px !important; margin-top: 7px; margin-bottom: 7px; }
 
 .ingredient td:nth-child(3) { width: 100%; }
 
 .ingredient td:nth-child(4) { width: 100%; }
 
-form .steps tr td input { color: #101010; font-size: 1.5em; background-color: #dfcfef; border: 1px solid #cfbfdf; padding: 7px; width: 80%; margin-left: 1%; }
+.status { height: 140px; padding: 7px; width: 90%; margin-left: 5%; margin-right: 5%; background-color: rgba(190, 170, 164, 0.3); border: 1px solid rgba(0, 0, 0, 0); opacity: 0.9; }
 
-form .steps tr td input:hover { color: black !important; border: 1px solid #efefef; padding: 7px !important; width: 80% !important; background-color: #c9bfaf; margin-left: 1%; font-size: 1.5em; }
+.status p { display: block; font-size: 1.95em; padding: 5px; color: #101010; width: 97%; margin-left: 1%; margin-right: 1%; }
+
+.status p.success { color: white; background-color: #314c31; border: 3px solid #437d43; }
+
+.status p.error { color: white; background-color: #401212; border: 3px solid red; }
+
+.status.top { border-radius: 0px 0px 32px 32px; margin-bottom: 5px; }
+
+.status.bottom { width: 80% !important; margin-left: 10% !important; margin-right: 10% !important; border-radius: 0px 0px 32px 32px; }
+
+form .steps tr td input { color: #101010; font-size: 2em; background-color: #dfcfef; border: 2px solid #cfbfdf; padding: 7px; width: 83%; margin-left: 1%; }
+
+form .steps tr td input:hover { color: black !important; border: 1px solid #efefef; padding: 7px !important; width: 83% !important; background-color: #c9bfaf; margin-left: 1%; font-size: 2em; }
 
 .recipes tbody tr td, .recipes thead tr td { background: none; width: 95%; float: left; }
 
 .recipes tbody tr td:first-child { text-align: center; }
 
-footer { font-size: 1.25em; }
+footer { font-size: 1.89em; }
 
 footer p a { display: none; }

@@ -1,3 +1,8 @@
+/*
+	Dynamic Recipes Project
+	October - November 2020
+	Copyright (c) 2020 Tanner Babcock.
+*/
 @import "variables.scss";
 
 body {
@@ -20,12 +25,12 @@ a:hover {
 }
 
 p, li, a, b {
-	font-size:1.55em;
+	font-size:2.1em;
 }
 
 h1 {
-	font-size: 2.4em;
-	text-shadow: 2px 2px skyblue;
+	font-size: 3.1em;
+	text-shadow: 4px 4px skyblue;
 	color: #202020;
 }
 
@@ -44,17 +49,19 @@ nav {
 			list-style-type:none;
 			@include WidthMargins(90%, 5%, 5%);
 			background-color:$MobileLinkBg;
-			border:1px solid gray;
-			margin-top:4px;
-			margin-bottom:5px;
+			border:4px solid gray;
+			margin-top:10px;
+			margin-bottom:10px;
 			border-radius:30px 30px 30px 30px;
 			a {
-				font-size:1.89em;
-				padding:5px;
+				font-size:2.35em;
+				padding:6px;
 				color:black;
+				font-size:2.35em;
 				border-radius:30px 30px 30px 30px;
 				&:hover {
-					padding:5px !important;
+					padding:6px !important;
+					font-size:2.35em;
 					background-color:$MobileLinkHoverBg;
 					color:white;
 				}
@@ -82,17 +89,17 @@ nav {
 		h2 {
 			color:skyblue;
 			text-shadow:2px 3px #201817;
-			font-size:1.75em;
+			font-size:2.4em;
 		}
 		h3 {
-			font-size:1.65em;
+			font-size:2.1em;
 		}
 		ul, ol {
 			border:0 !important;
 			padding:5px;
 			margin-left:2em;
 			li {
-				font-size:1.49em;
+				font-size:1.92em;
 				line-height:1.5;
 				margin-top:3px;
 				margin-bottom:3px;
@@ -102,61 +109,72 @@ nav {
 }
 
 form {
-	font-size:1.62em;
+	font-size:1.92em;
 	display:block;
 	padding:7px;
 	background:$MobileFormBg;
 	border:1px solid rgba(0, 0, 0, 0);
 	border-radius:34px 34px 34px 34px;
-	margin-top:3px;
-	margin-bottom:3px;
+	margin-top:6px;
+	margin-bottom:6px;
 	.formflex {
 		display:inline;
+		text-align:center;
 		input, select {
 			color:$MobileInputFg;
-			font-size:1.5em;
+			font-size:2.1em;
 			@include WidthMargins(90%, 1%, 1%);
 			background-color:$MobileInputBg;
 			border:1px solid $MobileInputBord;
 			padding:7px !important;
-			width:100% !important;
+			width:90% !important;
 			max-width:100% !important;
-			min-width:100% !important;
+			min-width:50% !important;
+			margin-top:10px;
+			margin-bottom:10px;
 			&:hover {
 				color:black !important;
 				border:1px solid #efefef;
 				background-color:$MobileInputHoverBg;
 				padding:7px !important;
-				width:100% !important;
+				width:90% !important;
 				max-width:100% !important;
-				min-width:100% !important;
+				min-width:50% !important;
+				margin-top:10px;
+				margin-bottom:10px;
 			}
 		}
 		span {
-			font-size:1.35em;
-			margin-top:4px;
-			margin-bottom:4px;
-			width:100%;
+			font-size:1.94em;
+			margin-top:10px;
+			margin-bottom:10px;
+			width:90%;
 		}
 	}
 }
 
 button {
 	width:100%;
-	padding-top:12px;
-	padding-bottom:14px;
+	padding-left:12px;
+	padding-right:12px;
+	padding-top:16px;
+	padding-bottom:12px;
 	background-color:$MobileButtonBg;
-	border:1px solid #dfdfdf;
-	margin-top:3px;
-	margin-bottom:4px;
+	border:3px solid #dfdfdf;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:2.12em;
 	&:hover {
 		width:100%;
-		padding-top:12px;
-		padding-bottom:14px;
+		padding-left:12px;
+		padding-right:12px;
+		padding-top:16px;
+		padding-bottom:12px;
 		background-color:$MobileButtonHoverBg;
-		border:1px solid white;
-		margin-top:3px;
-		margin-bottom:4px;
+		border:3px solid white;
+		margin-top:10px;
+		margin-bottom:10px;
+		font-size:2.12em;
 	}
 }
 
@@ -165,24 +183,29 @@ button {
 	text-align:center;
 	width:100%;
 	background:rgba(10, 10, 10, 0.1);
+	border:6px dashed white;
 	td {
 		width:100% !important;
 		float:left;
-		margin-top:4px;
-		margin-bottom:4px;
+		margin-top:8px;
+		margin-bottom:8px;
 		color:$MobileInputFg;
 		input, select {
-			color:$MobileInputFg;
-			font-size:1.5em;
+			color:$MobileInputFg !important;
+			font-size:2em;
 			@include WidthMargins(92%, 1%, 1%);
-			background-color:$MobileInputBg;
-			border:1px solid $MobileInputBord;
-			padding:7px !important;
+			background-color:$MobileInputBg !important;
+			border:2px solid $MobileInputBord !important;
+			padding:9px !important;
+			margin-top:7px;
+			margin-bottom:7px;
 			&:hover {
 				color:black !important;
-				border:1px solid #efefef;
-				background-color:$MobileInputHoverBg;
-				padding:7px !important;
+				border:2px solid #efefef;
+				background-color:$MobileInputHoverBg !important;
+				padding:9px !important;
+				margin-top:7px;
+				margin-bottom:7px;
 			}
 		}
 	}
@@ -195,23 +218,59 @@ button {
 	width:100%;
 }
 
+.status {
+	height:140px;
+	padding:7px;
+	@include WidthMargins(90%, 5%, 5%);
+	background-color:rgba(190, 170, 164, 0.3);
+	border:1px solid rgba(0, 0, 0, 0);
+	opacity:0.9;
+	p {
+		display:block;
+		font-size:1.95em;
+		padding:5px;
+		color:#101010;
+		@include WidthMargins(97%, 1%, 1%);
+	}
+	p.success {
+		color:white;
+		background-color:$ButtonHoverBg;
+		border:3px solid $ButtonHoverBord;
+	}
+	p.error {
+		color:white;
+		background-color:#401212;
+		border:3px solid red;
+	}
+	&.top {
+		border-radius:0px 0px 32px 32px;
+		margin-bottom:5px;
+	}
+	&.bottom {
+		width:80% !important;
+		margin-left:10% !important;
+		margin-right:10% !important;
+		border-radius:0px 0px 32px 32px;
+	}
+}
+
 form .steps tr td {
 	input {
 		color:$MobileInputFg;
-		font-size:1.5em;
+		font-size:2em;
 		background-color:$MobileInputBg;
-		border:1px solid $MobileInputBord;
+		border:2px solid $MobileInputBord;
 		padding:7px;
-		width:80%;
+		width:83%;
 		margin-left:1%;
 		&:hover {
 			color:black !important;
 			border:1px solid $MobileInputHoverBord;
 			padding:7px !important;
-			width:80% !important;
+			width:83% !important;
 			background-color:$MobileInputHoverBg;
 			margin-left:1%;
-			font-size:1.5em;
+			font-size:2em;
 		}
 	}
 }
@@ -227,7 +286,7 @@ form .steps tr td {
 }
 
 footer {
-	font-size:1.25em;
+	font-size:1.89em;
 	p a {
 		display:none;
 	}
