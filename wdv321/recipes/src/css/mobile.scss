@@ -122,16 +122,16 @@ form {
 		text-align:center;
 		input, select {
 			color:$MobileInputFg;
-			font-size:2.1em;
+			font-size:2.1em !important;
 			@include WidthMargins(90%, 1%, 1%);
 			background-color:$MobileInputBg;
 			border:1px solid $MobileInputBord;
-			padding:7px !important;
+			padding:8px !important;
 			width:90% !important;
 			max-width:100% !important;
 			min-width:50% !important;
-			margin-top:10px;
-			margin-bottom:10px;
+			margin-top:20px;
+			margin-bottom:20px;
 			&:hover {
 				color:black !important;
 				border:1px solid #efefef;
@@ -178,7 +178,7 @@ button {
 	}
 }
 
-.ingredient {
+.ingredient, .ingredient.mob {
 	display:inline;
 	text-align:center;
 	width:100%;
@@ -227,7 +227,7 @@ button {
 	opacity:0.9;
 	p {
 		display:block;
-		font-size:1.95em;
+		font-size:2em;
 		padding:5px;
 		color:#101010;
 		@include WidthMargins(97%, 1%, 1%);
@@ -255,19 +255,21 @@ button {
 }
 
 form .steps tr td {
+	font-size:1.3em;
+	color:#101010;
 	input {
 		color:$MobileInputFg;
 		font-size:2em;
 		background-color:$MobileInputBg;
 		border:2px solid $MobileInputBord;
 		padding:7px;
-		width:83%;
+		width:79%;
 		margin-left:1%;
 		&:hover {
 			color:black !important;
 			border:1px solid $MobileInputHoverBord;
 			padding:7px !important;
-			width:83% !important;
+			width:79% !important;
 			background-color:$MobileInputHoverBg;
 			margin-left:1%;
 			font-size:2em;
@@ -286,7 +288,7 @@ form .steps tr td {
 }
 
 footer {
-	font-size:1.89em;
+	font-size:1.9em;
 	p a {
 		display:none;
 	}

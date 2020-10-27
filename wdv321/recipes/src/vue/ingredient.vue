@@ -1,4 +1,9 @@
 <template>
+	<tr class="ingredient mob">
+		<td colspan="4">
+			Ingredient #{{ id + 1 }}
+		</td>
+	</tr>
 	<tr class="ingredient" :id="myid">
 		<td>
 			<input type="text" style="width:80%" :v-model="numVmodl" title="Enter the amount of the ingredient" alt="Enter the amount of the ingredient" :name="numName" :id="numName" :size="numSize" :maxlength="numSize" :value="quant" placeholder="###" @blur="$emit('numinput', parseInt($event.target.value))" />
@@ -90,6 +95,10 @@ export default {
 <style lang="scss">
 @import "../css/variables.scss";
 
+.ingredient.mob {
+	display:none;
+}
+
 .ingredient {
 	width:100%;
 	margin-top:3px;
@@ -106,17 +115,17 @@ export default {
 		background-color: $InputBg;
 		-moz-appearance: none;
 		appearance: none;
-		border: 1px solid $InputBord;
-		padding: 5px;
-		color: $InputFg;
-		font-size: 1.08em;
+		border:1px solid $InputBord;
+		padding:5px;
+		color:$InputFg;
+		font-size:1.08em;
 		margin:1px;
-		width:80% !important;
+		width:80%;
 		transition:background-color, color, border 0.2s ease 0s;
 		&:hover {
-			background-color: $InputHoverBg !important;
-			color:$InputHoverFg !important;
-			border:1px solid $InputHoverBord !important;
+			background-color: $InputHoverBg;
+			color:$InputHoverFg;
+			border:1px solid $InputHoverBord;
 		}
 	}
 	select {

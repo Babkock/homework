@@ -1,11 +1,13 @@
 /* Dynamic Recipes Project October - November 2020 Copyright (c) 2020 Tanner Babcock. */
+.ingredient.mob { display: none;
+}
 .ingredient { width: 100%; margin-top: 3px; margin-bottom: 3px; text-align: center;
 }
 .ingredient td { padding: 4px; font-size: 1.08em; width: 24%; margin-left: 1px; margin-right: 1px; color: #efefef;
 }
-.ingredient td input[type="text"], .ingredient td input[type="number"] { background-color: #131313; -moz-appearance: none; appearance: none; border: 1px solid #203020; padding: 5px; color: #dfdfdf; font-size: 1.08em; margin: 1px; width: 80% !important; transition: background-color, color, border 0.2s ease 0s;
+.ingredient td input[type="text"], .ingredient td input[type="number"] { background-color: #131313; -moz-appearance: none; appearance: none; border: 1px solid #203020; padding: 5px; color: #dfdfdf; font-size: 1.08em; margin: 1px; width: 80%; transition: background-color, color, border 0.2s ease 0s;
 }
-.ingredient td input[type="text"]:hover, .ingredient td input[type="number"]:hover { background-color: #202020 !important; color: white !important; border: 1px solid #304130 !important;
+.ingredient td input[type="text"]:hover, .ingredient td input[type="number"]:hover { background-color: #202020; color: white; border: 1px solid #304130;
 }
 .ingredient td select { color: white; font-size: 1.08em !important; padding: 5px; width: 100% !important; background-color: #131313; border: 1px solid #203020;
 }
