@@ -39,3 +39,37 @@ nav ul li a:hover { padding: 6px !important; font-size: 2.15em; background-color
 #displaySlider .box ul, #displaySlider .box ol { border: 0 !important; padding: 6px; margin-left: 2em; }
 
 #displaySlider .box ul li, #displaySlider .box ol li { font-size: 1.7em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
+
+.status { height: 90px; padding: 6px; width: 90%; margin-left: 5%; margin-right: 5%; background-color: rgba(190, 170, 164, 0.3); border: 1px solid rgba(0, 0, 0, 0); opacity: 0.9; }
+
+.status p { display: block; font-size: 1.65em; padding: 3px; color: #101010; width: 97%; margin-left: 1%; margin-right: 1%; }
+
+.status p.success { color: white; background-color: #314c31; border: 2px solid #437d43; }
+
+.status p.error { color: white; background-color: #401212; border: 2px solid red; }
+
+.status.top { border-radius: 0px 0px 32px 32px; margin-bottom: 4px; }
+
+.status.bottom { width: 80% !important; margin-left: 10% !important; margin-right: 10% !important; border-radius: 0px 0px 32px 32px; }
+
+.ingredient { display: inline; text-align: center; width: 100%; }
+
+.ingredient td { width: 100% !important; float: left; margin-top: 4px; margin-bottom: 4px; color: #101010; }
+
+.ingredient td input, .ingredient td select { color: #101010 !important; font-size: 1.71em; width: 92%; margin-left: 1%; margin-right: 1%; background-color: #dfcfef !important; border: 2px solid #cfbfdf !important; padding: 4px !important; margin-top: 16px !important; margin-bottom: 16px !important; }
+
+.ingredient td input:hover, .ingredient td select:hover { color: black !important; border: 2px solid #efefef; background-color: #c9bfaf !important; padding: 4px !important; margin-top: 16px !important; margin-bottom: 16px !important; font-size: 1.71em; }
+
+.ingredient td input[type="checkbox"] { display: block; appearance: checkbox; -moz-appearance: checkbox; height: 95px !important; }
+
+.ingredient td:first-child { text-align: center !important; }
+
+.ingredient td input[type="text"] { font-size: 1.71em; }
+
+.ingredient td.mobile { display: inline !important; font-size: 1.71em; }
+
+#about { width: 90%; margin-left: 5%; margin-right: 5%; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 32px 32px 32px 32px; margin-top: 10px; margin-bottom: 10px; }
+
+#about p { display: block; line-height: 1.5; }
+
+#about p, #about b, #about a, #about i { font-size: 1.65em !important; }

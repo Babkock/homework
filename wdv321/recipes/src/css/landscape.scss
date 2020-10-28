@@ -112,3 +112,105 @@ nav {
 		}
 	}
 }
+
+.status {
+	height:90px;
+	padding:6px;
+	@include WidthMargins(90%, 5%, 5%);
+	background-color:rgba(190, 170, 164, 0.3);
+	border:1px solid rgba(0, 0, 0, 0);
+	opacity:0.9;
+	p {
+		display:block;
+		font-size:1.65em;
+		padding:3px;
+		color:#101010;
+		@include WidthMargins(97%, 1%, 1%);
+	}
+	p.success {
+		color:white;
+		background-color:$ButtonHoverBg;
+		border:2px solid $ButtonHoverBord;
+	}
+	p.error {
+		color:white;
+		background-color:#401212;
+		border:2px solid red;
+	}
+	&.top {
+		border-radius:0px 0px 32px 32px;
+		margin-bottom:4px;
+	}
+	&.bottom {
+		width:80% !important;
+		margin-left:10% !important;
+		margin-right:10% !important;
+		border-radius:0px 0px 32px 32px;
+	}
+}
+
+.ingredient {
+	display:inline;
+	text-align:center;
+	width:100%;
+	td {
+		width:100% !important;
+		float:left;
+		margin-top:4px;
+		margin-bottom:4px;
+		color:$MobileInputFg;
+		input, select {
+			color:$MobileInputFg !important;
+			font-size:1.71em;
+			@include WidthMargins(92%, 1%, 1%);
+			background-color:$MobileInputBg !important;
+			border:2px solid $MobileInputBord !important;
+			padding:4px !important;
+			margin-top:16px !important;
+			margin-bottom:16px !important;
+			&:hover {
+				color:black !important;
+				border:2px solid #efefef;
+				background-color:$MobileInputHoverBg !important;
+				padding:4px !important;
+				margin-top:16px !important;
+				margin-bottom:16px !important;
+				font-size:1.71em;
+			}
+		}
+		input[type="checkbox"] {
+			display:block;
+			appearance:checkbox;
+			-moz-appearance:checkbox;
+			height:95px !important;
+		}
+		&:first-child {
+			text-align:center !important;
+		}
+		input[type="text"] {
+			font-size:1.71em;
+		}
+	}
+	td.mobile {
+		display:inline !important;
+		font-size:1.71em;
+	}
+}
+
+#about {
+	@include WidthMargins(90%, 5%, 5%);
+	display:block;
+	padding:7px;
+	background:$MobileFormBg;
+	border:1px solid rgba(0, 0, 0, 0);
+	border-radius:32px 32px 32px 32px;
+	margin-top:10px;
+	margin-bottom:10px;
+	p {
+		display:block;
+		line-height:1.5;
+	}
+	p, b, a, i {
+		font-size:1.65em !important;
+	}
+}

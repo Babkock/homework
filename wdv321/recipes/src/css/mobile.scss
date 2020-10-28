@@ -28,6 +28,10 @@ p, li, a, b {
 	font-size:2.1em;
 }
 
+.ingredient td:nth-child(2) input {
+	text-align:center !important;
+}
+
 h1 {
 	font-size: 4.1em !important;
 	text-shadow:4px 4px skyblue;
@@ -198,23 +202,25 @@ button {
 			font-size:2em;
 			@include WidthMargins(92%, 1%, 1%);
 			background-color:$MobileInputBg !important;
-			border:2px solid $MobileInputBord !important;
+			border:4px solid $MobileInputBord !important;
 			padding:9px !important;
-			margin-top:20px !important;
-			margin-bottom:20px !important;
+			margin-top:30px !important;
+			margin-bottom:30px !important;
 			&:hover {
 				color:black !important;
-				border:2px solid #efefef;
+				border:4px solid #efefef;
 				background-color:$MobileInputHoverBg !important;
 				padding:9px !important;
-				margin-top:20px !important;
-				margin-bottom:20px !important;
+				margin-top:30px !important;
+				margin-bottom:30px !important;
 				font-size:2em;
 			}
 		}
 		input[type="checkbox"] {
-			width:150px !important;
-			height:150px !important;
+			display:block;
+			appearance:checkbox;
+			-moz-appearance:checkbox;
+			height:160px !important;
 		}
 		&:first-child {
 			text-align:center !important;
@@ -238,10 +244,10 @@ button {
 
 .status {
 	height:140px;
-	padding:7px;
+	padding:8px;
 	@include WidthMargins(90%, 5%, 5%);
 	background-color:rgba(190, 170, 164, 0.3);
-	border:1px solid rgba(0, 0, 0, 0);
+	border:3px solid rgba(0, 0, 0, 0);
 	opacity:0.9;
 	p {
 		display:block;
@@ -281,7 +287,7 @@ form .steps tr td {
 		background-color:$MobileInputBg;
 		border:2px solid $MobileInputBord;
 		padding:7px;
-		width:79%;
+		width:75%;
 		margin-left:1%;
 		margin-top:7px;
 		margin-bottom:7px;
@@ -289,7 +295,7 @@ form .steps tr td {
 			color:black !important;
 			border:1px solid $MobileInputHoverBord;
 			padding:7px !important;
-			width:79% !important;
+			width:75% !important;
 			background-color:$MobileInputHoverBg;
 			margin-left:1%;
 			font-size:2em;
@@ -307,6 +313,24 @@ form .steps tr td {
 
 .recipes tbody tr td:first-child {
 	text-align:center;
+}
+
+#about {
+	@include WidthMargins(90%, 5%, 5%);
+	display:block;
+	padding:9px;
+	background:$MobileFormBg;
+	border:1px solid rgba(0, 0, 0, 0);
+	border-radius:34px 34px 34px 34px;
+	margin-top:18px;
+	margin-bottom:18px;
+	p {
+		display:block;
+		line-height:1.5;
+	}
+	p, b, a, i {
+		font-size:1.98em !important;
+	}
 }
 
 footer {
