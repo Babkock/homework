@@ -1,5 +1,5 @@
 /*
-	Unit 10: Mocha-Chai Test Automation
+	Unit 8: Mocha-Chai Test Automation
 	October 23, 2020
 	Tanner Babcock
 */

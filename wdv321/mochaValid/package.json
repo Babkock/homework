@@ -1,6 +1,6 @@
 {
   "name": "mochaTestValidations",
-  "description": "WDV321 Unit 6: Mocha Chai Test Automation",
+  "description": "WDV321 Unit 8: Mocha Chai Test Automation",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
