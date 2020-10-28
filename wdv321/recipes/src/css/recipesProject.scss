@@ -80,7 +80,7 @@ p.success {
 	justify-content:center;
 	.box {
 		@include WidthMargins(24%, 2px, 2px);
-		border:1px solid white;
+		border:1px solid black;
 		background:$FormBg;
 		padding:4px;
 		padding-left:5px;
@@ -257,8 +257,7 @@ button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
 	background:$FormBg;
 	border:1px solid rgba(0, 0, 0, 0);
-	border-radius:32px 32px 32px 32px;
+	border-radius:0px 0px 32px 32px;
 	padding:6px;
-	margin-top:5px;
 	margin-bottom:5px;
 }
