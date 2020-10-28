@@ -141,7 +141,7 @@ export default {
 	}
 }
 
-.ingredient td:first-child {
+.ingredient td:nth-child(2) {
 	text-align:right;
 	margin-right:3px;
 	input {
@@ -150,10 +150,10 @@ export default {
 	}
 }
 
-.ingredient td:nth-child(3) {
+.ingredient td:nth-child(4) {
 	width:35%;
 }
-.ingredient td:nth-child(4) {
+.ingredient td:nth-child(5) {
 	width:15%;
 }
 

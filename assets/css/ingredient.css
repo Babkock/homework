@@ -13,11 +13,11 @@
 }
 .ingredient td select:hover { background-color: #202020; color: white; border: 1px solid #304130;
 }
-.ingredient td:first-child { text-align: right; margin-right: 3px;
+.ingredient td:nth-child(2) { text-align: right; margin-right: 3px;
 }
-.ingredient td:first-child input { text-align: right; letter-spacing: 0.9em;
+.ingredient td:nth-child(2) input { text-align: right; letter-spacing: 0.9em;
 }
-.ingredient td:nth-child(3) { width: 35%;
+.ingredient td:nth-child(4) { width: 35%;
 }
-.ingredient td:nth-child(4) { width: 15%;
+.ingredient td:nth-child(5) { width: 15%;
 }

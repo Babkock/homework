@@ -26,7 +26,7 @@ Vue.mixin({
 			console.log(JSON.stringify(this.recipe));
 			
 			var isInRecipeFiles = false;
-			this.recipeFiles.forEach((f, index) => {
+			this.recipeFiles.forEach((f) => {
 				if (f === this.lastStorageItem)
 					isInRecipeFiles = true;
 			});
@@ -48,7 +48,7 @@ Vue.mixin({
 
 			this.lastStorageItem = x;
 			var isInRecipeFiles = false;
-			this.recipeFiles.forEach((f, index) => {
+			this.recipeFiles.forEach((f) => {
 				if (f === this.lastStorageItem)
 					isInRecipeFiles = true;
 			});
@@ -94,7 +94,7 @@ Vue.mixin({
 						measurement: ing.measurement,
 						opt: ing.opt
 					});
-					console.log("Pushing ingredient " + index + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
+					console.log("Pushing ingredient " + (index + 1) + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
 				});
 
 				this.recipe.steps = [];

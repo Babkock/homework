@@ -61,8 +61,8 @@ nav {
 				&:hover {
 					padding:8px !important;
 					font-size:2.4em;
-					background-color:$MobileLinkHoverBg;
-					color:white;
+					background-color:$MobileLinkHoverBg !important;
+					color:white !important;
 				}
 			}
 		}
@@ -211,6 +211,12 @@ button {
 				margin-bottom:20px !important;
 				font-size:2em;
 			}
+		}
+		&:first-child {
+			text-align:center !important;
+		}
+		input[type="text"] {
+			font-size:2em;
 		}
 	}
 	td.mobile {
