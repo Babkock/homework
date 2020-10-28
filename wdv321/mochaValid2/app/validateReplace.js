@@ -4,5 +4,11 @@
 	Tanner Babcock
 */
 var validateReplace = function(rstr) {
-
+	var str = rstr.replace('/', '-');
+	str = str.replace('\'', '-');
+	str = str.replace('<', '-');
+	str = str.replace('>', '-');
+	return str;
 };
+
+module.exports = validateReplace;

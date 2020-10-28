@@ -197,6 +197,52 @@ nav {
 	}
 }
 
+form {
+	font-size:1.7em;
+	@include WidthMargins(90%, 5%, 5%);
+	display:block;
+	padding:5px;
+	background:$MobileFormBg;
+	border:1px solid rgba(0, 0, 0, 0);
+	border-radius:34px 34px 34px 34px;
+	margin-top:5px;
+	margin-bottom:5px;
+	.formflex {
+		display:inline;
+		text-align:center;
+		input, select {
+			color:$MobileInputFg;
+			font-size:1.71em !important;
+			@include WidthMargins(90%, 1%, 1%);
+			background-color:$MobileInputBg;
+			border:2px solid $MobileInputBord;
+			padding:4px !important;
+			width:90% !important;
+			max-width:100% !important;
+			min-width:50% !important;
+			margin-top:20px;
+			margin-bottom:20px;
+			&:hover {
+				color:black !important;
+				border:2px solid #efefef;
+				background-color:$MobileInputHoverBg;
+				padding:4px !important;
+				width:90% !important;
+				max-width:100% !important;
+				min-width:50% !important;
+				margin-top:20px;
+				margin-bottom:20px;
+			}
+		}
+		span {
+			font-size:1.8em;
+			margin-top:30px;
+			margin-bottom:30px;
+			width:90%;
+		}
+	}
+}
+
 #about {
 	@include WidthMargins(90%, 5%, 5%);
 	display:block;
@@ -212,5 +258,12 @@ nav {
 	}
 	p, b, a, i {
 		font-size:1.65em !important;
+	}
+}
+
+footer {
+	font-size:1.9em;
+	p a {
+		display:none;
 	}
 }

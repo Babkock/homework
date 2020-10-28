@@ -46,7 +46,7 @@ describe("Testing Input Required", function(){
 		assert.isTrue(validInput('a 4'));
 	});
 	
-});	//end "Testing Input Required"
+});
 
 describe("Testing Valid Phone Number", function(){
 	
@@ -76,6 +76,29 @@ describe("Testing Valid Phone Number", function(){
 describe("Testing Valid Email Addresses", function() {
 	it("Input is required", function() {
 		assert.isTrue(validateEmail("tababcock@dmacc.edu"));
-		assert.isFalse(validateEmail("tababcock"));
 	});
+	it("Input must have all parts of an email", function() {
+		assert.isFalse(validateEmail("tababcock@dmacc"));
+	});
+	it("Input must be a real email address", function() {
+		assert.isFalse(validateEmail("dmacc.edu"));
+		assert.isFalse(validateEmail("foo@bar"));
+	});
+});
+
+describe("Testing Valid Zip Codes", function() {
+	it("Input is required", function() {
+		assert.isTrue(validateZipCode("50021"));
+		assert.isTrue(validateZipCode(50021));
+	});
+	it("Input must be 5 digits", function() {
+		assert.isTrue(validateZipCode("90059"));
+		assert.isFalse(validateZipCode("900958"));
+		assert.isFalse(validateZipCode("9004"));
+		assert.isFalse(validateZipCode("9"));
+	});
+});
+
+describe("Testing replace function", function() {
+
 });
