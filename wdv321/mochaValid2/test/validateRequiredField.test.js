@@ -8,6 +8,9 @@
 var assert = require('chai').assert;
 var validInput = require('../app/validateRequiredField');
 var validatePhoneNumber = require('../app/validatePhoneNumber.js');
+var validateZipCode = require('../app/validateZipCode.js');
+var validateEmail = require('../app/validateEmail.js');
+var validateReplace = require('../app/validateReplace.js');
 
 describe("Testing Input Required", function(){
 	
@@ -67,5 +70,12 @@ describe("Testing Valid Phone Number", function(){
 	it("Input must not be undefined", function() {
 		assert.isFalse(validatePhoneNumber(undefined));
 		assert.isFalse(validatePhoneNumber(null));
+	});
+});
+
+describe("Testing Valid Email Addresses", function() {
+	it("Input is required", function() {
+		assert.isTrue(validateEmail("tababcock@dmacc.edu"));
+		assert.isFalse(validateEmail("tababcock"));
 	});
 });

@@ -1,5 +1,5 @@
 /*
-	Unit 9: Mocha-Chai Test Automation
+	Unit 9: Validation with Regular Expressions
 	October 27, 2020
 	Tanner Babcock
 */
