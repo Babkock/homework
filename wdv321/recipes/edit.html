@@ -60,9 +60,9 @@
 				<div class="formflex">
 					<span><b>Difficulty:</b></span>
 					<select v-model="recipe.difficulty" @change="recipe.difficulty = $event.target.value" title="How easy is this recipe to follow?" alt="How easy is this recipe to follow?">
-						<option value="easy" :selected="recipe.difficulty === 'easy'">Easy</option>
-						<option value="medium" :selected="recipe.difficulty === 'medium'">Medium</option>
-						<option value="hard" :selected="recipe.difficulty === 'hard'">Hard</option>
+						<option value="Easy" :selected="recipe.difficulty === 'easy' || recipe.difficulty === 'Easy'">Easy</option>
+						<option value="Medium" :selected="recipe.difficulty === 'medium' || recipe.difficulty === 'Medium'">Medium</option>
+						<option value="Hard" :selected="recipe.difficulty === 'hard' || recipe.difficulty === 'Hard'">Hard</option>
 					</select>
 				</div>
 				<div class="formflex">
