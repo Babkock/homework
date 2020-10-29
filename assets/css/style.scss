@@ -255,7 +255,7 @@ code {
 	}
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
 	-moz-appearance:none !important;
 	appearance:none !important;
 	background-color:#191e1d;
@@ -271,13 +271,13 @@ input[type="text"] {
 }
 
 input[type="submit"], form p input[type="submit"], button, form button, form p button, input[type="reset"] {
-	padding:9px;
+	padding:11px;
 	font-size:1.18em;
 	background-color:#221010;
 	color:white;
-	margin:5px;
+	margin:6px;
 	border:1px solid gray;
-	border-radius:25px;
+	border-radius:29px;
 	box-shadow:1px 1px white;
 	margin-bottom:5px;
 	&:hover {
@@ -353,6 +353,31 @@ form {
 		padding:3px;
 		height:30px;
 		width:30px;
+	}
+}
+
+#events-form {
+	form {
+		.formFlex {
+			display:flex;
+			width:100%;
+			flex-direction:row;
+			flex-wrap:nowrap;
+			margin-top:4px;
+			margin-bottom:4px;
+			label {
+				width:49%;
+				margin-right:1%;
+				font-size:1.15em;
+				font-weight:bold;
+			}
+			input {
+				width:49%;
+				margin-left:1%;
+				font-size:1.16em;
+				padding:7px;
+			}
+		}
 	}
 }
 
