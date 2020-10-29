@@ -138,7 +138,7 @@ form p input[type="checkbox"], form p input[type="radio"] { padding: 3px; height
 
 #events-form form .formFlex label { width: 49%; margin-right: 1%; font-size: 1.15em; font-weight: bold; text-align: right; }
 
-#events-form form .formFlex input { width: 49%; margin-left: 1%; font-size: 1.16em; padding: 7px; }
+#events-form form .formFlex input { width: 47%; margin-left: 1%; font-size: 1.16em; padding: 7px; }
 
 #events-form form center label { width: 100%; font-size: 1.16em; padding: 7px; }
 
@@ -183,3 +183,5 @@ p.success { color: lime; }
 .ftable thead tr td { font-weight: bold; }
 
 .box.big { font-size: 1.15em; }
+
+.buttons { margin-top: 5px; margin-bottom: 5px; }
