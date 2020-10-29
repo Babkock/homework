@@ -258,13 +258,13 @@ code {
 input[type="text"], input[type="number"] {
 	-moz-appearance:none !important;
 	appearance:none !important;
-	background-color:#191e1d;
+	background-color:#101010;
 	color:#dfdfdf;
 	border:1px solid #202020;
 	padding:6px;
 	font-size:1.14em;
 	&:hover {
-		background-color:#292e2d;
+		background-color:#151515;
 		color:#efefef;
 		border:1px solid #d8d8d8;
 	}
@@ -393,15 +393,17 @@ form {
 				max-width:90% !important;
 				min-width:90% !important;
 				-moz-appearance:none !important;
+				margin-top:7px;
+				margin-bottom:8px;
 				appearance:none !important;
-				background-color:#191e1d;
+				background-color:#101010;
 				color:#dfdfdf;
 				border:1px solid #202020;
 				padding:6px;
 				font-size:1.15em;
 				font-family:"Arial" !important;
 				&:hover {
-					background-color:#292e2d;
+					background-color:#141414;
 					color:#efefef;
 					border:1px solid #dfdfdf;
 				}
