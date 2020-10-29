@@ -1,7 +1,7 @@
 // JavaScript Document
 /*
-   Unit 10: Mocha-Chai Test Automation
-   October 24, 2020
+   Unit 9: Validation with Regular Expressions
+   October 29, 2020
    Tanner Babcock
 */
 
@@ -91,6 +91,7 @@ describe("Testing Valid Zip Codes", function() {
 		assert.isTrue(validateZipCode("50021"));
 		assert.isTrue(validateZipCode(50021));
 	});
+
 	it("Input must be 5 digits", function() {
 		assert.isTrue(validateZipCode("90059"));
 		assert.isFalse(validateZipCode("900958"));
@@ -100,5 +101,15 @@ describe("Testing Valid Zip Codes", function() {
 });
 
 describe("Testing replace function", function() {
+	it("Input has been changed", function() {
+		var str ="/// ''' <><";
 
+		assert.isTrue(validateReplace(str) === "--- --- ---");
+	});
+
+	it("Input with words becomes sanitized", function() {
+		var str2 = "hello// <''world''>";
+
+		assert.isTrue(validateReplace(str2) === "hello-- ---world---");
+	});
 });
