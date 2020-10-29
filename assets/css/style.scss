@@ -260,8 +260,8 @@ input[type="text"], input[type="number"] {
 	appearance:none !important;
 	background-color:#191e1d;
 	color:#efefef;
-	border:1px solid gray;
-	padding:5px;
+	border:1px solid #202020;
+	padding:6px;
 	font-size:1.14em;
 	&:hover {
 		background-color:#292e2d;
@@ -276,20 +276,18 @@ input[type="submit"], form p input[type="submit"], button, form button, form p b
 	background-color:#221010;
 	color:white;
 	margin:6px;
-	border:1px solid gray;
-	border-radius:29px;
-	box-shadow:1px 1px white;
+	border:1px solid rgba(0,0,0,0);
+	border-radius:32px;
 	margin-bottom:5px;
 	&:hover {
 		background-color:#392020;
 		color:white;
-		border:1px solid white;
-		box-shadow:1px 1px red;
+		border:1px solid rgba(0,0,0,0);
 	}
 	&:active {
 		background-color:#203718;
-		color:white;
-		border:1px solid green;
+		color:lime;
+		border:1px solid rgba(0,0,0,0);
 		box-shadow:none !important;
 	}
 }
@@ -342,7 +340,7 @@ form {
 		font-size:1.15em;
 	}
 	select {
-		padding:5px !important;
+		padding:7px !important;
 		font-size:1.19em;
 		background-color:#202020 !important;
 		color:white;
@@ -358,6 +356,7 @@ form {
 
 #events-form {
 	form {
+		@include WidthMargins(94%, 3%, 3%);
 		.formFlex {
 			display:flex;
 			width:100%;
@@ -370,6 +369,7 @@ form {
 				margin-right:1%;
 				font-size:1.15em;
 				font-weight:bold;
+				text-align:right;
 			}
 			input {
 				width:49%;
