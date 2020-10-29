@@ -259,21 +259,21 @@ input[type="text"], input[type="number"] {
 	-moz-appearance:none !important;
 	appearance:none !important;
 	background-color:#191e1d;
-	color:#efefef;
+	color:#dfdfdf;
 	border:1px solid #202020;
 	padding:6px;
 	font-size:1.14em;
 	&:hover {
 		background-color:#292e2d;
-		color:white;
-		border:1px solid #efefef;
+		color:#efefef;
+		border:1px solid #d8d8d8;
 	}
 }
 
 input[type="submit"], form p input[type="submit"], button, form button, form p button, input[type="reset"] {
 	padding:11px;
 	font-size:1.18em;
-	background-color:#221010;
+	background-color:#231111;
 	color:white;
 	margin:6px;
 	border:1px solid rgba(0,0,0,0);
@@ -282,12 +282,12 @@ input[type="submit"], form p input[type="submit"], button, form button, form p b
 	&:hover {
 		background-color:#392020;
 		color:white;
-		border:1px solid rgba(0,0,0,0);
+		border:1px solid rgba(0,0,0,0) !important;
 	}
 	&:active {
 		background-color:#203718;
 		color:lime;
-		border:1px solid rgba(0,0,0,0);
+		border:1px solid rgba(0,0,0,0) !important;
 		box-shadow:none !important;
 	}
 }
@@ -356,7 +356,9 @@ form {
 
 #events-form {
 	form {
-		@include WidthMargins(94%, 3%, 3%);
+		width:94%;
+		margin-left:3%;
+		margin-right:3%;
 		.formFlex {
 			display:flex;
 			width:100%;
@@ -376,6 +378,33 @@ form {
 				margin-left:1%;
 				font-size:1.16em;
 				padding:7px;
+			}
+		}
+		center {
+			label {
+				width:100%;
+				font-size:1.16em;
+				padding:7px;
+			}
+			textarea {
+				width:90% !important;
+				margin-left:5%;
+				margin-right:5%;
+				max-width:90% !important;
+				min-width:90% !important;
+				-moz-appearance:none !important;
+				appearance:none !important;
+				background-color:#191e1d;
+				color:#dfdfdf;
+				border:1px solid #202020;
+				padding:6px;
+				font-size:1.15em;
+				font-family:"Arial" !important;
+				&:hover {
+					background-color:#292e2d;
+					color:#efefef;
+					border:1px solid #dfdfdf;
+				}
 			}
 		}
 	}
