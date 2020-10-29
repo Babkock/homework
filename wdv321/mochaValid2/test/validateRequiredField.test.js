@@ -73,6 +73,14 @@ describe("Testing Valid Phone Number", function(){
 	});
 });
 
+/*
+	Email Validation Test Plan:
+
+	- Create a function that will return true if a string is a valid email address
+	- The string must contain a '@' and then a '.' for the domain
+	- The function should return false if '@' or '.' are absent
+*/
+
 describe("Testing Valid Email Addresses", function() {
 	it("Input is required", function() {
 		assert.isTrue(validateEmail("tababcock@dmacc.edu"));
@@ -86,6 +94,14 @@ describe("Testing Valid Email Addresses", function() {
 	});
 });
 
+/*
+	Zip Code Verification Test Plan:
+
+	- Create a function that will return true if given a 5-digit int, or a string of 5 numbers
+	- If the int is too small, too big, or the string contains any more or less than 5 numbers,
+	  return false
+*/
+
 describe("Testing Valid Zip Codes", function() {
 	it("Input is required", function() {
 		assert.isTrue(validateZipCode("50021"));
@@ -98,7 +114,20 @@ describe("Testing Valid Zip Codes", function() {
 		assert.isFalse(validateZipCode("9004"));
 		assert.isFalse(validateZipCode("9"));
 	});
+
+	it("Input must not have alphabetic letters", function() {
+		assert.isFalse(validateZipCode("fdsfa115"));
+	});
 });
+
+/*
+	Special Character Replacer Test Plan:
+
+	- Create a function that does not return a boolean true or false, but rather the input string
+	  with special characters (', /, <, and >) replaced with dashes (-).
+	- Function should return the given string with every instance of a special character replaced
+	- There should be no special characters left
+*/
 
 describe("Testing replace function", function() {
 	it("Input has been changed", function() {
