@@ -124,7 +124,7 @@ form {
 	padding:7px;
 	background:$MobileFormBg;
 	border:1px solid rgba(0, 0, 0, 0);
-	border-radius:34px 34px 34px 34px;
+	border-radius:38px 38px 38px 38px;
 	margin-top:6px;
 	margin-bottom:6px;
 	.formflex {
@@ -174,7 +174,7 @@ button {
 	border:3px solid darkgreen;
 	margin-top:10px;
 	margin-bottom:10px;
-	font-size:1.97em;
+	font-size:1.95em !important;
 	color:#c4dfc4 !important;
 	transition:background-color, border, color 0.2s ease 0s;
 	&:hover {
@@ -188,7 +188,7 @@ button {
 		border:3px solid salmon;
 		margin-top:10px;
 		margin-bottom:10px;
-		font-size:1.97em;
+		font-size:1.95em !important;
 	}
 }
 

@@ -44,7 +44,7 @@ nav ul li a:hover { padding: 8px !important; font-size: 2.4em; background-color:
 
 #displaySlider .box ul li, #displaySlider .box ol li { font-size: 2.1em; line-height: 1.5; margin-top: 5px; margin-bottom: 5px; }
 
-form { font-size: 1.92em; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 34px 34px 34px 34px; margin-top: 6px; margin-bottom: 6px; }
+form { font-size: 1.92em; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 38px 38px 38px 38px; margin-top: 6px; margin-bottom: 6px; }
 
 form .formflex { display: inline; text-align: center; }
 
@@ -54,9 +54,9 @@ form .formflex input:hover, form .formflex select:hover { color: black !importan
 
 form .formflex span { font-size: 1.83em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
 
-button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid darkgreen; margin-top: 10px; margin-bottom: 10px; font-size: 1.97em; color: #c4dfc4 !important; transition: background-color, border, color 0.2s ease 0s; }
+button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid darkgreen; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; color: #c4dfc4 !important; transition: background-color, border, color 0.2s ease 0s; }
 
-button:hover { width: 100%; color: #dfc4c4 !important; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #c86060; border: 3px solid salmon; margin-top: 10px; margin-bottom: 10px; font-size: 1.97em; }
+button:hover { width: 100%; color: #dfc4c4 !important; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #c86060; border: 3px solid salmon; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; }
 
 .ingredient { display: inline; text-align: center; width: 100%; }
 

@@ -392,6 +392,9 @@ form {
 				margin-right:5%;
 				max-width:90% !important;
 				min-width:90% !important;
+				height:80px;
+				min-height:80px;
+				max-height:80px !important;
 				-moz-appearance:none !important;
 				margin-top:7px;
 				margin-bottom:8px;
@@ -493,10 +496,10 @@ nav {
 	}
 }
 
-p.error {
+p.error, .error {
 	color:red;
 }
-p.success {
+p.success, .success {
 	color:lime;
 }
 
