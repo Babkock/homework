@@ -70,6 +70,7 @@ nav {
 }
 
 .recipe { color:black !important; }
+.recipe ul li b { font-size: 1.54em !important; }
 
 #displaySlider {
 	display:flex;
@@ -82,8 +83,8 @@ nav {
 		@include WidthMargins(47%, 1%, 1%);
 		border:2px solid $MobileBoxBord;
 		background:$MobileBoxBg;
-		margin-top:6px;
-		margin-bottom:6px;
+		margin-top:10px;
+		margin-bottom:10px;
 		border-radius:32px 32px 32px 32px;
 		font-size:1.7em;
 		color:black;
@@ -146,6 +147,34 @@ nav {
 		margin-left:10% !important;
 		margin-right:10% !important;
 		border-radius:0px 0px 32px 32px;
+	}
+}
+
+button {
+	width:100%;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:12px;
+	padding-bottom:12px;
+	background-color:$MobileButtonBg;
+	border:2px solid darkgreen;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:1.65em;
+	color:#c4dfc4 !important;
+	transition:background-color, border, color 0.2s ease 0s;
+	&:hover {
+		width:100%;
+		color:#dfc4c4 !important;
+		padding-left:8px;
+		padding-right:8px;
+		padding-top:12px;
+		padding-bottom:12px;
+		background-color:$MobileButtonHoverBg;
+		border:2px solid salmon;
+		margin-top:10px;
+		margin-bottom:10px;
+		font-size:1.65em;
 	}
 }
 
@@ -243,6 +272,45 @@ form {
 	}
 }
 
+form .steps tr td {
+	font-size:1.3em;
+	color:#101010;
+	input {
+		color:$MobileInputFg;
+		font-size:1.71em !important;
+		background-color:$MobileInputBg;
+		border:2px solid $MobileInputBord;
+		padding:4px;
+		width:74%;
+		margin-left:1%;
+		margin-top:18px;
+		margin-bottom:18px;
+		transition:background-color, border, color 0.2s ease 0s;
+		&:hover {
+			color:black !important;
+			border:1px solid $MobileInputHoverBord;
+			padding:4px !important;
+			width:74% !important;
+			background-color:$MobileInputHoverBg;
+			margin-left:1%;
+			font-size:1.71em;
+			margin-top:18px;
+			margin-bottom:18px;
+		}
+	}
+}
+
+.recipes tbody tr td, .recipes thead tr td {
+	background:none;
+	width:95%;
+	float:left;
+	border:0 !important;
+}
+
+.recipes tbody tr td:first-child {
+	text-align:center;
+}
+
 #about {
 	@include WidthMargins(90%, 5%, 5%);
 	display:block;
@@ -252,12 +320,21 @@ form {
 	border-radius:32px 32px 32px 32px;
 	margin-top:10px;
 	margin-bottom:10px;
+	h2 {
+		font-size:2.1em;
+	}
 	p {
 		display:block;
 		line-height:1.5;
 	}
 	p, b, a, i {
 		font-size:1.65em !important;
+	}
+	a, a:link, a:visited, a:active {
+		color:blue;
+	}
+	a:hover {
+		color:gray;
 	}
 }
 
