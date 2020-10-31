@@ -4,6 +4,7 @@
 	October 29, 2020
 	Tanner Babcock
 */
+require_once("dbConnect.php");
 
 if (empty($_POST)) {
 	try {

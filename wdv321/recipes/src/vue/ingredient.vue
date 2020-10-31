@@ -105,8 +105,8 @@ export default {
 }
 
 .ingredient td {
-	padding:4px;
-	font-size:1.08em;
+	padding:5px;
+	font-size:1.09em;
 	@include WidthMargins(24%, 1px, 1px);
 	color:#efefef;
 	input[type="text"], input[type="number"] {
@@ -114,9 +114,9 @@ export default {
 		-moz-appearance: none;
 		appearance: none;
 		border:1px solid $InputBord;
-		padding:5px;
+		padding:6px;
 		color:$InputFg;
-		font-size:1.08em;
+		font-size:1.09em;
 		margin:1px;
 		width:80%;
 		transition:background-color, color, border 0.2s ease 0s;

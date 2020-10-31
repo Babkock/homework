@@ -3,9 +3,9 @@
 }
 .ingredient td.mobile { display: none;
 }
-.ingredient td { padding: 4px; font-size: 1.08em; width: 24%; margin-left: 1px; margin-right: 1px; color: #efefef;
+.ingredient td { padding: 5px; font-size: 1.09em; width: 24%; margin-left: 1px; margin-right: 1px; color: #efefef;
 }
-.ingredient td input[type="text"], .ingredient td input[type="number"] { background-color: #131313; -moz-appearance: none; appearance: none; border: 1px solid #203020; padding: 5px; color: #dfdfdf; font-size: 1.08em; margin: 1px; width: 80%; transition: background-color, color, border 0.2s ease 0s;
+.ingredient td input[type="text"], .ingredient td input[type="number"] { background-color: #131313; -moz-appearance: none; appearance: none; border: 1px solid #203020; padding: 6px; color: #dfdfdf; font-size: 1.09em; margin: 1px; width: 80%; transition: background-color, color, border 0.2s ease 0s;
 }
 .ingredient td input[type="text"]:hover, .ingredient td input[type="number"]:hover { background-color: #202020; color: white; border: 1px solid #304130;
 }

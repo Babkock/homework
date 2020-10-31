@@ -35,7 +35,7 @@ Vue.mixin({
 			}
 			StoreRecipeFiles();
 
-			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
+			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
 		},
 
 		/* Store current recipe object under new filename 'x' */
@@ -57,7 +57,7 @@ Vue.mixin({
 			}
 			this.StoreRecipeFiles();
 
-			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully.</p>";
+			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
 		},
 
 		/* Load recipe object 'x' into DOM */
