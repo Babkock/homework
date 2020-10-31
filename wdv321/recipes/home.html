@@ -47,7 +47,7 @@
 						<ul v-if="recip.ingredients">
 							<li v-for="(ing, i) in recip.ingredients" :key="i">
 								<b v-text="ing.quantity"></b> {{ ing.measurement }} {{ ing.name }}
-								<i v-if="ing.optional" class="opt">(Optional)</i>
+								<i v-if="ing.opt" class="opt">(Optional)</i>
 							</li>
 						</ul>
 					</template>
