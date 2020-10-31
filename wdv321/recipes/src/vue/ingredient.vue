@@ -57,7 +57,7 @@ export default {
 			default: ""
 		},
 		quant: {
-			type: String,
+			type: Number,
 			required: true
 		},
 		ing: {

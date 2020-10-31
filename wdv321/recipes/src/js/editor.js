@@ -25,7 +25,6 @@ Vue.mixin({
 			this.recipe.ingredients.forEach((ing) => {
 				if (ing.opt === "yes")
 					ing.opt = true;
-				ing.name += " (Optional)";
 			});
 
 			storage.removeItem(this.lastStorageItem);
@@ -54,9 +53,8 @@ Vue.mixin({
 			this.recipe.ingredients.forEach((ing) => {
 				if (ing.opt === "yes")
 					ing.opt = true;
-				ing.name += " (Optional)";
 			});
-			
+
 			storage.setItem(x, JSON.stringify(this.recipe));
 			console.log(JSON.stringify(this.recipe));
 
