@@ -44,6 +44,14 @@ nav ul li a:hover { padding: 8px !important; font-size: 2.4em; background-color:
 
 #displaySlider .box ul li, #displaySlider .box ol li { font-size: 2.1em; line-height: 1.5; margin-top: 5px; margin-bottom: 5px; }
 
+#displaySlider .box ul li i.opt { font-style: italic; color: #303030; }
+
+#displaySlider .box p span .easy { color: green; font-size: 2.16em; }
+
+#displaySlider .box p span .medium { color: brown; font-size: 2.11em; }
+
+#displaySlider .box p span .hard { color: red; font-size: 2.16em; }
+
 form { font-size: 1.92em; display: block; padding: 7px; background: rgba(240, 230, 240, 0.64); border: 1px solid rgba(0, 0, 0, 0); border-radius: 38px 38px 38px 38px; margin-top: 6px; margin-bottom: 6px; }
 
 form .formflex { display: inline; text-align: center; }

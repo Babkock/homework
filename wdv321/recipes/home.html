@@ -41,13 +41,13 @@
 						<p><b>Serves: {{ recip.serves }}</b></p>
 						<p><b>Preparation Time:</b> {{ recip.preparation.quantity }} {{ recip.preparation.measurement }}</p>
 						<p><b>Cooking Time:</b> {{ recip.cooking.quantity }} {{ recip.cooking.measurement }}</p>
-						<p><b>Difficulty:</b> {{ recip.difficulty }}</p>
+						<p><b>Difficulty:</b> <span v-html="DifficultyStyle(recip.difficulty)"></span></p>
 					</template>
 					<template slot="ingredients">
 						<ul v-if="recip.ingredients">
 							<li v-for="(ing, i) in recip.ingredients" :key="i">
 								<b v-text="ing.quantity"></b> {{ ing.measurement }} {{ ing.name }}
-								<i v-if="ing.optional">(Optional)</i>
+								<i v-if="ing.optional" class="opt">(Optional)</i>
 							</li>
 						</ul>
 					</template>

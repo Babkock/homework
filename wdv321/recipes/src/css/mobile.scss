@@ -115,6 +115,22 @@ nav {
 				margin-bottom:5px;
 			}
 		}
+		ul li i.opt {
+			font-style:italic;
+			color:#303030;
+		}
+		p span .easy {
+			color:green;
+			font-size:2.16em;
+		}
+		p span .medium {
+			color:brown;
+			font-size:2.11em;
+		}
+		p span .hard {
+			color:red;
+			font-size:2.16em;
+		}
 	}
 }
 

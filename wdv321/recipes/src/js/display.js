@@ -45,6 +45,27 @@ Vue.mixin({
 			],
 			recipeFiles: []
 		};
+	},
+
+	methods: {
+		DifficultyStyle(diff) {
+			var out = "";
+			switch (diff) {
+				case "Easy": case "easy":
+					out = "<span class=\"easy\">Easy</span>";
+					break;
+				case "Medium": case "medium":
+					out = "<span class=\"medium\">Medium</span>";
+					break;
+				case "Hard": case "hard":
+					out = "<span class=\"hard\">Hard</span>";
+					break;
+				default:
+					out = diff;
+					break;
+			}
+			return out;
+		}
 	}
 })
 
