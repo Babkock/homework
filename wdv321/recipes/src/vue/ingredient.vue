@@ -32,7 +32,7 @@
 		</td>
 		<td>
 			Optional?
-			<input type="checkbox" :v-model="optVmodl" :name="optName" :id="optName" value="yes" :checked="opt === 'yes'" @blur="$emit('optinput', $event.target.value)" />
+			<input type="checkbox" :v-model="optVmodl" :name="optName" :id="optName" value="yes" :checked="opt === 'yes'" @change="$emit('optinput', $event.target.value)" />
 		</td>
 	</tr>
 </template>

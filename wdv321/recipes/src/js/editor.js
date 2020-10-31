@@ -21,6 +21,13 @@ Vue.mixin({
 		StoreObject() {
 			var storage = window.localStorage;
 			console.log("Updating storage object '" + this.lastStorageItem + "'");
+
+			this.recipe.ingredients.forEach((ing) => {
+				if (ing.opt === "yes")
+					ing.opt = true;
+				ing.name += " (Optional)";
+			});
+
 			storage.removeItem(this.lastStorageItem);
 			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
 			console.log(JSON.stringify(this.recipe));
@@ -43,6 +50,13 @@ Vue.mixin({
 			var storage = window.localStorage;
 
 			console.log("Storing object '" + x + "' in local storage");
+
+			this.recipe.ingredients.forEach((ing) => {
+				if (ing.opt === "yes")
+					ing.opt = true;
+				ing.name += " (Optional)";
+			});
+			
 			storage.setItem(x, JSON.stringify(this.recipe));
 			console.log(JSON.stringify(this.recipe));
 
