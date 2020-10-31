@@ -304,7 +304,7 @@ form .steps tr td {
 		transition:background-color, border, color 0.2s ease 0s;
 		&:hover {
 			color:black !important;
-			border:1px solid $MobileInputHoverBord;
+			border:2px solid $MobileInputHoverBord;
 			padding:4px !important;
 			width:74% !important;
 			background-color:$MobileInputHoverBg;

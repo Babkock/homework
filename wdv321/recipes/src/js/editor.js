@@ -25,6 +25,8 @@ Vue.mixin({
 			this.recipe.ingredients.forEach((ing) => {
 				if (ing.opt === "yes")
 					ing.opt = true;
+				else
+					ing.opt = false;
 			});
 
 			storage.removeItem(this.lastStorageItem);
@@ -53,6 +55,8 @@ Vue.mixin({
 			this.recipe.ingredients.forEach((ing) => {
 				if (ing.opt === "yes")
 					ing.opt = true;
+				else
+					ing.opt = false;
 			});
 
 			storage.setItem(x, JSON.stringify(this.recipe));
@@ -129,7 +133,7 @@ Vue.mixin({
 				storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
 			}
 			else {
-				console.error("DEBUG: Something wrong with this.recipeFiles");
+				console.error("Something wrong with this.recipeFiles");
 			}
 		}
 	}

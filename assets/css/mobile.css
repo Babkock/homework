@@ -102,7 +102,7 @@ form .steps tr td { font-size: 1.3em; color: #101010; }
 
 form .steps tr td input { color: #101010; font-size: 2em; background-color: #dfcfef; border: 2px solid #cfbfdf; padding: 7px; width: 75%; margin-left: 1%; margin-top: 7px; margin-bottom: 7px; transition: background-color, border, color 0.2s ease 0s; }
 
-form .steps tr td input:hover { color: black !important; border: 1px solid #efefef; padding: 7px !important; width: 75% !important; background-color: #c9bfaf; margin-left: 1%; font-size: 2em; margin-top: 7px; margin-bottom: 7px; }
+form .steps tr td input:hover { color: black !important; border: 2px solid #efefef; padding: 7px !important; width: 75% !important; background-color: #c9bfaf; margin-left: 1%; font-size: 2em; margin-top: 7px; margin-bottom: 7px; }
 
 .recipes tbody tr td, .recipes thead tr td { background: none; width: 95%; float: left; border: 0 !important; }
 
