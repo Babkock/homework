@@ -34,7 +34,7 @@
 		</header>
 		<main id="displaySlider" v-if="this.recipes.length > 0">
 			<div class="box" v-for="(recip, index) in this.recipes">
-				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename" :buttons="(index == 0) ? 'yes' : 'no'">
+				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename" :buttons="yes">
 					<template slot="title"><a href="#" @click="ViewRecipe(recip.filename)">{{ recip.title }}</a></template>
 					<template slot="img"><img :src="recip.image" /></template>
 					<template slot="info">
