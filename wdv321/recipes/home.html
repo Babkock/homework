@@ -34,12 +34,12 @@
 		</header>
 		<main id="displaySlider" v-if="this.recipes.length > 0">
 			<div class="box" v-for="(recip, index) in this.recipes">
-				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename" buttons="yes">
+				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
 					<template slot="title"><a href="#" @click="ViewRecipe(recip.filename)">{{ recip.title }}</a></template>
 					<template slot="img"><img :src="recip.image" /></template>
 					<template slot="info">
 						<p><b>Serves: {{ recip.serves }}</b></p>
-						<p v-if="this.buts === 'yes'">
+						<p class="recip-buttons">
 							<button @click="QuantAdjust(0)" title="Default number of servings" alt="Default number of servings">Normal</button>
 							&nbsp;<button @click="QuantAdjust(1)" title="Half the normal number of servings" alt="Half the normal number of servings">Half</button>
 							&nbsp;<button @click="QuantAdjust(2)" title="Double the normal number of servings" alt="Double the normal number of servings">Double</button>
@@ -64,6 +64,13 @@
 						</ol>
 					</template>
 				</recipe>
+			</div>
+			<div v-if="this.recipeInitialQuantities.length == 0">
+				<style>
+					.recip-buttons {
+						display:none;
+					}
+				</style>
 			</div>
 		</main>
 		<center>
