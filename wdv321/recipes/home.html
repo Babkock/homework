@@ -32,14 +32,14 @@
 				</ul>
 			</nav>
 		</header>
-		<main id="displaySlider" v-if="this.recipes.length > 0">
+		<main id="displaySlider" v-if="this.recipes.length > 1">
 			<div class="box" v-for="(recip, index) in this.recipes">
-				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename" :total="this.recipes.length">
+				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
 					<template slot="title"><a href="#" @click="ViewRecipe(recip.filename)">{{ recip.title }}</a></template>
 					<template slot="img"><img :src="recip.image" /></template>
 					<template slot="info">
 						<p><b>Serves: {{ recip.serves }}</b></p>
-						<p class="rbuttons" :style="{ display: (total > 1) ? 'none' : 'inline' }">
+						<p class="rbuttons">
 							<button @click="QuantAdjust(0)" title="Default number of servings" alt="Default number of servings">Normal</button>
 							&nbsp;<button @click="QuantAdjust(1)" title="Half the normal number of servings" alt="Half the normal number of servings">Half</button>
 							&nbsp;<button @click="QuantAdjust(2)" title="Double the normal number of servings" alt="Double the normal number of servings">Double</button>
@@ -75,6 +75,13 @@
 			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 		</footer>
 	</div>
+	<script>
+		var c = document.querySelector(".box").length;
+
+		if (c > 1) {
+			document.querySelector(".rbuttons").style.display = "none";
+		}
+	</script>
 	<script src="/homework/assets/js/display.min.js"></script>
 </body>
 </html>
