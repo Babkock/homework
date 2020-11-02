@@ -164,7 +164,6 @@ var app = new Vue({
 
 			this.recipeInitialQuantities = [];
 			this.initialServes = this.recipes[0].serves;
-			document.querySelector(".recip-buttons").style.display = "none";
 		}
 	}
 })
