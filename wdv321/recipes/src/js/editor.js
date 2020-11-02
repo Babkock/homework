@@ -214,15 +214,20 @@ var app = new Vue({
 				name: "",
 				opt: ""
 			});
-			this.ingredients = parseInt(this.ingredients) + 1;
-			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) + 1;
+			//this.ingredients = parseInt(this.ingredients) + 1;
+			this.ingredients++;
+			//this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) + 1;
+			this.recipe.numberOfIngreds++;
 			this.topStatus = "<p class=\"success\">Added ingredient.</p>";
 		},
 
 		RemoveIngredient() {
 			this.recipe.ingredients.splice(this.ingredients-1, 1);
-			this.ingredients = parseInt(this.ingredients) - 1;
-			this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) - 1;
+			//this.ingredients = parseInt(this.ingredients) - 1;
+			//this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) - 1;
+			this.ingredients--;
+			this.recipe.numberOfIngreds--;
+
 			this.topStatus = "<p class=\"error\">Removed last ingredient.</p>";
 		},
 

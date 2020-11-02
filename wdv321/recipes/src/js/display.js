@@ -15,6 +15,7 @@ Vue.mixin({
 	data: () => {
 		return {
 			numberOfRecipes: 1,
+			fileToView: "",
 			recipes: [ /*
 				{
 					title: "Chunks of Hunk... Yum",
@@ -43,7 +44,9 @@ Vue.mixin({
 					]
 				} */
 			],
-			recipeFiles: []
+			recipeFiles: [],
+			recipeInitialQuantities: [],
+			initialServes: 1
 		};
 	},
 
@@ -93,16 +96,73 @@ var app = new Vue({
 			else {
 				console.error("Could not load specified recipe '" + x + "' from local storage");
 			}
+		},
+
+		/* Reset the Recipe viewer to show all recipes */
+		ViewAllRecipes() {
+			var storage = window.localStorage;
+			storage.removeItem("fileToView");
+
+			location.reload();
+		},
+
+		/* Show only a single recipe, 'x' */
+		ViewRecipe(x) {
+			this.fileToView = x;
+			var storage = window.localStorage;
+
+			storage.setItem("fileToView", x);
+			location.reload();
+		},
+
+		/* Adjust the quantities of ingredients based on user selecting "Half" or "Double" button */
+		QuantAdjust(i) {
+			if (i == 0) {		/* normal */
+				this.recipes[0].ingredients.forEach((ing, index) => {
+					ing.quantity = this.recipeInitialQuantities[index];
+				});
+				this.recipes[0].serves = this.initialServes;
+			}
+
+			else if (i == 1) {	/* half */
+				this.recipes[0].ingredients.forEach((ing, index) => {
+					ing.quantity = parseInt(this.recipeInitialQuantities[index] / 2);
+				});
+				this.recipes[0].serves = parseInt(this.initialServes / 2);
+			}
+			
+			else if (i == 2) {
+				this.recipes[0].ingredients.forEach((ing, index) => {
+					ing.quantity = parseInt(this.recipeInitialQuantities[index] * 2);
+				});
+				this.recipes[0].serves = parseInt(this.initialServes * 2);
+			}
 		}
 	},
 
 	mounted() {
 		var storage = window.localStorage;
-		var rfiles = JSON.parse(storage.getItem("recipeFiles"));
+		var file = storage.getItem("fileToView");
 
-		this.recipeFiles = rfiles;
-		this.recipeFiles.forEach((el, index) => {
-			this.LoadObject(el);
-		});
+		if (file) {
+			this.LoadObject(file);
+
+			this.recipes[0].ingredients.forEach((ing) => {
+				this.recipeInitialQuantities.push(ing.quantity);
+			});
+
+			this.initialServes = this.recipe[0].serves;
+		}
+		else {
+			var rfiles = JSON.parse(storage.getItem("recipeFiles"));
+
+			this.recipeFiles = rfiles;
+			this.recipeFiles.forEach((f) => {
+				this.LoadObject(f);
+			});
+
+			this.recipeInitialQuantities = [];
+			this.initialServes = this.recipe[0].serves;
+		}
 	}
 })
