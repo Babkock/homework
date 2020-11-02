@@ -22,6 +22,10 @@ export default {
 		filename: {
 			type: String,
 			required: true
+		},
+		buttons: {
+			type: String,
+			default: "no"
 		}
 	}
 };
