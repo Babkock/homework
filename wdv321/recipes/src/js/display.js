@@ -163,7 +163,7 @@ var app = new Vue({
 			});
 
 			this.recipeInitialQuantities = [];
-			this.initialServes = this.recipe[0].serves;
+			this.initialServes = this.recipes[0].serves;
 		}
 	}
 })
