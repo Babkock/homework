@@ -146,12 +146,13 @@ var app = new Vue({
 
 		if (file) {
 			this.LoadObject(file);
+			this.recipeInitialQuantities = [];
 
 			this.recipes[0].ingredients.forEach((ing) => {
 				this.recipeInitialQuantities.push(ing.quantity);
 			});
 
-			this.initialServes = this.recipe[0].serves;
+			this.initialServes = this.recipes[0].serves;
 		}
 		else {
 			var rfiles = JSON.parse(storage.getItem("recipeFiles"));
