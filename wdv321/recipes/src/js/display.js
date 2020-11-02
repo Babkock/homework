@@ -126,14 +126,14 @@ var app = new Vue({
 
 			else if (i == 1) {	/* half */
 				this.recipes[0].ingredients.forEach((ing, index) => {
-					ing.quantity = parseInt(this.recipeInitialQuantities[index] / 2);
+					ing.quantity = this.recipeInitialQuantities[index] / 2;
 				});
 				this.recipes[0].serves = parseInt(this.initialServes / 2);
 			}
 			
 			else if (i == 2) {
 				this.recipes[0].ingredients.forEach((ing, index) => {
-					ing.quantity = parseInt(this.recipeInitialQuantities[index] * 2);
+					ing.quantity = this.recipeInitialQuantities[index] * 2;
 				});
 				this.recipes[0].serves = parseInt(this.initialServes * 2);
 			}
