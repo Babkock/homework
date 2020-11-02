@@ -39,7 +39,7 @@
 					<template slot="img"><img :src="recip.image" /></template>
 					<template slot="info">
 						<p><b>Serves: {{ recip.serves }}</b></p>
-						<p class="rbuttons" :style="{ display: (index > 0) ? 'none' : 'inline' }">
+						<p class="rbuttons" :style="{ display: (document.querySelector('.box').length > 1) ? 'none' : 'inline' }">
 							<button @click="QuantAdjust(0)" title="Default number of servings" alt="Default number of servings">Normal</button>
 							&nbsp;<button @click="QuantAdjust(1)" title="Half the normal number of servings" alt="Half the normal number of servings">Half</button>
 							&nbsp;<button @click="QuantAdjust(2)" title="Double the normal number of servings" alt="Double the normal number of servings">Double</button>
