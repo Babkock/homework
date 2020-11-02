@@ -27,6 +27,12 @@ export default {
 			type: String,
 			default: "no"
 		}
+	},
+
+	data: () => {
+		return {
+			buts: this.buttons
+		};
 	}
 };
 </script>
