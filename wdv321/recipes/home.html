@@ -39,6 +39,41 @@
 					<template slot="img"><img :src="recip.image" /></template>
 					<template slot="info">
 						<p><b>Serves: {{ recip.serves }}</b></p>
+						<!-- <p class="rbuttons">
+							<button @click="QuantAdjust(0)" title="Default number of servings" alt="Default number of servings">Normal</button>
+							&nbsp;<button @click="QuantAdjust(1)" title="Half the normal number of servings" alt="Half the normal number of servings">Half</button>
+							&nbsp;<button @click="QuantAdjust(2)" title="Double the normal number of servings" alt="Double the normal number of servings">Double</button>
+						</p> -->
+						<p><b>Preparation Time:</b> {{ recip.preparation.quantity }} {{ recip.preparation.measurement }}</p>
+						<p><b>Cooking Time:</b> {{ recip.cooking.quantity }} {{ recip.cooking.measurement }}</p>
+						<p><b>Difficulty:</b> <span v-html="DifficultyStyle(recip.difficulty)"></span></p>
+					</template>
+					<template slot="ingredients">
+						<ul v-if="recip.ingredients">
+							<li v-for="(ing, i) in recip.ingredients" :key="i">
+								<b v-text="ing.quantity"></b> {{ ing.measurement }} {{ ing.name }}
+								<i v-if="ing.opt" class="opt">(Optional)</i>
+							</li>
+						</ul>
+					</template>
+					<template slot="steps">
+						<ol v-if="recip.steps">
+							<li v-for="(step, i) in recip.steps" :key="i">
+								{{ step }}
+							</li>
+						</ol>
+					</template>
+				</recipe>
+			</div>
+		</main>
+
+		<main id="displaySlider" v-else>
+			<div class="box" v-for="(recip, index) in this.recipes">
+				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
+					<template slot="title"><a href="#" @click="ViewRecipe(recip.filename)">{{ recip.title }}</a></template>
+					<template slot="img"><img :src="recip.image" /></template>
+					<template slot="info">
+						<p><b>Serves: {{ recip.serves }}</b></p>
 						<p class="rbuttons">
 							<button @click="QuantAdjust(0)" title="Default number of servings" alt="Default number of servings">Normal</button>
 							&nbsp;<button @click="QuantAdjust(1)" title="Half the normal number of servings" alt="Half the normal number of servings">Half</button>
@@ -66,6 +101,7 @@
 				</recipe>
 			</div>
 		</main>
+
 		<center>
 			<button @click="ViewAllRecipes()" title="View all recipes saved in storage" alt="View all recipes saved in storage">View All Recipes</button>
 		</center>
@@ -75,13 +111,6 @@
 			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 		</footer>
 	</div>
-	<script>
-		var c = document.querySelector(".box").length;
-
-		if (c > 1) {
-			document.querySelector(".rbuttons").style.display = "none";
-		}
-	</script>
 	<script src="/homework/assets/js/display.min.js"></script>
 </body>
 </html>
