@@ -129,3 +129,5 @@ footer p a, footer p span { display: none; }
 .rbuttons { text-align: center; width: 100%; margin-top: 7px; margin-bottom: 7px; }
 
 .edit { display: none; }
+
+h2.sad { text-align: center; color: black; font-size: 3.4em; }

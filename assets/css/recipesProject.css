@@ -99,3 +99,5 @@ button:active, input[type="submit"]:active { outline: 0 !important; background-c
 #about { width: 89%; margin-left: 5%; margin-right: 6%; background: rgba(10, 10, 30, 0.35); border: 1px solid rgba(0, 0, 0, 0); border-radius: 0px 0px 32px 32px; font-size: 1.15em; padding: 8px; padding-left: 12px; margin-bottom: 5px; }
 
 .rbuttons, .edit { text-align: center; margin-top: 3px; margin-bottom: 3px; }
+
+h2.sad { text-align: center; color: white; }
