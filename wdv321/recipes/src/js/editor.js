@@ -261,13 +261,13 @@ var app = new Vue({
 		/* Show or hide list of ingredients */
 		ToggleIngreds() {
 			this.showingIngreds = ((this.showingIngreds === true) ? false : true);
-			this.ingredsButton = ((this.showingIngreds === true) ? "Hide Ingredients List" : "Show Ingredients List");
+			this.ingredsButton = ((this.showingIngreds === true) ? "Hide Ingredients" : "Show Ingredients");
 		},
 
 		/* Show or hide list of steps */
 		ToggleSteps() {
 			this.showingSteps = ((this.showingSteps === true) ? false : true);
-			this.stepsButton = ((this.showingSteps === true) ? "Hide Steps List" : "Show Steps List");
+			this.stepsButton = ((this.showingSteps === true) ? "Hide Steps" : "Show Steps");
 		}
 	},
 
@@ -299,8 +299,11 @@ var app = new Vue({
 
 		if (filename) {
 			this.LoadObject(filename);
-
 			this.topStatus = "<p class=\"success\">Loaded file '<b>" + filename + "</b>' from local storage.</p>";
+			this.showingSteps = true;
+			this.showingIngreds = true;
+			this.stepsButton = "Hide Steps";
+			this.ingredsButton = "Hide Ingredients";
 		}
 		else {
 			this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";

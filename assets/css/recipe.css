@@ -1,6 +1,8 @@
 .recipe { color: white;
 }
-.recipe h2 { color: aqua; text-shadow: 2px 2px #004455;
+.recipe h2 a, .recipe h2 a:visited, .recipe h2 a:active, .recipe h2 a:link { color: aqua; text-shadow: 2px 2px #004455;
+}
+.recipe h2 a:hover { color: lime; text-shadow: 2px 2px #005511;
 }
 .recipe p { font-size: 1.09em;
 }

@@ -103,7 +103,7 @@
 					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :quant="ing.quantity" :mmnt="ing.measurement" :ing="ing.name" :opt="((ing.opt === true || ing.opt === 'yes') ? 'yes' : 'no')" @optinput="ing.opt = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 
-				<h2>Steps:</h2>				
+				<h2>Instructions:</h2>				
 				<table><tbody v-if="showingSteps" class="steps">
 					<tr class="step" v-for="(st, index) in recipe.steps" :key="index" :id="index">
 						<td>{{ index + 1 }}. <input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" placeholder="Make awesome food!" size="100" maxlength="200" /></td>

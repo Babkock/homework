@@ -8,6 +8,7 @@
 		<h3>Ingredients:</h3>
 		<slot name="ingredients"></slot>
 		<br />
+		<h3>Instructions</h3>
 		<slot name="steps"></slot>
 	</div>
 </template>
@@ -34,9 +35,13 @@ export default {
 <style lang="scss">
 .recipe {
 	color:white;
-	h2 {
+	h2 a, h2 a:visited, h2 a:active, h2 a:link {
 		color:aqua;
 		text-shadow:2px 2px #004455;
+	}
+	h2 a:hover {
+		color:lime;
+		text-shadow:2px 2px #005511;
 	}
 	p {
 		font-size:1.09em;

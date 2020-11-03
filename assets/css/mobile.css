@@ -36,7 +36,7 @@ nav ul li a:hover { padding: 8px !important; font-size: 2.4em; background-color:
 
 #displaySlider .box { text-align: left; padding: 7px; width: 98%; margin-left: 1%; margin-right: 1%; border: 3px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 6px; margin-bottom: 6px; border-radius: 45px 45px 45px 45px; font-size: 2em; color: black; }
 
-#displaySlider .box h2 { color: skyblue; text-shadow: 2px 3px #201817; font-size: 2.7em; margin-top: 5px; margin-bottom: 5px; }
+#displaySlider .box h2 a, #displaySlider .box h2 a:hover, #displaySlider .box h2 a:active, #displaySlider .box h2 a:link, #displaySlider .box h2 a:visited { color: skyblue; text-shadow: 2px 3px #201817; font-size: 2.7em; margin-top: 5px; margin-bottom: 5px; }
 
 #displaySlider .box h3 { font-size: 2.54em; margin-top: 4px; margin-bottom: 4px; }
 
