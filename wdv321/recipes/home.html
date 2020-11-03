@@ -33,6 +33,12 @@
 			</nav>
 		</header>
 
+		<main id="displaySlider" v-if="this.recipes.length == 0">
+			<center>
+				<h3>No Recipes Yet :(</h3>
+			</center>
+		</main>
+
 		<main id="displaySlider" v-if="this.recipes.length > 1">
 			<div class="box" v-for="(recip, index) in this.recipes">
 				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
