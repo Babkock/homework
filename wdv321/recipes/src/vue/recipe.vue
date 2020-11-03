@@ -64,8 +64,8 @@ export default {
 		text-align:center;
 		border:1px solid #dfdfdf;
 		opacity:0.9;
-		margin-left:4%;
-		margin-right:4%;
+		margin-left:6%;
+		margin-right:6%;
 		&:hover {
 			opacity:1;
 			border:1px solid white;

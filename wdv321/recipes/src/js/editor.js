@@ -43,6 +43,7 @@ Vue.mixin({
 			}
 			StoreRecipeFiles();
 
+			this.saved = true;
 			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
 		},
 
@@ -73,6 +74,7 @@ Vue.mixin({
 			}
 			this.StoreRecipeFiles();
 
+			this.saved = true;
 			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
 		},
 
@@ -124,6 +126,7 @@ Vue.mixin({
 
 				this.recipe.title = "New Recipe!";
 			}
+			this.saved = false;
 		},
 
 		/* Store the recipeFiles array in local storage, for use with other pages */
@@ -170,6 +173,7 @@ var app = new Vue({
 			ingredsButton: "Show Ingredients List",
 			stepsButton: "Show Steps List",
 			lastStorageItem: "",
+			saved: false,
 			recipe: {
 				numberOfIngreds: 3,
 				numberOfSteps: 2,
@@ -214,7 +218,9 @@ var app = new Vue({
 		};
 	},
 	
+	/* Button handlers */
 	methods: {
+		/* Add a new, empty ingredient to the Recipe */
 		AddIngredient() {
 			this.recipe.ingredients.push({
 				quantity: 0,
@@ -227,6 +233,7 @@ var app = new Vue({
 			this.topStatus = "<p class=\"success\">Added ingredient.</p>";
 		},
 
+		/* Remove the last ingredient from the Recipe */
 		RemoveIngredient() {
 			this.recipe.ingredients.splice(this.ingredients-1, 1);
 			this.ingredients--;
@@ -235,6 +242,7 @@ var app = new Vue({
 			this.topStatus = "<p class=\"error\">Removed last ingredient.</p>";
 		},
 
+		/* Add a step to the Recipe instructions */
 		AddStep() {
 			this.recipe.steps.push("");
 			this.steps = parseInt(this.steps) + 1;
@@ -242,6 +250,7 @@ var app = new Vue({
 			this.bottomStatus = "<p class=\"success\">Added step.</p>";
 		},
 
+		/* Remove the last step from the Recipe instructions */
 		RemoveStep() {
 			this.recipe.steps.splice(this.steps-1, 1);
 			this.steps = parseInt(this.steps) - 1;
@@ -249,30 +258,17 @@ var app = new Vue({
 			this.bottomStatus = "<p class=\"error\">Removed last step.</p>";
 		},
 
+		/* Show or hide list of ingredients */
 		ToggleIngreds() {
 			this.showingIngreds = ((this.showingIngreds === true) ? false : true);
 			this.ingredsButton = ((this.showingIngreds === true) ? "Hide Ingredients List" : "Show Ingredients List");
 		},
 
+		/* Show or hide list of steps */
 		ToggleSteps() {
 			this.showingSteps = ((this.showingSteps === true) ? false : true);
 			this.stepsButton = ((this.showingSteps === true) ? "Hide Steps List" : "Show Steps List");
-		},
-/*
-		ingredButton: function() {
-			if (this.showingIngreds === true)
-				return "Hide Ingredients List";
-			else
-				return "Show Ingredients List";
-		},
-
-		stepsButton: function() {
-			if (this.showingSteps === true)
-				return "Hide Steps List";
-			else
-				return "Show Steps List";
 		}
-*/
 	},
 
 	mounted() {
@@ -293,6 +289,7 @@ var app = new Vue({
 		}
 		else {
 			var x = JSON.parse(recipes);
+			
 			if (!x) {
 				this.recipeFiles = ["hello"];
 			} else {

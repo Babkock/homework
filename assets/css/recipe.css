@@ -12,7 +12,7 @@
 }
 .recipe ul li { font-size: 1.08em; line-height: 1.5;
 }
-.recipe .imgbox { text-align: center; border: 1px solid #dfdfdf; opacity: 0.9; margin-left: 4%; margin-right: 4%;
+.recipe .imgbox { text-align: center; border: 1px solid #dfdfdf; opacity: 0.9; margin-left: 6%; margin-right: 6%;
 }
 .recipe .imgbox:hover { opacity: 1; border: 1px solid white;
 }

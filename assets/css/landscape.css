@@ -90,7 +90,7 @@ form .formflex input, form .formflex select { color: #101010; font-size: 1.71em 
 
 form .formflex input:hover, form .formflex select:hover { color: black !important; border: 2px solid #efefef; background-color: #c9bfaf; padding: 4px !important; width: 90% !important; max-width: 100% !important; min-width: 50% !important; margin-top: 20px; margin-bottom: 20px; }
 
-form .formflex span { font-size: 1.8em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
+form .formflex label { font-size: 1.8em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
 
 form .steps tr td { font-size: 1.3em; color: #101010; }
 

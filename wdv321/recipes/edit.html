@@ -42,24 +42,26 @@
 
 				<input type="hidden" v-model="recipe.numberOfIngreds" id="numberOfIngreds" />
 				<input type="hidden" v-model="recipe.numberOfSteps" id="numberOfSteps" />
+
 				<div class="formflex large">
-					<span><b>Filename:</b></span>
+					<label><b>Filename:</b></label>
 					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" title="What should this recipe's filename be in local storage?" alt="What should this recipe's filename be in local storage?" />
 				</div>
 				<div class="formflex">
-					<span><b>Title:</b></span>
+					<label><b>Title:</b></label>
 					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" title="What is this recipe for? (Casserole, etc)" alt="What is this recipe for? (Casserole, etc)" />
 				</div>
 				<div class="formflex">
-					<span><b>Image URL:</b></span>
+					<label><b>Image URL:</b></label>
 					<input type="text" v-model="recipe.image" placeholder="https://site.com/test.jpg" @blur="recipe.image = $event.target.value" title="URL for the image of the food" alt="URL for the image of the food" />
 				</div>
 				<div class="formflex">
-					<span><b>Serves:</b></span>
+					<label><b>Serves:</b></label>
 					<input type="number" v-model="recipe.serves" @change="recipe.serves = parseInt($event.target.value)" title="How many does this serve?" alt="How many does this serve?" />
 				</div>
+
 				<div class="formflex">
-					<span><b>Difficulty:</b></span>
+					<label><b>Difficulty:</b></label>
 					<select v-model="recipe.difficulty" @change="recipe.difficulty = $event.target.value" title="How easy is this recipe to follow?" alt="How easy is this recipe to follow?">
 						<option value="Easy" :selected="recipe.difficulty === 'easy' || recipe.difficulty === 'Easy'">Easy</option>
 						<option value="Medium" :selected="recipe.difficulty === 'medium' || recipe.difficulty === 'Medium'">Medium</option>
@@ -67,7 +69,7 @@
 					</select>
 				</div>
 				<div class="formflex">
-					<span><b>Preparation Time:</b></span>
+					<label><b>Preparation Time:</b></label>
 					<input type="number" v-model="recipe.preparation.quantity" @change="recipe.preparation.quantity = parseInt($event.target.value)" />
 					<select v-model="recipe.preparation.measurement" @change="recipe.preparation.measurement = $event.target.value">
 						<option value="seconds">seconds</option>
@@ -77,7 +79,7 @@
 					</select>
 				</div>
 				<div class="formflex">
-					<span><b>Cooking Time:</b></span>
+					<label><b>Cooking Time:</b></label>
 					<input type="number" v-model="recipe.cooking.quantity" @change="recipe.cooking.quantity = parseInt($event.target.value)" />
 					<select v-model="recipe.cooking.measurement" @change="recipe.cooking.measurement = $event.target.value">
 						<option value="seconds">seconds</option>
@@ -88,6 +90,7 @@
 				</div>
 
 				<h2>Ingredients:</h2>
+				<p>Remember, the quantities in these ingredients can be adjusted (by half, or by double) on the display page. Keep that in mind when setting the initial quantity values.</p>
 				<div class="buttons">
 					<p>
 						<button @click="$event.preventDefault(); AddIngredient()" title="Add an Ingredient to the end of the list" alt="Add an Ingredient to the end of the list">Add Ingredient</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
@@ -114,7 +117,7 @@
 						<button @click="$event.preventDefault(); ToggleSteps()" title="Show/Hide the Steps list" alt="Show/Hide the Steps list" v-text="stepsButton"></button>
 					</p>
 
-					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename)" title="Save the recipe under the given filename, if you're finished!" alt="Save the recipe under the given filename, if you're finished!">Save Recipe</button>
+					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename)" title="Save the recipe under the given filename, if you're finished!" alt="Save the recipe under the given filename, if you're finished!" :disabled="saved === true">Save Recipe</button>
 					<br />
 					<br />
 				</div>

@@ -60,7 +60,7 @@ form .formflex input, form .formflex select { color: #101010; font-size: 2.1em !
 
 form .formflex input:hover, form .formflex select:hover { color: black !important; border: 1px solid #efefef; background-color: #c9bfaf; padding: 8px !important; width: 90% !important; max-width: 100% !important; min-width: 50% !important; margin-top: 20px; margin-bottom: 20px; }
 
-form .formflex span { font-size: 1.83em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
+form .formflex label { font-size: 1.83em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
 
 button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid darkgreen; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; color: #c4dfc4 !important; transition: background-color, border, color 0.2s ease 0s; }
 
