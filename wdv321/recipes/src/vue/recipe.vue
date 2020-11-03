@@ -8,7 +8,7 @@
 		<h3>Ingredients:</h3>
 		<slot name="ingredients"></slot>
 		<br />
-		<h3>Instructions</h3>
+		<h3>Instructions:</h3>
 		<slot name="steps"></slot>
 	</div>
 </template>
@@ -23,10 +23,6 @@ export default {
 		filename: {
 			type: String,
 			required: true
-		},
-		buttons: {
-			type: String,
-			default: "no"
 		}
 	}
 };
@@ -37,11 +33,13 @@ export default {
 	color:white;
 	h2 a, h2 a:visited, h2 a:active, h2 a:link {
 		color:aqua;
-		text-shadow:2px 2px #004455;
+		text-shadow:3px 3px #078;
+		transition:color, text-shadow 0.2s ease 0s;
 	}
 	h2 a:hover {
 		color:lime;
-		text-shadow:2px 2px #005511;
+		text-shadow:3px 3px #086;
+		text-decoration:none !important;
 	}
 	p {
 		font-size:1.09em;
@@ -55,13 +53,13 @@ export default {
 		margin-left:1.2em;
 		li {
 			font-size:1.08em;
-			line-height:1.5;
+			line-height:1.6;
 		}
 	}
 	ul {
 		li {
 			font-size:1.08em;
-			line-height:1.5;
+			line-height:1.6;
 		}
 	}
 

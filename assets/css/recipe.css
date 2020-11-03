@@ -1,8 +1,8 @@
 .recipe { color: white;
 }
-.recipe h2 a, .recipe h2 a:visited, .recipe h2 a:active, .recipe h2 a:link { color: aqua; text-shadow: 2px 2px #004455;
+.recipe h2 a, .recipe h2 a:visited, .recipe h2 a:active, .recipe h2 a:link { color: aqua; text-shadow: 3px 3px #078; transition: color, text-shadow 0.2s ease 0s;
 }
-.recipe h2 a:hover { color: lime; text-shadow: 2px 2px #005511;
+.recipe h2 a:hover { color: lime; text-shadow: 3px 3px #086; text-decoration: none !important;
 }
 .recipe p { font-size: 1.09em;
 }
@@ -10,9 +10,9 @@
 }
 .recipe ol { padding: 3px; text-align: left; margin-left: 1.2em;
 }
-.recipe ol li { font-size: 1.08em; line-height: 1.5;
+.recipe ol li { font-size: 1.08em; line-height: 1.6;
 }
-.recipe ul li { font-size: 1.08em; line-height: 1.5;
+.recipe ul li { font-size: 1.08em; line-height: 1.6;
 }
 .recipe .imgbox { text-align: center; border: 1px solid #dfdfdf; opacity: 0.9; margin-left: 6%; margin-right: 6%;
 }

@@ -170,8 +170,8 @@ var app = new Vue({
 			steps: 2,
 			showingIngreds: false,
 			showingSteps: false,
-			ingredsButton: "Show Ingredients List",
-			stepsButton: "Show Steps List",
+			ingredsButton: "Show Ingredients",
+			stepsButton: "Show Steps",
 			lastStorageItem: "",
 			saved: false,
 			recipe: {
