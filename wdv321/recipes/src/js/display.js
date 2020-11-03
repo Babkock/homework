@@ -46,29 +46,9 @@ Vue.mixin({
 			],
 			recipeFiles: [],
 			recipeInitialQuantities: [],
-			initialServes: 1
+			initialServes: 1,
+			initialCooktime: 1
 		};
-	},
-
-	methods: {
-		DifficultyStyle(diff) {
-			var out = "";
-			switch (diff) {
-				case "Easy": case "easy":
-					out = "<span class=\"easy\">Easy</span>";
-					break;
-				case "Medium": case "medium":
-					out = "<span class=\"medium\">Medium</span>";
-					break;
-				case "Hard": case "hard":
-					out = "<span class=\"hard\">Hard</span>";
-					break;
-				default:
-					out = diff;
-					break;
-			}
-			return out;
-		}
 	}
 })
 
@@ -115,6 +95,26 @@ var app = new Vue({
 			location.reload();
 		},
 
+		/* Style the difficulty text based on difficulty 'diff' */
+		DifficultyStyle(diff) {
+			var out = "";
+			switch (diff) {
+				case "Easy": case "easy":
+					out = "<span class=\"easy\">Easy</span>";
+					break;
+				case "Medium": case "medium":
+					out = "<span class=\"medium\">Medium</span>";
+					break;
+				case "Hard": case "hard":
+					out = "<span class=\"hard\">Hard</span>";
+					break;
+				default:
+					out = diff;
+					break;
+			}
+			return out;
+		},
+
 		/* Adjust the quantities of ingredients based on user selecting "Half" or "Double" button */
 		QuantAdjust(i) {
 			if (i == 0) {		/* normal */
@@ -122,6 +122,7 @@ var app = new Vue({
 					ing.quantity = this.recipeInitialQuantities[index];
 				});
 				this.recipes[0].serves = this.initialServes;
+				this.recipes[0].cooking.quantity = this.initialCooktime;
 			}
 
 			else if (i == 1) {	/* half */
@@ -129,6 +130,7 @@ var app = new Vue({
 					ing.quantity = this.recipeInitialQuantities[index] / 2;
 				});
 				this.recipes[0].serves = parseInt(this.initialServes / 2);
+				this.recipes[0].cooking.quantity = parseInt(this.initialCooktime / 2);
 			}
 			
 			else if (i == 2) {
@@ -136,6 +138,7 @@ var app = new Vue({
 					ing.quantity = this.recipeInitialQuantities[index] * 2;
 				});
 				this.recipes[0].serves = parseInt(this.initialServes * 2);
+				this.recipes[0].cooking.quantity = parseInt(this.initialCooktime * 2);
 			}
 		}
 	},
@@ -146,6 +149,7 @@ var app = new Vue({
 
 		if (file) {
 			this.LoadObject(file);
+			this.fileToView = file;
 			this.recipeInitialQuantities = [];
 
 			this.recipes[0].ingredients.forEach((ing) => {
@@ -153,6 +157,7 @@ var app = new Vue({
 			});
 
 			this.initialServes = this.recipes[0].serves;
+			this.initialCooktime = this.recipes[0].cooking.quantity;
 		}
 		else {
 			var rfiles = JSON.parse(storage.getItem("recipeFiles"));
@@ -163,7 +168,10 @@ var app = new Vue({
 			});
 
 			this.recipeInitialQuantities = [];
+
+			// we won't be using these next two for the present page, but set them just in case
 			this.initialServes = this.recipes[0].serves;
+			this.initialCooktime = this.recipes[0].cooking.quantity;
 		}
 	}
 })
