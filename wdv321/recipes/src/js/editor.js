@@ -120,7 +120,9 @@ Vue.mixin({
 			}
 			else {
 				console.error("Could not load specified item '" + x + "' from local storage");
-				this.bottomStatus = "<p class=\"error\">Could not load specified file '<b>" + x + "</b>' from local storage.</p>";
+				this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
+
+				this.recipe.title = "New Recipe!";
 			}
 		},
 
@@ -150,6 +152,8 @@ var app = new Vue({
 	   these properties by firing events with the $emit() function. The component's markup in the
 	   HTML, therefore, must have corresponding event listeners as attributes. */
 	/*
+	   ______________________________________________________________________
+	   |                                     |                              |
 	   |  In the component template          |  In the actual HTML response |
 	   |-------------------------------------|------------------------------|
 	   | $emit('input1', $event.target.value)| @input1="myfield = $event"   |
@@ -161,6 +165,8 @@ var app = new Vue({
 			fileToLoad: "",			// This localStorage item is set on the view.html page
 			ingredients: 3,
 			steps: 2,
+			showingIngreds: false,
+			showingSteps: false,
 			lastStorageItem: "",
 			recipe: {
 				numberOfIngreds: 3,
@@ -214,17 +220,13 @@ var app = new Vue({
 				name: "",
 				opt: ""
 			});
-			//this.ingredients = parseInt(this.ingredients) + 1;
 			this.ingredients++;
-			//this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) + 1;
 			this.recipe.numberOfIngreds++;
 			this.topStatus = "<p class=\"success\">Added ingredient.</p>";
 		},
 
 		RemoveIngredient() {
 			this.recipe.ingredients.splice(this.ingredients-1, 1);
-			//this.ingredients = parseInt(this.ingredients) - 1;
-			//this.recipe.numberOfIngreds = parseInt(this.recipe.numberOfIngreds) - 1;
 			this.ingredients--;
 			this.recipe.numberOfIngreds--;
 
@@ -243,6 +245,14 @@ var app = new Vue({
 			this.steps = parseInt(this.steps) - 1;
 			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) - 1;
 			this.bottomStatus = "<p class=\"error\">Removed last step.</p>";
+		},
+
+		ToggleIngreds() {
+			this.showingIngreds = ((this.showingIngreds === true) ? false : true);
+		},
+
+		ToggleSteps() {
+			this.showingSteps = ((this.showingSteps === true) ? false : true);
 		}
 	},
 
@@ -280,6 +290,22 @@ var app = new Vue({
 			this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
 
 			this.recipe.title = "New Recipe Title!";
+		}
+	},
+
+	computed: {
+		ingredButton: () => {
+			if (this.showingIngreds === true)
+				return "Hide Ingredients List";
+			else
+				return "Show Ingredients List";
+		},
+
+		stepsButton: () => {
+			if (this.showingSteps === true)
+				return "Hide Steps List";
+			else
+				return "Show Steps List";
 		}
 	}
 })

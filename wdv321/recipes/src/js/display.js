@@ -16,6 +16,10 @@ Vue.mixin({
 		return {
 			numberOfRecipes: 1,
 			fileToView: "",
+			recipeFiles: [],
+			recipeInitialQuantities: [],
+			initialServes: 1,
+			initialCooktime: 1,
 			recipes: [ /*
 				{
 					title: "Chunks of Hunk... Yum",
@@ -43,11 +47,7 @@ Vue.mixin({
 						"Pour contents of skillet into 3 quart crock pot"
 					]
 				} */
-			],
-			recipeFiles: [],
-			recipeInitialQuantities: [],
-			initialServes: 1,
-			initialCooktime: 1
+			]
 		};
 	}
 })
@@ -133,13 +133,21 @@ var app = new Vue({
 				this.recipes[0].cooking.quantity = parseInt(this.initialCooktime / 2);
 			}
 			
-			else if (i == 2) {
+			else if (i == 2) {	/* double */
 				this.recipes[0].ingredients.forEach((ing, index) => {
 					ing.quantity = this.recipeInitialQuantities[index] * 2;
 				});
 				this.recipes[0].serves = parseInt(this.initialServes * 2);
 				this.recipes[0].cooking.quantity = parseInt(this.initialCooktime * 2);
 			}
+		},
+
+		/* Open the filename 'r' in the Recipe Editor */
+		OpenEditor(r) {
+			var storage = window.localStorage;
+			storage.setItem("fileToLoad", r);
+
+			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		}
 	},
 

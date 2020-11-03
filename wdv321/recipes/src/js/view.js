@@ -23,7 +23,7 @@ var app = new Vue({
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		},
 
-		/* Open filename 'r' with the Recipe Editor */
+		/* Open filename 'r' in the Recipe Editor */
 		OpenEditor(r) {
 			var storage = window.localStorage;
 			storage.setItem("fileToLoad", r);

@@ -89,8 +89,9 @@
 				<h2>Ingredients:</h2>
 				<div class="buttons">
 					<p>
-						<button @click="$event.preventDefault(); AddIngredient()" title="Add an Ingredient to the end of the list" alt="Add an Ingredient to the end of the list">Add Ingredient</button> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-						<button @click="$event.preventDefault(); RemoveIngredient()" title="Remove the last Ingredient from the end of the list" alt="Remove the last Ingredient from the end of the list">Remove Last Ingredient</button>
+						<button @click="$event.preventDefault(); AddIngredient()" title="Add an Ingredient to the end of the list" alt="Add an Ingredient to the end of the list">Add Ingredient</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); RemoveIngredient()" title="Remove the last Ingredient from the end of the list" alt="Remove the last Ingredient from the end of the list">Remove Last Ingredient</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); ToggleIngreds()" title="Show/Hide the ingredients list" alt="Show/Hide the ingredients list" v-text="ingredsButton"></button>						
 					</p>
 				</div>
 
@@ -107,8 +108,9 @@
 				</tbody></table>
 				<div class="buttons">
 					<p>
-						<button @click="$event.preventDefault(); AddStep()" title="Add a Step to the end of the list" alt="Add a Step to the end of the list of instructions">Add Step</button>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-						<button @click="$event.preventDefault(); RemoveStep()" title="Remove the last Step from the end of the list" alt="Remove the last Step from the end of the list">Remove Last Step</button>
+						<button @click="$event.preventDefault(); AddStep()" title="Add a Step to the end of the list" alt="Add a Step to the end of the list of instructions">Add Step</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); RemoveStep()" title="Remove the last Step from the end of the list" alt="Remove the last Step from the end of the list">Remove Last Step</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+						<button @click="$event.preventDefault(); ToggleSteps()" title="Show/Hide the Steps list" alt="Show/Hide the Steps list" v-text="stepsButton"></button>
 					</p>
 
 					<button @click="$event.preventDefault(); StoreObjectAs(recipe.filename)" title="Save the recipe under the given filename, if you're finished!" alt="Save the recipe under the given filename, if you're finished!">Save Recipe</button>

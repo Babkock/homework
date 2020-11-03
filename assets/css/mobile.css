@@ -125,3 +125,7 @@ form .steps tr td input:hover { color: black !important; border: 2px solid #efef
 footer { font-size: 1.9em; }
 
 footer p a, footer p span { display: none; }
+
+.rbuttons { text-align: center; width: 100%; margin-top: 7px; margin-bottom: 7px; }
+
+.edit { display: none; }

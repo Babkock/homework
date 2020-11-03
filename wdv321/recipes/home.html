@@ -32,17 +32,20 @@
 				</ul>
 			</nav>
 		</header>
+
 		<main id="displaySlider" v-if="this.recipes.length > 1">
 			<div class="box" v-for="(recip, index) in this.recipes">
 				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
 					<template slot="title"><a href="#" @click="ViewRecipe(recip.filename)">{{ recip.title }}</a></template>
 					<template slot="img"><img :src="recip.image" /></template>
+					
 					<template slot="info">
 						<p><b>Serves: {{ recip.serves }}</b></p>
 						<p><b>Preparation Time:</b> {{ recip.preparation.quantity }} {{ recip.preparation.measurement }}</p>
 						<p><b>Cooking Time:</b> {{ recip.cooking.quantity }} {{ recip.cooking.measurement }}</p>
 						<p><b>Difficulty:</b> <span v-html="DifficultyStyle(recip.difficulty)"></span></p>
 					</template>
+					
 					<template slot="ingredients">
 						<ul v-if="recip.ingredients">
 							<li v-for="(ing, i) in recip.ingredients" :key="i">
@@ -51,6 +54,7 @@
 							</li>
 						</ul>
 					</template>
+					
 					<template slot="steps">
 						<ol v-if="recip.steps">
 							<li v-for="(step, i) in recip.steps" :key="i">
@@ -61,14 +65,16 @@
 				</recipe>
 			</div>
 		</main>
+
 		<main id="displaySlider" v-else>
-			<div class="box" v-for="(recip, index) in this.recipes">
+			<div class="box wide" v-for="(recip, index) in this.recipes">
 				<recipe :key="index" :myid="index" :name="index" :filename="recip.filename">
 					<template slot="title"><a href="#" @click="ViewRecipe(recip.filename)">{{ recip.title }}</a></template>
 					<template slot="img"><img :src="recip.image" /></template>
+					
 					<template slot="info">
 						<p><b>Serves: {{ recip.serves }}</b></p>
-						<p class="rbuttons">
+						<center class="rbuttons">
 							<button @click="QuantAdjust(0)" title="Default number of servings" alt="Default number of servings">Normal</button>
 							&nbsp;<button @click="QuantAdjust(1)" title="Half the normal number of servings" alt="Half the normal number of servings">Half</button>
 							&nbsp;<button @click="QuantAdjust(2)" title="Double the normal number of servings" alt="Double the normal number of servings">Double</button>
@@ -77,6 +83,7 @@
 						<p><b>Cooking Time:</b> {{ recip.cooking.quantity }} {{ recip.cooking.measurement }}</p>
 						<p><b>Difficulty:</b> <span v-html="DifficultyStyle(recip.difficulty)"></span></p>
 					</template>
+					
 					<template slot="ingredients">
 						<ul v-if="recip.ingredients">
 							<li v-for="(ing, i) in recip.ingredients" :key="i">
@@ -85,12 +92,17 @@
 							</li>
 						</ul>
 					</template>
+
 					<template slot="steps">
 						<ol v-if="recip.steps">
 							<li v-for="(step, i) in recip.steps" :key="i">
 								{{ step }}
 							</li>
 						</ol>
+
+						<center class="edit">
+							<button @click="OpenEditor(recip.filename)" title="Edit this recipe" alt="Edit this recipe">Edit Recipe</button>
+						</center>
 					</template>
 				</recipe>
 			</div>

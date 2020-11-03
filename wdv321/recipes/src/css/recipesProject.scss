@@ -104,6 +104,10 @@ p.success {
 			letter-spacing:0.13em;
 		}
 	}
+	.box.wide {
+		width:99%;
+		margin-left:1%;
+	}
 }
 
 .status {
@@ -273,7 +277,7 @@ button, input[type="submit"] {
 }
 
 #about {
-	@include WidthMargins(90%, 5%, 5%);
+	@include WidthMargins(89%, 5%, 6%);
 	background:$FormBg;
 	border:1px solid rgba(0, 0, 0, 0);
 	border-radius:0px 0px 32px 32px;
@@ -281,4 +285,10 @@ button, input[type="submit"] {
 	padding:8px;
 	padding-left:12px;
 	margin-bottom:5px;
+}
+
+.rbuttons, .edit {
+	text-align:center;
+	margin-top:3px;
+	margin-bottom:3px;
 }
