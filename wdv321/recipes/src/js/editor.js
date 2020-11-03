@@ -167,6 +167,8 @@ var app = new Vue({
 			steps: 2,
 			showingIngreds: false,
 			showingSteps: false,
+			ingredsButton: "Show Ingredients List",
+			stepsButton: "Show Steps List",
 			lastStorageItem: "",
 			recipe: {
 				numberOfIngreds: 3,
@@ -249,11 +251,28 @@ var app = new Vue({
 
 		ToggleIngreds() {
 			this.showingIngreds = ((this.showingIngreds === true) ? false : true);
+			this.ingredsButton = ((this.showingIngreds === true) ? "Hide Ingredients List" : "Show Ingredients List");
 		},
 
 		ToggleSteps() {
 			this.showingSteps = ((this.showingSteps === true) ? false : true);
+			this.stepsButton = ((this.showingSteps === true) ? "Hide Steps List" : "Show Steps List");
+		},
+/*
+		ingredButton: function() {
+			if (this.showingIngreds === true)
+				return "Hide Ingredients List";
+			else
+				return "Show Ingredients List";
+		},
+
+		stepsButton: function() {
+			if (this.showingSteps === true)
+				return "Hide Steps List";
+			else
+				return "Show Steps List";
 		}
+*/
 	},
 
 	mounted() {
@@ -290,22 +309,6 @@ var app = new Vue({
 			this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
 
 			this.recipe.title = "New Recipe Title!";
-		}
-	},
-
-	computed: {
-		ingredButton: () => {
-			if (this.showingIngreds === true)
-				return "Hide Ingredients List";
-			else
-				return "Show Ingredients List";
-		},
-
-		stepsButton: () => {
-			if (this.showingSteps === true)
-				return "Hide Steps List";
-			else
-				return "Show Steps List";
 		}
 	}
 })

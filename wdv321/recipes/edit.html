@@ -32,6 +32,7 @@
 				</ul>
 			</nav>
 		</header>
+
 		<main id="editor">
 			<div class="status top" v-html="topStatus">
 
@@ -95,17 +96,17 @@
 					</p>
 				</div>
 
-				<table><tbody v-if="recipe.ingredients" class="ings">
+				<table><tbody v-if="showingIngreds" class="ings">
 					<tr is="ingredient" v-for="(ing, index) in recipe.ingredients" :key="index" :id="index" :quant="ing.quantity" :mmnt="ing.measurement" :ing="ing.name" :opt="((ing.opt === true || ing.opt === 'yes') ? 'yes' : 'no')" @optinput="ing.opt = $event" @numinput="ing.quantity = $event" @inginput="ing.name = $event" @measinput="ing.measurement = $event"></tr>
 				</tbody></table>
 
-				<h2>Steps:</h2>
-				<p>Don't bother typing "1.", "2.", etc. The recipe steps will be listed in order on the display page.</p>
-				<table><tbody v-if="recipe.steps" class="steps">
+				<h2>Steps:</h2>				
+				<table><tbody v-if="showingSteps" class="steps">
 					<tr class="step" v-for="(st, index) in recipe.steps" :key="index" :id="index">
 						<td>{{ index + 1 }}. <input type="text" v-model="recipe.steps[index]" @blur="recipe.steps[index] = $event.target.value" placeholder="Make awesome food!" size="100" maxlength="200" /></td>
 					</tr>
 				</tbody></table>
+
 				<div class="buttons">
 					<p>
 						<button @click="$event.preventDefault(); AddStep()" title="Add a Step to the end of the list" alt="Add a Step to the end of the list of instructions">Add Step</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
