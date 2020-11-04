@@ -171,6 +171,9 @@ else {
 				</div>
 			</form>
 		</main>
+		<center>
+			<a href="selectEvents">View the Events Table</a>
+		</center>
 		<footer>
 			<p><a href="eventForm.html" title="Previous assignment" alt="Previous assignment">Unit 11: Events Input Form</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/inputEvent.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
@@ -178,7 +181,6 @@ else {
 	</body>
 </html>
 			<?php
-			$st->close();
 		}
 	}
 	catch (PDOException $e) {
