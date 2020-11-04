@@ -124,7 +124,7 @@ else {
 			$presenter = $_POST['event_presenter'];
 			$tdate = $_POST['event_date'];
 			$ttime = $_POST['event_time'];
-			$descript = $_POST['description'];
+			$descript = $_POST['event_description'];
 
 			$st = $db->prepare("INSERT INTO `wdv341_events` VALUES (:id, :name, :description, :presenter, :tdate, :ttime)");
 			$st->bindParam(":id", $id);
