@@ -84,6 +84,7 @@ p.success {
 		background:$FormBg;
 		padding:4px;
 		padding-left:5px;
+		border-radius:0px 0px 34px 34px;
 		ul li i.opt {
 			font-style:italic;
 			color:#b9b9b9;
@@ -278,7 +279,7 @@ button, input[type="submit"] {
 #about {
 	@include WidthMargins(89%, 5%, 6%);
 	background:$FormBg;
-	border:1px solid rgba(0, 0, 0, 0);
+	border:1px solid black;
 	border-radius:0px 0px 32px 32px;
 	font-size:1.15em;
 	padding:8px;
