@@ -139,7 +139,7 @@ else {
 			?>
 		<main id="events-form">
 			<form action="inputEvent" method="post" enctype="multipart/form-data">
-				<center><p class="success">The event was submitted successfully!</p></center>
+				<center><p class="success">The event was submitted successfully! <a href="selectEvents">View the Events Table here.</a></p></center>
 				<h2>Editing Event "<?php echo $name; ?>"</h2>
 				<div class="formFlex">
 					<label for="event_id">Event ID:</label>
@@ -171,9 +171,6 @@ else {
 				</div>
 			</form>
 		</main>
-		<center>
-			<a href="selectEvents">View the Events Table</a>
-		</center>
 		<footer>
 			<p><a href="eventForm.html" title="Previous assignment" alt="Previous assignment">Unit 11: Events Input Form</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/inputEvent.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
