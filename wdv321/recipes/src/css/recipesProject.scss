@@ -105,8 +105,7 @@ p.success {
 		}
 	}
 	.box.wide {
-		width:99%;
-		margin-left:1%;
+		@include WidthMargins(98%, 1%, 0.5%);
 	}
 }
 
