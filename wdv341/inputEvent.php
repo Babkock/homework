@@ -17,8 +17,6 @@ if (empty($_POST)) {
 		}
 		$eventCount++;
 
-		$st->close();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
