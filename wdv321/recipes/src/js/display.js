@@ -140,6 +140,9 @@ var app = new Vue({
 				this.recipes[0].serves = parseInt(this.initialServes * 2);
 				this.recipes[0].cooking.quantity = parseInt(this.initialCooktime * 2);
 			}
+			else {
+				console.error("Bad argument for QuantAdjust");
+			}
 		},
 
 		/* Open the filename 'r' in the Recipe Editor */

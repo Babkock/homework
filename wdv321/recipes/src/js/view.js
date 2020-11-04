@@ -57,9 +57,7 @@ var app = new Vue({
 			storage.removeItem("recipeFiles");
 
 			this.fileToLoad = "";
-
-			this.recipeFiles = ["hello"];
-
+			this.recipeFiles = [];
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		}
 	},
