@@ -49,6 +49,13 @@ var app = new Vue({
 			var storage = window.localStorage;
 			console.log("Deleting all recipes stored in local storage");
 			storage.removeItem("fileToLoad");
+
+			var recipefiles = storage.getItem("recipeFiles");
+			recipefiles.forEach((el) => {
+				storage.removeItem(el);
+			});
+			storage.removeItem("recipeFiles");
+
 			this.fileToLoad = "";
 
 			this.recipeFiles = ["hello"];
