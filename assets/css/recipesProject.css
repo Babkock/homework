@@ -56,6 +56,8 @@ p.success { color: lime; }
 
 .status.bottom { width: 80% !important; margin-left: 10% !important; margin-right: 10% !important; border-radius: 0px 0px 32px 32px; }
 
+.status.view { width: 100%; margin-left: 0%; margin-right: 0%; }
+
 footer { display: block; text-align: center; font-size: 0.98em; width: 100%; margin-top: 3px; }
 
 form { width: 92%; margin-left: 4%; margin-right: 4%; display: block; background: rgba(10, 10, 30, 0.35); border: 1px solid rgba(0, 0, 0, 0); border-radius: 20px 20px 34px 34px; padding: 5px; }
@@ -96,9 +98,9 @@ button:active, input[type="submit"]:active { outline: 0 !important; background-c
 
 .recipes tbody tr td:first-child { text-align: right; }
 
-.recipes tbody tr:last-child td:first-child { border-radius: 0px 0px 34px 0px; }
+.recipes tbody tr:last-child td:first-child { border-radius: 0px 0px 0px 34px; }
 
-.recipes tbody tr:last-child td:last-child { border-radius: 0px 0px 0px 34px; }
+.recipes tbody tr:last-child td:last-child { border-radius: 0px 0px 34px 0px; }
 
 #about { width: 89%; margin-left: 5%; margin-right: 6%; background: rgba(10, 10, 30, 0.35); border: 1px solid black; border-radius: 0px 0px 32px 32px; font-size: 1.15em; padding: 8px; padding-left: 12px; margin-bottom: 5px; }
 

@@ -144,6 +144,9 @@ p.success {
 		margin-right:10% !important;
 		border-radius:0px 0px 32px 32px;
 	}
+	&.view {
+		@include WidthMargins(100%, 0%, 0%);
+	}
 }
 
 footer {
@@ -275,10 +278,10 @@ button, input[type="submit"] {
 		text-align:right;
 	}
 	tbody tr:last-child td:first-child {
-		border-radius:0px 0px 34px 0px;
+		border-radius:0px 0px 0px 34px;
 	}
 	tbody tr:last-child td:last-child {
-		border-radius:0px 0px 0px 34px;
+		border-radius:0px 0px 34px 0px;
 	}
 }
 
