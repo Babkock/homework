@@ -178,7 +178,12 @@ var app = new Vue({
 				this.LoadObject(f);
 			});
 
-			this.recipeInitialQuantities = [];
+			/* hopefully this fixes a bug, where the half/double buttons appear but it says NaN for the numbers */
+			if (recipeFiles.length == 1) {
+				this.recipes[0].ingredients.forEach((ing) => {
+					this.recipeInitialQuantities.push(ing.quantity);
+				});
+			}
 
 			// we won't be using these next two for the present page, but set them just in case
 			this.initialServes = this.recipes[0].serves;
