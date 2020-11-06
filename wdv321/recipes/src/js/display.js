@@ -179,7 +179,7 @@ var app = new Vue({
 			});
 
 			/* hopefully this fixes a bug, where the half/double buttons appear but it says NaN for the numbers */
-			if (recipeFiles.length == 1) {
+			if (this.recipeFiles.length == 1) {
 				this.recipes[0].ingredients.forEach((ing) => {
 					this.recipeInitialQuantities.push(ing.quantity);
 				});
