@@ -274,6 +274,12 @@ button, input[type="submit"] {
 	tbody tr td:first-child {
 		text-align:right;
 	}
+	tbody tr:last-child td:first-child {
+		border-radius:0px 0px 34px 0px;
+	}
+	tbody tr:last-child td:last-child {
+		border-radius:0px 0px 0px 34px;
+	}
 }
 
 #about {

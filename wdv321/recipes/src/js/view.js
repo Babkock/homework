@@ -3,12 +3,12 @@
 	October - November 2020
 	Copyright (c) 2020 Tanner Babcock
 */
-
 var app = new Vue({
 	el: ".container",
 
 	data: () => {
 		return {
+			status: "",
 			recipeFiles: [],
 			fileToLoad: ""
 		};
@@ -20,6 +20,8 @@ var app = new Vue({
 			var storage = window.localStorage;
 			storage.removeItem("fileToLoad");
 
+			this.status = "<p class=\"success\">Starting new recipe...</p>";
+
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		},
 
@@ -27,6 +29,8 @@ var app = new Vue({
 		OpenEditor(r) {
 			var storage = window.localStorage;
 			storage.setItem("fileToLoad", r);
+
+			this.status = "<p class=\"success\">Loading recipe <b>" + r + "</b>...</p>";
 
 			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		},
@@ -36,8 +40,8 @@ var app = new Vue({
 			var storage = window.localStorage;
 			console.log("Deleting stored recipe object '" + x + "'");
 			storage.removeItem(x);
-			// this should remove the entry specified in x from recipeFiles
 
+			this.status = "<p class=\"error\">Deleted recipe <b>" + x + "</b> successfully.</p>";
 			this.recipeFiles.splice(this.recipeFiles.indexOf(x), 1);
 			storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
 
@@ -50,6 +54,8 @@ var app = new Vue({
 			console.log("Deleting all recipes stored in local storage");
 			storage.removeItem("fileToLoad");
 
+			this.status = "<p class=\"error\">Well shit. You deleted all of the recipes.</p>";
+
 			var recipefiles = storage.getItem("recipeFiles");
 			recipefiles.forEach((el) => {
 				storage.removeItem(el);
@@ -58,7 +64,6 @@ var app = new Vue({
 
 			this.fileToLoad = "";
 			this.recipeFiles = [];
-			window.location = "https://tannerbabcock.com/homework/wdv321/recipes/edit.html";
 		}
 	},
 

@@ -96,6 +96,10 @@ button:active, input[type="submit"]:active { outline: 0 !important; background-c
 
 .recipes tbody tr td:first-child { text-align: right; }
 
+.recipes tbody tr:last-child td:first-child { border-radius: 0px 0px 34px 0px; }
+
+.recipes tbody tr:last-child td:last-child { border-radius: 0px 0px 0px 34px; }
+
 #about { width: 89%; margin-left: 5%; margin-right: 6%; background: rgba(10, 10, 30, 0.35); border: 1px solid black; border-radius: 0px 0px 32px 32px; font-size: 1.15em; padding: 8px; padding-left: 12px; margin-bottom: 5px; }
 
 .rbuttons, .edit { text-align: center; margin-top: 3px; margin-bottom: 3px; }

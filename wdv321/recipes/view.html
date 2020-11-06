@@ -31,7 +31,10 @@
 				</ul>
 			</nav>
 		</header>
-		<div class="container" v-if="recipeFiles">
+		<main class="container" v-if="recipeFiles">
+			<div class="status top" v-html="status">
+
+			</div>
 			<table class="recipes"><tbody>
 				<tr v-for="(rec, index) in recipeFiles">
 					<td>{{ index + 1 }}. <b>{{ rec }}</b></td>
@@ -48,7 +51,7 @@
 				&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;
 				<button @click="DeleteAll" title="Deletes all Recipes in local storage!" alt="Deletes all Recipes in local storage!">Delete All Recipes</button>
 			</div>
-		</div>
+		</main>
 		<footer>
 			<p><a href="/homework/wdv321/Unit-7ajax.html" title="Previous assignment" alt="Previous assignment">Unit 7: AJAX</a> <span>&bull;</span> <a href="https://github.com/Babkock/homework/tree/master/wdv321/mochaValid" title="Next assignment" alt="Next assignment">Unit 8: Mocha-Chai Test Automation</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV321 Homework &larr;</a> <span>&bull;</span> <a href="https://github.com/Babkock/homework/tree/master/wdv321/recipes" target="_blank">GitHub</a></p>
