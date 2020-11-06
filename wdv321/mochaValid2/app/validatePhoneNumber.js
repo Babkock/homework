@@ -3,7 +3,7 @@
 	October 29, 2020
 	Tanner Babcock
 */
-var validatePhoneNumber = function(phone) {
+var validatePhoneNumber = (phone) => {
 	if (phone !== parseInt(phone, 10)) { // Not a number
 		return false;
 	}

@@ -5,7 +5,7 @@
 	Tanner Babcock
 */
 
-var validInput = function(inValue){
+var validInput = (inValue) => {
 	inValue += "";	//turns all inValues into strings
 	if(inValue.trim() == "" || inValue == 'null' || inValue == 'undefined'){
 		return false;

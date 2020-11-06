@@ -10,9 +10,9 @@
 	- Make sure input is 10 numbers. Between 1 billion and 9.9 billion
 */
 
-var validInput = function(inValue){
+var validInput = (inValue) => {
 	inValue += "";	//turns all inValues into strings
-	if(inValue.trim() == "" || inValue == 'null' || inValue == 'undefined'){
+	if (inValue.trim() == "" || inValue == 'null' || inValue == 'undefined') {
 		return false;
 	}
 	return true;
