@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="/homework/assets/css/landscape.css" media="only screen and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)" />
 	<link rel="stylesheet" href="/homework/assets/css/mobile.css" media="only screen and (orientation: portrait)" />
 	<script src="https://unpkg.com/vue@2.6.11"></script>
+	<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 </head>
 <body>
 	<div class="container">
@@ -46,6 +47,21 @@
 				<div class="formflex large">
 					<label><b>Filename:</b></label>
 					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" title="What should this recipe's filename be in local storage?" alt="What should this recipe's filename be in local storage?" />
+				</div>
+				<center>
+					<h3>Or...</h3>
+				</center>
+				<div class="or">
+					<label>Upload Image:</label>
+					<input type="text" v-model="imageFilename" placeholder="image.jpg" @blur="imageFilename = $event.target.value" title="Please enter a filename for the image you are uploading." alt="Please enter a filename for the image you are uploading." />
+					<input type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" />
+				</div>
+				<center>
+					<button class="upload" @click="$event.preventDefault(); UploadFile(imageFilename)" title="Click this button to upload your image to use in the recipe." alt="Click this button to upload your image to use in the recipe." :disabled="uploaded === true">Upload</button><br />
+					<p><i>Only JPEG, PNG, GIF formats accepted. Max file size 2 MB.</i></p>
+				</center>
+				<div class="ajax-area" v-html="ajaxResult">
+				
 				</div>
 				<div class="formflex">
 					<label><b>Title:</b></label>

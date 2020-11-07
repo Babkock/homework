@@ -30,25 +30,25 @@ nav ul li a:hover { padding: 6px !important; font-size: 2.15em; background-color
 
 .recipe ul li b { font-size: 1.54em !important; }
 
-#displaySlider { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; }
+#display-slider { display: flex; flex-wrap: wrap; flex-direction: column; justify-content: center; }
 
-#displaySlider .box { text-align: left; padding: 5px; width: 47%; margin-left: 1%; margin-right: 1%; border: 2px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 10px; margin-bottom: 10px; border-radius: 32px 32px 32px 32px; font-size: 1.7em; color: black; }
+#display-slider .box { text-align: left; padding: 5px; width: 47%; margin-left: 1%; margin-right: 1%; border: 2px solid #80bd1d; background: rgba(220, 250, 240, 0.5); margin-top: 10px; margin-bottom: 10px; border-radius: 32px 32px 32px 32px; font-size: 1.7em; color: black; }
 
-#displaySlider .box h2 a, #displaySlider .box h2 a:link, #displaySlider .box h2 a:hover, #displaySlider .box h2 a:visited, #displaySlider .box h2 a:link { color: skyblue; text-shadow: 2px 2px #201817; font-size: 2.1em; margin-top: 4px; margin-bottom: 4px; }
+#display-slider .box h2 a, #display-slider .box h2 a:link, #display-slider .box h2 a:hover, #display-slider .box h2 a:visited, #display-slider .box h2 a:link { color: skyblue; text-shadow: 2px 2px #201817; font-size: 2.1em; margin-top: 4px; margin-bottom: 4px; }
 
-#displaySlider .box h3 { font-size: 2em; margin-top: 4px; margin-bottom: 4px; }
+#display-slider .box h3 { font-size: 2em; margin-top: 4px; margin-bottom: 4px; }
 
-#displaySlider .box ul, #displaySlider .box ol { border: 0 !important; padding: 6px; margin-left: 2em; }
+#display-slider .box ul, #display-slider .box ol { border: 0 !important; padding: 6px; margin-left: 2em; }
 
-#displaySlider .box ul li, #displaySlider .box ol li { font-size: 1.7em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
+#display-slider .box ul li, #display-slider .box ol li { font-size: 1.7em; line-height: 1.5; margin-top: 3px; margin-bottom: 3px; }
 
-#displaySlider .box ul li i.opt { font-style: italic; color: #303030; }
+#display-slider .box ul li i.opt { font-style: italic; color: #303030; }
 
-#displaySlider .box p span .easy { color: green; font-size: 2.16em; }
+#display-slider .box p span .easy { color: green; font-size: 2.16em; }
 
-#displaySlider .box p span .medium { color: brown; font-size: 2.11em; }
+#display-slider .box p span .medium { color: brown; font-size: 2.11em; }
 
-#displaySlider .box p span .hard { color: red; font-size: 2.16em; }
+#display-slider .box p span .hard { color: red; font-size: 2.16em; }
 
 .status { height: 90px; padding: 6px; width: 90%; margin-left: 5%; margin-right: 5%; background-color: rgba(190, 170, 164, 0.3); border: 1px solid rgba(0, 0, 0, 0); opacity: 0.9; }
 

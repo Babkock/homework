@@ -72,7 +72,7 @@ p.success {
 	color:lime;
 }
 
-#displaySlider {
+#display-slider {
 	@include WidthMargins(92%, 4%, 3%);
 	display:flex;
 	flex-wrap:wrap;
@@ -305,4 +305,10 @@ button, input[type="submit"] {
 h2.sad {
 	text-align:center;
 	color:white;
+}
+
+.ajax-area {
+	display:block;
+	font-size:1.09em;
+	padding:5px;
 }

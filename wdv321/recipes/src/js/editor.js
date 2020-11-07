@@ -17,130 +17,7 @@ Vue.mixin({
 	},
 
 	methods: {
-		/* Store current recipe object using lastStorageItem */
-		StoreObject() {
-			var storage = window.localStorage;
-			console.log("Updating storage object '" + this.lastStorageItem + "'");
-
-			this.recipe.ingredients.forEach((ing) => {
-				if (ing.opt === "yes")
-					ing.opt = true;
-				else
-					ing.opt = false;
-			});
-
-			storage.removeItem(this.lastStorageItem);
-			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
-			console.log(JSON.stringify(this.recipe));
-			
-			var isInRecipeFiles = false;
-			this.recipeFiles.forEach((f) => {
-				if (f === this.lastStorageItem)
-					isInRecipeFiles = true;
-			});
-			if (!isInRecipeFiles) {
-				this.recipeFiles.push(this.lastStorageItem);
-			}
-			StoreRecipeFiles();
-
-			this.saved = true;
-			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
-		},
-
-		/* Store current recipe object under new filename 'x' */
-		StoreObjectAs(x) {
-			var storage = window.localStorage;
-
-			console.log("Storing object '" + x + "' in local storage");
-
-			this.recipe.ingredients.forEach((ing) => {
-				if (ing.opt === "yes")
-					ing.opt = true;
-				else
-					ing.opt = false;
-			});
-
-			storage.setItem(x, JSON.stringify(this.recipe));
-			console.log(JSON.stringify(this.recipe));
-
-			this.lastStorageItem = x;
-			var isInRecipeFiles = false;
-			this.recipeFiles.forEach((f) => {
-				if (f === this.lastStorageItem)
-					isInRecipeFiles = true;
-			});
-			if (!isInRecipeFiles) {
-				this.recipeFiles.push(x);
-			}
-			this.StoreRecipeFiles();
-
-			this.saved = true;
-			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
-		},
-
-		/* Load recipe object 'x' into DOM */
-		LoadObject(x) {
-			var storage = window.localStorage;
-			console.log("Loading object '" + x + "'");
-			var jso = {};
-			var object = {};
-
-			if (jso = storage.getItem(x)) {
-				object = JSON.parse(jso);
-
-				this.ingredients = object.ingredients.length;
-				this.steps = object.steps.length;
-				this.lastStorageItem = x;
-				
-				this.recipe.numberOfIngreds = object.ingredients.length;
-				this.recipe.numberOfSteps = object.steps.length;
-				this.recipe.title = object.title;
-				this.recipe.image = object.image;
-				this.recipe.filename = object.filename;
-				this.recipe.serves = object.serves;
-				this.recipe.difficulty = object.difficulty;
-				this.recipe.cooking.quantity = parseInt(object.cooking.quantity);
-				this.recipe.cooking.measurement = object.cooking.measurement;
-				this.recipe.preparation.quantity = parseInt(object.preparation.quantity);
-				this.recipe.preparation.measurement = object.preparation.measurement;
-				this.recipe.ingredients = [];
-
-				object.ingredients.forEach((ing, index) => {
-					this.recipe.ingredients.push({
-						name: ing.name,
-						quantity: ing.quantity,
-						measurement: ing.measurement,
-						opt: ing.opt
-					});
-					console.log("Pushing ingredient " + (index + 1) + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
-				});
-
-				this.recipe.steps = [];
-				object.steps.forEach((st, index) => {
-					this.recipe.steps.push(st);
-				});
-			}
-			else {
-				console.error("Could not load specified item '" + x + "' from local storage");
-				this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
-
-				this.recipe.title = "New Recipe!";
-			}
-			this.saved = false;
-		},
-
-		/* Store the recipeFiles array in local storage, for use with other pages */
-		StoreRecipeFiles() {
-			var storage = window.localStorage;
-
-			if (this.recipeFiles.length > 0) {
-				console.log("Saving recipeFiles array");
-				storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
-			}
-			else {
-				console.error("Something wrong with this.recipeFiles");
-			}
-		}
+		
 	}
 })
 
@@ -149,6 +26,11 @@ Vue.mixin({
    properties */
 var app = new Vue({
 	el: "#editor",
+
+	http: {
+		emulateJSON: true,
+		emulateHTTP: true
+	},
 
 	/* Global data for the application. This is passed to Ingredient components through their
 	   "props" arrays (attributes) defined in the .vue files. These components then can update
@@ -172,8 +54,11 @@ var app = new Vue({
 			showingSteps: false,
 			ingredsButton: "Show Ingredients",
 			stepsButton: "Show Steps",
+			imageFilename: "",
 			lastStorageItem: "",
 			saved: false,
+			file: false,
+			ajaxResult: "",
 			recipe: {
 				numberOfIngreds: 3,
 				numberOfSteps: 2,
@@ -268,6 +153,150 @@ var app = new Vue({
 		ToggleSteps() {
 			this.showingSteps = ((this.showingSteps === true) ? false : true);
 			this.stepsButton = ((this.showingSteps === true) ? "Hide Steps" : "Show Steps");
+		},
+
+		/* ---- from the mixin ---- */
+		/* Store current recipe object using lastStorageItem */
+		StoreObject() {
+			var storage = window.localStorage;
+			console.log("Updating storage object '" + this.lastStorageItem + "'");
+
+			this.recipe.ingredients.forEach((ing) => {
+				ing.opt = ((ing.opt === "yes") ? true : false);
+			});
+
+			storage.removeItem(this.lastStorageItem);
+			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
+			console.log(JSON.stringify(this.recipe));
+			
+			var isInRecipeFiles = false;
+			this.recipeFiles.forEach((f) => {
+				if (f === this.lastStorageItem)
+					isInRecipeFiles = true;
+			});
+			if (!isInRecipeFiles) {
+				this.recipeFiles.push(this.lastStorageItem);
+			}
+			StoreRecipeFiles();
+
+			this.saved = true;
+			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
+		},
+
+		/* Store current recipe object under new filename 'x' */
+		StoreObjectAs(x) {
+			var storage = window.localStorage;
+
+			console.log("Storing object '" + x + "' in local storage");
+
+			this.recipe.ingredients.forEach((ing) => {
+				ing.opt = ((ing.opt === "yes") ? true : false);
+			});
+
+			storage.setItem(x, JSON.stringify(this.recipe));
+			console.log(JSON.stringify(this.recipe));
+
+			this.lastStorageItem = x;
+			var isInRecipeFiles = false;
+			this.recipeFiles.forEach((f) => {
+				if (f === this.lastStorageItem)
+					isInRecipeFiles = true;
+			});
+			if (!isInRecipeFiles) {
+				this.recipeFiles.push(x);
+			}
+			this.StoreRecipeFiles();
+
+			this.saved = true;
+			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
+		},
+
+		/* Load recipe object 'x' into DOM */
+		LoadObject(x) {
+			var storage = window.localStorage;
+			console.log("Loading object '" + x + "'");
+			var jso = {};
+			var object = {};
+
+			if (jso = storage.getItem(x)) {
+				object = JSON.parse(jso);
+
+				this.ingredients = object.ingredients.length;
+				this.steps = object.steps.length;
+				this.lastStorageItem = x;
+				
+				this.recipe.numberOfIngreds = object.ingredients.length;
+				this.recipe.numberOfSteps = object.steps.length;
+				this.recipe.title = object.title;
+				this.recipe.image = object.image;
+				this.recipe.filename = object.filename;
+				this.recipe.serves = object.serves;
+				this.recipe.difficulty = object.difficulty;
+				this.recipe.cooking.quantity = parseInt(object.cooking.quantity);
+				this.recipe.cooking.measurement = object.cooking.measurement;
+				this.recipe.preparation.quantity = parseInt(object.preparation.quantity);
+				this.recipe.preparation.measurement = object.preparation.measurement;
+				this.recipe.ingredients = [];
+
+				object.ingredients.forEach((ing, index) => {
+					this.recipe.ingredients.push({
+						name: ing.name,
+						quantity: ing.quantity,
+						measurement: ing.measurement,
+						opt: ing.opt
+					});
+					console.log("Pushing ingredient " + (index + 1) + ": \"" + ing.quantity + " " + ing.measurement + " " + ing.name + "\"");
+				});
+
+				this.recipe.steps = [];
+				object.steps.forEach((st, index) => {
+					this.recipe.steps.push(st);
+				});
+
+				this.uploaded = true;
+			}
+			else {
+				console.error("Could not load specified item '" + x + "' from local storage");
+				this.topStatus = "<p class=\"success\">Starting a new recipe.</p>";
+
+				this.recipe.title = "New Recipe!";
+			}
+			this.saved = false;
+		},
+
+		/* Store the recipeFiles array in local storage, for use with other pages */
+		StoreRecipeFiles() {
+			var storage = window.localStorage;
+
+			if (this.recipeFiles.length > 0) {
+				console.log("Saving recipeFiles array");
+				storage.setItem("recipeFiles", JSON.stringify(this.recipeFiles));
+			}
+			else {
+				console.error("Something wrong with this.recipeFiles");
+			}
+		},
+
+		/* Upload the file using PHP */
+		UploadFile(x) {
+			this.ajaxResult = "<p class=\"success\">Your file is being uploaded...</p>";
+			this.topStatus = "<p class=\"success\">Uploading a new file <b>'" + x + "'</b>.</p>";
+
+			var formData = new FormData();
+
+			if (this.file) {
+				formData.append("image", this.$refs.image.files[0], this.$refs.image.files[0].name);
+			}
+
+			this.$http.post("upload", formData).then((response) => {
+				this.ajaxResult = response.data;
+				this.topStatus = "<p class=\"success\">Your file has been uploaded!</p>";
+				this.recipe.image = "img/" + x;
+				this.uploaded = true;
+			}, () => {
+				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";
+				this.topStatus = "<p class=\"error\">Communication with the server failed.</p>";
+			});
 		}
 	},
 

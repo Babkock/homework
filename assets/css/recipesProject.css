@@ -30,19 +30,19 @@ p.error { color: red; }
 
 p.success { color: lime; }
 
-#displaySlider { width: 92%; margin-left: 4%; margin-right: 3%; display: flex; flex-wrap: wrap; flex-direction: row; justify-content: center; }
+#display-slider { width: 92%; margin-left: 4%; margin-right: 3%; display: flex; flex-wrap: wrap; flex-direction: row; justify-content: center; }
 
-#displaySlider .box { width: 24%; margin-left: 2px; margin-right: 2px; border: 1px solid black; background: rgba(10, 10, 30, 0.35); padding: 4px; padding-left: 5px; border-radius: 0px 0px 34px 34px; }
+#display-slider .box { width: 24%; margin-left: 2px; margin-right: 2px; border: 1px solid black; background: rgba(10, 10, 30, 0.35); padding: 4px; padding-left: 5px; border-radius: 0px 0px 34px 34px; }
 
-#displaySlider .box ul li i.opt { font-style: italic; color: #b9b9b9; }
+#display-slider .box ul li i.opt { font-style: italic; color: #b9b9b9; }
 
-#displaySlider .box p span .easy { color: lime; font-size: 1.1em; letter-spacing: 0.13em; }
+#display-slider .box p span .easy { color: lime; font-size: 1.1em; letter-spacing: 0.13em; }
 
-#displaySlider .box p span .medium { color: yellow; font-size: 1.09em; letter-spacing: 0.1em; }
+#display-slider .box p span .medium { color: yellow; font-size: 1.09em; letter-spacing: 0.1em; }
 
-#displaySlider .box p span .hard { color: red; font-size: 1.1em; letter-spacing: 0.13em; }
+#display-slider .box p span .hard { color: red; font-size: 1.1em; letter-spacing: 0.13em; }
 
-#displaySlider .box.wide { width: 98%; margin-left: 1%; margin-right: 0.5%; }
+#display-slider .box.wide { width: 98%; margin-left: 1%; margin-right: 0.5%; }
 
 .status { height: 62px; padding: 3px; width: 90%; margin-left: 5%; margin-right: 5%; background-color: rgba(190, 170, 164, 0.3); border: 1px solid rgba(0, 0, 0, 0); opacity: 0.9; }
 
@@ -107,3 +107,5 @@ button:active, input[type="submit"]:active { outline: 0 !important; background-c
 .rbuttons, .edit { text-align: center; margin-top: 3px; margin-bottom: 3px; }
 
 h2.sad { text-align: center; color: white; }
+
+.ajax-area { display: block; font-size: 1.09em; padding: 5px; }
