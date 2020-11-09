@@ -39,7 +39,7 @@
 
 			</div>
 			<form method="post" enctype="multipart/form-data">
-				<h2>Editing Recipe "<span v-text="recipe.filename"></span>"</h2>
+				<h2>{{ editingText }} Recipe "<span v-text="recipe.filename"></span>"</h2>
 
 				<input type="hidden" v-model="recipe.numberOfIngreds" id="numberOfIngreds" />
 				<input type="hidden" v-model="recipe.numberOfSteps" id="numberOfSteps" />
@@ -71,7 +71,7 @@
 				</div>
 				<div class="formflex uploader">
 					<label><b>Upload Image:</b></label>
-					<input type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" :disabled="uploaded === true" />
+					<input ref="image" type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" :disabled="uploaded === true" />
 				</div>
 				<center>
 					<button class="upload" @click="$event.preventDefault(); UploadFile(imageFilename)" title="Click this button to upload your image to use in the recipe." alt="Click this button to upload your image to use in the recipe." :disabled="uploaded === true">Upload</button><br />

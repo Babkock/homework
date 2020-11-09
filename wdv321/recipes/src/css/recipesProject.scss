@@ -72,6 +72,20 @@ p.success {
 	color:lime;
 }
 
+.ajax-area {
+	text-align:center;
+	margin-top:3px;
+	margin-bottom:3px;
+	img {
+		margin-left:10%;
+		margin-right:10%;
+		border:1px solid black;
+	}
+	p {
+		font-size:1.09em;
+	}
+}
+
 #display-slider {
 	@include WidthMargins(92%, 4%, 3%);
 	display:flex;

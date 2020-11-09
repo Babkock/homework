@@ -180,6 +180,20 @@ form {
 	}
 }
 
+.ajax-area {
+	text-align:center;
+	margin-top:9px;
+	margin-bottom:9px;
+	img {
+		margin-left:10%;
+		margin-right:10%;
+		border:3px solid black;
+	}
+	p {
+		font-size:2.1em;
+	}
+}
+
 button {
 	width:100%;
 	padding-left:12px;

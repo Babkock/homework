@@ -288,6 +288,20 @@ form {
 	}
 }
 
+.ajax-area {
+	text-align:center;
+	margin-top:5px;
+	margin-bottom:5px;
+	img {
+		margin-left:10%;
+		margin-right:10%;
+		border:2px solid black;
+	}
+	p {
+		font-size:1.36em;
+	}
+}
+
 form .steps tr td {
 	font-size:1.3em;
 	color:#101010;

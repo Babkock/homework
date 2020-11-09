@@ -62,6 +62,12 @@ form .formflex input:hover, form .formflex select:hover { color: black !importan
 
 form .formflex label { font-size: 1.83em; margin-top: 30px; margin-bottom: 30px; width: 90%; }
 
+.ajax-area { text-align: center; margin-top: 9px; margin-bottom: 9px; }
+
+.ajax-area img { margin-left: 10%; margin-right: 10%; border: 3px solid black; }
+
+.ajax-area p { font-size: 2.1em; }
+
 button { width: 100%; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #208410; border: 3px solid darkgreen; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; color: #c4dfc4 !important; transition: background-color, border, color 0.2s ease 0s; }
 
 button:hover { width: 100%; color: #dfc4c4 !important; padding-left: 12px; padding-right: 12px; padding-top: 16px; padding-bottom: 12px; background-color: #c86060; border: 3px solid salmon; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; }

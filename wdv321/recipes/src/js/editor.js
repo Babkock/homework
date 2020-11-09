@@ -53,6 +53,7 @@ var app = new Vue({
 			file: false,
 			ingredsButton: "Show Ingredients",
 			stepsButton: "Show Steps",
+			editingText: "Editing",
 			imageFilename: "",
 			lastStorageItem: "",
 			ajaxResult: "",
@@ -156,56 +157,101 @@ var app = new Vue({
 		/* Store current recipe object using lastStorageItem */
 		StoreObject() {
 			var storage = window.localStorage;
-			console.log("Updating storage object '" + this.lastStorageItem + "'");
+			var go = true;
 
 			this.recipe.ingredients.forEach((ing) => {
-				ing.opt = ((ing.opt === "yes") ? true : false);
+				if ((ing.name.length < 2) || (ing.measurement === "") || (ing.quantity < 1)) {
+					this.bottomStatus = "<p class=\"error\">One or more fields in the Ingredients list is empty.</p>";
+					this.saved = false;
+					go = false;
+				}
+			});
+			this.recipe.steps.forEach((st) => {
+				if ((st.length < 2) || (st === "")) {
+					this.bottomStatus = "<p class=\"error\">One or more steps in the Instructions list is empty.</p>";
+					this.saved = false;
+					go = false;
+				}
 			});
 
-			storage.removeItem(this.lastStorageItem);
-			storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
-			console.log(JSON.stringify(this.recipe));
-			
-			var isInRecipeFiles = false;
-			this.recipeFiles.forEach((f) => {
-				if (f === this.lastStorageItem)
-					isInRecipeFiles = true;
-			});
-			if (!isInRecipeFiles) {
-				this.recipeFiles.push(this.lastStorageItem);
+			if (go) {
+				if ((this.recipe.serves < 0) || (this.recipe.cooking.quantity < 0) || (this.recipe.preparation.quantity < 0) || (this.recipe.ingredients[0].quantity < 0)) {
+					this.bottomStatus = "<p class=\"error\">Sorry, no negative numbers please.</p>";
+					this.saved = false;
+				}
+				else {
+					this.recipe.ingredients.forEach((ing) => {
+						ing.opt = ((ing.opt === "yes") ? true : false);
+					});
+
+					storage.removeItem(this.lastStorageItem);
+					storage.setItem(this.lastStorageItem, JSON.stringify(this.recipe));
+					console.log(JSON.stringify(this.recipe));
+					
+					var isInRecipeFiles = false;
+					this.recipeFiles.forEach((f) => {
+						if (f === this.lastStorageItem)
+							isInRecipeFiles = true;
+					});
+					if (!isInRecipeFiles) {
+						this.recipeFiles.push(this.lastStorageItem);
+					}
+					this.StoreRecipeFiles();
+
+					this.saved = true;
+					this.bottomStatus = "<p class=\"success\">Recipe '<b>" + this.lastStorageItem + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
+				}
 			}
-			StoreRecipeFiles();
-
-			this.saved = true;
-			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
 		},
 
 		/* Store current recipe object under new filename 'x' */
 		StoreObjectAs(x) {
 			var storage = window.localStorage;
-
-			console.log("Storing object '" + x + "' in local storage");
+			var go = true;
 
 			this.recipe.ingredients.forEach((ing) => {
-				ing.opt = ((ing.opt === "yes") ? true : false);
+				if ((ing.name.length < 2) || (ing.measurement === "") || (ing.quantity < 1)) {
+					this.bottomStatus = "<p class=\"error\">One or more fields in the Ingredients list is empty.</p>";
+					this.saved = false;
+					go = false;
+				}
+			});
+			this.recipe.steps.forEach((st) => {
+				if ((st.length < 2) || (st === "")) {
+					this.bottomStatus = "<p class=\"error\">One or more steps in the Instructions list is empty.</p>";
+					this.saved = false;
+					go = false;
+				}
 			});
 
-			storage.setItem(x, JSON.stringify(this.recipe));
-			console.log(JSON.stringify(this.recipe));
+			if (go) {
+				if ((this.recipe.serves < 0) || (this.recipe.cooking.quantity < 0) || (this.recipe.preparation.quantity < 0) || (this.recipe.ingredients[0].quantity < 0)) {
+					this.bottomStatus = "<p class=\"error\">Sorry, no negative numbers please.</p>";
+					this.saved = false;
+				}
+				else {
+					this.recipe.ingredients.forEach((ing) => {
+						ing.opt = ((ing.opt === "yes") ? true : false);
+					});
 
-			this.lastStorageItem = x;
-			var isInRecipeFiles = false;
-			this.recipeFiles.forEach((f) => {
-				if (f === this.lastStorageItem)
-					isInRecipeFiles = true;
-			});
-			if (!isInRecipeFiles) {
-				this.recipeFiles.push(x);
+					storage.setItem(x, JSON.stringify(this.recipe));
+					console.log(JSON.stringify(this.recipe));
+
+					this.lastStorageItem = x;
+					var isInRecipeFiles = false;
+					this.recipeFiles.forEach((f) => {
+						if (f === this.lastStorageItem)
+							isInRecipeFiles = true;
+					});
+					if (!isInRecipeFiles) {
+						this.recipeFiles.push(x);
+					}
+					this.StoreRecipeFiles();
+
+					this.saved = true;
+					this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
+				}
 			}
-			this.StoreRecipeFiles();
-
-			this.saved = true;
-			this.bottomStatus = "<p class=\"success\">Recipe '<b>" + x + "</b>' stored successfully. <a href=\"home.html\">See it here</a>.</p>";
 		},
 
 		/* Load recipe object 'x' into DOM */
@@ -246,7 +292,7 @@ var app = new Vue({
 				});
 
 				this.recipe.steps = [];
-				object.steps.forEach((st, index) => {
+				object.steps.forEach((st) => {
 					this.recipe.steps.push(st);
 				});
 
@@ -307,10 +353,12 @@ var app = new Vue({
 		if (!toLoad) {
 			// prompt if not coming from the view page
 			var filename = prompt("Which file would you like to edit? Enter nothing for new file");
+			this.editingText = "Starting New";
 		}
 		else {
 			this.fileToLoad = toLoad;
 			var filename = this.fileToLoad;
+			this.editingText = "Editing";
 		}
 		if (!recipes) {
 			this.recipeFiles = ["hello"];

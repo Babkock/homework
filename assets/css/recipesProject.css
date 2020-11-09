@@ -30,6 +30,12 @@ p.error { color: red; }
 
 p.success { color: lime; }
 
+.ajax-area { text-align: center; margin-top: 3px; margin-bottom: 3px; }
+
+.ajax-area img { margin-left: 10%; margin-right: 10%; border: 1px solid black; }
+
+.ajax-area p { font-size: 1.09em; }
+
 #display-slider { width: 92%; margin-left: 4%; margin-right: 3%; display: flex; flex-wrap: wrap; flex-direction: row; justify-content: center; }
 
 #display-slider .box { width: 24%; margin-left: 2px; margin-right: 2px; border: 1px solid black; background: rgba(10, 10, 30, 0.35); padding: 4px; padding-left: 5px; border-radius: 0px 0px 34px 34px; }
