@@ -14,10 +14,6 @@ Vue.mixin({
 			topStatus: "",
 			bottomStatus: ""
 		};
-	},
-
-	methods: {
-		
 	}
 })
 
@@ -287,8 +283,10 @@ var app = new Vue({
 
 			if (this.file) {
 				formData.append("image", this.$refs.image.files[0], this.$refs.image.files[0].name);
+				formData.append("fname", x);
 			}
 
+			// this is an AJAX call
 			this.$http.post("upload", formData).then((response) => {
 				this.ajaxResult = response.data;
 				this.topStatus = "<p class=\"success\">Your file has been uploaded!</p>";

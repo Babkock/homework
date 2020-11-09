@@ -48,13 +48,30 @@
 					<label><b>Filename:</b></label>
 					<input type="text" v-model="recipe.filename" placeholder="Filename" @blur="recipe.filename = $event.target.value" title="What should this recipe's filename be in local storage?" alt="What should this recipe's filename be in local storage?" />
 				</div>
+				<div class="formflex">
+					<label><b>Title:</b></label>
+					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" title="What is this recipe for? (Casserole, etc)" alt="What is this recipe for? (Casserole, etc)" />
+				</div>
+				<div class="formflex">
+					<label><b>Serves:</b></label>
+					<input type="number" v-model="recipe.serves" @change="recipe.serves = parseInt($event.target.value)" title="How many does this serve?" alt="How many does this serve?" />
+				</div>
+
+				<div class="formflex">
+					<label><b>Image URL:</b></label>
+					<input type="text" v-model="recipe.image" placeholder="https://site.com/test.jpg" @blur="recipe.image = $event.target.value" title="URL for the image of the food" alt="URL for the image of the food" />
+				</div>
+
 				<center>
 					<h3>Or...</h3>
 				</center>
-				<div class="or">
-					<label>Upload Image:</label>
-					<input type="text" v-model="imageFilename" placeholder="image.jpg" @blur="imageFilename = $event.target.value" title="Please enter a filename for the image you are uploading." alt="Please enter a filename for the image you are uploading." />
-					<input type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" />
+				<div class="formflex uploader">
+					<label><b>Image Filename:</b></label>
+					<input type="text" v-model="imageFilename" placeholder="image.jpg" @blur="imageFilename = $event.target.value; recipe.image = 'img/' + $event.target.value" title="Please enter a filename for the image you are uploading." alt="Please enter a filename for the image you are uploading." :disabled="uploaded === true" />
+				</div>
+				<div class="formflex uploader">
+					<label><b>Upload Image:</b></label>
+					<input type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" :disabled="uploaded === true" />
 				</div>
 				<center>
 					<button class="upload" @click="$event.preventDefault(); UploadFile(imageFilename)" title="Click this button to upload your image to use in the recipe." alt="Click this button to upload your image to use in the recipe." :disabled="uploaded === true">Upload</button><br />
@@ -62,18 +79,6 @@
 				</center>
 				<div class="ajax-area" v-html="ajaxResult">
 				
-				</div>
-				<div class="formflex">
-					<label><b>Title:</b></label>
-					<input type="text" v-model="recipe.title" placeholder="Pepperjack Mac n Cheese" @blur="recipe.title = $event.target.value" title="What is this recipe for? (Casserole, etc)" alt="What is this recipe for? (Casserole, etc)" />
-				</div>
-				<div class="formflex">
-					<label><b>Image URL:</b></label>
-					<input type="text" v-model="recipe.image" placeholder="https://site.com/test.jpg" @blur="recipe.image = $event.target.value" title="URL for the image of the food" alt="URL for the image of the food" />
-				</div>
-				<div class="formflex">
-					<label><b>Serves:</b></label>
-					<input type="number" v-model="recipe.serves" @change="recipe.serves = parseInt($event.target.value)" title="How many does this serve?" alt="How many does this serve?" />
 				</div>
 
 				<div class="formflex">
