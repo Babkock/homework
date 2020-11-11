@@ -62,20 +62,20 @@
 					<input type="text" v-model="recipe.image" placeholder="https://site.com/test.jpg" @blur="recipe.image = $event.target.value" title="URL for the image of the food" alt="URL for the image of the food" />
 				</div>
 
-				<center>
+				<center v-if="!uploaded">
 					<h3>Or...</h3>
 				</center>
-				<div class="formflex uploader">
+				<div class="formflex uploader" v-if="!uploaded">
 					<label><b>Image Filename:</b></label>
-					<input type="text" v-model="imageFilename" placeholder="image.jpg" @blur="imageFilename = $event.target.value; recipe.image = 'img/' + $event.target.value" title="Please enter a filename for the image you are uploading." alt="Please enter a filename for the image you are uploading." :disabled="uploaded === true" />
+					<input type="text" v-model="imageFilename" placeholder="image.jpg" @blur="imageFilename = $event.target.value; recipe.image = 'img/' + $event.target.value" title="Please enter a filename for the image you are uploading." alt="Please enter a filename for the image you are uploading." />
 				</div>
-				<div class="formflex uploader">
+				<div class="formflex uploader" v-if="!uploaded">
 					<label><b>Upload Image:</b></label>
-					<input ref="image" type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" :disabled="uploaded === true" />
+					<input ref="image" type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" />
 				</div>
 				<center>
-					<button class="upload" @click="$event.preventDefault(); UploadFile(imageFilename)" title="Click this button to upload your image to use in the recipe." alt="Click this button to upload your image to use in the recipe." :disabled="uploaded === true">Upload</button><br />
-					<p><i>Only JPEG, PNG, GIF formats accepted. Max file size 2 MB.</i></p>
+					<button class="upload" @click="$event.preventDefault(); UploadFile(imageFilename)" title="Click this button to upload your image to use in the recipe." alt="Click this button to upload your image to use in the recipe.">Upload</button><br />
+					<p><i>Only JPEG, PNG, GIF formats accepted. Maximum file size 2 MB.</i></p>
 				</center>
 				<div class="ajax-area" v-html="ajaxResult">
 				
@@ -116,7 +116,7 @@
 					<p>
 						<button @click="$event.preventDefault(); AddIngredient()" title="Add an Ingredient to the end of the list" alt="Add an Ingredient to the end of the list">Add Ingredient</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
 						<button @click="$event.preventDefault(); RemoveIngredient()" title="Remove the last Ingredient from the end of the list" alt="Remove the last Ingredient from the end of the list">Remove Last Ingredient</button>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-						<button @click="$event.preventDefault(); ToggleIngreds()" title="Show/Hide the ingredients list" alt="Show/Hide the ingredients list" v-text="ingredsButton"></button>						
+						<button @click="$event.preventDefault(); ToggleIngreds()" title="Show/Hide the ingredients list" alt="Show/Hide the ingredients list" v-text="ingredsButton"></button>
 					</p>
 				</div>
 

@@ -1,8 +1,8 @@
 <?php
 /*
- * Dynamic Recipes Project
- * October - November 2020
- * Copyright (c) 2020 Tanner Babcock
+	Dynamic Recipes Project
+	October - November 2020
+	Copyright (c) 2020 Tanner Babcock
 */
 
 /* This file is exclusively for responding to AJAX. All of the output will be rendered into the Editor's DOM */

@@ -5,8 +5,8 @@
 	Tanner Babcock
 	October 8, 2020
 */
+require_once("dbConnect.php");
 try {
-	require_once("dbConnect.php");
 ?>
 <html lang="en">
 <head>
