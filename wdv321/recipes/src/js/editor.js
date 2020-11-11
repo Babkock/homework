@@ -128,16 +128,16 @@ var app = new Vue({
 		/* Add a step to the Recipe instructions */
 		AddStep() {
 			this.recipe.steps.push("");
-			this.steps = parseInt(this.steps) + 1;
-			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) + 1;
+			this.steps++;
+			this.recipe.numberOfSteps++;
 			this.bottomStatus = "<p class=\"success\">Added step.</p>";
 		},
 
 		/* Remove the last step from the Recipe instructions */
 		RemoveStep() {
 			this.recipe.steps.splice(this.steps-1, 1);
-			this.steps = parseInt(this.steps) - 1;
-			this.recipe.numberOfSteps = parseInt(this.recipe.numberOfSteps) - 1;
+			this.steps--;
+			this.recipe.numberOfSteps--;
 			this.bottomStatus = "<p class=\"error\">Removed last step.</p>";
 		},
 
@@ -175,7 +175,7 @@ var app = new Vue({
 			});
 
 			if (go) {
-				if ((this.recipe.serves < 0) || (this.recipe.cooking.quantity < 0) || (this.recipe.preparation.quantity < 0) || (this.recipe.ingredients[0].quantity < 0)) {
+				if ((this.recipe.serves <= 0) || (this.recipe.cooking.quantity <= 0) || (this.recipe.preparation.quantity <= 0) || (this.recipe.ingredients[0].quantity <= 0)) {
 					this.bottomStatus = "<p class=\"error\">Sorry, no negative numbers please.</p>";
 					this.saved = false;
 				}
@@ -225,7 +225,7 @@ var app = new Vue({
 			});
 
 			if (go) {
-				if ((this.recipe.serves < 0) || (this.recipe.cooking.quantity < 0) || (this.recipe.preparation.quantity < 0) || (this.recipe.ingredients[0].quantity < 0)) {
+				if ((this.recipe.serves <= 0) || (this.recipe.cooking.quantity <= 0) || (this.recipe.preparation.quantity <= 0) || (this.recipe.ingredients[0].quantity <= 0)) {
 					this.bottomStatus = "<p class=\"error\">Sorry, no negative numbers please.</p>";
 					this.saved = false;
 				}
