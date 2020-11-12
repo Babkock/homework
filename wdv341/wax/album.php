@@ -1,4 +1,11 @@
 <?php
+/*
+	WaXchange PHP Project
+	November - December 2020
+	Tanner Babcock
+*/
+
+require_once("lib/waxchange.php");
 
 /*
 	Albums Table
@@ -13,15 +20,19 @@
 	|-------------|--------------|------------------------------------------|
 	| discs       | INT(11)      | Number of discs (2xCD, 3xLP, etc).       |
 	|-------------|--------------|------------------------------------------|
-	| price       | VARCHAR(7)   | The price of the album.                  |
+	| price       | FLOAT        | The price of the album, set by the user. |
 	|-------------|--------------|------------------------------------------|
-	| user        | VARCHAR(80)  | The user who posted this album for sale. |
+	| seller      | VARCHAR(80)  | The user who is selling this album.      |
+	|-------------|--------------|------------------------------------------|
+	| buyer       | VARCHAR(80)  | The user who bought the album, or NULL.  |
 	|-------------|--------------|------------------------------------------|
 	| image       | VARCHAR(50)  | The image file for the album cover.      |
 	|-------------|--------------|------------------------------------------|
 	| label       | VARCHAR(90)  | Record label that released the album.    |
 	|-------------|--------------|------------------------------------------|
 	| posted      | DATE         | The date the album was posted for sale.  |
+	|-------------|--------------|------------------------------------------|
+	| country     | VARCHAR(2)   | Country code for where the album is from.|
 	|-------------|--------------|------------------------------------------|
 	| tracklist   | TEXT         | JSON data for the track listing.         |
 	|_____________|______________|__________________________________________|
