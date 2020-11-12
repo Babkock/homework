@@ -8,6 +8,37 @@
 */
 require_once("../../dbConnect.php");
 
+/*
+	Albums Table
+	_________________________________________________________________________
+	| id          | INT(11)      | The unique ID of the album for sale.     |
+	|-------------|--------------|------------------------------------------|
+	| artist      | VARCHAR(90)  | The musical artist who made this album.  |
+	|-------------|--------------|------------------------------------------|
+	| title       | VARCHAR(90)  | The title of the album.                  |
+	|-------------|--------------|------------------------------------------|
+	| media       | VARCHAR(10)  | Media (vinyl, CD, cassette).             |
+	|-------------|--------------|------------------------------------------|
+	| discs       | INT(11)      | Number of discs (2xCD, 3xLP, etc).       |
+	|-------------|--------------|------------------------------------------|
+	| price       | FLOAT        | The price of the album, set by the user. |
+	|-------------|--------------|------------------------------------------|
+	| seller      | VARCHAR(80)  | The user who is selling this album.      |
+	|-------------|--------------|------------------------------------------|
+	| buyer       | VARCHAR(80)  | The user who bought the album, or NULL.  |
+	|-------------|--------------|------------------------------------------|
+	| image       | VARCHAR(50)  | The image file for the album cover.      |
+	|-------------|--------------|------------------------------------------|
+	| label       | VARCHAR(90)  | Record label that released the album.    |
+	|-------------|--------------|------------------------------------------|
+	| posted      | DATE         | The date the album was posted for sale.  |
+	|-------------|--------------|------------------------------------------|
+	| country     | VARCHAR(2)   | Country code for where the album is from.|
+	|-------------|--------------|------------------------------------------|
+	| tracklist   | TEXT         | JSON data for the track listing.         |
+	|_____________|______________|__________________________________________|
+*/
+
 class Album {
 	private $id;
 	private $artist;
@@ -23,25 +54,34 @@ class Album {
 	public $price;
 	public $country;
 
-	public function __construct($a = "Unknown Artist", $b = "Unknown Album") {
-		if (strcmp(gettype($a), "string") != 0) {
-			exit("<p class=\"error\">Error: First argument of new Album() not a string</p>");
+	public function __construct($id = 0) {
+		if (strcmp(gettype($id), "integer") != 0) {
+			exit("<p class=\"error\">First argument of new Album() must be integer</p>");
 		}
-		if (strcmp(gettype($b), "string") != 0) {
-			exit("<p class=\"error\">Error: Second argument of new Album() not a string</p>");
-		}
-		$this->artist = $a;
-		$this->album = $b;
+		$this->id = $id;
 	}
 
 	public function getId() { return $this->id; }
-	public function setId($i) { $this->id = $i; }
 	public function getArtist() { return $this->artist; }
 	public function setArtist($a) { $this->artist = $a; }
 	public function getTitle() { return $this->title; }
 	public function setTitle($b) { $this->title = $b; }
 	public function getMedia() { return $this->media; }
 	public function setMedia($m) { $this->media = $m; }
+	public function getDiscs() { return $this->discs; }
+	public function setDiscs($d) { $this->discs = $d; }
+	public function getTracklist() { return json_decode($this->tracklist); }
+	public function setTracklist($t) { $this->tracklist = json_encode($t); }
+	public function getBuyer() { return $this->buyer; }
+	public function setBuyer($b) { $this->buyer = $b; }
+	public function getSeller() { return $this->seller; }
+	public function setSeller($s) { $this->seller = $s; }
+	public function getImage() { return $this->image; }
+	public function setImage($i) { $this->image = $i; }
+	public function getLabel() { return $this->label; }
+	public function setLabel($l) { $this->label = $l; }
+	public function getPosted() { return $this->posted; }
+	public function setPosted($p) { $this->posted = $p; }
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
@@ -58,11 +98,52 @@ class Album {
 		}
 	}
 
-	public function geta($arr) {
+	public function geta() {
+		$arr = [];
+		$arr['id'] = $this->id;
+		$arr['artist'] = $this->artist;
+		$arr['title'] = $this->title;
+		$arr['media'] = $this->media;
+		$arr['discs'] = $this->discs;
+		$arr['price'] = $this->price;
+		$arr['country'] = $this->country;
+		$arr['posted'] = $this->posted;
+		$arr['seller'] = $this->seller;
+		$arr['buyer'] = $this->buyer;
+		$arr['tracklist'] = $this->tracklist;
+		return $arr;
+	}
 
+	public function read($id = 0) {
+
+	}
+
+	public function write($id = 0) {
+		
 	}
 }
 
 class User {
+	private $id;
+	private $username;
+	private $password;
+	private $email;
 
+	public function __construct($id = 0) {
+		$this->id = $id;
+	}
+
+	public function getId() { return $this->id; }
+	public function getUsername() { return $this->username; }
+	public function setUsername($u) { $this->username = $u; }
+	public function getPassword() { return $this->password; }
+	public function setPassword($p) { $this->password = $p; }
+	public function getEmail() { return $this->email; }
+	public function setEmail($e) { $this->email = $e; }
+}
+
+class Methods {
+	public static function authorize() {
+
+	}
 }

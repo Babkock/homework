@@ -1,1 +1,33 @@
 <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WaXchange &bull; User {{USERNAME}}</title>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/images/favicon.png" />
+		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
+		<script src="https://unpkg.com/vue@2.6.11"></script>
+	</head>
+	<body>
+		{{IF_LOGGED_IN}}
+		<header class="loggedin">
+			<nav class="navigation">
+
+			</nav>
+		</header>
+		{{ENDIF}}
+		{{IF_NOT_LOGGED_IN}}
+		<header class="notloggedin">
+			<nav class="navigation">
+
+			</nav>
+		</header>
+		{{ENDNIF}}
+		<main id="account">
+
+		</main>
+		<footer>
+			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a></p>
+			<p>Copyright &copy; 2020 Tanner Babcock.</p>
+		</footer>
+	</body>
+</html>
