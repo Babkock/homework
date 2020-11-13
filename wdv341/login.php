@@ -70,7 +70,7 @@ function showLoginForm($warning = false, $user = "") {
 			<?php
 		}
 		?>
-		<form action="login" class="login" enctype="multipart/form-data">
+		<form action="login" class="login" method="post" enctype="multipart/form-data">
 			<table class="login-table"><tbody>
 				<tr>
 					<td><label>Username:</label></td>
