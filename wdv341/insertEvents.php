@@ -8,25 +8,27 @@ require_once("dbConnect.php");
 
 try {
 	if (!empty($_POST)) {
-		if (!isset($_POST['event_name']) || !isset($_POST['event_presenter']) || !isset($_POST['event_date']) || !isset($_POST['event_description']) || !isset($_POST['event_time'])) {
-			exit("<html><head><title>Error</title></head><body><p class=\"error\">One or more fields are empty.</p></body></html>");
-		}
-		else {
-			$name = $_POST['event_name'];
-			$presenter = $_POST['event_presenter'];
-			$tdate = $_POST['event_date'];
-			$ttime = $_POST['event_time'];
-			$descript = $_POST['event_description'];
+		if ($_SESSION['valid_user'] === true) {
 
-			$st = $db->prepare("INSERT INTO `wdv341_events` VALUES (id, :name, :description, :presenter, :tdate, :ttime)");
-			$st->bindParam(":id", $id);
-			$st->bindParam(":name", $name);
-			$st->bindParam(":description", $descript);
-			$st->bindParam(":presenter", $presenter);
-			$st->bindParam(":tdate", $tdate);
-			$st->bindParam(":ttime", $ttime);
+			if (!isset($_POST['event_name']) || !isset($_POST['event_presenter']) || !isset($_POST['event_date']) || !isset($_POST['event_description']) || !isset($_POST['event_time'])) {
+				exit("<html><head><title>Error</title></head><body><p class=\"error\">One or more fields are empty.</p></body></html>");
+			}
+			else {
+				$name = $_POST['event_name'];
+				$presenter = $_POST['event_presenter'];
+				$tdate = $_POST['event_date'];
+				$ttime = $_POST['event_time'];
+				$descript = $_POST['event_description'];
 
-			$st->execute();
+				$st = $db->prepare("INSERT INTO `wdv341_events` VALUES (id, :name, :description, :presenter, :tdate, :ttime)");
+				$st->bindParam(":id", $id);
+				$st->bindParam(":name", $name);
+				$st->bindParam(":description", $descript);
+				$st->bindParam(":presenter", $presenter);
+				$st->bindParam(":tdate", $tdate);
+				$st->bindParam(":ttime", $ttime);
+
+				$st->execute();
 ?>
 <!DOCTYPE html>
 <!--
@@ -46,11 +48,15 @@ try {
 			<h2>Event successfully submitted. <a href="selectEvents">View it in the table, here.</a></h2>
 		</center>
 		<footer>
-			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/insertEvents.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
+			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/insertEvents.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
 		</footer>
 	</body>
 </html>
-<?php
+	<?php
+			}
+		}
+		else {
+			header('Location: login');
 		}
 	}
 }

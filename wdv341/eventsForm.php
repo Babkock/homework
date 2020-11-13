@@ -7,14 +7,15 @@
 require_once("dbConnect.php");
 
 try {
-	$st = $db->prepare("SELECT * FROM `wdv341_events`");
-	$st->execute();
+	if ($_SESSION['valid_user'] == true) {
+		$st = $db->prepare("SELECT * FROM `wdv341_events`");
+		$st->execute();
 
-	$eventCount = 0;
-	while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+		$eventCount = 0;
+		while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+			$eventCount++;
+		}
 		$eventCount++;
-	}
-	$eventCount++;
 ?>
 <!DOCTYPE html>
 <!--
@@ -26,12 +27,22 @@ try {
 	<head>
 		<title>WDV341 SQL INSERT</title>
 		<meta charset="utf-8" />
+		<meta name="description" content="WDV341 Intro to PHP Unit 12: SQL INSERT" />
 		<link rel="stylesheet" href="/homework/assets/css/style.css" />
 		<link rel="icon" href="/images/favicon.png" />
 	</head>
 	<body>
 		<header>
 			<h1>WDV341 SQL INSERT</h1>
+			<h2>Welcome, <?php echo $_SESSION['current_user']; ?></h2>
+			<nav>
+				<ul>
+					<li><a href="login">Admin Home</a></li>
+					<li><a href="eventsForm">New Event</a></li>
+					<li><a href="eventsList">Show All Events</a></li>
+					<li><a href="logout">Logout</a></li>
+				</ul>
+			</nav>
 		</header>
 		<main id="events-form">
 			<form action="insertEvents" method="post" enctype="multipart/form-data">
@@ -67,11 +78,15 @@ try {
 			</form>
 		</main>
 		<footer>
-			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/eventsForm.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
+			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/eventsForm.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
 		</footer>
 	</body>
 </html>
 <?php
+	}
+	else {
+		header('Location: login');
+	}
 }
 catch (PDOException $e) {
 	exit("<p class=\"error\">Error: {$e->getMessage()}</p>");
