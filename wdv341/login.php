@@ -128,6 +128,7 @@ try {
 			exit();
 		}
 		else {
+			echo "Login failed";
 			/* show login form with error */
 			showLoginForm(true, $_POST['username']);
 		}
