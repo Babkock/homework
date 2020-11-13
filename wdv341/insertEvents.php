@@ -29,7 +29,18 @@ try {
 
 			$st->execute();
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Form Submission Successful!</title>
+		<link rel="stylesheet" href="/homework/assets/css/style.css" />
+		<link rel="icon" href="/images/favicon.png" />
+	</head>
+	<body>
+		<h2>Event successfully submitted. <a href="selectEvents">View it in the table, here.</a></h2>
+	</body>
+</html>
 <?php
 		}
 	}

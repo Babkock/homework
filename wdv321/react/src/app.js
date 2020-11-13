@@ -1,3 +1,8 @@
+/*
+	My First React App
+	November 12, 2020
+	Tanner Babcock
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 

@@ -17,6 +17,11 @@ try {
 	$eventCount++;
 ?>
 <!DOCTYPE html>
+<!--
+	Unit 12: SQL INSERT
+	November 12, 2020
+	Tanner Babcock
+-->
 <html lang="en">
 	<head>
 		<title>WDV341 SQL INSERT</title>
