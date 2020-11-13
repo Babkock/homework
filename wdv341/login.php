@@ -41,7 +41,7 @@ function showAdminArea($user = "") {
 	<?php
 }
 
-function showLoginForm($warning = false, $user = "") {
+function showLoginForm($warning = false, $user = "", $error = "") {
 	?>
 <html lang="en">
 <head>
@@ -61,13 +61,15 @@ function showLoginForm($warning = false, $user = "") {
 		</nav>
 	</header>
 	<main id="login-form">
-		<h1>Please Log In</h1>
+		<center><h1>Please Log In</h1></center>
 		<?php
 		if (($warning) && (strlen($user) > 2)) {
 			?>
 		<div class="error">
-			<p class="error">Username or password invalid. Please try again.</p>
+			<p class="error"><?php echo $error; ?></p>
 		</div>
+		<br />
+		<br />
 			<?php
 		}
 		?>
@@ -115,16 +117,21 @@ if (!isset($_SESSION['valid_user']))
 
 try {
 	if (!empty($_POST)) {
-		$st = $db->prepare("SELECT `event_user_id`, `event_user_name`, `event_user_password` FROM `event_user`");
-		$st->execute();
+		if (!isset($_POST['username']) || !isset($_POST['password'])) {
+			showLoginForm(true, "", "One or more fields are empty.");
+		}
+		else {
+			$st = $db->prepare("SELECT `event_user_id`, `event_user_name`, `event_user_password` FROM `event_user`");
+			$st->execute();
 
-		$_SESSION['valid_user'] = false;
-		while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-			if ((strcmp($row['event_user_name'], $_POST['username']) == 0) &&
-				(strcmp($row['event_user_password'], $_POST['password']) == 0)) {
-				$_SESSION['valid_user'] = true;
-				$_SESSION['current_user'] = $_POST['username'];
-				break;
+			$_SESSION['valid_user'] = false;
+			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+				if ((strcmp($row['event_user_name'], $_POST['username']) == 0) &&
+					(strcmp($row['event_user_password'], $_POST['password']) == 0)) {
+					$_SESSION['valid_user'] = true;
+					$_SESSION['current_user'] = $_POST['username'];
+					break;
+				}
 			}
 		}
 
@@ -133,9 +140,8 @@ try {
 			exit();
 		}
 		else {
-			echo "Login failed";
 			/* show login form with error */
-			showLoginForm(true, $_POST['username']);
+			showLoginForm(true, $_POST['username'], "Invalid username or password. Please try again.");
 		}
 	}
 	else {

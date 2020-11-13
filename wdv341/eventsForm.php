@@ -87,6 +87,7 @@ try {
 	}
 	else {
 		header('Location: login');
+		exit();
 	}
 }
 catch (PDOException $e) {
