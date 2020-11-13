@@ -2,7 +2,7 @@
 <?php
 /*
 	Unit 13: Login and Protected Pages
-	November 10, 2020
+	November 12, 2020
 	Tanner Babcock
 */
 session_start();
@@ -29,7 +29,9 @@ function showAdminArea($user = "") {
 		</nav>
 	</header>
 	<main id="admin">
-
+		<center>
+			<h1>Welcome, <?php echo $user; ?></h1>
+		</center>
 	</main>
 	<footer>
 		<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/login.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
@@ -70,17 +72,32 @@ function showLoginForm($warning = false, $user = "") {
 		?>
 		<form action="login" class="login" enctype="multipart/form-data">
 			<table><tbody>
-
+				<tr>
+					<td><label>Username:</label></td>
+					<td><input type="text" name="username" value="<?php echo $user; ?>" maxlength="80" size="80" placeholder="Username" /></td>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td>
+					<td><input type="password" name="password" maxlength="80" size="80" /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" name="submit" value="Log In" title="Log in!" alt="Log in!" />
+					</td>
+				</tr>
 			</tbody></table>
 		</form>
 	</main>
 	<footer>
-		<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/login.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
+		<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/login.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
 	</footer>
 </body>
 </html>
 	<?php
 }
+
+$_SESSION['current_user'] = "";
+$_SESSION['valid_user'] = false;
 
 try {
 	if (!empty($_POST)) {
