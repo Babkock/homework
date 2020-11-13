@@ -1,29 +1,30 @@
 {
-  "name": "wdv321reactproject",
-  "version": "1.0.0",
-  "description": "My first react app.",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --color --hide-modules --mode production",
-    "serve": "webpack-dev-server --mode development"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Babkock/homework.git"
-  },
-  "author": "Tanner Babcock",
-  "license": "ISC",
-  "homepage": "https://github.com/Babkock/homework#readme",
-  "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-core": "6.25.0",
-    "babel-loader": "7.1.4",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-react": "6.24.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "webpack": "4.4.1",
-    "webpack-cli": "2.0.13",
-    "webpack-dev-server": "3.1.1"
-  }
+	"name": "wdv321reactproject",
+	"version": "1.0.0",
+	"description": "My first React app.",
+	"main": "index.js",
+	"author": "Tanner Babcock",
+	"scripts": {
+		"build": "webpack --color --hide-modules --mode production",
+		"serve": "webpack-dev-server --mode development"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Babkock/homework.git"
+	},
+	"author": "Tanner Babcock",
+	"license": "ISC",
+	"homepage": "https://github.com/Babkock/homework#readme",
+	"devDependencies": {
+		"babel-cli": "6.24.1",
+		"babel-core": "6.25.0",
+		"babel-loader": "7.1.4",
+		"babel-preset-env": "1.6.1",
+		"babel-preset-react": "6.24.1",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"webpack": "4.4.1",
+		"webpack-cli": "2.0.13",
+		"webpack-dev-server": "3.1.11"
+	}
 }
