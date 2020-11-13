@@ -12,14 +12,13 @@ try {
 			exit("<html><head><title>Error</title></head><body><p class=\"error\">One or more fields are empty.</p></body></html>");
 		}
 		else {
-			$id = intval($_POST['event_id']);
 			$name = $_POST['event_name'];
 			$presenter = $_POST['event_presenter'];
 			$tdate = $_POST['event_date'];
 			$ttime = $_POST['event_time'];
 			$descript = $_POST['event_description'];
 
-			$st = $db->prepare("INSERT INTO `wdv341_events` VALUES (:id, :name, :description, :presenter, :tdate, :ttime)");
+			$st = $db->prepare("INSERT INTO `wdv341_events` VALUES (id, :name, :description, :presenter, :tdate, :ttime)");
 			$st->bindParam(":id", $id);
 			$st->bindParam(":name", $name);
 			$st->bindParam(":description", $descript);
@@ -30,6 +29,11 @@ try {
 			$st->execute();
 ?>
 <!DOCTYPE html>
+<!--
+	Unit 12: SQL INSERT
+	November 12, 2020
+	Tanner Babcock
+-->
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -38,7 +42,12 @@ try {
 		<link rel="icon" href="/images/favicon.png" />
 	</head>
 	<body>
-		<h2>Event successfully submitted. <a href="selectEvents">View it in the table, here.</a></h2>
+		<center>
+			<h2>Event successfully submitted. <a href="selectEvents">View it in the table, here.</a></h2>
+		</center>
+		<footer>
+			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/insertEvents.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
+		</footer>
 	</body>
 </html>
 <?php
