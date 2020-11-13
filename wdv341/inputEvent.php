@@ -65,7 +65,7 @@ if (empty($_POST)) {
 			</form>
 		</main>
 		<footer>
-			<p><a href="eventForm.html" title="Previous assignment" alt="Previous assignment">Unit 11: Events Input Form</a> &bull; <a href="formValidationAssignment" alt="Next assignment" title="Next assignment">Unit 11: Form Validation</a></p>
+			<p><a href="eventForm.html" title="Previous assignment" alt="Previous assignment">Unit 11: Events Input Form</a> &bull; <a href="eventsForm" alt="Next assignment" title="Next assignment">Unit 12: SQL INSERT</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/inputEvent.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
 		</footer>
 	</body>
@@ -172,7 +172,7 @@ else {
 			</form>
 		</main>
 		<footer>
-			<p><a href="eventForm.html" title="Previous assignment" alt="Previous assignment">Unit 11: Events Input Form</a> &bull; <a href="login" title="Next assignment" alt="Next assignment">Unit 13: Login and Protected Pages</a></p>
+			<p><a href="eventForm.html" title="Previous assignment" alt="Previous assignment">Unit 11: Events Input Form</a> &bull; <a href="eventsForm" title="Next assignment" alt="Next assignment">Unit 12: SQL INSERT</a></p>
 			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a> &bull; <a href="https://github.com/Babkock/homework/blob/master/wdv341/inputEvent.php" target="_blank" title="GitHub" alt="GitHub">View Source Code</a></p>
 		</footer>
 	</body>
