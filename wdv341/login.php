@@ -71,10 +71,19 @@ function showLoginForm($warning = false, $user = "") {
 		}
 		?>
 		<form action="login" class="login" enctype="multipart/form-data">
-			<table><tbody>
+			<table class="login-table"><tbody>
 				<tr>
 					<td><label>Username:</label></td>
+					<?php if (strlen($user) > 2) {
+					?>
 					<td><input type="text" name="username" value="<?php echo $user; ?>" maxlength="80" size="80" placeholder="Username" /></td>
+					<?php }
+					else {
+					?>
+					<td><input type="text" name="username" maxlength="80" size="80" placeholder="Username" /></td>
+					<?php
+					}
+					?>
 				</tr>
 				<tr>
 					<td><label>Password:</label></td>
