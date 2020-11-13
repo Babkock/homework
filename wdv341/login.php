@@ -105,8 +105,12 @@ function showLoginForm($warning = false, $user = "") {
 	<?php
 }
 
-$_SESSION['current_user'] = "";
-$_SESSION['valid_user'] = false;
+if (!isset($_SESSION['current_user']))
+	$_SESSION['current_user'] = "";
+
+
+if (!isset($_SESSION['valid_user']))
+	$_SESSION['valid_user'] = false;
 
 try {
 	if (!empty($_POST)) {
