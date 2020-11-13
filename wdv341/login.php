@@ -61,6 +61,7 @@ function showLoginForm($warning = false, $user = "") {
 		</nav>
 	</header>
 	<main id="login-form">
+		<h1>Please Log In</h1>
 		<?php
 		if (($warning) && (strlen($user) > 2)) {
 			?>

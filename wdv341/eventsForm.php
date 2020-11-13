@@ -5,9 +5,10 @@
 	Tanner Babcock
 */
 require_once("dbConnect.php");
+session_start();
 
 try {
-	if ($_SESSION['valid_user'] == true) {
+	if ((isset($_SESSION['current_user'])) && (isset($_SESSION['valid_user'])) && ($_SESSION['valid_user'] == true)) {
 		$st = $db->prepare("SELECT * FROM `wdv341_events`");
 		$st->execute();
 
