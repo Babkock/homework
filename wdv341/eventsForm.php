@@ -33,8 +33,8 @@ try {
 		<header>
 			<h1>WDV341 SQL INSERT</h1>
 		</header>
-		<main>
-			<form action="insertEvents" enctype="multipart/form-data">
+		<main id="events-form">
+			<form action="insertEvents" method="post" enctype="multipart/form-data">
 				<h2>Creating New Event</h2>
 				<div class="formFlex">
 					<label for="event_id">Event ID:</label>
