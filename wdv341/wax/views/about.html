@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WaXchange &bull; About</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="Welcome to the WaXchange music market. This is a place where you can buy and sell albums, to and from real people." />
+		<link rel="icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
+	</head>
+	<body>
+		{{IF_LOGGED_IN}}
+		<header class="loggedin">
+			<h1>WaXchange</h1>
+			<nav class="navigation">
+				<ul>
+					<li><a href="/homework/wdv341/wax/index">Home</a></li>
+					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
+					<li><a href="/homework/wdv341/wax/album">Post Album</a></li>
+					<li><a href="/homework/wdv341/wax/user?id={{USERID}}">My Account</a></li>
+				</ul>
+			</nav>
+		</header>
+		{{ENDIF}}
+		{{IF_NOT_LOGGED_IN}}
+		<header class="notloggedin">
+			<h1>WaXchange</h1>
+			<nav class="navigation">
+				<ul>
+					<li><a href="/homework/wdv341/wax/login">Login</a></li>
+					<li><a href="/homework/wdv341/wax/register">Register</a></li>
+					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
+					<li><a href="/homework/wdv341/wax/about">About</a></li>
+				</ul>
+			</nav>
+		</header>
+		{{ENDNIF}}
+		<main id="about">
+
+		</main>
+		<footer>
+			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+			<p>Copyright &copy; 2020 Tanner Babcock.</p>
+		</footer>
+	</body>
+</html>

@@ -6,12 +6,13 @@
 		<meta name="description" content="The Album editor page for the WaXchange market." />
 		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
-		<link rel="stylesheet" href="/homework/assets/js/album-input-row.css" />
+		<link rel="stylesheet" href="/homework/assets/css/album-input-row.css" />
+		<link rel="stylesheet" href="/homework/assets/css/track-input-row.css" />
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
 	<body>
-		<header>
+		<header class="loggedin">
 			<h1>WaXchange</h1>
 			<nav class="navigation">
 				<ul>
@@ -28,7 +29,7 @@
 				<table class="main-album-info"><tbody>
 					<tr is="album-input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
 					<tr is="album-input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
-					
+					<!-- more here -->
 					<tr>
 						<td><label for="media">Media:</label></td>
 						<td>
@@ -41,6 +42,9 @@
 						</td>
 					</tr>
 				</tbody></table>
+
+				<!-- And then the expandable track listing -->
+				<!-- Don't forget to preventDefault() on the buttons -->
 			</form>
 		</main>
 		<footer>
