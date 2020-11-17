@@ -5,11 +5,10 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
-		<script src="https://unpkg.com/vue@2.6.11"></script>
-		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
 	<body>
 		<header class="notloggedin">
+			<h1>WaXchange</h1>
 			<nav class="navigation">
 				<ul>
 					<li><a href="/homework/wdv341/wax/login">Login</a></li>
@@ -20,13 +19,29 @@
 			</nav>
 		</header>
 		<main id="login">
-			<form action="login" class="login-form" enctype="multipart/form-data">
-
+			<center><h2>Login:</h2></center>
+			{{LOGINERROR}}
+			<form action="login" method="post" class="login-form" enctype="multipart/form-data">
+				<table><tbody>
+					<tr>
+						<td><label for="username">Username:</label></td>
+						<td><input type="text" size="80" maxlength="80" name="username" placeholder="Username" /></td>
+					</tr>
+					<tr>
+						<td><label for="password">Password:</label></td>
+						<td><input type="password" size="80" maxlength="60" name="password" /></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="submit" name="submit">Login</button>
+						</td>
+					</tr>
+				</tbody></table>
 			</form>
 		</main>
 		<footer>
-
+			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+			<p>Copyright &copy; 2020 Tanner Babcock.</p>
 		</footer>
-		<script src="/homework/assets/js/waxlogin.min.js"></script>
 	</body>
 </html>

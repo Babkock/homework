@@ -1,16 +1,16 @@
 /*
 	Dynamic Recipes Project
 	October - November 2020
-	Copyright (c) 2020 Tanner Babcock
+	Copyright (c) 2020 Tanner Babcock.
 
 	src/css  =>  assets/css
 	src/js   =>  assets/js
 */
-const env = require('../../../env.json');
-const path = require('path');
-const webpack = require('webpack');
-const { VueLoaderPlugin } = require('vue-loader');
-const config = require('./package.json');
+const env = require("../../../env.json");
+const path = require("path");
+const webpack = require("webpack");
+const { VueLoaderPlugin } = require("vue-loader");
+const config = require("./package.json");
 
 module.exports = {
 	mode: process.env.NODE_ENV,
