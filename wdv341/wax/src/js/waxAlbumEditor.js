@@ -21,7 +21,7 @@ var app = new Vue({
 		return {
 			file: false,
 			uploaded: false,
-			tracks: 3,
+			tracks: 2,
 			showingTracks: false,
 			tracksButton: "Showing Tracks",
 			imageFilename: "",
@@ -37,7 +37,7 @@ var app = new Vue({
 				// buyer: "",       form handler.
 				image: "",
 				label: "",
-				posted: ""
+				posted: "",
 				tracklist: [
 					{
 						title: "Track One",
@@ -56,12 +56,26 @@ var app = new Vue({
 	methods: {
 		/* Add a new, empty track to the Album */
 		AddTrack() {
-
+			this.album.tracklist.push({
+				title: "Untitled",
+				length: ""
+			});
+			this.tracks++;
 		},
 
 		/* Remove the last track from the Album */
 		RemoveTrack() {
+			this.album.tracklist.splice(this.tracks - 1, 1);
+			this.tracks--;
+		},
 
+		SubmitAlbum() {
+			if (this.file) {
+				this.ajaxResult = "<p class=\"success\">Your album and album art image are being uploaded...</p>";
+			}
+			else {
+				this.ajaxResult = "<p class=\"success\">Your album is being processed...</p>";
+			}
 		}
 	}
 })
