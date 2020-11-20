@@ -2,15 +2,16 @@
 /*
 	index.php
 
-	WaXchange PHP Project
+	WaXchange
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
 require_once("lib/waxchange.php");
 
-if (!isset($_SESSION['current_user'])) {
-	/* Show login page */
-}
-else {
+Methods::authorize();
 
-}
+$home = new Page("index");
+$home->setTitle("WaXchange &bull; Home");
+$home->setDescription("WaXchange is a music marketplace, where users can buy and sell albums.");
+$home->output();
+

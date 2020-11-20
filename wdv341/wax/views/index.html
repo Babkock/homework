@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{TITLE}}</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="{{DESCRIPTION}}" />
+		<link rel="icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
+		<script src="https://unpkg.com/vue@2.6.11"></script>
+	</head>
+	<body>
+		<header class="loggedin">
+			<h1>WaXchange</h1>
+			<nav class="navigation">
+				<ul>
+					<li><a href="/homework/wdv341/wax/index">Home</a></li>
+					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
+					<li><a href="/homework/wdv341/wax/album">Post Album</a></li>
+					<li><a href="/homework/wdv341/wax/user?id={{USERID}}">My Account</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main id="home">
+			<h2>Welcome back, {{USERNAME}}!</h2>
+		</main>
+		<footer>
+			<p><a href="contact">Contact</a></p>
+			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+			<p>Copyright &copy; 2020 Tanner Babcock.</p>
+		</footer>
+	</body>
+</html>

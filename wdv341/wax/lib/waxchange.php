@@ -6,7 +6,11 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
+session_start();
 require_once("../../dbConnect.php");
+
+$passkey = file_get_contents(__DIR__ . "/./passkey.txt");
+
 
 /*
 	Albums Table
@@ -142,8 +146,59 @@ class User {
 	public function setEmail($e) { $this->email = $e; }
 }
 
+class Page {
+	private $content;
+	private $title;
+
+	public function __construct($file = "") {
+		if (!isset($file)) {
+			exit("<p class=\"error\">No file for loading</p>");
+		}
+		$this->content = file_get_contents(__DIR__ . "/../views/" . $file . ".html");
+	}
+
+	public function getContent() { return $this->content; }
+	public function setContent($c) { $this->content = $c; }
+	public function getTitle() { return $this->title; }
+	public function setTitle($t) {
+		$this->replace("TITLE", $t);
+	}
+	public function description($d) {
+		$this->replace("DESCRIPTION", $t);
+	}
+
+	public function replace($plchold, $val = "") {
+		$this->content = str_replace("{{" . $plchold . "}}", $val, $this->content);
+	}
+
+	public function replacea($arr) {
+		foreach ($arr as $k => $v) {
+			$this->content = str_replace("{{" . $k . "}}", $v, $this->content);
+		}
+	}
+}
+
 class Methods {
 	public static function authorize() {
-
+		if (!isset($_SESSION['token'])) {
+			header('Location: login');
+			exit();
+		}
+		if (strcmp($_SESSION['token'], hash("sha256", $passkey)) != 0) {
+			header('Location: login');
+			exit();
+		}
 	}
+
+	public static function snip($beginning, $end, $string) {
+		$beginningPos = strpos($string, $beginning);
+		$endPos = strpos($string, $end);
+		if ($beginningPos === false || $endPos === false) {
+			return $string;
+		}
+		$textToDelete = substr($string, $beginningPos, ($endPos + strlen($end)) - $beginningPos);
+		return str_replace($textToDelete, "", $string);
+	}
+
+
 }

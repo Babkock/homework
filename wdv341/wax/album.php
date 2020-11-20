@@ -8,7 +8,9 @@
 */
 require_once("lib/waxchange.php");
 
-if (!isset($_SESSION['current_user'])) {
+Methods::authorize();
+
+if (!empty($_POST)) {
 
 }
 else {
