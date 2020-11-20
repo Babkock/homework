@@ -7,7 +7,7 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 session_start();
-require_once("../../dbConnect.php");
+require_once("../dbConnect.php");
 
 $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 
