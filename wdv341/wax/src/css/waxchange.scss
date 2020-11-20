@@ -1,0 +1,28 @@
+/*
+	WaXchange
+	November - December 2020
+	Copyright (c) 2020 Tanner Babcock.
+*/
+
+@import "variables.scss";
+
+body {
+	background:linear-gradient(#77201b, #306520);
+	color:white;
+	@include WidthMargins(90%, 5%, 5%);
+}
+
+header {
+	width:100%;
+	nav {
+		width:100%;
+
+		ul {
+			list-style-type:none;
+			width:100%;
+			li {
+				@include WidthMargins(18%, 1%, 1%);
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+/*
+	WaXchange
+	November - December 2020
+	Copyright (c) 2020 Tanner Babcock.
+*/
+
+@mixin WidthMargins($w, $l, $r) {
+	width:$w;
+	margin-left:$l;
+	margin-right:$r;
+}
