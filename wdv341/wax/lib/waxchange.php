@@ -164,7 +164,7 @@ class Page {
 		$this->replace("TITLE", $t);
 	}
 	public function setDescription($d) {
-		$this->replace("DESCRIPTION", $t);
+		$this->replace("DESCRIPTION", $d);
 	}
 
 	public function replace($plchold, $val = "") {
@@ -175,6 +175,10 @@ class Page {
 		foreach ($arr as $k => $v) {
 			$this->content = str_replace("{{" . $k . "}}", $v, $this->content);
 		}
+	}
+
+	public function output() {
+		echo $this->content;
 	}
 }
 
