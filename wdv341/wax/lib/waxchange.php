@@ -163,7 +163,7 @@ class Page {
 	public function setTitle($t) {
 		$this->replace("TITLE", $t);
 	}
-	public function description($d) {
+	public function setDescription($d) {
 		$this->replace("DESCRIPTION", $t);
 	}
 
