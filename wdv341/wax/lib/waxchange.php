@@ -184,11 +184,7 @@ class Page {
 
 class Methods {
 	public static function authorize() {
-		if (!isset($_SESSION['token'])) {
-			header('Location: login');
-			exit();
-		}
-		if (strcmp($_SESSION['token'], hash("sha256", $passkey)) != 0) {
+		if ((!isset($_SESSION['token'])) || (!isset($_SESSION['current_user']))) {
 			header('Location: login');
 			exit();
 		}
