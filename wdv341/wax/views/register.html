@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="description" content="{{DESCRIPTION}}" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
-		<link rel="icon" type="image/png" href="/images/favicon.png" />
+		<link rel="icon" href="/images/favicon.png" />
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
@@ -15,15 +15,65 @@
 				<h1><a href="index">WaXchange</a></h1>
 				<nav class="navigation">
 					<ul>
-						<li><a href="/homework/wdv341/wax/login">Login</a></li>
-						<li><a href="/homework/wdv341/wax/register">Register</a></li>
-						<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-						<li><a href="/homework/wdv341/wax/about">About</a></li>
+						<li><a href="login">Login</a></li>
+						<li><a href="register">Register</a></li>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="about">About</a></li>
 					</ul>
 				</nav>
 			</header>
 			<main id="register">
-
+				<form class="register-form" method="post" enctype="multipart/form-data">
+					<table><tbody>
+						<tr>
+							<td><label for="username">Username:</label></td>
+							<td><input type="text" v-model="userinfo.username" size="80" maxlength="80" placeholder="Enter a Username" @blur="userinfo.username = $event.target.value" /></td>
+						</tr>
+						<tr>
+							<td><label for="email">Email Address:</label></td>
+							<td><input type="text" v-model="userinfo.email" size="80" maxlength="80" placeholder="test@example.com" @blur="userinfo.email = $event.target.value" /></td>
+						</tr>
+						<tr>
+							<td><label for="password">Password:</label></td>
+							<td><input type="password" v-model="userinfo.password" size="80" maxlength="80" @blur="userinfo.password = $event.target.value" /></td>
+						</tr>
+						<tr>
+							<td><label for="password2">Confirm Password:</label></td>
+							<td><input type="password" v-model="password2" size="80" maxlength="80" @blur="password2 = $event.target.value" /></td>
+						</tr>
+						<tr>
+							<td><label for="country">Country:</label></td>
+							<td>
+								<select v-model="userinfo.country" @change="userinfo.country = $event.target.value">
+									<option selected>Choose a Country</option>
+									<option value="us">United States</option>
+									<option value="ca">Canada</option>
+									<option value="mx">Mexico</option>
+									<option value="uk">United Kingdom</option>
+									<option value="ru">Russian Federation</option>
+									<option value="fr">France</option>
+									<option value="es">Spain</option>
+									<option value="de">Germany</option>
+									<option value="pl">Poland</option>
+									<option value="lx">Luxembourg</option>
+									<option value="dk">Denmark</option>
+									<option value="se">Sweden</option>
+									<option value="no">Norway</option>
+									<option value="nl">Netherlands</option>
+									<option value="fl">Finland</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<button @click="submitForm(); $event.preventDefault();">Register</button>
+							</td>
+						</tr>
+					</tbody></table>
+				</form>
+				<div v-html="ajaxResult" class="ajax-area">
+					
+				</div>
 			</main>
 			<footer>
 				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>

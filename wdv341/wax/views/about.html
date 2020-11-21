@@ -10,29 +10,27 @@
 	<body>
 		<div class="container">
 			{{IF_LOGGED_IN}}
-			<header class="loggedin">
-				<h1>WaXchange</h1>
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
 				<nav class="navigation">
 					<ul>
-						<li><a href="/homework/wdv341/wax/index">Home</a></li>
-						<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-						<li><a href="/homework/wdv341/wax/album">Post Album</a></li>
-						<li><a href="/homework/wdv341/wax/user?id={{USERID}}">My Account</a></li>
-						<li><a href="/homework/wdv341/wax/logout">Log Out</a></li>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="album">Post Album</a></li>
+						<li><a href="user?id={{USERID}}">My Account</a></li>
+						<li><a href="logout">Log Out</a></li>
 					</ul>
 				</nav>
 			</header>
 			{{ENDIF}}
 			{{IF_NOT_LOGGED_IN}}
-			<header class="notloggedin">
-				<h1>WaXchange</h1>
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
 				<nav class="navigation">
 					<ul>
-						<li><a href="/homework/wdv341/wax/login">Login</a></li>
-						<li><a href="/homework/wdv341/wax/register">Register</a></li>
-						<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-						<li><a href="/homework/wdv341/wax/about">About</a></li>
-						<li><a href="/homework/wdv341/wax/contact">Contact</a></li>
+						<li><a href="login">Login</a></li>
+						<li><a href="register">Register</a></li>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="about">About</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -41,6 +39,7 @@
 
 			</main>
 			<footer>
+				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>
 				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
 				<p>Copyright &copy; 2020 Tanner Babcock.</p>
 			</footer>

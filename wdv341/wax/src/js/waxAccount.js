@@ -11,4 +11,12 @@ Vue.component('album', Album)
 var app = Vue.app({
 	el: "#account",
 
+	http: {
+		emulateJSON: true,
+		emulateHTTP: true
+	},
+
+	data: () => {
+		
+	}
 })

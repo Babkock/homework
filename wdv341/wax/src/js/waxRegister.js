@@ -9,5 +9,28 @@ var app = new Vue({
 	http: {
 		emulateJSON: true,
 		emulateHTTP: true
+	},
+
+	data: () => {
+		return {
+			password2: "",
+			userinfo: {
+				username: "",
+				password: "",
+				email: "",
+				country: ""
+			},
+			ajaxResult: ""
+		};
+	},
+
+	methods: {
+		submitForm() {
+
+		}
+	},
+
+	mounted() {
+
 	}
 })

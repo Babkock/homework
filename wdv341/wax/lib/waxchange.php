@@ -119,7 +119,18 @@ class Album {
 	}
 
 	public function read($id = 0) {
+		try {
+			$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id LIMIT 1");
+			$st->bindParam(":id", $id);
+			$st->execute();
 
+			$row = $st->fetch(PDO::FETCH_ASSOC);
+
+			
+		}
+		catch (PDOException $e) {
+
+		}
 	}
 
 	public function write($id = 0) {
@@ -132,6 +143,7 @@ class User {
 	private $username;
 	private $password;
 	private $email;
+	private $country;
 
 	public function __construct($id = 0) {
 		$this->id = $id;
@@ -144,6 +156,8 @@ class User {
 	public function setPassword($p) { $this->password = $p; }
 	public function getEmail() { return $this->email; }
 	public function setEmail($e) { $this->email = $e; }
+	public function getCountry() { return $this->country; }
+	public function setCountry($c) { $this->country = $c; }
 }
 
 class Page {
@@ -161,6 +175,7 @@ class Page {
 	public function setContent($c) { $this->content = $c; }
 	public function getTitle() { return $this->title; }
 	public function setTitle($t) {
+		$this->title = $t;
 		$this->replace("TITLE", $t);
 	}
 	public function setDescription($d) {
