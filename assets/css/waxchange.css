@@ -8,12 +8,20 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-body { background: linear-gradient(#77201b, #306520); color: white; width: 90%; margin-left: 5%; margin-right: 5%; }
+body { background: radial-gradient(circle, #2f3279 0%, #802626 100%); color: white; width: 90%; margin-left: 5%; margin-right: 5%; font-family: "Helvetica" !important; }
 
-header { width: 100%; }
+a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; }
 
-header nav { width: 100%; }
+a:hover { color: #99ff99; text-decoration: none; }
+
+header { width: 100%; text-align: center; }
+
+header nav { width: 100%; text-align: center; }
 
 header nav ul { list-style-type: none; width: 100%; }
 
-header nav ul li { width: 18%; margin-left: 1%; margin-right: 1%; }
+header nav ul li { width: 17%; margin-left: 1%; margin-right: 1%; display: inline; float: left; border: 1px solid gray; padding: 6px; background: rgba(30, 30, 40, 0.3); }
+
+header nav ul li a { display: block; width: 96%; padding: 6px; height: 100%; }
+
+footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px; width: 100%; }

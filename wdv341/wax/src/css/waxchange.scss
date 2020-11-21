@@ -7,22 +7,53 @@
 @import "variables.scss";
 
 body {
-	background:linear-gradient(#77201b, #306520);
+	background:radial-gradient(circle, rgba(47,50,121,1) 0%, rgba(128,38,38,1) 100%);
 	color:white;
 	@include WidthMargins(90%, 5%, 5%);
+	font-family:"Helvetica" !important;
+}
+
+a, a:visited, a:link, a:active {
+	color:#88cc88;
+	text-decoration:none;
+}
+
+a:hover {
+	color:#99ff99;
+	text-decoration:none;
 }
 
 header {
 	width:100%;
+	text-align:center;
 	nav {
 		width:100%;
-
+		text-align:center;
 		ul {
 			list-style-type:none;
 			width:100%;
 			li {
-				@include WidthMargins(18%, 1%, 1%);
+				@include WidthMargins(17%, 1%, 1%);
+				display:inline;
+				float:left;
+				border:1px solid gray;
+				padding:6px;
+				background:rgba(30, 30, 40, 0.3);
+				a {
+					display:block;
+					width:96%;
+					padding:6px;
+					height:100%;
+				}
 			}
 		}
 	}
+}
+
+footer {
+	display:block;
+	text-align:center;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:100%;
 }
