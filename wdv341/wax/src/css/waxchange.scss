@@ -10,7 +10,7 @@ body {
 	background:radial-gradient(circle, rgba(47,50,121,1) 0%, rgba(128,38,38,1) 100%);
 	color:white;
 	@include WidthMargins(90%, 5%, 5%);
-	font-family:"Helvetica" !important;
+	font-family:"Trebuchet MS", Helvetica, sans-serif !important;
 }
 
 a, a:visited, a:link, a:active {
@@ -29,9 +29,12 @@ header {
 	nav {
 		width:100%;
 		text-align:center;
+		display:inline-block;
 		ul {
 			list-style-type:none;
 			width:100%;
+			display:inline-block;
+			margin-left:-10px;
 			li {
 				@include WidthMargins(17%, 1%, 1%);
 				display:inline;
@@ -45,8 +48,26 @@ header {
 					padding:6px;
 					height:100%;
 				}
+				&:hover {
+					border:1px solid #cfcfcf;
+					background:rgba(40, 40, 50, 0.4);
+				}
 			}
 		}
+	}
+}
+
+.login-form table {
+	@include WidthMargins(80%, 10%, 10%);
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		width:50% !important;
+		background:rgba(20, 20, 20, 0.3);
+	}
+	tbody tr td:first-child {
+		text-align:right;
 	}
 }
 
