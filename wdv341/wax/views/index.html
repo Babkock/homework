@@ -9,25 +9,55 @@
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 	</head>
 	<body>
-		<header class="loggedin">
-			<h1>WaXchange</h1>
-			<nav class="navigation">
-				<ul>
-					<li><a href="/homework/wdv341/wax/index">Home</a></li>
-					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-					<li><a href="/homework/wdv341/wax/album">Post Album</a></li>
-					<li><a href="/homework/wdv341/wax/user?id={{USERID}}">My Account</a></li>
-					<li><a href="/homework/wdv341/wax/logout">Log Out</a></li>
-				</ul>
-			</nav>
-		</header>
-		<main id="home">
-			<h2>Welcome back, {{USERNAME}}!</h2>
-		</main>
-		<footer>
-			<p><a href="contact">Contact</a></p>
-			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
-			<p>Copyright &copy; 2020 Tanner Babcock.</p>
-		</footer>
+		<div class="container">
+			{{IF_LOGGED_IN}}
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
+				<nav class="navigation">
+					<ul>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="album">Post Album</a></li>
+						<li><a href="user?id={{USERID}}">My Account</a></li>
+						<li><a href="logout">Log Out</a></li>
+					</ul>
+				</nav>
+			</header>
+			{{ENDIF}}
+			{{IF_NOT_LOGGED_IN}}
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
+				<nav class="navigation">
+					<ul>
+						<li><a href="login">Login</a></li>
+						<li><a href="register">Register</a></li>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="about">About</a></li>
+					</ul>
+				</nav>
+			</header>
+			{{ENDNIF}}
+			<main id="home">
+				{{2IF_LOGGED_IN}}
+				<h2>Welcome back, {{USERNAME}}!</h2>
+				<div class="purchases">
+					<h3>Your Purchases</h3>
+					{{PURCHASES}}
+				</div>
+				<div class="inventory">
+					<h3>Your Inventory</h3>
+					{{INVENTORY}}
+				</div>
+				{{2ENDIF}}
+				{{2IF_NOT_LOGGED_IN}}
+				<h2>Why join WaXchange?</h2>
+				<p>Join a huge community of music lovers, people who can buy and sell physical music to and from each other. Please check out the site! You can look at anyone's albums, but to buy or sell you must <a href="register">make an account.</a> It's easy! Just a few steps and then you'll be invited into hipster patrician utopia. What are you into? The Cure, Peter Br&ouml;tzmann, Jordaan Mason? Or are you more of a musique concrete and field recordings type of fella? Whatever your taste is, you can use WaXchange to find like-minded people. <b>It's free!</b></p>
+				{{2ENDNIF}}
+			</main>
+			<footer>
+				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>
+				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+				<p>Copyright &copy; 2020 Tanner Babcock.</p>
+			</footer>
+		</div>
 	</body>
 </html>

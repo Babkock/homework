@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>WaXchange &bull; Browse Albums</title>
+		<title>{{TITLE}}</title>
 		<meta charset="utf-8" />
-		<meta name="description" content="Browse albums for sale on the WaXchange market." />
-		<link rel="icon" type="image/png" href="/images/favicon.png" />
+		<meta name="description" content="{{DESCRIPTION}}" />
+		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
 		<link rel="stylesheet" href="/homework/assets/css/album.css" />
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
 	<body>
-		{{IF_LOGGED_IN}}
-		<header class="loggedin">
-			<h1>WaXchange</h1>
-			<nav class="navigation">
-				<ul>
-					<li><a href="/homework/wdv341/wax/index">Home</a></li>
-					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-					<li><a href="/homework/wdv341/wax/album">Post Album</a></li>
-					<li><a href="/homework/wdv341/wax/user?id={{USERID}}">My Account</a></li>
-					<li><a href="/homework/wdv341/wax/contact">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
-		{{ENDIF}}
-		{{IF_NOT_LOGGED_IN}}
-		<header class="notloggedin">
-			<h1>WaXchange</h1>
-			<nav class="navigation">
-				<ul>
-					<li><a href="/homework/wdv341/wax/login">Login</a></li>
-					<li><a href="/homework/wdv341/wax/register">Register</a></li>
-					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-					<li><a href="/homework/wdv341/wax/about">About</a></li>
-					<li><a href="/homework/wdv341/wax/contact">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
-		{{ENDNIF}}
-		<main id="browse">
-			{{ALBUMS_LISTING}}
-		</main>
-		<footer>
-			<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
-			<p>Copyright &copy; 2020 Tanner Babcock.</p>
-		</footer>
+		<div class="container">
+			{{IF_LOGGED_IN}}
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
+				<nav class="navigation">
+					<ul>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="album">Post Album</a></li>
+						<li><a href="user?id={{USERID}}">{{USERNAME}}</a></li>
+						<li><a href="logout">Log Out</a></li>
+					</ul>
+				</nav>
+			</header>
+			{{ENDIF}}
+			{{IF_NOT_LOGGED_IN}}
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
+				<nav class="navigation">
+					<ul>
+						<li><a href="login">Login</a></li>
+						<li><a href="register">Register</a></li>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="about">About</a></li>
+					</ul>
+				</nav>
+			</header>
+			{{ENDNIF}}
+			<main id="browse">
+				{{ALBUMS_LISTING}}
+			</main>
+			<footer>
+				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>
+				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+				<p>Copyright &copy; 2020 Tanner Babcock.</p>
+			</footer>
+		</div>
 		<script src="/homework/assets/js/waxBrowse.min.js"></script>
 	</body>
 </html>

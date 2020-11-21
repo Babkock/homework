@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>WaXchange &bull; Edit Album</title>
+		<title>{{TITLE}}</title>
 		<meta charset="utf-8" />
-		<meta name="description" content="The Album editor page for the WaXchange market." />
+		<meta name="description" content="{{DESCRIPTION}}" />
 		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
 		<link rel="stylesheet" href="/homework/assets/css/album-input-row.css" />
@@ -12,46 +12,48 @@
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
 	<body>
-		<header class="loggedin">
-			<h1>WaXchange</h1>
-			<nav class="navigation">
-				<ul>
-					<li><a href="/homework/wdv341/wax/index">Home</a></li>
-					<li><a href="/homework/wdv341/wax/browse">Browse</a></li>
-					<li><a href="/homework/wdv341/wax/album">Post Album</a></li>
-					<li><a href="/homework/wdv341/wax/user?id={{USERID}}">My Account</a></li>
-					<li><a href="/homework/wdv341/wax/contact">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
-		<main id="editor">
-			<form action="" class="album-editor" enctype="multipart/form-data">
-				<h2 v-text="album.title"></h2>
-				<table class="main-album-info"><tbody>
-					<tr is="album-input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
-					<tr is="album-input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
-					<!-- more here -->
-					<tr>
-						<td><label for="media">Media:</label></td>
-						<td>
-							<select title="What is the physical medium for this album?" alt="What is the physical medium for this album?" name="media" v-model="album.media">
-								<option value="" selected>Select Media</option>
-								<option value="Vinyl" {{VINYL_SELECT}}>Vinyl</option>
-								<option value="CD" {{CD_SELECT}}>CD</option>
-								<option value="Cassette" {{CASSETTE_SELECT}}>Cassette</option>
-							</select>
-						</td>
-					</tr>
-				</tbody></table>
+		<div class="container">
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
+				<nav class="navigation">
+					<ul>
+						<li><a href="browse">Browse</a></li>
+						<li><a href="album">Post Album</a></li>
+						<li><a href="user?id={{USERID}}">My Account</a></li>
+						<li><a href="contact">Log Out</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main id="editor">
+				<form action="" class="album-editor" enctype="multipart/form-data">
+					<h2 v-text="album.title"></h2>
+					<table class="main-album-info"><tbody>
+						<tr is="album-input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
+						<tr is="album-input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
+						<!-- more here -->
+						<tr>
+							<td><label for="media">Media:</label></td>
+							<td>
+								<select title="What is the physical medium for this album?" alt="What is the physical medium for this album?" name="media" v-model="album.media">
+									<option value="" selected>Select Media</option>
+									<option value="Vinyl" {{VINYL_SELECT}}>Vinyl</option>
+									<option value="CD" {{CD_SELECT}}>CD</option>
+									<option value="Cassette" {{CASSETTE_SELECT}}>Cassette</option>
+								</select>
+							</td>
+						</tr>
+					</tbody></table>
 
-				<!-- And then the expandable track listing -->
-				<!-- Don't forget to preventDefault() on the buttons -->
-			</form>
-		</main>
-		<footer>
-			<p><a href="/homework/index">&rarr; Return to WDV341 Homework &larr;</a></p>
-			<p>Copyright &copy; 2020 Tanner Babcock.</p>
-		</footer>
+					<!-- And then the expandable track listing -->
+					<!-- Don't forget to preventDefault() on the buttons -->
+				</form>
+			</main>
+			<footer>
+				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>
+				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+				<p>Copyright &copy; 2020 Tanner Babcock.</p>
+			</footer>
+		</div>
 		<script src="/homework/assets/js/waxAlbumEditor.min.js"></script>
 	</body>
 </html>

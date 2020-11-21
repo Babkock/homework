@@ -14,7 +14,9 @@ module.exports = {
 	entry: {
 		waxAccount: "./src/js/waxAccount.js",
 		waxAlbumEditor: "./src/js/waxAlbumEditor.js",
-		waxBrowse: "./src/js/waxBrowse.js"
+		waxBrowse: "./src/js/waxBrowse.js",
+		waxContact: "./src/js/waxContact.js",
+		waxRegister: "./src/js/waxRegister.js"
 	},
 	output: {
 		path: path.resolve(__dirname, "../../assets/js"),
