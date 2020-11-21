@@ -76,6 +76,19 @@ var app = new Vue({
 			else {
 				this.ajaxResult = "<p class=\"success\">Your album is being processed...</p>";
 			}
+			var formData = new FormData();
+
+			if (this.file) {
+				formData.append("imageFile", this.$refs.image.files[0]);
+			}
+			formData.append("albumJson", JSON.stringify(this.album));
+
+			this.$http.post("album", formData).then((response) => {
+				this.ajaxResult = response.data;
+				document.querySelector(".go").disabled = true;
+			}, () => {
+				this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
+			});
 		}
 	}
 })

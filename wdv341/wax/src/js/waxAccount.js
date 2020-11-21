@@ -8,6 +8,14 @@ require("../css/waxchange.scss")
 import Album from "../vue/album.vue";
 Vue.component('album', Album)
 
+Vue.mixin({
+	methods: {
+		BuyAlbum(id) {
+			// what happens when the album is bought?
+		}
+	}
+})
+
 var app = Vue.app({
 	el: "#account",
 
@@ -17,6 +25,6 @@ var app = Vue.app({
 	},
 
 	data: () => {
-		
+
 	}
 })

@@ -26,7 +26,9 @@ var app = new Vue({
 
 	methods: {
 		submitForm() {
-
+			if (this.userinfo.password !== this.password2) {
+				this.ajaxResult = "<p class=\"error\">The two passwords do not match.</p>";
+			}
 		}
 	},
 

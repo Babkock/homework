@@ -6,6 +6,14 @@
 import Album from "../vue/album.vue";
 Vue.component('album', Album)
 
+Vue.mixin({
+	methods: {
+		BuyAlbum(id) {
+			// buy album code...
+		}
+	}
+})
+
 var app = new Vue({
 	el: "#browse",
 
