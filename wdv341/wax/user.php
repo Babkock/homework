@@ -69,8 +69,8 @@ EOF;
 		}
 	}
 	else {
+		$userpage = new Page("account");
 		if (isset($_GET['id'])) {
-			$userpage = new Page("account");
 			$userpage->setTitle("WaXchange &bull; User {{USERNAME}}");
 			$userpage->setDescription("This is the account page for user {{USERNAME}} on WaXchange.");
 
@@ -89,6 +89,17 @@ EOF;
 					"USERNAME" => $row['username'],
 					"USEREMAIL" => $row['email']
 				]);
+
+				if (isset($_SESSION['current_user'])) {
+					$userpage->setContent(Methods::snip("{{IF_NOT_LOGGED_IN}}", "{{ENDNIF}}", $userpage->getContent()));
+					$userpage->setContent(str_replace("{{IF_LOGGED_IN}}", "", $userpage->getContent()));
+					$userpage->setContent(str_replace("{{ENDIF}}", "", $userpage->getContent()));
+				}
+				else {
+					$userpage->setContent(Methods::snip("{{IF_LOGGED_IN}}", "{{ENDIF}}", $userpage->getContent()));
+					$userpage->setContent(str_replace("{{IF_NOT_LOGGED_IN}}", "", $userpage->getContent()));
+					$userpage->setContent(str_replace("{{ENDNIF}}", "", $userpage->getContent()));
+				}
 			}
 		}
 		else {

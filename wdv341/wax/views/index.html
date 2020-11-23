@@ -6,6 +6,8 @@
 		<meta name="description" content="{{DESCRIPTION}}" />
 		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
+		<script src="https://unpkg.com/vue@2.6.11"></script>
+		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -38,12 +40,18 @@
 			<main id="home">
 				{{2IF_LOGGED_IN}}
 				<h2>Welcome back, {{USERNAME}}!</h2>
-				<div class="purchases">
+				<div class="purchases" v-if="purchasedAlbums.length > 1">
 					<h3>Your Purchases</h3>
+					<ul v-for="al in purchasedAlbums">
+						<li><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
+					</ul>
 					{{PURCHASES}}
 				</div>
-				<div class="inventory">
+				<div class="inventory" v-if="inventoryAlbums.length > 0">
 					<h3>Your Inventory</h3>
+					<ul v-for="al in inventoryAlbums">
+						<li><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
+					</ul>
 					{{INVENTORY}}
 				</div>
 				{{2ENDIF}}
