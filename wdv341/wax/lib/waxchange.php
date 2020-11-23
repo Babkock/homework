@@ -234,6 +234,8 @@ class Methods {
 	}
 
 	public static function getIdFromName($username) {
+		global $db;
+
 		$st = $db->prepare("SELECT `id` FROM `users` WHERE `username`=:username LIMIT 1");
 		$st->bindParam(":username", $username);
 		$st->execute();

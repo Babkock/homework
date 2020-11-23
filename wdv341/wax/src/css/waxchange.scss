@@ -66,8 +66,9 @@ header {
 main {
 	@include WidthMargins(90%, 5%, 5%);
 	padding:8px;
-	border:1px solid #000;
+	border:2px solid #000;
 	background:rgba(30, 30, 30, 0.4);
+	margin-top:10px;
 }
 
 .login-form table {
