@@ -119,18 +119,7 @@ class Album {
 	}
 
 	public function read($id = 0) {
-		try {
-			$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id LIMIT 1");
-			$st->bindParam(":id", $id);
-			$st->execute();
 
-			$row = $st->fetch(PDO::FETCH_ASSOC);
-
-			
-		}
-		catch (PDOException $e) {
-
-		}
 	}
 
 	public function write($id = 0) {
@@ -192,6 +181,35 @@ class Page {
 		}
 	}
 
+	public function error($message) {
+		$this->content = <<<EOF
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>WaXchange &bull; Error</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
+		<link rel="icon" href="/images/favicon.png" />
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<h1><a href="index">WaXchange</a></h1>
+			</header>
+			<main id="error">
+				<p class="error">{$message}</p>
+			</main>
+			<footer>
+				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>
+				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
+				<p>Copyright &copy; 2020 Tanner Babcock.
+			</footer>
+		</div>
+	</body>
+</html>
+EOF;
+	}
+
 	public function output() {
 		echo $this->content;
 	}
@@ -215,5 +233,14 @@ class Methods {
 		return str_replace($textToDelete, "", $string);
 	}
 
+	public static function getIdFromName($username) {
+		$st = $db->prepare("SELECT `id` FROM `users` WHERE `username`=:username LIMIT 1");
+		$st->bindParam(":username", $username);
+		$st->execute();
 
+		$r = $st->fetch(PDO::FETCH_ASSOC);
+		$id = $r['id'];
+
+		return $id;
+	}
 }

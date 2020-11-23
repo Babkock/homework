@@ -40,11 +40,18 @@
 			{{ENDNIF}}
 			<main id="account">
 				<h2>{{USERNAME}}</h2>
-				<h3>Location: {{USERCOUNTRY}}</h3>
 				<p>(User ID #{{USERID}})</p>
 				<p>Email: <a href="mailto:{{USEREMAIL}}">{{USEREMAIL}}</a></p>
-				<div class="albums-for-sale">
-					{{USER_ALBUM_LISTING}}
+				<input type="hidden" name="id" id="userid" value="{{USERID}}" />
+				
+				<h3>Albums for Sale:</h3>
+				<div class="albums-box" v-if="inventoryAlbums.length > 1">
+					<album v-for="(al, index) in inventoryAlbums" v-model="al"></album>
+				</div>
+
+				<h3>Collection:</h3>
+				<div class="albums-box" v-if="purchasedAlbums.length > 1">
+					<album v-for="(al, index) in purchasedAlbums" v-model="al"></album>
 				</div>
 			</main>
 			<footer>
