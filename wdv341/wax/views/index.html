@@ -45,14 +45,12 @@
 					<ul v-for="al in purchasedAlbums">
 						<li><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 					</ul>
-					{{PURCHASES}}
 				</div>
 				<div class="inventory" v-if="inventoryAlbums.length > 0">
 					<h3>Your Inventory</h3>
 					<ul v-for="al in inventoryAlbums">
 						<li><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 					</ul>
-					{{INVENTORY}}
 				</div>
 				{{2ENDIF}}
 				{{2IF_NOT_LOGGED_IN}}

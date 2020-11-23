@@ -29,7 +29,7 @@ else {
 	$home->replace("IF_NOT_LOGGED_IN");
 	$home->replace("ENDNIF");
 
-	$home->setContent(Methods::snip("{{2IF_LOGGED_IN}}", "{{ENDIF}}", $home->getContent()));
+	$home->setContent(Methods::snip("{{2IF_LOGGED_IN}}", "{{2ENDIF}}", $home->getContent()));
 	$home->replace("2IF_NOT_LOGGED_IN");
 	$home->replace("2ENDNIF");
 }
