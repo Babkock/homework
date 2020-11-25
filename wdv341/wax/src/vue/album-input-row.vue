@@ -1,10 +1,11 @@
 <template>
 	<tr>
 		<td>
-			<label :for="name"><b v-text="label"></b></label>
+			<label :for="name"><b v-text="label"></b>:</label>
 		</td>
 		<td>
-			<input :v-model="vmodl" :value="value" type="text" :title="title" :alt="title" :name="name" :size="size" :maxlength="size" :placeholder="plchold" @blur="$emit('input', $event.target.value)" />
+			<b v-if="label === 'Price'">$</b>
+			<input :v-model="vmodl" :value="value" type="text" :title="title" :alt="title" :name="name" :size="size" :maxlength="maxlen" :placeholder="plchold" @blur="$emit('input', $event.target.value)" />
 		</td>
 	</tr>
 </template>
@@ -29,6 +30,10 @@ export default {
 			required: true
 		},
 		size: {
+			type: String,
+			default: "80"
+		},
+		maxlen: {
 			type: String,
 			default: "80"
 		},

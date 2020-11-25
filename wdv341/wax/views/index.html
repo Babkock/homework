@@ -40,6 +40,7 @@
 			<main id="home">
 				{{2IF_LOGGED_IN}}
 				<h2>Welcome back, {{USERNAME}}!</h2>
+				<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 				<div class="purchases" v-if="purchasedAlbums.length > 1">
 					<h3>Your Purchases</h3>
 					<ul v-for="al in purchasedAlbums">
@@ -64,5 +65,6 @@
 				<p>Copyright &copy; 2020 Tanner Babcock.</p>
 			</footer>
 		</div>
+		<script src="/homework/assets/js/waxIndex.min.js"></script>
 	</body>
 </html>

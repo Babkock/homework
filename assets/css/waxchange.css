@@ -34,7 +34,7 @@ main { width: 90%; margin-left: 5%; margin-right: 5%; padding: 8px; border: 2px 
 
 .login-form table tbody, .login-form table tbody tr { width: 100%; }
 
-.login-form table tbody tr td { width: 50% !important; background: rgba(20, 20, 20, 0.3); padding: 7px; }
+.login-form table tbody tr td { width: 50% !important; padding: 7px; }
 
 .login-form table tbody tr td:first-child { text-align: right; }
 

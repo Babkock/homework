@@ -16,6 +16,7 @@ module.exports = {
 		waxAlbumEditor: "./src/js/waxAlbumEditor.js",
 		waxBrowse: "./src/js/waxBrowse.js",
 		waxContact: "./src/js/waxContact.js",
+		waxIndex: "./src/js/waxIndex.js",
 		waxRegister: "./src/js/waxRegister.js"
 	},
 	output: {

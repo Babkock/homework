@@ -9,3 +9,15 @@
 	margin-left:$l;
 	margin-right:$r;
 }
+
+@mixin BackBorderColor($bg, $bord, $color) {
+	background:$bg;
+	background-color:$bg;
+	border:$bord;
+	color:$color;
+}
+
+@mixin Appearance() {
+	appearance:none;
+	-moz-appearance:none;
+}

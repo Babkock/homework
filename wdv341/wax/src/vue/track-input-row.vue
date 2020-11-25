@@ -1,5 +1,5 @@
 <template>
-	<tr>
+	<tr :id="myid">
 		<td>
 			<b>{{ index + 1 }}.</b>
 		</td>
@@ -30,7 +30,21 @@ export default {
 	},
 
 	computed: {
-
+		myid: function() {
+			return "track" + this.index;
+		},
+		titlename: function() {
+			return "track" + this.index + "_title";
+		},
+		titlevmod: function() {
+			return "album.tracklist[" + this.index + "].title";
+		},
+		lengthname: function() {
+			return "track" + this.index + "_length";
+		},
+		lengthvmod: function() {
+			return "album.tracklist[" + this.index + "].length";
+		}
 	}
 };
 </script>
