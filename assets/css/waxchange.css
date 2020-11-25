@@ -40,4 +40,6 @@ main { width: 90%; margin-left: 5%; margin-right: 5%; padding: 8px; border: 2px 
 
 .login-form table tbody tr td[colspan="2"] { padding: 7px; text-align: center; }
 
+input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 7px; width: 100%; }
+
 footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px; width: 100%; }

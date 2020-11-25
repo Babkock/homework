@@ -89,6 +89,13 @@ main {
 	}
 }
 
+input[type="text"], input[type="number"], select, input[type="password"] {
+	@include Appearance();
+	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	padding:7px;
+	width:100%;
+}
+
 footer {
 	display:block;
 	text-align:center;

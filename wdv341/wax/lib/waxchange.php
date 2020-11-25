@@ -98,7 +98,14 @@ class Album {
 			if (strcmp($k, "posted") == 0) { $this->posted = $v; }
 			if (strcmp($k, "seller") == 0) { $this->seller = $v; }
 			if (strcmp($k, "buyer") == 0) { $this->buyer = $v; }
-			if (strcmp($k, "tracklist") == 0) { $this->tracklist = $v; }
+			if (strcmp($k, "tracklist") == 0) {
+				$this->tracklist = [];
+				$tl = json_decode($v);
+
+				foreach ($tl as $track) {
+					array_push($this->tracklist, [$track->title, $track->length]);
+				}
+			}
 		}
 	}
 
@@ -118,12 +125,102 @@ class Album {
 		return $arr;
 	}
 
-	public function read($id = 0) {
+	public function consume($albumJson) {
+		$b = json_decode($albumJson);
 
+		$this->id = $b->id;
+		$this->artist = $b->artist;
+		$this->title = $b->title;
+		$this->media = $b->media;
+		$this->discs = $b->discs;
+		$this->price = $b->price;
+		$this->country = $b->country;
+		$this->posted = $b->posted;
+		$this->seller = $b->seller;
+		$this->buyer = $b->buyer;
+		$this->tracklist = [];
+
+		foreach ($b->tracklist as $track) {
+			array_push($this->tracklist, [$track->title, $track->length]);
+		}
 	}
 
-	public function write($id = 0) {
-		
+	public function read() {
+		global $db;
+
+		$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id LIMIT 1");
+		$st->bindParam(":id", $this->id);
+
+		$st->execute();
+		$row = $st->fetch(PDO::FETCH_ASSOC);
+		$this->seta($row);
+	}
+
+	public function write() {
+		global $db;
+
+		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
+		$st->bindParam(":artist", $this->artist);
+		$st->bindParam(":title", $this->title);
+		$st->bindParam(":media", $this->media);
+		$st->bindParam(":discs", $this->discs);
+		$st->bindParam(":price", $this->price);
+		$st->bindParam(":seller", $this->seller);
+		$st->bindParam(":buyer", $this->buyer);
+		$st->bindParam(":image", $this->image);
+		$st->bindParam(":label", $this->label);
+		$st->bindParam(":country", $this->country);
+
+		$tlJson = "[";
+		$t = 0;
+		foreach ($this->tracklist as $track) {
+			if ($t > 0) {
+				$tlJson .= ",";
+			}
+			$tlJson .= "{";
+			$tlJson .= "\"title\": \"" . $track[0] . "\",";
+			$tlJson .= "\"length\": \"" . $track[1] . "\"";
+			$tlJson .= "}";
+			$t++;
+		}
+		$tlJson .= "]";
+		$this->posted = date("Y-m-d", mktime());
+		$st->bindParam(":tracklist", $tlJson);
+		$st->execute();
+	}
+
+	public function update() {
+		global $db;
+
+		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=NOW(), `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
+		$st->bindParam(":id", $this->id);
+		$st->bindParam(":artist", $this->artist);
+		$st->bindParam(":title", $this->title);
+		$st->bindParam(":media", $this->media);
+		$st->bindParam(":discs", $this->discs);
+		$st->bindParam(":price", $this->price);
+		$st->bindParam(":seller", $this->seller);
+		$st->bindParam(":buyer", $this->buyer);
+		$st->bindParam(":image", $this->image);
+		$st->bindParam(":label", $this->label);
+		$st->bindParam(":country", $this->country);
+
+		$tlJson = "[";
+		$t = 0;
+		foreach ($this->tracklist as $track) {
+			if ($t > 0) {
+				$tlJson .= ",";
+			}
+			$tlJson .= "{";
+			$tlJson .= "\"title\": \"" . $track[0] . "\",";
+			$tlJson .= "\"length\": \"" . $track[1] . "\"";
+			$tlJson .= "}";
+			$t++;
+		}
+		$tlJson .= "]";
+		$this->posted = date("Y-m-d", mktime());
+		$st->bindParam(":tracklist", $tlJson);
+		$st->execute();
 	}
 }
 
@@ -147,6 +244,37 @@ class User {
 	public function setEmail($e) { $this->email = $e; }
 	public function getCountry() { return $this->country; }
 	public function setCountry($c) { $this->country = $c; }
+
+	public function seta($arr) {
+		foreach ($arr as $k => $v) {
+			if (strcmp($k, "username") == 0) { $this->username = $v; }
+			if (strcmp($k, "password") == 0) { $this->password = $v; }
+			if (strcmp($k, "email") == 0) { $this->email = $v; }
+			if (strcmp($k, "country") == 0) { $this->country = $v; }
+		}
+	}
+
+	public function geta() {
+		$arr = [];
+		$arr['id'] = $this->id;
+		$arr['username'] = $this->username;
+		$arr['password'] = $this->password;
+		$arr['email'] = $this->email;
+		$arr['country'] = $this->country;
+		return $arr;
+	}
+
+	public function read() {
+		global $db;
+	}
+
+	public function write() {
+		global $db;
+	}
+
+	public function update() {
+		global $db;
+	}
 }
 
 class Page {
