@@ -1,5 +1,5 @@
 <template>
-	<tr :id="myid">
+	<tr class="track" :id="myid">
 		<td>
 			<b>{{ index + 1 }}.</b>
 		</td>
@@ -50,5 +50,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../css/variables.scss";
 
+.track {
+	td:first-child {
+		font-size:1.14em !important;
+		text-align:right;
+	}
+	td:nth-child(2) {
+		text-align:center;
+		width:90% !important;
+		input {
+			@include WidthMargins(90% !important, 2%, 2%);
+		}
+	}
+}
 </style>

@@ -25,10 +25,22 @@ var app = new Vue({
 	},
 
 	methods: {
-		submitForm() {
+		Register() {
 			if (this.userinfo.password !== this.password2) {
 				this.ajaxResult = "<p class=\"error\">The two passwords do not match.</p>";
 			}
+			let form_data = new FormData();
+			form_data.append("username", this.userinfo.username);
+			form_data.append("password", this.userinfo.password);
+			form_data.append("email", this.userinfo.email);
+			form_data.append("country", this.userinfo.country);
+
+			this.$http.post("register", form_data).then((response) => {
+				this.ajaxResult = response.data;
+				document.querySelector(".go").disabled = true;
+			}, () => {
+				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";
+			});
 		}
 	},
 

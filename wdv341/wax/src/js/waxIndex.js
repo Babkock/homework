@@ -4,7 +4,7 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 
-var app = Vue.app({
+var app = new Vue({
 	el: "#home",
 
 	http: {
