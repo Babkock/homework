@@ -28,8 +28,8 @@
 				<form action="" class="album-editor" method="post" enctype="multipart/form-data">
 					<h2 v-text="editMsg"></h2>
 					<table class="main-album-info"><tbody>
-						<tr is="album-input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
-						<tr is="album-input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
+						<tr is="album-input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
+						<tr is="album-input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
 						<tr>
 							<td><label for="discs"><b>Number of Discs</b>:</label></td>
 							<td><input type="number" v-model="album.discs" name="discs" @blur="album.discs = parseInt($event.target.value)" /></td>
@@ -45,8 +45,8 @@
 								</select>
 							</td>
 						</tr>
-						<tr is="album-input-row" label="Price" title="The price of the album, in USD." :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = parseFloat($event)"></tr>
-						<tr is="album-input-row" label="Record Label" title="The record label that released the album." :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
+						<tr is="album-input-row" label="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = parseFloat($event)"></tr>
+						<tr is="album-input-row" label="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
 						<tr v-if="!uploaded">
 							<td><label for="image"><b>Image Filename</b>:</label></td>
 							<td><input type="text" v-model="imageFilename" placeholder="image.jpg" name="imageFilename" @blur="imageFilename = $event.target.value; album.image = 'img/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>
