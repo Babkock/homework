@@ -338,6 +338,10 @@ class Page {
 EOF;
 	}
 
+	public function script($s) {
+		$this->content = str_replace("\t</body>\n</html>", "\t\t<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n\t</body>\n</html>", $this->content);
+	}
+
 	public function output() {
 		echo $this->content;
 	}

@@ -22,24 +22,26 @@ var app = new Vue({
 			file: false,
 			uploaded: false,
 			saved: false,
-			tracks: 2,
+			tracks: "{{NUMBER_OF_TRACKS}}",
 			showingTracks: false,
 			tracksButton: "Showing Tracks",
 			imageFilename: "",
 			ajaxResult: "",
+			editMsg: "{{EDITING}}",
 			album: {
-				id: 0,
-				title: "",
-				artist: "",
-				media: "",
-				discs: 1,
-				price: 5.99,
-				// seller: "",		Don't worry about seller and buyer, these will be set by the PHP
-				// buyer: "",       form handler.
-				image: "",
-				label: "",
-				posted: "",
-				tracklist: [
+				id: "{{ALBUM_ID}}", // int
+				title: "{{ALBUM_TITLE}}",
+				artist: "{{ALBUM_ARTIST}}",
+				media: "{{ALBUM_MEDIA}}",
+				discs: "{{ALBUM_DISCS}}", // int
+				price: "{{ALBUM_PRICE}}", // float
+				seller: "{{USERNAME}}",
+				buyer: "{{ALBUM_BUYER}}",
+				image: "{{ALBUM_IMAGE}}",
+				label: "{{ALBUM_LABEL}}",
+				posted: "{{ALBUM_POSTED}}", // date
+				country: "{{ALBUM_COUNTRY}}",
+				tracklist: "{{ALBUM_TRACKLIST}}" /* [  JS object
 					{
 						title: "Track One",
 						length: "1:00"
@@ -48,7 +50,7 @@ var app = new Vue({
 						title: "Track Two",
 						length: "1:00"
 					}
-				]
+				] */
 			}
 		};
 	},

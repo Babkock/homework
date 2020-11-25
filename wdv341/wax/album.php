@@ -65,11 +65,13 @@ try {
 					}
 					if (in_array($filetype, $validtypes)) {
 
-						if (file_exists(__DIR__ . "/img/" . $filename)) {
+						if (file_exists(__DIR__ . "/" . $filename)) {
+							// the "img/" is already there
 							exit("<p class=\"error\">Filename already exists. Please choose a different name.</p>");
 						}
 						else {
-							move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/img/" . $filename);
+							// the "img/" should already be in $json->image
+							move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/" . $filename);
 						}
 					}
 				}
@@ -97,8 +99,88 @@ try {
 	}
 	else {
 		$editor = new Page("album_editor");
-		$editor->setTitle("WaXchange &bull; Editing Album");
-		// more here...
+		$editor->script("waxAlbumEditor.min.js");
+
+		if (isset($_GET['id'])) {
+			$editor->setTitle("WaXchange &bull; Editing Album #" . $_GET['id']);
+			$alb = new Album(intval($_GET['id']));
+			$alb->read();
+
+			$editor->replacea([
+				"ALBUM_TITLE" => $alb->getTitle(),
+				"ALBUM_MEDIA" => $alb->getMedia(),
+				"ALBUM_ARTIST" => $alb->getArtist(),
+				"ALBUM_BUYER" => $alb->getBuyer(),
+				"ALBUM_LABEL" => $alb->getLabel(),
+				"ALBUM_POSTED" => $alb->posted,
+				"ALBUM_IMAGE" => $alb->getImage(),
+				"ALBUM_COUNTRY" => $alb->country,
+				"USERNAME" => $_SESSION['current_user'],
+				"VINYL_SELECT" => ((strcmp($alb->getMedia(), "Vinyl") == 0) ? "selected" : ""),
+				"CASSETTE_SELECT" => ((strcmp($alb->getMedia(), "Cassette") == 0) ? "selected" : ""),
+				"CD_SELECT" => ((strcmp($alb->getMedia(), "CD") == 0) ? "selected" : ""),
+				"EDITING" => "Editing Album <i>" . $alb->getTitle() . "</i>"
+			]);
+
+			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->getPrice(), $editor->getContent()));
+			
+			$tl = "["
+			$t = 0;
+			foreach ($alb->getTracklist() as $track) {
+				$comma = (($t > 0) ? "," : "");
+				
+				$tl .= <<<EOF
+		{$comma}{
+			title: "{$track->title}",
+			length: "{$track->length}"
+		}
+EOF;
+				$t++;
+			}
+			$tl .= "]";
+			$editor->setContent(str_replace("\"{{ALBUM_TRACKLIST}}\"", $tl, $editor->getContent()));
+			$editor->setContent(str_replace("\"{{NUMBER_OF_TRACKS}}\"", "" . $t, $editor->getContent()));
+		}
+		else {
+			$editor->setTitle("WaXchange &bull; New Album");
+
+			$editor->replacea([
+				"ALBUM_TITLE" => "",
+				"ALBUM_MEDIA" => "",
+				"ALBUM_ARTIST" => "",
+				"ALBUM_BUYER" => "",
+				"ALBUM_LABEL" => "",
+				"ALBUM_POSTED" => "",
+				"ALBUM_IMAGE" => "",
+				"ALBUM_COUNTRY" => "",
+				"USERNAME" => $_SESSION['current_user'],
+				"VINYL_SELECT" => "",
+				"CASSETTE_SELECT" => "",
+				"CD_SELECT" => "",
+				"EDITING" => "Posting New Album"
+			]);
+
+			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "0", $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "1", $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "5.99", $editor->getContent()));
+			$tl = <<<EOF
+		[
+			{
+				title: "Track One",
+				length: "1:00"
+			},
+			{
+				title: "Track Two",
+				length: "1:00"
+			}
+		]
+EOF;
+			$editor->setContent(str_replace("\"{{ALBUM_TRACKLIST}}\"", $tl, $editor->getContent()));
+			$editor->setContent(str_replace("\"{{NUMBER_OF_TRACKS}}\"", "2", $editor->getContent()));
+		}
+		$editor->output();
 	}
 }
 catch (PDOException $e) {
