@@ -126,7 +126,7 @@ try {
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->getPrice(), $editor->getContent()));
 			
-			$tl = "["
+			$tl = "[";
 			$t = 0;
 			foreach ($alb->getTracklist() as $track) {
 				$comma = (($t > 0) ? "," : "");
