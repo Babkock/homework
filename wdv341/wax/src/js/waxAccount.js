@@ -16,7 +16,7 @@ Vue.mixin({
 	}
 })
 
-var app = Vue.app({
+var app = new Vue({
 	el: "#account",
 
 	http: {
@@ -30,7 +30,7 @@ var app = Vue.app({
 			inventoryAlbums: [],
 			purchasedAlbums: [],
 			ajaxError: ""
-		}
+		};
 	},
 
 	methods: {

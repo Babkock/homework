@@ -24,7 +24,7 @@ var app = new Vue({
 			saved: false,
 			tracks: "{{NUMBER_OF_TRACKS}}",
 			showingTracks: false,
-			tracksButton: "Showing Tracks",
+			tracksButton: "Show Tracks",
 			imageFilename: "",
 			ajaxResult: "",
 			editMsg: "{{EDITING}}",
@@ -78,7 +78,7 @@ var app = new Vue({
 			this.tracksButton = ((this.showingTracks === true) ? "Hide Tracks" : "Show Tracks");
 		},
 
-		/* Submit the entire album form */
+		/* Submit the entire Album form */
 		SubmitAlbum() {
 			if (this.file) {
 				this.ajaxResult = "<p class=\"success\">Your album and album art image are being uploaded...</p>";

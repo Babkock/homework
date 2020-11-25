@@ -13,6 +13,17 @@ var app = new Vue({
 	},
 
 	data: () => {
-		
+		return {
+			id: 0,
+			inventoryAlbums: [],
+			purchasedAlbums: [],
+			ajaxError: ""
+		};
+	},
+
+	methods: {
+		FetchAlbum(mode) {
+			
+		}
 	}
 })
