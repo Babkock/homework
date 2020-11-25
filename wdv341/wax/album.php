@@ -106,6 +106,8 @@ try {
 			$alb = new Album(intval($_GET['id']));
 			$alb->read();
 
+			$uid = Methods::getIdFromName($_SESSION['current_user']);
+
 			$editor->replacea([
 				"ALBUM_TITLE" => $alb->getTitle(),
 				"ALBUM_MEDIA" => $alb->getMedia(),
@@ -116,6 +118,7 @@ try {
 				"ALBUM_IMAGE" => $alb->getImage(),
 				"ALBUM_COUNTRY" => $alb->country,
 				"USERNAME" => $_SESSION['current_user'],
+				"USERID" => $uid,
 				"VINYL_SELECT" => ((strcmp($alb->getMedia(), "Vinyl") == 0) ? "selected" : ""),
 				"CASSETTE_SELECT" => ((strcmp($alb->getMedia(), "Cassette") == 0) ? "selected" : ""),
 				"CD_SELECT" => ((strcmp($alb->getMedia(), "CD") == 0) ? "selected" : ""),
@@ -146,6 +149,8 @@ EOF;
 		else {
 			$editor->setTitle("WaXchange &bull; New Album");
 
+			$uid = Methods::getIdFromName($_SESSION['current_user']);
+
 			$editor->replacea([
 				"ALBUM_TITLE" => "",
 				"ALBUM_MEDIA" => "",
@@ -156,6 +161,7 @@ EOF;
 				"ALBUM_IMAGE" => "",
 				"ALBUM_COUNTRY" => "",
 				"USERNAME" => $_SESSION['current_user'],
+				"USERID" => $uid,
 				"VINYL_SELECT" => "",
 				"CASSETTE_SELECT" => "",
 				"CD_SELECT" => "",

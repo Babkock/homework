@@ -52,5 +52,51 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../css/variables.scss";
 
+input[type="text"], input[type="number"], select, input[type="password"], input[type="file"] {
+	@include Appearance();
+	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	padding:7px;
+	width:80%;
+	font-size:1.14em;
+	transition:background, border, color 0.2s ease 0s;
+	&:hover {
+		@include BackBorderColor(#181818, 2px solid #202020, #efefef);
+		font-size:1.14em;
+	}
+	&:active {
+		@include BackBorderColor(#1c1c1c, 2px solid #242424, #f9f9f9);
+		font-size:1.14em;
+	}
+}
+
+input[name="price"] {
+	width:79%;
+	font-size:1.14em;
+}
+
+select {
+	width:82%;
+	font-size:1.14em;
+}
+
+.main-album-info {
+	tbody tr {
+		width:100% !important;
+	}
+	tbody tr td {
+		width:50%;
+		padding:3px;
+		label {
+			font-size:1.14em !important;
+		}
+	}
+	tbody tr td:first-child {
+		text-align:right;
+	}
+	tbody tr td:nth-child(2) {
+		text-align:left;
+	}
+}
 </style>

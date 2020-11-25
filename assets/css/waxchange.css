@@ -12,7 +12,7 @@ body { background: radial-gradient(circle, #2f3279 0%, #802626 100%); color: whi
 
 .container { width: 90%; margin-left: 5%; margin-right: 5%; }
 
-a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; }
+a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; transition: color 0.2s ease 0s; }
 
 a:hover { color: #99ff99; text-decoration: none; }
 
@@ -40,6 +40,16 @@ main { width: 90%; margin-left: 5%; margin-right: 5%; padding: 8px; border: 2px 
 
 .login-form table tbody tr td[colspan="2"] { padding: 7px; text-align: center; }
 
-input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 7px; width: 100%; }
+form h2, form h3 { text-align: center; }
+
+.buttons { width: 100%; text-align: center; }
+
+.buttons p button { width: 20%; margin-left: 6%; margin-right: 6%; margin-top: 3px; margin-bottom: 3px; }
+
+button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; border-radius: 24px 24px 24px 24px; padding: 7px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
+
+button:hover, input[type="submit"]:hover { background: #106640; background-color: #106640; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; box-shadow: 2px 2px black; padding: 7px; }
+
+button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 7px; }
 
 footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px; width: 100%; }
