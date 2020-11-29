@@ -15,15 +15,18 @@ var app = new Vue({
 	data: () => {
 		return {
 			id: 0,
-			inventoryAlbums: [],
-			purchasedAlbums: [],
-			ajaxError: ""
+			inventoryAjax: "",
+			purchasedAjax: ""
 		};
 	},
 
 	methods: {
 		FetchAlbum(mode) {
-			
+
 		}
+	},
+
+	mounted() {
+		
 	}
 })

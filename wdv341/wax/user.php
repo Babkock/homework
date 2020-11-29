@@ -39,7 +39,9 @@ try {
 			}
 			$st->execute();
 
-			$out = "";
+			header('Content-Type: application/json');
+
+			$out = "[";
 			$x = 0;
 
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
@@ -64,7 +66,7 @@ try {
 EOF;
 				$x++;
 			}
-			$out .= "";
+			$out .= "]";
 			exit($out);
 		}
 	}

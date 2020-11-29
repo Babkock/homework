@@ -16,7 +16,7 @@ Vue.mixin({
 	}
 })
 
-var app = new Vue({
+let app = new Vue({
 	el: "#account",
 
 	http: {
@@ -27,9 +27,8 @@ var app = new Vue({
 	data: () => {
 		return {
 			id: 0,
-			inventoryAlbums: [],
-			purchasedAlbums: [],
-			ajaxError: ""
+			inventoryAjax: "",
+			purchasedAjax: ""
 		};
 	},
 
@@ -40,22 +39,22 @@ var app = new Vue({
 
 			if (mode === "inventory") {
 				this.$http.post("user?mode=inventory", userId).then((response) => {
-					this.inventoryAlbums = JSON.parse(response.data);
+					this.inventoryAjax = response.json;
+					console.log(this.inventoryAjax);
 				}, () => {
-					this.inventoryAlbums = [];
-					this.ajaxError = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
+					this.inventoryAjax = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
 				});
 			}
 			else if (mode === "purchased") {
 				this.$http.post("user?mode=purchased", userId).then((response) => {
-					this.purchasedAlbums = JSON.parse(response.data);
+					this.purchasedAjax = response.json;
+					console.log(this.purchasedAjax);
 				}, () => {
-					this.purchasedAlbums = [];
-					this.ajaxError = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
+					this.purchasedAjax = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
 				});
 			}
 			else {
-				this.ajaxError = "<p class=\"error\">Invalid argument supplied to FetchAlbums().</p>";
+				console.log("FetchAlbums() argument error");
 			}
 		}
 	},
