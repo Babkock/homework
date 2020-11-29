@@ -42,43 +42,43 @@ export default {
 		},
 
 		countryexpand: function() {
-			var cunt = "";
+			var c = "";
 			switch (this.album.country) {
 				case "us":
-					cunt = "United States";
+					c = "United States";
 					break;
 				case "uk":
-					cunt = "United Kingdom";
+					c = "United Kingdom";
 					break;
 				case "es":
-					cunt = "Spain";
+					c = "Spain";
 					break;
 				case "ca":
-					cunt = "Canada";
+					c = "Canada";
 					break;
 				case "de":
-					cunt = "Germany";
+					c = "Germany";
 					break;
 				case "ru":
-					cunt = "Russian Federation";
+					c = "Russian Federation";
 					break;
 				case "dk":
-					cunt = "Denmark";
+					c = "Denmark";
 					break;
 				case "se":
-					cunt = "Sweden";
+					c = "Sweden";
 					break;
 				case "no":
-					cunt = "Norway";
+					c = "Norway";
 					break;
 				case "nl":
-					cunt = "Netherlands";
+					c = "Netherlands";
 					break;
 				default:
-					cunt = "Unknown Country";
+					c = "Unknown Country";
 					break;
 			}
-			return cunt;
+			return c;
 		}
 	}
 };

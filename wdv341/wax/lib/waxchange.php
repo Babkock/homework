@@ -414,4 +414,57 @@ class Methods {
 
 		return $id;
 	}
+
+	public static function countryExpand($c) {
+		$ct = "";
+		switch ($c) {
+			"us":
+				$ct = "United States"; break;
+			"ca":
+				$ct = "Canada"; break;
+			"mx":
+				$ct = "Mexico"; break;
+			"ru":
+				$ct = "Russian Federation"; break;
+			"uk":
+				$ct = "United Kingdom"; break;
+			"fr":
+				$ct = "France"; break;
+			"es":
+				$ct = "Spain"; break;
+			"de":
+				$ct = "Germany"; break;
+			"pl":
+				$ct = "Poland"; break;
+			"lx":
+				$ct = "Luxembourg"; break;
+			"dk":
+				$ct = "Denmark"; break;
+			"se":
+				$ct = "Sweden"; break;
+			"no":
+				$ct = "Norway"; break;
+			"fl":
+				$ct = "Finland"; break;
+			"au":
+				$ct = "Australia"; break;
+			"nl":
+				$ct = "Netherlands"; break;
+			"it":
+				$ct = "Italy"; break;
+			"lv":
+				$ct = "Latvia"; break;
+			"cn":
+				$ct = "China"; break;
+			"jp":
+				$ct = "Japan"; break;
+			"ph":
+				$ct = "Philippines"; break;
+			"kr":
+				$ct = "South Korea"; break;
+			default:
+				$ct = "Unknown Country"; break;
+		}
+		return $ct;
+	}
 }
