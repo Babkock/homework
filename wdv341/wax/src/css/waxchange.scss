@@ -3,7 +3,6 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-
 @import "variables.scss";
 
 body {
@@ -34,7 +33,7 @@ header {
 	text-align:center;
 	display:block;
 	nav {
-		width:100%;
+		@include WidthMargins(90%, 5%, 5%);
 		text-align:center;
 		display:inline-block;
 		ul {
@@ -43,17 +42,17 @@ header {
 			display:inline-block;
 			margin-left:-30px;
 			li {
-				@include WidthMargins(23%, 2px, 2px);
+				@include WidthMargins(24%, 5px, 5px);
 				display:inline;
 				float:left;
 				border:1px solid gray;
-				padding:6px;
 				background:rgba(30, 30, 40, 0.3);
 				a {
 					display:block;
 					width:96%;
-					padding:6px;
-					height:100%;
+					padding:7px;
+					padding-top:11px;
+					height:28px;
 				}
 				&:hover {
 					border:1px solid #cfcfcf;
@@ -85,6 +84,7 @@ main {
 		text-align:right;
 	}
 	tbody tr td[colspan="2"] {
+		padding-top:40px;
 		padding:7px;
 		text-align:center;
 	}
@@ -94,12 +94,17 @@ form h2, form h3 {
 	text-align:center;
 }
 
+label {
+	font-size:1.13em;
+	font-weight:bold;
+}
+
 .buttons {
 	width:100%;
 	text-align:center;
 	p {
 		button {
-			@include WidthMargins(20%, 6%, 6%);
+			@include WidthMargins(20%, 4%, 4%);
 			margin-top:3px;
 			margin-bottom:3px;
 		}
@@ -110,7 +115,7 @@ button, input[type="submit"] {
 	@include Appearance();
 	@include BackBorderColor(#662020, 1px solid rgba(0,0,0,0), #dfdfdf);
 	border-radius:24px 24px 24px 24px;
-	padding:7px;
+	padding:9px;
 	font-size:1.15em;
 	box-shadow:2px 2px black;
 	transition:background, color, box-shadow 0.2s ease 0s;
