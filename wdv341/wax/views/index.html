@@ -13,7 +13,7 @@
 		<div class="container">
 			{{IF_LOGGED_IN}}
 			<header>
-				<h1><a href="index">WaXchange</a></h1>
+				<h1><a href="index">WaXchange</a> <a href="settings" class="small">Settings</a></h1>
 				<nav class="navigation">
 					<ul>
 						<li><a href="browse">Browse</a></li>
@@ -41,16 +41,16 @@
 				{{2IF_LOGGED_IN}}
 				<h2>Welcome back, {{USERNAME}}!</h2>
 				<input type="hidden" name="id" id="userid" value="{{USERID}}" />
-				<div class="purchases" v-if="purchasedAlbums.length > 1">
-					<h3>Your Purchases</h3>
-					<ul v-for="al in purchasedAlbums">
-						<li><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
+				<div class="purchases" v-if="purchased.length > 0">
+					<h2>Your Purchases</h2>
+					<ul>
+						<li v-for="al in purchased" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 					</ul>
 				</div>
-				<div class="inventory" v-if="inventoryAlbums.length > 0">
-					<h3>Your Inventory</h3>
-					<ul v-for="al in inventoryAlbums">
-						<li><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
+				<div class="inventory" v-if="inventory.length > 0">
+					<h2>Your Inventory</h2>
+					<ul>
+						<li v-for="al in inventory" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 					</ul>
 				</div>
 				{{2ENDIF}}

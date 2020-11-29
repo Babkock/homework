@@ -9,12 +9,12 @@ Vue.component('album', Album)
 Vue.mixin({
 	methods: {
 		BuyAlbum(id) {
-			// buy album code...
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + id;
 		}
 	}
 })
 
-var app = new Vue({
+let app = new Vue({
 	el: "#browse",
 
 	http: {

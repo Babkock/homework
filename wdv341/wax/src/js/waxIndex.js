@@ -3,8 +3,7 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-
-var app = new Vue({
+let app = new Vue({
 	el: "#home",
 
 	http: {
@@ -21,12 +20,33 @@ var app = new Vue({
 	},
 
 	methods: {
-		FetchAlbum(mode) {
+		FetchAlbums(mode) {
+			let userId = new FormData();
+			userId.append("id", this.id);
 
+			if (mode === "inventory") {
+				this.$http.post("user?mode=inventory", userId).then((response) => {
+					this.inventory = response.data;
+				}, () => {
+					this.inventory = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
+				});
+			}
+			else if (mode === "purchased") {
+				this.$http.post("user?mode=purchased", userId).then((response) => {
+					this.purchased = response.data;
+				}, () => {
+					this.purchased = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
+				});
+			}
+			else {
+				console.log("FetchAlbums() argument error");
+			}
 		}
 	},
 
 	mounted() {
-
+		this.id = parseInt(document.querySelector("#userid").value);
+		this.FetchAlbums("inventory");
+		this.FetchAlbums("purchased");
 	}
 })

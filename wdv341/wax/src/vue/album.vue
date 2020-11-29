@@ -117,6 +117,7 @@ export default {
 	display:flex;
 	flex-direction:row;
 	flex-wrap:wrap;
+	justify-content:center;
 }
 
 div.album {
@@ -125,7 +126,19 @@ div.album {
 	margin-bottom:7px;
 	@include BackBorderColor(rgba(30, 30, 30, 0.3), 1px solid gray, #dfdfdf);
 	padding:7px;
-	text-align:left;
+	text-align:center;
 	float:left;
+	h2, h3, p {
+		text-align:center;
+	}
+	ol, ol li {
+		text-align:left;
+		font-size:1.04em;
+	}
+	.cover {
+		text-align:center;
+		display:block;
+		width:100%;
+	}
 }
 </style>
