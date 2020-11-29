@@ -39,7 +39,7 @@ try {
 			}
 			$st->execute();
 
-			$out = "[";
+			$out = "";
 			$x = 0;
 
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
@@ -64,7 +64,7 @@ try {
 EOF;
 				$x++;
 			}
-			$out .= "]";
+			$out .= "";
 			exit($out);
 		}
 	}
