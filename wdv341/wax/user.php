@@ -74,9 +74,8 @@ EOF;
 			$userpage->setTitle("WaXchange &bull; User {{USERNAME}}");
 			$userpage->setDescription("This is the account page for user {{USERNAME}} on WaXchange.");
 
-			$st = $db->prepare("SELECT `id`, `username`, `email` FROM `users` WHERE `id`=:id LIMIT 1");
+			$st = $db->prepare("SELECT `id`, `username`, `email`, `country` FROM `users` WHERE `id`=:id LIMIT 1");
 			$st->bindParam(":id", intval($_GET['id']));
-
 			$st->execute();
 
 			$row = $st->fetch(PDO::FETCH_ASSOC);
