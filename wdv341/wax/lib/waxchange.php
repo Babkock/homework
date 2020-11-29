@@ -304,7 +304,7 @@ class User {
 	public function update() {
 		global $db;
 
-		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1")
+		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
