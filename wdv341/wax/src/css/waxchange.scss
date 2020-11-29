@@ -32,6 +32,17 @@ header {
 	width:100%;
 	text-align:center;
 	display:block;
+	h1 {
+		a.small {
+			font-size:1.11em;
+			float:right;
+			font-style:italic;
+		}
+		a:first-child {
+			font-size:1.35em;
+			float:left;
+		}
+	}
 	nav {
 		@include WidthMargins(90%, 5%, 5%);
 		text-align:center;

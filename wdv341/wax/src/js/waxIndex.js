@@ -41,6 +41,10 @@ let app = new Vue({
 			else {
 				console.log("FetchAlbums() argument error");
 			}
+		},
+
+		albumhref(id) {
+			return "browse?b=" + id;
 		}
 	},
 

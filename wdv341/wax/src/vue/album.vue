@@ -3,7 +3,7 @@
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
-		<h2><a :href="artisthref" v-text="artist"></a> - <slot name="title"></slot></h2>
+		<h2><a :href="artisthref" v-text="artist"></a> - <a :href="albumhref" v-text="title"></a></h2>
 		<slot name="info"></slot>
 		<h3>Tracklist:</h3>
 		<slot name="tracklist">
@@ -22,6 +22,10 @@ export default {
 		artist: {
 			type: String,
 			default: "Unknown Artist"
+		},
+		title: {
+			type: String,
+			default: "Unknown Album"
 		},
 		posted: {
 			type: String,
@@ -42,6 +46,10 @@ export default {
 	computed: {
 		artisthref: function() {
 			return "browse?a=" + encodeURI(this.artist);
+		},
+
+		albumhref: function() {
+			return "browse?b=" + this.myid;
 		},
 
 		niceposted: function() {

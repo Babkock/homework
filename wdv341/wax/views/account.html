@@ -47,11 +47,10 @@
 				
 				<h3>Albums for Sale:</h3>
 				<div class="albums-box" v-if="inventory.length > 0">
-					<album v-for="(al, index) in inventory" :myid="al.id" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+					<album v-for="(al, index) in inventory" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
 						<template slot="img">
 							<img :src="al.image" />
 						</template>
-						<template slot="title">{{ al.title }}</template>
 						<template slot="info">
 							<h2>{{ al.discs }}x{{ al.media }}</h2>
 							<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
