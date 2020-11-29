@@ -42,7 +42,7 @@ header {
 			display:inline-block;
 			margin-left:-30px;
 			li {
-				@include WidthMargins(24%, 5px, 5px);
+				@include WidthMargins(23%, 2px, 2px);
 				display:inline;
 				float:left;
 				border:1px solid gray;
