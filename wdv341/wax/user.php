@@ -87,7 +87,8 @@ EOF;
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
-					"USEREMAIL" => $row['email']
+					"USEREMAIL" => $row['email'],
+					"USERCOUNTRY" => Methods::countryExpand($row['country'])
 				]);
 
 				if (isset($_SESSION['current_user'])) {

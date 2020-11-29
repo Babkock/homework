@@ -47,12 +47,12 @@
 				
 				<h3>Albums for Sale:</h3>
 				<div class="albums-box" v-if="inventoryAlbums.length > 1">
-					<album v-for="(al, index) in inventoryAlbums" v-model="al" :key="index"></album>
+					<album v-for="(al, index) in inventoryAlbums" :album="al" :key="index"></album>
 				</div>
 
 				<h3>Collection:</h3>
 				<div class="albums-box" v-if="purchasedAlbums.length > 1">
-					<album v-for="(al, index) in purchasedAlbums" v-model="al" :key="index"></album>
+					<album v-for="(al, index) in purchasedAlbums" :album="al" :key="index"></album>
 				</div>
 			</main>
 			<footer>

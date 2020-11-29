@@ -95,7 +95,7 @@ var app = new Vue({
 
 			this.$http.post("album", formData).then((response) => {
 				this.ajaxResult = response.data;
-				document.querySelector(".go").disabled = true;
+				this.saved = true;
 			}, () => {
 				this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
 			});

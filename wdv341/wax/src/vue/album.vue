@@ -19,7 +19,7 @@
 <script>
 export default {
 	props: {
-		value: {
+		album: {
 			type: Object,
 			required: true
 		}
@@ -27,8 +27,8 @@ export default {
 
 	data: () => {
 		return {
-			album: {...this.value}
-		}
+			//album: {...this.value}
+		};
 	},
 
 	computed: {

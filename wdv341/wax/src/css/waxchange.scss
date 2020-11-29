@@ -122,12 +122,12 @@ button, input[type="submit"] {
 	&:hover {
 		@include BackBorderColor(#106640, 1px solid rgba(0,0,0,0), #efefef);
 		box-shadow:2px 2px black;
-		padding:7px;
+		padding:9px;
 	}
 	&:active {
 		@include BackBorderColor(#20206f, 1px solid rgba(0,0,0,0), #cfcfcf);
 		box-shadow:-1px -1px black;
-		padding:7px;
+		padding:9px;
 	}
 }
 

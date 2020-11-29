@@ -50,9 +50,9 @@ label { font-size: 1.13em; font-weight: bold; }
 
 button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; border-radius: 24px 24px 24px 24px; padding: 9px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
 
-button:hover, input[type="submit"]:hover { background: #106640; background-color: #106640; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; box-shadow: 2px 2px black; padding: 7px; }
+button:hover, input[type="submit"]:hover { background: #106640; background-color: #106640; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; box-shadow: 2px 2px black; padding: 9px; }
 
-button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 7px; }
+button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 9px; }
 
 input[type="text"], input[type="password"], input[type="number"], select { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 8px; width: 90%; font-size: 1.14em; transition: background, border, color 0.2s ease 0s; }
 
