@@ -6,8 +6,8 @@
 		<meta name="description" content="{{DESCRIPTION}}" />
 		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
-		<link rel="stylesheet" href="/homework/assets/css/album-input-row.css" />
-		<link rel="stylesheet" href="/homework/assets/css/track-input-row.css" />
+		<link rel="stylesheet" href="/homework/assets/css/input-row.css" />
+		<link rel="stylesheet" href="/homework/assets/css/track.css" />
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
@@ -28,8 +28,8 @@
 				<form action="" class="album-editor" method="post" enctype="multipart/form-data">
 					<h2 v-text="editMsg"></h2>
 					<table class="main-album-info"><tbody>
-						<tr is="album-input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
-						<tr is="album-input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
+						<tr is="input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
+						<tr is="input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
 						<tr>
 							<td><label for="discs"><b>Number of Discs</b>:</label></td>
 							<td><input type="number" v-model="album.discs" name="discs" @blur="album.discs = parseInt($event.target.value)" /></td>
@@ -66,7 +66,7 @@
 						</p>
 					</div>
 					<table><tbody v-if="showingTracks" class="tracks">
-						<tr is="track-input-row" v-for="(track, index) in album.tracklist" :key="index" :id="index" :index="index" :ttitle="track.title" :tlength="track.length" @tinput="track.title = $event" @linput="track.length = $event"></tr>
+						<tr is="track" v-for="(track, index) in album.tracklist" :key="index" :id="index" :index="index" :ttitle="track.title" :tlength="track.length" @tinput="track.title = $event" @linput="track.length = $event"></tr>
 					</tbody></table>
 
 					<div class="buttons">

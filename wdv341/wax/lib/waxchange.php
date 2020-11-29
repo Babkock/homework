@@ -224,6 +224,21 @@ class Album {
 	}
 }
 
+/*
+	Users Table
+	_________________________________________________________________________
+	| id          | INT(11)      | The unique ID of the user.               |
+	|-------------|--------------|------------------------------------------|
+	| username    | VARCHAR(80)  | The user's name.                         |
+	|-------------|--------------|------------------------------------------|
+	| password    | VARCHAR(64)  | SHA256 Hash of the user's password.      |
+	|-------------|--------------|------------------------------------------|
+	| email       | VARCHAR(80)  | The user's email address.                |
+	|-------------|--------------|------------------------------------------|
+	| country     | VARCHAR(2)   | The country the user is from.            |
+	|_____________|______________|__________________________________________|
+*/
+
 class User {
 	private $id;
 	private $username;
@@ -266,14 +281,36 @@ class User {
 
 	public function read() {
 		global $db;
+
+		$st = $db->prepare("SELECT * FROM `users` WHERE `id`=:id LIMIT 1");
+		$st->bindParam(":id", $this->id);
+		$st->execute();
+
+		$row = $st->fetch(PDO::FETCH_ASSOC);
+		$this->seta($row);
 	}
 
 	public function write() {
 		global $db;
+
+		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country)");
+		$st->bindParam(":username", $this->username);
+		$st->bindParam(":password", $this->password);
+		$st->bindParam(":email", $this->email);
+		$st->bindParam(":country", $this->country);
+		$st->execute();
 	}
 
 	public function update() {
 		global $db;
+
+		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1")
+		$st->bindParam(":id", $this->id);
+		$st->bindParam(":username", $this->username);
+		$st->bindParam(":password", $this->password);
+		$st->bindParam(":email", $this->email);
+		$st->bindParam(":country", $this->country);
+		$st->execute();
 	}
 }
 

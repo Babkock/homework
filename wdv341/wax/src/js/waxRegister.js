@@ -3,7 +3,7 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-var app = new Vue({
+let app = new Vue({
 	el: "#register",
 
 	http: {
@@ -13,10 +13,10 @@ var app = new Vue({
 
 	data: () => {
 		return {
-			password2: "",
 			userinfo: {
 				username: "",
 				password: "",
+				password2: "",
 				email: "",
 				country: ""
 			},
@@ -26,12 +26,10 @@ var app = new Vue({
 
 	methods: {
 		Register() {
-			if (this.userinfo.password !== this.password2) {
-				this.ajaxResult = "<p class=\"error\">The two passwords do not match.</p>";
-			}
 			let form_data = new FormData();
 			form_data.append("username", this.userinfo.username);
 			form_data.append("password", this.userinfo.password);
+			form_data.append("password2", this.userinfo.password2);
 			form_data.append("email", this.userinfo.email);
 			form_data.append("country", this.userinfo.country);
 
@@ -42,9 +40,5 @@ var app = new Vue({
 				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";
 			});
 		}
-	},
-
-	mounted() {
-
 	}
 })

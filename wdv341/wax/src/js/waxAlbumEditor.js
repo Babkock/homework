@@ -3,11 +3,11 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-import AlbumInputRow from "../vue/album-input-row.vue";
-import TrackInputRow from "../vue/track-input-row.vue";
+import AlbumInputRow from "../vue/input-row.vue";
+import TrackInputRow from "../vue/track.vue";
 
-Vue.component('album-input-row', AlbumInputRow)
-Vue.component('track-input-row', TrackInputRow)
+Vue.component('input-row', InputRow)
+Vue.component('track', Track)
 
 var app = new Vue({
 	el: "#editor",
