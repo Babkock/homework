@@ -46,8 +46,8 @@
 				<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 				
 				<h3>Albums for Sale:</h3>
-				<div class="albums-box" v-if="inventoryAjax.length > 1">
-					<album v-for="(al, index) in inventoryAjax" :myid="index" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+				<div class="albums-box" v-if="inventory.length > 1">
+					<album v-for="(al, index) in inventory" :myid="index" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
 						<template slot="img">
 							<img :src="al.image" />
 						</template>
@@ -65,8 +65,8 @@
 				</div>
 
 				<h3>Collection:</h3>
-				<div class="albums-box" v-if="purchasedAjax.length > 1">
-					<album v-for="(al, index) in purchasedAjax" :myid="index" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+				<div class="albums-box" v-if="purchased.length > 1">
+					<album v-for="(al, index) in purchased" :myid="index" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
 						<template slot="img">
 							<img :src="al.image" />
 						</template>

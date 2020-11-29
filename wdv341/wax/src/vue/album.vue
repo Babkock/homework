@@ -1,10 +1,9 @@
 <template>
-	<div class="album" :id="myid">
+	<div class="album">
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="artisthref" v-text="artist"></a> - <slot name="title"></slot></h2>
-		<p>From <span v-text="niceposted"></span></p>
 		<slot name="info"></slot>
 		<h3>Tracklist:</h3>
 		<slot name="tracklist">
@@ -17,7 +16,7 @@
 export default {
 	props: {
 		myid: {
-			type: String,
+			type: Number,
 			required: true
 		},
 		artist: {
@@ -46,12 +45,12 @@ export default {
 		},
 
 		niceposted: function() {
-			var jsDate = new Date(Date.parse(this.posted.replace(/[-]/g,'/')));
-			return jsDate.getMonth() + " " + jsDate.getDate() + ", " + jsDate.getFullYear();
+			let jsDate = new Date(Date.parse(this.posted.replace(/[-]/g,'/')));
+			return jsDate.toDateString();
 		},
 
 		countryexpand: function() {
-			var c = "";
+			let c = "";
 			switch (this.country) {
 				case "us":
 					c = "United States";
@@ -114,14 +113,19 @@ export default {
 <style lang="scss">
 @import "../css/variables.scss";
 
+.albums-box {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+}
+
 div.album {
-	@include WidthMargins(32%, 1px, 1px);
+	@include WidthMargins(32%, 3px, 3px);
 	margin-top:6px;
 	margin-bottom:7px;
-	background:rgba(30, 30, 30, 0.3);
-	color:#dfdfdf;
+	@include BackBorderColor(rgba(30, 30, 30, 0.3), 1px solid gray, #dfdfdf);
 	padding:7px;
-	border:1px solid gray;
 	text-align:left;
+	float:left;
 }
 </style>

@@ -15,8 +15,8 @@ var app = new Vue({
 	data: () => {
 		return {
 			id: 0,
-			inventoryAjax: "",
-			purchasedAjax: ""
+			inventory: "",
+			purchased: ""
 		};
 	},
 
@@ -27,6 +27,6 @@ var app = new Vue({
 	},
 
 	mounted() {
-		
+
 	}
 })

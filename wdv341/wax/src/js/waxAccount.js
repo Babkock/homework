@@ -27,8 +27,8 @@ let app = new Vue({
 	data: () => {
 		return {
 			id: 0,
-			inventoryAjax: "",
-			purchasedAjax: ""
+			inventory: "",
+			purchased: ""
 		};
 	},
 
@@ -39,18 +39,18 @@ let app = new Vue({
 
 			if (mode === "inventory") {
 				this.$http.post("user?mode=inventory", userId).then((response) => {
-					this.inventoryAjax = response.data;
+					this.inventory = response.data;
 					console.log(this.inventoryAjax);
 				}, () => {
-					this.inventoryAjax = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
+					this.inventory = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
 				});
 			}
 			else if (mode === "purchased") {
 				this.$http.post("user?mode=purchased", userId).then((response) => {
-					this.purchasedAjax = response.data;
+					this.purchased = response.data;
 					console.log(this.purchasedAjax);
 				}, () => {
-					this.purchasedAjax = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
+					this.purchased = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
 				});
 			}
 			else {
