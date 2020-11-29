@@ -35,7 +35,6 @@ let app = new Vue({
 
 			this.$http.post("register", form_data).then((response) => {
 				this.ajaxResult = response.data;
-				document.querySelector(".go").disabled = true;
 			}, () => {
 				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";
 			});

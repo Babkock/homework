@@ -1,13 +1,13 @@
 <?php
 /*
-	logout.php
+	settings.php
 
 	WaXchange
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-session_start();
+require_once("lib/waxchange.php");
 
-session_destroy();
+Methods::authorize();
 
-header("Location: index");
+

@@ -52,6 +52,12 @@ button:hover, input[type="submit"]:hover { background: #106640; background-color
 
 button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 7px; }
 
+input[type="text"], input[type="password"], input[type="number"], select { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 8px; width: 90%; font-size: 1.14em; transition: background, border, color 0.2s ease 0s; }
+
+input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover, select:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; font-size: 1.14em; }
+
+input[type="text"]:active, input[type="password"]:active, input[type="number"]:active, select:active { background: #1c1c1c; background-color: #1c1c1c; border: 2px solid #242424; color: #f9f9f9; font-size: 1.14em; }
+
 .ajax-area { display: block; text-align: center; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px; margin-bottom: 10px; }
 
 .ajax-area p.success { background: green; background-color: green; border: 1px solid lime; color: white; padding: 8px; display: block; font-size: 1.12em; text-align: center; }

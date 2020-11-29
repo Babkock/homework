@@ -126,6 +126,23 @@ button, input[type="submit"] {
 	}
 }
 
+input[type="text"], input[type="password"], input[type="number"], select {
+	@include Appearance();
+	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	padding:8px;
+	width:90%;
+	font-size:1.14em;
+	transition:background, border, color 0.2s ease 0s;
+	&:hover {
+		@include BackBorderColor(#181818, 2px solid #202020, #efefef);
+		font-size:1.14em;
+	}
+	&:active {
+		@include BackBorderColor(#1c1c1c, 2px solid #242424, #f9f9f9);
+		font-size:1.14em;
+	}
+}
+
 .ajax-area {
 	display:block;
 	text-align:center;
