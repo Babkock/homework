@@ -39,7 +39,7 @@ let app = new Vue({
 
 			if (mode === "inventory") {
 				this.$http.post("user?mode=inventory", userId).then((response) => {
-					this.inventoryAjax = response.text;
+					this.inventoryAjax = response.data;
 					console.log(this.inventoryAjax);
 				}, () => {
 					this.inventoryAjax = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
@@ -47,7 +47,7 @@ let app = new Vue({
 			}
 			else if (mode === "purchased") {
 				this.$http.post("user?mode=purchased", userId).then((response) => {
-					this.purchasedAjax = response.text;
+					this.purchasedAjax = response.data;
 					console.log(this.purchasedAjax);
 				}, () => {
 					this.purchasedAjax = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
