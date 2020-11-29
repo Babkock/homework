@@ -30,15 +30,15 @@ header nav ul li:hover { border: 1px solid #cfcfcf; background: rgba(40, 40, 50,
 
 main { width: 90%; margin-left: 5%; margin-right: 5%; padding: 8px; border: 2px solid #000; background: rgba(30, 30, 30, 0.4); margin-top: 10px; }
 
-.login-form table { width: 80%; margin-left: 10%; margin-right: 10%; }
+.login-form table, .register-form table { width: 80%; margin-left: 10%; margin-right: 10%; }
 
-.login-form table tbody, .login-form table tbody tr { width: 100%; }
+.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr { width: 100%; }
 
-.login-form table tbody tr td { width: 50% !important; padding: 7px; }
+.login-form table tbody tr td, .register-form table tbody tr td { width: 50% !important; padding: 7px; }
 
-.login-form table tbody tr td:first-child { text-align: right; }
+.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child { text-align: right; }
 
-.login-form table tbody tr td[colspan="2"] { padding: 7px; text-align: center; }
+.login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"] { padding: 7px; text-align: center; }
 
 form h2, form h3 { text-align: center; }
 
@@ -51,5 +51,11 @@ button, input[type="submit"] { appearance: none; -moz-appearance: none; backgrou
 button:hover, input[type="submit"]:hover { background: #106640; background-color: #106640; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; box-shadow: 2px 2px black; padding: 7px; }
 
 button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 7px; }
+
+.ajax-area { display: block; text-align: center; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px; margin-bottom: 10px; }
+
+.ajax-area p.success { background: green; background-color: green; border: 1px solid lime; color: white; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
+
+.ajax-area p.error { background: #661010; background-color: #661010; border: 1px solid red; color: red; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
 
 footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px; width: 100%; }

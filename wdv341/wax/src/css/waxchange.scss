@@ -72,7 +72,7 @@ main {
 	margin-top:10px;
 }
 
-.login-form table {
+.login-form table, .register-form table {
 	@include WidthMargins(80%, 10%, 10%);
 	tbody, tbody tr {
 		width:100%;
@@ -123,6 +123,28 @@ button, input[type="submit"] {
 		@include BackBorderColor(#20206f, 1px solid rgba(0,0,0,0), #cfcfcf);
 		box-shadow:-1px -1px black;
 		padding:7px;
+	}
+}
+
+.ajax-area {
+	display:block;
+	text-align:center;
+	@include WidthMargins(90%, 5%, 5%);
+	margin-top:10px;
+	margin-bottom:10px;
+	p.success {
+		@include BackBorderColor(green, 1px solid lime, white);
+		padding:8px;
+		display:block;
+		font-size:1.12em;
+		text-align:center;
+	}
+	p.error {
+		@include BackBorderColor(#661010, 1px solid red, red);
+		padding:8px;
+		display:block;
+		font-size:1.12em;
+		text-align:center;
 	}
 }
 
