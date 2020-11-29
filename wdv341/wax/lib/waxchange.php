@@ -418,49 +418,49 @@ class Methods {
 	public static function countryExpand($c) {
 		$ct = "";
 		switch ($c) {
-			"us":
+			case "us":
 				$ct = "United States"; break;
-			"ca":
+			case "ca":
 				$ct = "Canada"; break;
-			"mx":
+			case "mx":
 				$ct = "Mexico"; break;
-			"ru":
+			case "ru":
 				$ct = "Russian Federation"; break;
-			"uk":
+			case "uk":
 				$ct = "United Kingdom"; break;
-			"fr":
+			case "fr":
 				$ct = "France"; break;
-			"es":
+			case "es":
 				$ct = "Spain"; break;
-			"de":
+			case "de":
 				$ct = "Germany"; break;
-			"pl":
+			case "pl":
 				$ct = "Poland"; break;
-			"lx":
+			case "lx":
 				$ct = "Luxembourg"; break;
-			"dk":
+			case "dk":
 				$ct = "Denmark"; break;
-			"se":
+			case "se":
 				$ct = "Sweden"; break;
-			"no":
+			case "no":
 				$ct = "Norway"; break;
-			"fl":
+			case "fl":
 				$ct = "Finland"; break;
-			"au":
+			case "au":
 				$ct = "Australia"; break;
-			"nl":
+			case "nl":
 				$ct = "Netherlands"; break;
-			"it":
+			case "it":
 				$ct = "Italy"; break;
-			"lv":
+			case "lv":
 				$ct = "Latvia"; break;
-			"cn":
+			case "cn":
 				$ct = "China"; break;
-			"jp":
+			case "jp":
 				$ct = "Japan"; break;
-			"ph":
+			case "ph":
 				$ct = "Philippines"; break;
-			"kr":
+			case "kr":
 				$ct = "South Korea"; break;
 			default:
 				$ct = "Unknown Country"; break;
