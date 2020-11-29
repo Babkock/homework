@@ -1,27 +1,36 @@
 <template>
-	<div class="album">
+	<div class="album" :id="myid">
 		<div class="cover">
-			<img :src="album.image" />
+			<slot name="img"></slot>
 		</div>
-		<h2><a :href="artisthref" v-text="album.artist"></a> - {{ album.title }}</h2>
-		<h3>{{ album.discs }}x {{ album.media }}</h3>
-		<h3><span class="price"><b>${{ album.price }}</b></span> from <span class="country" v-text="countryExpand"></span></h3>
-		<h4><a :href="userhref" v-text="album.seller"></a></h4>
-		<button @click="BuyAlbum(album.id)">Buy Now</button>
+		<h2><a :href="artisthref" v-text="artist"></a> - <slot name="title"></slot></h2>
+		<p>From <span v-text="niceposted"></span></p>
+		<slot name="info"></slot>
 		<h3>Tracklist:</h3>
-		<ol>
-			<li v-for="(track, index) in album.tracklist"><span class="title" v-text="track.title"></span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="length" v-text="track.length"></span></li>
-		</ol>
-		<p>Posted for sale <span class="date" v-text="niceposted"></span>.</p>
+		<slot name="tracklist">
+		</slot>
+		<p>Posted: <span class="date" v-text="niceposted"></span>.</p>
 	</div>
 </template>
 
 <script>
 export default {
 	props: {
-		album: {
-			type: Object,
+		myid: {
+			type: String,
 			required: true
+		},
+		artist: {
+			type: String,
+			default: "Unknown Artist"
+		},
+		posted: {
+			type: String,
+			required: true
+		},
+		country: {
+			type: String,
+			default: "us"
 		}
 	},
 
@@ -33,17 +42,17 @@ export default {
 
 	computed: {
 		artisthref: function() {
-			return "browse?a=" + encodeURI(this.album.artist);
+			return "browse?a=" + encodeURI(this.artist);
 		},
 
 		niceposted: function() {
-			var jsDate = new Date(Date.parse(this.album.posted.replace(/[-]/g,'/')));
+			var jsDate = new Date(Date.parse(this.posted.replace(/[-]/g,'/')));
 			return jsDate.getMonth() + " " + jsDate.getDate() + ", " + jsDate.getFullYear();
 		},
 
 		countryexpand: function() {
 			var c = "";
-			switch (this.album.country) {
+			switch (this.country) {
 				case "us":
 					c = "United States";
 					break;
@@ -73,6 +82,24 @@ export default {
 					break;
 				case "nl":
 					c = "Netherlands";
+					break;
+				case "au":
+					c = "Australia";
+					break;
+				case "cn":
+					c = "China";
+					break;
+				case "jp":
+					c = "Japan";
+					break;
+				case "kr":
+					c = "South Korea";
+					break;
+				case "ph":
+					c = "Philippines";
+					break;
+				case "lv":
+					c = "Latvia";
 					break;
 				default:
 					c = "Unknown Country";

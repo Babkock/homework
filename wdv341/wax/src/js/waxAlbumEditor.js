@@ -4,10 +4,10 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 import InputRow from "../vue/input-row.vue";
-import Track from "../vue/track.vue";
+import TrackRow from "../vue/track-row.vue";
 
 Vue.component('input-row', InputRow)
-Vue.component('track', Track)
+Vue.component('track-row', TrackRow)
 
 var app = new Vue({
 	el: "#editor",

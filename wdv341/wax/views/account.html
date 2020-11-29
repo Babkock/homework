@@ -47,12 +47,40 @@
 				
 				<h3>Albums for Sale:</h3>
 				<div class="albums-box" v-if="inventoryAlbums.length > 1">
-					<album v-for="(al, index) in inventoryAlbums" :album="al" :key="index"></album>
+					<album v-for="(al, index) in inventoryAlbums" :myid="index" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+						<template slot="img">
+							<img :src="al.image" />
+						</template>
+						<template slot="title">{{ al.title }}</template>
+						<template slot="info">
+							<h3>{{ al.discs }}x{{ al.media }}</h3>
+							<p><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></p>
+						</template>
+						<template slot="tracklist">
+							<ol v-if="al.tracklist.length > 0">
+								<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
+							</ol>
+						</template>
+					</album>
 				</div>
 
 				<h3>Collection:</h3>
 				<div class="albums-box" v-if="purchasedAlbums.length > 1">
-					<album v-for="(al, index) in purchasedAlbums" :album="al" :key="index"></album>
+					<album v-for="(al, index) in purchasedAlbums" :myid="index" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+						<template slot="img">
+							<img :src="al.image" />
+						</template>
+						<template slot="title">{{ al.title }}</template>
+						<template slot="info">
+							<h3>{{ al.discs }}x{{ al.media }}</h3>
+							<p><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></p>
+						</template>
+						<template slot="tracklist">
+							<ol v-if="al.tracklist.length > 0">
+								<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
+							</ol>
+						</template>
+					</album>
 				</div>
 			</main>
 			<footer>

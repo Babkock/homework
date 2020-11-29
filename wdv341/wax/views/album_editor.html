@@ -7,7 +7,7 @@
 		<link rel="icon" href="/images/favicon.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
 		<link rel="stylesheet" href="/homework/assets/css/input-row.css" />
-		<link rel="stylesheet" href="/homework/assets/css/track.css" />
+		<link rel="stylesheet" href="/homework/assets/css/track-row.css" />
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>
@@ -66,7 +66,7 @@
 						</p>
 					</div>
 					<table><tbody v-if="showingTracks" class="tracks">
-						<tr is="track" v-for="(track, index) in album.tracklist" :key="index" :index="index" :ttitle="track.title" :tlength="track.length" @tinput="track.title = $event" @linput="track.length = $event"></tr>
+						<tr is="track-row" v-for="(track, index) in album.tracklist" :key="index" :index="index" :ttitle="track.title" :tlength="track.length" @tinput="track.title = $event" @linput="track.length = $event"></tr>
 					</tbody></table>
 
 					<div class="buttons">
