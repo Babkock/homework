@@ -15,10 +15,6 @@ if ((isset($_SESSION['current_user'])) && (strcmp($_SESSION['token'], hash("sha2
 
 if (!isset($_SESSION['valid_user']))
 	$_SESSION['valid_user'] = false;
-if (!isset($_SESSION['current_user']))
-	$_SESSION['current_user'] = "";
-if (!isset($_SESSION['token']))
-	$_SESSION['token'] = "";
 
 try {
 	$login = new Page("header_login", "login");
