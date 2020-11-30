@@ -137,8 +137,8 @@ try {
 				
 				$tl .= <<<EOF
 		{$comma}{
-			title: "{$track->title}",
-			length: "{$track->length}"
+			title: "{$track[0]}",
+			length: "{$track[1]}"
 		}
 EOF;
 				$t++;

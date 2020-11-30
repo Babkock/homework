@@ -20,7 +20,7 @@ let app = new Vue({
 	data: () => {
 		return {
 			file: false,
-			uploaded: false,
+			uploaded: "{{UPLOADED}}",
 			saved: false,
 			tracks: "{{NUMBER_OF_TRACKS}}",
 			showingTracks: true,

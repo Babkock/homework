@@ -91,8 +91,8 @@ class Album {
 	public function setMedia($m) { $this->media = $m; }
 	public function getDiscs() { return $this->discs; }
 	public function setDiscs($d) { $this->discs = $d; }
-	public function getTracklist() { return json_encode($this->tracklist); }
-	public function setTracklist($t) { $this->tracklist = json_decode($t); }
+	public function getTracklist() { return $this->tracklist; }
+	public function setTracklist($t) { $this->tracklist = $t; }
 	public function getBuyer() { return $this->buyer; }
 	public function setBuyer($b) { $this->buyer = $b; }
 	public function getSeller() { return $this->seller; }
