@@ -86,7 +86,10 @@ EOF;
 				$userpage->error("The specified user does not exist.");
 			}
 			else {
-				$userpage->hreplace("USERID", $row['id']);
+				$userpage->hreplacea([
+					"USERID" => $row['id'],
+					"USERNAME" => $row['username']
+				]);
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],

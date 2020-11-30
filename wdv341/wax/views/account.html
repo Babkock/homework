@@ -1,46 +1,46 @@
-			<main id="account">
-				<h2>{{USERNAME}}</h2>
-				<h3>(User ID #{{USERID}})</h3>
-				<p>Email: <a href="mailto:{{USEREMAIL}}">{{USEREMAIL}}</a></p>
-				<p>Country: {{USERCOUNTRY}}</p>
-				<input type="hidden" name="id" id="userid" value="{{USERID}}" />
-				
-				<h3>Albums for Sale:</h3>
-				<div class="albums-box" v-if="inventory.length > 0">
-					<album v-for="(al, index) in inventory" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
-						<template slot="img">
-							<img :src="al.image" />
-						</template>
-						<template slot="info">
-							<h2>{{ al.discs }}x{{ al.media }}</h2>
-							<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
-							<button class="buy" @click="BuyAlbum(al.id)">Buy This Album</button>
-						</template>
-						<template slot="tracklist">
-							<ol v-if="al.tracklist.length > 0">
-								<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
-							</ol>
-						</template>
-					</album>
-				</div>
+<main id="account">
+	<h2>{{USERNAME}}</h2>
+	<h3>(User ID #{{USERID}})</h3>
+	<p>Email: <a href="mailto:{{USEREMAIL}}">{{USEREMAIL}}</a></p>
+	<p>Country: {{USERCOUNTRY}}</p>
+	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
+	
+	<h3>Albums for Sale:</h3>
+	<div class="albums-box" v-if="inventory.length > 0">
+		<album v-for="(al, index) in inventory" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
+			<template slot="img">
+				<img :src="al.image" />
+			</template>
+			<template slot="info">
+				<h2>{{ al.discs }}x{{ al.media }}</h2>
+				<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
+				<button class="buy" @click="BuyAlbum(al.id)">Buy This Album</button>
+			</template>
+			<template slot="tracklist">
+				<ol v-if="al.tracklist.length > 0">
+					<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
+				</ol>
+			</template>
+		</album>
+	</div>
 
-				<h3>Collection:</h3>
-				<div class="albums-box" v-if="purchased.length > 0">
-					<album v-for="(al, index) in purchased" :myid="al.id" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
-						<template slot="img">
-							<img :src="al.image" />
-						</template>
-						<template slot="title">{{ al.title }}</template>
-						<template slot="info">
-							<h2>{{ al.discs }}x{{ al.media }}</h2>
-							<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
-						</template>
-						<template slot="tracklist">
-							<ol v-if="al.tracklist.length > 0">
-								<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
-							</ol>
-						</template>
-					</album>
-				</div>
-			</main>
-			<script src="/homework/assets/js/waxAccount.min.js"></script>
+	<h3>Collection:</h3>
+	<div class="albums-box" v-if="purchased.length > 0">
+		<album v-for="(al, index) in purchased" :myid="al.id" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+			<template slot="img">
+				<img :src="al.image" />
+			</template>
+			<template slot="title">{{ al.title }}</template>
+			<template slot="info">
+				<h2>{{ al.discs }}x{{ al.media }}</h2>
+				<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
+			</template>
+			<template slot="tracklist">
+				<ol v-if="al.tracklist.length > 0">
+					<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
+				</ol>
+			</template>
+		</album>
+	</div>
+</main>
+<script src="/homework/assets/js/waxAccount.min.js"></script>

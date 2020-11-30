@@ -1,62 +1,62 @@
-			<main id="register">
-				<center><h2>Register for WaXchange</h2></center>
-				<form action="" class="register-form" method="post" enctype="multipart/form-data">
-					<table><tbody>
-						<tr>
-							<td><label for="username">Username:</label></td>
-							<td><input type="text" v-model="userinfo.username" size="80" maxlength="80" placeholder="Enter a Username" @blur="userinfo.username = $event.target.value" /></td>
-						</tr>
-						<tr>
-							<td><label for="email">Email Address:</label></td>
-							<td><input type="text" v-model="userinfo.email" size="80" maxlength="80" placeholder="test@example.com" @blur="userinfo.email = $event.target.value" /></td>
-						</tr>
-						<tr>
-							<td><label for="password">Password:</label></td>
-							<td><input type="password" v-model="userinfo.password" size="80" maxlength="80" @blur="userinfo.password = $event.target.value" /></td>
-						</tr>
-						<tr>
-							<td><label for="password2">Confirm Password:</label></td>
-							<td><input type="password" v-model="userinfo.password2" size="80" maxlength="80" @blur="password2 = $event.target.value" /></td>
-						</tr>
-						<tr>
-							<td><label for="country">Country:</label></td>
-							<td>
-								<select v-model="userinfo.country" @change="userinfo.country = $event.target.value">
-									<option selected>Choose a Country</option>
-									<option value="us">United States</option>
-									<option value="ca">Canada</option>
-									<option value="mx">Mexico</option>
-									<option value="uk">United Kingdom</option>
-									<option value="ru">Russian Federation</option>
-									<option value="fr">France</option>
-									<option value="es">Spain</option>
-									<option value="de">Germany</option>
-									<option value="pl">Poland</option>
-									<option value="lx">Luxembourg</option>
-									<option value="dk">Denmark</option>
-									<option value="se">Sweden</option>
-									<option value="no">Norway</option>
-									<option value="nl">Netherlands</option>
-									<option value="fl">Finland</option>
-									<option value="au">Australia</option>
-									<option value="it">Italy</option>
-									<option value="lv">Latvia</option>
-									<option value="cn">China</option>
-									<option value="jp">Japan</option>
-									<option value="ph">Philippines</option>
-									<option value="kr">South Korea</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<button @click="$event.preventDefault(); Register()" class="go" title="Register for WaXchange!" alt="Register for WaXchange!">Register</button>
-							</td>
-						</tr>
-					</tbody></table>
-				</form>
-				<div v-html="ajaxResult" class="ajax-area">
-					
-				</div>
-			</main>
-			<script src="/homework/assets/js/waxRegister.min.js"></script>
+<main id="register">
+	<center><h2>Register for WaXchange</h2></center>
+	<form action="" class="register-form" method="post" enctype="multipart/form-data">
+		<table><tbody>
+			<tr>
+				<td><label for="username">Username:</label></td>
+				<td><input type="text" v-model="userinfo.username" size="80" maxlength="80" placeholder="Enter a Username" @blur="userinfo.username = $event.target.value" /></td>
+			</tr>
+			<tr>
+				<td><label for="email">Email Address:</label></td>
+				<td><input type="text" v-model="userinfo.email" size="80" maxlength="80" placeholder="test@example.com" @blur="userinfo.email = $event.target.value" /></td>
+			</tr>
+			<tr>
+				<td><label for="password">Password:</label></td>
+				<td><input type="password" v-model="userinfo.password" size="80" maxlength="80" @blur="userinfo.password = $event.target.value" /></td>
+			</tr>
+			<tr>
+				<td><label for="password2">Confirm Password:</label></td>
+				<td><input type="password" v-model="userinfo.password2" size="80" maxlength="80" @blur="password2 = $event.target.value" /></td>
+			</tr>
+			<tr>
+				<td><label for="country">Country:</label></td>
+				<td>
+					<select v-model="userinfo.country" @change="userinfo.country = $event.target.value">
+						<option selected>Choose a Country</option>
+						<option value="us">United States</option>
+						<option value="ca">Canada</option>
+						<option value="mx">Mexico</option>
+						<option value="uk">United Kingdom</option>
+						<option value="ru">Russian Federation</option>
+						<option value="fr">France</option>
+						<option value="es">Spain</option>
+						<option value="de">Germany</option>
+						<option value="pl">Poland</option>
+						<option value="lx">Luxembourg</option>
+						<option value="dk">Denmark</option>
+						<option value="se">Sweden</option>
+						<option value="no">Norway</option>
+						<option value="nl">Netherlands</option>
+						<option value="fl">Finland</option>
+						<option value="au">Australia</option>
+						<option value="it">Italy</option>
+						<option value="lv">Latvia</option>
+						<option value="cn">China</option>
+						<option value="jp">Japan</option>
+						<option value="ph">Philippines</option>
+						<option value="kr">South Korea</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button @click="$event.preventDefault(); Register()" class="go" title="Register for WaXchange!" alt="Register for WaXchange!">Register</button>
+				</td>
+			</tr>
+		</tbody></table>
+	</form>
+	<div v-html="ajaxResult" class="ajax-area">
+		
+	</div>
+</main>
+<script src="/homework/assets/js/waxRegister.min.js"></script>

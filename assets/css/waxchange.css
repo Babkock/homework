@@ -22,11 +22,11 @@ header h1 a.small { font-size: 1.11em; float: right; font-style: italic; }
 
 header h1 a:first-child { font-size: 1.35em; float: left; }
 
-header nav { width: 90%; margin-left: 5%; margin-right: 5%; text-align: center; display: inline-block; }
+header nav { width: 94%; margin-left: 6%; margin-right: 0%; text-align: center; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; }
 
-header nav ul { list-style-type: none; width: 100%; display: inline-block; margin-left: -30px; }
+header nav ul { list-style-type: none; width: 100%; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; margin-left: -30px; }
 
-header nav ul li { width: 23%; margin-left: 2px; margin-right: 2px; display: inline; float: left; border: 1px solid gray; background: rgba(30, 30, 40, 0.3); }
+header nav ul li { width: 23%; margin-left: 2px; margin-right: 2px; float: left; border: 1px solid gray; background: rgba(30, 30, 40, 0.3); }
 
 header nav ul li a { display: block; width: 96%; padding: 7px; padding-top: 11px; height: 28px; }
 
