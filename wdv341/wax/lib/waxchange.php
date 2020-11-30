@@ -107,12 +107,7 @@ class Album {
 	public function getLabel() { return $this->label; }
 	public function setLabel($l) { $this->label = $l; }
 	public function getPosted() { return $this->posted; }
-	public function setPosted($p) {
-		if (strlen($p) != 10) {
-			exit("<p class=\"error\">Posted is a DATE type that must be 10 characters.</p>");
-		}
-		$this->posted = $p;
-	}
+	public function setPosted($p) { $this->posted = $p; }
 	/*
 	public function getCondition() { return $this->condition; }
 	public function setCondition($c) {
@@ -189,6 +184,11 @@ class Album {
 		$this->seller = $b->seller;
 		$this->buyer = $b->buyer;
 		$this->tracklist = [];
+		/*
+		$this->condition = $b->condition;
+		$this->currency = $b->currency;
+		$this->purchased = $b->purchased;
+		*/
 
 		foreach ($b->tracklist as $track) {
 			array_push($this->tracklist, [$track->title, $track->length]);
@@ -290,7 +290,7 @@ class Album {
 		$st->bindParam(":id", $id);
 		$st->execute();
 	}
-}
+} /* class Album */
 
 /*
 	Users Table
@@ -438,7 +438,7 @@ class User {
 		$st->bindParam(":id", $id);
 		$st->execute();
 	}
-}
+} /* class User */
 
 class Page {
 	private $header;
@@ -530,7 +530,7 @@ EOF;
 	public function output() {
 		echo $this->header . $this->content . $this->footer;
 	}
-}
+} /* class Page */
 
 class Methods {
 	public static function authorize() {
@@ -623,4 +623,4 @@ class Methods {
 	public static function conditionExpand($c) {
 
 	}
-}
+} /* class Methods */

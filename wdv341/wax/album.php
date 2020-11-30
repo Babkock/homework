@@ -123,7 +123,7 @@ try {
 				"VINYL_SELECT" => ((strcmp($alb->getMedia(), "Vinyl") == 0) ? "selected" : ""),
 				"CASSETTE_SELECT" => ((strcmp($alb->getMedia(), "Cassette") == 0) ? "selected" : ""),
 				"CD_SELECT" => ((strcmp($alb->getMedia(), "CD") == 0) ? "selected" : ""),
-				"EDITING" => "Editing Album <i>" . $alb->getTitle() . "</i>"
+				"EDITING" => "Editing Release <i>" . $alb->getTitle() . "</i>"
 			]);
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
@@ -167,7 +167,7 @@ EOF;
 				"VINYL_SELECT" => "",
 				"CASSETTE_SELECT" => "",
 				"CD_SELECT" => "",
-				"EDITING" => "Posting New Album"
+				"EDITING" => "Posting New Release"
 			]);
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "0", $editor->getContent()));
