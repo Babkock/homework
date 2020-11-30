@@ -1,55 +1,55 @@
-			<main id="editor">
-				<form action="" class="album-editor" method="post" enctype="multipart/form-data">
-					<h2 v-text="editMsg"></h2>
-					<table class="main-album-info"><tbody>
-						<tr is="input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
-						<tr is="input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
-						<tr>
-							<td><label for="discs"><b>Number of Discs</b>:</label></td>
-							<td><input type="number" v-model="album.discs" name="discs" @blur="album.discs = parseInt($event.target.value)" /></td>
-						</tr>
-						<tr>
-							<td><label for="media"><b>Media</b>:</label></td>
-							<td>
-								<select title="What is the physical medium for this album?" alt="What is the physical medium for this album?" name="media" v-model="album.media">
-									<option value="" selected>Select Media</option>
-									<option value="Vinyl" {{VINYL_SELECT}}>Vinyl</option>
-									<option value="CD" {{CD_SELECT}}>CD</option>
-									<option value="Cassette" {{CASSETTE_SELECT}}>Cassette</option>
-								</select>
-							</td>
-						</tr>
-						<tr is="input-row" label="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = parseFloat($event).toFixed(2)"></tr>
-						<tr is="input-row" label="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
-						<tr v-if="!uploaded">
-							<td><label for="image"><b>Image Filename</b>:</label></td>
-							<td><input type="text" v-model="imageFilename" placeholder="image.jpg" name="imageFilename" @blur="imageFilename = $event.target.value; album.image = 'img/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>
-						</tr>
-						<tr v-if="!uploaded">
-							<td><label for="image"><b>Upload Album Cover</b>:</label></td>
-							<td><input type="file" ref="image" name="image" @change="file = true" title="Upload an image file to use for the album cover." alt="Upload an image file to use for the album cover." /></td>
-						</tr>
-					</tbody></table>
+<main id="editor">
+	<form action="" class="album-editor" method="post" enctype="multipart/form-data">
+		<h2 v-text="editMsg"></h2>
+		<table class="main-album-info"><tbody>
+			<tr is="input-row" label="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
+			<tr is="input-row" label="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
+			<tr>
+				<td><label for="discs"><b>Number of Discs</b>:</label></td>
+				<td><input type="number" v-model="album.discs" name="discs" @blur="album.discs = parseInt($event.target.value)" /></td>
+			</tr>
+			<tr>
+				<td><label for="media"><b>Media</b>:</label></td>
+				<td>
+					<select title="What is the physical medium for this album?" alt="What is the physical medium for this album?" name="media" v-model="album.media">
+						<option value="" selected>Select Media</option>
+						<option value="Vinyl" {{VINYL_SELECT}}>Vinyl</option>
+						<option value="CD" {{CD_SELECT}}>CD</option>
+						<option value="Cassette" {{CASSETTE_SELECT}}>Cassette</option>
+					</select>
+				</td>
+			</tr>
+			<tr is="input-row" label="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = parseFloat($event).toFixed(2)"></tr>
+			<tr is="input-row" label="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
+			<tr v-if="!uploaded">
+				<td><label for="image"><b>Image Filename</b>:</label></td>
+				<td><input type="text" v-model="imageFilename" placeholder="image.jpg" name="imageFilename" @blur="imageFilename = $event.target.value; album.image = 'img/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>
+			</tr>
+			<tr v-if="!uploaded">
+				<td><label for="image"><b>Upload Album Cover</b>:</label></td>
+				<td><input type="file" ref="image" name="image" @change="file = true" title="Upload an image file to use for the album cover." alt="Upload an image file to use for the album cover." /></td>
+			</tr>
+		</tbody></table>
 
-					<h2>Track Listing:</h2>
-					<div class="buttons">
-						<p>
-							<button @click="$event.preventDefault(); AddTrack()" title="Add a track to the end of this list" alt="Add a track to the end of this list">Add Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
-							<button @click="$event.preventDefault(); RemoveTrack()" title="Remove a track from the end of this list" alt="Remove a track from the end of this list">Remove Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
-							<button @click="$event.preventDefault(); ToggleTracks()" title="Show/Hide the track listing" alt="Show/Hide the track listing" v-text="tracksButton"></button>
-						</p>
-					</div>
-					<table><tbody v-if="showingTracks" class="tracks">
-						<tr is="track-row" v-for="(track, index) in album.tracklist" :key="index" :index="index" :ttitle="track.title" :tlength="track.length" @tinput="track.title = $event" @linput="track.length = $event"></tr>
-					</tbody></table>
+		<h2>Track Listing:</h2>
+		<div class="buttons">
+			<p>
+				<button @click="$event.preventDefault(); AddTrack()" title="Add a track to the end of this list" alt="Add a track to the end of this list">Add Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button @click="$event.preventDefault(); RemoveTrack()" title="Remove a track from the end of this list" alt="Remove a track from the end of this list">Remove Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button @click="$event.preventDefault(); ToggleTracks()" title="Show/Hide the track listing" alt="Show/Hide the track listing" v-text="tracksButton"></button>
+			</p>
+		</div>
+		<table><tbody v-if="showingTracks" class="tracks">
+			<tr is="track-row" v-for="(track, index) in album.tracklist" :key="index" :index="index" :ttitle="track.title" :tlength="track.length" @tinput="track.title = $event" @linput="track.length = $event"></tr>
+		</tbody></table>
 
-					<div class="buttons">
-						<p>
-							<button @click="$event.preventDefault(); SubmitAlbum()" class="go" title="Upload the album cover and Post this album for sale!" alt="Upload the album cover and Post this album for sale!" :disabled="saved === true">Post Album</button>
-						</p>
-					</div>
-				</form>
-				<div class="ajax-area" v-html="ajaxResult">
+		<div class="buttons">
+			<p>
+				<button @click="$event.preventDefault(); SubmitAlbum()" class="go" title="Upload the album cover and Post this album for sale!" alt="Upload the album cover and Post this album for sale!" :disabled="saved === true">Post Album</button>
+			</p>
+		</div>
+	</form>
+	<div class="ajax-area" v-html="ajaxResult">
 
-				</div>
-			</main>
+	</div>
+</main>

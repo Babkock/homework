@@ -108,6 +108,7 @@ try {
 
 			$uid = Methods::getIdFromName($_SESSION['current_user']);
 
+			$editor->hreplace("USERID", $uid);
 			$editor->replacea([
 				"ALBUM_TITLE" => $alb->getTitle(),
 				"ALBUM_MEDIA" => $alb->getMedia(),
@@ -151,6 +152,7 @@ EOF;
 
 			$uid = Methods::getIdFromName($_SESSION['current_user']);
 
+			$editor->hreplace("USERID", $uid);
 			$editor->replacea([
 				"ALBUM_TITLE" => "",
 				"ALBUM_MEDIA" => "",
