@@ -41,13 +41,15 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	| tracklist   | TEXT         | JSON data for the track listing.         |
 	|_____________|______________|__________________________________________|
 
-	____________________________________________________________________________________________________
-	| condition   | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor). |
-	|-------------|--------------|---------------------------------------------------------------------|
-	| currency    | VARCHAR(3)   | The currency the seller expects to be paid in.                      |
-	|-------------|--------------|---------------------------------------------------------------------|
-	| purchased   | DATE         | The date the album was purchased.                                   |
-	|_____________|______________|_____________________________________________________________________|
+	_______________________________________________________________________________________________________
+	| condition   | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor).    |
+	|-------------|--------------|------------------------------------------------------------------------|
+	| currency    | VARCHAR(3)   | The currency the seller expects to be paid in.                         |
+	|-------------|--------------|------------------------------------------------------------------------|
+	| purchased   | DATE         | The date the album was purchased.                                      |
+	|-------------|--------------|------------------------------------------------------------------------|
+	| releasetype | VARCHAR(11)  | Album, EP, single, mixtape, live album, soundtrack, or compilation.    |
+	|_____________|______________|________________________________________________________________________|
 */
 
 class Album {
@@ -68,6 +70,7 @@ class Album {
 	private $condition;
 	private $currency;
 	private $purchased;
+	private $releasetype;
 	*/
 
 	public function __construct($id = 0) {
@@ -115,6 +118,13 @@ class Album {
 	public function setCurrency($c) { $this->currency = $c; }
 	public function getPurchased() { return $this->purchased; }
 	public function setPurchased($p) { $this->purchased = $p; }
+	public function getReleaseType() { return $this->releasetype; }
+	public function setReleaseType($r) {
+		if (strlen($r) > 11) {
+			exit("<p class=\"error\">Release type must be no more than 11 characters.</p>");
+		}
+		$this->releasetype = $r;
+	}
 	*/
 
 	public function seta($arr) {
@@ -140,6 +150,7 @@ class Album {
 			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
+			if (strcmp($k, "releasetype") == 0) { $this->releasetype = $v; }
 			*/
 		}
 	}
@@ -161,6 +172,7 @@ class Album {
 		$arr['condition'] = $this->condition;
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
+		$arr['releasetype'] = $this->releasetype;
 		*/
 		return $arr;
 	}
@@ -183,6 +195,7 @@ class Album {
 		$this->condition = $b->condition;
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
+		$this->releasetype = $b->releasetype;
 		*/
 
 		foreach ($b->tracklist as $track) {
@@ -219,6 +232,7 @@ class Album {
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":purchased", $this->purchased);
+		$st->bindParam(":releasetype", $this->releasetype);
 		*/
 
 		$tlJson = "[";
@@ -258,6 +272,7 @@ class Album {
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":purchased", $this->purchased);
+		$st->bindParam(":releasetype", $this->releasetype);
 		*/
 
 		$tlJson = "[";
