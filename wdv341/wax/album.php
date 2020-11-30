@@ -115,7 +115,7 @@ try {
 				"ALBUM_ARTIST" => $alb->getArtist(),
 				"ALBUM_BUYER" => $alb->getBuyer(),
 				"ALBUM_LABEL" => $alb->getLabel(),
-				"ALBUM_POSTED" => $alb->posted,
+				"ALBUM_POSTED" => $alb->getPosted(),
 				"ALBUM_IMAGE" => $alb->getImage(),
 				"ALBUM_COUNTRY" => $alb->country,
 				"USERNAME" => $_SESSION['current_user'],
@@ -128,7 +128,7 @@ try {
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
-			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->getPrice(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->price, $editor->getContent()));
 			
 			$tl = "[";
 			$t = 0;
