@@ -34,7 +34,7 @@ try {
 		}
 	}
 	else {
-		$register = new Page("register");
+		$register = new Page("header_guest", "register");
 		$register->setTitle("WaXchange &bull; Register");
 		$register->setDescription("Register for the WaXchange music marketplace.");
 

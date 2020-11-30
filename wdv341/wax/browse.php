@@ -8,9 +8,23 @@
 */
 require_once("lib/waxchange.php");
 
-if (!isset($_SESSION['current_user'])) {
+try {
+	if (!empty($_POST)) {
+		/* ajax responder */
 
+	}
+	else {
+		/* show a normal page */
+		if (!isset($_SESSION['current_user'])) {
+			$browse = new Page("header_guest", "browse");
+			$browse->setTitle("WaXchange &bull; Browsing Releases");
+		}
+		else {
+			$browse = new Page("header_user", "browse");
+			$browse->setTitle("WaXchange &bull; Browsing Releases");
+		}
+	}
 }
-else {
-	
+catch (PDOException $e) {
+	exit("<p class=\"error\">Error: {$e->getMessage()}</p>");
 }

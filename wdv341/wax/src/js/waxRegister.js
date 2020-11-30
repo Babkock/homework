@@ -26,14 +26,14 @@ let app = new Vue({
 
 	methods: {
 		Register() {
-			let form_data = new FormData();
-			form_data.append("username", this.userinfo.username);
-			form_data.append("password", this.userinfo.password);
-			form_data.append("password2", this.userinfo.password2);
-			form_data.append("email", this.userinfo.email);
-			form_data.append("country", this.userinfo.country);
+			let formData = new FormData();
+			formData.append("username", this.userinfo.username);
+			formData.append("password", this.userinfo.password);
+			formData.append("password2", this.userinfo.password2);
+			formData.append("email", this.userinfo.email);
+			formData.append("country", this.userinfo.country);
 
-			this.$http.post("register", form_data).then((response) => {
+			this.$http.post("register", formData).then((response) => {
 				this.ajaxResult = response.data;
 			}, () => {
 				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";

@@ -11,7 +11,6 @@ require_once("../dbConnect.php");
 
 $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 
-
 /*
 	Albums Table
 	_________________________________________________________________________
@@ -41,6 +40,14 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	|-------------|--------------|------------------------------------------|
 	| tracklist   | TEXT         | JSON data for the track listing.         |
 	|_____________|______________|__________________________________________|
+
+	____________________________________________________________________________________________________
+	| condition   | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor). |
+	|-------------|--------------|---------------------------------------------------------------------|
+	| currency    | VARCHAR(3)   | The currency the seller expects to be paid in.                      |
+	|-------------|--------------|---------------------------------------------------------------------|
+	| purchased   | DATE         | The date the album was purchased.                                   |
+	|_____________|______________|_____________________________________________________________________|
 */
 
 class Album {
@@ -57,6 +64,11 @@ class Album {
 	private $posted;
 	public $price;
 	public $country;
+	/*
+	private $condition;
+	private $currency;
+	private $purchased;
+	*/
 
 	public function __construct($id = 0) {
 		if (strcmp(gettype($id), "integer") != 0) {
@@ -69,11 +81,21 @@ class Album {
 	public function getArtist() { return $this->artist; }
 	public function setArtist($a) { $this->artist = $a; }
 	public function getTitle() { return $this->title; }
-	public function setTitle($b) { $this->title = $b; }
+	public function setTitle($b) {
+		if (strlen($b) > 90) {
+			exit("<p class=\"error\">Title is too long, must be 90 characters or less.</p>");
+		}
+		$this->title = $b;
+	}
 	public function getMedia() { return $this->media; }
 	public function setMedia($m) { $this->media = $m; }
 	public function getDiscs() { return $this->discs; }
-	public function setDiscs($d) { $this->discs = $d; }
+	public function setDiscs($d) {
+		if (strcmp(gettype($d), "integer") != 0) {
+			exit("<p class=\"error\">Discs field must be an integer.</p>");
+		}
+		$this->discs = $d;
+	}
 	public function getTracklist() { return json_decode($this->tracklist); }
 	public function setTracklist($t) { $this->tracklist = json_encode($t); }
 	public function getBuyer() { return $this->buyer; }
@@ -85,17 +107,35 @@ class Album {
 	public function getLabel() { return $this->label; }
 	public function setLabel($l) { $this->label = $l; }
 	public function getPosted() { return $this->posted; }
-	public function setPosted($p) { $this->posted = $p; }
+	public function setPosted($p) {
+		if (strlen($p) != 10) {
+			exit("<p class=\"error\">Posted is a DATE type that must be 10 characters.</p>");
+		}
+		$this->posted = $p;
+	}
+	/*
+	public function getCondition() { return $this->condition; }
+	public function setCondition($c) {
+		if ((strlen($c) > 3) || (strlen($c) < 1)) {
+			exit("<p class=\"error\">Condition field must be at least 1, and no more than 3 characters.</p>");
+		}
+		$this->condition = $c;
+	}
+	public function getCurrency() { return $this->currency; }
+	public function setCurrency($c) { $this->currency = $c; }
+	public function getPurchased() { return $this->purchased; }
+	public function setPurchased($p) { $this->purchased = $p; }
+	*/
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
 			if (strcmp($k, "artist") == 0) { $this->artist = $v; }
-			if (strcmp($k, "title") == 0) { $this->title = $v; }
+			if (strcmp($k, "title") == 0) { $this->setTitle($v); }
 			if (strcmp($k, "media") == 0) { $this->media = $v; }
-			if (strcmp($k, "discs") == 0) { $this->discs = $v; }
+			if (strcmp($k, "discs") == 0) { $this->setDiscs($v); }
 			if (strcmp($k, "price") == 0) { $this->price = $v; }
 			if (strcmp($k, "country") == 0) { $this->country = $v; }
-			if (strcmp($k, "posted") == 0) { $this->posted = $v; }
+			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
 			if (strcmp($k, "seller") == 0) { $this->seller = $v; }
 			if (strcmp($k, "buyer") == 0) { $this->buyer = $v; }
 			if (strcmp($k, "tracklist") == 0) {
@@ -106,6 +146,11 @@ class Album {
 					array_push($this->tracklist, [$track->title, $track->length]);
 				}
 			}
+			/*
+			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
+			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
+			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
+			*/
 		}
 	}
 
@@ -122,6 +167,11 @@ class Album {
 		$arr['seller'] = $this->seller;
 		$arr['buyer'] = $this->buyer;
 		$arr['tracklist'] = $this->tracklist;
+		/*
+		$arr['condition'] = $this->condition;
+		$arr['currency'] = $this->currency;
+		$arr['purchased'] = $this->purchased;
+		*/
 		return $arr;
 	}
 
@@ -170,6 +220,11 @@ class Album {
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
+		/*
+		$st->bindParam(":condition", $this->condition);
+		$st->bindParam(":currency", $this->currency);
+		$st->bindParam(":purchased", $this->purchased);
+		*/
 
 		$tlJson = "[";
 		$t = 0;
@@ -204,6 +259,11 @@ class Album {
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
+		/*
+		$st->bindParam(":condition", $this->condition);
+		$st->bindParam(":currency", $this->currency);
+		$st->bindParam(":purchased", $this->purchased);
+		*/
 
 		$tlJson = "[";
 		$t = 0;
@@ -222,6 +282,14 @@ class Album {
 		$st->bindParam(":tracklist", $tlJson);
 		$st->execute();
 	}
+
+	public static function delete($id = 0) {
+		global $db;
+
+		$st = $db->prepare("DELETE FROM `albums` WHERE `id`=:id LIMIT 1");
+		$st->bindParam(":id", $id);
+		$st->execute();
+	}
 }
 
 /*
@@ -237,6 +305,16 @@ class Album {
 	|-------------|--------------|------------------------------------------|
 	| country     | VARCHAR(2)   | The country the user is from.            |
 	|_____________|______________|__________________________________________|
+
+	_________________________________________________________________________________________
+	| image       | VARCHAR(50)  | The image URL of the user's avatar.                      |
+	|-------------|--------------|----------------------------------------------------------|
+	| biography   | TEXT         | The user's custom biography.                             |
+	|-------------|--------------|----------------------------------------------------------|
+	| registered  | DATE         | The date the user registered.                            |
+	|-------------|--------------|----------------------------------------------------------|
+	| showemail   | INT(11)      | The user's preference on public email visibility, (0-2). |
+	|_____________|______________|__________________________________________________________|
 */
 
 class User {
@@ -245,8 +323,17 @@ class User {
 	private $password;
 	private $email;
 	private $country;
+	/*
+	private $image;
+	private $biography;
+	private $registered;
+	private $showemail;
+	*/
 
 	public function __construct($id = 0) {
+		if (strcmp(gettype($id), "integer") != 0) {
+			exit("<p class=\"error\">First argument of new User() must be an integer.</p>");
+		}
 		$this->id = $id;
 	}
 
@@ -259,6 +346,16 @@ class User {
 	public function setEmail($e) { $this->email = $e; }
 	public function getCountry() { return $this->country; }
 	public function setCountry($c) { $this->country = $c; }
+	/*
+	public function getImage() { return $this->image; }
+	public function setImage($i) { $this->image = $i; }
+	public function getBiography() { return $this->biography; }
+	public function setBiography($b) { $this->biography = $b; }
+	public function getRegistered() { return $this->registered; }
+	public function setRegistered($r) { $this->registered = $r; }
+	public function getShowEmail() { return $this->showemail; }
+	public function setShowEmail($s) { $this->showemail = $s; }
+	*/
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
@@ -266,6 +363,12 @@ class User {
 			if (strcmp($k, "password") == 0) { $this->password = $v; }
 			if (strcmp($k, "email") == 0) { $this->email = $v; }
 			if (strcmp($k, "country") == 0) { $this->country = $v; }
+			/*
+			if (strcmp($k, "image") == 0) { $this->image = $v; }
+			if (strcmp($k, "biography") == 0) { $this->biography = $v; }
+			if (strcmp($k, "registered") == 0) { $this->registered = $v; }
+			if (strcmp($k, "showemail") == 0) { $this->showemail = $v; }
+			*/
 		}
 	}
 
@@ -276,6 +379,12 @@ class User {
 		$arr['password'] = $this->password;
 		$arr['email'] = $this->email;
 		$arr['country'] = $this->country;
+		/*
+		$arr['image'] = $this->image;
+		$arr['biography'] = $this->biography;
+		$arr['registered'] = $this->registered;
+		$arr['showemail'] = $this->showemail;
+		*/
 		return $arr;
 	}
 
@@ -298,6 +407,10 @@ class User {
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
+		/*
+		$st->bindParam(":image", $this->image);
+		$st->bindParam(":biography", $this->biography);
+		*/
 		$st->execute();
 	}
 
@@ -310,43 +423,76 @@ class User {
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
+		/*
+		$st->bindParam(":image", $this->image);
+		$st->bindParam(":biography", $this->biography);
+		$st->bindParam(":showemail", $this->showemail);
+		*/
+		$st->execute();
+	}
+
+	public static function delete($id = 0) {
+		global $db;
+
+		$st = $db->prepare("DELETE FROM `users` WHERE `id`=:id LIMIT 1");
+		$st->bindParam(":id", $id);
 		$st->execute();
 	}
 }
 
 class Page {
+	private $header;
 	private $content;
+	private $footer;
 	private $title;
 
-	public function __construct($file = "") {
-		if (!isset($file)) {
+	public function __construct($head, $cont) {
+		if (!isset($head) || !isset($cont)) {
 			exit("<p class=\"error\">No file for loading</p>");
 		}
-		$this->content = file_get_contents(__DIR__ . "/../views/" . $file . ".html");
+		$this->header = file_get_contents(__DIR__ . "/../views/{$head}.html");
+		$this->content = file_get_contents(__DIR__ . "/../views/{$cont}.html");
+		$this->footer = file_get_contents(__DIR__ . "/../views/footer.html");
 	}
 
+	public function getHeader() { return $this->header; }
+	public function setHeader($h) { $this->header = $h; }
 	public function getContent() { return $this->content; }
 	public function setContent($c) { $this->content = $c; }
+	public function getFooter() { return $this->footer; }
+	public function setFooter($f) { $this->footer = $f; }
 	public function getTitle() { return $this->title; }
 	public function setTitle($t) {
 		$this->title = $t;
-		$this->replace("TITLE", $t);
+		$this->hreplace("TITLE", $t);
 	}
 	public function setDescription($d) {
-		$this->replace("DESCRIPTION", $d);
+		$this->hreplace("DESCRIPTION", $d);
 	}
 
 	public function replace($plchold, $val = "") {
-		$this->content = str_replace("{{" . $plchold . "}}", $val, $this->content);
+		$this->content = str_replace("{{{$plchold}}}", $val, $this->content);
 	}
 
 	public function replacea($arr) {
 		foreach ($arr as $k => $v) {
-			$this->content = str_replace("{{" . $k . "}}", $v, $this->content);
+			$this->content = str_replace("{{{$k}}}", $v, $this->content);
+		}
+	}
+
+	public function hreplace($plchold, $val = "") {
+		$this->header = str_replace("{{{$plchold}}}", $val, $this->header);
+	}
+
+	public function hreplacea($arr) {
+		foreach ($arr as $k => $v) {
+			$this->header = str_replace("{{{$k}}}", $v, $this->header);
 		}
 	}
 
 	public function error($message) {
+		$this->header = "";
+		$this->footer = "";
 		$this->content = <<<EOF
 <!DOCTYPE html>
 <html lang="en">
@@ -373,14 +519,16 @@ class Page {
 	</body>
 </html>
 EOF;
+		$this->output();
 	}
 
 	public function script($s) {
-		$this->content = str_replace("\t</body>\n</html>", "\t\t<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n\t</body>\n</html>", $this->content);
+//		$this->content = str_replace("\t</body>\n</html>", "\t\t<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n\t</body>\n</html>", $this->content);
+		$this->footer = "<script>" . file_get_contents(__DIR__ . "/../../../assets/js/{$s}") . "</script>\n" . $this->footer;
 	}
 
 	public function output() {
-		echo $this->content;
+		echo $this->header . $this->content . $this->footer;
 	}
 }
 
@@ -466,5 +614,13 @@ class Methods {
 				$ct = "Unknown Country"; break;
 		}
 		return $ct;
+	}
+
+	public static function currencyExpand($c) {
+
+	}
+
+	public static function conditionExpand($c) {
+
 	}
 }

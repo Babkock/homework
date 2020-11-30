@@ -71,7 +71,8 @@ EOF;
 		}
 	}
 	else {
-		$userpage = new Page("account");
+		$userpage = new Page(((isset($_SESSION['current_user'])) ? "header_user" : "header_guest"), "account");
+
 		if (isset($_GET['id'])) {
 			$userpage->setTitle("WaXchange &bull; User {{USERNAME}}");
 			$userpage->setDescription("This is the account page for user {{USERNAME}} on WaXchange.");
@@ -85,6 +86,7 @@ EOF;
 				$userpage->error("The specified user does not exist.");
 			}
 			else {
+				$userpage->hreplace("USERID", $row['id']);
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
@@ -106,6 +108,7 @@ EOF;
 		}
 		else {
 			$userpage->error("The specified user does not exist.");
+			exit();
 		}
 		$userpage->output();
 	}

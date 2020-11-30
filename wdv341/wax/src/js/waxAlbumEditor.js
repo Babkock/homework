@@ -9,7 +9,7 @@ import TrackRow from "../vue/track-row.vue";
 Vue.component('input-row', InputRow)
 Vue.component('track-row', TrackRow)
 
-var app = new Vue({
+let app = new Vue({
 	el: "#editor",
 
 	http: {
@@ -86,7 +86,7 @@ var app = new Vue({
 			else {
 				this.ajaxResult = "<p class=\"success\">Your album is being processed...</p>";
 			}
-			var formData = new FormData();
+			let formData = new FormData();
 
 			if (this.file) {
 				formData.append("imageFile", this.$refs.image.files[0]);

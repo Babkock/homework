@@ -21,7 +21,7 @@ if (!isset($_SESSION['token']))
 	$_SESSION['token'] = "";
 
 try {
-	$login = new Page("login");
+	$login = new Page("header_login", "login");
 	$login->setTitle("WaXchange &bull; Login");
 	$login->setDescription("The login page for the WaXchange music market.");
 	

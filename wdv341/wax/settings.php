@@ -10,4 +10,14 @@ require_once("lib/waxchange.php");
 
 Methods::authorize();
 
+try {
+	if (!empty($_POST)) {
 
+	}
+	else {
+
+	}
+}
+catch (PDOException $e) {
+	exit("<p class=\"error\">Error: {$e->getMessage()}</p>");
+}
