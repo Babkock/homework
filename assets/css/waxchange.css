@@ -22,7 +22,7 @@ header h1 a.small { font-size: 1.11em; float: right; font-style: italic; }
 
 header h1 a:first-child { font-size: 1.35em; float: left; }
 
-header nav { width: 94%; margin-left: 6%; margin-right: 0%; text-align: center; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; }
+header nav { width: 94%; margin-left: 3%; margin-right: 0%; text-align: center; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; }
 
 header nav ul { list-style-type: none; width: 100%; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; margin-left: -30px; }
 

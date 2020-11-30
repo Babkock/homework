@@ -14,8 +14,11 @@ $home->setDescription("WaXchange is a music marketplace, where users can buy and
 
 if (isset($_SESSION['current_user'])) {
 	$userid = Methods::getIdFromName($_SESSION['current_user']);
-	$home->hreplace("USERID", "" . $userid);
-	$home->replace("USERNAME", $_SESSION['current_user']);
+	$home->hreplace("USERID", $userid);
+	$home->replacea([
+		"USERID" => $userid,
+		"USERNAME" => $_SESSION['current_user']
+	]);
 
 	$home->setContent(Methods::snip("{{IF_NOT_LOGGED_IN}}", "{{ENDNIF}}", $home->getContent()));
 	$home->replace("IF_LOGGED_IN");

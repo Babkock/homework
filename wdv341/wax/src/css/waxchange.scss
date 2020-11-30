@@ -44,7 +44,7 @@ header {
 		}
 	}
 	nav {
-		@include WidthMargins(94%, 6%, 0%);
+		@include WidthMargins(94%, 3%, 0%);
 		text-align:center;
 		display:flex;
 		flex-wrap:nowrap;
