@@ -41,16 +41,7 @@ let app = new Vue({
 				label: "{{ALBUM_LABEL}}",
 				posted: "{{ALBUM_POSTED}}", // date
 				country: "{{ALBUM_COUNTRY}}",
-				tracklist: "{{ALBUM_TRACKLIST}}" /* [  JS object
-					{
-						title: "Track One",
-						length: "1:00"
-					},
-					{
-						title: "Track Two",
-						length: "1:00"
-					}
-				] */
+				tracklist: "{{ALBUM_TRACKLIST}}" // JS object
 			}
 		};
 	},

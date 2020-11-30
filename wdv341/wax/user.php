@@ -94,7 +94,8 @@ EOF;
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
 					"USEREMAIL" => $row['email'],
-					"USERCOUNTRY" => Methods::countryExpand($row['country'])
+					"USERCOUNTRY" => Methods::countryExpand($row['country']),
+					"EDITBUTTON" => ((strcmp($_SESSION['current_user'], $row['username']) == 0) ? "<button @click=\"EditAlbum(" . $row['id'] . ")\">Edit Release</button>" : "")
 				]);
 
 				if (isset($_SESSION['current_user'])) {
@@ -110,6 +111,7 @@ EOF;
 			}
 		}
 		else {
+		/* maybe show user directory here, if no $id given? */
 			$userpage->error("The specified user does not exist.");
 			exit();
 		}

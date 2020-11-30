@@ -129,6 +129,7 @@ try {
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->price, $editor->getContent()));
+			$editor->setContent(str_replace("\"{{UPLOADED}}\"", "true", $editor->getContent()));
 			
 			$tl = "[";
 			$t = 0;
@@ -173,6 +174,7 @@ EOF;
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "0", $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "1", $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "5.99", $editor->getContent()));
+			$editor->setContent(str_replace("\"{{UPLOADED}}\"", "false", $editor->getContent()));
 			$tl = <<<EOF
 		[
 			{
