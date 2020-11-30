@@ -471,22 +471,22 @@ class Page {
 	}
 
 	public function replace($plchold, $val = "") {
-		$this->content = str_replace("{{{$plchold}}}", $val, $this->content);
+		$this->content = str_replace("{{" . $plchold . "}}", $val, $this->content);
 	}
 
 	public function replacea($arr) {
 		foreach ($arr as $k => $v) {
-			$this->content = str_replace("{{{$k}}}", $v, $this->content);
+			$this->content = str_replace("{{" . $k . "}}", $v, $this->content);
 		}
 	}
 
 	public function hreplace($plchold, $val = "") {
-		$this->header = str_replace("{{{$plchold}}}", $val, $this->header);
+		$this->header = str_replace("{{" . $plchold . "}}", $val, $this->header);
 	}
 
 	public function hreplacea($arr) {
 		foreach ($arr as $k => $v) {
-			$this->header = str_replace("{{{$k}}}", $v, $this->header);
+			$this->header = str_replace("{{" . $k . "}}", $v, $this->header);
 		}
 	}
 
@@ -524,7 +524,7 @@ EOF;
 
 	public function script($s) {
 //		$this->content = str_replace("\t</body>\n</html>", "\t\t<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n\t</body>\n</html>", $this->content);
-		$this->footer = "<script>" . file_get_contents(__DIR__ . "/../../../assets/js/{$s}") . "</script>\n" . $this->footer;
+		$this->content = $this->content . "\n<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n";
 	}
 
 	public function output() {
