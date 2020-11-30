@@ -14,6 +14,7 @@
 			<template slot="info">
 				<h2>{{ al.discs }}x{{ al.media }}</h2>
 				<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
+				{{EDITBUTTON}}
 				<button class="buy" @click="BuyAlbum(al.id)">Buy This Album</button>
 			</template>
 			<template slot="tracklist">
