@@ -23,7 +23,7 @@
 			<tr is="input-row" label="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
 			<tr v-if="!uploaded">
 				<td><label for="image"><b>Image Filename</b>:</label></td>
-				<td><input type="text" v-model="imageFilename" placeholder="image.jpg" name="imageFilename" @blur="imageFilename = $event.target.value; album.image = 'img/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>
+				<td><input type="text" v-model="album.image" placeholder="image.jpg" name="imageFilename" @blur="album.image = 'img/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>
 			</tr>
 			<tr v-if="!uploaded">
 				<td><label for="image"><b>Upload Album Cover</b>:</label></td>

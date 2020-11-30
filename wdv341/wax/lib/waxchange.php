@@ -90,12 +90,7 @@ class Album {
 	public function getMedia() { return $this->media; }
 	public function setMedia($m) { $this->media = $m; }
 	public function getDiscs() { return $this->discs; }
-	public function setDiscs($d) {
-		if (strcmp(gettype($d), "integer") != 0) {
-			exit("<p class=\"error\">Discs field must be an integer.</p>");
-		}
-		$this->discs = $d;
-	}
+	public function setDiscs($d) { $this->discs = $d; }
 	public function getTracklist() { return json_decode($this->tracklist); }
 	public function setTracklist($t) { $this->tracklist = json_encode($t); }
 	public function getBuyer() { return $this->buyer; }
