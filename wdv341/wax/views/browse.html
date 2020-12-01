@@ -1,4 +1,20 @@
 <main id="browse">
-	{{ALBUMS_LISTING}}
+	<h2>Newest Releases:</h2>
+	<div class="albums-box" v-if="primary.length > 0">
+		<album>
+
+		</album>
+	</div>
+	<h2>Most Expensive Releases:</h2>
+	<div class="albums-box" v-if="secondary.length > 0">
+		<album>
+
+		</album>
+	</div>
+	<h2>Your Collection</h2>
+	<div class="albums-box" v-if="tertiary.length > 0">
+		<album>
+
+		</album>
+	</div>
 </main>
-<script src="/homework/assets/js/waxBrowse.min.js"></script>

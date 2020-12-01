@@ -42,6 +42,8 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	|_____________|______________|__________________________________________|
 
 	_______________________________________________________________________________________________________
+	| year        | INT(11)      | The year the album was released.                                       |
+	|-------------|--------------|------------------------------------------------------------------------|
 	| condition   | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor).    |
 	|-------------|--------------|------------------------------------------------------------------------|
 	| currency    | VARCHAR(3)   | The currency the seller expects to be paid in.                         |
@@ -67,6 +69,7 @@ class Album {
 	public $price;
 	public $country;
 	/*
+	private $year;
 	private $condition;
 	private $currency;
 	private $purchased;
@@ -82,7 +85,12 @@ class Album {
 
 	public function getId() { return $this->id; }
 	public function getArtist() { return $this->artist; }
-	public function setArtist($a) { $this->artist = $a; }
+	public function setArtist($a) {
+		if (strlen($a) > 90) {
+			exit("<p class=\"error\">Artist is too long, must be 90 characters or less.</p>");
+		}
+		$this->artist = $a;
+	}
 	public function getTitle() { return $this->title; }
 	public function setTitle($b) {
 		if (strlen($b) > 90) {
@@ -107,6 +115,8 @@ class Album {
 	public function getPosted() { return $this->posted; }
 	public function setPosted($p) { $this->posted = $p; }
 	/*
+	public function getYear() { return $this->year; }
+	public function setYear($y) { $this->year = $y; }
 	public function getCondition() { return $this->condition; }
 	public function setCondition($c) {
 		if ((strlen($c) > 3) || (strlen($c) < 1)) {
@@ -147,6 +157,7 @@ class Album {
 				}
 			}
 			/*
+			if (strcmp($k, "year") == 0) { $this->year = $v; }
 			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
@@ -169,6 +180,7 @@ class Album {
 		$arr['buyer'] = $this->buyer;
 		$arr['tracklist'] = $this->tracklist;
 		/*
+		$arr['year'] = $this->year;
 		$arr['condition'] = $this->condition;
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
@@ -192,6 +204,7 @@ class Album {
 		$this->buyer = $b->buyer;
 		$this->tracklist = [];
 		/*
+		$this->year = $b->year;
 		$this->condition = $b->condition;
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
@@ -218,6 +231,7 @@ class Album {
 		global $db;
 
 		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
+		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, '', :releasetype)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
@@ -229,9 +243,9 @@ class Album {
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
 		/*
+		$st->bindParam(":year", $this->year);
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
-		$st->bindParam(":purchased", $this->purchased);
 		$st->bindParam(":releasetype", $this->releasetype);
 		*/
 
@@ -257,6 +271,7 @@ class Album {
 		global $db;
 
 		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=NOW(), `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
+		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `releasetype`=:releasetype WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -269,6 +284,7 @@ class Album {
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
 		/*
+		$st->bindParam(":year", $this->year);
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":purchased", $this->purchased);
@@ -291,6 +307,10 @@ class Album {
 		$this->posted = date("Y-m-d", mktime());
 		$st->bindParam(":tracklist", $tlJson);
 		$st->execute();
+	}
+
+	public function purchase($buyer) {
+		// ...
 	}
 
 	public static function delete($id = 0) {
@@ -413,6 +433,7 @@ class User {
 		global $db;
 
 		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country)");
+		// $st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, :image, :biography, NOW(), 0)");
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
@@ -428,6 +449,7 @@ class User {
 		global $db;
 
 		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1");
+		// $st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `image`=:image, `biography`=:biography, `registered`=registered, `showemail`=:showemail");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);

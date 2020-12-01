@@ -46,6 +46,7 @@ let app = new Vue({
 					this.inventory = response.data;
 				}, () => {
 					this.inventory = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
+					console.error("Couldn't fetch inventory for user #" + this.id);
 				});
 			}
 			else if (mode === "purchased") {
@@ -53,10 +54,11 @@ let app = new Vue({
 					this.purchased = response.data;
 				}, () => {
 					this.purchased = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
+					console.error("Couldn't fetch purchased for user #" + this.id);
 				});
 			}
 			else {
-				console.log("FetchAlbums() argument error");
+				console.error("FetchAlbums() argument error");
 			}
 		}
 	},

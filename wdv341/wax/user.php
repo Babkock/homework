@@ -38,12 +38,10 @@ try {
 				$st->bindParam(":seller", $seller);
 			}
 			$st->execute();
-
 			header('Content-Type: application/json');
 
 			$out = "[";
 			$x = 0;
-
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				if ($x > 0)
 					$out .= ",\n";
@@ -84,6 +82,7 @@ EOF;
 			$row = $st->fetch(PDO::FETCH_ASSOC);
 			if (!$row) {
 				$userpage->error("The specified user does not exist.");
+				exit();
 			}
 			else {
 				$userpage->hreplacea([
