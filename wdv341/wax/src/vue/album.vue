@@ -225,12 +225,11 @@ div.album {
 		display:block;
 		width:100%;
 		img {
-			@include WidthMargins(88%, 6%, 6%);
+			@include WidthMargins(80%, 10%, 10%);
 			margin-top:4px;
 			opacity:0.9;
-			transition:opacity, margin-top 0.2s ease 0s;
 			&:hover {
-				margin-top:6px;
+				margin-top:4px;
 				opacity:1;
 			}
 		}

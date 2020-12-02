@@ -98,18 +98,20 @@ export default {
 		@include WidthMargins(17%, -2px, -2px);
 		@include Appearance();
 		font-size:1.25em;
+		padding:8px;
 	}
 	#country {
 		width:20%;
 		@include Appearance();
-		font-size:1.19em;
-		padding:9px;
+		font-size:1.25em;
+		padding:8px;
+		margin-right:-4px;
 	}
 	#submit {
 		width:10%;
 		@include Appearance();
 		@include BackBorderColor(#202020, 1px solid black, #dfdfdf);
-		font-size:1.19em;
+		font-size:1.25em;
 		border-radius:0px 24px 24px 0px;
 	}
 

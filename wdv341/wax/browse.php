@@ -195,6 +195,7 @@ EOF;
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
 
+				$browse->hreplace("USERID", "" . $uid);
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => "Browsing Artist " . $_GET['a'],
@@ -211,6 +212,7 @@ EOF;
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
 
+				$browse->hreplace("USERID", "" . $uid);
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => "<i>" . $_GET['b'] . "</i>",
@@ -228,6 +230,7 @@ EOF;
 				$browse->script("waxBrowse.min.js");
 				$country = Methods::countryExpand($_GET['c']);
 
+				$browse->hreplace("USERID", "" . $uid);
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => "Sellers from " . $country,
@@ -245,6 +248,7 @@ EOF;
 				if (isset($_GET['id'])) {
 					$browse = new Page("header_user", "browse_specific");
 					$browse->script("waxBrowse.min.js");
+					$browse->hreplace("USERID", "" . $uid);
 					$browse->replacea([
 						"USERID" => "" . $uid,
 						"HEADING" => "Album #" . $_GET['id'],
@@ -268,6 +272,7 @@ EOF;
 				else {
 					$browse = new Page("header_user", "browse");
 					$browse->script("waxBrowse.min.js");
+					$browse->hreplace("USERID", "" . $uid);
 					$browse->replacea([
 						"USERID" => "0",
 						"HEADING" => "",
