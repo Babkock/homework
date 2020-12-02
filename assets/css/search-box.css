@@ -5,11 +5,11 @@
 */
 .search-bar { display: block; width: 92%; margin-left: 4%; margin-right: 4%;
 }
-.search-bar #search { width: 50%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 7px; padding-left: 9px; font-size: 1.4em; border-radius: 24px 0px 0px 24px;
+.search-bar #search { width: 50%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 7px; padding-left: 11px; font-size: 1.4em; border-radius: 24px 0px 0px 24px;
 }
-.search-bar #stype { width: 20%; appearance: none; -moz-appearance: none; font-size: 1.25em;
+.search-bar #stype { width: 17%; margin-left: -2px; margin-right: -2px; appearance: none; -moz-appearance: none; font-size: 1.25em;
 }
-.search-bar #country { width: 20%; appearance: none; -moz-appearance: none; font-size: 1.19em;
+.search-bar #country { width: 20%; appearance: none; -moz-appearance: none; font-size: 1.19em; padding: 9px;
 }
 .search-bar #submit { width: 10%; appearance: none; -moz-appearance: none; background: #202020; background-color: #202020; border: 1px solid black; color: #dfdfdf; font-size: 1.19em; border-radius: 0px 24px 24px 0px;
 }

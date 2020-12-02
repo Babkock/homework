@@ -1,6 +1,6 @@
 <template>
 	<div class="search-bar">
-		<input type="text" id="search" v-if="stype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
+		<input type="text" id="search" v-if="this.searchtype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
 		<input type="text" id="search" v-else :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
 		<select v-model="this.searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option selected>Searching by</option>
@@ -18,6 +18,10 @@
 			<option value="ru" :selected="country === 'ru'">Russian Federation</option>
 			<option value="es" :selected="country === 'es'">Spain</option>
 			<option value="de" :selected="country === 'de'">Germany</option>
+			<option value="pl" :selected="country === 'pl'">Poland</option>
+			<option value="lx" :selected="country === 'lx'">Luxembourg</option>
+			<option value="dk" :selected="country === 'dk'">Denmark</option>
+			<option value="se" :selected="country === 'se'">Sweden</option>
 		</select>
 		<button id="submit" @click="Search()">Search</button>
 	</div>
@@ -86,12 +90,12 @@ export default {
 		@include Appearance();
 		@include BackBorderColor(#101010, 2px solid black, #cfcfcf);
 		padding:7px;
-		padding-left:9px;
+		padding-left:11px;
 		font-size:1.4em;
 		border-radius:24px 0px 0px 24px;
 	}
 	#stype {
-		width:20%;
+		@include WidthMargins(17%, -2px, -2px);
 		@include Appearance();
 		font-size:1.25em;
 	}
@@ -99,6 +103,7 @@ export default {
 		width:20%;
 		@include Appearance();
 		font-size:1.19em;
+		padding:9px;
 	}
 	#submit {
 		width:10%;

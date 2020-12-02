@@ -10,6 +10,13 @@ Vue.component('album', Album)
 Vue.component('search-box', SearchBox)
 
 Vue.mixin({
+	data: () => {
+		return {
+			searchType: "",
+			country: "{{BROWSE_COUNTRY}}"
+		};
+	},
+
 	methods: {
 		BuyAlbum(id) {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + id;
@@ -28,15 +35,13 @@ let app = new Vue({
 	data: () => {
 		return {
 			id: 0,
-			searchType: "",
 			heading: "{{BROWSE_HEADING}}",
-			artist: "{{BROWSE_ARTIST}}",   // v-model in a text field, $_GET['a']
-			album: "{{BROWSE_ALBUM}}",     // v-model in a text field, $_GET['b']
-			country: "{{BROWSE_COUNTRY}}", // v-model in a dropdown, $_GET['c']
-			argument: "{{BROWSE_GET}}",    // the GET argument used
-			val: "{{BROWSE_GET_VALUE}}",   // the value for the GET argument,
+			artist: "{{BROWSE_ARTIST}}",
+			album: "{{BROWSE_ALBUM}}",
+			argument: "{{BROWSE_GET}}",
+			val: "{{BROWSE_GET_VALUE}}",
 			ajaxError: "",
-			primary: [],                   // array of albums
+			primary: [],
 			secondary: [],
 			tertiary: []
 		};
