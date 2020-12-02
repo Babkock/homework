@@ -668,6 +668,8 @@ class Methods {
 				$ct = "India"; break;
 			case "hu":
 				$ct = "Hungary"; break;
+			case "ro":
+				$ct = "Romania"; break;
 			default:
 				$ct = "Unknown Country"; break;
 		}

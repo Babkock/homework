@@ -68,8 +68,14 @@ export default {
 				case "us":
 					c = "United States";
 					break;
+				case "mx":
+					c = "Mexico";
+					break;
 				case "uk":
 					c = "United Kingdom";
+					break;
+				case "ie":
+					c = "Ireland";
 					break;
 				case "es":
 					c = "Spain";
@@ -112,6 +118,45 @@ export default {
 					break;
 				case "lv":
 					c = "Latvia";
+					break;
+				case "cz":
+					c = "Czech Republic";
+					break;
+				case "br":
+					c = "Brazil";
+					break;
+				case "is":
+					c = "Iceland";
+					break;
+				case "am":
+					c = "Armenia";
+					break;
+				case "az":
+					c = "Azerbaijan";
+					break;
+				case "ch":
+					c = "Switzerland";
+					break;
+				case "tr":
+					c = "Turkey";
+					break;
+				case "at":
+					c = "Austria";
+					break;
+				case "ua":
+					c = "Ukraine";
+					break;
+				case "ba":
+					c = "Boznia and Herzegovina";
+					break;
+				case "in":
+					c = "India";
+					break;
+				case "hu":
+					c = "Hungary";
+					break;
+				case "ro":
+					c = "Romania";
 					break;
 				default:
 					c = "Unknown Country";
