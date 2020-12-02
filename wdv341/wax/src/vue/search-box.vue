@@ -7,7 +7,7 @@
 			<option value="artist" :selected="stype === 'artist'">Artist</option>
 			<option value="album" :selected="stype === 'album'">Album</option>
 		</select>
-		<select v-model="this.ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country">
+		<select v-model="this.ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
 			<option selected>Anywhere</option>
 			<option value="us" :selected="country === 'us'">United States</option>
 			<option value="ca" :selected="country === 'ca'">Canada</option>

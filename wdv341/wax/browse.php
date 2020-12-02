@@ -137,7 +137,7 @@ EOF;
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
 				$country = Methods::countryExpand($_GET['c']);
-				
+
 				$browse->replacea([
 					"USERID" => "0",
 					"HEADING" => "Sellers from " . $country,
@@ -298,7 +298,8 @@ EOF;
 						"BROWSE_ALBUM" => "",
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "",
-						"BROWSE_GET_VALUE" => ""
+						"BROWSE_GET_VALUE" => "",
+						"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 					]);
 
 					$browse->setTitle("WaXchange &bull; Browse");
