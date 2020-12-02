@@ -15,8 +15,8 @@ let app = new Vue({
 		return {
 			id: 0,
 			ajaxError: "",
-			inventory: "",
-			purchased: ""
+			inventory: [],
+			purchased: []
 		};
 	},
 

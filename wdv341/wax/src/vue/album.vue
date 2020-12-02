@@ -1,15 +1,18 @@
 <template>
-	<div class="album" :id="realid">
+	<div class="album" :id="myid">
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="artisthref" v-text="artist"></a> - <a :href="albumhref" v-text="title"></a></h2>
-
-		<slot name="info"></slot>
-		<h3>Tracklist:</h3>
-		<slot name="tracklist">
-		</slot>
-		<p>Posted: <span class="date" v-text="niceposted"></span>.</p>
+		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
+		<div v-if="showingExtra">
+			<slot name="info"></slot>
+			<h3>Tracklist:</h3>
+			<slot name="tracklist">
+			</slot>
+			<p><b>Posted</b>: <span class="date" v-text="niceposted"></span></p>
+			<p><b>Country</b>: <span class="country" v-text="countryexpand"></span></p>
+		</div>
 	</div>
 </template>
 
@@ -17,10 +20,6 @@
 export default {
 	props: {
 		myid: {
-			type: Number,
-			required: true
-		},
-		rid: {
 			type: Number,
 			required: true
 		},
@@ -44,7 +43,8 @@ export default {
 
 	data: () => {
 		return {
-			//album: {...this.value}
+			showingExtra: true,
+			expandText: "-"
 		};
 	},
 
@@ -138,10 +138,13 @@ export default {
 					break;
 			}
 			return c;
-		}, */
+		} */
+	},
 
-		realid: function() {
-			return "al" + this.rid;
+	methods: {
+		ToggleAlbumDetails() {
+			this.showingExtra = ((this.showingExtra === true) ? false : true);
+			this.expandText = ((this.showingExtra === true) ? "-" : "+");
 		}
 	}
 };

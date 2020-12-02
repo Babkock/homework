@@ -5,5 +5,11 @@
 */
 .search-bar { display: block; width: 90%; margin-left: 5%; margin-right: 5%;
 }
-.search-bar #search { width: 69%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 6px; font-size: 1.2em;
+.search-bar #search { width: 55%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 6px; font-size: 1.25em;
+}
+.search-bar #stype { width: 20%; appearance: none; -moz-appearance: none; font-size: 1.25em;
+}
+.search-bar #country { width: 25%; appearance: none; -moz-appearance: none; font-size: 1.19em;
+}
+.search-bar #submit { width: 10%; appearance: none; -moz-appearance: none; font-size: 1.19em;
 }

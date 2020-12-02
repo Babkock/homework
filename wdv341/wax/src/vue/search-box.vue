@@ -59,11 +59,26 @@ export default {
 	display:block;
 	@include WidthMargins(90%, 5%, 5%);
 	#search {
-		width:69%;
+		width:55%;
 		@include Appearance();
 		@include BackBorderColor(#101010, 2px solid black, #cfcfcf);
 		padding:6px;
-		font-size:1.2em;
+		font-size:1.25em;
+	}
+	#stype {
+		width:20%;
+		@include Appearance();
+		font-size:1.25em;
+	}
+	#country {
+		width:25%;
+		@include Appearance();
+		font-size:1.19em;
+	}
+	#submit {
+		width:10%;
+		@include Appearance();
+		font-size:1.19em;
 	}
 
 }
