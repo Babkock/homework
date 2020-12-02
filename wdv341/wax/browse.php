@@ -112,6 +112,7 @@ EOF;
 					"BROWSE_GET_VALUE" => $_GET['a'],
 					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
+
 				$browse->setTitle($_GET['a'] . " &bull; WaXchange");
 				$browse->setDescription("The WaXchange artist page for " . $_GET['a'] . ". This shows all releases, all sellers, from all countries. WaXchange is a new music marketplace.");
 			}
@@ -128,6 +129,7 @@ EOF;
 					"BROWSE_GET_VALUE" => $_GET['b'],
 					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
+
 				$browse->setTitle($_GET['b'] . " &bull; WaXchange");
 				$browse->setDescription("All listings of " . $_GET['b'] . " on WaXchange. This page includes all sellers, from all countries. WaXchange is a new music marketplace.");
 			}
@@ -135,6 +137,7 @@ EOF;
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
 				$country = Methods::countryExpand($_GET['c']);
+				
 				$browse->replacea([
 					"USERID" => "0",
 					"HEADING" => "Sellers from " . $country,
@@ -142,8 +145,10 @@ EOF;
 					"BROWSE_ALBUM" => "",
 					"BROWSE_COUNTRY" => $_GET['c'],
 					"BROWSE_GET" => "c",
-					"BROWSE_GET_VALUE" => $_GET['c']
+					"BROWSE_GET_VALUE" => $_GET['c'],
+					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
+
 				$browse->setTitle("WaXchange &bull; " . $country . " Market");
 				$browse->setDescription("All WaXchange releases for sale from " . $country . ". This page includes all releases.");
 			}
@@ -158,8 +163,11 @@ EOF;
 						"BROWSE_ARTIST" => "",
 						"BROWSE_ALBUM" => "",
 						"BROWSE_COUNTRY" => "",
-						"BROWSE_GET" => "id"
+						"BROWSE_GET" => "id",
+						"BROWSE_GET_VALUE" => "",
+						"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 					]);
+
 					$browse->replace("BROWSE_GET_VALUE");
 					$browse->setTitle("WaXchange &bull; Album #" . $_GET['id']);
 
@@ -182,8 +190,10 @@ EOF;
 						"BROWSE_ALBUM" => "",
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "",
-						"BROWSE_GET_VALUE" => ""
+						"BROWSE_GET_VALUE" => "",
+						"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 					]);
+
 					$browse->setTitle("WaXchange &bull; Browse");
 					$browse->setDescription("Browsing the newest, most expensive, and trending releases on the WaXchange marketplace.");
 				}
@@ -196,7 +206,6 @@ EOF;
 			if (isset($_GET['a'])) {    // artist
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
-
 				$browse->hreplace("USERID", "" . $uid);
 				$browse->replacea([
 					"USERID" => "" . $uid,
@@ -205,15 +214,16 @@ EOF;
 					"BROWSE_ALBUM" => "",
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "a",
-					"BROWSE_GET_VALUE" => $_GET['a']
+					"BROWSE_GET_VALUE" => $_GET['a'],
+					"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 				]);
+
 				$browse->setTitle($_GET['a'] . " &bull; WaXchange");
 				$browse->setDescription("The WaXchange artist page for " . $_GET['a'] . ". This shows all releases, all sellers, from all countries. WaXchange is a new music marketplace.");
 			}
 			else if (isset($_GET['b'])) {    // album
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
-
 				$browse->hreplace("USERID", "" . $uid);
 				$browse->replacea([
 					"USERID" => "" . $uid,
@@ -222,8 +232,10 @@ EOF;
 					"BROWSE_ALBUM" => $_GET['b'],
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "b",
-					"BROWSE_GET_VALUE" => $_GET['b']
+					"BROWSE_GET_VALUE" => $_GET['b'],
+					"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 				]);
+
 				$browse->setTitle($_GET['b'] . " &bull; WaXchange");
 				$browse->setDescription("All listings of " . $_GET['b'] . " on WaXchange. This page includes all sellers, from all countries. WaXchange is a new music marketplace.");
 			}
@@ -240,8 +252,10 @@ EOF;
 					"BROWSE_ALBUM" => "",
 					"BROWSE_COUNTRY" => $_GET['c'],
 					"BROWSE_GET" => "c",
-					"BROWSE_GET_VALUE" => $_GET['c']
+					"BROWSE_GET_VALUE" => $_GET['c'],
+					"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 				]);
+
 				$browse->setTitle("WaXchange &bull; " . $country . " Market");
 				$browse->setDescription("All WaXchange releases for sale from " . $country . ". This page includes all releases.");
 			}
@@ -257,9 +271,11 @@ EOF;
 						"BROWSE_ARTIST" => "",
 						"BROWSE_ALBUM" => "",
 						"BROWSE_COUNTRY" => "",
-						"BROWSE_GET" => "id"
+						"BROWSE_GET" => "id",
+						"BROWSE_GET_VALUE" => "",
+						"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 					]);
-					$browse->replace("BROWSE_GET_VALUE");
+
 					$browse->setTitle("WaXchange &bull; Album #" . $_GET['id']);
 
 					$st = $db->prepare("SELECT `artist`, `album`, `seller`, `country` FROM `albums` WHERE `id`=:id");
@@ -284,6 +300,7 @@ EOF;
 						"BROWSE_GET" => "",
 						"BROWSE_GET_VALUE" => ""
 					]);
+
 					$browse->setTitle("WaXchange &bull; Browse");
 					$browse->setDescription("Browsing the newest, most expensive, and trending releases on the WaXchange marketplace.");
 				}
