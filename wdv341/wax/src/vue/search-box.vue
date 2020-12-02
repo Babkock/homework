@@ -7,7 +7,7 @@
 			<option value="artist" :selected="stype === 'artist'">Artist</option>
 			<option value="album" :selected="stype === 'album'">Album</option>
 		</select>
-		<select v-model="this.country" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country">
+		<select v-model="this.ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country">
 			<option selected>Anywhere</option>
 			<option value="us" :selected="country === 'us'">United States</option>
 			<option value="ca" :selected="country === 'ca'">Canada</option>
@@ -56,7 +56,7 @@ export default {
 			return "this.album";
 		},
 		cvmodl: function() {
-			return "this.country";
+			return "this.ccountry";
 		}
 	},
 

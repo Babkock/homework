@@ -13,7 +13,7 @@ Vue.mixin({
 	data: () => {
 		return {
 			searchType: "",
-			country: "{{BROWSE_COUNTRY}}"
+			ccountry: "{{BROWSE_COUNTRY}}"
 		};
 	},
 
