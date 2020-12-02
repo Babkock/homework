@@ -4,13 +4,20 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 import Album from "../vue/album.vue";
+import SearchBox from "../vue/search-box.vue";
+
 Vue.component('album', Album)
+Vue.component('search-box', SearchBox)
 
 Vue.mixin({
 	methods: {
 		BuyAlbum(id) {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + id;
-		}
+		},
+
+		/* ToggleAlbumDetails(id) {
+	
+		} */
 	}
 })
 
@@ -31,10 +38,11 @@ let app = new Vue({
 			album: "{{BROWSE_ALBUM}}",     // v-model in a text field, $_GET['b']
 			country: "{{BROWSE_COUNTRY}}", // v-model in a dropdown, $_GET['c']
 			argument: "{{BROWSE_GET}}",    // the GET argument used
-			val: "{{BROWSE_GET_VALUE}}",   // the value for the GET argument
-			primary: "",                   // array of albums
-			secondary: "",
-			tertiary: ""
+			val: "{{BROWSE_GET_VALUE}}",   // the value for the GET argument,
+			ajaxError: "",
+			primary: [],                   // array of albums
+			secondary: [],
+			tertiary: []
 		};
 	},
 
@@ -49,7 +57,7 @@ let app = new Vue({
 				this.$http.post("browse?mode=" + mode + "&" + arg + "=" + val, userId).then((response) => {
 					this.primary = response.data;
 				}, () => {
-					this.primary = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
 					console.error("Couldn't fetch albums with mode '" + mode + "', argument '" + arg + "', and value '" + val + "'");
 				});
 			}
@@ -58,7 +66,7 @@ let app = new Vue({
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.primary = response.data;
 					}, () => {
-						this.primary = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
 						console.error("Couldn't fetch albums with mode 'newest'.");
 					});
 				}
@@ -66,7 +74,7 @@ let app = new Vue({
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.secondary = response.data;
 					}, () => {
-						this.secondary = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
 						console.error("Couldn't fetch albums with mode 'expensive'.");
 					});
 				}
@@ -74,7 +82,7 @@ let app = new Vue({
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.tertiary = response.data;
 					}, () => {
-						this.tertiary = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
 						console.error("Couldn't fetch albums with mode 'purchased'.");
 					});
 				}

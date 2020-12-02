@@ -1,0 +1,9 @@
+/*
+	WaXchange
+	November - December 2020
+	Copyright (c) 2020 Tanner Babcock.
+*/
+.search-bar { display: block; width: 90%; margin-left: 5%; margin-right: 5%;
+}
+.search-bar #search { width: 69%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 6px; font-size: 1.2em;
+}

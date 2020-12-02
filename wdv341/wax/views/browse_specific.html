@@ -1,10 +1,23 @@
 <main id="browse">
 	<!-- search box -->
+	<search-box :album="album" :artist="artist" :country="country"></search-box>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<h2 v-html="heading"></h2>
 	<div class="albums-box" v-if="primary.length > 0">
 		<album v-for="(al, index) in primary" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
-
+			<template slot="image">
+				<img :src="al.image" />
+			</template>
+			<template slot="info">
+				<h2>{{ al.discs }}x{{ al.media }}</h2>
+				<h3>${{ al.price }} from {{ al.seller }}</h3>
+				{{BUYBUTTON}}
+			</template>
+			<template slot="tracklist">
+				<ol v-if="al.tracklist.length > 0">
+					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
+				</ol>
+			</template>
 		</album>
 	</div>
 </main>

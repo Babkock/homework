@@ -2,14 +2,17 @@
 	{{IF_LOGGED_IN}}
 	<h2>Welcome back, {{USERNAME}}!</h2>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
+	<div class="ajax-error" v-if="ajaxError.length > 1" v-html="ajaxError">
+
+	</div>
 	<div class="purchases" v-if="purchased.length > 0">
-		<h2>Your Purchases</h2>
+		<h2>Your Purchases:</h2>
 		<ul>
 			<li v-for="(al, index) in purchased" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 		</ul>
 	</div>
 	<div class="inventory" v-if="inventory.length > 0">
-		<h2>Your Inventory</h2>
+		<h2>Your Inventory:</h2>
 		<ul>
 			<li v-for="(al, index) in inventory" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 		</ul>

@@ -14,6 +14,7 @@ let app = new Vue({
 	data: () => {
 		return {
 			id: 0,
+			ajaxError: "",
 			inventory: "",
 			purchased: ""
 		};
@@ -28,7 +29,7 @@ let app = new Vue({
 				this.$http.post("user?mode=inventory", userId).then((response) => {
 					this.inventory = response.data;
 				}, () => {
-					this.inventory = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
+					this.ajaxError = "<p class=\"error\">Could not fetch this user's inventory from the server.</p>";
 					console.error("Couldn't fetch inventory from user #" + this.id);
 				});
 			}
@@ -36,7 +37,7 @@ let app = new Vue({
 				this.$http.post("user?mode=purchased", userId).then((response) => {
 					this.purchased = response.data;
 				}, () => {
-					this.purchased = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
+					this.ajaxError = "<p class=\"error\">Could not fetch this user's purchased albums from the server.</p>";
 					console.error("Couldn't fetch purchased from user #" + this.id);
 				});
 			}

@@ -4,7 +4,7 @@
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="artisthref" v-text="artist"></a> - <a :href="albumhref" v-text="title"></a></h2>
-		
+
 		<slot name="info"></slot>
 		<h3>Tracklist:</h3>
 		<slot name="tracklist">
@@ -17,6 +17,10 @@
 export default {
 	props: {
 		myid: {
+			type: Number,
+			required: true
+		},
+		rid: {
 			type: Number,
 			required: true
 		},
@@ -114,6 +118,30 @@ export default {
 					break;
 			}
 			return c;
+		},
+
+		/*
+		currencyExpand: function() {
+			let c = "";
+			switch (this.currency) {
+				case "usd":
+					c = "US Dollars";
+					break;
+				case "gbp":
+					c = "GB Pounds";
+					break;
+				case "eur":
+					c = "Euros";
+					break;
+				default:
+					c = "Unknown Currency";
+					break;
+			}
+			return c;
+		}, */
+
+		realid: function() {
+			return "al" + this.rid;
 		}
 	}
 };
