@@ -3,7 +3,7 @@
 		<input type="text" id="search" v-if="stype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" plchold="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
 		<input type="text" id="search" v-else :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" plchold="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
 		<select v-model="this.searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
-			<option selected>Search Type</option>
+			<option selected>Searching by</option>
 			<option value="artist" :selected="stype === 'artist'">Artist</option>
 			<option value="album" :selected="stype === 'album'">Album</option>
 		</select>
@@ -13,7 +13,13 @@
 			<option value="ca" :selected="country === 'ca'">Canada</option>
 			<option value="mx" :selected="country === 'mx'">Mexico</option>
 			<option value="uk" :selected="country === 'uk'">United Kingdom</option>
+			<option value="ie" :selected="country === 'ie'">Ireland</option>
+			<option value="fr" :selected="country === 'fr'">France</option>
+			<option value="ru" :selected="country === 'ru'">Russian Federation</option>
+			<option value="es" :selected="country === 'es'">Spain</option>
+			<option value="de" :selected="country === 'de'">Germany</option>
 		</select>
+		<button id="submit" @click="Search()">Search</button>
 	</div>
 </template>
 
@@ -47,6 +53,23 @@ export default {
 		},
 		cvmodl: function() {
 			return "this.country";
+		}
+	},
+
+	methods: {
+		Search() {
+			if (this.searchtype === "artist") {
+				if (this.country.length > 1)
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist) + "&c=" + this.country;
+				else
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist);
+			}
+			else if (this.searchtype === "album") {
+				if (this.country.length > 1)
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album) + "&c=" + this.country;
+				else
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album);
+			}
 		}
 	}
 };

@@ -608,6 +608,8 @@ class Methods {
 				$ct = "Russian Federation"; break;
 			case "uk":
 				$ct = "United Kingdom"; break;
+			case "ie":
+				$ct = "Ireland"; break;
 			case "fr":
 				$ct = "France"; break;
 			case "es":
@@ -642,6 +644,30 @@ class Methods {
 				$ct = "Philippines"; break;
 			case "kr":
 				$ct = "South Korea"; break;
+			case "cz":
+				$ct = "Czech Republic"; break;
+			case "br":
+				$ct = "Brazil"; break;
+			case "is":
+				$ct = "Iceland"; break;
+			case "am":
+				$ct = "Armenia"; break;
+			case "az":
+				$ct = "Azerbaijan"; break;
+			case "ch":
+				$ct = "Switzerland"; break;
+			case "at":
+				$ct = "Austria"; break;
+			case "ua":
+				$ct = "Ukraine"; break;
+			case "tr":
+				$ct = "Turkey"; break;
+			case "ba":
+				$ct = "Bosnia and Herzegovina"; break;
+			case "in":
+				$ct = "India"; break;
+			case "hu":
+				$ct = "Hungary"; break;
 			default:
 				$ct = "Unknown Country"; break;
 		}
