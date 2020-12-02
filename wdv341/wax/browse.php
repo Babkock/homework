@@ -109,7 +109,8 @@ EOF;
 					"BROWSE_ALBUM" => "",
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "a",
-					"BROWSE_GET_VALUE" => $_GET['a']
+					"BROWSE_GET_VALUE" => $_GET['a'],
+					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 				$browse->setTitle($_GET['a'] . " &bull; WaXchange");
 				$browse->setDescription("The WaXchange artist page for " . $_GET['a'] . ". This shows all releases, all sellers, from all countries. WaXchange is a new music marketplace.");
@@ -124,7 +125,8 @@ EOF;
 					"BROWSE_ALBUM" => $_GET['b'],
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "b",
-					"BROWSE_GET_VALUE" => $_GET['b']
+					"BROWSE_GET_VALUE" => $_GET['b'],
+					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 				$browse->setTitle($_GET['b'] . " &bull; WaXchange");
 				$browse->setDescription("All listings of " . $_GET['b'] . " on WaXchange. This page includes all sellers, from all countries. WaXchange is a new music marketplace.");

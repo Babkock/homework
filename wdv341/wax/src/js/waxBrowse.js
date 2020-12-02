@@ -20,6 +20,10 @@ Vue.mixin({
 	methods: {
 		BuyAlbum(id) {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + id;
+		},
+
+		Register() {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
 		}
 	}
 })
@@ -38,6 +42,7 @@ let app = new Vue({
 			heading: "{{BROWSE_HEADING}}",
 			artist: "{{BROWSE_ARTIST}}",
 			album: "{{BROWSE_ALBUM}}",
+			country: "{{BROWSE_COUNTRY}}",
 			argument: "{{BROWSE_GET}}",
 			val: "{{BROWSE_GET_VALUE}}",
 			ajaxError: "",

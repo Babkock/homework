@@ -1,7 +1,7 @@
 <template>
 	<div class="search-bar">
-		<input type="text" id="search" v-if="this.searchtype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
-		<input type="text" id="search" v-else :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
+		<input type="text" id="search" v-showing="this.searchtype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
+		<input type="text" id="search" v-showing="this.searchtype === 'album'" :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
 		<select v-model="this.searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option selected>Searching by</option>
 			<option value="artist" :selected="stype === 'artist'">Artist</option>

@@ -44,7 +44,7 @@ export default {
 	data: () => {
 		return {
 			showingExtra: true,
-			expandText: "-"
+			expandText: "  -  "
 		};
 	},
 
@@ -189,7 +189,7 @@ export default {
 	methods: {
 		ToggleAlbumDetails() {
 			this.showingExtra = ((this.showingExtra === true) ? false : true);
-			this.expandText = ((this.showingExtra === true) ? "-" : "+");
+			this.expandText = ((this.showingExtra === true) ? "  -  " : "  +  ");
 		}
 	}
 };

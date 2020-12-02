@@ -94,7 +94,7 @@ EOF;
 					"USERNAME" => $row['username'],
 					"USEREMAIL" => $row['email'],
 					"USERCOUNTRY" => Methods::countryExpand($row['country']),
-					"EDITBUTTON" => ((strcmp($_SESSION['current_user'], $row['username']) == 0) ? "<button @click=\"EditAlbum(al.id)\">Edit Release</button>" : "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>")
+					"EDITBUTTON" => ((strcmp($_SESSION['current_user'], $row['username']) == 0) ? "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>" : "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>")
 				]);
 
 				if (isset($_SESSION['current_user'])) {
