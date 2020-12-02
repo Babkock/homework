@@ -1,19 +1,42 @@
 <main id="browse">
+	<!-- search box -->
+	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<h2>Newest Releases:</h2>
 	<div class="albums-box" v-if="primary.length > 0">
-		<album>
-
+		<album v-for="(al, index) in primary" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
+			<template slot="img">
+				<img :src="al.image" />
+			</template>
+			<template slot="info">
+				<h2>{{ al.discs }}x{{ al.media }}</h2>
+				<h3>${{ al.price }} from {{ al.seller }}</h3>
+				{{BUYBUTTON}}
+			</template>
+			<template slot="tracklist">
+				<ol v-if="al.tracklist.length > 0">
+					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
+				</ol>
+				<p><b>{{ al.label }}</b></p>
+			</template>
 		</album>
 	</div>
 	<h2>Most Expensive Releases:</h2>
 	<div class="albums-box" v-if="secondary.length > 0">
-		<album>
+		<album v-for="(al, index) in secondary" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
+			<template slot="img">
 
+			</template>
+			<template slot="info">
+
+			</template>
+			<template slot="tracklist">
+
+			</template>
 		</album>
 	</div>
 	<h2>Your Collection</h2>
 	<div class="albums-box" v-if="tertiary.length > 0">
-		<album>
+		<album v-for="(al, index) in tertiary" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
 
 		</album>
 	</div>

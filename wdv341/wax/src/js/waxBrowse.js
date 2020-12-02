@@ -25,6 +25,7 @@ let app = new Vue({
 	data: () => {
 		return {
 			id: 0,
+			searchType: "",
 			heading: "{{BROWSE_HEADING}}",
 			artist: "{{BROWSE_ARTIST}}",   // v-model in a text field, $_GET['a']
 			album: "{{BROWSE_ALBUM}}",     // v-model in a text field, $_GET['b']

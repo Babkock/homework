@@ -1,7 +1,9 @@
 <main id="browse">
+	<!-- search box -->
+	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<h2 v-html="heading"></h2>
 	<div class="albums-box" v-if="primary.length > 0">
-		<album>
+		<album v-for="(al, index) in primary" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
 
 		</album>
 	</div>

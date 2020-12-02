@@ -13,13 +13,14 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }}x{{ al.media }}</h2>
-				<h3>$<b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
+				<h3>${{ al.price }} from {{ al.seller }}</h3>
 				{{EDITBUTTON}}
 			</template>
 			<template slot="tracklist">
 				<ol v-if="al.tracklist.length > 0">
-					<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
+					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
 				</ol>
+				<p><b>{{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>

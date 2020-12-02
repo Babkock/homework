@@ -1,9 +1,10 @@
 <template>
-	<div class="album">
+	<div class="album" :id="realid">
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="artisthref" v-text="artist"></a> - <a :href="albumhref" v-text="title"></a></h2>
+		
 		<slot name="info"></slot>
 		<h3>Tracklist:</h3>
 		<slot name="tracklist">
