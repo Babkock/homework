@@ -19,7 +19,7 @@ try {
 			}
 			else {
 				$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id LIMIT 1");
-				$st->bindParam(":id", $_GET['id'])
+				$st->bindParam(":id", $_GET['id']);
 			}
 		}
 		else {
