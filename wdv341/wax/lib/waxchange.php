@@ -53,6 +53,8 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	| releasetype | VARCHAR(11)  | Album, EP, single, mixtape, live album, soundtrack, or compilation.    |
 	|-------------|--------------|------------------------------------------------------------------------|
 	| sellerid    | INT(11)      | The user ID of the seller.                                             |
+	|-------------|--------------|------------------------------------------------------------------------|
+	| buyerid     | INT(11)      | The user ID of the buyer.                                              |
 	|_____________|______________|________________________________________________________________________|
 */
 
@@ -76,6 +78,8 @@ class Album {
 	private $currency;
 	private $purchased;
 	private $releasetype;
+	private $sellerid;
+	private $buyerid;
 	*/
 
 	public function __construct($id = 0) {

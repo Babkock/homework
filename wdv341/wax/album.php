@@ -66,11 +66,11 @@ try {
 					if (in_array($filetype, $validtypes)) {
 
 						if (file_exists(__DIR__ . "/" . $filename)) {
-							// the "img/" is already there
+							// the "img/album/" is already there
 							exit("<p class=\"error\">Filename already exists. Please choose a different name.</p>");
 						}
 						else {
-							// the "img/" should already be in $json->image
+							// the "img/album/" should already be in $json->image
 							move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/" . $filename);
 						}
 					}
