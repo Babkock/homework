@@ -80,7 +80,7 @@ let app = new Vue({
 			let formData = new FormData();
 
 			if (this.file) {
-				formData.append("imageFile", this.$refs.image.files[0]);
+				formData.append("image", this.$refs.image.files[0]);
 			}
 			formData.append("albumJson", JSON.stringify(this.album));
 

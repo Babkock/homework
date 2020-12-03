@@ -3,7 +3,9 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-input[type="text"], input[type="number"], select, input[type="password"], input[type="file"] { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 7px; width: 80%; font-size: 1.14em; transition: background, border, color 0.2s ease 0s;
+input[type="text"], input[type="number"], input[type="password"], input[type="file"] { appearance: none; -moz-appearance: none;
+}
+input[type="text"], input[type="number"], select, input[type="password"], input[type="file"] { background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 7px; width: 80%; font-size: 1.14em; transition: background, border, color 0.2s ease 0s;
 }
 input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="password"]:hover, input[type="file"]:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; font-size: 1.14em;
 }
@@ -11,7 +13,7 @@ input[type="text"]:active, input[type="number"]:active, select:active, input[typ
 }
 input[name="price"] { width: 79%; font-size: 1.14em;
 }
-select { width: 82%; font-size: 1.14em;
+select { width: 82%; font-size: 1.14em; appearance: auto !important; -moz-appearance: auto !important;
 }
 .main-album-info tbody tr { width: 100% !important;
 }

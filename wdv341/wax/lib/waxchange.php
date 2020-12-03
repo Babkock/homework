@@ -141,6 +141,10 @@ class Album {
 		}
 		$this->releasetype = $r;
 	}
+	public function getSellerId() { return $this->sellerid; }
+	public function setSellerId($s) { $this->seller = $s; }
+	public function getBuyerId() { return $this->buyerid; }
+	public function setBuyerId($b) { $this->buyerid = $b; }
 	*/
 
 	public function seta($arr) {
@@ -168,6 +172,8 @@ class Album {
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
 			if (strcmp($k, "releasetype") == 0) { $this->releasetype = $v; }
+			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
+			if (strcmp($k, "buyerid") == 0) { $this->buyerid = $v; }
 			*/
 		}
 	}
@@ -191,6 +197,8 @@ class Album {
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
 		$arr['releasetype'] = $this->releasetype;
+		$arr['sellerid'] = $this->sellerid;
+		$arr['buyerid'] = $this->buyerid;
 		*/
 		return $arr;
 	}
@@ -215,6 +223,8 @@ class Album {
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
 		$this->releasetype = $b->releasetype;
+		$this->sellerid = $b->sellerid;
+		$this->buyerid = $b->buyerid;
 		*/
 
 		foreach ($b->tracklist as $track) {
@@ -236,15 +246,14 @@ class Album {
 	public function write() {
 		global $db;
 
-		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
-		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, '', :releasetype)");
+		$st = $db->prepare("INSERT INTO `albums` VALUES (:artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
+		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, '', :releasetype, :sellerid, NULL)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
 		$st->bindParam(":discs", $this->discs);
 		$st->bindParam(":price", $this->price);
 		$st->bindParam(":seller", $this->seller);
-		$st->bindParam(":buyer", $this->buyer);
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
@@ -253,6 +262,8 @@ class Album {
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":releasetype", $this->releasetype);
+		$st->bindParam(":sellerid", $this->sellerid);
+		$st->bindParam(":buyerid", $this->buyerid);
 		*/
 
 		$tlJson = "[";
@@ -277,7 +288,7 @@ class Album {
 		global $db;
 
 		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=NOW(), `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
-		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `releasetype`=:releasetype WHERE `id`=:id LIMIT 1");
+		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `releasetype`=:releasetype, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -295,6 +306,8 @@ class Album {
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":purchased", $this->purchased);
 		$st->bindParam(":releasetype", $this->releasetype);
+		$st->bindParam(":sellerid", $this->sellerid);
+		$st->bindParam(":buyerid", $this->buyerid);
 		*/
 
 		$tlJson = "[";
@@ -316,7 +329,12 @@ class Album {
 	}
 
 	public function purchase($buyer) {
-		// ...
+		global $db;
+
+		$bid = Methods::getIdFromName($buyer);
+		$this->setBuyer($buyer);
+		// $this->setBuyerId($bid);
+		$this->update();
 	}
 
 	public static function delete($id = 0) {

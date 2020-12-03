@@ -9,5 +9,57 @@ let app = new Vue({
 	http: {
 		emulateJSON: true,
 		emulateHTTP: true
+	},
+
+	data: () => {
+		return {
+			id: 0,
+			file: false,
+			saved: false,
+			userinfo: {
+				oldpassword: "",
+				newpassword: "",
+				newpassword2: "",
+				showemail: "",
+				biography: ""
+			},
+			ajaxResult: ""
+		};
+	},
+
+	methods: {
+		SubmitSettings() {
+			if (this.file) {
+				this.ajaxResult = "<p class=\"success\">Your new avatar is being uploaded...</p>";
+			}
+			else {
+				this.ajaxResult = "<p class=\"success\">Your preferences are being saved...</p>";
+			}
+			if ((this.newpassword.length > 0) && (this.newpassword !== this.newpassword2)) {
+				this.ajaxResult = "<p class=\"error\">The two passwords do not match.</p>";
+			}
+			else {
+				let formData = new FormData();
+
+				if (this.file) {
+					formData.append("image", this.$refs.image.files[0]);
+				}
+				formData.append("oldpassword", this.oldpassword);
+				formData.append("newpassword", this.newpassword);
+				formData.append("newpassword2", this.newpassword2);
+				formData.append("showemail", this.showemail);
+				formData.append("biography", this.biography);
+				this.$http.post("settings", formData).then((response) => {
+					this.ajaxResult = response.data;
+					this.saved = true;
+				}, () => {
+					this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";
+				});
+			}
+		}
+	},
+
+	mounted() {
+		this.id = parseInt(document.querySelector("#userid").value);
 	}
 })

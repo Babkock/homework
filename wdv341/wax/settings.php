@@ -14,7 +14,9 @@ try {
 
 	}
 	else {
-
+		$settings = new Page("header_user", "settings");
+		$settings->setTitle("WaXchange &bull; Settings");
+		$settings->setDescription("This page lets you change your user preferences. This page is different for everyone.");
 	}
 }
 catch (PDOException $e) {

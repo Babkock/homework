@@ -80,7 +80,7 @@ header {
 }
 
 main {
-	@include WidthMargins(90%, 5%, 5%);
+	@include WidthMargins(98%, 1%, 1%);
 	padding:8px;
 	border:2px solid #000;
 	background:rgba(30, 30, 30, 0.4);

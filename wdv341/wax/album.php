@@ -33,6 +33,15 @@ try {
 					"label" => $json->label,
 					"posted" => $json->posted,
 					"tracklist" => $tl
+					/*
+					"year" => $json->year,
+					"currency" => $json->currency,
+					"condition" => $json->condition,
+					"purchased" => $json->purchased,
+					"releasetype" => $json->releasetype,
+					"sellerid" => $json->sellerid,
+					"buyerid" => $json->buyerid
+					*/
 				]);
 
 				$album->update();
@@ -89,6 +98,15 @@ try {
 					"label" => $json->label,
 					"posted" => $json->posted,
 					"tracklist" => $tl
+					/*
+					"year" => $json->year,
+					"currency" => $json->currency,
+					"condition" => $json->condition,
+					"purchased" => $json->purchased,
+					"releasetype" => $json->releasetype,
+					"sellerid" => $json->sellerid,
+					"buyerid" => $json->buyerid
+					*/
 				]);
 
 				$album->write();

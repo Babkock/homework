@@ -32,7 +32,7 @@ header nav ul li a { display: block; width: 96%; padding: 7px; padding-top: 11px
 
 header nav ul li:hover { border: 1px solid #cfcfcf; background: rgba(40, 40, 50, 0.4); }
 
-main { width: 90%; margin-left: 5%; margin-right: 5%; padding: 8px; border: 2px solid #000; background: rgba(30, 30, 30, 0.4); margin-top: 10px; }
+main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px solid #000; background: rgba(30, 30, 30, 0.4); margin-top: 10px; }
 
 .login-form table, .register-form table { width: 80%; margin-left: 10%; margin-right: 10%; }
 

@@ -1,0 +1,65 @@
+<main id="settings">
+	<form action="" class="settings-editor" method="post" enctype="multipart/form-data">
+		<h3>Change Password</h3>
+		<p>There are no requirements on passwords.</p>
+		<table class="main-user-info"><tbody>
+			<tr>
+				<td><label><b>Old Password:</b></label></td>
+				<td>
+					<input type="password" name="oldpassword" v-model="userinfo.oldpassword" @blur="userinfo.oldpassword = $event.target.value" />
+				</td>
+			</tr>
+			<tr>
+				<td><label><b>New Password:</b></label></td>
+				<td>
+					<input type="password" name="newpassword" v-model="userinfo.newpassword" @blur="userinfo.newpassword = $event.target.value" />
+				</td>
+			</tr>
+			<tr>
+				<td><label><b>Confirm New Password:</b></label></td>
+				<td>
+					<input type="password" name="newpassword2" v-model="userinfo.newpassword2" @blur="userinfo.newpassword2 = $event.target.value" />
+				</td>
+			</tr>
+		</tbody></table>
+		<h3>Upload Avatar</h3>
+		<p>This is your old avatar. If you want, you can upload an image file to replace it. Be careful, though, once an old avatar is replaced, it's not possible to recover it.</p>
+		<div class="avatar">
+			<img :src="userinfo.oldimage" />
+		</div>
+		<table class="main-user-info"><tbody>
+			<tr>
+				<td><label><b>Upload New Avatar:</b></label></td>
+				<td>
+					<input type="file" ref="image" name="image" @change="file = true" title="Upload an avatar to replace your existing avatar" alt="Upload an avatar to replace your existing avatar" />
+				</td>
+			</tr>
+		</tbody></table>
+		<h3>Profile:</h3>
+		<p>This is your biography text that appears on your profile. You can have whatever you want in this field to express yourself.</p>
+		<textarea v-model="userinfo.biography" id="profile" name="biography" cols=40 rows=7 placeholder="Enter whatever you want here! No character limit, go nuts! Plain text only."></textarea>
+		<h3>Email Preference:</h3>
+		<p>You can choose to hide your email from other users, abstract it (like: "bob dot smith at gmail dot com"), or show the entire email.</p>
+		<table class="main-user-info"><tbody>
+			<tr>
+				<td><label><b>Email Preference:</b></label></td>
+				<td>
+					<select v-model="userinfo.showemail" name="showemail">
+						<option value="one" {{HIDE_SELECT}}>Hide My Email</option>
+						<option value="two" {{ABSTRACT_SELECT}}>Abstract My Email</option>
+						<option value="three" {{SHOW_SELECT}}>Show My Email</option>
+					</select>
+				</td>
+			</tr>
+		</tbody></table>
+		<div class="buttons">
+			<p>
+				<button @click="$event.preventDefault(); SubmitSettings()" class="go" title="Save your user preferences." alt="Save your user preferences.">Save Changes</button>
+			</p>
+		</div>
+	</form>
+	<div class="ajax-area" v-html="ajaxResult">
+
+	</div>
+</main>
+<script src="/homework/assets/js/waxSettings.min.js"></script>

@@ -1,10 +1,10 @@
 <template>
 	<tr>
 		<td>
-			<label :for="name"><b v-text="label"></b>:</label>
+			<label :for="name"><b v-text="labe"></b>:</label>
 		</td>
 		<td>
-			<b v-if="label === 'Price'">$</b>
+			<b v-if="labe === 'Price'">$</b>
 			<input :v-model="vmodl" :value="value" type="text" :title="title" :alt="title" :name="name" :size="size" :maxlength="maxlen" :placeholder="plchold" @blur="$emit('input', $event.target.value)" />
 		</td>
 	</tr>
@@ -21,7 +21,7 @@ export default {
 			type: String,
 			required: true
 		},
-		label: {
+		labe: {
 			type: String,
 			required: true
 		},
@@ -54,8 +54,11 @@ export default {
 <style lang="scss">
 @import "../css/variables.scss";
 
-input[type="text"], input[type="number"], select, input[type="password"], input[type="file"] {
+input[type="text"], input[type="number"], input[type="password"], input[type="file"] {
 	@include Appearance();
+}
+
+input[type="text"], input[type="number"], select, input[type="password"], input[type="file"] {
 	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
 	padding:7px;
 	width:80%;
@@ -79,6 +82,8 @@ input[name="price"] {
 select {
 	width:82%;
 	font-size:1.14em;
+	appearance:auto !important;
+	-moz-appearance:auto !important;
 }
 
 .main-album-info {

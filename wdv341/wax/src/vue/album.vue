@@ -206,7 +206,7 @@ export default {
 }
 
 div.album {
-	@include WidthMargins(32%, 3px, 3px);
+	@include WidthMargins(30.5%, 3px, 3px);
 	margin-top:6px;
 	margin-bottom:7px;
 	@include BackBorderColor(rgba(30, 30, 30, 0.3), 1px solid gray, #dfdfdf);

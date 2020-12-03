@@ -1,7 +1,7 @@
 <main id="browse">
 	<search-box :sartist="artist" :salbum="album" :scountry="country" @ainput="artist = $event" @binput="album = $event" @cinput="country = $event"></search-box>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
-	<div class="ajax-error" v-html="ajaxError">
+	<div class="ajax-area" v-html="ajaxError">
 
 	</div>
 	<center><h2>Newest Releases:</h2></center>

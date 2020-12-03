@@ -128,21 +128,6 @@ let app = new Vue({
 					console.error("FetchAlbums() argument error");
 				}
 			}
-		},
-
-		sellerhref(seller) {
-			let out = "";
-			let formData = new FormData();
-			formData.append("name", seller);
-
-			this.$http.post("user", formData).then((response) => {
-				console.log("Got user ID " + response.data.userid + " for the name '" + seller + "'");
-				return "<a href=\"user?id=" + response.data.userid + "\">" + seller + "</a>";
-			}, () => {
-				this.ajaxError = "<p class=\"error\">Couldn't fetch user ID from the given name.</p>";
-				console.log("Couldn't fetch the ID for the name '" + seller + "'");
-				return "#";
-			});
 		}
 	},
 
