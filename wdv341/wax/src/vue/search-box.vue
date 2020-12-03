@@ -58,22 +58,32 @@ export default {
 	methods: {
 		Search() {
 			if (this.searchType === "artist") {
-				if ((this.scountry !== "") && (this.scountry !== "Anywhere") && (this.scountry.length > 1))
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist) + "&c=" + this.scountry;
-				else
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist);
+				if ((this.sartist == undefined) || (this.sartist.length == 0)) {
+					if ((this.scountry.length > 1) && (this.scountry !== "Anywhere"))
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?c=" + this.scountry;
+					else
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse";
+				}
+				else {
+					if ((this.scountry.length > 1) && (this.scountry !== "Anywhere"))
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.sartist) + "&c=" + this.scountry;				
+					else
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.sartist);
+				}
 			}
 			else if (this.searchType === "album") {
-				if ((this.scountry !== "") && (this.scountry !== "Anywhere") && (this.scountry.length > 1))
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album) + "&c=" + this.scountry;
-				else
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album);
-			}
-			else {
-				if ((this.scountry !== "") && (this.scountry !== "Anywhere") && (this.scountry.length > 1))
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?c=" + this.scountry;
-				else
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse";
+				if ((this.salbum == undefined) || (this.salbum.length == 0)) {
+					if ((this.scountry.length > 1) && (this.scountry !== "Anywhere"))
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?c=" + this.scountry;
+					else
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse";
+				}
+				else {
+					if ((this.scountry.length > 1) && (this.scountry !== "Anywhere"))
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.salbum) + "&c=" + this.scountry;
+					else
+						window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.salbum);
+				}
 			}
 		}
 	}
@@ -94,6 +104,7 @@ export default {
 		padding-left:11px;
 		font-size:1.4em;
 		border-radius:24px 0px 0px 24px;
+		border-bottom:3px solid black;
 	}
 	#stype {
 		@include WidthMargins(16%, -2px, -2px);
@@ -116,7 +127,9 @@ export default {
 		@include BackBorderColor(#131313, 1px solid black, #dfdfdf);
 		font-size:1.25em;
 		border-radius:0px 24px 24px 0px;
-		padding-top:11px;
+		padding-top:10px;
+		padding-bottom:10px;
+		box-shadow:none !important;
 		&:hover {
 			@include BackBorderColor(#181818, 1px solid black, #efefef);
 		}
