@@ -1,12 +1,12 @@
 <main id="browse">
-	<search-box :album="album" :artist="artist" :country="country"></search-box>
+	<search-box :sartist="artist" :salbum="title" :scountry="country"></search-box>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-error" v-html="ajaxError">
 
 	</div>
 	<center><h2 v-html="heading"></h2></center>
 	<div class="albums-box" v-if="primary.length > 0">
-		<album v-for="(al, index) in primary" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
+		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
 			<template slot="image">
 				<img :src="al.image" />
 			</template>

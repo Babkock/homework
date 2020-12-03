@@ -3,7 +3,7 @@
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
-		<h2><a :href="artisthref" v-text="artist"></a> - <a :href="albumhref" v-text="title"></a></h2>
+		<h2><a :href="artisthref" v-text="aartist"></a> - <a :href="albumhref" v-text="atitle"></a></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
 			<slot name="info"></slot>
@@ -11,7 +11,7 @@
 			<slot name="tracklist">
 			</slot>
 			<p><b>Posted</b>: <span class="date" v-text="niceposted"></span></p>
-			<p><b>Country</b>: <span class="country" v-text="countryexpand"></span></p>
+			<p><b>Country</b>: <span class="acountry" v-text="countryexpand"></span></p>
 		</div>
 	</div>
 </template>
@@ -23,19 +23,19 @@ export default {
 			type: Number,
 			required: true
 		},
-		artist: {
+		aartist: {
 			type: String,
 			default: "Unknown Artist"
 		},
-		title: {
+		atitle: {
 			type: String,
 			default: "Unknown Album"
 		},
-		posted: {
+		aposted: {
 			type: String,
 			required: true
 		},
-		country: {
+		acountry: {
 			type: String,
 			default: "us"
 		}
@@ -50,21 +50,21 @@ export default {
 
 	computed: {
 		artisthref: function() {
-			return "browse?a=" + encodeURI(this.artist);
+			return "browse?a=" + encodeURI(this.aartist);
 		},
 
 		albumhref: function() {
-			return "browse?b=" + this.myid;
+			return "browse?b=" + encodeURI(this.atitle);
 		},
 
 		niceposted: function() {
-			let jsDate = new Date(Date.parse(this.posted.replace(/[-]/g,'/')));
+			let jsDate = new Date(Date.parse(this.aposted.replace(/[-]/g,'/')));
 			return jsDate.toDateString();
 		},
 
 		countryexpand: function() {
 			let c = "";
-			switch (this.country) {
+			switch (this.acountry.toLowerCase()) {
 				case "us":
 					c = "United States";
 					break;
@@ -168,7 +168,7 @@ export default {
 		/*
 		currencyExpand: function() {
 			let c = "";
-			switch (this.currency) {
+			switch (this.acurrency) {
 				case "usd":
 					c = "US Dollars";
 					break;

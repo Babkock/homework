@@ -10,12 +10,12 @@ Vue.component('album', Album)
 
 Vue.mixin({
 	methods: {
-		BuyAlbum(id) {
-			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + id;
+		BuyAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + i;
 		},
 
-		EditAlbum(id) {
-			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + id;
+		EditAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
 		}
 	}
 })

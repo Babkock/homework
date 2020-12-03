@@ -7,7 +7,6 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 require_once("lib/waxchange.php");
-
 Methods::authorize();
 
 try {

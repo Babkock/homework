@@ -9,7 +9,7 @@
 	</div>
 	<h3>Albums for Sale:</h3>
 	<div class="albums-box" v-if="inventory.length > 0">
-		<album v-for="(al, index) in inventory" :myid="al.id" :artist="al.artist" :title="al.title" :posted="al.posted" :country="al.country" :key="index">
+		<album v-for="(al, index) in inventory" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
@@ -29,7 +29,7 @@
 
 	<h3>Collection:</h3>
 	<div class="albums-box" v-if="purchased.length > 0">
-		<album v-for="(al, index) in purchased" :myid="al.id" :artist="al.artist" :posted="al.posted" :country="al.country" :key="index">
+		<album v-for="(al, index) in purchased" :myid="al.id" :aartist="al.artist" :aposted="al.posted" :acountry="al.country" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>

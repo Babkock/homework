@@ -12,14 +12,24 @@ Vue.component('search-box', SearchBox)
 Vue.mixin({
 	data: () => {
 		return {
-			searchType: "",
-			ccountry: "{{BROWSE_COUNTRY}}"
+			searchType: "Anything",
+			id: 0,
+			heading: "{{HEADING}}",
+			artist: "{{BROWSE_ARTIST}}",
+			album: "{{BROWSE_ALBUM}}",
+			country: "{{BROWSE_COUNTRY}}",
+			argument: "{{BROWSE_GET}}",
+			val: "{{BROWSE_GET_VALUE}}",
+			ajaxError: "",
+			primary: [],
+			secondary: [],
+			tertiary: []
 		};
 	},
 
 	methods: {
-		BuyAlbum(id) {
-			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + id;
+		BuyAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + i;
 		},
 
 		Register() {
@@ -38,17 +48,7 @@ let app = new Vue({
 
 	data: () => {
 		return {
-			id: 0,
-			heading: "{{HEADING}}",
-			artist: "{{BROWSE_ARTIST}}",
-			album: "{{BROWSE_ALBUM}}",
-			country: "{{BROWSE_COUNTRY}}",
-			argument: "{{BROWSE_GET}}",
-			val: "{{BROWSE_GET_VALUE}}",
-			ajaxError: "",
-			primary: [],
-			secondary: [],
-			tertiary: []
+			
 		};
 	},
 
@@ -101,6 +101,8 @@ let app = new Vue({
 
 	mounted() {
 		this.id = parseInt(document.querySelector("#userid").value);
+		if (this.country === "" || this.country.length < 1)
+			this.country = "Anywhere";
 		
 		switch (this.argument) {
 			case "a":

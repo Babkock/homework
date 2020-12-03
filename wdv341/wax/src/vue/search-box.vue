@@ -1,27 +1,27 @@
 <template>
 	<div class="search-bar">
-		<input type="text" id="search" v-show="searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
-		<input type="text" id="search" v-show="searchType === 'album'" :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
+		<input type="text" id="search" v-show="searchType === 'Anything' || searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="sartist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
+		<input type="text" id="search" v-show="searchType === 'album'" :v-model="bvmodl" :value="salbum" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
 		<select v-model="searchType" id="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
-			<option selected>Searching by</option>
-			<option value="artist" :selected="searchType === 'artist' || stype === 'artist'">Artist</option>
-			<option value="album" :selected="searchType === 'album' || stype === 'album'">Album</option>
+			<option selected>Anything</option>
+			<option value="artist">Artist</option>
+			<option value="album">Album</option>
 		</select>
-		<select v-model="ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
+		<select v-model="country" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
 			<option selected>Anywhere</option>
 			<option value="us">United States</option>
 			<option value="ca">Canada</option>
 			<option value="mx">Mexico</option>
 			<option value="uk">United Kingdom</option>
 			<option value="ie">Ireland</option>
-			<option value="fr" :selected="country === 'fr'">France</option>
-			<option value="ru" :selected="country === 'ru'">Russian Federation</option>
-			<option value="es" :selected="country === 'es'">Spain</option>
-			<option value="de" :selected="country === 'de'">Germany</option>
-			<option value="pl" :selected="country === 'pl'">Poland</option>
-			<option value="lx" :selected="country === 'lx'">Luxembourg</option>
-			<option value="dk" :selected="country === 'dk'">Denmark</option>
-			<option value="se" :selected="country === 'se'">Sweden</option>
+			<option value="fr">France</option>
+			<option value="ru">Russian Federation</option>
+			<option value="es">Spain</option>
+			<option value="de">Germany</option>
+			<option value="pl">Poland</option>
+			<option value="lx">Luxembourg</option>
+			<option value="dk">Denmark</option>
+			<option value="se">Sweden</option>
 		</select>
 		<button id="submit" @click="Search()">Search</button>
 	</div>
@@ -30,19 +30,15 @@
 <script>
 export default {
 	props: {
-		artist: {
+		sartist: {
 			type: String,
 			default: ""
 		},
-		album: {
+		salbum: {
 			type: String,
 			default: ""
 		},
-		country: {
-			type: String,
-			default: ""
-		},
-		stype: {
+		scountry: {
 			type: String,
 			default: ""
 		}
@@ -56,7 +52,7 @@ export default {
 			return "this.album";
 		},
 		cvmodl: function() {
-			return "this.ccountry";
+			return "this.country";
 		}
 	},
 
@@ -73,6 +69,12 @@ export default {
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album) + "&c=" + this.country;
 				else
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album);
+			}
+			else {
+				if (this.country.length > 1)
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?c=" + this.country;
+				else
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse";
 			}
 		}
 	}
