@@ -4,14 +4,14 @@
 		<input type="text" id="search" v-show="stype === 'album'" :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
 		<select v-model="searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option selected>Searching by</option>
-			<option value="artist" :selected="stype === 'artist'">Artist</option>
-			<option value="album" :selected="stype === 'album'">Album</option>
+			<option value="artist">Artist</option>
+			<option value="album">Album</option>
 		</select>
 		<select v-model="ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
 			<option selected>Anywhere</option>
-			<option value="us" :selected="country === 'us' || country === 'US'">United States</option>
-			<option value="ca" :selected="country === 'ca'">Canada</option>
-			<option value="mx" :selected="country === 'mx'">Mexico</option>
+			<option value="us">United States</option>
+			<option value="ca">Canada</option>
+			<option value="mx">Mexico</option>
 			<option value="uk" :selected="country === 'uk'">United Kingdom</option>
 			<option value="ie" :selected="country === 'ie'">Ireland</option>
 			<option value="fr" :selected="country === 'fr'">France</option>
@@ -44,7 +44,7 @@ export default {
 		},
 		stype: {
 			type: String,
-			default: "artist"
+			default: ""
 		}
 	},
 
@@ -62,13 +62,13 @@ export default {
 
 	methods: {
 		Search() {
-			if (this.searchtype === "artist") {
+			if (this.searchType === "artist") {
 				if (this.country.length > 1)
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist) + "&c=" + this.country;
 				else
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist);
 			}
-			else if (this.searchtype === "album") {
+			else if (this.searchType === "album") {
 				if (this.country.length > 1)
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album) + "&c=" + this.country;
 				else
