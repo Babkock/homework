@@ -2,14 +2,14 @@
 	<div class="search-bar">
 		<input type="text" id="search" v-show="stype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
 		<input type="text" id="search" v-show="stype === 'album'" :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
-		<select v-model="this.searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
+		<select v-model="searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option selected>Searching by</option>
 			<option value="artist" :selected="stype === 'artist'">Artist</option>
 			<option value="album" :selected="stype === 'album'">Album</option>
 		</select>
-		<select v-model="this.ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
+		<select v-model="ccountry" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
 			<option selected>Anywhere</option>
-			<option value="us" :selected="country === 'us'">United States</option>
+			<option value="us" :selected="country === 'us' || country === 'US'">United States</option>
 			<option value="ca" :selected="country === 'ca'">Canada</option>
 			<option value="mx" :selected="country === 'mx'">Mexico</option>
 			<option value="uk" :selected="country === 'uk'">United Kingdom</option>
