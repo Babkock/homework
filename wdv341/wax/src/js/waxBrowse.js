@@ -39,7 +39,7 @@ let app = new Vue({
 	data: () => {
 		return {
 			id: 0,
-			heading: "{{BROWSE_HEADING}}",
+			heading: "{{HEADING}}",
 			artist: "{{BROWSE_ARTIST}}",
 			album: "{{BROWSE_ALBUM}}",
 			country: "{{BROWSE_COUNTRY}}",
