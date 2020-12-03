@@ -1,6 +1,6 @@
 <template>
 	<div class="search-bar">
-		<input type="text" id="search" v-show="searchType === 'Anything' || searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="sartist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
+		<input type="text" id="search" v-show="searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="sartist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
 		<input type="text" id="search" v-show="searchType === 'album'" :v-model="bvmodl" :value="salbum" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
 		<select v-model="searchType" id="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option value="artist">Artist</option>
@@ -58,20 +58,20 @@ export default {
 	methods: {
 		Search() {
 			if (this.searchType === "artist") {
-				if ((this.country !== "") && (this.country !== "Anywhere") && (this.country.length > 1))
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist) + "&c=" + this.country;
+				if ((this.scountry !== "") && (this.scountry !== "Anywhere") && (this.scountry.length > 1))
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist) + "&c=" + this.scountry;
 				else
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?a=" + encodeURI(this.artist);
 			}
 			else if (this.searchType === "album") {
-				if ((this.country !== "") && (this.country !== "Anywhere") && (this.country.length > 1))
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album) + "&c=" + this.country;
+				if ((this.scountry !== "") && (this.scountry !== "Anywhere") && (this.scountry.length > 1))
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album) + "&c=" + this.scountry;
 				else
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?b=" + encodeURI(this.album);
 			}
 			else {
-				if ((this.country !== "") && (this.country !== "Anywhere") && (this.country.length > 1))
-					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?c=" + this.country;
+				if ((this.scountry !== "") && (this.scountry !== "Anywhere") && (this.scountry.length > 1))
+					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse?c=" + this.scountry;
 				else
 					window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/browse";
 			}
