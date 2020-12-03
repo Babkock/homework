@@ -1,8 +1,8 @@
 <template>
 	<div class="search-bar">
-		<input type="text" id="search" v-show="stype === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
-		<input type="text" id="search" v-show="stype === 'album'" :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
-		<select v-model="searchType" id="stype" name="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
+		<input type="text" id="search" v-show="searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="artist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
+		<input type="text" id="search" v-show="searchType === 'album'" :v-model="bvmodl" :value="album" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
+		<select v-model="searchType" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option selected>Searching by</option>
 			<option value="artist">Artist</option>
 			<option value="album">Album</option>
@@ -12,8 +12,8 @@
 			<option value="us">United States</option>
 			<option value="ca">Canada</option>
 			<option value="mx">Mexico</option>
-			<option value="uk" :selected="country === 'uk'">United Kingdom</option>
-			<option value="ie" :selected="country === 'ie'">Ireland</option>
+			<option value="uk">United Kingdom</option>
+			<option value="ie">Ireland</option>
 			<option value="fr" :selected="country === 'fr'">France</option>
 			<option value="ru" :selected="country === 'ru'">Russian Federation</option>
 			<option value="es" :selected="country === 'es'">Spain</option>
@@ -95,24 +95,29 @@ export default {
 		border-radius:24px 0px 0px 24px;
 	}
 	#stype {
-		@include WidthMargins(17%, -2px, -2px);
-		@include Appearance();
+		@include WidthMargins(16%, -2px, -2px);
 		font-size:1.25em;
 		padding:8px;
 	}
 	#country {
 		width:20%;
-		@include Appearance();
 		font-size:1.25em;
 		padding:8px;
-		margin-right:-4px;
+		margin-right:-2px;
 	}
 	#submit {
 		width:10%;
 		@include Appearance();
-		@include BackBorderColor(#202020, 1px solid black, #dfdfdf);
+		@include BackBorderColor(#131313, 1px solid black, #dfdfdf);
 		font-size:1.25em;
 		border-radius:0px 24px 24px 0px;
+		padding-top:11px;
+		&:hover {
+			@include BackBorderColor(#181818, 1px solid black, #efefef);
+		}
+		&:active {
+			@include BackBorderColor(#101010, 1px solid black, #d4d4d4);
+		}
 	}
 
 }

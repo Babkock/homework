@@ -7,9 +7,13 @@
 }
 .search-bar #search { width: 50%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 7px; padding-left: 11px; font-size: 1.4em; border-radius: 24px 0px 0px 24px;
 }
-.search-bar #stype { width: 17%; margin-left: -2px; margin-right: -2px; appearance: none; -moz-appearance: none; font-size: 1.25em; padding: 8px;
+.search-bar #stype { width: 16%; margin-left: -2px; margin-right: -2px; font-size: 1.25em; padding: 8px;
 }
-.search-bar #country { width: 20%; appearance: none; -moz-appearance: none; font-size: 1.25em; padding: 8px; margin-right: -4px;
+.search-bar #country { width: 20%; font-size: 1.25em; padding: 8px; margin-right: -2px;
 }
-.search-bar #submit { width: 10%; appearance: none; -moz-appearance: none; background: #202020; background-color: #202020; border: 1px solid black; color: #dfdfdf; font-size: 1.25em; border-radius: 0px 24px 24px 0px;
+.search-bar #submit { width: 10%; appearance: none; -moz-appearance: none; background: #131313; background-color: #131313; border: 1px solid black; color: #dfdfdf; font-size: 1.25em; border-radius: 0px 24px 24px 0px; padding-top: 11px;
+}
+.search-bar #submit:hover { background: #181818; background-color: #181818; border: 1px solid black; color: #efefef;
+}
+.search-bar #submit:active { background: #101010; background-color: #101010; border: 1px solid black; color: #d4d4d4;
 }
