@@ -51,6 +51,8 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	| purchased   | DATE         | The date the album was purchased.                                      |
 	|-------------|--------------|------------------------------------------------------------------------|
 	| releasetype | VARCHAR(11)  | Album, EP, single, mixtape, live album, soundtrack, or compilation.    |
+	|-------------|--------------|------------------------------------------------------------------------|
+	| sellerid    | INT(11)      | The user ID of the seller.                                             |
 	|_____________|______________|________________________________________________________________________|
 */
 

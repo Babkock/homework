@@ -113,8 +113,8 @@ EOF;
 				$browse->script("waxBrowse.min.js");
 				$browse->replacea([
 					"USERID" => "0",
-					"HEADING" => "Browsing Artist " . $_GET['a'],
-					"BROWSE_ARTIST" => $_GET['a'],
+					"HEADING" => "Artist " . ucwords($_GET['a']),
+					"BROWSE_ARTIST" => ucwords($_GET['a']),
 					"BROWSE_ALBUM" => "",
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "a",
@@ -122,7 +122,7 @@ EOF;
 					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 
-				$browse->setTitle($_GET['a'] . " &bull; WaXchange");
+				$browse->setTitle(ucwords($_GET['a']) . " &bull; WaXchange");
 				$browse->setDescription("The WaXchange artist page for " . $_GET['a'] . ". This shows all releases, all sellers, from all countries. WaXchange is a new music marketplace.");
 			}
 			else if (isset($_GET['b'])) {  // album
@@ -130,16 +130,16 @@ EOF;
 				$browse->script("waxBrowse.min.js");
 				$browse->replacea([
 					"USERID" => "0",
-					"HEADING" => "<i>" . $_GET['b'] . "</i>",
+					"HEADING" => "<i>" . ucwords($_GET['b']) . "</i>",
 					"BROWSE_ARTIST" => "",
-					"BROWSE_ALBUM" => $_GET['b'],
+					"BROWSE_ALBUM" => ucwords($_GET['b']),
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "b",
 					"BROWSE_GET_VALUE" => $_GET['b'],
 					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 
-				$browse->setTitle($_GET['b'] . " &bull; WaXchange");
+				$browse->setTitle(ucwords($_GET['b']) . " &bull; WaXchange");
 				$browse->setDescription("All listings of " . $_GET['b'] . " on WaXchange. This page includes all sellers, from all countries. WaXchange is a new music marketplace.");
 			}
 			else if (isset($_GET['c'])) {  // country
