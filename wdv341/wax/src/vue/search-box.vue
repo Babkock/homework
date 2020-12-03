@@ -7,7 +7,7 @@
 			<option value="artist">Artist</option>
 			<option value="album">Album</option>
 		</select>
-		<select v-model="country" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
+		<select :v-model="cvmodl" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
 			<option selected>Anywhere</option>
 			<option value="us">United States</option>
 			<option value="ca">Canada</option>
