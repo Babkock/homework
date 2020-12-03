@@ -12,18 +12,7 @@ Vue.component('search-box', SearchBox)
 Vue.mixin({
 	data: () => {
 		return {
-			searchType: "artist",
-			id: 0,
-			heading: "{{HEADING}}",
-			artist: "{{BROWSE_ARTIST}}",
-			album: "{{BROWSE_ALBUM}}",
-			country: "{{BROWSE_COUNTRY}}",
-			argument: "{{BROWSE_GET}}",
-			val: "{{BROWSE_GET_VALUE}}",
-			ajaxError: "",
-			primary: [],
-			secondary: [],
-			tertiary: []
+			searchType: "artist"
 		};
 	},
 
@@ -48,7 +37,17 @@ let app = new Vue({
 
 	data: () => {
 		return {
-			
+			id: 0,
+			heading: "{{HEADING}}",
+			artist: "{{BROWSE_ARTIST}}",
+			album: "{{BROWSE_ALBUM}}",
+			country: "{{BROWSE_COUNTRY}}",
+			argument: "{{BROWSE_GET}}",
+			val: "{{BROWSE_GET_VALUE}}",
+			ajaxError: "",
+			primary: [],
+			secondary: [],
+			tertiary: []
 		};
 	},
 
@@ -59,7 +58,7 @@ let app = new Vue({
 			let userId = new FormData();
 			userId.append("id", this.id);
 
-			if ((arg.length > 0) && (val.length > 0)) {
+			/* if ((arg.length > 0) && (val.length > 0)) {
 				this.$http.post("browse?mode=" + mode + "&" + arg + "=" + val, userId).then((response) => {
 					this.primary = response.data;
 				}, () => {
@@ -67,7 +66,7 @@ let app = new Vue({
 					console.error("Couldn't fetch albums with mode '" + mode + "', argument '" + arg + "', and value '" + val + "'");
 				});
 			}
-			else {
+			else { */
 				if (mode === "newest") {
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.primary = response.data;
@@ -119,7 +118,7 @@ let app = new Vue({
 				else {
 					console.error("FetchAlbums() argument error");
 				}
-			}
+			/* } */
 		}
 	},
 
