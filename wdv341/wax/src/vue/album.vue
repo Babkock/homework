@@ -147,7 +147,7 @@ export default {
 					c = "Ukraine";
 					break;
 				case "ba":
-					c = "Boznia and Herzegovina";
+					c = "Bosnia and Herzegovina";
 					break;
 				case "in":
 					c = "India";

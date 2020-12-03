@@ -20,6 +20,15 @@ try {
 			exit("<p class=\"error\">The two passwords do not match.</p>");
 		}
 		else {
+			$ch = $db->prepare("SELECT `id` FROM `users` WHERE `username`=:username LIMIT 1");
+			$ch->bindParam(":username", $_POST['username']);
+			$ch->execute();
+
+			$r = $ch->fetch(PDO::FETCH_ASSOC);
+			if ($r) {
+				exit("<p class=\"error\">That username is taken by someone else. Please choose another name.</p>");
+			}
+
 			$user = new User();
 			$user->seta([
 				"username" => $_POST['username'],

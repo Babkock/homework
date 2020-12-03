@@ -67,6 +67,15 @@ let app = new Vue({
 				});
 			}
 			else { */
+			if (arg === "id") {
+				this.$http.post("browse?id=" + val, userId).then((response) => {
+					this.primary = response.data;
+				}, () => {
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					console.error("Couldn't fetch album id " + val);
+				});
+			}
+			else {
 				if (mode === "newest") {
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.primary = response.data;
@@ -118,7 +127,7 @@ let app = new Vue({
 				else {
 					console.error("FetchAlbums() argument error");
 				}
-			/* } */
+			}
 		}
 	},
 
@@ -144,6 +153,24 @@ let app = new Vue({
 					this.FetchAlbums("purchased");
 				}
 				break;
+		}
+	},
+
+	computed: {
+		sellerhref: function(seller) {
+			let out = "";
+			let formData = new FormData();
+			formData.append("name", seller);
+
+			this.$http.post("user", formData).then((response) => {
+				console.log("Got user ID " + response.data.userid + " for the name '" + seller + "'");
+				out += "user?id=" + response.data.userid;
+				return out;
+			}, () => {
+				this.ajaxError = "<p class=\"error\">Couldn't fetch user ID from the given name.</p>";
+				console.log("Couldn't fetch the ID for the name '" + seller + "'");
+				return "#";
+			});
 		}
 	}
 })

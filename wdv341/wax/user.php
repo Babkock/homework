@@ -12,7 +12,24 @@ try {
 	if (!empty($_POST)) {
 		/* account album listing AJAX */
 		if (!isset($_POST['id'])) {
-			exit("{ \"error\": \"No user ID to fetch\"}");
+			if (!isset($_POST['name'])) {
+				header('Content-Type: application/json');
+				exit("{ \"error\": \"No user ID or name to fetch\"}");
+			}
+			else { // when name is given, but ID isn't, just echo the ID for the given username
+				$st2 = $db->prepare("SELECT `id` FROM `users` WHERE `username`=:name LIMIT 1");
+				$st2->bindParam(":name", $_POST['name']);
+				$st2->execute();
+
+				$r = $st2->fetch(PDO::FETCH_ASSOC);
+				header('Content-Type: application/json');
+				if ($r) {
+					exit("{ \"userid\": " . $r['id'] . " }");
+				}
+				else {
+					exit("{ \"error\": \"No user by that name exists\"}");
+				}
+			}
 		}
 		else {
 			$st1 = $db->prepare("SELECT `username` FROM `users` WHERE `id`=:id LIMIT 1");

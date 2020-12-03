@@ -14,7 +14,13 @@ try {
 		header('Content-Type: application/json');
 
 		if (!isset($_GET['mode'])) {
-			exit("{ \"error\": \"No mode specified\" }");
+			if (!isset($_GET['id'])) {
+				exit("{ \"error\": \"No mode or id specified\" }");
+			}
+			else {
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id LIMIT 1");
+				$st->bindParam(":id", $_GET['id'])
+			}
 		}
 		else {
 			if (strcmp($_GET['mode'], "newest") == 0) {
@@ -40,14 +46,17 @@ try {
 				}
 				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
 				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
-				$st->bindParam(":artist", $_GET['a']);
+				$artist = ucwords($_GET['a']);
+
+				$st->bindParam(":artist", $artist);
 			}
 			else if (strcmp($_GET['mode'], "album") == 0) {
 				if (!isset($_GET['b'])) {
 					exit("{ \"error\": \"The album mode must have an additional 'b' argument\" }");
 				}
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `title`=:title");
-				$st->bindParam(":title", $_GET['b']);
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `title`=:title ORDER BY `price` DESC");
+				$title = ucwords($_GET['b']);
+				$st->bindParam(":title", $title);
 			}
 			else if (strcmp($_GET['mode'], "country") == 0) {
 				if (!isset($_GET['c'])) {
@@ -164,7 +173,7 @@ EOF;
 						"BROWSE_ALBUM" => "",
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "id",
-						"BROWSE_GET_VALUE" => "",
+						"BROWSE_GET_VALUE" => $_GET['id'],
 						"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 					]);
 
@@ -207,9 +216,10 @@ EOF;
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
 				$browse->hreplace("USERID", "" . $uid);
+
 				$browse->replacea([
 					"USERID" => "" . $uid,
-					"HEADING" => "Browsing Artist " . $_GET['a'],
+					"HEADING" => "Artist: " . $_GET['a'],
 					"BROWSE_ARTIST" => $_GET['a'],
 					"BROWSE_ALBUM" => "",
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
