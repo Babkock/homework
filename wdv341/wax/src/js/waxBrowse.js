@@ -12,7 +12,7 @@ Vue.component('search-box', SearchBox)
 Vue.mixin({
 	data: () => {
 		return {
-			searchType: "Anything",
+			searchType: "artist",
 			id: 0,
 			heading: "{{HEADING}}",
 			artist: "{{BROWSE_ARTIST}}",
@@ -90,6 +90,30 @@ let app = new Vue({
 					}, () => {
 						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
 						console.error("Couldn't fetch albums with mode 'purchased'.");
+					});
+				}
+				else if (mode === "artist") {
+					this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist), userId).then((response) => {
+						this.primary = response.data;
+					}, () => {
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						console.error("Couldn't fetch albums with mode 'artist'.");
+					});
+				}
+				else if (mode === "album") {
+					this.$http.post("browse?mode=" + mode + "&b=" + encodeURI(this.album), userId).then((response) => {
+						this.primary = response.data;
+					}, () => {
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						console.error("Couldn't fetch albums with mode 'album'.");
+					});
+				}
+				else if (mode === "country") {
+					this.$http.post("browse?mode=" + mode + "&c=" + this.country, userId).then((response) => {
+						this.primary = response.data;
+					}, () => {
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						console.error("Couldn't fetch albums with mode 'country'.");
 					});
 				}
 				else {

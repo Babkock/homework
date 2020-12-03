@@ -3,7 +3,7 @@
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
-		<h2><a :href="artisthref" v-text="aartist"></a> - <a :href="albumhref" v-text="atitle"></a></h2>
+		<h2><a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
 			<slot name="info"></slot>
