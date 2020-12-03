@@ -1,12 +1,12 @@
 <template>
 	<div class="search-bar">
-		<input type="text" id="search" v-show="searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="sartist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value)" />
-		<input type="text" id="search" v-show="searchType === 'album'" :v-model="bvmodl" :value="salbum" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value)" />
+		<input type="text" id="search" v-show="searchType === '' || searchType === 'artist'" :v-model="avmodl" :value="sartist" title="Search for an artist here" alt="Search for an artist here" placeholder="Search Artists" size="90" maxlength="90" @blur="$emit('ainput', $event.target.value); sartist = $event.target.value" />
+		<input type="text" id="search" v-show="searchType === 'album'" :v-model="bvmodl" :value="salbum" title="Search for an album here" alt="Search for an album here" placeholder="Search Albums" size="90" maxlength="90" @blur="$emit('binput', $event.target.value); salbum = $event.target.value" />
 		<select v-model="searchType" id="stype" title="Choose whether to search Artists or Albums" alt="Choose whether to search Artists or Albums">
 			<option value="artist">Artist</option>
 			<option value="album">Album</option>
 		</select>
-		<select :v-model="cvmodl" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value)">
+		<select :v-model="cvmodl" id="country" name="country" title="Show only listings from this country" alt="Show only listings from this country" @change="$emit('cinput', $event.target.value); scountry = $event.target.value">
 			<option selected>Anywhere</option>
 			<option value="us">United States</option>
 			<option value="ca">Canada</option>
@@ -21,6 +21,7 @@
 			<option value="lx">Luxembourg</option>
 			<option value="dk">Denmark</option>
 			<option value="se">Sweden</option>
+			<option value="ba">Bosnia and Herzegovina</option>
 		</select>
 		<button id="submit" @click="Search()">Search</button>
 	</div>
