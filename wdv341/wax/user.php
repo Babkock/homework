@@ -69,7 +69,13 @@ EOF;
 		}
 	}
 	else {
-		$userpage = new Page(((isset($_SESSION['current_user'])) ? "header_user" : "header_guest"), "account");
+		if (isset($_SESSION['current_user'])) {
+			$userpage = new Page("header_user", "account");
+			$uid = Methods::getIdFromName($_SESSION['current_user']);
+			$userpage->hreplace("USERID", $uid);
+		}
+		else
+			$userpage = new Page("header_guest", "account");
 
 		if (isset($_GET['id'])) {
 			$userpage->setTitle("WaXchange &bull; User {{USERNAME}}");
@@ -85,10 +91,6 @@ EOF;
 				exit();
 			}
 			else {
-				$userpage->hreplacea([
-					"USERID" => $row['id'],
-					"USERNAME" => $row['username']
-				]);
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],

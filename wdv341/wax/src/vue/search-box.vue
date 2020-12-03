@@ -98,12 +98,16 @@ export default {
 		@include WidthMargins(16%, -2px, -2px);
 		font-size:1.25em;
 		padding:8px;
+		appearance:dialog;
+		-moz-appearance:dialog;
 	}
 	#country {
 		width:20%;
 		font-size:1.25em;
 		padding:8px;
 		margin-right:-2px;
+		appearance:dialog;
+		-moz-appearance:dialog;
 	}
 	#submit {
 		width:10%;
