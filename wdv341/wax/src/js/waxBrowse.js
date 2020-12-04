@@ -66,7 +66,7 @@ let app = new Vue({
 					console.error("Couldn't fetch albums with mode '" + mode + "', argument '" + arg + "', and value '" + val + "'");
 				});
 			}
-			else { */
+			else {
 			if (arg === "id") {
 				this.$http.post("browse?id=" + val, userId).then((response) => {
 					this.primary = response.data;
@@ -75,7 +75,7 @@ let app = new Vue({
 					console.error("Couldn't fetch album id " + val);
 				});
 			}
-			else {
+			else { */
 				if (mode === "newest") {
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.primary = response.data;
@@ -101,12 +101,22 @@ let app = new Vue({
 					});
 				}
 				else if (mode === "artist") {
-					this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist), userId).then((response) => {
-						this.primary = response.data;
-					}, () => {
-						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-						console.error("Couldn't fetch albums with mode 'artist'.");
-					});
+					if (this.country.length > 1) {
+						this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist) + "&c=" + this.country, userId).then((response) => {
+							this.primary = response.data;
+						}, () => {
+							this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+							console.error("Couldn't fetch albums with mode 'artist', artist '" + this.artist + "'' and country '" + this.country + "'");
+						});
+					}
+					else {
+						this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist), userId).then((response) => {
+							this.primary = response.data;
+						}, () => {
+							this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+							console.error("Couldn't fetch albums with mode 'artist'.");
+						});
+					}
 				}
 				else if (mode === "album") {
 					this.$http.post("browse?mode=" + mode + "&b=" + encodeURI(this.album), userId).then((response) => {
@@ -127,7 +137,7 @@ let app = new Vue({
 				else {
 					console.error("FetchAlbums() argument error");
 				}
-			}
+			/* } */
 		}
 	},
 
