@@ -88,7 +88,6 @@ let app = new Vue({
 			if (editMode === "new") {
 				this.$http.post("album", formData).then((response) => {
 					this.ajaxResult = response.data;
-					this.saved = true;
 				}, () => {
 					this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
 					console.error("Could not write() album '" + this.album.title + "' with mode 'new'");
@@ -97,7 +96,6 @@ let app = new Vue({
 			else {
 				this.$http.post("album?id=" + this.album.id, formData).then((response) => {
 					this.ajaxResult = response.data;
-					this.saved = true;
 				}, () => {
 					this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
 					console.error("Could not update() album '" + this.album.title + "' with mode 'edit'");

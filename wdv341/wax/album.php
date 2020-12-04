@@ -19,10 +19,6 @@ try {
 				$album = new Album(intval($_GET['id']));
 				$json = json_decode($_POST['albumJson']);
 
-				if ((empty($json->artist)) || (empty($json->title)) || (empty($json->media)) || (empty($json->price)) || (empty($json->label)) || (empty($json->discs)) || (empty($json->country))) {
-					exit("<p class=\"error\">One or more fields are empty.</p>");
-				}
-
 				$tl = json_encode($json->tracklist);
 
 				$album->seta([
@@ -58,7 +54,7 @@ try {
 				$json = json_decode($_POST['albumJson']);
 
 				if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
-					$filename = $json->image;
+					$filename = $_FILES['image']['name'];
 					$filetype = $_FILES['image']['type'];
 					$filesize = $_FILES['image']['size'];
 
@@ -79,13 +75,11 @@ try {
 					}
 					if (in_array($filetype, $validtypes)) {
 
-						if (file_exists(__DIR__ . "/" . $filename)) {
-							// the "img/album/" is already there
+						if (file_exists(__DIR__ . "/img/album/" . $filename)) {
 							exit("<p class=\"error\">Filename already exists. Please choose a different name.</p>");
 						}
 						else {
-							// the "img/album/" should already be in $json->image
-							move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/" . $filename);
+							move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/img/album/" . $filename);
 						}
 					}
 				}
