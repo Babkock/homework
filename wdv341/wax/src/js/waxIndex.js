@@ -48,6 +48,10 @@ let app = new Vue({
 
 		albumhref(i) {
 			return "browse?id=" + i;
+		},
+
+		edithref(i) {
+			return "album?id=" + i;
 		}
 	},
 

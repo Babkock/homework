@@ -130,8 +130,22 @@ EOF;
 		}
 		else {
 		/* maybe show user directory here, if no $id given? */
-			$userpage->error("The specified user does not exist.");
-			exit();
+			$st = $db->prepare("SELECT `username`, `id`, `email` FROM `users` ORDER BY `id` ASC");
+			// $st = $db->prepare("SELECT `username`, `id`, `email`, `showemail`, `purchases`, `sales` FROM `users` ORDER BY `id` ASC");
+			$st->execute();
+
+			$out = "<main id=\"users\">\n\t<table class=\"users-table\">\n\t"; 
+			$out .= "<thead><tr><td><b>ID</b></td><td><b>Username</b></td><td><b>Email Address</b></td></tr></thead>\n\t<tbody>\n";
+			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+				$out .= <<<EOF
+		<tr>
+			<td>{$row['id']}</td>
+			<td><a href="user?id={$row['id']}">{$row['username']}</a></td>
+			<td><a href="mailto:{$row['email']}">{$row['email']}</a></td>
+		</tr>
+EOF;
+			}
+			$userpage->setContent($out);
 		}
 		$userpage->output();
 	}

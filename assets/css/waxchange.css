@@ -83,3 +83,9 @@ span.media { color: #dfaaaa; font-size: larger; }
 textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-width: 90%; height: 90px; max-height: 90px; min-height: 90px; font-family: "Arial" !important; appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 6px; font-size: 1.14em; text-align: left; }
 
 textarea:hover { background: #191919; background-color: #191919; border: 2px solid #242424; color: #efefef; }
+
+.album-editor .cover { width: 50%; margin-left: 25%; margin-right: 25%; }
+
+.album-editor .cover img { width: 40%; margin-left: 30%; margin-right: 30%; opacity: 0.9; transition: opacity 0.2s ease 0s; }
+
+.album-editor .cover img:hover { opacity: 1; }
