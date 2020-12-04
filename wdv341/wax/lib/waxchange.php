@@ -158,6 +158,8 @@ class Album {
 			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
 			if (strcmp($k, "seller") == 0) { $this->seller = $v; }
 			if (strcmp($k, "buyer") == 0) { $this->buyer = $v; }
+			if (strcmp($k, "image") == 0) { $this->image = $v; }
+			if (strcmp($k, "label") == 0) { $this->label = $v; }
 			if (strcmp($k, "tracklist") == 0) {
 				$this->tracklist = [];
 				$tl = json_decode($v);
@@ -190,6 +192,8 @@ class Album {
 		$arr['posted'] = $this->posted;
 		$arr['seller'] = $this->seller;
 		$arr['buyer'] = $this->buyer;
+		$arr['image'] = $this->image;
+		$arr['label'] = $this->label;
 		$arr['tracklist'] = $this->tracklist;
 		/*
 		$arr['year'] = $this->year;
@@ -216,6 +220,8 @@ class Album {
 		$this->posted = $b->posted;
 		$this->seller = $b->seller;
 		$this->buyer = $b->buyer;
+		$this->image = $b->image;
+		$this->label = $b->label;
 		$this->tracklist = [];
 		/*
 		$this->year = $b->year;
@@ -240,7 +246,18 @@ class Album {
 
 		$st->execute();
 		$row = $st->fetch(PDO::FETCH_ASSOC);
-		$this->seta($row);
+		$this->seta([
+			"artist" => $row['artist'],
+			"title" => $row['title'],
+			"media" => $row['media'],
+			"discs" => $row['discs'],
+			"price" => $row['price'],
+			"seller" => $row['seller'],
+			"image" => $row['image'],
+			"label" => $row['label'],
+			"country" => $row['country'],
+			"tracklist" => $row['tracklist']
+		]);
 	}
 
 	public function write() {
