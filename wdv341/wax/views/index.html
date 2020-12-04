@@ -8,13 +8,13 @@
 	<div class="purchases" v-if="purchased.length > 0">
 		<h2>Your Purchases:</h2>
 		<ul>
-			<li v-for="(al, index) in purchased" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a> &bull; <a :href="edithref(al.id)">(Edit)</a></li>
+			<li v-for="(al, index) in purchased" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
 		</ul>
 	</div>
 	<div class="inventory" v-if="inventory.length > 0">
 		<h2>Your Inventory:</h2>
 		<ul>
-			<li v-for="(al, index) in inventory" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
+			<li v-for="(al, index) in inventory" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a> &bull; <a :href="edithref(al.id)">(Edit)</a></li>
 		</ul>
 	</div>
 	{{ENDIF}}
