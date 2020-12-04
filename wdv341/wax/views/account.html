@@ -1,7 +1,13 @@
 <main id="account">
+	<div class="avatar">
+		<img src="{{USERIMG}}" />
+	</div>
 	<h2>{{USERNAME}}</h2>
 	<h3>(User ID #{{USERID}})</h3>
-	<p>Email: <a href="mailto:{{USEREMAIL}}">{{USEREMAIL}}</a></p>
+	<div class="bio">
+		{{ BIOGRAPHY }}
+	</div>
+	<p>Email: {{USEREMAIL}}</p>
 	<p>Country: {{USERCOUNTRY}}</p>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-error" v-html="ajaxError">
@@ -14,8 +20,8 @@
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
-				<h2>{{ al.discs }}x{{ al.media }}</h2>
-				<h3>${{ al.price }} from {{ al.seller }}</h3>
+				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
+				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
 				{{EDITBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -35,13 +41,14 @@
 			</template>
 			<template slot="title">{{ al.title }}</template>
 			<template slot="info">
-				<h2>{{ al.discs }}x{{ al.media }}</h2>
-				<h3><b>{{ al.price }}</b> from <b>{{ al.seller }}</b></h3>
+				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
+				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
 			</template>
 			<template slot="tracklist">
 				<ol v-if="al.tracklist.length > 0">
 					<li v-for="tr in al.tracklist">{{ tr.title }} ({{ tr.length }})</li>
 				</ol>
+				<p><b>{{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>
