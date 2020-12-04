@@ -32,6 +32,7 @@ try {
 					"image" => $json->image,
 					"label" => $json->label,
 					"posted" => $json->posted,
+					"country" => $json->country,
 					"tracklist" => $tl
 					/*
 					"year" => $json->year,
@@ -46,7 +47,7 @@ try {
 
 				$album->update();
 
-				exit("<p class=\"success\">Your changes to this album were saved. <a href=\"album?id=" . $_GET['id'] . "\">View it here.</a></p>");
+				exit("<p class=\"success\">Your changes to this album were saved. <a href=\"browse?id=" . $_GET['id'] . "\">View it here.</a></p>");
 			}
 			else {
 				$album = new Album();
@@ -97,6 +98,7 @@ try {
 					"image" => $json->image,
 					"label" => $json->label,
 					"posted" => $json->posted,
+					"country" => $json->country,
 					"tracklist" => $tl
 					/*
 					"year" => $json->year,
