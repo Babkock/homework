@@ -47,7 +47,7 @@ let app = new Vue({
 		},
 
 		albumhref(i) {
-			return "browse?b=" + i;
+			return "browse?id=" + i;
 		}
 	},
 

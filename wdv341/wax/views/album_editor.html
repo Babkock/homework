@@ -22,8 +22,51 @@
 					</select>
 				</td>
 			</tr>
-			<tr is="input-row" labe="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = parseFloat($event).toFixed(2)"></tr>
+			<tr is="input-row" labe="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = $event"></tr>
 			<tr is="input-row" labe="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
+			<tr>
+				<td><label for="country"><b>Country</b>:</label></td>
+				<td>
+					<select v-model="album.country" @change="album.country = $event.target.value" title="What country is this package being shipped from?" alt="What country is this package being shipped from?">
+						<option selected>Choose a Country</option>
+						<option value="us">United States</option>
+						<option value="ca">Canada</option>
+						<option value="mx">Mexico</option>
+						<option value="uk">United Kingdom</option>
+						<option value="ie">Ireland</option>
+						<option value="ru">Russian Federation</option>
+						<option value="fr">France</option>
+						<option value="es">Spain</option>
+						<option value="de">Germany</option>
+						<option value="pl">Poland</option>
+						<option value="lx">Luxembourg</option>
+						<option value="dk">Denmark</option>
+						<option value="se">Sweden</option>
+						<option value="no">Norway</option>
+						<option value="nl">Netherlands</option>
+						<option value="fl">Finland</option>
+						<option value="au">Australia</option>
+						<option value="it">Italy</option>
+						<option value="lv">Latvia</option>
+						<option value="cn">China</option>
+						<option value="jp">Japan</option>
+						<option value="ph">Philippines</option>
+						<option value="kr">South Korea</option>
+						<option value="cz">Czech Republic</option>
+						<option value="br">Brazil</option>
+						<option value="is">Iceland</option>
+						<option value="am">Armenia</option>
+						<option value="az">Azerbaijan</option>
+						<option value="ch">Switzerland</option>
+						<option value="at">Austria</option>
+						<option value="ua">Ukraine</option>
+						<option value="tr">Turkey</option>
+						<option value="ba">Bosnia and Herzegovina</option>
+						<option value="in">India</option>
+						<option value="hu">Hungary</option>
+					</select>
+				</td>
+			</tr>
 			<tr v-if="!uploaded">
 				<td><label for="image"><b>Image Filename</b>:</label></td>
 				<td><input type="text" v-model="album.image" placeholder="image.jpg" name="imageFilename" @blur="album.image = 'img/album/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>

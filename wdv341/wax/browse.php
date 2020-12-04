@@ -212,7 +212,7 @@ EOF;
 					$browse->replace("BROWSE_GET_VALUE");
 					$browse->setTitle("WaXchange &bull; Album #" . $_GET['id']);
 
-					$st = $db->prepare("SELECT `artist`, `album`, `seller`, `country` FROM `albums` WHERE `id`=:id");
+					$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id");
 					$st->bindParam(":id", intval($_GET['id']));
 					$st->execute();
 
@@ -220,6 +220,40 @@ EOF;
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['album'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
+					$tl = json_decode($row['tracklist']);
+					$tlout = "<ol>";
+					$x = 0;
+					foreach ($tl as $k => $v) {
+						$tlout .= <<<EOF
+						<li>{$x}. {$v->title} <i>($v->length)</i></li>
+EOF;
+						$x++;
+					}
+					$tlout .= "</ol>";
+
+					$out = <<<EOF
+<main id="browse">
+	<div class="albums-box">
+		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['album']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
+			<template slot="img">
+				<img src="{$row['image']}" />
+			</template>
+			<template slot="info">
+				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
+				<h3><span class="price">${$row['price']}</span> from {$row['seller']}</h3>
+				<button class="buy" @click="Register()">Buy This Album</button>
+			</template>
+			<template slot="tracklist">
+				{$tlout}
+				<p><b>{$row['label']}</b></p>
+			</template>
+		</album>
+	</div>
+</main>
+EOF;
+
+					$browse->setContent($out);
+
 				}
 				else {
 					$browse = new Page("header_guest", "browse");
@@ -333,13 +367,12 @@ EOF;
 						"BROWSE_ALBUM" => "",
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "id",
-						"BROWSE_GET_VALUE" => "",
-						"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
+						"BROWSE_GET_VALUE" => $_GET['id']
 					]);
 
 					$browse->setTitle("WaXchange &bull; Album #" . $_GET['id']);
 
-					$st = $db->prepare("SELECT `artist`, `album`, `seller`, `country` FROM `albums` WHERE `id`=:id");
+					$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id");
 					$st->bindParam(":id", intval($_GET['id']));
 					$st->execute();
 
@@ -347,6 +380,41 @@ EOF;
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['album'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
+					$tlout = "<ol>";
+					$tl = json_decode($row['tracklist']);
+					$x = 1;
+
+					foreach ($tl as $k => $v) {
+						$tlout .= <<<EOF
+						<li>{$x}. {$v->title} <i>($v->length)</i></li>
+EOF;
+						$x++;
+					}
+					$tlout .= "</ol>";
+
+					$out = <<<EOF
+<main id="browse">
+	<div class="albums-box">
+		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['album']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
+			<template slot="img">
+				<img src="{$row['image']}" />
+			</template>
+			<template slot="info">
+				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
+				<h3><span class="price">${$row['price']}</span> from {$row['seller']}</h3>
+				<button class="buy" @click="BuyAlbum({$row['id']})">Buy This Album</button>
+			</template>
+			<template slot="tracklist">
+				{$tlout}
+				<p><b>{$row['label']}</b></p>
+			</template>
+		</album>
+	</div>
+</main>
+EOF;
+
+					$browse->setContent($out);
+
 				}
 				else {
 					$browse = new Page("header_user", "browse");

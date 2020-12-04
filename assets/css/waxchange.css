@@ -75,3 +75,7 @@ select:hover { background: #181818; background-color: #181818; border: 2px solid
 .ajax-area p.error { background: #661010; background-color: #661010; border: 1px solid red; color: red; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
 
 footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px; width: 100%; }
+
+span.price { color: #aadf80; font-size: larger; }
+
+span.media { color: #dfaaaa; font-size: larger; }
