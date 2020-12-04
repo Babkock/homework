@@ -234,7 +234,7 @@ EOF;
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
+		<album :myid="{$row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
 			<template slot="img">
 				<img src="{$row['image']}" />
 			</template>
@@ -395,7 +395,7 @@ EOF;
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
+		<album :myid="{$row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
 			<template slot="img">
 				<img src="{$row['image']}" />
 			</template>
