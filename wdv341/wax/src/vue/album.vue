@@ -43,8 +43,8 @@ export default {
 
 	data: () => {
 		return {
-			showingExtra: true,
-			expandText: "  -  "
+			showingExtra: false,
+			expandText: "  +  "
 		};
 	},
 

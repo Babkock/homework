@@ -16,6 +16,8 @@ a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; transiti
 
 a:hover { color: #99ff99; text-decoration: none; }
 
+#account, #settings { text-align: center; }
+
 header { width: 100%; text-align: center; display: block; }
 
 header h1 a.small { font-size: 1.11em; float: right; font-style: italic; }
