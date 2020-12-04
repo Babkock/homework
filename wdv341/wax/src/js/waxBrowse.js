@@ -21,6 +21,10 @@ Vue.mixin({
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + i;
 		},
 
+		EditAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
+		},
+
 		Register() {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
 		}
@@ -58,24 +62,6 @@ let app = new Vue({
 			let userId = new FormData();
 			userId.append("id", this.id);
 
-			/* if ((arg.length > 0) && (val.length > 0)) {
-				this.$http.post("browse?mode=" + mode + "&" + arg + "=" + val, userId).then((response) => {
-					this.primary = response.data;
-				}, () => {
-					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-					console.error("Couldn't fetch albums with mode '" + mode + "', argument '" + arg + "', and value '" + val + "'");
-				});
-			}
-			else {
-			if (arg === "id") {
-				this.$http.post("browse?id=" + val, userId).then((response) => {
-					this.primary = response.data;
-				}, () => {
-					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-					console.error("Couldn't fetch album id " + val);
-				});
-			}
-			else { */
 				if (mode === "newest") {
 					this.$http.post("browse?mode=" + mode, userId).then((response) => {
 						this.primary = response.data;
@@ -137,7 +123,7 @@ let app = new Vue({
 				else {
 					console.error("FetchAlbums() argument error");
 				}
-			/* } */
+
 		}
 	},
 

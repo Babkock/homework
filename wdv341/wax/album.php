@@ -123,6 +123,7 @@ try {
 
 		if (isset($_GET['id'])) {
 			$editor->setTitle("WaXchange &bull; Editing Album #" . $_GET['id']);
+			$editor->setDescription("Editing Album #" . $_GET['id'] . " on WaXchange music marketplace.");
 			$alb = new Album(intval($_GET['id']));
 			$alb->read();
 
@@ -171,7 +172,7 @@ EOF;
 		}
 		else {
 			$editor->setTitle("WaXchange &bull; New Album");
-
+			$editor->setDescription("Uploading new album to WaXchange music marketplace.");
 			$uid = Methods::getIdFromName($_SESSION['current_user']);
 
 			$editor->hreplace("USERID", $uid);

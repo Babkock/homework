@@ -89,6 +89,9 @@ export default {
 				case "ru":
 					c = "Russian Federation";
 					break;
+				case "it":
+					c = "Italy";
+					break;
 				case "dk":
 					c = "Denmark";
 					break;

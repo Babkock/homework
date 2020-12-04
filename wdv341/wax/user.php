@@ -108,6 +108,7 @@ EOF;
 				exit();
 			}
 			else {
+				$userpage->hreplace("USERNAME", $row['username']);
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
@@ -131,7 +132,7 @@ EOF;
 		else {
 		/* maybe show user directory here, if no $id given? */
 			$st = $db->prepare("SELECT `username`, `id`, `email` FROM `users` ORDER BY `id` ASC");
-			// $st = $db->prepare("SELECT `username`, `id`, `email`, `showemail`, `purchases`, `sales` FROM `users` ORDER BY `id` ASC");
+			// $st = $db->prepare("SELECT `username`, `id`, `email`, `showemail` FROM `users` ORDER BY `id` ASC");
 			$st->execute();
 
 			$out = "<main id=\"users\">\n\t<table class=\"users-table\">\n\t"; 
@@ -145,6 +146,7 @@ EOF;
 		</tr>
 EOF;
 			}
+			$out .= "</tbody></table>\n</main>";
 			$userpage->setContent($out);
 		}
 		$userpage->output();

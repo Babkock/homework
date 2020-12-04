@@ -299,13 +299,13 @@ EOF;
 				$browse->hreplace("USERID", "" . $uid);
 				$artist = ucwords($_GET['a']);
 
-				if (isset($_GET['c'])) {
+				/* if (isset($_GET['c'])) {
 					$country = Methods::countryExpand($_GET['c']);
 					$heading = "Artist: " . $artist . ", Country: " . $country;
 				}
-				else {
+				else { */
 					$heading = "Artist: " . $artist;
-				}
+				// }
 
 				$browse->replacea([
 					"USERID" => "" . $uid,
@@ -327,13 +327,13 @@ EOF;
 				$browse->hreplace("USERID", "" . $uid);
 				$album = ucwords($_GET['b']);
 
-				if (isset($_GET['c'])) {
+				/* if (isset($_GET['c'])) {
 					$country = Methods::countryExpand($_GET['c']);
 					$heading = "<i>" . $album . "</i>, Country: " . $country;
 				}
-				else {
+				else { */
 					$heading = "<i>" . $album . "</i>";
-				}
+				// }
 
 				$browse->replacea([
 					"USERID" => "" . $uid,

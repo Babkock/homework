@@ -33,7 +33,7 @@
 				<td><label for="country"><b>Country</b>:</label></td>
 				<td>
 					<select v-model="album.country" @change="album.country = $event.target.value" title="What country is this package being shipped from?" alt="What country is this package being shipped from?">
-						<option selected>Choose a Country</option>
+						<option value="">Choose a Country</option>
 						<option value="us">United States</option>
 						<option value="ca">Canada</option>
 						<option value="mx">Mexico</option>

@@ -234,7 +234,7 @@ textarea {
 	}
 }
 
-.album-editor .cover {
+.album-editor .cover, #account .avatar {
 	@include WidthMargins(50%, 25%, 25%);
 	img {
 		@include WidthMargins(40%, 30%, 30%);
@@ -243,5 +243,35 @@ textarea {
 		&:hover {
 			opacity:1;
 		}
+	}
+}
+
+#account .bio {
+	display:block;
+	@include WidthMargins(80%, 10%, 10%);
+	height:auto;
+	min-height:40px;
+	font-size:1.12em;
+	font-family:"Arial" !important;
+	margin-top:3px;
+	margin-bottom:3px;
+	padding:5px;
+	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	border-radius:25px 25px 25px 25px;
+	p {
+		font-size:1.12em;
+	}
+}
+
+.users-table {
+	width:100%;
+	tbody, tbody tr, thead, thead tr {
+		width:100%;
+	}
+	tbody tr td, thead tr td {
+		width:32%;
+		padding:5px;
+		font-size:1.13em;
+		@include BackBorderColor(#131313, 1px solid black, #efefef);
 	}
 }
