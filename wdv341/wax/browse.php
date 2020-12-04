@@ -116,6 +116,29 @@ EOF;
 		}
 	}
 	else {
+		$sscript = <<<EOF
+<script>
+var app = new Vue({
+	el: "#browse",
+
+	methods: {
+		BuyAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/buy?id=" + i;
+		},
+
+		EditAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
+		},
+
+		Register() {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
+		}
+	}
+
+});
+</script>
+EOF;
+
 		/* show a normal page */
 		if (!isset($_SESSION['current_user'])) {
 			/* not logged in */
@@ -221,13 +244,13 @@ EOF;
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
 					$tl = json_decode($row['tracklist']);
 					$tlout = "<ol>";
-					$x = 0;
+
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
 						<li>{$x}. {$v->title} <i>($v->length)</i></li>
 EOF;
-						$x++;
 					}
+
 					$tlout .= "</ol>";
 					$price = "$" . $row['price'];
 					$encodealbum = urlencode($row['title']);
@@ -235,8 +258,8 @@ EOF;
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<div class="album">
-			<div class="cover">
+		<div class="album" style="width:100%;">
+			<div class="cover" style="width:40%; margin-left:30%; margin-right:30%;">
 				<img src="{$row['image']}" />
 			</div>
 			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
@@ -253,6 +276,7 @@ EOF;
 		</album>
 	</div>
 </main>
+{$sscript}
 EOF;
 
 					$browse->setContent($out);
@@ -384,14 +408,13 @@ EOF;
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
 					$tlout = "<ol>";
 					$tl = json_decode($row['tracklist']);
-					$x = 1;
 
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
-						<li>{$x}. {$v->title} <i>($v->length)</i></li>
+						<li>{$v->title} <i>($v->length)</i></li>
 EOF;
-						$x++;
 					}
+
 					$tlout .= "</ol>";
 					$price = "$" . $row['price'];
 					$posted = date("F j, Y", strtotime($row['posted']));
@@ -400,8 +423,8 @@ EOF;
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<div class="album">
-			<div class="cover">
+		<div class="album" style="width:100%;">
+			<div class="cover" style="width:40%; margin-left:30%; margin-right:30%;">
 				<img src="{$row['image']}" />
 			</div>
 			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
@@ -418,6 +441,7 @@ EOF;
 		</album>
 	</div>
 </main>
+{$sscript}
 EOF;
 
 					$browse->setContent($out);
