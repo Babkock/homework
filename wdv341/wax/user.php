@@ -130,12 +130,13 @@ EOF;
 			}
 		}
 		else {
-		/* maybe show user directory here, if no $id given? */
+			$userpage->setTitle("WaXchange &bull; Users");
+			$userpage->setDescription("This is the complete list of users on WaXchange music marketplace.");
 			$st = $db->prepare("SELECT `username`, `id`, `email` FROM `users` ORDER BY `id` ASC");
 			// $st = $db->prepare("SELECT `username`, `id`, `email`, `showemail` FROM `users` ORDER BY `id` ASC");
 			$st->execute();
 
-			$out = "<main id=\"users\">\n\t<table class=\"users-table\">\n\t"; 
+			$out = "<main id=\"users\">\n\t<h2>Users on WaXchange</h2>\n\t<table class=\"users-table\">\n\t"; 
 			$out .= "<thead><tr><td><b>ID</b></td><td><b>Username</b></td><td><b>Email Address</b></td></tr></thead>\n\t<tbody>\n";
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				$out .= <<<EOF

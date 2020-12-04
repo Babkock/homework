@@ -84,8 +84,18 @@ textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-wi
 
 textarea:hover { background: #191919; background-color: #191919; border: 2px solid #242424; color: #efefef; }
 
-.album-editor .cover { width: 50%; margin-left: 25%; margin-right: 25%; }
+.album-editor .cover, #account .avatar { width: 50%; margin-left: 25%; margin-right: 25%; }
 
-.album-editor .cover img { width: 40%; margin-left: 30%; margin-right: 30%; opacity: 0.9; transition: opacity 0.2s ease 0s; }
+.album-editor .cover img, #account .avatar img { width: 40%; margin-left: 30%; margin-right: 30%; opacity: 0.9; transition: opacity 0.2s ease 0s; }
 
-.album-editor .cover img:hover { opacity: 1; }
+.album-editor .cover img:hover, #account .avatar img:hover { opacity: 1; }
+
+#account .bio { display: block; width: 80%; margin-left: 10%; margin-right: 10%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 3px; margin-bottom: 3px; padding: 5px; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; border-radius: 25px 25px 25px 25px; }
+
+#account .bio p { font-size: 1.12em; }
+
+.users-table { width: 100%; }
+
+.users-table tbody, .users-table tbody tr, .users-table thead, .users-table thead tr { width: 100%; }
+
+.users-table tbody tr td, .users-table thead tr td { width: 32%; padding: 5px; font-size: 1.13em; background: #131313; background-color: #131313; border: 1px solid black; color: #efefef; }
