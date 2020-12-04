@@ -271,6 +271,7 @@ class Album {
 		$st->bindParam(":discs", $this->discs);
 		$st->bindParam(":price", $this->price);
 		$st->bindParam(":seller", $this->seller);
+		$st->bindParam(":buyer", $this->buyer);
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
