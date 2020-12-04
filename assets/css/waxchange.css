@@ -79,3 +79,7 @@ footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px
 span.price { color: #aadf80; font-size: larger; }
 
 span.media { color: #dfaaaa; font-size: larger; }
+
+textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-width: 90%; height: 90px; max-height: 90px; min-height: 90px; appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 6px; font-size: 1.14em; text-align: left; }
+
+textarea:hover { background: #191919; background-color: #191919; border: 2px solid #242424; color: #efefef; }

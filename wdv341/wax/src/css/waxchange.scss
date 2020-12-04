@@ -215,3 +215,20 @@ span.media {
 	color:#dfaaaa;
 	font-size:larger;
 }
+
+textarea {
+	@include WidthMargins(90%, 5%, 5%);
+	max-width:90%;
+	min-width:90%;
+	height:90px;
+	max-height:90px;
+	min-height:90px;
+	@include Appearance();
+	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	padding:6px;
+	font-size:1.14em;
+	text-align:left;
+	&:hover {
+		@include BackBorderColor(#191919, 2px solid #242424, #efefef);
+	}
+}
