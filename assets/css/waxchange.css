@@ -34,15 +34,15 @@ header nav ul li:hover { border: 1px solid #cfcfcf; background: rgba(40, 40, 50,
 
 main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px solid #000; background: rgba(30, 30, 30, 0.4); margin-top: 10px; }
 
-.login-form table, .register-form table { width: 80%; margin-left: 10%; margin-right: 10%; }
+.login-form table, .register-form table, .settings-form table { width: 80%; margin-left: 10%; margin-right: 10%; }
 
-.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr { width: 100%; }
+.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr { width: 100%; }
 
-.login-form table tbody tr td, .register-form table tbody tr td { width: 50% !important; padding: 7px; }
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td { width: 50% !important; padding: 7px; }
 
-.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child { text-align: right; }
+.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child { text-align: right; }
 
-.login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"] { padding-top: 40px; padding: 7px; text-align: center; }
+.login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"], .settings-form table tbody tr td[colspan="2"] { padding-top: 40px; padding: 7px; text-align: center; }
 
 form h2, form h3 { text-align: center; }
 
@@ -58,11 +58,15 @@ button:hover, input[type="submit"]:hover { background: #106640; background-color
 
 button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 9px; }
 
-input[type="text"], input[type="password"], input[type="number"], select { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 8px; width: 90%; font-size: 1.14em; transition: background, border, color 0.2s ease 0s; }
+input[type="text"], input[type="password"], input[type="number"] { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 8px; width: 90%; font-size: 1.14em; transition: background, background-color, border, color 0.2s ease 0s; }
 
-input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover, select:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; font-size: 1.14em; }
+input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; font-size: 1.14em; }
 
-input[type="text"]:active, input[type="password"]:active, input[type="number"]:active, select:active { background: #1c1c1c; background-color: #1c1c1c; border: 2px solid #242424; color: #f9f9f9; font-size: 1.14em; }
+input[type="text"]:active, input[type="password"]:active, input[type="number"]:active { background: #1c1c1c; background-color: #1c1c1c; border: 2px solid #242424; color: #f9f9f9; font-size: 1.14em; }
+
+select { background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; appearance: auto !important; -moz-appearance: auto !important; padding: 8px; width: 90%; font-size: 1.14em; transition: background, background-color, border, color 0.2s ease 0s; }
+
+select:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; }
 
 .ajax-area { display: block; text-align: center; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px; margin-bottom: 10px; }
 

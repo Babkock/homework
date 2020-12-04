@@ -23,7 +23,15 @@
 				</td>
 			</tr>
 			<tr is="input-row" labe="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = parseFloat($event).toFixed(2)"></tr>
-			<tr is="input-row" labe="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
+			<!-- <tr is="input-row" labe="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr> -->
+			<tr>
+				<td>
+					<label for="label"><b>Record Label</b>:</label>
+				</td>
+				<td>
+					<input type="text" v-model="album.label" placeholder="Records Records" title="The record label that released the album." @blur="album.label = $event.target.value" />
+				</td>
+			</tr>
 			<tr v-if="!uploaded">
 				<td><label for="image"><b>Image Filename</b>:</label></td>
 				<td><input type="text" v-model="album.image" placeholder="image.jpg" name="imageFilename" @blur="album.image = 'img/album/' + $event.target.value" title="The filename to use for the album cover image. Must be unique." alt="The filename to use for the album cover image. Must be unique." size="80" maxlength="80" /></td>
