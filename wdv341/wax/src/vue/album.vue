@@ -80,6 +80,9 @@ export default {
 				case "es":
 					c = "Spain";
 					break;
+				case "fr":
+					c = "France";
+					break;
 				case "ca":
 					c = "Canada";
 					break;
@@ -91,6 +94,9 @@ export default {
 					break;
 				case "it":
 					c = "Italy";
+					break;
+				case "fi":
+					c = "Finland";
 					break;
 				case "dk":
 					c = "Denmark";

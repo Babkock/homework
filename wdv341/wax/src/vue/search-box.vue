@@ -13,15 +13,37 @@
 			<option value="mx">Mexico</option>
 			<option value="uk">United Kingdom</option>
 			<option value="ie">Ireland</option>
+			<option value="au">Australia</option>
 			<option value="fr">France</option>
 			<option value="ru">Russian Federation</option>
 			<option value="es">Spain</option>
 			<option value="de">Germany</option>
 			<option value="pl">Poland</option>
+			<option value="it">Italy</option>
+			<option value="fi">Finland</option>
 			<option value="lx">Luxembourg</option>
+			<option value="no">Norway</option>
 			<option value="dk">Denmark</option>
 			<option value="se">Sweden</option>
+			<option value="nl">Netherlands</option>
 			<option value="ba">Bosnia and Herzegovina</option>
+			<option value="ch">Switzerland</option>
+			<option value="is">Iceland</option>
+			<option value="cn">China</option>
+			<option value="jp">Japan</option>
+			<option value="kr">South Korea</option>
+			<option value="ph">Philippines</option>
+			<option value="cz">Czech Republic</option>
+			<option value="lv">Latvia</option>
+			<option value="br">Brazil</option>
+			<option value="am">Armenia</option>
+			<option value="az">Azerbaijan</option>
+			<option value="ua">Ukraine</option>
+			<option value="at">Austria</option>
+			<option value="tr">Turkey</option>
+			<option value="in">India</option>
+			<option value="hu">Hungary</option>
+			<option value="ro">Romania</option>
 		</select>
 		<button id="submit" @click="Search()">Search</button>
 	</div>

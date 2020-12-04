@@ -50,8 +50,6 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	|-------------|--------------|------------------------------------------------------------------------|
 	| purchased   | DATE         | The date the album was purchased.                                      |
 	|-------------|--------------|------------------------------------------------------------------------|
-	| releasetype | VARCHAR(11)  | Album, EP, single, mixtape, live album, soundtrack, or compilation.    |
-	|-------------|--------------|------------------------------------------------------------------------|
 	| sellerid    | INT(11)      | The user ID of the seller.                                             |
 	|-------------|--------------|------------------------------------------------------------------------|
 	| buyerid     | INT(11)      | The user ID of the buyer.                                              |
@@ -77,7 +75,6 @@ class Album {
 	private $condition;
 	private $currency;
 	private $purchased;
-	private $releasetype;
 	private $sellerid;
 	private $buyerid;
 	*/
@@ -134,13 +131,6 @@ class Album {
 	public function setCurrency($c) { $this->currency = $c; }
 	public function getPurchased() { return $this->purchased; }
 	public function setPurchased($p) { $this->purchased = $p; }
-	public function getReleaseType() { return $this->releasetype; }
-	public function setReleaseType($r) {
-		if (strlen($r) > 11) {
-			exit("<p class=\"error\">Release type must be no more than 11 characters.</p>");
-		}
-		$this->releasetype = $r;
-	}
 	public function getSellerId() { return $this->sellerid; }
 	public function setSellerId($s) { $this->seller = $s; }
 	public function getBuyerId() { return $this->buyerid; }
@@ -153,13 +143,13 @@ class Album {
 			if (strcmp($k, "title") == 0) { $this->setTitle($v); }
 			if (strcmp($k, "media") == 0) { $this->media = $v; }
 			if (strcmp($k, "discs") == 0) { $this->setDiscs($v); }
-			if (strcmp($k, "price") == 0) { $this->price = $v; }
-			if (strcmp($k, "country") == 0) { $this->country = $v; }
-			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
+			if (strcmp($k, "price") == 0) { $this->price = $v; }			
 			if (strcmp($k, "seller") == 0) { $this->seller = $v; }
 			if (strcmp($k, "buyer") == 0) { $this->buyer = $v; }
 			if (strcmp($k, "image") == 0) { $this->image = $v; }
 			if (strcmp($k, "label") == 0) { $this->label = $v; }
+			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
+			if (strcmp($k, "country") == 0) { $this->country = $v; }
 			if (strcmp($k, "tracklist") == 0) {
 				$this->tracklist = [];
 				$tl = json_decode($v);
@@ -173,7 +163,6 @@ class Album {
 			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
-			if (strcmp($k, "releasetype") == 0) { $this->releasetype = $v; }
 			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
 			if (strcmp($k, "buyerid") == 0) { $this->buyerid = $v; }
 			*/
@@ -188,19 +177,18 @@ class Album {
 		$arr['media'] = $this->media;
 		$arr['discs'] = $this->discs;
 		$arr['price'] = $this->price;
-		$arr['country'] = $this->country;
-		$arr['posted'] = $this->posted;
 		$arr['seller'] = $this->seller;
 		$arr['buyer'] = $this->buyer;
 		$arr['image'] = $this->image;
 		$arr['label'] = $this->label;
+		$arr['posted'] = $this->posted;
+		$arr['country'] = $this->country;
 		$arr['tracklist'] = $this->tracklist;
 		/*
 		$arr['year'] = $this->year;
 		$arr['condition'] = $this->condition;
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
-		$arr['releasetype'] = $this->releasetype;
 		$arr['sellerid'] = $this->sellerid;
 		$arr['buyerid'] = $this->buyerid;
 		*/
@@ -216,19 +204,18 @@ class Album {
 		$this->media = $b->media;
 		$this->discs = $b->discs;
 		$this->price = $b->price;
-		$this->country = $b->country;
-		$this->posted = $b->posted;
 		$this->seller = $b->seller;
 		$this->buyer = $b->buyer;
 		$this->image = $b->image;
 		$this->label = $b->label;
+		$this->posted = $b->posted;
+		$this->country = $b->country;
 		$this->tracklist = [];
 		/*
 		$this->year = $b->year;
 		$this->condition = $b->condition;
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
-		$this->releasetype = $b->releasetype;
 		$this->sellerid = $b->sellerid;
 		$this->buyerid = $b->buyerid;
 		*/
@@ -253,10 +240,19 @@ class Album {
 			"discs" => $row['discs'],
 			"price" => $row['price'],
 			"seller" => $row['seller'],
+			"buyer" => $row['buyer'],
 			"image" => $row['image'],
 			"label" => $row['label'],
 			"country" => $row['country'],
 			"tracklist" => $row['tracklist']
+			/*
+			"year" => $row['year'],
+			"condition" => $row['condition'],
+			"currency" => $row['currency'],
+			"purchased" => $row['purchased'],
+			"sellerid" => $row['sellerid'],
+			"buyerid" => $row['buyerid']
+			*/
 		]);
 	}
 
@@ -264,7 +260,7 @@ class Album {
 		global $db;
 
 		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
-		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, '', :releasetype, :sellerid, NULL)");
+		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, :releasetype, :sellerid, NULL)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
@@ -279,7 +275,6 @@ class Album {
 		$st->bindParam(":year", $this->year);
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
-		$st->bindParam(":releasetype", $this->releasetype);
 		$st->bindParam(":sellerid", $this->sellerid);
 		$st->bindParam(":buyerid", $this->buyerid);
 		*/
@@ -306,7 +301,7 @@ class Album {
 		global $db;
 
 		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=NOW(), `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
-		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `releasetype`=:releasetype, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
+		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -323,7 +318,6 @@ class Album {
 		$st->bindParam(":condition", $this->condition);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":purchased", $this->purchased);
-		$st->bindParam(":releasetype", $this->releasetype);
 		$st->bindParam(":sellerid", $this->sellerid);
 		$st->bindParam(":buyerid", $this->buyerid);
 		*/
