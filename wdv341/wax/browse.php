@@ -44,14 +44,8 @@ try {
 				if (!isset($_GET['a'])) {
 					exit("{ \"error\": \"The artist mode must have an additional 'a' argument\" }");
 				}
-				if (isset($_GET['c'])) {
-					$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist AND `country`=:country ORDER BY `posted` DESC");
-					$st->bindParam(":country", $_GET['c']);
-				}
-				else {
-					$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
-					// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
-				}
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
+				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
 				$artist = ucwords($_GET['a']);
 
 				$st->bindParam(":artist", $artist);
@@ -60,13 +54,7 @@ try {
 				if (!isset($_GET['b'])) {
 					exit("{ \"error\": \"The album mode must have an additional 'b' argument\" }");
 				}
-				if (isset($_GET['c'])) {
-					$st = $db->prepare("SELECT * FROM `albums` WHERE `title`=:title AND `country`=:country ORDER BY `posted` DESC");
-					$st->bindParam(":country", $_GET['c']);
-				}
-				else {
-					$st = $db->prepare("SELECT * FROM `albums` WHERE `title`=:title ORDER BY `price` DESC");
-				}
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `title`=:title ORDER BY `price` DESC");
 				
 				$title = ucwords($_GET['b']);
 				$st->bindParam(":title", $title);

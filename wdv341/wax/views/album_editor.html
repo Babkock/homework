@@ -1,10 +1,15 @@
 <main id="editor">
+	<input type="hidden" name="mode" id="mode" value="{{EDITMODE}}" />
 	<form action="" class="album-editor" method="post" enctype="multipart/form-data">
 		<div class="cover" v-if="uploaded && (album.image.length > 1)">
 			<img :src="album.image" />
 		</div>
 		<h2 v-html="editMsg"></h2>
 		<table class="main-album-info"><tbody>
+			<tr>
+				<td><label><b>Seller</b>:</label></td>
+				<td>{{USERNAME}}</td>
+			</tr>
 			<tr is="input-row" labe="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
 			<tr is="input-row" labe="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
 			<tr>
