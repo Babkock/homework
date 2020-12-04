@@ -260,7 +260,7 @@ textarea {
 	margin-top:3px;
 	margin-bottom:3px;
 	padding:5px;
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor(rgba(10, 10, 10, 0.3), 2px solid black, #cfcfcf);
 	border-radius:25px 25px 25px 25px;
 	p {
 		font-size:1.12em;
@@ -276,6 +276,6 @@ textarea {
 		width:32%;
 		padding:5px;
 		font-size:1.13em;
-		@include BackBorderColor(#131313, 1px solid black, #efefef);
+		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #efefef);
 	}
 }
