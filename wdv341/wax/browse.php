@@ -219,7 +219,7 @@ EOF;
 					$row = $st->fetch(PDO::FETCH_ASSOC);
 					$country = Methods::countryExpand($row['country']);
 
-					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['album'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
+					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
 					$tl = json_decode($row['tracklist']);
 					$tlout = "<ol>";
 					$x = 0;
@@ -230,17 +230,17 @@ EOF;
 						$x++;
 					}
 					$tlout .= "</ol>";
-
+					$price = "$" . $row['price'];
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['album']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
+		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
 			<template slot="img">
 				<img src="{$row['image']}" />
 			</template>
 			<template slot="info">
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
-				<h3><span class="price">${$row['price']}</span> from {$row['seller']}</h3>
+				<h3><span class="price">{$price}</span> from {$row['seller']}</h3>
 				<button class="buy" @click="Register()">Buy This Album</button>
 			</template>
 			<template slot="tracklist">
@@ -379,7 +379,7 @@ EOF;
 					$row = $st->fetch(PDO::FETCH_ASSOC);
 					$country = Methods::countryExpand($row['country']);
 
-					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['album'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
+					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
 					$tlout = "<ol>";
 					$tl = json_decode($row['tracklist']);
 					$x = 1;
@@ -391,17 +391,17 @@ EOF;
 						$x++;
 					}
 					$tlout .= "</ol>";
-
+					$price = "$" . $row['price'];
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['album']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
+		<album :myid="{row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
 			<template slot="img">
 				<img src="{$row['image']}" />
 			</template>
 			<template slot="info">
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
-				<h3><span class="price">${$row['price']}</span> from {$row['seller']}</h3>
+				<h3><span class="price">{$price}</span> from {$row['seller']}</h3>
 				<button class="buy" @click="BuyAlbum({$row['id']})">Buy This Album</button>
 			</template>
 			<template slot="tracklist">
