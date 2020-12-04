@@ -96,7 +96,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 #account .bio p { font-size: 1.12em; }
 
-#album-editor table { width: 100%; }
+.album-editor table { width: 100%; }
 
 .users-table { width: 100%; }
 
