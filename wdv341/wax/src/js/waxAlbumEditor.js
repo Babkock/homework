@@ -85,7 +85,7 @@ let app = new Vue({
 			formData.append("albumJson", JSON.stringify(this.album));
 
 			let editMode = document.querySelector("#mode").value;
-			if (editMode == "new") {
+			if (editMode === "new") {
 				this.$http.post("album", formData).then((response) => {
 					this.ajaxResult = response.data;
 					this.saved = true;
@@ -94,7 +94,7 @@ let app = new Vue({
 					console.error("Could not write() album '" + this.album.title + "' with mode 'new'");
 				});
 			}
-			else if (editMode == "edit") {
+			else {
 				this.$http.post("album?id=" + this.album.id, formData).then((response) => {
 					this.ajaxResult = response.data;
 					this.saved = true;
