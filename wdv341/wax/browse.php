@@ -197,7 +197,6 @@ EOF;
 				/* showing a single album */
 				if (isset($_GET['id'])) {
 					$browse = new Page("header_guest", "browse_specific");
-					$browse->script("waxBrowse.min.js");
 					$browse->replacea([
 						"USERID" => "0",
 						"HEADING" => "Album #" . $_GET['id'],
@@ -231,22 +230,26 @@ EOF;
 					}
 					$tlout .= "</ol>";
 					$price = "$" . $row['price'];
+					$encodealbum = urlencode($row['title']);
+					$encodeartist = urlencode($row['artist']);
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<album :myid="{$row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
-			<template slot="img">
+		<div class="album">
+			<div class="cover">
 				<img src="{$row['image']}" />
-			</template>
-			<template slot="info">
+			</div>
+			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
+			<div>
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				<h3><span class="price">{$price}</span> from {$row['seller']}</h3>
-				<button class="buy" @click="Register()">Buy This Album</button>
-			</template>
-			<template slot="tracklist">
+				<button class="buy" @click="BuyAlbum({$row['id']})">Buy This Album</button>
+				<h3>Tracklist:</h3>
 				{$tlout}
+				<p>Posted: {$posted}</p>
+				<p>Country: <b>{$country}</b></p>
 				<p><b>{$row['label']}</b></p>
-			</template>
+			</div>
 		</album>
 	</div>
 </main>
@@ -358,7 +361,6 @@ EOF;
 				/* showing a single album */
 				if (isset($_GET['id'])) {
 					$browse = new Page("header_user", "browse_specific");
-					$browse->script("waxBrowse.min.js");
 					$browse->hreplace("USERID", "" . $uid);
 					$browse->replacea([
 						"USERID" => "" . $uid,
@@ -392,22 +394,27 @@ EOF;
 					}
 					$tlout .= "</ol>";
 					$price = "$" . $row['price'];
+					$posted = date("F j, Y", strtotime($row['posted']));
+					$encodealbum = urlencode($row['title']);
+					$encodeartist = urlencode($row['artist']);
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
-		<album :myid="{$row['id']}" :aartist="{$row['artist']}" :aalbum="{$row['title']}" :aposted="{$row['posted']}" :acountry="{$row['country']}">
-			<template slot="img">
+		<div class="album">
+			<div class="cover">
 				<img src="{$row['image']}" />
-			</template>
-			<template slot="info">
+			</div>
+			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
+			<div>
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				<h3><span class="price">{$price}</span> from {$row['seller']}</h3>
 				<button class="buy" @click="BuyAlbum({$row['id']})">Buy This Album</button>
-			</template>
-			<template slot="tracklist">
+				<h3>Tracklist:</h3>
 				{$tlout}
+				<p>Posted: {$posted}</p>
+				<p>Country: <b>{$country}</b></p>
 				<p><b>{$row['label']}</b></p>
-			</template>
+			</div>
 		</album>
 	</div>
 </main>
