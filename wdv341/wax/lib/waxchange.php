@@ -263,7 +263,7 @@ class Album {
 	public function write() {
 		global $db;
 
-		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
+		$st = $db->prepare("INSERT INTO `albums` VALUES (:artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
 		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, '', :releasetype, :sellerid, NULL)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);

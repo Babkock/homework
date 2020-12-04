@@ -19,6 +19,10 @@ try {
 				$album = new Album(intval($_GET['id']));
 				$json = json_decode($_POST['albumJson']);
 
+				if ((empty($json->artist)) || (empty($json->title)) || (empty($json->media)) || (empty($json->price)) || (empty($json->label)) || (empty($json->discs)) || (empty($json->country))) {
+					exit("<p class=\"error\">One or more fields are empty.</p>");
+				}
+
 				$tl = json_encode($json->tracklist);
 
 				$album->seta([
