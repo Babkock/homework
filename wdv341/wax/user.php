@@ -104,7 +104,7 @@ EOF;
 
 			$row = $st->fetch(PDO::FETCH_ASSOC);
 			if (!$row) {
-				$userpage->error("The specified user does not exist.");
+				$userpage->error("<p class=\"error\">The specified user does not exist.</p>");
 				exit();
 			}
 			else {

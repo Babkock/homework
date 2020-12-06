@@ -238,6 +238,15 @@ EOF;
 					$price = "$" . $row['price'];
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
+					if (strlen($row['buyer']) > 1) {
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
+						$buybutton = "";
+					}
+					else {
+						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
+						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
+					}
+					
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
@@ -248,8 +257,8 @@ EOF;
 			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
 			<div>
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
-				<h3><span class="price">{$price}</span> from {$row['seller']}</h3>
-				<button class="buy" @click="BuyAlbum({$row['id']})">Buy This Album</button>
+				{$sellbuy}
+				{$buybutton}
 				<h3>Tracklist:</h3>
 				{$tlout}
 				<p>Posted: {$posted}</p>
@@ -403,6 +412,15 @@ EOF;
 					$posted = date("F j, Y", strtotime($row['posted']));
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
+					if (strlen($row['buyer']) > 1) {
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
+						$buybutton = "";
+					}
+					else {
+						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
+						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
+					}
+
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">
@@ -413,8 +431,8 @@ EOF;
 			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
 			<div>
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
-				<h3><span class="price">{$price}</span> from {$row['seller']}</h3>
-				<button class="buy" @click="BuyAlbum({$row['id']})">Buy This Album</button>
+				{$sellbuy}
+				{$buybutton}
 				<h3>Tracklist:</h3>
 				{$tlout}
 				<p>Posted: {$posted}</p>

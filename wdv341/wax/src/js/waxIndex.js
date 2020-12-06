@@ -1,5 +1,5 @@
 /*
-	waxInde.js
+	waxIndex.js
 
 	WaXchange
 	November - December 2020

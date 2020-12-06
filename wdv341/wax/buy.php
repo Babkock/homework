@@ -12,19 +12,25 @@ Methods::authorize();
 try {
 	if (!empty($_POST)) {
 		if (!isset($_POST['choice'])) {
-			exit("<p class=\"error\">Sorry, can't buy this album.</p>");
+			$buy = new Page("header_user", "");
+			$buy->error("<p class=\"error\">Sorry, can't buy this album.</p>");
+			exit();
 		}
 		else if (strcmp($_POST['choice'], "Buy This Album") == 0) {
 			if (!isset($_GET['id'])) {
-				exit("<p class=\"error\">No 'id' argument given.</p>");
+				$buy = new Page("header_user", "");
+				$buy->error("<p class=\"error\">No 'id' argument given.</p>");
+				exit();
 			}
 			else {
+				$buy = new Page("header_user", "");
+
 				$album = new Album(intval($_GET['id']));
 				$album->read();
-
 				$album->purchase($_SESSION['current_user']);
 
-				exit("<p class=\"success\">You have purchased this album! Thank you for your business. <a href=\"index\">View your purchases here.</a></p>");
+				$buy->error("<h3>You have purchased " . $album->getArtist() . " - " . $album->getTitle() . " for $" . $album->price . "! Thank you for your business.</h3>\n<p class=\"success\">This release is now in your collection. <a href=\"index\">View your collection here.</a></p>");
+				exit();
 			}
 		}
 	}
@@ -33,7 +39,7 @@ try {
 		$buy->setTitle("Buying {{ALBUM_TITLE}}");
 		$buy->setDescription("This is the purchase confirmation page for the album {{ALBUM_ARTIST}} - {{ALBUM_TITLE}}. It costs $ {{ALBUM_PRICE}}.");
 		if (!isset($_GET['id'])) {
-			$buy->error("No 'id' argument given.");
+			$buy->error("<p class=\"error\">No 'id' argument given.</p>");
 			exit();
 		}
 		else {
@@ -49,6 +55,11 @@ try {
 
 			$row = $st->fetch(PDO::FETCH_ASSOC);
 			$country = Methods::countryExpand($row['country']);
+
+			if (strlen($row['buyer']) > 1) {
+				$buy->error("Sorry, this album has been sold.");
+				exit();
+			}
 
 			$tl = json_decode($row['tracklist']);
 			$tlout = "<ol>";

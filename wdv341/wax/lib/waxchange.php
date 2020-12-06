@@ -578,7 +578,7 @@ class Page {
 				<h1><a href="index">WaXchange</a></h1>
 			</header>
 			<main id="error">
-				<p class="error">{$message}</p>
+				{$message}
 			</main>
 			<footer>
 				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>

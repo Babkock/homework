@@ -11,5 +11,21 @@ let app = new Vue({
 	http: {
 		emulateJSON: true,
 		emulateHTTP: true
+	},
+
+	data: () => {
+		return {
+			ajaxResult: "",
+			info: {
+				fullname: "",
+				email: "",
+				subject: "",
+				message: ""
+			}
+		};
+	},
+
+	methods: {
+		
 	}
 })

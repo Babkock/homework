@@ -3,7 +3,7 @@
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
-		<h2><a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
+		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
 			<slot name="info"></slot>
@@ -55,6 +55,10 @@ export default {
 
 		albumhref: function() {
 			return "browse?b=" + encodeURI(this.atitle);
+		},
+
+		idhref: function() {
+			return "browse?id=" + this.myid;
 		},
 
 		niceposted: function() {
