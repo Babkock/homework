@@ -391,12 +391,10 @@ class User {
 	private $password;
 	private $email;
 	private $country;
-	/*
 	private $image;
 	private $biography;
 	private $registered;
 	private $showemail;
-	*/
 
 	public function __construct($id = 0) {
 		if (strcmp(gettype($id), "integer") != 0) {
@@ -414,7 +412,6 @@ class User {
 	public function setEmail($e) { $this->email = $e; }
 	public function getCountry() { return $this->country; }
 	public function setCountry($c) { $this->country = $c; }
-	/*
 	public function getImage() { return $this->image; }
 	public function setImage($i) { $this->image = $i; }
 	public function getBiography() { return $this->biography; }
@@ -423,7 +420,6 @@ class User {
 	public function setRegistered($r) { $this->registered = $r; }
 	public function getShowEmail() { return $this->showemail; }
 	public function setShowEmail($s) { $this->showemail = $s; }
-	*/
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
