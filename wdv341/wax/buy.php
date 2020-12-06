@@ -41,10 +41,6 @@ try {
 			exit();
 		}
 		else {
-			/* $album = new Album();
-			$album->read(intval($_GET['id']));
-			
-			*/
 			$uid = Methods::getIdFromName($_SESSION['current_user']);
 
 			$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id");

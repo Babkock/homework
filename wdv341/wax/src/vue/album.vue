@@ -1,11 +1,16 @@
 <template>
 	<div class="album" :id="myid">
+<!-- <div :class="alclass" :id="myid"> -->
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
+			<!--
+			<h3 v-if="abuyer === ''"><span :title="currencyExpand(acurrency)" class="price"><span v-html="currencySymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
+			<h3 v-else><span :title="currencyExpand(acurrency)" class="price"><span v-html="currencySymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
+			-->
 			<slot name="info"></slot>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
@@ -39,6 +44,31 @@ export default {
 			type: String,
 			default: "us"
 		}
+		/*,
+		aprice: {
+			type: String,
+			required: true
+		},
+		acurrency: {
+			type: String,
+			default: "usd"
+		},
+		aseller: {
+			type: String,
+			required: true
+		},
+		asellerid: {
+			type: Number,
+			required: true
+		},
+		abuyer: {
+			type: String,
+			required: true
+		},
+		abuyerid: {
+			type: Number,
+			required: true
+		} */
 	},
 
 	data: () => {
@@ -65,6 +95,19 @@ export default {
 			let jsDate = new Date(Date.parse(this.aposted.replace(/[-]/g,'/')));
 			return jsDate.toDateString();
 		},
+
+		/* sellerhref: function() {
+			return "user?id=" + this.asellerid;
+		},
+
+		buyerhref: function() {
+			return "user?id=" + this.abuyerid;
+		},
+
+		alclass: function() {
+			return ((this.abuyer.length > 1) ? "album" : "album sold");
+		},
+		*/
 
 		countryexpand: function() {
 			let c = "";
@@ -181,18 +224,103 @@ export default {
 		/*
 		currencyExpand: function() {
 			let c = "";
-			switch (this.acurrency) {
+			switch (this.acurrency.toLowerCase()) {
 				case "usd":
 					c = "US Dollars";
+					break;
+				case "cad":
+					c = "Canadian Dollars";
+					break;
+				case "mxn":
+					c = "Mexican Pesos";
 					break;
 				case "gbp":
 					c = "GB Pounds";
 					break;
+				case "rub":
+					c = "Russian Rubles";
+					break;
+				case "dkk":
+					c = "Danish Krone";
+					break;
+				case "sek":
+					c = "Swedish Krona";
+					break;
+				case "isk":
+					c = "Iceland Krona";
+					break;
 				case "eur":
 					c = "Euros";
 					break;
+				case "pln":
+					c = "Poland Zloty";
+					break;
+				case "krw":
+					c = "Korean Won";
+					break;
+				case "jpy":
+					c = "Japanese Yen";
+					break;
+				case "nok":
+					c = "Norweigan Krone";
+					break;
+				case "ang":
+					c = "Dutch Guilders";
+					break;
+				case "cny":
+					c = "Chinese Yuan Renminbi";
+					break;
+				case "aud":
+					c = "Australian Dollars";
+					break;
+				case "chf":
+					c = "Swiss Franc";
+					break;
+				case "btc":
+					c = "Bitcoin";
+					break;
 				default:
 					c = "Unknown Currency";
+					break;
+			}
+			return c;
+		},
+
+		currencySymbol: function() {
+			let c = "";
+			switch (this.acurrency.toLowerCase()) {
+				case "usd": case "cad": case "aud": case "mxn":
+					c = "$";
+					break;
+				case "gbp":
+					c = "£";
+					break;
+				case "rub":
+					c = "₽";
+					break;
+				case "dkk": case "sek": case "isk": case "nok":
+					c = "kr.";
+					break;
+				case "chf":
+					c = "CHF";
+					break;
+				case "jpy": case "cny":
+					c = "¥";
+					break;
+				case "ang":
+					c = "ƒ";
+					break;
+				case "krw":
+					c = "₩";
+					break;
+				case "pln":
+					c = "zł";
+					break;
+				case "btc":
+					c = "₿";
+					break;
+				default:
+					c = "?";
 					break;
 			}
 			return c;

@@ -14,9 +14,9 @@ try {
 		if ((!isset($_POST['showemail'])) && (!isset($_POST['biography'])) && (!isset($_FILES['image']))) {
 			exit("<p class=\"error\">You did not make any changes.</p>");
 		}
-		$user = new User();
 		$uid = Methods::getIdFromName($_SESSION['current_user']);
-		$user->read($uid);
+		$user = new User($uid);
+		$user->read();
 
 		if (isset($_POST['showemail'])) {
 			if ($user->getShowEmail() != intval($_POST['showemail']))
@@ -25,6 +25,11 @@ try {
 		if (isset($_POST['biography'])) {
 			if (strcmp($user->getBiography(), $_POST['biography']) != 0)
 				$user->setBiography(substr($_POST['biography'], 0, 600));
+		}
+		if (isset($_POST['country'])) {
+			if (strlen($_POST['country']) > 1) {
+				$user->setCountry($_POST['country']);
+			}
 		}
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
@@ -53,7 +58,6 @@ try {
 					move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/" . $filename);
 				}
 				else {
-					// the "img/album/" should already be in $json->image
 					move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . "/" . $filename);
 				}
 				$user->setImage($filename);
@@ -81,7 +85,8 @@ try {
 		$st->execute();
 		$row = $st->fetch(PDO::FETCH_ASSOC);
 
-		/*
+		$country = Methods::countryExpand($row['country']);
+
 		switch ($row['showemail']) {
 			case 1:
 				$settings->replacea([
@@ -107,9 +112,9 @@ try {
 		}
 		$settings->replacea([
 			"BIOGRAPHY" => $row['biography'],
-			"USERIMG" => $row['image'] ?? "img/user/default.jpg"
+			"USERIMG" => $row['image'] ?? "img/user/default.jpg",
+			"USER_COUNTRY" => $country
 		]);
-		*/
 
 		$settings->output();
 	}
