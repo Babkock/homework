@@ -32,12 +32,7 @@ try {
 			else if (strcmp($_GET['mode'], "purchased") == 0) {
 				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
 				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
-				if ($_SESSION['valid_user']) {
-					$buyer = $_SESSION['current_user'];
-				}
-				else {
-					$buyer = "oifdosifhodisahfodisahfodisahf";
-				}
+				$buyer = $_SESSION['current_user'];
 				$st->bindParam(":buyer", $buyer);
 			}
 			else if (strcmp($_GET['mode'], "artist") == 0) {
@@ -152,7 +147,7 @@ EOF;
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "a",
 					"BROWSE_GET_VALUE" => $_GET['a'],
-					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
+					"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 
 				$browse->setTitle($artist . " &bull; WaXchange");
@@ -179,7 +174,7 @@ EOF;
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "b",
 					"BROWSE_GET_VALUE" => $_GET['b'],
-					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
+					"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 
 				$browse->setTitle($album . " &bull; WaXchange");
@@ -198,7 +193,7 @@ EOF;
 					"BROWSE_COUNTRY" => $_GET['c'],
 					"BROWSE_GET" => "c",
 					"BROWSE_GET_VALUE" => $_GET['c'],
-					"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
+					"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 				]);
 
 				$browse->setTitle("WaXchange &bull; " . $country . " Market");
@@ -216,7 +211,7 @@ EOF;
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "id",
 						"BROWSE_GET_VALUE" => $_GET['id'],
-						"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
+						"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 					]);
 
 					$browse->replace("BROWSE_GET_VALUE");
@@ -281,7 +276,7 @@ EOF;
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "",
 						"BROWSE_GET_VALUE" => "",
-						"BUYBUTTON" => "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>"
+						"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"Register()\">Buy This Album</button>"
 					]);
 
 					$browse->setTitle("WaXchange &bull; Browse");
@@ -315,7 +310,7 @@ EOF;
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "a",
 					"BROWSE_GET_VALUE" => $_GET['a'],
-					"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
+					"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 				]);
 
 				$browse->setTitle($artist . " &bull; WaXchange");
@@ -343,7 +338,7 @@ EOF;
 					"BROWSE_COUNTRY" => $_GET['c'] ?? "",
 					"BROWSE_GET" => "b",
 					"BROWSE_GET_VALUE" => $_GET['b'],
-					"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
+					"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 				]);
 
 				$browse->setTitle($_GET['b'] . " &bull; WaXchange");
@@ -363,7 +358,7 @@ EOF;
 					"BROWSE_COUNTRY" => $_GET['c'],
 					"BROWSE_GET" => "c",
 					"BROWSE_GET_VALUE" => $_GET['c'],
-					"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
+					"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 				]);
 
 				$browse->setTitle("WaXchange &bull; " . $country . " Market");
@@ -447,7 +442,7 @@ EOF;
 						"BROWSE_COUNTRY" => "",
 						"BROWSE_GET" => "",
 						"BROWSE_GET_VALUE" => "",
-						"BUYBUTTON" => "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
+						"BUYBUTTON" => "<button v-if=\"al.buyer === ''\" class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>"
 					]);
 
 					$browse->setTitle("WaXchange &bull; Browse");

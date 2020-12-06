@@ -147,9 +147,7 @@ let app = new Vue({
 			default:
 				this.FetchAlbums("newest");
 				this.FetchAlbums("expensive");
-				if (this.id != 0) {
-					this.FetchAlbums("purchased");
-				}
+				this.FetchAlbums("purchased");
 				break;
 		}
 	}

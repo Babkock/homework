@@ -12,7 +12,8 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
 				{{BUYBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -31,7 +32,8 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
 				{{BUYBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -50,7 +52,8 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-else>Sold for <span class="price">${{ al.price }}</span></h3>
 			</template>
 			<template slot="tracklist">
 				<ol v-if="al.tracklist.length > 0">
