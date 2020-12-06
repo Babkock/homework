@@ -19,8 +19,8 @@ try {
 				exit("<p class=\"error\">No 'id' argument given.</p>");
 			}
 			else {
-				$album = new Album();
-				$album->read(intval($_GET['id']));
+				$album = new Album(intval($_GET['id']));
+				$album->read();
 
 				$album->purchase($_SESSION['current_user']);
 

@@ -243,6 +243,7 @@ class Album {
 			"buyer" => $row['buyer'],
 			"image" => $row['image'],
 			"label" => $row['label'],
+			"posted" => $row['posted'],
 			"country" => $row['country'],
 			"tracklist" => $row['tracklist']
 			/*
@@ -300,7 +301,7 @@ class Album {
 	public function update() {
 		global $db;
 
-		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=NOW(), `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
+		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
 		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
@@ -312,6 +313,7 @@ class Album {
 		$st->bindParam(":buyer", $this->buyer);
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
+		$st->bindParam(":posted", $this->posted);
 		$st->bindParam(":country", $this->country);
 		/*
 		$st->bindParam(":year", $this->year);

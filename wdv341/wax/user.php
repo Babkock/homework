@@ -150,7 +150,6 @@ EOF;
 			// else
 			//     $semail = "Hidden";
 			//
-		}
 
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				$out .= <<<EOF
