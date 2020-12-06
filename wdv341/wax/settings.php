@@ -27,9 +27,8 @@ try {
 				$user->setBiography(substr($_POST['biography'], 0, 600));
 		}
 		if (isset($_POST['country'])) {
-			if (strlen($_POST['country']) > 1) {
+			if (strlen($_POST['country']) > 1)
 				$user->setCountry($_POST['country']);
-			}
 		}
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
