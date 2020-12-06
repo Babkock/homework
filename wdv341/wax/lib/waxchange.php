@@ -575,13 +575,13 @@ class Page {
 	<body>
 		<div class="container">
 			<header>
-				<h1><a href="index">WaXchange</a></h1>
+				<h1><a href="index" title="Your Dashboard" alt="Your Dashboard">WaXchange</a></h1>
 			</header>
 			<main id="error">
 				{$message}
 			</main>
 			<footer>
-				<p><a href="about">About WaXchange</a> &bull; <a href="contact">Contact</a></p>
+				<p><a href="about" title="What is WaXchange?" alt="What is WaXchange?">About WaXchange</a> &bull; <a href="contact" title="Contact WaXchange Staff" alt="Contact WaXchange staff">Contact</a> &bull; <a href="user" title="View list of WaXchange users" alt="View list of WaXchange users">Users</a></p>
 				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
 				<p>Copyright &copy; 2020 Tanner Babcock.
 			</footer>
@@ -593,7 +593,6 @@ EOF;
 	}
 
 	public function script($s) {
-//		$this->content = str_replace("\t</body>\n</html>", "\t\t<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n\t</body>\n</html>", $this->content);
 		$this->content = $this->content . "\n<script>" . file_get_contents(__DIR__ . "/../../../assets/js/" . $s) . "</script>\n";
 	}
 
@@ -715,10 +714,16 @@ class Methods {
 	}
 
 	public static function currencyExpand($c) {
+		$cu = "";
+		switch ($c) {
 
+		}
 	}
 
 	public static function conditionExpand($c) {
+		$co = "";
+		switch ($c) {
 
+		}
 	}
 } /* class Methods */
