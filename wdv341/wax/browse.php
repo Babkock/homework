@@ -235,7 +235,7 @@ EOF;
 
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
-						<li>{$x}. {$v->title} <i>($v->length)</i></li>
+						<li>{$v->title} <i>($v->length)</i></li>
 EOF;
 					}
 

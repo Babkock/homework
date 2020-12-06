@@ -37,38 +37,50 @@ try {
 			exit();
 		}
 		else {
-			$album = new Album();
+			/* $album = new Album();
 			$album->read(intval($_GET['id']));
+			
+			*/
 			$uid = Methods::getIdFromName($_SESSION['current_user']);
 
-			$tl = json_decode($album->getTracklist());
-			$tlout = "";
+			$st = $db->prepare("SELECT * FROM `albums` WHERE `id`=:id");
+			$st->bindParam(":id", intval($_GET['id']));
+			$st->execute();
+
+			$row = $st->fetch(PDO::FETCH_ASSOC);
+			$country = Methods::countryExpand($row['country']);
+
+			$tl = json_decode($row['tracklist']);
+			$tlout = "<ol>";
 
 			foreach ($tl as $k => $v) {
-				$tlout .= "<li>" . $v->title . " <i>(" . $v->length . ")</i></li>\n\t\t\t";
+				$tlout .= <<<EOF
+				<li>{$x}. {$v->title} <i>($v->length)</i></li>
+EOF;
 			}
+			$tlout .= "</ol>";
 
 			$buy->hreplacea([
 				"USERID" => $uid,
-				"ALBUM_TITLE" => $album->getTitle(),
-				"ALBUM_ARTIST" => $album->getArtist(),
-				"ALBUM_PRICE" => $album->price
+				"ALBUM_TITLE" => $row['title'],
+				"ALBUM_ARTIST" => $row['artist'],
+				"ALBUM_PRICE" => $row['price']
 			]);
 			$buy->replacea([
 				"USERNAME" => $_SESSION['current_user'],
-				"ALBUM_ID" => $album->getId(),
-				"ALBUM_HREF" => "browse?b=" . urlencode(ucwords($album->getTitle())),
-				"ARTIST_HREF" => "browse?a=" . urlencode(ucwords($album->getArtist())),
-				"ALBUM_TITLE" => $album->getTitle(),
-				"ALBUM_ARTIST" => $album->getArtist(),
-				"ALBUM_MEDIA" => $album->getMedia(),
-				"ALBUM_PRICE" => $album->price,
-				"ALBUM_IMAGE" => $album->getImage(),
-				"ALBUM_DISCS" => $album->getDiscs(),
-				"ALBUM_LABEL" => $album->getLabel(),
-				"ALBUM_COUNTRY" => $album->country,
-				"ALBUM_SELLER" => $album->getSeller(),
-				"ALBUM_TRACKS" => $tlout
+				"ALBUM_ID" => $row['id'],
+				"ALBUM_HREF" => "browse?b=" . urlencode(ucwords($row['title'])),
+				"ARTIST_HREF" => "browse?a=" . urlencode(ucwords($row['artist'])),
+				"ALBUM_TITLE" => $row['title'],
+				"ALBUM_ARTIST" => $row['artist'],
+				"ALBUM_MEDIA" => $row['media'],
+				"ALBUM_PRICE" => $row['price'],
+				"ALBUM_IMAGE" => $row['image'],
+				"ALBUM_DISCS" => $row['discs'],
+				"ALBUM_LABEL" => $row['label'],
+				"ALBUM_COUNTRY" => $country,
+				"ALBUM_SELLER" => $row['seller'],
+				"TRACKLIST" => $tlout
 			]);
 		}
 		$buy->output();

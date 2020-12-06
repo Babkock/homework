@@ -130,6 +130,17 @@ label {
 	}
 }
 
+.buy-form {
+	display:flex;
+	background:rgba(10, 80, 10, 0.3);
+	padding-top:10px;
+	padding-bottom:10px;
+	.album {
+		margin-left:3%;
+		width:32%;
+	}
+}
+
 button, input[type="submit"] {
 	@include Appearance();
 	@include BackBorderColor(#662020, 1px solid rgba(0,0,0,0), #dfdfdf);
@@ -282,4 +293,12 @@ textarea {
 		font-size:1.13em;
 		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #efefef);
 	}
+}
+
+.confirm {
+	float:right;
+	@include WidthMargins(60%, 1%, 1%);
+	@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid gray, #dfdfdf);
+	padding:10px;
+	font-size:1.13em;
 }
