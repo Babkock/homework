@@ -138,6 +138,20 @@ EOF;
 
 			$out = "<main id=\"users\">\n\t<h2>Users on WaXchange</h2>\n\t<table class=\"users-table\">\n\t"; 
 			$out .= "<thead><tr><td><b>ID</b></td><td><b>Username</b></td><td><b>Email Address</b></td></tr></thead>\n\t<tbody>\n";
+
+			// if ($row['showemail'] == 1)
+			//     $semail = "Hidden";
+			// else if ($row['showemail'] == 2) {
+			//     $email = "<a href=\"mailto:" . $row['email'] . "\">""
+			//     $semail = str_replace(".", " dot ", str_replace("@", " at ", $email));
+			// }
+			// else if ($row['showemail'] == 3)
+			//     $semail = $row['email']
+			// else
+			//     $semail = "Hidden";
+			//
+		}
+
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				$out .= <<<EOF
 		<tr>

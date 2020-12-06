@@ -9,7 +9,12 @@
 require_once("lib/waxchange.php");
 
 try {
+	if (!empty($_POST)) {
 
+	}
+	else {
+		
+	}
 }
 catch (PDOException $ex) {
 

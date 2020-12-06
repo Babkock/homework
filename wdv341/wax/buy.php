@@ -52,7 +52,7 @@ try {
 				"USERID" => $uid,
 				"ALBUM_TITLE" => $album->getTitle(),
 				"ALBUM_ARTIST" => $album->getArtist(),
-				"ALBUM_PRICE" => $album->getPrice()
+				"ALBUM_PRICE" => $album->price
 			]);
 			$buy->replacea([
 				"USERNAME" => $_SESSION['current_user'],
@@ -62,11 +62,11 @@ try {
 				"ALBUM_TITLE" => $album->getTitle(),
 				"ALBUM_ARTIST" => $album->getArtist(),
 				"ALBUM_MEDIA" => $album->getMedia(),
-				"ALBUM_PRICE" => $album->getPrice(),
+				"ALBUM_PRICE" => $album->price,
 				"ALBUM_IMAGE" => $album->getImage(),
 				"ALBUM_DISCS" => $album->getDiscs(),
 				"ALBUM_LABEL" => $album->getLabel(),
-				"ALBUM_COUNTRY" => $album->getCountry(),
+				"ALBUM_COUNTRY" => $album->country,
 				"ALBUM_SELLER" => $album->getSeller(),
 				"ALBUM_TRACKS" => $tlout
 			]);
