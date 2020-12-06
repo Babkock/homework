@@ -427,12 +427,10 @@ class User {
 			if (strcmp($k, "password") == 0) { $this->password = $v; }
 			if (strcmp($k, "email") == 0) { $this->email = $v; }
 			if (strcmp($k, "country") == 0) { $this->country = $v; }
-			/*
 			if (strcmp($k, "image") == 0) { $this->image = $v; }
 			if (strcmp($k, "biography") == 0) { $this->biography = $v; }
 			if (strcmp($k, "registered") == 0) { $this->registered = $v; }
 			if (strcmp($k, "showemail") == 0) { $this->showemail = $v; }
-			*/
 		}
 	}
 
@@ -443,12 +441,10 @@ class User {
 		$arr['password'] = $this->password;
 		$arr['email'] = $this->email;
 		$arr['country'] = $this->country;
-		/*
 		$arr['image'] = $this->image;
 		$arr['biography'] = $this->biography;
 		$arr['registered'] = $this->registered;
 		$arr['showemail'] = $this->showemail;
-		*/
 		return $arr;
 	}
 
