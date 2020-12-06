@@ -24,7 +24,7 @@ try {
 
 				$album->purchase($_SESSION['current_user']);
 
-				exit("<p class=\"error\">You have purchased this album! Thank you for your business. <a href=\"index\">View your purchases here.</a></p>");
+				exit("<p class=\"success\">You have purchased this album! Thank you for your business. <a href=\"index\">View your purchases here.</a></p>");
 			}
 		}
 	}
@@ -55,7 +55,7 @@ try {
 
 			foreach ($tl as $k => $v) {
 				$tlout .= <<<EOF
-				<li>{$x}. {$v->title} <i>($v->length)</i></li>
+				<li>{$v->title} <i>($v->length)</i></li>
 EOF;
 			}
 			$tlout .= "</ol>";
@@ -77,6 +77,7 @@ EOF;
 				"ALBUM_PRICE" => $row['price'],
 				"ALBUM_IMAGE" => $row['image'],
 				"ALBUM_DISCS" => $row['discs'],
+				"ALBUM_POSTED" => date("F j, Y", strtotime($row['posted'])),
 				"ALBUM_LABEL" => $row['label'],
 				"ALBUM_COUNTRY" => $country,
 				"ALBUM_SELLER" => $row['seller'],
