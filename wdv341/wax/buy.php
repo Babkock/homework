@@ -12,27 +12,25 @@ Methods::authorize();
 try {
 	if (!empty($_POST)) {
 		if (!isset($_POST['choice'])) {
-			$buy = new Page("header_user", "");
+			$buy = new Page("header_user", "about");
 			$buy->error("<p class=\"error\">Sorry, can't buy this album.</p>");
-			exit();
 		}
 		else if (strcmp($_POST['choice'], "Buy This Album") == 0) {
 			if (!isset($_GET['id'])) {
-				$buy = new Page("header_user", "");
+				$buy = new Page("header_user", "about");
 				$buy->error("<p class=\"error\">No 'id' argument given.</p>");
-				exit();
 			}
 			else {
-				$buy = new Page("header_user", "");
+				$buy = new Page("header_user", "about");
 
 				$album = new Album(intval($_GET['id']));
 				$album->read();
 				$album->purchase($_SESSION['current_user']);
 
 				$buy->error("<h3>You have purchased " . $album->getArtist() . " - " . $album->getTitle() . " for $" . $album->price . "! Thank you for your business.</h3>\n<p class=\"success\">This release is now in your collection. <a href=\"index\">View your collection here.</a></p>");
-				exit();
 			}
 		}
+		exit();
 	}
 	else {
 		$buy = new Page("header_user", "buy_confirm");

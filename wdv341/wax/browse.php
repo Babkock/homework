@@ -235,6 +235,7 @@ EOF;
 					}
 
 					$tlout .= "</ol>";
+					$posted = date("F j, Y", strtotime($row['posted']));
 					$price = "$" . $row['price'];
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
@@ -246,7 +247,7 @@ EOF;
 						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
-					
+
 					$out = <<<EOF
 <main id="browse">
 	<div class="albums-box">

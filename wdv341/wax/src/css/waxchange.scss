@@ -91,6 +91,13 @@ main {
 	margin-top:10px;
 }
 
+#error {
+	@include WidthMargins(80%, 10%, 10%);
+	padding:8px;
+	padding-top:12px;
+	margin-bottom:10px;
+}
+
 .login-form table, .register-form table, .settings-form table {
 	@include WidthMargins(80%, 10%, 10%);
 	tbody, tbody tr {
@@ -211,6 +218,14 @@ select {
 		font-size:1.12em;
 		text-align:center;
 	}
+}
+
+p.error {
+	color:red;
+}
+
+p.success {
+	color:lime;
 }
 
 footer {

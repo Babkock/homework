@@ -6,6 +6,8 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 require("../css/waxchange.scss")
+require("../css/waxMobile.scss");
+require("../css/waxLandscape.scss");
 
 import Album from "../vue/album.vue";
 Vue.component('album', Album)

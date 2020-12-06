@@ -95,7 +95,7 @@ EOF;
 			$userpage = new Page("header_guest", "account");
 
 		if (isset($_GET['id'])) {
-			$userpage->setTitle("WaXchange &bull; User {{USERNAME}}");
+			$userpage->setTitle("{{USERNAME}} &bull; WaXchange");
 			$userpage->setDescription("This is the account page for user {{USERNAME}} on WaXchange.");
 
 			$st = $db->prepare("SELECT `id`, `username`, `email`, `country` FROM `users` WHERE `id`=:id LIMIT 1");
@@ -113,6 +113,7 @@ EOF;
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
 					"USEREMAIL" => $row['email'],
+					"USERIMG" => $row['image'] ?? "img/user/default.jpg",
 					"USERCOUNTRY" => Methods::countryExpand($row['country']),
 					"EDITBUTTON" => ((strcmp($_SESSION['current_user'], $row['username']) == 0) ? "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>" : "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>")
 				]);
