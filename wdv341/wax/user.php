@@ -109,13 +109,23 @@ EOF;
 			}
 			else {
 				$userpage->hreplace("USERNAME", $row['username']);
+				if (isset($_SESSION['current_user'])) {
+					if (strcmp($_SESSION['current_user'], $row['username']) == 0)
+						$button = "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>";
+					else
+						$button = "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>";
+				}
+				else {
+					$button = "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>";
+				}
+
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
 					"USEREMAIL" => $row['email'],
 					"USERIMG" => $row['image'] ?? "img/user/default.jpg",
 					"USERCOUNTRY" => Methods::countryExpand($row['country']),
-					"EDITBUTTON" => ((strcmp($_SESSION['current_user'], $row['username']) == 0) ? "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>" : "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>")
+					"EDITBUTTON" => $button
 				]);
 
 				if (isset($_SESSION['current_user'])) {
