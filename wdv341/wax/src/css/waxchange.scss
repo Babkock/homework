@@ -6,7 +6,7 @@
 @import "variables.scss";
 
 body {
-	background:radial-gradient(circle, rgba(47,50,121,1) 0%, rgba(128,38,38,1) 100%);
+	background:url('/homework/wdv341/wax/img/bigbg.jpg');
 	color:white;
 	width:100%;
 	font-family:"Arial" !important;
@@ -37,6 +37,13 @@ header {
 	text-align:center;
 	display:block;
 	h1 {
+		a {
+			color:#101010 !important;
+			text-shadow:2px 2px #cfcfcf;
+			&:hover {
+				color:#802626 !important;
+			}
+		}
 		a.small {
 			font-size:1.11em;
 			float:right;
@@ -54,6 +61,8 @@ header {
 		flex-wrap:nowrap;
 		flex-direction:row;
 		justify-content:center;
+		background:radial-gradient(circle, #2f3279 0%, #802626 100%);
+		border:2px solid black;
 		ul {
 			list-style-type:none;
 			width:100%;
@@ -119,6 +128,10 @@ main {
 
 form h2, form h3 {
 	text-align:center;
+}
+
+main, footer {
+	background:radial-gradient(circle, #2f3279e2 0%, #802626df 100%);
 }
 
 label {
@@ -231,9 +244,11 @@ p.success {
 footer {
 	display:block;
 	text-align:center;
-	margin-top:5px;
 	margin-bottom:5px;
-	width:100%;
+	@include WidthMargins(50%, 24%, 24%);
+	padding-top:10px;
+	padding-left:11px;
+	padding-bottom:9px;
 }
 
 span.price {
@@ -347,4 +362,10 @@ textarea {
 	padding:10px;
 	font-size:1.13em;
 	text-align:center;
+}
+
+#settings .avatar img {
+	@include WidthMargins(40%, 30%, 30%);
+	border:1px solid #101010;
+	margin-bottom:5px;
 }

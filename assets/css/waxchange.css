@@ -10,7 +10,7 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-body { background: radial-gradient(circle, #2f3279 0%, #802626 100%); color: white; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
+body { background: url("/homework/wdv341/wax/img/bigbg.jpg"); color: white; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
 
 .container { width: 90%; margin-left: 5%; margin-right: 5%; }
 
@@ -22,11 +22,15 @@ a:hover { color: #99ff99; text-decoration: none; }
 
 header { width: 100%; text-align: center; display: block; }
 
+header h1 a { color: #101010 !important; text-shadow: 2px 2px #cfcfcf; }
+
+header h1 a:hover { color: #802626 !important; }
+
 header h1 a.small { font-size: 1.11em; float: right; font-style: italic; }
 
 header h1 a:first-child { font-size: 1.35em; float: left; }
 
-header nav { width: 94%; margin-left: 3%; margin-right: 0%; text-align: center; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; }
+header nav { width: 94%; margin-left: 3%; margin-right: 0%; text-align: center; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; background: radial-gradient(circle, #2f3279 0%, #802626 100%); border: 2px solid black; }
 
 header nav ul { list-style-type: none; width: 100%; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; margin-left: -30px; }
 
@@ -51,6 +55,8 @@ main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px 
 .login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"], .settings-form table tbody tr td[colspan="2"] { padding-top: 40px; padding: 7px; text-align: center; }
 
 form h2, form h3 { text-align: center; }
+
+main, footer { background: radial-gradient(circle, #2f3279e2 0%, #802626df 100%); }
 
 label { font-size: 1.13em; }
 
@@ -88,7 +94,7 @@ p.error { color: red; }
 
 p.success { color: lime; }
 
-footer { display: block; text-align: center; margin-top: 5px; margin-bottom: 5px; width: 100%; }
+footer { display: block; text-align: center; margin-bottom: 5px; width: 50%; margin-left: 24%; margin-right: 24%; padding-top: 10px; padding-left: 11px; padding-bottom: 9px; }
 
 span.price { color: #aadf80; font-size: larger; }
 
@@ -133,3 +139,5 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 .user-info tbody tr td:first-child { text-align: right; }
 
 .confirm { float: right; width: 60%; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid gray; color: #dfdfdf; padding: 10px; font-size: 1.13em; text-align: center; }
+
+#settings .avatar img { width: 40%; margin-left: 30%; margin-right: 30%; border: 1px solid #101010; margin-bottom: 5px; }

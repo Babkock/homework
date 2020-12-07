@@ -293,10 +293,10 @@ export default {
 					c = "$";
 					break;
 				case "gbp":
-					c = "£";
+					c = "&pound;";
 					break;
 				case "rub":
-					c = "₽";
+					c = "&#x20bd;";
 					break;
 				case "dkk": case "sek": case "isk": case "nok":
 					c = "kr.";
@@ -305,19 +305,19 @@ export default {
 					c = "CHF";
 					break;
 				case "jpy": case "cny":
-					c = "¥";
+					c = "&yen;";
 					break;
 				case "ang":
-					c = "ƒ";
+					c = "&fnof;";
 					break;
 				case "krw":
-					c = "₩";
+					c = "&#8361;";
 					break;
 				case "pln":
-					c = "zł";
+					c = "z&lstrok;";
 					break;
 				case "btc":
-					c = "₿";
+					c = "BTC";
 					break;
 				default:
 					c = "?";

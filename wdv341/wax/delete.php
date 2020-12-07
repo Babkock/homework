@@ -77,6 +77,7 @@ EOF;
 					"ALBUM_TITLE" => $row['title']
 				]);
 				$del->replacea([
+					"USERID" => $uid,
 					"ALBUM_ID" => $row['id'],
 					"ALBUM_ARTIST" => $row['artist'],
 					"ALBUM_TITLE" => $row['title'],
@@ -85,6 +86,7 @@ EOF;
 					"ALBUM_PRICE" => $row['price'],
 					"ALBUM_LABEL" => $row['label'],
 					"ALBUM_DISCS" => $row['discs'],
+					"ALBUM_IMAGE" => $row['image'],
 					"ALBUM_MEDIA" => $row['media'],
 					"ALBUM_SELLER" => $row['seller'],
 					"SELLER_HREF" => "user?id=" . $sid,
