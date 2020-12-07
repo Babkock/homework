@@ -23,7 +23,7 @@ let app = new Vue({
 				newpassword: "",
 				newpassword2: "",
 				showemail: "",
-				biography: "{{BIOGRAPHY}}"
+				biography: ""
 			},
 			ajaxResult: ""
 		};
@@ -37,7 +37,7 @@ let app = new Vue({
 			else {
 				this.ajaxResult = "<p class=\"success\">Your preferences are being saved...</p>";
 			}
-			if ((this.newpassword.length > 0) && (this.newpassword !== this.newpassword2)) {
+			if ((this.userinfo.newpassword.length > 0) && (this.userinfo.newpassword !== this.userinfo.newpassword2)) {
 				this.ajaxResult = "<p class=\"error\">The two passwords do not match.</p>";
 			}
 			else {
@@ -63,5 +63,6 @@ let app = new Vue({
 
 	mounted() {
 		this.id = parseInt(document.querySelector("#userid").value);
+		this.userinfo.biography = document.querySelector("#profile").innerHTML;
 	}
 })
