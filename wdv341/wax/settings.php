@@ -121,6 +121,7 @@ try {
 				break;
 		}
 		$settings->replacea([
+			"USERID" => $uid,
 			"BIOGRAPHY" => addslashes($row['biography']),
 			"USERIMG" => $row['image'] ?? "img/user/default.jpg",
 			"COUNTRY" => $row['country'],
