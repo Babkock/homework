@@ -58,9 +58,9 @@ label { font-size: 1.13em; }
 
 .buttons p button { width: 20%; margin-left: 4%; margin-right: 4%; margin-top: 3px; margin-bottom: 3px; }
 
-.buy-form { display: flex; background: rgba(10, 80, 10, 0.3); padding-top: 10px; padding-bottom: 10px; }
+.buy-form, .delete-form { display: flex; background: rgba(10, 80, 10, 0.3); padding-top: 10px; padding-bottom: 10px; }
 
-.buy-form .album { margin-left: 3%; width: 32%; }
+.buy-form .album, .delete-form .album { margin-left: 3%; width: 32%; }
 
 button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; border-radius: 24px 24px 24px 24px; padding: 9px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
 
@@ -78,11 +78,11 @@ select { background: #141414; background-color: #141414; border: 2px solid black
 
 select:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; }
 
-.ajax-area { display: block; text-align: center; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px; margin-bottom: 10px; }
+.ajax-area, .login-error { display: block; text-align: center; width: 90%; margin-left: 5%; margin-right: 5%; margin-top: 10px; margin-bottom: 10px; }
 
-.ajax-area p.success { background: green; background-color: green; border: 1px solid lime; color: white; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
+.ajax-area p.success, .login-error p.success { background: green; background-color: green; border: 1px solid lime; color: white; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
 
-.ajax-area p.error { background: #661010; background-color: #661010; border: 1px solid red; color: red; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
+.ajax-area p.error, .login-error p.error { background: #661010; background-color: #661010; border: 1px solid red; color: red; padding: 8px; display: block; font-size: 1.12em; text-align: center; }
 
 p.error { color: red; }
 
@@ -128,7 +128,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .index-table.pur tbody tr td, .index-table.pur thead tr td { width: 50%; }
 
-.user-info tbody tr td { width: 49%; padding: 5px !important; font-size: 1.14em !important; }
+.user-info tbody tr td { width: 49%; padding: 5px !important; font-size: 1.14em !important; text-align: left; }
 
 .user-info tbody tr td:first-child { text-align: right; }
 

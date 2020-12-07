@@ -82,6 +82,7 @@ EOF;
 					"ALBUM_TITLE" => $row['title'],
 					"ARTIST_HREF" => "browse?a=" . urlencode($row['artist']),
 					"ALBUM_HREF" => "browse?b=" . urlencode($row['title']),
+					"ALBUM_PRICE" => $row['price'],
 					"ALBUM_LABEL" => $row['label'],
 					"ALBUM_DISCS" => $row['discs'],
 					"ALBUM_MEDIA" => $row['media'],

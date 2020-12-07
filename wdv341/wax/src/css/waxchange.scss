@@ -137,7 +137,7 @@ label {
 	}
 }
 
-.buy-form {
+.buy-form, .delete-form {
 	display:flex;
 	background:rgba(10, 80, 10, 0.3);
 	padding-top:10px;
@@ -198,7 +198,7 @@ select {
 	}
 }
 
-.ajax-area {
+.ajax-area, .login-error {
 	display:block;
 	text-align:center;
 	@include WidthMargins(90%, 5%, 5%);
@@ -334,6 +334,7 @@ textarea {
 	width:49%;
 	padding:5px !important;
 	font-size:1.14em !important;
+	text-align:left;
 	&:first-child {
 		text-align:right;
 	}
