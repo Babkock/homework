@@ -286,8 +286,8 @@ textarea {
 	margin-top:3px;
 	margin-bottom:3px;
 	padding:5px;
+	padding-top:13px;
 	@include BackBorderColor(rgba(10, 10, 10, 0.3), 2px solid black, #cfcfcf);
-	border-radius:25px 25px 25px 25px;
 	p {
 		font-size:1.12em;
 	}
@@ -308,9 +308,12 @@ textarea {
 		font-size:1.13em;
 		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #efefef);
 	}
+	tbody tr td:first-child, thead tr td:first-child {
+		text-align:right;
+	}
 }
 
-.index-table {
+.index-table, .user-info {
 	width:100%;
 	tbody, tbody tr, thead, thead tr {
 		width:100%;
@@ -326,6 +329,14 @@ textarea {
 }
 .index-table.pur tbody tr td, .index-table.pur thead tr td {
 	width:50%;
+}
+.user-info tbody tr td {
+	width:49%;
+	padding:5px !important;
+	font-size:1.14em !important;
+	&:first-child {
+		text-align:right;
+	}
 }
 
 .confirm {

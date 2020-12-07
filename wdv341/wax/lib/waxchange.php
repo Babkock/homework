@@ -70,14 +70,12 @@ class Album {
 	private $posted;
 	public $country;
 	private $tracklist;
-	/*
 	private $year;
 	private $condition;
 	private $currency;
 	private $purchased;
 	private $sellerid;
 	private $buyerid;
-	*/
 
 	public function __construct($id = 0) {
 		if (strcmp(gettype($id), "integer") != 0) {
@@ -117,7 +115,6 @@ class Album {
 	public function setLabel($l) { $this->label = $l; }
 	public function getPosted() { return $this->posted; }
 	public function setPosted($p) { $this->posted = $p; }
-	/*
 	public function getYear() { return $this->year; }
 	public function setYear($y) { $this->year = $y; }
 	public function getCondition() { return $this->condition; }
@@ -135,7 +132,6 @@ class Album {
 	public function setSellerId($s) { $this->sellerid = $s; }
 	public function getBuyerId() { return $this->buyerid; }
 	public function setBuyerId($b) { $this->buyerid = $b; }
-	*/
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {

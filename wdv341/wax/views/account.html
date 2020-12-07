@@ -7,10 +7,24 @@
 	<div class="bio">
 		{{BIOGRAPHY}}
 	</div>
-	<p>Email: {{USEREMAIL}}</p>
-	<p>Country: {{USERCOUNTRY}}</p>
-	<p>Registered: {{REGISTERED}}</p>
-	<p>Sales: {{SALES}}</p>
+	<table class="user-info"><tbody>
+		<tr>
+			<td><b>Email:</b></td>
+			<td>{{USEREMAIL}}</td>
+		</tr>
+		<tr>
+			<td><b>Country:</b></td>
+			<td>{{USERCOUNTRY}}</td>
+		</tr>
+		<tr>
+			<td><b>Member Since:</b></td>
+			<td>{{REGISTERED}}</td>
+		</tr>
+		<tr>
+			<td><b>Sales:</b></td>
+			<td>{{SALES}}</td>
+		</tr>
+	</tbody></table>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-error" v-html="ajaxError">
 
