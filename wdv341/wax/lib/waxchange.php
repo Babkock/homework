@@ -472,7 +472,7 @@ class User {
 		global $db;
 
 		// $st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country)");
-		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, :image, :biography, NOW(), 1, 0)");
+		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, NULL, :biography, NOW(), 1, 0)");
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
