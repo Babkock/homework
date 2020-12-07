@@ -47,9 +47,9 @@ let app = new Vue({
 				if (this.file) {
 					formData.append("image", this.$refs.image.files[0]);
 				}
-				formData.append("oldpassword", this.oldpassword);
-				formData.append("newpassword", this.newpassword);
-				formData.append("country", this.country);
+				formData.append("oldpassword", this.userinfo.oldpassword);
+				formData.append("newpassword", this.userinfo.newpassword);
+				formData.append("country", this.userinfo.country);
 				if (this.userinfo.showemail === "one")
 					formData.append("showemail", 1);
 				else if (this.userinfo.showemail === "two")
@@ -57,7 +57,7 @@ let app = new Vue({
 				else if (this.userinfo.showemail === "three")
 					formData.append("showemail", 3);
 				
-				formData.append("biography", this.biography);
+				formData.append("biography", this.userinfo.biography);
 				this.$http.post("settings", formData).then((response) => {
 					this.ajaxResult = response.data;
 					this.saved = true;

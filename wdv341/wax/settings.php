@@ -32,9 +32,9 @@ try {
 			}
 		} */
 		$user->setShowEmail($_POST['showemail']);
-		
+
 		if (isset($_POST['biography'])) {
-			$user->setBiography(substr($_POST['biography'], 0, 600));
+			$user->setBiography(substr($_POST['biography'], 0, 700));
 		}
 		if (isset($_POST['country'])) {
 			if (strlen($_POST['country']) > 1)
