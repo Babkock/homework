@@ -27,7 +27,7 @@ try {
 			if (strlen($_POST['country']) > 1)
 				$user->setCountry($_POST['country']);
 		}
-		$user->setPassword(hash("sha256"), $_POST['newpassword']);
+		$user->setPassword(hash("sha256", $_POST['newpassword']));
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
 			$filetype = $_FILES['image']['type'];
