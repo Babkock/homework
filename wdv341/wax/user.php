@@ -172,7 +172,7 @@ EOF;
 					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $email . "</a>";
 				}
 				else if ($row['showemail'] == 3)
-					$semail = $row['email'];
+					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</a>";
 				else
 					$semail = "<b>Hidden</b>";
 

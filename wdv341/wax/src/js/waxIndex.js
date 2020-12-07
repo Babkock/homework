@@ -52,8 +52,22 @@ let app = new Vue({
 			return "browse?id=" + i;
 		},
 
+		/*
 		edithref(i) {
 			return "album?id=" + i;
+		},
+		*/
+		nicepurchased(d) {
+			let jsDate = new Date(Date.parse(d.replace(/[-]/g,'/')));
+			return jsDate.toDateString();
+		},
+
+		editbtn(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
+		},
+
+		deletebtn(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/delete?id=" + i;
 		}
 	},
 
