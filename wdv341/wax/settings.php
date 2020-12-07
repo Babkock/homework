@@ -41,7 +41,9 @@ try {
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
 			$filetype = $_FILES['image']['type'];
-			$filename = "img/user/" . $_SESSION['current_user'] . "." . $filetype;			
+			$oldname = $_FILES['image']['name'];
+			$ext = pathinfo($oldname, PATHINFO_EXTENSION);
+			$filename = "img/user/" . $_SESSION['current_user'] . "." . $ext;
 			$filesize = $_FILES['image']['size'];
 
 			$validtypes = [
@@ -50,8 +52,6 @@ try {
 				"png" => "image/png",
 				"gif" => "image/gif"
 			];
-
-			$ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 			if (!array_key_exists($ext, $validtypes)) {
 				exit("<p class=\"error\">That file type is not allowed. Only JPEG, PNG, and GIF images are allowed.</p>");
