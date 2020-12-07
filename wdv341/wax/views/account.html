@@ -5,10 +5,11 @@
 	<h2>{{USERNAME}}</h2>
 	<h3>(User ID #{{USERID}})</h3>
 	<div class="bio">
-		{{ BIOGRAPHY }}
+		{{BIOGRAPHY}}
 	</div>
 	<p>Email: {{USEREMAIL}}</p>
 	<p>Country: {{USERCOUNTRY}}</p>
+	<p>Registered: {{REGISTERED}}</p>
 	<p>Sales: {{SALES}}</p>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-error" v-html="ajaxError">
