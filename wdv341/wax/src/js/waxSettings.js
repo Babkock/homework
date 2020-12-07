@@ -22,6 +22,7 @@ let app = new Vue({
 				oldpassword: "",
 				newpassword: "",
 				newpassword2: "",
+				country: "{{COUNTRY}}",
 				showemail: "{{SHOWEMAIL}}",
 				biography: "{{BIOGRAPHY}}"
 			},

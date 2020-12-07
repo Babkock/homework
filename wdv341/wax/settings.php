@@ -32,8 +32,7 @@ try {
 			}
 		}
 		if (isset($_POST['biography'])) {
-			if (strcmp($user->getBiography(), $_POST['biography']) != 0)
-				$user->setBiography(substr($_POST['biography'], 0, 600));
+			$user->setBiography(substr($_POST['biography'], 0, 600));
 		}
 		if (isset($_POST['country'])) {
 			if (strlen($_POST['country']) > 1)
@@ -124,6 +123,7 @@ try {
 		$settings->replacea([
 			"BIOGRAPHY" => addslashes($row['biography']),
 			"USERIMG" => $row['image'] ?? "img/user/default.jpg",
+			"COUNTRY" => $row['country'],
 			"USER_COUNTRY" => $country
 		]);
 
