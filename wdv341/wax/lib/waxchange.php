@@ -26,13 +26,13 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	|-------------|--------------|------------------------------------------|
 	| price       | FLOAT        | The price of the album, set by the user. |
 	|-------------|--------------|------------------------------------------|
-	| seller      | VARCHAR(80)  | The user who is selling this album.      |
+	| seller      | VARCHAR(70)  | The user who is selling this album.      |
 	|-------------|--------------|------------------------------------------|
-	| buyer       | VARCHAR(80)  | The user who bought the album, or NULL.  |
+	| buyer       | VARCHAR(70)  | The user who bought the album, or NULL.  |
 	|-------------|--------------|------------------------------------------|
 	| image       | VARCHAR(50)  | The image file for the album cover.      |
 	|-------------|--------------|------------------------------------------|
-	| label       | VARCHAR(90)  | Record label that released the album.    |
+	| label       | VARCHAR(80)  | Record label that released the album.    |
 	|-------------|--------------|------------------------------------------|
 	| posted      | DATE         | The date the album was posted for sale.  |
 	|-------------|--------------|------------------------------------------|
@@ -62,14 +62,14 @@ class Album {
 	private $title;
 	private $media;
 	private $discs;
-	private $tracklist;
-	private $buyer;
+	public $price;
 	private $seller;
+	private $buyer;
 	private $image;
 	private $label;
 	private $posted;
-	public $price;
 	public $country;
+	private $tracklist;
 	/*
 	private $year;
 	private $condition;
@@ -132,7 +132,7 @@ class Album {
 	public function getPurchased() { return $this->purchased; }
 	public function setPurchased($p) { $this->purchased = $p; }
 	public function getSellerId() { return $this->sellerid; }
-	public function setSellerId($s) { $this->seller = $s; }
+	public function setSellerId($s) { $this->sellerid = $s; }
 	public function getBuyerId() { return $this->buyerid; }
 	public function setBuyerId($b) { $this->buyerid = $b; }
 	*/
@@ -348,6 +348,7 @@ class Album {
 		$bid = Methods::getIdFromName($buyer);
 		$this->setBuyer($buyer);
 		// $this->setBuyerId($bid);
+		// $this->setPurchased(date("Y-m-d", mktime()));
 		$this->update();
 	}
 
@@ -365,7 +366,7 @@ class Album {
 	_________________________________________________________________________
 	| id          | INT(11)      | The unique ID of the user.               |
 	|-------------|--------------|------------------------------------------|
-	| username    | VARCHAR(80)  | The user's name.                         |
+	| username    | VARCHAR(70)  | The user's name.                         |
 	|-------------|--------------|------------------------------------------|
 	| password    | VARCHAR(64)  | SHA256 Hash of the user's password.      |
 	|-------------|--------------|------------------------------------------|
@@ -375,13 +376,15 @@ class Album {
 	|_____________|______________|__________________________________________|
 
 	_________________________________________________________________________________________
-	| image       | VARCHAR(50)  | The image URL of the user's avatar.                      |
+	| image       | VARCHAR(85)  | The image URL for the user's avatar.                     |
 	|-------------|--------------|----------------------------------------------------------|
-	| biography   | TEXT         | The user's custom biography.                             |
+	| biography   | TEXT         | The user's custom biography for their profile page.      |
 	|-------------|--------------|----------------------------------------------------------|
 	| registered  | DATE         | The date the user registered.                            |
 	|-------------|--------------|----------------------------------------------------------|
 	| showemail   | INT(11)      | The user's preference on public email visibility, (0-2). |
+	|-------------|--------------|----------------------------------------------------------|
+	| sales       | INT(11)      | The number of releases this user has sold.               |
 	|_____________|______________|__________________________________________________________|
 */
 
@@ -395,6 +398,7 @@ class User {
 	private $biography;
 	private $registered;
 	private $showemail;
+	private $sales;
 
 	public function __construct($id = 0) {
 		if (strcmp(gettype($id), "integer") != 0) {
@@ -420,6 +424,9 @@ class User {
 	public function setRegistered($r) { $this->registered = $r; }
 	public function getShowEmail() { return $this->showemail; }
 	public function setShowEmail($s) { $this->showemail = $s; }
+	public function getSales() { return $this->sales; }
+	public function setSales($s) { $this->sales = $s; }
+	public function incrementSales() { $this->sales++; }
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
@@ -431,6 +438,7 @@ class User {
 			if (strcmp($k, "biography") == 0) { $this->biography = $v; }
 			if (strcmp($k, "registered") == 0) { $this->registered = $v; }
 			if (strcmp($k, "showemail") == 0) { $this->showemail = $v; }
+			if (strcmp($k, "sales") == 0) { $this->sales = $v; }
 		}
 	}
 
@@ -445,6 +453,7 @@ class User {
 		$arr['biography'] = $this->biography;
 		$arr['registered'] = $this->registered;
 		$arr['showemail'] = $this->showemail;
+		$arr['sales'] = $this->sales;
 		return $arr;
 	}
 
@@ -462,34 +471,33 @@ class User {
 	public function write() {
 		global $db;
 
-		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country)");
-		// $st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, :image, :biography, NOW(), 0)");
+		// $st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country)");
+		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, :image, :biography, NOW(), 1, 0)");
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
-		/*
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":biography", $this->biography);
-		*/
+		$st->bindParam(":sales", $this->sales);
 		$st->execute();
 	}
 
 	public function update() {
 		global $db;
 
-		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1");
-		// $st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `image`=:image, `biography`=:biography, `registered`=registered, `showemail`=:showemail");
+		// $st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1");
+		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `image`=:image, `biography`=:biography, `showemail`=:showemail, `sales`=:sales WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
-		/*
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":biography", $this->biography);
 		$st->bindParam(":showemail", $this->showemail);
-		*/
+		$st->bindParam(":sales", $this->sales);
+		
 		$st->execute();
 	}
 
@@ -508,12 +516,15 @@ class Page {
 	private $footer;
 	private $title;
 
-	public function __construct($head, $cont) {
-		if (!isset($head) || !isset($cont)) {
-			exit("<p class=\"error\">No file for loading</p>");
-		}
-		$this->header = file_get_contents(__DIR__ . "/../views/{$head}.html");
-		$this->content = file_get_contents(__DIR__ . "/../views/{$cont}.html");
+	public function __construct($head = "", $cont = "") {
+		if (!isset($head) || empty($head))
+			$this->header = "";
+		else
+			$this->header = file_get_contents(__DIR__ . "/../views/{$head}.html");
+		if (!isset($cont) || empty($cont))
+			$this->content = "";
+		else
+			$this->content = file_get_contents(__DIR__ . "/../views/{$cont}.html");
 		$this->footer = file_get_contents(__DIR__ . "/../views/footer.html");
 	}
 
@@ -553,29 +564,26 @@ class Page {
 	}
 
 	public function error($message) {
-		$this->header = "";
+		if (isset($_SESSION['current_user'])) {
+			$this->header = file_get_contents(__DIR__ . "/../views/header_user.html");
+			$uid = Methods::getIdFromName($_SESSION['current_user']);
+			$this->hreplace("USERID", $uid);
+			$this->setTitle("WaXchange");
+		}
+		else {
+			$this->header = file_get_contents(__DIR__ . "/../views/header_guest.html");
+			$this->setTitle("WaXchange");
+		}
+
 		$this->footer = "";
 		$this->content = <<<EOF
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>WaXchange &bull; Error</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
-		<link rel="icon" href="/images/favicon.png" />
-	</head>
-	<body>
-		<div class="container">
-			<header>
-				<h1><a href="index" title="Your Dashboard" alt="Your Dashboard">WaXchange</a></h1>
-			</header>
 			<main id="error">
 				{$message}
 			</main>
 			<footer>
 				<p><a href="about" title="What is WaXchange?" alt="What is WaXchange?">About WaXchange</a> &bull; <a href="contact" title="Contact WaXchange Staff" alt="Contact WaXchange staff">Contact</a> &bull; <a href="user" title="View list of WaXchange users" alt="View list of WaXchange users">Users</a></p>
 				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
-				<p>Copyright &copy; 2020 Tanner Babcock.
+				<p>Copyright &copy; 2020 Tanner Babcock.</p>
 			</footer>
 		</div>
 	</body>

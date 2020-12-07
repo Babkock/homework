@@ -33,7 +33,7 @@ try {
 		exit();
 	}
 	else {
-		$buy = new Page("header_user", "buy_confirm");
+		$buy = new Page("header_user", "buy");
 		$buy->setTitle("Buying {{ALBUM_TITLE}}");
 		$buy->setDescription("This is the purchase confirmation page for the album {{ALBUM_ARTIST}} - {{ALBUM_TITLE}}. It costs $ {{ALBUM_PRICE}}.");
 		if (!isset($_GET['id'])) {

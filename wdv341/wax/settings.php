@@ -19,8 +19,17 @@ try {
 		$user->read();
 
 		if (isset($_POST['showemail'])) {
-			if ($user->getShowEmail() != intval($_POST['showemail']))
-				$user->setShowEmail(intval($_POST['showemail']));
+			switch ($_POST['showemail']) {
+				case "one":
+					$user->setShowEmail(1);
+					break;
+				case "two":
+					$user->setShowEmail(2);
+					break;
+				case "three":
+					$user->setShowEmail(3);
+					break;
+			}
 		}
 		if (isset($_POST['biography'])) {
 			if (strcmp($user->getBiography(), $_POST['biography']) != 0)
@@ -33,7 +42,7 @@ try {
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
 			$filetype = $_FILES['image']['type'];
-			$filename = "img/user/" . $_SESSION['current_user'] . $filetype;			
+			$filename = "img/user/" . $_SESSION['current_user'] . "." . $filetype;			
 			$filesize = $_FILES['image']['size'];
 
 			$validtypes = [
