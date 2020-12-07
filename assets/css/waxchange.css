@@ -40,7 +40,7 @@ header nav ul li a { display: block; width: 96%; padding: 7px; padding-top: 11px
 
 header nav ul li:hover { border: 1px solid #cfcfcf; background: rgba(40, 40, 50, 0.4); }
 
-main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px solid #000; background: rgba(30, 30, 30, 0.4); margin-top: 10px; }
+main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px solid #000; margin-top: 10px; }
 
 #error { width: 80%; margin-left: 10%; margin-right: 10%; padding: 8px; padding-top: 12px; margin-bottom: 10px; }
 
@@ -56,7 +56,7 @@ main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px 
 
 form h2, form h3 { text-align: center; }
 
-main, footer { background: radial-gradient(circle, #2f3279e2 0%, #802626df 100%); }
+main, footer { background: radial-gradient(circle, #2f3279e6 0%, #802626ef 100%); }
 
 label { font-size: 1.13em; }
 
@@ -68,19 +68,21 @@ label { font-size: 1.13em; }
 
 .buy-form .album, .delete-form .album { margin-left: 3%; width: 32%; }
 
-button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; border-radius: 24px 24px 24px 24px; padding: 9px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
+.delete-form { background: rgba(80, 10, 10, 0.3); color: #cd0202; }
+
+button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #e5e5e5; border-radius: 24px 24px 24px 24px; padding: 9px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
 
 button:hover, input[type="submit"]:hover { background: #106640; background-color: #106640; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; box-shadow: 2px 2px black; padding: 9px; }
 
 button:active, input[type="submit"]:active { background: #20206f; background-color: #20206f; border: 1px solid rgba(0, 0, 0, 0); color: #cfcfcf; box-shadow: -1px -1px black; padding: 9px; }
 
-input[type="text"], input[type="password"], input[type="number"] { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 8px; width: 90%; font-size: 1.14em; transition: background, background-color, border, color 0.2s ease 0s; }
+input[type="text"], input[type="password"], input[type="number"] { appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #e7e7e7; padding: 8px; width: 90%; font-size: 1.14em; transition: background, background-color, border, color 0.2s ease 0s; }
 
 input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; font-size: 1.14em; }
 
 input[type="text"]:active, input[type="password"]:active, input[type="number"]:active { background: #1c1c1c; background-color: #1c1c1c; border: 2px solid #242424; color: #f9f9f9; font-size: 1.14em; }
 
-select { background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; appearance: auto !important; -moz-appearance: auto !important; padding: 8px; width: 90%; font-size: 1.14em; transition: background, background-color, border, color 0.2s ease 0s; }
+select { background: #141414; background-color: #141414; border: 2px solid black; color: #dfdfdf; appearance: auto !important; -moz-appearance: auto !important; padding: 8px; width: 90%; font-size: 1.14em; transition: background, background-color, border, color 0.2s ease 0s; }
 
 select:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; }
 
@@ -100,7 +102,7 @@ span.price { color: #aadf80; font-size: larger; }
 
 span.media { color: #dfaaaa; font-size: larger; }
 
-textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-width: 90%; height: 90px; max-height: 90px; min-height: 90px; font-family: "Arial" !important; appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #cfcfcf; padding: 6px; font-size: 1.14em; text-align: left; }
+textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-width: 90%; height: 90px; max-height: 90px; min-height: 90px; font-family: "Arial" !important; appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #e6e6e6; padding: 6px; font-size: 1.14em; text-align: left; }
 
 textarea:hover { background: #191919; background-color: #191919; border: 2px solid #242424; color: #efefef; }
 
@@ -110,7 +112,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .album-editor .cover img:hover, #account .avatar img:hover, .settings-form .cover img:hover { opacity: 1; }
 
-#account .bio { display: block; width: 80%; margin-left: 10%; margin-right: 10%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 3px; margin-bottom: 3px; padding: 5px; padding-top: 13px; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #cfcfcf; }
+#account .bio { display: block; width: 80%; margin-left: 10%; margin-right: 10%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 3px; margin-bottom: 3px; padding: 5px; padding-top: 13px; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #d9d9d9; }
 
 #account .bio p { font-size: 1.12em; }
 
@@ -128,7 +130,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .index-table tbody, .index-table tbody tr, .index-table thead, .index-table thead tr, .user-info tbody, .user-info tbody tr, .user-info thead, .user-info thead tr { width: 100%; }
 
-.index-table tbody tr td, .index-table thead tr td, .user-info tbody tr td, .user-info thead tr td { padding: 4px; font-size: 1.13em; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid black; color: #dfdfdf; }
+.index-table tbody tr td, .index-table thead tr td, .user-info tbody tr td, .user-info thead tr td { padding: 4px; font-size: 1.13em; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid black; color: #e5e5e5; }
 
 .index-table.inv tbody tr td, .index-table.inv thead tr td { width: 24%; }
 
@@ -138,6 +140,6 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .user-info tbody tr td:first-child { text-align: right; }
 
-.confirm { float: right; width: 60%; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid gray; color: #dfdfdf; padding: 10px; font-size: 1.13em; text-align: center; }
+.confirm { float: right; width: 60%; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid gray; color: #ffffff; padding: 10px; font-size: 1.13em; text-align: center; }
 
 #settings .avatar img { width: 40%; margin-left: 30%; margin-right: 30%; border: 1px solid #101010; margin-bottom: 5px; }

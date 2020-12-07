@@ -96,7 +96,6 @@ main {
 	@include WidthMargins(98%, 1%, 1%);
 	padding:8px;
 	border:2px solid #000;
-	background:rgba(30, 30, 30, 0.4);
 	margin-top:10px;
 }
 
@@ -131,7 +130,7 @@ form h2, form h3 {
 }
 
 main, footer {
-	background:radial-gradient(circle, #2f3279e2 0%, #802626df 100%);
+	background:radial-gradient(circle, #2f3279e6 0%, #802626ef 100%);
 }
 
 label {
@@ -161,9 +160,14 @@ label {
 	}
 }
 
+.delete-form {
+	background:rgba(80, 10, 10, 0.3);
+	color:#cd0202;
+}
+
 button, input[type="submit"] {
 	@include Appearance();
-	@include BackBorderColor(#662020, 1px solid rgba(0,0,0,0), #dfdfdf);
+	@include BackBorderColor(#662020, 1px solid rgba(0,0,0,0), #e5e5e5);
 	border-radius:24px 24px 24px 24px;
 	padding:9px;
 	font-size:1.15em;
@@ -183,7 +187,7 @@ button, input[type="submit"] {
 
 input[type="text"], input[type="password"], input[type="number"] {
 	@include Appearance();
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor(#141414, 2px solid black, #e7e7e7);
 	padding:8px;
 	width:90%;
 	font-size:1.14em;
@@ -199,7 +203,7 @@ input[type="text"], input[type="password"], input[type="number"] {
 }
 
 select {
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor(#141414, 2px solid black, #dfdfdf);
 	appearance:auto !important;
 	-moz-appearance:auto !important;
 	padding:8px;
@@ -270,7 +274,7 @@ textarea {
 	min-height:90px;
 	font-family:"Arial" !important;
 	@include Appearance();
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor(#141414, 2px solid black, #e6e6e6);
 	padding:6px;
 	font-size:1.14em;
 	text-align:left;
@@ -302,7 +306,7 @@ textarea {
 	margin-bottom:3px;
 	padding:5px;
 	padding-top:13px;
-	@include BackBorderColor(rgba(10, 10, 10, 0.3), 2px solid black, #cfcfcf);
+	@include BackBorderColor(rgba(10, 10, 10, 0.3), 2px solid black, #d9d9d9);
 	p {
 		font-size:1.12em;
 	}
@@ -336,7 +340,7 @@ textarea {
 	tbody tr td, thead tr td {
 		padding:4px;
 		font-size:1.13em;
-		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #dfdfdf);
+		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #e5e5e5);
 	}
 }
 .index-table.inv tbody tr td, .index-table.inv thead tr td {
@@ -358,7 +362,7 @@ textarea {
 .confirm {
 	float:right;
 	@include WidthMargins(60%, 1%, 1%);
-	@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid gray, #dfdfdf);
+	@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid gray, #ffffff);
 	padding:10px;
 	font-size:1.13em;
 	text-align:center;
