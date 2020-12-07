@@ -119,7 +119,7 @@ try {
 				break;
 		}
 		$settings->replacea([
-			"BIOGRAPHY" => $row['biography'],
+			"BIOGRAPHY" => addslashes($row['biography']),
 			"USERIMG" => $row['image'] ?? "img/user/default.jpg",
 			"USER_COUNTRY" => $country
 		]);
