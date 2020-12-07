@@ -18,19 +18,6 @@ try {
 		$user = new User(intval($uid));
 		$user->read();
 
-		/* if (isset($_POST['showemail'])) {
-			switch ($_POST['showemail']) {
-				case "one":
-					$user->setShowEmail(1);
-					break;
-				case "two":
-					$user->setShowEmail(2);
-					break;
-				case "three":
-					$user->setShowEmail(3);
-					break;
-			}
-		} */
 		$user->setShowEmail($_POST['showemail']);
 
 		if (isset($_POST['biography'])) {
@@ -40,7 +27,7 @@ try {
 			if (strlen($_POST['country']) > 1)
 				$user->setCountry($_POST['country']);
 		}
-		// $user->seta($_POST);
+		$user->setPassword(hash("sha256"), $_POST['newpassword']);
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
 			$filetype = $_FILES['image']['type'];

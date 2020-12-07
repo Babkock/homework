@@ -128,7 +128,7 @@ EOF;
 					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $email . "</a>";
 				}
 				else if (intval($row['showemail']) == 3) {
-					$semail = $row['email'];
+					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</a>";
 				}
 
 				$userpage->replacea([
@@ -158,7 +158,6 @@ EOF;
 		else {
 			$userpage->setTitle("WaXchange &bull; Users");
 			$userpage->setDescription("This is the complete list of users on WaXchange music marketplace.");
-			// $st = $db->prepare("SELECT `username`, `id`, `email` FROM `users` ORDER BY `id` ASC");
 			$st = $db->prepare("SELECT `username`, `id`, `email`, `showemail`, `registered` FROM `users` ORDER BY `id` ASC");
 			$st->execute();
 
