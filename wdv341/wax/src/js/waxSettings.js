@@ -23,7 +23,7 @@ let app = new Vue({
 				newpassword: "",
 				newpassword2: "",
 				showemail: "",
-				biography: ""
+				biography: "{{BIOGRAPHY}}"
 			},
 			ajaxResult: ""
 		};
