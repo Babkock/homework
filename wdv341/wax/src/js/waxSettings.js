@@ -22,7 +22,7 @@ let app = new Vue({
 				oldpassword: "",
 				newpassword: "",
 				newpassword2: "",
-				showemail: "",
+				showemail: "{{SHOWEMAIL}}",
 				biography: "{{BIOGRAPHY}}"
 			},
 			ajaxResult: ""
@@ -63,6 +63,5 @@ let app = new Vue({
 
 	mounted() {
 		this.id = parseInt(document.querySelector("#userid").value);
-		this.userinfo.biography = document.querySelector("#profile").innerHTML;
 	}
 })

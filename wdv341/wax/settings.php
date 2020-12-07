@@ -15,7 +15,7 @@ try {
 			exit("<p class=\"error\">You did not make any changes.</p>");
 		}
 		$uid = Methods::getIdFromName($_SESSION['current_user']);
-		$user = new User($uid);
+		$user = new User(intval($uid));
 		$user->read();
 
 		if (isset($_POST['showemail'])) {
@@ -95,26 +95,29 @@ try {
 
 		$country = Methods::countryExpand($row['country']);
 
-		switch ($row['showemail']) {
+		switch (intval($row['showemail'])) {
 			case 1:
 				$settings->replacea([
 					"HIDE_SELECT" => "selected",
 					"ABSTRACT_SELECT" => "",
-					"SHOW_SELECT" => ""
+					"SHOW_SELECT" => "",
+					"SHOWEMAIL" => "one"
 				]);
 				break;
 			case 2:
 				$settings->replacea([
 					"HIDE_SELECT" => "",
 					"ABSTRACT_SELECT" => "selected",
-					"SHOW_SELECT" => ""
+					"SHOW_SELECT" => "",
+					"SHOWEMAIL" => "two"
 				]);
 				break;
 			case 3:
 				$settings->replacea([
 					"HIDE_SELECT" => "",
 					"ABSTRACT_SELECT" => "",
-					"SHOW_SELECT" => "selected"
+					"SHOW_SELECT" => "selected",
+					"SHOWEMAIL" => "three"
 				]);
 				break;
 		}
