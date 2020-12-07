@@ -5,7 +5,7 @@
 
 	</div>
 	<center><h2>Newest Releases:</h2></center>
-	<div class="albums-box" v-if="primary.length > 0">
+	<div class="albums-box" v-if="primary != null">
 		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
@@ -25,7 +25,7 @@
 		</album>
 	</div>
 	<center><h2>Most Expensive Releases:</h2></center>
-	<div class="albums-box" v-if="secondary.length > 0">
+	<div class="albums-box" v-if="secondary != null">
 		<album v-for="(al, index) in secondary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
@@ -45,7 +45,7 @@
 		</album>
 	</div>
 	<center><h2>Your Collection:</h2></center>
-	<div class="albums-box" v-if="tertiary.length > 0">
+	<div class="albums-box" v-if="tertiary != null">
 		<album v-for="(al, index) in tertiary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :country="al.country" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
