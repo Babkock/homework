@@ -154,14 +154,12 @@ class Album {
 					array_push($this->tracklist, [$track->title, $track->length]);
 				}
 			}
-			/*
 			if (strcmp($k, "year") == 0) { $this->year = $v; }
 			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
 			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
 			if (strcmp($k, "buyerid") == 0) { $this->buyerid = $v; }
-			*/
 		}
 	}
 
@@ -180,14 +178,12 @@ class Album {
 		$arr['posted'] = $this->posted;
 		$arr['country'] = $this->country;
 		$arr['tracklist'] = $this->tracklist;
-		/*
 		$arr['year'] = $this->year;
 		$arr['condition'] = $this->condition;
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
 		$arr['sellerid'] = $this->sellerid;
 		$arr['buyerid'] = $this->buyerid;
-		*/
 		return $arr;
 	}
 
@@ -207,14 +203,12 @@ class Album {
 		$this->posted = $b->posted;
 		$this->country = $b->country;
 		$this->tracklist = [];
-		/*
 		$this->year = $b->year;
 		$this->condition = $b->condition;
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
 		$this->sellerid = $b->sellerid;
 		$this->buyerid = $b->buyerid;
-		*/
 
 		foreach ($b->tracklist as $track) {
 			array_push($this->tracklist, [$track->title, $track->length]);
@@ -242,14 +236,12 @@ class Album {
 			"posted" => $row['posted'],
 			"country" => $row['country'],
 			"tracklist" => $row['tracklist']
-			/*
 			"year" => $row['year'],
 			"condition" => $row['condition'],
 			"currency" => $row['currency'],
 			"purchased" => $row['purchased'],
 			"sellerid" => $row['sellerid'],
 			"buyerid" => $row['buyerid']
-			*/
 		]);
 	}
 
@@ -708,14 +700,40 @@ class Methods {
 	public static function currencyExpand($c) {
 		$cu = "";
 		switch ($c) {
-
+			case "usd": case "cad": case "aud": case "mxn":
+				$cu = "$";
+				break;
+			case "gbp":
+				$cu = "&pound;";
+				break;
+			case "eur":
+				$cu = "&euro;";
+				break;
 		}
 	}
 
 	public static function conditionExpand($c) {
 		$co = "";
 		switch ($c) {
-
+			case "m":
+				$co = "Mint";
+				break;
+			case "nm":
+				$co = "Near Mint";
+				break;
+			case "vg":
+				$co = "Very Good";
+				break;
+			case "g":
+				$co = "Good";
+				break;
+			case "f":
+				$co = "Fair";
+				break;
+			case "p":
+				$co = "Poor";
+				break;
 		}
+		return $co;
 	}
 } /* class Methods */

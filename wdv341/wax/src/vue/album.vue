@@ -295,6 +295,9 @@ export default {
 				case "gbp":
 					c = "&pound;";
 					break;
+				case "eur":
+					c = "&euro;";
+					break;
 				case "rub":
 					c = "&#x20bd;";
 					break;
