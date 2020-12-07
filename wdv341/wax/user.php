@@ -119,6 +119,8 @@ EOF;
 					$button = "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>";
 				}
 
+				$semail = "";
+
 				if (intval($row['showemail']) == 1)
 					$semail = "<b>Hidden</b>";
 				else if (intval($row['showemail']) == 2) {

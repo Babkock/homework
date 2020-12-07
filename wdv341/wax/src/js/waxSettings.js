@@ -50,11 +50,11 @@ let app = new Vue({
 				formData.append("oldpassword", this.oldpassword);
 				formData.append("newpassword", this.newpassword);
 				formData.append("country", this.country);
-				if (this.showemail === "one")
+				if (this.userinfo.showemail === "one")
 					formData.append("showemail", 1);
-				else if (this.showemail === "two")
+				else if (this.userinfo.showemail === "two")
 					formData.append("showemail", 2);
-				else if (this.showemail === "three")
+				else if (this.userinfo.showemail === "three")
 					formData.append("showemail", 3);
 				
 				formData.append("biography", this.biography);
