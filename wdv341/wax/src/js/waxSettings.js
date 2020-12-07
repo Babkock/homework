@@ -49,8 +49,14 @@ let app = new Vue({
 				}
 				formData.append("oldpassword", this.oldpassword);
 				formData.append("newpassword", this.newpassword);
-				formData.append("newpassword2", this.newpassword2);
-				formData.append("showemail", this.showemail);
+				formData.append("country", this.country);
+				if (this.showemail === "one")
+					formData.append("showemail", 1);
+				else if (this.showemail === "two")
+					formData.append("showemail", 2);
+				else if (this.showemail === "three")
+					formData.append("showemail", 3);
+				
 				formData.append("biography", this.biography);
 				this.$http.post("settings", formData).then((response) => {
 					this.ajaxResult = response.data;

@@ -18,6 +18,7 @@ try {
 		$user = new User(intval($uid));
 		$user->read();
 
+		/*
 		if (isset($_POST['showemail'])) {
 			switch ($_POST['showemail']) {
 				case "one":
@@ -37,7 +38,8 @@ try {
 		if (isset($_POST['country'])) {
 			if (strlen($_POST['country']) > 1)
 				$user->setCountry($_POST['country']);
-		}
+		} */
+		$user->seta($_POST);
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
 			$filetype = $_FILES['image']['type'];

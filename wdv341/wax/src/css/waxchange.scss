@@ -264,7 +264,7 @@ textarea {
 	}
 }
 
-.album-editor .cover, #account .avatar {
+.album-editor .cover, #account .avatar, .settings-form .cover {
 	@include WidthMargins(50%, 25%, 25%);
 	img {
 		@include WidthMargins(40%, 30%, 30%);

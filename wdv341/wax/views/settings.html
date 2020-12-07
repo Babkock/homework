@@ -31,7 +31,7 @@
 				<td><label><b>Country:</b></label></td>
 				<td>
 					<select v-model="userinfo.country" @change="userinfo.country = $event.target.value">
-						<option value="">{{USER_COUNTRY}}</option>
+						<option>{{USER_COUNTRY}}</option>
 						<option value="us">United States</option>
 						<option value="ca">Canada</option>
 						<option value="mx">Mexico</option>
@@ -98,9 +98,9 @@
 				<td><label><b>Email Preference:</b></label></td>
 				<td>
 					<select v-model="userinfo.showemail" name="showemail" @change="userinfo.showemail = $event.target.value">
-						<option value="one" {{HIDE_SELECT}}>Hide My Email</option>
-						<option value="two" {{ABSTRACT_SELECT}}>Abstract My Email</option>
-						<option value="three" {{SHOW_SELECT}}>Show My Email</option>
+						<option value="one">Hide My Email</option>
+						<option value="two">Abstract My Email</option>
+						<option value="three">Show My Email</option>
 					</select>
 				</td>
 			</tr>

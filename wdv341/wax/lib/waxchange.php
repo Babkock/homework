@@ -477,9 +477,8 @@ class User {
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
-		$st->bindParam(":image", $this->image);
+		// $st->bindParam(":image", $this->image);
 		$st->bindParam(":biography", $this->biography);
-		$st->bindParam(":sales", $this->sales);
 		$st->execute();
 	}
 
@@ -487,13 +486,13 @@ class User {
 		global $db;
 
 		// $st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1");
-		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `image`=:image, `biography`=:biography, `showemail`=:showemail, `sales`=:sales WHERE `id`=:id LIMIT 1");
+		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `biography`=:biography, `showemail`=:showemail, `sales`=:sales WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
-		$st->bindParam(":image", $this->image);
+		// $st->bindParam(":image", $this->image);
 		$st->bindParam(":biography", $this->biography);
 		$st->bindParam(":showemail", $this->showemail);
 		$st->bindParam(":sales", $this->sales);
@@ -501,7 +500,7 @@ class User {
 		$st->execute();
 	}
 
-	public static function delete($id = 0) {
+	public function delete() {
 		global $db;
 
 		$st = $db->prepare("DELETE FROM `users` WHERE `id`=:id LIMIT 1");
