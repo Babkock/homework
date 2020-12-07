@@ -303,11 +303,29 @@ textarea {
 		width:100%;
 	}
 	tbody tr td, thead tr td {
-		width:25%;
-		padding:5px;
+		width:24%;
+		padding:4px;
 		font-size:1.13em;
 		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #efefef);
 	}
+}
+
+.index-table {
+	width:100%;
+	tbody, tbody tr, thead, thead tr {
+		width:100%;
+	}
+	tbody tr td, thead tr td {
+		padding:4px;
+		font-size:1.13em;
+		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #dfdfdf);
+	}
+}
+.index-table.inv tbody tr td, .index-table.inv thead tr td {
+	width:24%;
+}
+.index-table.pur tbody tr td, .index-table.pur thead tr td {
+	width:50%;
 }
 
 .confirm {

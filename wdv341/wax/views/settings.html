@@ -1,4 +1,5 @@
 <main id="settings">
+	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<form action="" class="settings-form" method="post" enctype="multipart/form-data">
 		<h2>Change Password</h2>
 		<p>There are no requirements on passwords.</p>
@@ -88,7 +89,7 @@
 		<br />
 		<h2>Profile</h2>
 		<p>This is your biography text that appears on your profile. You can have whatever you want in this field to express yourself.</p>
-		<textarea v-model="userinfo.biography" id="profile" name="biography" cols=40 rows=7 placeholder="Enter whatever you want here! Plain text only, 600 character limit.">{{BIOGRAPHY}}</textarea>
+		<textarea v-model="userinfo.biography" id="profile" name="biography" cols=40 rows=7 placeholder="Enter whatever you want here! Plain text only, 600 character limit." @blur="userinfo.biography = $event.target.value">{{BIOGRAPHY}}</textarea>
 		<br />
 		<h2>Email Preference</h2>
 		<p>You can choose to hide your email from other users, abstract it (like: "bob dot smith at gmail dot com"), or show the entire email.</p>
@@ -96,7 +97,7 @@
 			<tr>
 				<td><label><b>Email Preference:</b></label></td>
 				<td>
-					<select v-model="userinfo.showemail" name="showemail">
+					<select v-model="userinfo.showemail" name="showemail" @change="userinfo.showemail = $event.target.value">
 						<option value="one" {{HIDE_SELECT}}>Hide My Email</option>
 						<option value="two" {{ABSTRACT_SELECT}}>Abstract My Email</option>
 						<option value="three" {{SHOW_SELECT}}>Show My Email</option>
