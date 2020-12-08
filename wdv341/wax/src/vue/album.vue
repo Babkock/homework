@@ -42,7 +42,7 @@ export default {
 			default: "us"
 		},
 		aprice: {
-			type: String,
+			type: Number,
 			required: true
 		},
 		acurrency: {
