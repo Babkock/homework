@@ -779,7 +779,7 @@ class Methods {
 				$cu = "&#x20bd;";
 				break;
 			case "dkk": case "nok": case "sek": case "isk":
-				$cu = "kr."
+				$cu = "kr.";
 				break;
 			case "chf":
 				$cu = "CHF";
