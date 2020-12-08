@@ -6,11 +6,12 @@
 		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
-			<h3 v-if="abuyer === null"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
+			<h3 v-if="apurchased === 'n'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
 			<h3 v-else><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
 			<slot name="info"></slot>
 			<p>Country: <span class="acountry" v-text="countryexpand"></span>
-			<br />Posted: <span class="date" v-text="niceposted"></span></p>
+			<br />Posted: <span class="date" v-text="niceposted"></span>
+			<br />Purchased: <span class="date" v-text="nicepurchased"></span>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
 			</slot>
@@ -64,6 +65,10 @@ export default {
 		abuyerid: {
 			type: Number,
 			default: null
+		},
+		apurchased: {
+			type: String,
+			required: true
 		}
 	},
 
@@ -88,7 +93,12 @@ export default {
 		},
 
 		niceposted: function() {
-			let jsDate = new Date(Date.parse(this.aposted.replace(/[-]/g,'/')));
+			let jsDate = new Date(Date.parse(this.aposted.replace(/[-]/g, '/')));
+			return jsDate.toDateString();
+		},
+
+		nicepurchased: function() {
+			let jsDate = new Date(Date.parse(this.apurchased.replace(/[-]/g, '/')));
 			return jsDate.toDateString();
 		},
 

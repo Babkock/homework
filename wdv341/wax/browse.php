@@ -75,6 +75,7 @@ try {
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				if ($x > 0)
 					$out .= ",\n";
+				$pur = ((strlen($row['purchased']) > 1) ? $row['purchased'] : "n");
 				$out .= <<<EOF
 				{
 					"id": {$row['id']},
@@ -92,7 +93,7 @@ try {
 					"year": {$row['year']},
 					"cond": "{$row['cond']}",
 					"currency": "{$row['currency']}",
-					"purchased": "{$row['purchased']}",
+					"purchased": "{$pur}",
 					"sellerid": {$row['sellerid']},
 					"buyerid": {$row['buyerid']},
 					"tracklist": {$row['tracklist']}
