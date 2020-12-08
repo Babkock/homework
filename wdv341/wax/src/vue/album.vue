@@ -8,9 +8,9 @@
 		<div v-if="showingExtra">
 			<h3 v-if="abuyer === '-'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
 			<h3 v-else><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
-			<p>Posted: <span class="date" v-text="niceposted"></span>
-			<br />Country: <span class="acountry" v-text="countryexpand"></span></p>
 			<slot name="info"></slot>
+			<p>Country: <span class="acountry" v-text="countryexpand"></span>
+			<br />Posted: <span class="date" v-text="niceposted"></span></p>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
 			</slot>
@@ -59,11 +59,11 @@ export default {
 		},
 		abuyer: {
 			type: String,
-			default: "-"
+			required: true
 		},
 		abuyerid: {
 			type: Number,
-			default: 0
+			required: true
 		}
 	},
 
@@ -100,9 +100,9 @@ export default {
 			return "user?id=" + this.abuyerid;
 		},
 
-		//alclass: function() {
-		//	return ((this.abuyer.length > 1) ? "album" : "album sold");
-		//},
+		alclass: function() {
+			return ((this.abuyer != null) ? "album" : "album sold");
+		},
 
 		countryexpand: function() {
 			let c = "";

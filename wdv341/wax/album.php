@@ -33,8 +33,8 @@ try {
 					"label" => $json->label,
 					"posted" => $json->posted,
 					"country" => $json->country,
-					"tracklist" => $tl
-					"year" => $json->year,
+					"tracklist" => $tl,
+					"year" => intval($json->year),
 					"currency" => $json->currency,
 					"condition" => $json->condition,
 					"purchased" => $json->purchased,
@@ -94,7 +94,7 @@ try {
 					"label" => $json->label,
 					"posted" => $json->posted,
 					"country" => $json->country,
-					"tracklist" => $tl
+					"tracklist" => $tl,
 					"year" => intval($json->year),
 					"currency" => $json->currency,
 					"condition" => $json->condition,
@@ -194,7 +194,6 @@ EOF;
 				"ALBUM_POSTED" => "",
 				"ALBUM_IMAGE" => "",
 				"ALBUM_COUNTRY" => "",
-				/*
 				"ALBUM_YEAR" => "",
 				"ALBUM_CURRENCY" => "",
 				"ALBUM_CONDITION" => "",
@@ -205,7 +204,6 @@ EOF;
 				"F_SELECT" => "",
 				"P_SELECT" => "",
 				"ALBUM_PURCHASED" => "",
-				*/
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
 				"EDITMODE" => "new",

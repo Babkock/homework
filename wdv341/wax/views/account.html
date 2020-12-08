@@ -31,13 +31,14 @@
 	</div>
 	<h3>Albums for Sale:</h3>
 	<div class="albums-box" v-if="inventory.length > 0">
-		<album v-for="(al, index) in inventory" v-if="al.buyer === ''" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+		<album v-for="(al, index) in inventory" v-if="al.buyer === ''" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b>
+				<br />Year: <b v-text="al.year"></b></p>
 				{{EDITBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -51,13 +52,14 @@
 
 	<h3>Collection:</h3>
 	<div class="albums-box" v-if="purchased.length > 0">
-		<album v-for="(al, index) in purchased" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+		<album v-for="(al, index) in purchased" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b>
+				<br />Year: <b v-text="al.year"></b></p>
 			</template>
 			<template slot="tracklist">
 				<ol v-if="al.tracklist.length > 0">
