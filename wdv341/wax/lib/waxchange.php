@@ -335,6 +335,14 @@ class Album {
 
 		$bid = Methods::getIdFromName($buyer);
 		$this->setBuyer($buyer);
+
+		$sid = Methods::getIdFromName($this->seller);
+		$user = new User(intval($sid));
+		$user->read();
+
+		$user->incrementSales();
+		$user->update();
+
 		// $this->setBuyerId($bid);
 		// $this->setPurchased(date("Y-m-d", mktime()));
 		$this->update();

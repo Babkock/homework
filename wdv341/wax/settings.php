@@ -63,9 +63,9 @@ try {
 		$user->update();
 
 		if (isset($_FILES['image']))
-			exit("<p class=\"success\">Your new avatar was uploaded, and your changes were saved.</p>");
+			exit("<p class=\"success\">Your new avatar was uploaded, and your changes were saved. <a href=\"user?id=" . $user->getId() . "\">View your public profile here.</a></p>");
 		else
-			exit("<p class=\"success\">Your changes were saved.</p>");
+			exit("<p class=\"success\">Your changes were saved. <a href=\"user?id=" . $user->getId() . "\">View your public profile here.</a></p>");
 	}
 	else {
 		$settings = new Page("header_user", "settings");
