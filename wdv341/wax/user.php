@@ -62,6 +62,7 @@ try {
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				if ($x > 0)
 					$out .= ",\n";
+				$pur = ((strlen($row['purchased']) > 1) ? $row['purchased'] : "n");
 				$out .= <<<EOF
 				{
 					"id": {$row['id']},
