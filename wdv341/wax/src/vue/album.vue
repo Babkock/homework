@@ -59,11 +59,11 @@ export default {
 		},
 		abuyer: {
 			type: String,
-			required: true
+			default: ""
 		},
 		abuyerid: {
 			type: Number,
-			required: true
+			default: null
 		}
 	},
 
