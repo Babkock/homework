@@ -89,13 +89,13 @@ try {
 					"label": "{$row['label']}",
 					"posted": "{$row['posted']}",
 					"country": "{$row['country']}",
-					"tracklist": {$row['tracklist']},
 					"year": {$row['year']},
 					"cond": "{$row['cond']}",
 					"currency": "{$row['currency']}",
 					"purchased": "{$row['purchased']}",
 					"sellerid": {$row['sellerid']},
-					"buyerid": {$row['buyerid']}
+					"buyerid": {$row['buyerid']},
+					"tracklist": {$row['tracklist']}
 				}
 EOF;
 				$x++;
