@@ -268,11 +268,12 @@ EOF;
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				{$sellbuy}
 				{$buybutton}
+				<p>Posted: {$posted}<br />
+				Country: <b>{$country}</b><br />
+				Condition: <b>{$condition}</b><br />
+				Year: <b>{$row['year']}</b></p>
 				<h3>Tracklist:</h3>
 				{$tlout}
-				<p>Posted: {$posted}</p>
-				<p>Country: <b>{$country}</b></p>
-				<p>Condition: <b>{$condition}</b></p>
 				<p><b>&copy; &copysr; {$row['label']}</b></p>
 			</div>
 		</album>
@@ -446,11 +447,12 @@ EOF;
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				{$sellbuy}
 				{$buybutton}
+				<p>Posted: {$posted}<br />
+				Country: <b>{$country}</b><br />
+				Condition: <b>{$condition}</b><br />
+				Year: <b>{$row['year']}</b></p>
 				<h3>Tracklist:</h3>
 				{$tlout}
-				<p>Posted: {$posted}</p>
-				<p>Country: <b>{$country}</b></p>
-				<p>Condition: <b>{$condition}</b></p>
 				<p><b>&copy; &copysr; {$row['label']}</b></p>
 			</div>
 		</album>

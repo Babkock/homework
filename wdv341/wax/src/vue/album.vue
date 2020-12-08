@@ -9,12 +9,12 @@
 		<div v-if="showingExtra">
 			<h3 v-if="abuyer === '-'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
 			<h3 v-else><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
+			<p><b>Posted</b>: <span class="date" v-text="niceposted"></span>
+			<br /><b>Country</b>: <span class="acountry" v-text="countryexpand"></span></p>
 			<slot name="info"></slot>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
 			</slot>
-			<p><b>Posted</b>: <span class="date" v-text="niceposted"></span></p>
-			<p><b>Country</b>: <span class="acountry" v-text="countryexpand"></span></p>
 		</div>
 	</div>
 </template>

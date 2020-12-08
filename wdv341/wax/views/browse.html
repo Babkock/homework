@@ -12,7 +12,8 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b></p>
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b>
+				<br />Year: <b v-text="al.year"></b></p>
 				{{BUYBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -31,7 +32,8 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b></p>
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b>
+				<br />Year: <b v-text="al.year"></b></p>
 				{{BUYBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -50,7 +52,8 @@
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b></p>
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b>
+				<br />Year: <b v-text="al.year"></b></p>
 			</template>
 			<template slot="tracklist">
 				<ol v-if="al.tracklist.length > 0">
