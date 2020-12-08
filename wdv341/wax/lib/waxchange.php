@@ -235,7 +235,7 @@ class Album {
 			"label" => $row['label'],
 			"posted" => $row['posted'],
 			"country" => $row['country'],
-			"tracklist" => $row['tracklist']
+			"tracklist" => $row['tracklist'],
 			"year" => $row['year'],
 			"condition" => $row['condition'],
 			"currency" => $row['currency'],

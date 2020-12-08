@@ -264,7 +264,7 @@ EOF;
 				{$tlout}
 				<p>Posted: {$posted}</p>
 				<p>Country: <b>{$country}</b></p>
-				<p><b>{$row['label']}</b></p>
+				<p><b>&copy; &copysr; {$row['label']}</b></p>
 			</div>
 		</album>
 	</div>

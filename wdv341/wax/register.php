@@ -8,6 +8,9 @@
 */
 require_once("lib/waxchange.php");
 
+if (isset($_SESSION['current_user']))
+	header("Location: index");
+
 try {
 	if (!empty($_POST)) {
 		if ((!isset($_POST['username'])) || (!isset($_POST['password'])) || (!isset($_POST['country'])) || (!isset($_POST['email']))) {

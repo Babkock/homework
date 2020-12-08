@@ -39,7 +39,6 @@ try {
 					"currency" => $json->currency,
 					"condition" => $json->condition,
 					"purchased" => $json->purchased,
-					"releasetype" => $json->releasetype,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
 					*/
@@ -103,7 +102,6 @@ try {
 					"currency" => $json->currency,
 					"condition" => $json->condition,
 					"purchased" => $json->purchased,
-					"releasetype" => $json->releasetype,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
 					*/
@@ -111,7 +109,7 @@ try {
 
 				$album->write();
 
-				exit("<p class=\"success\">Your album was uploaded successfully!</p>");
+				exit("<p class=\"success\">Your album was uploaded successfully! <a href=\"index\">Go back to your Dashboard.</a></p>");
 			}
 		}
 	}
@@ -125,6 +123,11 @@ try {
 			$alb = new Album(intval($_GET['id']));
 			$alb->read();
 
+			if (strcmp($alb->getSeller(), $_SESSION['current_user']) != 0) {
+				$editor->error("<p>You can not edit an album that you did not post.</p>");
+				exit();
+			}
+
 			$uid = Methods::getIdFromName($_SESSION['current_user']);
 
 			$editor->hreplace("USERID", $uid);
@@ -137,6 +140,18 @@ try {
 				"ALBUM_POSTED" => $alb->getPosted(),
 				"ALBUM_IMAGE" => $alb->getImage(),
 				"ALBUM_COUNTRY" => $alb->country,
+				/*
+				"ALBUM_YEAR" => $alb->getYear(),
+				"ALBUM_CURRENCY" => $alb->getCurrency(),
+				"ALBUM_CONDITION" => $alb->getCondition(),
+				"M_SELECT" => ((strcmp($alb->getCondition(), "m") == 0) ? "selected" : ""),
+				"NM_SELECT" => ((strcmp($alb->getCondition(), "nm") == 0) ? "selected" : ""),
+				"VG_SELECT" => ((strcmp($alb->getCondition(), "vg") == 0) ? "selected" : ""),
+				"G_SELECT" => ((strcmp($alb->getCondition(), "g") == 0) ? "selected" : ""),
+				"F_SELECT" => ((strcmp($alb->getCondition(), "f") == 0) ? "selected" : ""),
+				"P_SELECT" => ((strcmp($alb->getCondition(), "p") == 0) ? "selected" : ""),
+				"ALBUM_PURCHASED" => $alb->getPurchased(),
+				*/
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
 				"EDITMODE" => "edit",
@@ -183,6 +198,18 @@ EOF;
 				"ALBUM_POSTED" => "",
 				"ALBUM_IMAGE" => "",
 				"ALBUM_COUNTRY" => "",
+				/*
+				"ALBUM_YEAR" => "",
+				"ALBUM_CURRENCY" => "",
+				"ALBUM_CONDITION" => "",
+				"M_SELECT" => "",
+				"NM_SELECT" => "",
+				"VG_SELECT" => "",
+				"G_SELECT" => "",
+				"F_SELECT" => "",
+				"P_SELECT" => "",
+				"ALBUM_PURCHASED" => "",
+				*/
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
 				"EDITMODE" => "new",
