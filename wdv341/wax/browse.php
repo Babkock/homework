@@ -94,8 +94,8 @@ try {
 					"cond": "{$row['cond']}",
 					"currency": "{$row['currency']}",
 					"purchased": "{$row['purchased']}",
-					"sellerid": $row['sellerid'],
-					"buyerid": $row['buyerid']
+					"sellerid": {$row['sellerid']},
+					"buyerid": {$row['buyerid']}
 				}
 EOF;
 				$x++;
