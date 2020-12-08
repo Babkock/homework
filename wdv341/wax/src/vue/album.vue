@@ -7,7 +7,7 @@
 		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
-			<h3 v-if="abuyer === ''"><span :title="currencyexpand(acurrency)" class="price"><span v-html="currencysymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
+			<h3 v-if="abuyer === '-'"><span :title="currencyexpand(acurrency)" class="price"><span v-html="currencysymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
 			<h3 v-else><span :title="currencyexpand(acurrency)" class="price"><span v-html="currencysymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
 			<slot name="info"></slot>
 			<h3>Tracklist:</h3>
@@ -60,11 +60,11 @@ export default {
 		},
 		abuyer: {
 			type: String,
-			required: true
+			default: "-"
 		},
 		abuyerid: {
 			type: Number,
-			required: true
+			default: 0
 		}
 	},
 
