@@ -2,16 +2,16 @@
 	<form action="delete?id={{ALBUM_ID}}" method="post" class="delete-form" enctype="multipart/form-data">
 		<div class="album">
 			<div class="cover">
-				<img src="{{ALBUM_IMG}}" />
+				<img src="{{ALBUM_IMAGE}}" />
 			</div>
-			<h2><a href="{{ARTIST_HREF}}">{{ALBUM_ARTIST}}</a> - <a href="{{ALBUM_HREF}}">{{ALBUM_TITLE}}</a></h2>
+			<h2><a href="{{ARTIST_HREF}}">{{ALBUM_ARTIST}}</a> - <a href="{{ALBUM_HREF}}"><i>{{ALBUM_TITLE}}</i></a></h2>
 			<h3>{{ALBUM_DISCS}} x <span class="media">{{ALBUM_MEDIA}}</span></h3>
 			<h3><span class="price">${{ALBUM_PRICE}}</span> from <a href="user?id={{USERID}}">{{ALBUM_SELLER}}</a></h3>
 			<p>Posted: {{ALBUM_POSTED}}</p>
 			<p>Country: {{ALBUM_COUNTRY}}</p>
 			<h3>Tracklist</h3>
 			{{TRACKLIST}}
-			<p><b>{{ALBUM_LABEL}}</b></p>
+			<p><b>&copy; &copysr; {{ALBUM_LABEL}}</b></p>
 		</div>
 		<div class="confirm">
 			<h2>Delete this album?</h2>

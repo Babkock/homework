@@ -24,6 +24,31 @@ Vue.mixin({
 		
 		Register() {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
+		},
+
+		ConditionExpand(cond) {
+			let co = "";
+			switch (cond) {
+				case "m":
+					co = "Mint";
+					break;
+				case "nm":
+					co = "Near Mint";
+					break;
+				case "vg":
+					co = "Very Good";
+					break;
+				case "g":
+					co = "Good";
+					break;
+				case "f":
+					co = "Fair";
+					break;
+				case "p":
+					co = "Poor";
+					break;
+			}
+			return co;
 		}
 	}
 })

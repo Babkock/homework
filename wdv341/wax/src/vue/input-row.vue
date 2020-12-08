@@ -4,7 +4,6 @@
 			<label :for="name"><b v-text="labe"></b>:</label>
 		</td>
 		<td>
-			<b v-if="labe === 'Price'">$</b>
 			<input :v-model="vmodl" :value="value" type="text" :title="title" :alt="title" :name="name" :size="size" :maxlength="maxlen" :placeholder="plchold" @blur="$emit('input', $event.target.value)" />
 		</td>
 	</tr>

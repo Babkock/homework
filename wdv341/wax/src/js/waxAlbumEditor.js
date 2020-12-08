@@ -43,7 +43,13 @@ let app = new Vue({
 				label: "{{ALBUM_LABEL}}",
 				posted: "{{ALBUM_POSTED}}", // date
 				country: "{{ALBUM_COUNTRY}}",
-				tracklist: "{{ALBUM_TRACKLIST}}" // JS object
+				tracklist: "{{ALBUM_TRACKLIST}}", // JS object
+				year: "{{ALBUM_YEAR}}",  // int
+				cond: "{{ALBUM_COND}}",
+				currency: "{{ALBUM_CURRENCY}}",
+				purchased: "{{ALBUM_PURCHASED}}", // date
+				sellerid: "{{SELLERID}}",  // int
+				buyerid: "{{BUYERID}}"   // int
 			}
 		};
 	},
@@ -69,6 +75,12 @@ let app = new Vue({
 		ToggleTracks() {
 			this.showingTracks = ((this.showingTracks === true) ? false : true);
 			this.tracksButton = ((this.showingTracks === true) ? "Hide Tracks" : "Show Tracks");
+		},
+
+		/* Format a date string */
+		NicePosted(d) {
+			let jsDate = new Date(Date.parse(d.replace(/[-]/g,'/')));
+			return jsDate.toDateString();
 		},
 
 		/* Submit the entire Album form */

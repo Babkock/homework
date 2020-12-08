@@ -1,16 +1,14 @@
 <template>
-	<div class="album" :id="myid">
-<!-- <div :class="alclass" :id="myid"> -->
+<!-- <div class="album" :id="myid"> -->
+	<div :class="alclass" :id="myid">
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
-			<!--
-			<h3 v-if="abuyer === ''"><span :title="currencyExpand(acurrency)" class="price"><span v-html="currencySymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
-			<h3 v-else><span :title="currencyExpand(acurrency)" class="price"><span v-html="currencySymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
-			-->
+			<h3 v-if="abuyer === ''"><span :title="currencyexpand(acurrency)" class="price"><span v-html="currencysymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
+			<h3 v-else><span :title="currencyexpand(acurrency)" class="price"><span v-html="currencysymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
 			<slot name="info"></slot>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
@@ -43,8 +41,7 @@ export default {
 		acountry: {
 			type: String,
 			default: "us"
-		}
-		/*,
+		},
 		aprice: {
 			type: String,
 			required: true
@@ -68,7 +65,7 @@ export default {
 		abuyerid: {
 			type: Number,
 			required: true
-		} */
+		}
 	},
 
 	data: () => {
@@ -96,7 +93,7 @@ export default {
 			return jsDate.toDateString();
 		},
 
-		/* sellerhref: function() {
+		sellerhref: function() {
 			return "user?id=" + this.asellerid;
 		},
 
@@ -107,7 +104,6 @@ export default {
 		alclass: function() {
 			return ((this.abuyer.length > 1) ? "album" : "album sold");
 		},
-		*/
 
 		countryexpand: function() {
 			let c = "";
@@ -221,8 +217,7 @@ export default {
 			return c;
 		},
 
-		/*
-		currencyExpand: function() {
+		currencyexpand: function() {
 			let c = "";
 			switch (this.acurrency.toLowerCase()) {
 				case "usd":
@@ -274,7 +269,7 @@ export default {
 					c = "Australian Dollars";
 					break;
 				case "chf":
-					c = "Swiss Franc";
+					c = "Swiss Francs";
 					break;
 				case "btc":
 					c = "Bitcoin";
@@ -286,7 +281,7 @@ export default {
 			return c;
 		},
 
-		currencySymbol: function() {
+		currencysymbol: function() {
 			let c = "";
 			switch (this.acurrency.toLowerCase()) {
 				case "usd": case "cad": case "aud": case "mxn":
@@ -327,7 +322,7 @@ export default {
 					break;
 			}
 			return c;
-		} */
+		}
 	},
 
 	methods: {

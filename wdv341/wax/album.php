@@ -34,14 +34,12 @@ try {
 					"posted" => $json->posted,
 					"country" => $json->country,
 					"tracklist" => $tl
-					/*
 					"year" => $json->year,
 					"currency" => $json->currency,
 					"condition" => $json->condition,
 					"purchased" => $json->purchased,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
-					*/
 				]);
 
 				$album->update();
@@ -97,14 +95,12 @@ try {
 					"posted" => $json->posted,
 					"country" => $json->country,
 					"tracklist" => $tl
-					/*
-					"year" => $json->year,
+					"year" => intval($json->year),
 					"currency" => $json->currency,
 					"condition" => $json->condition,
 					"purchased" => $json->purchased,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
-					*/
 				]);
 
 				$album->write();
@@ -140,18 +136,15 @@ try {
 				"ALBUM_POSTED" => $alb->getPosted(),
 				"ALBUM_IMAGE" => $alb->getImage(),
 				"ALBUM_COUNTRY" => $alb->country,
-				/*
-				"ALBUM_YEAR" => $alb->getYear(),
 				"ALBUM_CURRENCY" => $alb->getCurrency(),
-				"ALBUM_CONDITION" => $alb->getCondition(),
-				"M_SELECT" => ((strcmp($alb->getCondition(), "m") == 0) ? "selected" : ""),
-				"NM_SELECT" => ((strcmp($alb->getCondition(), "nm") == 0) ? "selected" : ""),
-				"VG_SELECT" => ((strcmp($alb->getCondition(), "vg") == 0) ? "selected" : ""),
-				"G_SELECT" => ((strcmp($alb->getCondition(), "g") == 0) ? "selected" : ""),
-				"F_SELECT" => ((strcmp($alb->getCondition(), "f") == 0) ? "selected" : ""),
-				"P_SELECT" => ((strcmp($alb->getCondition(), "p") == 0) ? "selected" : ""),
+				"ALBUM_COND" => $alb->getCond(),
+				"M_SELECT" => ((strcmp($alb->getCond(), "m") == 0) ? "selected" : ""),
+				"NM_SELECT" => ((strcmp($alb->getCond(), "nm") == 0) ? "selected" : ""),
+				"VG_SELECT" => ((strcmp($alb->getCond(), "vg") == 0) ? "selected" : ""),
+				"G_SELECT" => ((strcmp($alb->getCond(), "g") == 0) ? "selected" : ""),
+				"F_SELECT" => ((strcmp($alb->getCond(), "f") == 0) ? "selected" : ""),
+				"P_SELECT" => ((strcmp($alb->getCond(), "p") == 0) ? "selected" : ""),
 				"ALBUM_PURCHASED" => $alb->getPurchased(),
-				*/
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
 				"EDITMODE" => "edit",
@@ -162,6 +155,9 @@ try {
 			]);
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_YEAR}}\"", "" . $alb->getYear(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{SELLERID}}\"", $uid, $editor->getContent()));
+			$editor->setContent(str_replace("\"{{BUYERID}}\"", "" . $alb->getBuyerId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->price, $editor->getContent()));
 			$editor->setContent(str_replace("\"{{UPLOADED}}\"", "true", $editor->getContent()));

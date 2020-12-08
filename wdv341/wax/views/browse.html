@@ -6,14 +6,15 @@
 	</div>
 	<center><h2>Newest Releases:</h2></center>
 	<div class="albums-box" v-if="primary != null">
-		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
+				<!-- <h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3> -->
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b></p>
 				{{BUYBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -26,14 +27,15 @@
 	</div>
 	<center><h2>Most Expensive Releases:</h2></center>
 	<div class="albums-box" v-if="secondary != null">
-		<album v-for="(al, index) in secondary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+		<album v-for="(al, index) in secondary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
+				<!-- <h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3> -->
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b></p>
 				{{BUYBUTTON}}
 			</template>
 			<template slot="tracklist">
@@ -46,14 +48,15 @@
 	</div>
 	<center><h2>Your Collection:</h2></center>
 	<div class="albums-box" v-if="tertiary != null">
-		<album v-for="(al, index) in tertiary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :country="al.country" :key="index">
+		<album v-for="(al, index) in tertiary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :country="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>You bought this for <span class="price">${{ al.price }}</span></h3>
+				<!-- <h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
+				<h3 v-else>You bought this for <span class="price">${{ al.price }}</span></h3> -->
+				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b></p>
 			</template>
 			<template slot="tracklist">
 				<ol v-if="al.tracklist.length > 0">

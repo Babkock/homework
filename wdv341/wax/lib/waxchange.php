@@ -44,7 +44,7 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	_______________________________________________________________________________________________________
 	| year        | INT(11)      | The year the album was released.                                       |
 	|-------------|--------------|------------------------------------------------------------------------|
-	| condition   | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor).    |
+	| cond        | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor).    |
 	|-------------|--------------|------------------------------------------------------------------------|
 	| currency    | VARCHAR(3)   | The currency the seller expects to be paid in.                         |
 	|-------------|--------------|------------------------------------------------------------------------|
@@ -71,7 +71,7 @@ class Album {
 	public $country;
 	private $tracklist;
 	private $year;
-	private $condition;
+	private $cond;
 	private $currency;
 	private $purchased;
 	private $sellerid;
@@ -117,8 +117,8 @@ class Album {
 	public function setPosted($p) { $this->posted = $p; }
 	public function getYear() { return $this->year; }
 	public function setYear($y) { $this->year = $y; }
-	public function getCondition() { return $this->condition; }
-	public function setCondition($c) {
+	public function getCond() { return $this->condition; }
+	public function setCond($c) {
 		if ((strlen($c) > 3) || (strlen($c) < 1)) {
 			exit("<p class=\"error\">Condition field must be at least 1, and no more than 3 characters.</p>");
 		}
@@ -155,7 +155,7 @@ class Album {
 				}
 			}
 			if (strcmp($k, "year") == 0) { $this->year = $v; }
-			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
+			if (strcmp($k, "cond") == 0) { $this->cond = $v; }
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
 			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
@@ -179,7 +179,7 @@ class Album {
 		$arr['country'] = $this->country;
 		$arr['tracklist'] = $this->tracklist;
 		$arr['year'] = $this->year;
-		$arr['condition'] = $this->condition;
+		$arr['cond'] = $this->cond;
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
 		$arr['sellerid'] = $this->sellerid;
@@ -204,7 +204,7 @@ class Album {
 		$this->country = $b->country;
 		$this->tracklist = [];
 		$this->year = $b->year;
-		$this->condition = $b->condition;
+		$this->cond = $b->cond;
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
 		$this->sellerid = $b->sellerid;
@@ -237,7 +237,7 @@ class Album {
 			"country" => $row['country'],
 			"tracklist" => $row['tracklist'],
 			"year" => $row['year'],
-			"condition" => $row['condition'],
+			"cond" => $row['cond'],
 			"currency" => $row['currency'],
 			"purchased" => $row['purchased'],
 			"sellerid" => $row['sellerid'],
@@ -248,25 +248,21 @@ class Album {
 	public function write() {
 		global $db;
 
-		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
-		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, :releasetype, :sellerid, NULL)");
+		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
+		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, :sellerid, NULL)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
 		$st->bindParam(":discs", $this->discs);
 		$st->bindParam(":price", $this->price);
 		$st->bindParam(":seller", $this->seller);
-		$st->bindParam(":buyer", $this->buyer);
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
-		/*
 		$st->bindParam(":year", $this->year);
-		$st->bindParam(":condition", $this->condition);
+		$st->bindParam(":cond", $this->cond);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":sellerid", $this->sellerid);
-		$st->bindParam(":buyerid", $this->buyerid);
-		*/
 
 		$tlJson = "[";
 		$t = 0;
@@ -289,8 +285,8 @@ class Album {
 	public function update() {
 		global $db;
 
-		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
-		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
+		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
+		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `cond`=:cond, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -303,14 +299,12 @@ class Album {
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":posted", $this->posted);
 		$st->bindParam(":country", $this->country);
-		/*
 		$st->bindParam(":year", $this->year);
-		$st->bindParam(":condition", $this->condition);
+		$st->bindParam(":cond", $this->cond);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":purchased", $this->purchased);
 		$st->bindParam(":sellerid", $this->sellerid);
 		$st->bindParam(":buyerid", $this->buyerid);
-		*/
 
 		$tlJson = "[";
 		$t = 0;
@@ -343,8 +337,8 @@ class Album {
 		$user->incrementSales();
 		$user->update();
 
-		// $this->setBuyerId($bid);
-		// $this->setPurchased(date("Y-m-d", mktime()));
+		$this->setBuyerId($bid);
+		$this->setPurchased(date("Y-m-d", mktime()));
 		$this->update();
 	}
 
@@ -708,6 +702,70 @@ class Methods {
 	public static function currencyExpand($c) {
 		$cu = "";
 		switch ($c) {
+			case "usd":
+				$cu = "US Dollars";
+				break;
+			case "cad":
+				$cu = "Canadian Dollars";
+				break;
+			case "mxn":
+				$cu = "Mexican Pesos";
+				break;
+			case "gbp":
+				$cu = "GB Pounds";
+				break;
+			case "rub":
+				$cu = "Russian Rubles";
+				break;
+			case "dkk":
+				$cu = "Danish Krone";
+				break;
+			case "sek":
+				$cu = "Swedish Krona";
+				break;
+			case "isk":
+				$cu = "Iceland Krona";
+				break;
+			case "eur":
+				$cu = "Euros";
+				break;
+			case "pln":
+				$cu = "Poland Zloty";
+				break;
+			case "krw":
+				$cu = "Korean Won";
+				break;
+			case "jpy":
+				$cu = "Japanese Yen";
+				break;
+			case "nok":
+				$cu = "Norweigan Krone";
+				break;
+			case "ang":
+				$cu = "Dutch Guilders";
+				break;
+			case "cny":
+				$cu = "Chinese Yuan Renminbi";
+				break;
+			case "aud":
+				$cu = "Australian Dollars";
+				break;
+			case "chf":
+				$cu = "Swiss Francs";
+				break;
+			case "btc":
+				$cu = "Bitcoin";
+				break;
+			default:
+				$cu = "Unknown Currency";
+				break;
+		}
+		return $cu;
+	}
+
+	public static function currencySymbol($c) {
+		$cu = "";
+		switch ($c) {
 			case "usd": case "cad": case "aud": case "mxn":
 				$cu = "$";
 				break;
@@ -717,7 +775,29 @@ class Methods {
 			case "eur":
 				$cu = "&euro;";
 				break;
+			case "rub":
+				$cu = "&#x20bd;";
+				break;
+			case "dkk": case "nok": case "sek": case "isk":
+				$cu = "kr."
+				break;
+			case "chf":
+				$cu = "CHF";
+				break;
+			case "jpy": case "cny":
+				$cu = "&yen;";
+				break;
+			case "ang":
+				$cu = "&fnof;";
+				break;
+			case "krw":
+				$cu = "&#8361;";
+				break;
+			case "pln":
+				$cu = "z&lstrok;";
+				break;
 		}
+		return $cu;
 	}
 
 	public static function conditionExpand($c) {

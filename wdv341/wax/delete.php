@@ -24,6 +24,7 @@ try {
 				$del = new Page("header_user", "about");
 
 				$album = new Album(intval($_GET['id']));
+				$album->read();
 				$album->delete();
 
 				$del->error("<h3>You have deleted " . $album->getArtist() . " - " . $album->getTitle() . "</h3>\n<p class=\"success\">This album is permanently deleted from the marketplace. If it was in someone's collection, it has been removed from their collection.</p>");

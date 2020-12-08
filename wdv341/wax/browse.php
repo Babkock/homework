@@ -30,8 +30,8 @@ try {
 				$st = $db->prepare("SELECT * FROM `albums` ORDER BY `price` DESC LIMIT 6");
 			}
 			else if (strcmp($_GET['mode'], "purchased") == 0) {
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
+				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
 				$buyer = $_SESSION['current_user'];
 				$st->bindParam(":buyer", $buyer);
 			}
@@ -39,8 +39,8 @@ try {
 				if (!isset($_GET['a'])) {
 					exit("{ \"error\": \"The artist mode must have an additional 'a' argument\" }");
 				}
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
+				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
 				$artist = ucwords($_GET['a']);
 
 				$st->bindParam(":artist", $artist);
@@ -89,7 +89,13 @@ try {
 					"label": "{$row['label']}",
 					"posted": "{$row['posted']}",
 					"country": "{$row['country']}",
-					"tracklist": {$row['tracklist']}
+					"tracklist": {$row['tracklist']},
+					"year": {$row['year']},
+					"cond": "{$row['cond']}",
+					"currency": "{$row['currency']}",
+					"purchased": "{$row['purchased']}",
+					"sellerid": $row['sellerid'],
+					"buyerid": $row['buyerid']
 				}
 EOF;
 				$x++;
@@ -236,9 +242,11 @@ EOF;
 
 					$tlout .= "</ol>";
 					$posted = date("F j, Y", strtotime($row['posted']));
-					$price = "$" . $row['price'];
+					$price = Methods::currencySymbol($row['currency']) . $row['price'];
+					$condition = Methods::conditionExpand($row['cond']);
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
+
 					if (strlen($row['buyer']) > 1) {
 						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
 						$buybutton = "";
@@ -264,6 +272,7 @@ EOF;
 				{$tlout}
 				<p>Posted: {$posted}</p>
 				<p>Country: <b>{$country}</b></p>
+				<p>Condition: <b>{$condition}</b></p>
 				<p><b>&copy; &copysr; {$row['label']}</b></p>
 			</div>
 		</album>
@@ -409,10 +418,13 @@ EOF;
 					}
 
 					$tlout .= "</ol>";
-					$price = "$" . $row['price'];
+					$price = Methods::currencySymbol($row['currency']) . $row['price'];
+					$condition = Methods::conditionExpand($row['cond']);
+					$purchased = date("F j, Y", strtotime($row['purchased']));
 					$posted = date("F j, Y", strtotime($row['posted']));
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
+
 					if (strlen($row['buyer']) > 1) {
 						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
 						$buybutton = "";
@@ -438,7 +450,8 @@ EOF;
 				{$tlout}
 				<p>Posted: {$posted}</p>
 				<p>Country: <b>{$country}</b></p>
-				<p><b>{$row['label']}</b></p>
+				<p>Condition: <b>{$condition}</b></p>
+				<p><b>&copy; &copysr; {$row['label']}</b></p>
 			</div>
 		</album>
 	</div>
