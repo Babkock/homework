@@ -145,7 +145,7 @@ try {
 				"BUYERID" => $alb->getBuyerId(),
 				"ALBUM_PURCHASED" => $alb->getPurchased(),
 				"USERNAME" => $_SESSION['current_user'],
-				"USERID" => $uid,
+				"USERID" => $alb->getSellerId(),
 				"EDITMODE" => "edit",
 				"VINYL_SELECT" => ((strcmp($alb->getMedia(), "Vinyl") == 0) ? "selected" : ""),
 				"CASSETTE_SELECT" => ((strcmp($alb->getMedia(), "Cassette") == 0) ? "selected" : ""),
@@ -155,7 +155,7 @@ try {
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_YEAR}}\"", "" . $alb->getYear(), $editor->getContent()));
-			$editor->setContent(str_replace("\"{{SELLERID}}\"", $uid, $editor->getContent()));
+			$editor->setContent(str_replace("\"{{SELLERID}}\"", $alb->getSellerId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{BUYERID}}\"", "" . $alb->getBuyerId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->price, $editor->getContent()));

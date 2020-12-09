@@ -117,12 +117,12 @@ class Album {
 	public function setPosted($p) { $this->posted = $p; }
 	public function getYear() { return $this->year; }
 	public function setYear($y) { $this->year = $y; }
-	public function getCond() { return $this->condition; }
+	public function getCond() { return $this->cond; }
 	public function setCond($c) {
 		if ((strlen($c) > 3) || (strlen($c) < 1)) {
 			exit("<p class=\"error\">Condition field must be at least 1, and no more than 3 characters.</p>");
 		}
-		$this->condition = $c;
+		$this->cond = $c;
 	}
 	public function getCurrency() { return $this->currency; }
 	public function setCurrency($c) { $this->currency = $c; }
@@ -135,17 +135,17 @@ class Album {
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
-			if (strcmp($k, "artist") == 0) { $this->artist = $v; }
+			if (strcmp($k, "artist") == 0) { $this->setArtist($v); }
 			if (strcmp($k, "title") == 0) { $this->setTitle($v); }
-			if (strcmp($k, "media") == 0) { $this->media = $v; }
+			if (strcmp($k, "media") == 0) { $this->setMedia($v); }
 			if (strcmp($k, "discs") == 0) { $this->setDiscs($v); }
 			if (strcmp($k, "price") == 0) { $this->price = $v; }			
-			if (strcmp($k, "seller") == 0) { $this->seller = $v; }
-			if (strcmp($k, "buyer") == 0) { $this->buyer = $v; }
-			if (strcmp($k, "image") == 0) { $this->image = $v; }
-			if (strcmp($k, "label") == 0) { $this->label = $v; }
+			if (strcmp($k, "seller") == 0) { $this->setSeller($v); }
+			if (strcmp($k, "buyer") == 0) { $this->setBuyer($v); }
+			if (strcmp($k, "image") == 0) { $this->setImage($v); }
+			if (strcmp($k, "label") == 0) { $this->setLabel($v); }
 			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
-			if (strcmp($k, "country") == 0) { $this->country = $v; }
+			if (strcmp($k, "country") == 0) { $this->setCountry($v); }
 			if (strcmp($k, "tracklist") == 0) {
 				$this->tracklist = [];
 				$tl = json_decode($v);
@@ -154,12 +154,12 @@ class Album {
 					array_push($this->tracklist, [$track->title, $track->length]);
 				}
 			}
-			if (strcmp($k, "year") == 0) { $this->year = $v; }
-			if (strcmp($k, "cond") == 0) { $this->cond = $v; }
-			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
-			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
-			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
-			if (strcmp($k, "buyerid") == 0) { $this->buyerid = $v; }
+			if (strcmp($k, "year") == 0) { $this->setYear($v); }
+			if (strcmp($k, "cond") == 0) { $this->setCond($v); }
+			if (strcmp($k, "currency") == 0) { $this->setCurrency($v); }
+			if (strcmp($k, "purchased") == 0) { $this->setPurchased($v); }
+			if (strcmp($k, "sellerid") == 0) { $this->setSellerId($v); }
+			if (strcmp($k, "buyerid") == 0) { $this->setBuyerId($v); }
 		}
 	}
 
@@ -249,7 +249,7 @@ class Album {
 		global $db;
 
 		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
-		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, :sellerid, NULL)");
+		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, NULL, :sellerid, NULL)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
@@ -576,6 +576,10 @@ class Page {
 </html>
 EOF;
 		$this->output();
+	}
+
+	public function ogImage($i) {
+		$this->replace("OGIMAGE", $i);
 	}
 
 	public function script($s) {

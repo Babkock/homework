@@ -48,6 +48,7 @@ try {
 			$st->execute();
 
 			$row = $st->fetch(PDO::FETCH_ASSOC);
+			$buy->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
 			$country = Methods::countryExpand($row['country']);
 
 			if (strlen($row['buyer']) > 1) {

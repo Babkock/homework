@@ -81,7 +81,7 @@ try {
 					"year": "{$row['year']}",
 					"cond": "{$row['cond']}",
 					"currency": "{$row['currency']}",
-					"purchased": "{$row['purchased']}",
+					"purchased": "{$pur}",
 					"sellerid": {$row['sellerid']},
 					"buyerid": {$row['buyerid']},
 					"tracklist": {$row['tracklist']}
@@ -116,7 +116,9 @@ EOF;
 				exit();
 			}
 			else {
+				$userpage->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
 				$userpage->hreplace("USERNAME", $row['username']);
+
 				if (isset($_SESSION['current_user'])) {
 					if (strcmp($_SESSION['current_user'], $row['username']) == 0)
 						$button = "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>";
@@ -166,6 +168,7 @@ EOF;
 		else {
 			$userpage->setTitle("WaXchange &bull; Users");
 			$userpage->setDescription("This is the complete list of users on WaXchange music marketplace.");
+			$userpage->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 			$st = $db->prepare("SELECT `username`, `id`, `email`, `showemail`, `registered` FROM `users` ORDER BY `id` ASC");
 			$st->execute();
 

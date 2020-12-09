@@ -137,6 +137,7 @@ EOF;
 			if (isset($_GET['a'])) {       // artist
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$artist = ucwords($_GET['a']);
 
 				$heading = "Artist: " . $artist;
@@ -158,6 +159,7 @@ EOF;
 			else if (isset($_GET['b'])) {  // album
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$album = ucwords($_GET['b']);
 
 				$heading = "<i>" . $album . "</i>";
@@ -179,6 +181,7 @@ EOF;
 			else if (isset($_GET['c'])) {  // country
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$country = Methods::countryExpand($_GET['c']);
 
 				$browse->replacea([
@@ -218,6 +221,8 @@ EOF;
 					$st->execute();
 
 					$row = $st->fetch(PDO::FETCH_ASSOC);
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
+
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
@@ -238,6 +243,23 @@ EOF;
 
 					$tlout .= "</tbody></table>";
 					$posted = date("F j, Y", strtotime($row['posted']));
+
+					if (strlen($row['purchased']) > 1) {
+						$purchased = date("F j, Y", strtotime($row['purchased']));
+						$prow = <<<EOF
+					<div class="alb-info">
+						<div class="prop">
+							Date Purchased:
+						</div>
+						<div class="val">
+							<b>{$purchased}</b>
+						</div>
+					</div>
+EOF;
+					}
+					else {
+						$prow = "";
+					}
 
 					$price = number_format((float)$row['price'], 2, ".", "");
 					$sprice = Methods::currencySymbol($row['currency']) . $price;
@@ -268,22 +290,6 @@ EOF;
 				{$buybutton}
 				<div class="alb-info">
 					<div class="prop">
-						Posted:
-					</div>
-					<div class="val">
-						<b>{$posted}</b>
-					</div>
-				</div>
-				<div class="alb-info">
-					<div class="prop">
-						Country:
-					</div>
-					<div class="val">
-						<b>{$country}</b>
-					</div>
-				</div>
-				<div class="alb-info">
-					<div class="prop">
 						Condition:
 					</div>
 					<div class="val">
@@ -298,6 +304,23 @@ EOF;
 						<b>{$row['year']}</b>
 					</div>
 				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Country:
+					</div>
+					<div class="val">
+						<b>{$country}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Date Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
+					</div>
+				</div>
+				{$prow}
 				<h3>Tracklist:</h3>
 				{$tlout}
 				<p><b>&copy; &copysr; {$row['year']} {$row['label']}</b></p>
@@ -314,6 +337,7 @@ EOF;
 				else {
 					$browse = new Page("header_guest", "browse");
 					$browse->script("waxBrowse.min.js");
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 					$browse->replacea([
 						"USERID" => "0",
 						"HEADING" => "",
@@ -337,6 +361,7 @@ EOF;
 			if (isset($_GET['a'])) {    // artist
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$browse->hreplace("USERID", "" . $uid);
 				$artist = ucwords($_GET['a']);
 
@@ -359,6 +384,7 @@ EOF;
 			else if (isset($_GET['b'])) {    // album
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$browse->hreplace("USERID", "" . $uid);
 				$album = ucwords($_GET['b']);
 
@@ -381,6 +407,7 @@ EOF;
 			else if (isset($_GET['c'])) {   // country
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$country = Methods::countryExpand($_GET['c']);
 
 				$browse->hreplace("USERID", "" . $uid);
@@ -420,6 +447,7 @@ EOF;
 					$st->execute();
 
 					$row = $st->fetch(PDO::FETCH_ASSOC);
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
@@ -443,7 +471,24 @@ EOF;
 					$price = number_format((float)$row['price'], 2, ".", "");
 					$sprice = Methods::currencySymbol($row['currency']) . $price;
 					$condition = Methods::conditionExpand($row['cond']);
-					$purchased = date("F j, Y", strtotime($row['purchased']));
+
+					if (strlen($row['purchased']) > 1) {
+						$purchased = date("F j, Y", strtotime($row['purchased']));
+						$prow = <<<EOF
+				<div class="alb-info">
+					<div class="prop">
+						Date Purchased:
+					</div>
+					<div class="val">
+						<b>{$purchased}</b>
+					</div>
+				</div>
+EOF;
+					}
+					else {
+						$prow = "";
+					}
+					
 					$posted = date("F j, Y", strtotime($row['posted']));
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
@@ -471,22 +516,6 @@ EOF;
 				{$buybutton}
 				<div class="alb-info">
 					<div class="prop">
-						Date Posted:
-					</div>
-					<div class="val">
-						<b>{$posted}</b>
-					</div>
-				</div>
-				<div class="alb-info">
-					<div class="prop">
-						Country:
-					</div>
-					<div class="val">
-						<b>{$country}</b>
-					</div>
-				</div>
-				<div class="alb-info">
-					<div class="prop">
 						Condition:
 					</div>
 					<div class="val">
@@ -501,6 +530,23 @@ EOF;
 						<b>{$row['year']}</b>
 					</div>
 				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Date Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Country:
+					</div>
+					<div class="val">
+						<b>{$country}</b>
+					</div>
+				</div>
+				{$prow}
 				<h3>Tracklist:</h3>
 				{$tlout}
 				<p><b>&copy; &copysr; {$row['year']} {$row['label']}</b></p>
@@ -517,6 +563,7 @@ EOF;
 				else {
 					$browse = new Page("header_user", "browse");
 					$browse->script("waxBrowse.min.js");
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 					$browse->hreplace("USERID", "" . $uid);
 					$browse->replacea([
 						"USERID" => "0",

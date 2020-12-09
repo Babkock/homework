@@ -11,6 +11,7 @@ require_once("lib/waxchange.php");
 $home = new Page(((isset($_SESSION['current_user'])) ? "header_user" : "header_guest"), "index");
 $home->setTitle("WaXchange &bull; Dashboard");
 $home->setDescription("WaXchange is a music marketplace, where users can buy and sell albums.");
+$home->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 
 if (isset($_SESSION['current_user'])) {
 	$userid = Methods::getIdFromName($_SESSION['current_user']);
