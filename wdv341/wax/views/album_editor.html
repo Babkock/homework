@@ -10,21 +10,21 @@
 				<td><label><b>Seller</b>:</label></td>
 				<td>{{USERNAME}}</td>
 			</tr>
-			<tr v-if="album.buyer != null">
+			<tr v-if="album.buyer.length > 1">
 				<td><label><b>Buyer</b>:</label></td>
 				<td v-text="album.buyer"></td>
 			</tr>
-			<tr v-if="album.posted != null">
+			<tr v-if="album.posted.length > 1">
 				<td><label><b>Date Posted</b>:</label></td>
 				<td v-text="NicePosted(album.posted)"></td>
 			</tr>
-			<tr v-if="album.purchased != null">
+			<tr v-if="album.purchased.length > 1">
 				<td><label><b>Date Purchased</b>:</label></td>
 				<td v-text="NicePosted(album.purchased)"></td>
 			</tr>
 		</tbody></table>
 		<br />
-		<table><tbody>
+		<table class="main-album-info"><tbody>
 			<tr is="input-row" labe="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
 			<tr is="input-row" labe="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
 			<tr>
@@ -117,7 +117,7 @@
 				<td><label for="cond"><b>Condition</b>:</label></td>
 				<td>
 					<select title="What is the physical condition of this item?" alt="What is the physical condition of this album?" name="cond" v-model="album.cond">
-						<option value="">Select Condition</option>
+						<option value="" selected>Select Condition</option>
 						<option value="m" {{M_SELECT}}>Mint</option>
 						<option value="nm" {{NM_SELECT}}>Near Mint</option>
 						<option value="vg" {{VG_SELECT}}>Very Good</option>

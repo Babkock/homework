@@ -30,8 +30,8 @@ try {
 				$st = $db->prepare("SELECT * FROM `albums` ORDER BY `price` DESC LIMIT 6");
 			}
 			else if (strcmp($_GET['mode'], "purchased") == 0) {
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
+				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
 				$buyer = $_SESSION['current_user'];
 				$st->bindParam(":buyer", $buyer);
 			}
@@ -39,8 +39,8 @@ try {
 				if (!isset($_GET['a'])) {
 					exit("{ \"error\": \"The artist mode must have an additional 'a' argument\" }");
 				}
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
+				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
 				$artist = ucwords($_GET['a']);
 
 				$st->bindParam(":artist", $artist);
@@ -138,13 +138,7 @@ EOF;
 				$browse->script("waxBrowse.min.js");
 				$artist = ucwords($_GET['a']);
 
-				if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "Artist: " . $artist . ", Country: " . $country;
-				}
-				else {
-					$heading = "Artist: " . $artist;
-				}
+				$heading = "Artist: " . $artist;
 
 				$browse->replacea([
 					"USERID" => "0",
@@ -165,14 +159,8 @@ EOF;
 				$browse->script("waxBrowse.min.js");
 				$album = ucwords($_GET['b']);
 
-				if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "<i>" . $album . "</i>, Country: " . $country;
-				}
-				else {
-					$heading = "<i>" . $album . "</i>";
-				}
-
+				$heading = "<i>" . $album . "</i>";
+				
 				$browse->replacea([
 					"USERID" => "0",
 					"HEADING" => $heading,
@@ -349,14 +337,8 @@ EOF;
 				$browse->hreplace("USERID", "" . $uid);
 				$artist = ucwords($_GET['a']);
 
-				/* if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "Artist: " . $artist . ", Country: " . $country;
-				}
-				else { */
-					$heading = "Artist: " . $artist;
-				// }
-
+				$heading = "Artist: " . $artist;
+				
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => $heading,
@@ -377,14 +359,8 @@ EOF;
 				$browse->hreplace("USERID", "" . $uid);
 				$album = ucwords($_GET['b']);
 
-				/* if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "<i>" . $album . "</i>, Country: " . $country;
-				}
-				else { */
-					$heading = "<i>" . $album . "</i>";
-				// }
-
+				$heading = "<i>" . $album . "</i>";
+				
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => $heading,

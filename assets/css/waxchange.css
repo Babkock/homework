@@ -116,6 +116,22 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 #account .bio p { font-size: 1.12em; }
 
+.track-list { width: 100%; text-align: left; }
+
+.track-list tbody, .track-list tbody tr { width: 100%; }
+
+.track-list tbody tr td { background: rgba(10, 10, 10, 0.2); padding: 6px; font-size: 1.12em; }
+
+button.expand { width: 90%; }
+
+.alb-info { display: flex; flex-direction: row; flex-wrap: nowrap; width: 98%; }
+
+.alb-info div { background: rgba(10, 10, 10, 0.2); background-color: rgba(10, 10, 10, 0.2); border: 1px solid rgba(10, 10, 10, 0.4); color: #dfdfdf; padding: 5px; padding-top: 7px; }
+
+.alb-info .prop { width: 48%; margin-left: 1%; margin-right: 1%; font-size: 1.1em; }
+
+.alb-info .val { width: 49%; margin-left: 1%; margin-right: 0%; font-size: 1.09em; }
+
 .album-editor table { width: 100%; }
 
 .users-table { width: 100%; }

@@ -4,7 +4,7 @@
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
-		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
+		<button class="expand" @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
 			<h3 v-if="apurchased === 'n'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
 			<h3 v-else>Sold for <span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> to <a :href="buyerhref" v-text="abuyer"></a></h3>

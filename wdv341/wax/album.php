@@ -120,7 +120,7 @@ try {
 			$alb->read();
 
 			if (strcmp($alb->getSeller(), $_SESSION['current_user']) != 0) {
-				$editor->error("<p>You can not edit an album that you did not post.</p>");
+				$editor->error("<h2>You can not edit an album that you did not post.</h2>");
 				exit();
 			}
 
