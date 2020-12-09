@@ -40,6 +40,7 @@ try {
 			$del = new Page("header_guest", "about");
 
 			$del->error("<p class=\"error\">No 'id' argument given.</p>");
+			exit();
 		}
 		else {
 			$album = new Album(intval($_GET['id']));
@@ -48,6 +49,7 @@ try {
 				$del = new Page("header_guest", "about");
 
 				$del->error("<p class=\"error\">You cannot delete this album since you didn't post it.</p>");
+				exit();
 			}
 			else {
 				$del = new Page("header_user", "delete");
@@ -63,14 +65,20 @@ try {
 				$country = Methods::countryExpand($row['country']);
 
 				$tl = json_decode($row['tracklist']);
-				$tlout = "<ol>";
+				$tlout = "<table class=\"track-list\"><tbody>";
+				$x = 1;
 
 				foreach ($tl as $k => $v) {
 					$tlout .= <<<EOF
-				<li>{$v->title} <i>($v->length)</i></li>
+				<tr>
+					<td>{$x}.</td>
+					<td>{$v->title}</td>
+					<td>{$v->length}</td>
+				</tr>
 EOF;
+					$x++;
 				}
-				$tlout .= "</ol>";
+				$tlout .= "</tbody></table>";
 				$sid = Methods::getIdFromName($row['seller']);
 
 				$del->hreplacea([
@@ -93,7 +101,10 @@ EOF;
 					"SELLER_HREF" => "user?id=" . $sid,
 					"ALBUM_POSTED" => date("F j, Y", strtotime($row['posted'])),
 					"ALBUM_COUNTRY" => Methods::countryExpand($row['country']),
-					"TRACKLIST" => $tlout
+					"TRACKLIST" => $tlout,
+					"CURRENCY_SYMBOL" => Methods::currencySymbol($row['currency']),
+					"ALBUM_COND" => Methods::conditionExpand($row['cond']),
+					"ALBUM_YEAR" => $row['year']
 				]);
 			}
 		}

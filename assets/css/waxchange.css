@@ -134,7 +134,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .index-table.inv tbody tr td, .index-table.inv thead tr td { width: 24%; }
 
-.index-table.pur tbody tr td, .index-table.pur thead tr td { width: 50%; }
+.index-table.pur tbody tr td, .index-table.pur thead tr td { width: 24%; }
 
 .user-info tbody tr td { width: 49%; padding: 5px !important; font-size: 1.14em !important; text-align: left; }
 

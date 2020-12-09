@@ -135,15 +135,15 @@ class Album {
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
-			if (strcmp($k, "artist") == 0) { $this->setArtist($v); }
-			if (strcmp($k, "title") == 0) { $this->setTitle($v); }
-			if (strcmp($k, "media") == 0) { $this->setMedia($v); }
-			if (strcmp($k, "discs") == 0) { $this->setDiscs($v); }
+			if (strcmp($k, "artist") == 0) { $this->artist = $v; }
+			if (strcmp($k, "title") == 0) { $this->title = $v; }
+			if (strcmp($k, "media") == 0) { $this->media = $v; }
+			if (strcmp($k, "discs") == 0) { $this->discs = $v; }
 			if (strcmp($k, "price") == 0) { $this->price = $v; }			
 			if (strcmp($k, "seller") == 0) { $this->setSeller($v); }
 			if (strcmp($k, "buyer") == 0) { $this->setBuyer($v); }
-			if (strcmp($k, "image") == 0) { $this->setImage($v); }
-			if (strcmp($k, "label") == 0) { $this->setLabel($v); }
+			if (strcmp($k, "image") == 0) { $this->image = $v; }
+			if (strcmp($k, "label") == 0) { $this->label = $v; }
 			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
 			if (strcmp($k, "country") == 0) { $this->country = $v; }
 			if (strcmp($k, "tracklist") == 0) {
@@ -154,12 +154,12 @@ class Album {
 					array_push($this->tracklist, [$track->title, $track->length]);
 				}
 			}
-			if (strcmp($k, "year") == 0) { $this->setYear($v); }
-			if (strcmp($k, "cond") == 0) { $this->setCond($v); }
-			if (strcmp($k, "currency") == 0) { $this->setCurrency($v); }
-			if (strcmp($k, "purchased") == 0) { $this->setPurchased($v); }
-			if (strcmp($k, "sellerid") == 0) { $this->setSellerId($v); }
-			if (strcmp($k, "buyerid") == 0) { $this->setBuyerId($v); }
+			if (strcmp($k, "year") == 0) { $this->year = $v; }
+			if (strcmp($k, "cond") == 0) { $this->cond = $v; }
+			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
+			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
+			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
+			if (strcmp($k, "buyerid") == 0) { $this->buyerid = $v; }
 		}
 	}
 
@@ -249,7 +249,7 @@ class Album {
 		global $db;
 
 		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
-		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, NULL, :sellerid, NULL)");
+		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, '', :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, NULL, :sellerid, 0)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
@@ -299,12 +299,6 @@ class Album {
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":posted", $this->posted);
 		$st->bindParam(":country", $this->country);
-		$st->bindParam(":year", $this->year);
-		$st->bindParam(":cond", $this->cond);
-		$st->bindParam(":currency", $this->currency);
-		$st->bindParam(":purchased", $this->purchased);
-		$st->bindParam(":sellerid", $this->sellerid);
-		$st->bindParam(":buyerid", $this->buyerid);
 
 		$tlJson = "[";
 		$t = 0;
@@ -321,6 +315,12 @@ class Album {
 		$tlJson .= "]";
 		$this->posted = date("Y-m-d", mktime());
 		$st->bindParam(":tracklist", $tlJson);
+		$st->bindParam(":year", $this->year);
+		$st->bindParam(":cond", $this->cond);
+		$st->bindParam(":currency", $this->currency);
+		$st->bindParam(":purchased", $this->purchased);
+		$st->bindParam(":sellerid", $this->sellerid);
+		$st->bindParam(":buyerid", $this->buyerid);
 		$st->execute();
 	}
 
@@ -329,6 +329,7 @@ class Album {
 
 		$bid = Methods::getIdFromName($buyer);
 		$this->setBuyer($buyer);
+		$this->setBuyerId(intval($bid));
 
 		$sid = Methods::getIdFromName($this->seller);
 		$user = new User(intval($sid));
@@ -337,16 +338,15 @@ class Album {
 		$user->incrementSales();
 		$user->update();
 
-		$this->setBuyerId($bid);
 		$this->setPurchased(date("Y-m-d", mktime()));
 		$this->update();
 	}
 
-	public static function delete($id = 0) {
+	public function delete() {
 		global $db;
 
 		$st = $db->prepare("DELETE FROM `albums` WHERE `id`=:id LIMIT 1");
-		$st->bindParam(":id", $id);
+		$st->bindParam(":id", $this->id);
 		$st->execute();
 	}
 } /* class Album */

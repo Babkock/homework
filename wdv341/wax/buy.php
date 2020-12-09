@@ -49,22 +49,26 @@ try {
 
 			$row = $st->fetch(PDO::FETCH_ASSOC);
 			$buy->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
-			$country = Methods::countryExpand($row['country']);
 
 			if (strlen($row['buyer']) > 1) {
-				$buy->error("Sorry, this album has been sold.");
+				$buy->error("<h2>Sorry, this album has been sold.</h2>");
 				exit();
 			}
 
 			$tl = json_decode($row['tracklist']);
-			$tlout = "<ol>";
+			$tlout = "<table class=\"track-list\"><tbody>";
+			$x = 1;
 
 			foreach ($tl as $k => $v) {
 				$tlout .= <<<EOF
-				<li>{$v->title} <i>($v->length)</i></li>
+				<tr>
+					<td>{$x}.</td>
+					<td>{$v->title}</td>
+					<td>{$v->length}</td>
 EOF;
+				$x++;
 			}
-			$tlout .= "</ol>";
+			$tlout .= "</tbody></table>";
 
 			$buy->hreplacea([
 				"USERID" => $uid,
@@ -85,9 +89,12 @@ EOF;
 				"ALBUM_DISCS" => $row['discs'],
 				"ALBUM_POSTED" => date("F j, Y", strtotime($row['posted'])),
 				"ALBUM_LABEL" => $row['label'],
-				"ALBUM_COUNTRY" => $country,
+				"ALBUM_COUNTRY" => Methods::countryExpand($row['country']),
 				"ALBUM_SELLER" => $row['seller'],
-				"TRACKLIST" => $tlout
+				"TRACKLIST" => $tlout,
+				"ALBUM_YEAR" => $row['year'],
+				"ALBUM_COND" => Methods::conditionExpand($row['cond']),
+				"CURRENCY_SYMBOL" => Methods::currencySymbol($row['currency'])
 			]);
 		}
 		$buy->output();

@@ -20,7 +20,7 @@
 					<a :href="albumhref(al.id)">{{ al.artist }} - <i>{{ al.title }}</i></a>
 				</td>
 				<td>
-					<span class="price"><span v-text="currencysymbol(al.currency)"></span>{{ al.price }}</span>
+					<span class="price"><span v-html="currencysymbol(al.currency)"></span>{{ al.price }}</span>
 				</td>
 				<td>
 					{{ al.seller }}
@@ -46,7 +46,7 @@
 					<a :href="albumhref(al.id)">{{ al.artist }} - <i>{{ al.title }}</i></a>
 				</td>
 				<td>
-					<span class="price"><span v-text="currencysymbol(al.currency)"></span>{{ al.price }}</span>
+					<span class="price"><span v-html="currencysymbol(al.currency)"></span>{{ al.price }}</span>
 				</td>
 				<td>
 					<span v-if="al.buyer != null">{{ al.buyer }}</span>
