@@ -233,15 +233,21 @@ EOF;
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
 					$tl = json_decode($row['tracklist']);
-					$tlout = "<ol>";
+					$tlout = "<table class=\"track-list\"><tbody>";
+					$x = 1;
 
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
-						<li>{$v->title} <i>($v->length)</i></li>
+						<tr>
+							<td>{$x}.</td>
+							<td>{$v->title}</td>
+							<td><i>($v->length)</i></td>
+						</tr>
 EOF;
+						$x++;
 					}
 
-					$tlout .= "</ol>";
+					$tlout .= "</tbody></table>";
 					$posted = date("F j, Y", strtotime($row['posted']));
 					$price = Methods::currencySymbol($row['currency']) . $row['price'];
 					$condition = Methods::conditionExpand($row['cond']);
@@ -269,13 +275,41 @@ EOF;
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				{$sellbuy}
 				{$buybutton}
-				<p>Posted: {$posted}<br />
-				Country: <b>{$country}</b><br />
-				Condition: <b>{$condition}</b><br />
-				Year: <b>{$row['year']}</b></p>
+				<div class="alb-info">
+					<div class="prop">
+						Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Country:
+					</div>
+					<div class="val">
+						<b>{$country}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b>{$condition}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b>{$row['year']}</b>
+					</div>
+				</div>
 				<h3>Tracklist:</h3>
 				{$tlout}
-				<p><b>&copy; &copysr; {$row['label']}</b></p>
+				<p><b>&copy; &copysr; {$row['year']} {$row['label']}</b></p>
 			</div>
 		</album>
 	</div>
@@ -410,16 +444,21 @@ EOF;
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
-					$tlout = "<ol>";
+					$tlout = "<table class=\"track-list\"><tbody>";
 					$tl = json_decode($row['tracklist']);
 
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
-						<li>{$v->title} <i>($v->length)</i></li>
+						<tr>
+							<td>{$x}.</td>
+							<td>{$v->title}</td>
+							<td><i>($v->length)</i></td>
+						</tr>
 EOF;
+						$x++;
 					}
 
-					$tlout .= "</ol>";
+					$tlout .= "</tbody></table>";
 					$price = Methods::currencySymbol($row['currency']) . $row['price'];
 					$condition = Methods::conditionExpand($row['cond']);
 					$purchased = date("F j, Y", strtotime($row['purchased']));
@@ -448,13 +487,41 @@ EOF;
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				{$sellbuy}
 				{$buybutton}
-				<p>Posted: {$posted}<br />
-				Country: <b>{$country}</b><br />
-				Condition: <b>{$condition}</b><br />
-				Year: <b>{$row['year']}</b></p>
+				<div class="alb-info">
+					<div class="prop">
+						Date Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Country:
+					</div>
+					<div class="val">
+						<b>{$country}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b>{$condition}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b>{$row['year']}</b>
+					</div>
+				</div>
 				<h3>Tracklist:</h3>
 				{$tlout}
-				<p><b>&copy; &copysr; {$row['label']}</b></p>
+				<p><b>&copy; &copysr; {$row['year']} {$row['label']}</b></p>
 			</div>
 		</album>
 	</div>

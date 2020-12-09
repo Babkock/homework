@@ -7,11 +7,32 @@
 		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
 			<h3 v-if="apurchased === 'n'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
-			<h3 v-else><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
+			<h3 v-else>Sold for <span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> to <a :href="buyerhref" v-text="abuyer"></a></h3>
 			<slot name="info"></slot>
-			<p>Country: <span class="acountry" v-text="countryexpand"></span>
-			<br />Posted: <span class="date" v-text="niceposted"></span>
-			<br />Purchased: <span class="date" v-text="nicepurchased"></span>
+			<div class="alb-info">
+				<div class="prop">
+					Country:
+				</div>
+				<div class="val">
+					<b class="country" v-text="countryexpand"></b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Date Posted:
+				</div>
+				<div class="val">
+					<b class="date" v-text="niceposted"></b>
+				</div>
+			</div>
+			<div class="alb-info" v-if="apurchased !== 'n'">
+				<div class="prop">
+					Date Purchased:
+				</div>
+				<div class="val">
+					<b class="date" v-text="nicepurchased"></b>
+				</div>
+			</div>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
 			</slot>

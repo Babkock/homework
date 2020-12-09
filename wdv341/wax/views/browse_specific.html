@@ -1,5 +1,5 @@
 <main id="browse">
-	<search-box :sartist="artist" :salbum="album" :scountry="country"></search-box>
+	<search-box :sartist="artist" :salbum="album" :scountry="country" @ainput="artist = $event" @binput="album = $event" @cinput="country = $event"></search-box>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-area" v-html="ajaxError">
 
@@ -13,13 +13,31 @@
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
 				{{BUYBUTTON}}
-				<p>Condition: <b v-text="ConditionExpand(al.cond)"></b><br />
-				Year: <b v-text="al.year"></b></p>
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b v-text="ConditionExpand(al.cond)"></b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b v-text="al.year"></b>
+					</div>
+				</div>
 			</template>
 			<template slot="tracklist">
-				<ol v-if="al.tracklist.length > 0">
-					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
-				</ol>
+				<table class="track-list" v-if="al.tracklist.length > 0"><tbody>
+					<tr v-for="(tr, index) in al.tracklist">
+						<td>{{ index + 1 }}.</td>
+						<td>{{ tr.title }}</td>
+						<td>{{ tr.length }}</td>
+					</tr>
+				</tbody></table>
 				<p><b>&copy; &copysr; {{ al.label }}</b></p>
 			</template>
 		</album>
