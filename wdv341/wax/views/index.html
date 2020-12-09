@@ -10,12 +10,20 @@
 		<table class="index-table pur"><thead>
 			<tr>
 				<td><b>Artist - <i>Title</i></b></td>
+				<td><b>Price</b></td>
+				<td><b>Seller</b></td>
 				<td><b>Date Purchased</b></td>
 			</tr>
 		</thead><tbody>
 			<tr v-for="(al, index) in purchased" :key="index">
 				<td>
 					<a :href="albumhref(al.id)">{{ al.artist }} - <i>{{ al.title }}</i></a>
+				</td>
+				<td>
+					<span class="price"><span v-text="currencysymbol(al.currency)"></span>{{ al.price }}</span>
+				</td>
+				<td>
+					{{ al.seller }}
 				</td>
 				<td>
 					<span v-text="nicepurchased(al.purchased)"></span>
@@ -38,7 +46,7 @@
 					<a :href="albumhref(al.id)">{{ al.artist }} - <i>{{ al.title }}</i></a>
 				</td>
 				<td>
-					<span class="price">${{ al.price }}</span>
+					<span class="price"><span v-text="currencysymbol(al.currency)"></span>{{ al.price }}</span>
 				</td>
 				<td>
 					<span v-if="al.buyer != null">{{ al.buyer }}</span>

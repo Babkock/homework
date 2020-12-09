@@ -532,18 +532,18 @@ EOF;
 				</div>
 				<div class="alb-info">
 					<div class="prop">
-						Date Posted:
-					</div>
-					<div class="val">
-						<b>{$posted}</b>
-					</div>
-				</div>
-				<div class="alb-info">
-					<div class="prop">
 						Country:
 					</div>
 					<div class="val">
 						<b>{$country}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Date Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
 					</div>
 				</div>
 				{$prow}
