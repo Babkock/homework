@@ -248,7 +248,6 @@ class Album {
 	public function write() {
 		global $db;
 
-		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
 		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, '', :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, NULL, :sellerid, 0)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -285,7 +284,6 @@ class Album {
 	public function update() {
 		global $db;
 
-		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
 		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `cond`=:cond, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
@@ -416,6 +414,7 @@ class User {
 	public function getSales() { return $this->sales; }
 	public function setSales($s) { $this->sales = $s; }
 	public function incrementSales() { $this->sales++; }
+	public function decrementSales() { $this->sales--; }
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {

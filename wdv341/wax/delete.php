@@ -27,6 +27,14 @@ try {
 				$album->read();
 				$album->delete();
 
+				$user = new User(intval($album->getSellerId()));
+				$user->read();
+				$user->decrementSales();
+				$user->update();
+
+				// delete the album cover image
+				unlink(__DIR__ . "/" . $album->getImage());
+
 				$del->error("<h3>You have deleted " . $album->getArtist() . " - " . $album->getTitle() . "</h3>\n<p class=\"success\">This album is permanently deleted from the marketplace. If it was in someone's collection, it has been removed from their collection.</p>");
 			}
 		}
@@ -93,7 +101,7 @@ EOF;
 					"ALBUM_TITLE" => $row['title'],
 					"ARTIST_HREF" => "browse?a=" . urlencode($row['artist']),
 					"ALBUM_HREF" => "browse?b=" . urlencode($row['title']),
-					"ALBUM_PRICE" => $row['price'],
+					"ALBUM_PRICE" => $price,
 					"ALBUM_LABEL" => $row['label'],
 					"ALBUM_DISCS" => $row['discs'],
 					"ALBUM_IMAGE" => $row['image'],

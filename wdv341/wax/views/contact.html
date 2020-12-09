@@ -1,5 +1,35 @@
 <main id="contact">
 	<form action="" method="post" class="contact-form" enctype="multipart/form-data">
-
+		<h3>Your Information:</h3>
+		<p><i>(Don't worry, we won't spam you!)</i></p>
+		<table class="contact-fields"><tbody>
+			<tr>
+				<td><label for="name"><b>Full Name</b>:</label></td>
+				<td>
+					<input v-model="message.fullname" name="fullname" placeholder="John Smith" @blur="message.fullname = $event.target.value" size="80" maxlength="80" />
+				</td>
+			</tr>
+			<tr>
+				<td><label for="email"><b>Email Address</b>:</label></td>
+				<td>
+					<input v-model="message.email" name="email" placeholder="test@example.com" @blur="message.email = $event.target.value" size="80" maxlength="80" />
+				</td>
+			</tr>
+			<tr>
+				<td><label for="subject"><b>Subject</b>:</label></td>
+				<td>
+					<input v-model="message.subject" name="subject" @blur="message.subject = $event.target.value" size="80" maxlength="80" />
+				</td>
+			</tr>
+		</tbody></table>
+		<h3>Message:</h3>
+		<textarea v-model="message.message" id="message" name="message" cols=70 rows=4 @blur="message.biography"></textarea>
+		<div class="buttons">
+			<button class="go" @click="$event.preventDefault(); SubmitMessage()">Send Message</button>
+		</div>
 	</form>
+	<div class="ajax-area" v-html="ajaxResult">
+
+	</div>
 </main>
+<script src="/homework/assets/js/waxContact.min.js"></script>
