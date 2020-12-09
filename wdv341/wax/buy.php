@@ -69,6 +69,7 @@ EOF;
 				$x++;
 			}
 			$tlout .= "</tbody></table>";
+			$price = number_format((float)$row['price'], 2, ".", "");
 
 			$buy->hreplacea([
 				"USERID" => $uid,
@@ -84,7 +85,7 @@ EOF;
 				"ALBUM_TITLE" => $row['title'],
 				"ALBUM_ARTIST" => $row['artist'],
 				"ALBUM_MEDIA" => $row['media'],
-				"ALBUM_PRICE" => $row['price'],
+				"ALBUM_PRICE" => $price,
 				"ALBUM_IMAGE" => $row['image'],
 				"ALBUM_DISCS" => $row['discs'],
 				"ALBUM_POSTED" => date("F j, Y", strtotime($row['posted'])),

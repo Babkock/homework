@@ -42,12 +42,12 @@
 			</div>
 			<h3>Tracklist</h3>
 			{{TRACKLIST}}
-			<p><b>&copy; &copysr; {{ALBUM_LABEL}}</b></p>
+			<p><b>&copy; &copysr; {{ALBUM_YEAR}} {{ALBUM_LABEL}}</b></p>
 		</div>
 		<div class="confirm">
 			<h2>Buy this album?</h2>
 			<p><i>(Not really, it's not real money.)</i> This album, <i>{{ALBUM_TITLE}}</i> will be added to your collection.</p>
-			<h3>{{CURRENCY_SYMBOL}}{{ALBUM_PRICE}}</h3>
+			<h3><span class="price">{{CURRENCY_SYMBOL}}{{ALBUM_PRICE}}</span></h3>
 			<input type="submit" name="choice" value="Buy This Album" />
 		</div>
 	</form>

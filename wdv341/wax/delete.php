@@ -80,6 +80,7 @@ EOF;
 				}
 				$tlout .= "</tbody></table>";
 				$sid = Methods::getIdFromName($row['seller']);
+				$price = number_format((float)$row['price'], 2, ".", "");
 
 				$del->hreplacea([
 					"USERID" => $uid,

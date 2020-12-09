@@ -286,7 +286,7 @@ class Album {
 		global $db;
 
 		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
-		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `cond`=:cond, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
+		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `cond`=:cond, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -313,7 +313,6 @@ class Album {
 			$t++;
 		}
 		$tlJson .= "]";
-		$this->posted = date("Y-m-d", mktime());
 		$st->bindParam(":tracklist", $tlJson);
 		$st->bindParam(":year", $this->year);
 		$st->bindParam(":cond", $this->cond);
@@ -328,8 +327,8 @@ class Album {
 		global $db;
 
 		$bid = Methods::getIdFromName($buyer);
-		$this->setBuyer($buyer);
-		$this->setBuyerId(intval($bid));
+		$this->buyer = $buyer;
+		$this->buyerid = intval($bid);
 
 		$sid = Methods::getIdFromName($this->seller);
 		$user = new User(intval($sid));
@@ -338,7 +337,7 @@ class Album {
 		$user->incrementSales();
 		$user->update();
 
-		$this->setPurchased(date("Y-m-d", mktime()));
+		$this->purchased = date("Y-m-d", mktime());
 		$this->update();
 	}
 
