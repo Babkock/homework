@@ -68,7 +68,7 @@
 					</select>
 				</td>
 			</tr>
-			<tr is="input-row" labe="Release Year" title="The year the album was released." name="label" :value="album.year" plchold="YYYY" @input="album.year = parseInt($event)"></tr>
+			<tr is="input-row" labe="Release Year" title="The year the album was released." name="label" :value="album.year" maxlen="4" size="4" plchold="YYYY" @input="album.year = parseInt($event)"></tr>
 			<tr is="input-row" labe="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
 			<tr>
 				<td><label for="country"><b>Country</b>:</label></td>

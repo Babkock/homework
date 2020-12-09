@@ -132,7 +132,7 @@ export default {
 		},
 
 		alclass: function() {
-			return ((this.abuyer != null) ? "album" : "album sold");
+			return ((this.apurchased !== "n") ? "album" : "album sold");
 		},
 
 		countryexpand: function() {
@@ -427,6 +427,7 @@ button.expand {
 	flex-direction:row;
 	flex-wrap:nowrap;
 	width:98%;
+	margin-top:6px;
 	div {
 		@include BackBorderColor(rgba(10, 10, 10, 0.2), 1px solid rgba(10, 10, 10, 0.4), #dfdfdf);
 		padding:5px;

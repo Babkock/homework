@@ -27,7 +27,7 @@ div.album .cover img:hover { margin-top: 4px; opacity: 1;
 }
 button.expand { width: 90%;
 }
-.alb-info { display: flex; flex-direction: row; flex-wrap: nowrap; width: 98%;
+.alb-info { display: flex; flex-direction: row; flex-wrap: nowrap; width: 98%; margin-top: 6px;
 }
 .alb-info div { background: rgba(10, 10, 10, 0.2); background-color: rgba(10, 10, 10, 0.2); border: 1px solid rgba(10, 10, 10, 0.4); color: #dfdfdf; padding: 5px; padding-top: 7px;
 }
