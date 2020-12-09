@@ -76,6 +76,7 @@ try {
 				if ($x > 0)
 					$out .= ",\n";
 				$pur = ((strlen($row['purchased']) > 1) ? $row['purchased'] : "n");
+				$price = number_format((float)$row['price'], 2, ".", "");
 				$out .= <<<EOF
 				{
 					"id": {$row['id']},
@@ -83,7 +84,7 @@ try {
 					"title": "{$row['title']}",
 					"media": "{$row['media']}",
 					"discs": {$row['discs']},
-					"price": {$row['price']},
+					"price": "{$price}",
 					"seller": "{$row['seller']}",
 					"buyer": "{$row['buyer']}",
 					"image": "{$row['image']}",
@@ -237,17 +238,19 @@ EOF;
 
 					$tlout .= "</tbody></table>";
 					$posted = date("F j, Y", strtotime($row['posted']));
-					$price = Methods::currencySymbol($row['currency']) . $row['price'];
+
+					$price = number_format((float)$row['price'], 2, ".", "");
+					$sprice = Methods::currencySymbol($row['currency']) . $price;
 					$condition = Methods::conditionExpand($row['cond']);
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
 
 					if (strlen($row['buyer']) > 1) {
-						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to " . $row['buyer'] . "</h3>";
 						$buybutton = "";
 					}
 					else {
-						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
+						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from " . $row['seller'] . "</h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
 
@@ -423,6 +426,7 @@ EOF;
 					$tlout = "<table class=\"track-list\"><tbody>";
 					$tl = json_decode($row['tracklist']);
 
+					$x = 0;
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
 						<tr>
@@ -435,7 +439,9 @@ EOF;
 					}
 
 					$tlout .= "</tbody></table>";
-					$price = Methods::currencySymbol($row['currency']) . $row['price'];
+
+					$price = number_format((float)$row['price'], 2, ".", "");
+					$sprice = Methods::currencySymbol($row['currency']) . $price;
 					$condition = Methods::conditionExpand($row['cond']);
 					$purchased = date("F j, Y", strtotime($row['purchased']));
 					$posted = date("F j, Y", strtotime($row['posted']));
@@ -443,11 +449,11 @@ EOF;
 					$encodeartist = urlencode($row['artist']);
 
 					if (strlen($row['buyer']) > 1) {
-						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to " . $row['buyer'] . "</h3>";
 						$buybutton = "";
 					}
 					else {
-						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
+						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from " . $row['seller'] . "</h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
 

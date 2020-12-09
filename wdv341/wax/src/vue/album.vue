@@ -64,7 +64,7 @@ export default {
 			default: "us"
 		},
 		aprice: {
-			type: Number,
+			type: String,
 			required: true
 		},
 		acurrency: {
@@ -402,6 +402,45 @@ div.album {
 				opacity:1;
 			}
 		}
+	}
+}
+
+.track-list {
+	width:100%;
+	text-align:left;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		background:rgba(10, 10, 10, 0.2);
+		padding:6px;
+		font-size:1.12em;
+	}
+}
+
+button.expand {
+	width:90%;
+}
+
+.alb-info {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	width:98%;
+	div {
+		@include BackBorderColor(rgba(10, 10, 10, 0.2), 1px solid rgba(10, 10, 10, 0.4), #dfdfdf);
+		padding:5px;
+		padding-top:7px;
+	}
+	.prop {
+		@include WidthMargins(48%, 1%, 1%);
+		font-size:1.1em;
+		text-align:right;
+	}
+	.val {
+		@include WidthMargins(49%, 1%, 0%);
+		font-size:1.09em;
+		text-align:left;
 	}
 }
 </style>

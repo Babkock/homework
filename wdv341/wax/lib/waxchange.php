@@ -228,7 +228,7 @@ class Album {
 			"title" => $row['title'],
 			"media" => $row['media'],
 			"discs" => $row['discs'],
-			"price" => $row['price'],
+			"price" => number_format((float)$row['price'], 2, ".", ""),
 			"seller" => $row['seller'],
 			"buyer" => $row['buyer'],
 			"image" => $row['image'],

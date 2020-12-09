@@ -63,6 +63,7 @@ try {
 				if ($x > 0)
 					$out .= ",\n";
 				$pur = ((strlen($row['purchased']) > 1) ? $row['purchased'] : "n");
+				$price = number_format((float)$row['price'], 2, ".", "");
 				$out .= <<<EOF
 				{
 					"id": {$row['id']},
@@ -70,7 +71,7 @@ try {
 					"title": "{$row['title']}",
 					"media": "{$row['media']}",
 					"discs": {$row['discs']},
-					"price": {$row['price']},
+					"price": "{$price}",
 					"seller": "{$row['seller']}",
 					"buyer": "{$row['buyer']}",
 					"image": "{$row['image']}",
