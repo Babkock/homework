@@ -19,9 +19,9 @@ tr.year td input[type="text"] { width: 30%; font-size: 1.14em;
 }
 select { width: 82%; font-size: 1.14em; appearance: auto !important; -moz-appearance: auto !important;
 }
-.main-album-info tbody tr { width: 100% !important;
+.main-album-info tbody tr { width: 100%;
 }
-.main-album-info tbody tr td { width: 50%; padding: 3px;
+.main-album-info tbody tr td { width: 50%; padding: 9px; background: rgba(10, 10, 10, 0.3);
 }
 .main-album-info tbody tr td label { font-size: 1.14em !important;
 }

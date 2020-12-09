@@ -101,11 +101,12 @@ select {
 
 .main-album-info {
 	tbody tr {
-		width:100% !important;
+		width:100%;
 	}
 	tbody tr td {
 		width:50%;
-		padding:3px;
+		padding:9px;
+		background:rgba(10, 10, 10, 0.3);
 		label {
 			font-size:1.14em !important;
 		}

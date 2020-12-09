@@ -145,7 +145,7 @@ class Album {
 			if (strcmp($k, "image") == 0) { $this->setImage($v); }
 			if (strcmp($k, "label") == 0) { $this->setLabel($v); }
 			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
-			if (strcmp($k, "country") == 0) { $this->setCountry($v); }
+			if (strcmp($k, "country") == 0) { $this->country = $v; }
 			if (strcmp($k, "tracklist") == 0) {
 				$this->tracklist = [];
 				$tl = json_decode($v);
