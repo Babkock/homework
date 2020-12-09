@@ -34,7 +34,7 @@ header nav { width: 94%; margin-left: 3%; margin-right: 0%; text-align: center; 
 
 header nav ul { list-style-type: none; width: 100%; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; margin-left: -30px; }
 
-header nav ul li { width: 23%; margin-left: 2px; margin-right: 2px; float: left; border: 1px solid gray; background: rgba(30, 30, 40, 0.3); }
+header nav ul li { width: 23%; margin-left: 2px; margin-right: 2px; float: left; border: 1px solid gray; background: rgba(20, 20, 20, 0.3); }
 
 header nav ul li a { display: block; width: 96%; padding: 7px; padding-top: 11px; height: 28px; }
 
@@ -68,9 +68,9 @@ label { font-size: 1.13em; }
 
 .buy-form .album, .delete-form .album { margin-left: 3%; width: 32%; }
 
-.delete-form { background: rgba(80, 10, 10, 0.3); color: #cd0202; }
+.delete-form { background: rgba(80, 10, 10, 0.3) !important; color: #cd0202; }
 
-button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #e5e5e5; border-radius: 24px 24px 24px 24px; padding: 9px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
+button, input[type="submit"] { appearance: none; -moz-appearance: none; background: #662020; background-color: #662020; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; border-radius: 24px 24px 24px 24px; padding: 9px; font-size: 1.15em; box-shadow: 2px 2px black; transition: background, color, box-shadow 0.2s ease 0s; }
 
 button:hover, input[type="submit"]:hover { background: #106640; background-color: #106640; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; box-shadow: 2px 2px black; padding: 9px; }
 
@@ -102,7 +102,7 @@ span.price { color: #aadf80; font-size: larger; }
 
 span.media { color: #dfaaaa; font-size: larger; }
 
-textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-width: 90%; height: 90px; max-height: 90px; min-height: 90px; font-family: "Arial" !important; appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #e6e6e6; padding: 6px; font-size: 1.14em; text-align: left; }
+textarea { width: 90%; margin-left: 5%; margin-right: 5%; max-width: 90%; min-width: 90%; height: 90px; max-height: 90px; min-height: 90px; font-family: "Arial" !important; appearance: none; -moz-appearance: none; background: #141414; background-color: #141414; border: 2px solid black; color: #efefef; padding: 6px; font-size: 1.14em; text-align: left; }
 
 textarea:hover { background: #191919; background-color: #191919; border: 2px solid #242424; color: #efefef; }
 
@@ -112,7 +112,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .album-editor .cover img:hover, #account .avatar img:hover, .settings-form .cover img:hover { opacity: 1; }
 
-#account .bio { display: block; width: 80%; margin-left: 10%; margin-right: 10%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 3px; margin-bottom: 3px; padding: 5px; padding-top: 13px; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #d9d9d9; }
+#account .bio { display: block; width: 80%; margin-left: 10%; margin-right: 10%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 3px; margin-bottom: 3px; padding: 5px; padding-top: 13px; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #dfdfdf; }
 
 #account .bio p { font-size: 1.12em; }
 

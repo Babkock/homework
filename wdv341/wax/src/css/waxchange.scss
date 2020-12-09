@@ -18,13 +18,13 @@ body {
 }
 
 a, a:visited, a:link, a:active {
-	color:#88cc88;
+	color:$TextLink;
 	text-decoration:none;
 	transition:color 0.2s ease 0s;
 }
 
 a:hover {
-	color:#99ff99;
+	color:$TextHover;
 	text-decoration:none;
 }
 
@@ -61,7 +61,7 @@ header {
 		flex-wrap:nowrap;
 		flex-direction:row;
 		justify-content:center;
-		background:radial-gradient(circle, #2f3279 0%, #802626 100%);
+		background:radial-gradient(circle, $Grad1, $Grad2);
 		border:2px solid black;
 		ul {
 			list-style-type:none;
@@ -75,7 +75,7 @@ header {
 				@include WidthMargins(23%, 2px, 2px);
 				float:left;
 				border:1px solid gray;
-				background:rgba(30, 30, 40, 0.3);
+				background:$LiBg;
 				a {
 					display:block;
 					width:96%;
@@ -130,7 +130,7 @@ form h2, form h3 {
 }
 
 main, footer {
-	background:radial-gradient(circle, #2f3279e6 0%, #802626ef 100%);
+	background:radial-gradient(circle, $Grad1Trans 0%, $Grad2Trans 100%);
 }
 
 label {
@@ -151,7 +151,7 @@ label {
 
 .buy-form, .delete-form {
 	display:flex;
-	background:rgba(10, 80, 10, 0.3);
+	background:$BgBuy;
 	padding-top:10px;
 	padding-bottom:10px;
 	.album {
@@ -161,25 +161,25 @@ label {
 }
 
 .delete-form {
-	background:rgba(80, 10, 10, 0.3);
+	background:$BgDelete !important;
 	color:#cd0202;
 }
 
 button, input[type="submit"] {
 	@include Appearance();
-	@include BackBorderColor(#662020, 1px solid rgba(0,0,0,0), #e5e5e5);
+	@include BackBorderColor($BgButton, $BorderButton, $TextBright);
 	border-radius:24px 24px 24px 24px;
 	padding:9px;
 	font-size:1.15em;
 	box-shadow:2px 2px black;
 	transition:background, color, box-shadow 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor(#106640, 1px solid rgba(0,0,0,0), #efefef);
+		@include BackBorderColor($BgButtonHover, $BorderButton, #efefef);
 		box-shadow:2px 2px black;
 		padding:9px;
 	}
 	&:active {
-		@include BackBorderColor(#20206f, 1px solid rgba(0,0,0,0), #cfcfcf);
+		@include BackBorderColor($BgButtonActive, $BorderButton, $TextNormal);
 		box-shadow:-1px -1px black;
 		padding:9px;
 	}
@@ -187,13 +187,13 @@ button, input[type="submit"] {
 
 input[type="text"], input[type="password"], input[type="number"] {
 	@include Appearance();
-	@include BackBorderColor(#141414, 2px solid black, #e7e7e7);
+	@include BackBorderColor($BgDark, $BorderDark, #e7e7e7);
 	padding:8px;
 	width:90%;
 	font-size:1.14em;
 	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor(#181818, 2px solid #202020, #efefef);
+		@include BackBorderColor($BgLight, $BorderLight, $TextBright);
 		font-size:1.14em;
 	}
 	&:active {
@@ -203,7 +203,7 @@ input[type="text"], input[type="password"], input[type="number"] {
 }
 
 select {
-	@include BackBorderColor(#141414, 2px solid black, #dfdfdf);
+	@include BackBorderColor($BgDark, 2px solid black, $TextLight);
 	appearance:auto !important;
 	-moz-appearance:auto !important;
 	padding:8px;
@@ -211,7 +211,7 @@ select {
 	font-size:1.14em;
 	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor(#181818, 2px solid #202020, #efefef);
+		@include BackBorderColor($BgLight, $BorderLight, $TextBright);
 	}
 }
 
@@ -222,14 +222,14 @@ select {
 	margin-top:10px;
 	margin-bottom:10px;
 	p.success {
-		@include BackBorderColor(green, 1px solid lime, white);
+		@include BackBorderColor($BgSuccess, $BorderSuccess, white);
 		padding:8px;
 		display:block;
 		font-size:1.12em;
 		text-align:center;
 	}
 	p.error {
-		@include BackBorderColor(#661010, 1px solid red, red);
+		@include BackBorderColor($BgError, $BorderError, red);
 		padding:8px;
 		display:block;
 		font-size:1.12em;
@@ -274,7 +274,7 @@ textarea {
 	min-height:90px;
 	font-family:"Arial" !important;
 	@include Appearance();
-	@include BackBorderColor(#141414, 2px solid black, #e6e6e6);
+	@include BackBorderColor($BgDark, $BorderDark, $TextBright);
 	padding:6px;
 	font-size:1.14em;
 	text-align:left;
@@ -306,7 +306,7 @@ textarea {
 	margin-bottom:3px;
 	padding:5px;
 	padding-top:13px;
-	@include BackBorderColor(rgba(10, 10, 10, 0.3), 2px solid black, #d9d9d9);
+	@include BackBorderColor($BgTrans, $BorderDark, $TextLight);
 	p {
 		font-size:1.12em;
 	}
@@ -325,7 +325,7 @@ textarea {
 		width:24%;
 		padding:4px;
 		font-size:1.13em;
-		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #efefef);
+		@include BackBorderColor($BgTrans, 1px solid black, $TextBright);
 	}
 	tbody tr td:first-child, thead tr td:first-child {
 		text-align:right;
@@ -340,7 +340,7 @@ textarea {
 	tbody tr td, thead tr td {
 		padding:4px;
 		font-size:1.13em;
-		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #e5e5e5);
+		@include BackBorderColor($BgTrans, 1px solid black, #e5e5e5);
 	}
 }
 .index-table.inv tbody tr td, .index-table.inv thead tr td {
@@ -362,7 +362,7 @@ textarea {
 .confirm {
 	float:right;
 	@include WidthMargins(60%, 1%, 1%);
-	@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid gray, #ffffff);
+	@include BackBorderColor($BgTrans, 1px solid gray, #ffffff);
 	padding:10px;
 	font-size:1.13em;
 	text-align:center;
