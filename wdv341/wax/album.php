@@ -142,11 +142,9 @@ try {
 				"G_SELECT" => ((strcmp($alb->getCond(), "g") == 0) ? "selected" : ""),
 				"F_SELECT" => ((strcmp($alb->getCond(), "f") == 0) ? "selected" : ""),
 				"P_SELECT" => ((strcmp($alb->getCond(), "p") == 0) ? "selected" : ""),
-				"BUYERID" => $alb->getBuyerId(),
 				"ALBUM_PURCHASED" => $alb->getPurchased(),
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $alb->getSellerId(),
-				"SELLERID" => $alb->getSellerId(),
 				"EDITMODE" => "edit",
 				"VINYL_SELECT" => ((strcmp($alb->getMedia(), "Vinyl") == 0) ? "selected" : ""),
 				"CASSETTE_SELECT" => ((strcmp($alb->getMedia(), "Cassette") == 0) ? "selected" : ""),
@@ -156,7 +154,7 @@ try {
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_YEAR}}\"", "" . $alb->getYear(), $editor->getContent()));
-			$editor->setContent(str_replace("\"{{SELLERID}}\"", $alb->getSellerId(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{SELLERID}}\"", "" . $alb->getSellerId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{BUYERID}}\"", "" . $alb->getBuyerId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->price, $editor->getContent()));
@@ -207,7 +205,6 @@ EOF;
 				"ALBUM_PURCHASED" => "",
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
-				"SELLERID" => $uid,
 				"EDITMODE" => "new",
 				"VINYL_SELECT" => "",
 				"CASSETTE_SELECT" => "",
@@ -219,6 +216,7 @@ EOF;
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "1", $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "5.99", $editor->getContent()));
 			$editor->setContent(str_replace("\"{{UPLOADED}}\"", "false", $editor->getContent()));
+			$editor->setContent(str_replace("\"{{SELLERID}}\"", $uid, $editor->getContent()));
 			$tl = <<<EOF
 		[
 			{
