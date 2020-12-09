@@ -426,13 +426,13 @@ EOF;
 					$tlout = "<table class=\"track-list\"><tbody>";
 					$tl = json_decode($row['tracklist']);
 
-					$x = 0;
+					$x = 1;
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
 						<tr>
 							<td>{$x}.</td>
 							<td>{$v->title}</td>
-							<td><i>($v->length)</i></td>
+							<td>{$v->length}</td>
 						</tr>
 EOF;
 						$x++;

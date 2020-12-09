@@ -1,5 +1,5 @@
 <template>
-	<div class="album" :id="myid">
+	<div :class="alclass" :id="myid">
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>

@@ -36,7 +36,7 @@ try {
 					"tracklist" => $tl,
 					"year" => intval($json->year),
 					"currency" => $json->currency,
-					"condition" => $json->condition,
+					"cond" => $json->cond,
 					"purchased" => $json->purchased,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
@@ -97,7 +97,7 @@ try {
 					"tracklist" => $tl,
 					"year" => intval($json->year),
 					"currency" => $json->currency,
-					"condition" => $json->condition,
+					"cond" => $json->cond,
 					"purchased" => $json->purchased,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
@@ -124,9 +124,7 @@ try {
 				exit();
 			}
 
-			$uid = Methods::getIdFromName($_SESSION['current_user']);
-
-			$editor->hreplace("USERID", $uid);
+			$editor->hreplace("USERID", $alb->getSellerId());
 			$editor->replacea([
 				"ALBUM_TITLE" => $alb->getTitle(),
 				"ALBUM_MEDIA" => $alb->getMedia(),
@@ -144,6 +142,7 @@ try {
 				"G_SELECT" => ((strcmp($alb->getCond(), "g") == 0) ? "selected" : ""),
 				"F_SELECT" => ((strcmp($alb->getCond(), "f") == 0) ? "selected" : ""),
 				"P_SELECT" => ((strcmp($alb->getCond(), "p") == 0) ? "selected" : ""),
+				"BUYERID" => $alb->getBuyerId(),
 				"ALBUM_PURCHASED" => $alb->getPurchased(),
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
@@ -196,13 +195,14 @@ EOF;
 				"ALBUM_COUNTRY" => "",
 				"ALBUM_YEAR" => "",
 				"ALBUM_CURRENCY" => "",
-				"ALBUM_CONDITION" => "",
+				"ALBUM_COND" => "",
 				"M_SELECT" => "",
 				"NM_SELECT" => "",
 				"VG_SELECT" => "",
 				"G_SELECT" => "",
 				"F_SELECT" => "",
 				"P_SELECT" => "",
+				"BUYERID" => "",
 				"ALBUM_PURCHASED" => "",
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,

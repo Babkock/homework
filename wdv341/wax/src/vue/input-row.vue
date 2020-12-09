@@ -1,10 +1,10 @@
 <template>
-	<tr>
+	<tr :class="iclass">
 		<td>
 			<label :for="name"><b v-text="labe"></b>:</label>
 		</td>
 		<td>
-			<input :v-model="vmodl" :value="value" type="text" :title="title" :alt="title" :name="name" :size="size" :maxlength="maxlen" :placeholder="plchold" @blur="$emit('input', $event.target.value)" />
+			<input :class="iclass" :v-model="vmodl" :value="value" type="text" :title="title" :alt="title" :name="name" :size="size" :maxlength="maxlen" :placeholder="plchold" @blur="$emit('input', $event.target.value)" />
 		</td>
 	</tr>
 </template>
@@ -45,6 +45,15 @@ export default {
 	computed: {
 		vmodl: function() {
 			return "this.album." + this.name;
+		},
+
+		iclass: function() {
+			if (this.name === "year") {
+				return "row year";
+			}
+			else {
+				return "row";
+			}
 		}
 	}
 };
@@ -75,6 +84,11 @@ input[type="text"], input[type="number"], select, input[type="password"], input[
 
 input[name="price"] {
 	width:79%;
+	font-size:1.14em;
+}
+
+tr.year td input[type="text"] {
+	width:30%;
 	font-size:1.14em;
 }
 
