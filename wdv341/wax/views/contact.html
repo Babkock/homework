@@ -23,7 +23,7 @@
 			</tr>
 		</tbody></table>
 		<h3>Message:</h3>
-		<textarea v-model="message.message" id="message" name="message" cols=70 rows=4 @blur="message.biography"></textarea>
+		<textarea v-model="message.message" id="message" name="message" cols=70 rows=4 @blur="message.biography = $event.target.value"></textarea>
 		<br />
 		<div class="buttons">
 			<button class="go" @click="$event.preventDefault(); SubmitMessage()">Send Message</button>
