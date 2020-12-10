@@ -6,19 +6,19 @@
 			<tr>
 				<td><label for="name"><b>Full Name</b>:</label></td>
 				<td>
-					<input type="text" v-model="message.fullname" name="fullname" placeholder="John Smith" @blur="message.fullname = $event.target.value" size="80" maxlength="80" />
+					<input type="text" v-model="message.fullname" name="fullname" placeholder="John Smith" size="80" maxlength="80" />
 				</td>
 			</tr>
 			<tr>
 				<td><label for="email"><b>Email Address</b>:</label></td>
 				<td>
-					<input type="text" v-model="message.email" name="email" placeholder="test@example.com" @blur="message.email = $event.target.value" size="80" maxlength="80" />
+					<input type="text" v-model="message.email" name="email" placeholder="test@example.com" size="80" maxlength="80" />
 				</td>
 			</tr>
 			<tr>
 				<td><label for="subject"><b>Subject</b>:</label></td>
 				<td>
-					<input type="text" v-model="message.subject" name="subject" @blur="message.subject = $event.target.value" size="80" maxlength="80" />
+					<input type="text" v-model="message.subject" name="subject" size="80" maxlength="80" />
 				</td>
 			</tr>
 		</tbody></table>
