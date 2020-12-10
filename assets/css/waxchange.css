@@ -44,15 +44,15 @@ main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px 
 
 #error { width: 80%; margin-left: 10%; margin-right: 10%; padding: 8px; padding-top: 12px; margin-bottom: 10px; }
 
-.login-form table, .register-form table, .settings-form table { width: 80%; margin-left: 10%; margin-right: 10%; }
+.login-form table, .register-form table, .settings-form table, .contact-fields { width: 80%; margin-left: 10%; margin-right: 10%; }
 
-.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr { width: 100%; }
+.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr, .contact-fields tbody, .contact-fields tbody tr { width: 100%; }
 
-.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td { width: 50% !important; padding: 7px; }
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 50% !important; padding: 7px; }
 
-.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child { text-align: right; }
+.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: right; }
 
-.login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"], .settings-form table tbody tr td[colspan="2"] { padding-top: 40px; padding: 7px; text-align: center; }
+.login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"], .settings-form table tbody tr td[colspan="2"], .contact-fields tbody tr td[colspan="2"] { padding-top: 40px; padding: 7px; text-align: center; }
 
 form h2, form h3 { text-align: center; }
 

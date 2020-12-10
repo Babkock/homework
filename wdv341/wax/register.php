@@ -42,6 +42,19 @@ try {
 
 			$user->write();
 
+			$to = $_POST['email'];
+			$subject = "Welcome to WaXchange!";
+			$message = "<h1>Welcome to WaXchange music marketplace!</h1>";
+			$message .= "<h2>Your username: " . $_POST['username'] . "</h2>";
+			$message .= "<p>We're just so happy you decided to join our music marketplace. You're now ready to start buying and selling albums with other users.</p>";
+
+			$header = "From:tanner@tannerbabcock.com \r\n";
+			$header .= "Cc:tanner.a.babcock@gmail.com \r\n";
+			$header .= "MIME-Version: 1.0\r\n";
+			$header .= "Content-type: text/html\r\n";
+
+			mail($to, $subject, $message, $header);
+
 			exit("<p class=\"success\">You have successfully registered. <a href=\"login\">Log in to your new account here.</a></p>");
 		}
 	}

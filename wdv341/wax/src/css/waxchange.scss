@@ -106,7 +106,7 @@ main {
 	margin-bottom:10px;
 }
 
-.login-form table, .register-form table, .settings-form table {
+.login-form table, .register-form table, .settings-form table, .contact-fields {
 	@include WidthMargins(80%, 10%, 10%);
 	tbody, tbody tr {
 		width:100%;
