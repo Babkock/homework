@@ -40,7 +40,7 @@ try {
 		else {
 			$to = "tanner.a.babcock@gmail.com";
 			$subject = "WaXchange Message: " . $_POST['subject'];
-			$message .= "<h1>" . $_POST['subject'] . "</h1>";
+			$message = "<h1>" . $_POST['subject'] . "</h1>";
 			$message .= "<h2>From <a href=\"mailto:" . $_POST['email'] . "\">" . $_POST['fullname'] . "</a></h2>";
 			$message .= "<p>" . $_POST['message'] . "</p>";
 			$message .= "<br /><br /><p><i>This message was sent through the WaXchange contact form.</i></p>";
