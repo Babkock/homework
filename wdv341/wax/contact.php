@@ -8,6 +8,26 @@
 */
 require_once("lib/waxchange.php");
 
+$to = "babkock@gmail.com";
+$subject = "This is a test Email";
+
+$message = "<h1>Hello World!</h1>";
+$message .= "<b>I hope I can see this email in my inbox!</b>";
+
+$header = "From:tanner@tannerbabcock.com \r\n";
+$header .= "MIME-Version: 1.0\r\n";
+$header .= "Content-type: text/html\r\n";
+
+$ret = mail($to, $subject, $message, $header);
+
+if ($ret == true) {
+	exit("<p>Mail sent successfully!</p>");
+}
+else {
+	exit("<p>Mail could not be sent. Probably because you're garbage.</p>");
+}
+
+/*
 try {
 	if (!empty($_POST)) {
 		if ((empty($_POST['fullname'])) || (empty($_POST['email'])) || (empty($_POST['subject'])) || (empty($_POST['message']))) {
@@ -33,3 +53,4 @@ try {
 catch (PDOException $ex) {
 	exit("<p class=\"error\">Error: {$e->getMessage()}</p>");
 }
+*/
