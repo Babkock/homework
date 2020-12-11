@@ -7,11 +7,13 @@
 */
 @import "variables.scss";
 
+* { box-shadow:0 !important; }
+
 body {
-	background:#661010;
+	background:radial-gradient(circle, #207720, #6d3010);
 	color:white;
-	font-size:$MobileNormal;
 	width:100%;
+	font-size:$MobileNormal;
 	font-family:"Arial" !important;
 	overflow-x:hidden;
 }
@@ -21,12 +23,12 @@ body {
 }
 
 a, a:visited, a:link, a:active {
-	color:#30de40;
+	color:$MobileLink;
 	text-decoration:none;
 }
 
 a:hover {
-	color:#40ee50;
+	color:$MobileLinkHover;
 	text-decoration:none;
 }
 
@@ -276,16 +278,23 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 }
 
 .login-form table, .register-form table, .settings-form table, .contact-fields {
-	width:100%;
+	width:100% !important;
 	tbody, tbody tr {
-		width:100%;
+		width:100% !important;
+	}
+	tbody tr td:first-child {
+		text-align:center;
+		margin-top:8px;
+		margin-bottom:8px;
 	}
 	tbody tr td {
-		width:100%;
+		@include WidthMargins(100%, 0%, 0%);
 		display:inline-block;
 		font-size:1.95em;
 		text-align:center;
 		padding:9px;
+		margin-top:8px;
+		margin-bottom:8px;
 	}
 }
 
@@ -336,6 +345,9 @@ main h3 {
 	display:inline-block !important;
 	@include WidthMargins(95% !important, -2%, 2%);
 	padding:9px !important;
+}
+.user-info tbody tr td:first-child {
+	text-align:center !important;
 }
 
 .album-editor .cover, #account .avatar, .settings-form .cover {

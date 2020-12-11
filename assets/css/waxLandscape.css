@@ -6,9 +6,11 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-body { background: radial-gradient(circle, #207720, #6d3010); color: #ccfefe; width: 100%; font-size: 1.45em; font-family: "Arial" !important; overflow-x: hidden; }
+* { box-shadow: 0 !important; }
 
-.container { width: 92%; margin-left: 4%; margin-right: 4%; }
+body { background: radial-gradient(circle, #207720, #6d3010); color: #ccfefe; width: 100%; font-size: 1.65em; font-family: "Arial" !important; overflow-x: hidden; }
+
+.container { width: 94%; margin-left: 3%; margin-right: 3%; }
 
 a, a:visited, a:link, a:active { color: #30de40; text-decoration: none; }
 
@@ -89,6 +91,8 @@ main h2 { font-size: 1.86em; text-align: center; }
 main h3 { font-size: 1.79em; text-align: center; }
 
 .user-info tbody tr td, .user-info thead tr td { font-size: 1.65em !important; text-align: center; display: inline-block !important; width: 95% !important; margin-left: -2%; margin-right: 2%; padding: 6px !important; }
+
+.user-info tbody tr td:first-child { text-align: center !important; }
 
 .album-editor .cover, #account .avatar, .settings-form .cover { width: 90%; margin-left: 5%; margin-right: 5%; }
 
