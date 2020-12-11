@@ -9,8 +9,9 @@
 
 body {
 	background:#661010;
-	color:white;
+	color:#ccfefe;
 	width:100%;
+	font-size:1.2em;
 	font-family:"Arial" !important;
 	overflow-x:hidden;
 }
@@ -20,12 +21,12 @@ body {
 }
 
 a, a:visited, a:link, a:active {
-	color:$TextLink;
+	color:#30de40;
 	text-decoration:none;
 }
 
 a:hover {
-	color:$TextHover;
+	color:#40ee50;
 	text-decoration:none;
 }
 
@@ -34,6 +35,7 @@ header {
 	text-align:center;
 	h1 {
 		font-size:1.8em;
+		text-align:center;
 	}
 	nav {
 		width:100%;
@@ -43,6 +45,36 @@ header {
 		ul {
 			list-style-type:none;
 			width:100%;
+			li {
+				@include WidthMargins(90%, 5%, 5%);
+				float:left;
+				border:1px solid gray;
+				font-size:1.35em;
+				background-color:#af8d6e;
+				transition:background-color, border 0.2s ease 0s;
+				a {
+					color:$TextLight;
+					display:block;
+					width:100%;
+					padding:8px;
+					height:170px;
+					font-size:1.35em;
+					transition:color 0.2s ease 0s;
+					&:hover {
+						color:$TextBright;
+						display:block;
+						width:100%;
+						padding:8px;
+						height:170px;
+						font-size:1.35em;
+					}
+				}
+				&:hover {
+					border:1px solid white;
+					background-color:#8dbf54;
+					font-size:1.35em;
+				}
+			}
 		}
 	}
 }
