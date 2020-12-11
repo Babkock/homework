@@ -25,6 +25,30 @@
 			<td>{{SALES}}</td>
 		</tr>
 	</tbody></table>
+	<div class="inventory">
+		<table class="sold-table">
+			<thead>
+				<tr>
+					<td><b>Artist - <i>Title</i></b></td>
+					<td><b>Price</b></td>
+					<td><b>Buyer</b></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(al, index) in sold" :key="index">
+					<td>
+						<a :href="AlbumHref(al.id)">{{ al.artist }} - <i>{{ al.title }}</i></a>
+					</td>
+					<td>
+						<span class="price"><span v-html="CurrencySymbol(al.currency)"></span>{{ al.price }}</span>
+					</td>
+					<td>
+						<span v-if="al.buyer != null">{{ al.buyer }}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-error" v-html="ajaxError">
 

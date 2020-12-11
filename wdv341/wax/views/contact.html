@@ -26,7 +26,7 @@
 		<textarea v-model="message.message" id="message" name="message" cols=70 rows=4 @blur="message.biography = $event.target.value"></textarea>
 		<br />
 		<div class="buttons">
-			<button class="go" @click="$event.preventDefault(); SubmitMessage()">Send Message</button>
+			<button class="go" @click="$event.preventDefault(); SubmitMessage()" :disabled="sent === true">Send Message</button>
 		</div>
 	</form>
 	<div class="ajax-area" v-html="ajaxResult">

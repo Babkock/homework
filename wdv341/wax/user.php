@@ -40,7 +40,11 @@ try {
 			$seller = $r['username'];
 			$buyer = $r['username'];
 			if (isset($_GET['mode'])) {
-				if (strcmp($_GET['mode'], "inventory") == 0) {
+				if (strcmp($_GET['mode'], "sold") == 0) {
+					$st = $db->prepare("SELECT * FROM `albums` WHERE `seller`=:seller AND `purchased` IS NOT NULL");
+					$st->bindParam(":seller", $seller);
+				}
+				else if (strcmp($_GET['mode'], "inventory") == 0) {
 					$st = $db->prepare("SELECT * FROM `albums` WHERE `seller`=:seller ORDER BY `posted` DESC");
 					$st->bindParam(":seller", $seller);
 				}

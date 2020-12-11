@@ -34,13 +34,13 @@ header nav { width: 94%; margin-left: 3%; margin-right: 0%; text-align: center; 
 
 header nav ul { list-style-type: none; width: 100%; display: flex; flex-wrap: nowrap; flex-direction: row; justify-content: center; margin-left: -30px; }
 
-header nav ul li { width: 23%; margin-left: 2px; margin-right: 2px; float: left; border: 1px solid gray; background: rgba(20, 20, 20, 0.3); }
+header nav ul li { width: 23%; margin-left: 2px; margin-right: 2px; float: left; border: 1px solid gray; background: rgba(20, 20, 20, 0.3); transition: background, border, 0.2s ease 0s; }
 
 header nav ul li a { display: block; width: 96%; padding: 7px; padding-top: 11px; height: 28px; }
 
 header nav ul li:hover { border: 1px solid #cfcfcf; background: rgba(40, 40, 50, 0.4); }
 
-main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px solid #000; margin-top: 10px; }
+main { width: 97%; margin-left: 1%; margin-right: 1%; padding: 10px; border: 2px solid #000; margin-top: 10px; min-height: 270px; height: auto; box-shadow: 3px 3px rgba(0, 0, 0, 0.5); }
 
 #error { width: 80%; margin-left: 10%; margin-right: 10%; padding: 8px; padding-top: 12px; margin-bottom: 10px; }
 
@@ -53,6 +53,8 @@ main { width: 98%; margin-left: 1%; margin-right: 1%; padding: 8px; border: 2px 
 .login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: right; }
 
 .login-form table tbody tr td[colspan="2"], .register-form table tbody tr td[colspan="2"], .settings-form table tbody tr td[colspan="2"], .contact-fields tbody tr td[colspan="2"] { padding-top: 40px; padding: 7px; text-align: center; }
+
+.contact-form p { text-align: center; }
 
 form h2, form h3 { text-align: center; }
 
@@ -96,7 +98,7 @@ p.error { color: red; }
 
 p.success { color: lime; }
 
-footer { display: block; text-align: center; margin-bottom: 5px; width: 50%; margin-left: 24%; margin-right: 24%; padding-top: 10px; padding-left: 11px; padding-bottom: 9px; }
+footer { display: block; text-align: center; margin-bottom: 5px; width: 50%; margin-left: 24%; margin-right: 24%; padding-top: 10px; padding-left: 11px; padding-bottom: 9px; box-shadow: 3px 3px rgba(0, 0, 0, 0.8); }
 
 span.price { color: #aadf80; font-size: larger; }
 
@@ -126,15 +128,17 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .users-table tbody tr td:first-child, .users-table thead tr td:first-child { text-align: right; }
 
-.index-table, .user-info { width: 100%; }
+.index-table, .user-info, .sold-table { width: 100%; }
 
-.index-table tbody, .index-table tbody tr, .index-table thead, .index-table thead tr, .user-info tbody, .user-info tbody tr, .user-info thead, .user-info thead tr { width: 100%; }
+.index-table tbody, .index-table tbody tr, .index-table thead, .index-table thead tr, .user-info tbody, .user-info tbody tr, .user-info thead, .user-info thead tr, .sold-table tbody, .sold-table tbody tr, .sold-table thead, .sold-table thead tr { width: 100%; }
 
-.index-table tbody tr td, .index-table thead tr td, .user-info tbody tr td, .user-info thead tr td { padding: 4px; font-size: 1.13em; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid black; color: #e5e5e5; }
+.index-table tbody tr td, .index-table thead tr td, .user-info tbody tr td, .user-info thead tr td, .sold-table tbody tr td, .sold-table thead tr td { padding: 4px; font-size: 1.13em; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 1px solid black; color: #e5e5e5; }
 
 .index-table.inv tbody tr td, .index-table.inv thead tr td { width: 24%; }
 
 .index-table.pur tbody tr td, .index-table.pur thead tr td { width: 24%; }
+
+.sold-table tbody tr td, .sold-table thead tr td { width: 32%; }
 
 .user-info tbody tr td { width: 49%; padding: 5px !important; font-size: 1.14em !important; text-align: left; }
 

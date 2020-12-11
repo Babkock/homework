@@ -16,6 +16,7 @@ let app = new Vue({
 	data: () => {
 		return {
 			ajaxResult: "",
+			sent: false,
 			message: {
 				fullname: "",
 				email: "",
@@ -33,6 +34,7 @@ let app = new Vue({
 			formData.append("subject", this.message.subject);
 			formData.append("message", this.message.message);
 			this.$http.post("contact", formData).then((response) => {
+				this.sent = true;
 				this.ajaxResult = response.data;
 			}, () => {
 				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";

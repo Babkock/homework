@@ -76,6 +76,7 @@ header {
 				float:left;
 				border:1px solid gray;
 				background:$LiBg;
+				transition:background, border, 0.2s ease 0s;
 				a {
 					display:block;
 					width:96%;
@@ -93,10 +94,13 @@ header {
 }
 
 main {
-	@include WidthMargins(98%, 1%, 1%);
-	padding:8px;
+	@include WidthMargins(97%, 1%, 1%);
+	padding:10px;
 	border:2px solid #000;
 	margin-top:10px;
+	min-height:270px;
+	height:auto;
+	box-shadow:3px 3px rgba(0, 0, 0, 0.5);
 }
 
 #error {
@@ -123,6 +127,10 @@ main {
 		padding:7px;
 		text-align:center;
 	}
+}
+
+.contact-form p {
+	text-align:center;
 }
 
 form h2, form h3 {
@@ -253,6 +261,7 @@ footer {
 	padding-top:10px;
 	padding-left:11px;
 	padding-bottom:9px;
+	box-shadow:3px 3px rgba(0, 0, 0, 0.8);
 }
 
 span.price {
@@ -332,7 +341,7 @@ textarea {
 	}
 }
 
-.index-table, .user-info {
+.index-table, .user-info, .sold-table {
 	width:100%;
 	tbody, tbody tr, thead, thead tr {
 		width:100%;
@@ -348,6 +357,9 @@ textarea {
 }
 .index-table.pur tbody tr td, .index-table.pur thead tr td {
 	width:24%;
+}
+.sold-table tbody tr td, .sold-table thead tr td {
+	width:32%;
 }
 .user-info tbody tr td {
 	width:49%;
