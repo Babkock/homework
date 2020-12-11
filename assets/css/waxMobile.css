@@ -54,7 +54,11 @@ div.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; tex
 
 .track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.82em !important; color: #efefef; }
 
-button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.85em; color: #efefef; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.85em !important; color: #dfdfdf !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 5px; margin-bottom: 5px; }
+
+button:hover, input[type="submit"]:hover { color: #efefef !important; font-size: 1.85em !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 5px; margin-bottom: 5px; }
+
+button:active, input[type="submit"]:active { color: #cfcfcf !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 5px; margin-bottom: 5px; }
 
 .search-bar { display: flex; flex-direction: column; flex-wrap: wrap; margin-top: 4px; margin-bottom: 4px; }
 

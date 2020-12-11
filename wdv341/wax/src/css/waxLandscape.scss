@@ -136,13 +136,32 @@ header {
 
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
-	font-size:1.65em;
-	color:#efefef;
+	font-size:1.65em !important;
+	color:#dfdfdf;
 	padding:6px;
 	padding-top:8px;
 	padding-bottom:8px;
 	margin-top:5px;
 	margin-bottom:5px;
+	transition:background-color, color 0.2s ease 0s;
+	&:hover {
+		font-size:1.65em !important;
+		color:#efefef;
+		padding:6px;
+		padding-top:8px;
+		padding-bottom:8px;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+	&:active {
+		font-size:1.65em !important;
+		color:#cfcfcf !important;
+		padding:6px;
+		padding-top:8px;
+		padding-bottom:8px;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
 }
 
 .search-bar {

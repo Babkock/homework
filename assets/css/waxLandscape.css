@@ -50,7 +50,11 @@ header nav ul li:hover { border: 1px solid white; background-color: #6a3010; fon
 
 .track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.52em; color: #efefef; }
 
-button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.65em; color: #efefef; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.65em !important; color: #dfdfdf; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; transition: background-color, color 0.2s ease 0s; }
+
+button:hover, input[type="submit"]:hover { font-size: 1.65em !important; color: #efefef; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+
+button:active, input[type="submit"]:active { font-size: 1.65em !important; color: #cfcfcf !important; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
 
 .search-bar { display: flex; flex-direction: column; flex-wrap: wrap; margin-top: 2px; margin-bottom: 2px; }
 
