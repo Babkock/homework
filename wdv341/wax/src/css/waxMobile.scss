@@ -10,7 +10,7 @@
 body {
 	background:#661010;
 	color:white;
-	font-size:1.4em;
+	font-size:1.75em;
 	width:100%;
 	font-family:"Arial" !important;
 	overflow-x:hidden;
@@ -34,8 +34,25 @@ header {
 	width:100%;
 	text-align:center;
 	h1 {
-		font-size:2.1em;
-		color:#efefef;
+		font-size:2.2em;
+		a.small {
+			font-size:2.05em;
+			width:100%;
+			float:right;
+			color:#dfc8c8;
+			&:hover {
+				color:$TextBright;
+			}
+		}
+		a:first-child {
+			width:100%;
+			font-size:2.2em;
+			float:left;
+			color:#dfc8c8;
+			&:hover {
+				color:$TextBright;
+			}
+		}
 	}
 	nav {
 		width:100%;
@@ -43,23 +60,84 @@ header {
 		display:block;
 		border:3px solid black;
 		ul {
-			list-style-type:none;
+			@include Flex(column, wrap);
 			width:100%;
 			li {
-				@include WidthMargins(90%, 5%, 5%);
+				@include WidthMargins(92%, 0, 0);
 				float:left;
 				border:1px solid gray;
-				font-size:1.65em;
-				background-color:#af8d6e;
+				font-size:1.95em;
+				margin-top:5px;
+				margin-bottom:5px;
+				background-color:#106510;
 				a {
 					display:block;
 					width:100%;
 					padding:9px;
-					height:200px;
-					font-size:1.65em;
-					color:white;
+					padding-top:12px;
+					padding-bottom:12px;
+					height:auto;
+					font-size:1.95em;
+					color:$TextLight;
+					&:hover {
+						font-size:1.95em;
+					}
+				}
+				&:hover {
+					background-color:#6a3010;
+					font-size:1.95em;
 				}
 			}
 		}
 	}
+}
+
+.album {
+	@include WidthMargins(95%, -1%, 3%);
+	margin-top:8px;
+	margin-bottom:8px;
+	h2 {
+		font-size:2.2em;
+	}
+	h3 {
+		font-size:2.09em;
+	}
+	div .alb-info {
+		@include Flex(column, wrap);
+		div {
+			@include WidthMargins(98%, 1%, 1%);
+			text-align:center;
+			font-size:1.85em !important;
+			margin-top:6px;
+			margin-bottom:8px;
+			background:none;
+			background-color:rgba(0,0,0,0);
+			border:0 !important;
+		}
+	}
+}
+
+.track-list {
+	width:100%;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		background:none !important;
+		background-color:rgba(0,0,0,0) !important;
+		border:0 !important;
+		font-size:1.82em !important;
+		color:#efefef;
+	}
+}
+
+button, input[type="submit"] {
+	@include WidthMargins(90%, 5%, 5%);
+	font-size:1.85em;
+	color:#efefef;
+	padding:6px;
+	padding-top:8px;
+	padding-bottom:8px;
+	margin-top:5px;
+	margin-bottom:5px;
 }

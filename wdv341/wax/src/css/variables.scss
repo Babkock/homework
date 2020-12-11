@@ -57,3 +57,9 @@ $TextHover: #99ff99;
 	appearance:none;
 	-moz-appearance:none;
 }
+
+@mixin Flex($dir, $wr) {
+	display:flex;
+	flex-direction:$dir;
+	flex-wrap:$wr;
+}

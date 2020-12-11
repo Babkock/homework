@@ -6,7 +6,7 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-body { background: #661010; color: white; font-size: 1.4em; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
+body { background: #661010; color: white; font-size: 1.75em; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
 
 .container { width: 100%; margin-left: 0%; margin-right: 0%; }
 
@@ -16,12 +16,42 @@ a:hover { color: #40ee50; text-decoration: none; }
 
 header { width: 100%; text-align: center; }
 
-header h1 { font-size: 2.1em; color: #efefef; }
+header h1 { font-size: 2.2em; }
+
+header h1 a.small { font-size: 2.05em; width: 100%; float: right; color: #dfc8c8; }
+
+header h1 a.small:hover { color: #efefef; }
+
+header h1 a:first-child { width: 100%; font-size: 2.2em; float: left; color: #dfc8c8; }
+
+header h1 a:first-child:hover { color: #efefef; }
 
 header nav { width: 100%; text-align: center; display: block; border: 3px solid black; }
 
-header nav ul { list-style-type: none; width: 100%; }
+header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
 
-header nav ul li { width: 90%; margin-left: 5%; margin-right: 5%; float: left; border: 1px solid gray; font-size: 1.65em; background-color: #af8d6e; }
+header nav ul li { width: 92%; margin-left: 0; margin-right: 0; float: left; border: 1px solid gray; font-size: 1.95em; margin-top: 5px; margin-bottom: 5px; background-color: #106510; }
 
-header nav ul li a { display: block; width: 100%; padding: 9px; height: 200px; font-size: 1.65em; color: white; }
+header nav ul li a { display: block; width: 100%; padding: 9px; padding-top: 12px; padding-bottom: 12px; height: auto; font-size: 1.95em; color: #dfdfdf; }
+
+header nav ul li a:hover { font-size: 1.95em; }
+
+header nav ul li:hover { background-color: #6a3010; font-size: 1.95em; }
+
+.album { width: 95%; margin-left: -1%; margin-right: 3%; margin-top: 8px; margin-bottom: 8px; }
+
+.album h2 { font-size: 2.2em; }
+
+.album h3 { font-size: 2.09em; }
+
+.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap; }
+
+.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; text-align: center; font-size: 1.85em !important; margin-top: 6px; margin-bottom: 8px; background: none; background-color: rgba(0, 0, 0, 0); border: 0 !important; }
+
+.track-list { width: 100%; }
+
+.track-list tbody, .track-list tbody tr { width: 100%; }
+
+.track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.82em !important; color: #efefef; }
+
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.85em; color: #efefef; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
