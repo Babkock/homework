@@ -26,6 +26,10 @@ Vue.mixin({
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
 		},
 
+		AlbumHref(i) {
+			return "browse?id=" + i;
+		},
+
 		ConditionExpand(cond) {
 			let co = "";
 			switch (cond.toLowerCase()) {

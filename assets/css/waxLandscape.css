@@ -6,3 +6,16 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
+body { background: #661010; color: white; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
+
+.container { width: 92%; margin-left: 4%; margin-right: 4%; }
+
+a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; }
+
+a:hover { color: #99ff99; text-decoration: none; }
+
+header { width: 100%; text-align: center; }
+
+header h1 { font-size: 1.8em; }
+
+header nav { width: 100%; text-align: center; display: block; border: 2px solid black; }

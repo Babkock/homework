@@ -132,7 +132,7 @@ export default {
 		},
 
 		alclass: function() {
-			return ((this.apurchased !== "n") ? "album" : "album sold");
+			return ((this.apurchased !== "n") ? "album sold" : "album");
 		},
 
 		countryexpand: function() {
@@ -378,7 +378,7 @@ div.album {
 	@include WidthMargins(30.5%, 3px, 3px);
 	margin-top:6px;
 	margin-bottom:7px;
-	@include BackBorderColor(rgba(30, 30, 30, 0.3), 1px solid gray, #dfdfdf);
+	@include BackBorderColor($LiBg, 1px solid gray, $TextLight);
 	padding:7px;
 	text-align:center;
 	float:left;
@@ -403,6 +403,9 @@ div.album {
 			}
 		}
 	}
+	&.sold {
+		filter:grayscale(50%);
+	}
 }
 
 .track-list {
@@ -412,7 +415,7 @@ div.album {
 		width:100%;
 	}
 	tbody tr td {
-		background:rgba(10, 10, 10, 0.2);
+		@include BackBorderColor($BgSlight, 1px solid $BgTransDark, $TextLight);
 		padding:6px;
 		font-size:1.12em;
 	}
@@ -429,7 +432,7 @@ button.expand {
 	width:98%;
 	margin-top:6px;
 	div {
-		@include BackBorderColor(rgba(10, 10, 10, 0.2), 1px solid rgba(10, 10, 10, 0.4), #dfdfdf);
+		@include BackBorderColor($BgSlight, 1px solid $BgTransDark, $TextLight);
 		padding:5px;
 		padding-top:7px;
 	}

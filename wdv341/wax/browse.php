@@ -235,7 +235,7 @@ EOF;
 						<tr>
 							<td>{$x}.</td>
 							<td>{$v->title}</td>
-							<td><i>($v->length)</i></td>
+							<td>{$v->length}</td>
 						</tr>
 EOF;
 						$x++;

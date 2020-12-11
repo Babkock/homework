@@ -7,7 +7,7 @@
 */
 .albums-box { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;
 }
-div.album { width: 30.5%; margin-left: 3px; margin-right: 3px; margin-top: 6px; margin-bottom: 7px; background: rgba(30, 30, 30, 0.3); background-color: rgba(30, 30, 30, 0.3); border: 1px solid gray; color: #dfdfdf; padding: 7px; text-align: center; float: left;
+div.album { width: 30.5%; margin-left: 3px; margin-right: 3px; margin-top: 6px; margin-bottom: 7px; background: rgba(20, 20, 20, 0.3); background-color: rgba(20, 20, 20, 0.3); border: 1px solid gray; color: #dfdfdf; padding: 7px; text-align: center; float: left;
 }
 div.album h2, div.album h3, div.album p { text-align: center;
 }
@@ -19,11 +19,13 @@ div.album .cover img { width: 80%; margin-left: 10%; margin-right: 10%; margin-t
 }
 div.album .cover img:hover { margin-top: 4px; opacity: 1;
 }
+div.album.sold { filter: grayscale(50%);
+}
 .track-list { width: 100%; text-align: left;
 }
 .track-list tbody, .track-list tbody tr { width: 100%;
 }
-.track-list tbody tr td { background: rgba(10, 10, 10, 0.2); padding: 6px; font-size: 1.12em;
+.track-list tbody tr td { background: rgba(10, 10, 10, 0.2); background-color: rgba(10, 10, 10, 0.2); border: 1px solid rgba(10, 10, 10, 0.4); color: #dfdfdf; padding: 6px; font-size: 1.12em;
 }
 button.expand { width: 90%;
 }
