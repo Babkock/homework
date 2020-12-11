@@ -24,7 +24,8 @@ let app = new Vue({
 				newpassword2: "",
 				country: "{{COUNTRY}}",
 				showemail: "{{SHOWEMAIL}}",
-				biography: "{{BIOGRAPHY}}"
+				biography: "{{BIOGRAPHY}}",
+				email: "{{OLDEMAIL}}"
 			},
 			ajaxResult: ""
 		};
@@ -58,6 +59,7 @@ let app = new Vue({
 					formData.append("showemail", 3);
 				
 				formData.append("biography", this.userinfo.biography);
+				formData.append("email", this.userinfo.email);
 				this.$http.post("settings", formData).then((response) => {
 					this.ajaxResult = response.data;
 					this.saved = true;

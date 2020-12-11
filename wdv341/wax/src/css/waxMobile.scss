@@ -33,14 +33,15 @@ a:hover {
 header {
 	width:100%;
 	text-align:center;
+	background:none !important;
 	h1 {
-		margin-bottom:2px;
+		margin-bottom:4px;
 		a.small {
 			font-size:$MobileLarge;
 			width:100%;
 			float:right;
-			margin-top:5px;
-			margin-bottom:5px;
+			margin-top:7px;
+			margin-bottom:7px;
 			color:#dfc8c8 !important;
 			&:hover {
 				color:$TextBright !important;
@@ -48,10 +49,10 @@ header {
 		}
 		a:first-child {
 			width:100%;
-			font-size:$MobileBig;
+			font-size:$MobileLarger;
 			float:left;
-			margin-top:5px;
-			margin-bottom:5px;
+			margin-top:7px;
+			margin-bottom:7px;
 			color:#dfc8c8 !important;
 			&:hover {
 				color:$TextBright !important;
@@ -59,30 +60,31 @@ header {
 		}
 	}
 	nav {
-		width:100%;
+		@include WidthMargins(100%, 0, 0);
+		background:none !important;
 		text-align:center;
 		display:block;
-		border:3px solid black;
+		border:0 !important;
 		ul {
 			@include Flex(column, wrap);
 			width:100%;
 			li {
 				@include WidthMargins(92%, 0, 0);
 				float:left;
-				border:1px solid gray;
-				font-size:$MobileBig;
-				margin-top:5px;
-				margin-bottom:5px;
+				border:3px solid gray;
+				font-size:$MobileLarger;
+				margin-top:9px;
+				margin-bottom:9px;
 				background-color:#106510;
 				transition:background-color, border 0.2s ease 0s;
 				a {
 					display:block;
-					width:100%;
-					padding:9px;
-					padding-top:12px;
-					padding-bottom:12px;
+					@include WidthMargins(100%, 0, 0);
+					padding:10px;
+					padding-top:18px;
+					padding-bottom:18px;
 					height:auto;
-					font-size:$MobileBig;
+					font-size:$MobileLarger;
 					color:$TextLight;
 					transition:color 0.2s ease 0s;
 					&:hover {
@@ -91,7 +93,8 @@ header {
 				}
 				&:hover {
 					background-color:#6a3010;
-					font-size:$MobileBig;
+					font-size:$MobileLarger;
+					border:3px solid white;
 				}
 			}
 		}
@@ -103,23 +106,28 @@ div.album {
 	margin-top:8px;
 	margin-bottom:8px;
 	h2 {
-		font-size:2.2em;
+		font-size:$MobileLarge;
 	}
 	h3 {
-		font-size:2.09em;
+		font-size:$MobileLarger;
 	}
 	div .alb-info {
 		@include Flex(column, wrap);
 		div {
 			@include WidthMargins(98%, 1%, 1%);
 			text-align:center;
-			font-size:1.85em !important;
+			font-size:$MobileNormal !important;
 			margin-top:6px;
 			margin-bottom:8px;
 			background:none;
 			background-color:rgba(0,0,0,0);
 			border:0 !important;
 		}
+	}
+	div p {
+		font-size:$MobileNormal;
+		margin-top:5px;
+		margin-bottom:5px;
 	}
 }
 
@@ -139,29 +147,53 @@ div.album {
 
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
-	font-size:1.85em !important;
-	color:#dfdfdf !important;
-	padding:7px;
-	padding-top:10px;
-	padding-bottom:10px;
-	margin-top:5px;
-	margin-bottom:5px;
+	font-size:$MobileNormal !important;
+	color:$TextLight !important;
+	padding:9px;
+	padding-top:12px;
+	padding-bottom:12px;
+	margin-top:8px;
+	margin-bottom:8px;
 	&:hover {
-		color:#efefef !important;
-		font-size:1.85em !important;
-		padding:7px;
-		padding-top:10px;
-		padding-bottom:10px;
-		margin-top:5px;
-		margin-bottom:5px;
+		color:$TextBright !important;
+		font-size:$MobileNormal !important;
+		padding:9px;
+		padding-top:12px;
+		padding-bottom:12px;
+		margin-top:8px;
+		margin-bottom:8px;
 	}
 	&:active {
-		color:#cfcfcf !important;
-		padding:7px;
+		color:$TextNormal !important;
+		padding:9px;
+		padding-top:12px;
+		padding-bottom:12px;
+		margin-top:8px;
+		margin-bottom:8px;
+	}
+}
+
+input[type="text"], input[type="number"], select, input[type="password"] {
+	@include Appearance();
+	@include WidthMargins(98%, 1%, 1%);
+	@include BackBorderColor(#131313, 3px solid black, $TextLight);
+	font-size:$MobileNormal !important;
+	padding:8px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-top:7px;
+	margin-bottom:7px;
+	transition:background, background-color, border, color 0.2s ease 0s;
+	&:hover {
+		@include Appearance();
+		@include WidthMargins(98%, 1%, 1%);
+		@include BackBorderColor(#171717, 3px solid #202020, $TextBright);
+		font-size:$MobileNormal !important;
+		padding:8px;
 		padding-top:10px;
 		padding-bottom:10px;
-		margin-top:5px;
-		margin-bottom:5px;
+		margin-top:7px;
+		margin-bottom:7px;
 	}
 }
 
@@ -171,29 +203,29 @@ button, input[type="submit"] {
 	margin-bottom:4px;
 	#search {
 		@include Appearance();
-		@include WidthMargins(90%, 5%, 5%);
+		@include WidthMargins(100%, 0, 0);
 		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
 		padding-right:9px;
-		padding-left:15px;
-		padding-top:11px;
-		padding-bottom:11px;
-		margin-top:8px;
-		margin-bottom:8px;
+		padding-left:16px;
+		padding-top:13px;
+		padding-bottom:13px;
+		margin-top:10px;
+		margin-bottom:10px;
 		border-bottom:1px solid rgba(0,0,0,0) !important;
-		border-radius:32px 32px 32px 32px;
-		font-size:1.79em;
+		border-radius:40px 40px 40px 40px;
+		font-size:$LandscapeLarger;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
 			padding-right:9px;
-			padding-left:15px;
-			padding-top:11px;
-			padding-bottom:11px;
-			margin-top:8px;
-			margin-bottom:8px;
+			padding-left:16px;
+			padding-top:13px;
+			padding-bottom:13px;
+			margin-top:10px;
+			margin-bottom:10px;
 			border-bottom:1px solid rgba(0,0,0,0) !important;
-			border-radius:32px 32px 32px 32px;
-			font-size:1.79em;
+			border-radius:40px 40px 40px 40px;
+			font-size:$LandscapeLarger;
 		}
 	}
 	#stype, #scountry {
@@ -202,10 +234,9 @@ button, input[type="submit"] {
 		padding:9px;
 		padding-top:12px;
 		padding-bottom:12px;
-		margin-top:9px;
-		margin-bottom:9px;
-		border-radius:32px 32px 32px 32px;
-		font-size:1.86em;
+		margin-top:10px;
+		margin-bottom:10px;
+		font-size:$MobileNormal !important;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include BackBorderColor(#20754d, 2px solid #202020 !important, $TextBright !important);
@@ -214,8 +245,7 @@ button, input[type="submit"] {
 			padding-bottom:12px;
 			margin-top:9px;
 			margin-bottom:9px;
-			border-radius:32px 32px 32px 32px;
-			font-size:1.86em;
+			font-size:$MobileNormal !important;
 		}
 	}
 	#submit {
@@ -225,10 +255,10 @@ button, input[type="submit"] {
 		padding:10px;
 		padding-top:20px;
 		padding-bottom:20px;
-		margin-top:9px;
-		margin-bottom:9px;
-		font-size:1.92em;
-		border-radius:32px 32px 32px 32px;
+		margin-top:11px;
+		margin-bottom:11px;
+		font-size:$MobileLarge !important;
+		border-radius:40px 40px 40px 40px;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include WidthMargins(98%, 0%, 2%);
@@ -236,10 +266,92 @@ button, input[type="submit"] {
 			padding:10px;
 			padding-top:20px;
 			padding-bottom:20px;
-			margin-top:9px;
-			margin-bottom:9px;
-			font-size:1.92em;
-			border-radius:32px 32px 32px 32px;
+			margin-top:11px;
+			margin-bottom:11px;
+			font-size:$MobileLarge !important;
+			border-radius:40px 40px 40px 40px;
 		}
 	}
+}
+
+.login-form table, .register-form table, .settings-form table, .contact-fields {
+	width:100%;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		width:100%;
+		display:inline-block;
+		font-size:1.95em;
+		text-align:center;
+		padding:9px;
+	}
+}
+
+header, main, footer {
+	background:none !important;
+}
+
+footer {
+	@include WidthMargins(90%, 5%, 5%);
+	font-size:$MobileSmall;
+	text-align:center;
+}
+
+.index-table thead, .user-info thead, .sold-table thead {
+	display:none;
+}
+
+.index-table, .user-info, .sold-table {
+	width:100%;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		@include WidthMargins(95% !important, -2%, 0%);
+		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
+		font-size:$MobileNormal;
+		display:inline-block;
+		margin-top:8px;
+		margin-bottom:8px;
+		text-align:center;
+		padding:7px;
+	}
+}
+
+main h2 {
+	font-size:$MobileLarge;
+	text-align:center;
+}
+
+main h3 {
+	font-size:$MobileLarger;
+	text-align:center;
+}
+
+.user-info tbody tr td, .user-info thead tr td {
+	font-size:$MobileNormal !important;
+	text-align:center;
+	display:inline-block !important;
+	@include WidthMargins(95% !important, -2%, 2%);
+	padding:9px !important;
+}
+
+.album-editor .cover, #account .avatar, .settings-form .cover {
+	@include WidthMargins(90%, 5%, 5%);
+}
+
+.album-editor .cover img, #account .avatar img, .settings-form .cover img {
+	@include WidthMargins(50%, 25%, 25%);
+	opacity:1;
+}
+
+#account .bio {
+	@include WidthMargins(96%, -1%, 4%);
+	margin-top:6px;
+	margin-bottom:7px;
+	font-size:$MobileNormal !important;
+	padding:8px;
+	padding-top:14px;
+	padding-bottom:14px;
 }

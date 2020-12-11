@@ -576,8 +576,14 @@ EOF;
 		$this->output();
 	}
 
-	public function ogImage($i) {
-		$this->replace("OGIMAGE", $i);
+	public function ogImage($url) {
+		$w = @\getimagesize($url)[0];
+		$h = @\getimagesize($url)[1];
+		$this->hreplacea([
+			"OGIMAGE" => $url,
+			"OGWIDTH" => "" . $w,
+			"OGHEIGHT" => "" . $h
+		]);
 	}
 
 	public function script($s) {

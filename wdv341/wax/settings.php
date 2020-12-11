@@ -14,11 +14,15 @@ try {
 		if ((!isset($_POST['showemail'])) && (!isset($_POST['biography'])) && (!isset($_FILES['image']))) {
 			exit("<p class=\"error\">You did not make any changes.</p>");
 		}
+		else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			exit("<p class=\"error\">You entered an invalid email address.</p>");
+		}
 		$uid = Methods::getIdFromName($_SESSION['current_user']);
 		$user = new User(intval($uid));
 		$user->read();
 
 		$user->setShowEmail($_POST['showemail']);
+		$user->setEmail($_POST['email']);
 
 		if (isset($_POST['biography'])) {
 			$user->setBiography(substr($_POST['biography'], 0, 700));
@@ -113,6 +117,7 @@ try {
 		$settings->replacea([
 			"USERID" => $uid,
 			"BIOGRAPHY" => addslashes($row['biography']),
+			"OLDEMAIL" => $row['email'],
 			"USERIMG" => $row['image'] ?? "img/user/default.jpg",
 			"COUNTRY" => $row['country'],
 			"USER_COUNTRY" => $country

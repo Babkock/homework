@@ -334,6 +334,8 @@ EOF;
 				}
 				else {
 					$browse = new Page("header_guest", "browse");
+					$browse->setContent(Methods::snip("{{IF_LOGGED_IN}}", "{{ENDIF}}", $browse->getContent()));
+
 					$browse->script("waxBrowse.min.js");
 					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 					$browse->replacea([
@@ -358,6 +360,8 @@ EOF;
 
 			if (isset($_GET['a'])) {    // artist
 				$browse = new Page("header_user", "browse_specific");
+				$browse->replace("IF_LOGGED_IN");
+				$browse->replace("ENDIF");
 				$browse->script("waxBrowse.min.js");
 				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$browse->hreplace("USERID", "" . $uid);

@@ -8,7 +8,7 @@
 @import "variables.scss";
 
 body {
-	background:#661010;
+	background:radial-gradient(circle, #207720, #6d3010);
 	color:#ccfefe;
 	width:100%;
 	font-size:1.45em;
@@ -33,17 +33,19 @@ a:hover {
 header {
 	width:100%;
 	text-align:center;
+	background:none !important;
 	h1 {
-		font-size:1.75em;
 		text-align:center;
+		margin-top:4px;
+		margin-bottom:4px;
 		a.small {
-			font-size:1.65em;
+			font-size:$LandscapeLarger;
 			width:40%;
 			float:right;
 			margin-left:5%;
 		}
 		a:first-child {
-			font-size:1.75em;
+			font-size:$LandscapeLarge;
 			float:left;
 			width:50%;
 			margin-right:5%;
@@ -51,6 +53,7 @@ header {
 	}
 	nav {
 		width:100%;
+		background:none !important;
 		text-align:center;
 		display:block;
 		border:2px solid black;
@@ -60,11 +63,11 @@ header {
 			li {
 				@include WidthMargins(92%, 0, 0);
 				float:left;
-				border:1px solid gray;
-				font-size:1.75em;
-				margin-top:4px;
-				margin-bottom:4px;
-				background-color:#106510;
+				border:2px solid gray;
+				font-size:$LandscapeLarger;
+				margin-top:7px;
+				margin-bottom:7px;
+				background-color:$MobileNavBg;
 				transition:background-color, border 0.2s ease 0s;
 				a {
 					color:$TextLight !important;
@@ -74,21 +77,23 @@ header {
 					padding-top:10px;
 					padding-bottom:10px;
 					height:auto;
-					font-size:1.75em;
+					font-size:$LandscapeLarger;
 					transition:color 0.2s ease 0s;
 					&:hover {
-						color:$TextBright;
+						color:$TextBright !important;
 						display:block;
 						width:100%;
 						padding:8px;
+						padding-top:10px;
+						padding-bottom:10px;
 						height:auto;
-						font-size:1.75em;
+						font-size:$LandscapeLarger;
 					}
 				}
 				&:hover {
-					border:1px solid white;
-					background-color:#6a3010;
-					font-size:1.75em;
+					border:2px solid white;
+					background-color:$MobileNavBgHover;
+					font-size:$LandscapeLarger;
 				}
 			}
 		}
@@ -110,13 +115,16 @@ header {
 		div {
 			@include WidthMargins(98%, 1%, 1%);
 			text-align:center;
-			font-size:1.5em !important;
-			margin-top:6px;
-			margin-bottom:8px;
+			font-size:$LandscapeNormal !important;
+			margin-top:5px;
+			margin-bottom:7px;
 			background:none !important;
 			background-color:rgba(0,0,0,0) !important;
 			border:0 !important;
 		}
+	}
+	div p {
+		font-size:$LandscapeNormal !important;
 	}
 }
 
@@ -129,7 +137,7 @@ header {
 		background:none !important;
 		background-color:rgba(0,0,0,0) !important;
 		border:0 !important;
-		font-size:1.52em;
+		font-size:$LandscapeSmaller;
 		color:#efefef;
 	}
 }
@@ -180,7 +188,7 @@ button, input[type="submit"] {
 		margin-bottom:6px;
 		border-bottom:1px solid rgba(0,0,0,0) !important;
 		border-radius:32px 32px 32px 32px;
-		font-size:1.61em;
+		font-size:$LandscapeLarger;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
@@ -196,7 +204,7 @@ button, input[type="submit"] {
 		}
 	}
 	#stype, #scountry {
-		@include WidthMargins(95%, 2%, 2%);
+		@include WidthMargins(95%, 0%, 0%);
 		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
 		padding:7px;
 		padding-top:10px;
@@ -204,7 +212,7 @@ button, input[type="submit"] {
 		margin-top:6px;
 		margin-bottom:6px;
 		border-radius:32px 32px 32px 32px;
-		font-size:1.71em;
+		font-size:$LandscapeLarger;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include BackBorderColor(#20754d, 2px solid #202020 !important, $TextBright !important);
@@ -214,7 +222,7 @@ button, input[type="submit"] {
 			margin-top:6px;
 			margin-bottom:6px;
 			border-radius:32px 32px 32px 32px;
-			font-size:1.71em;
+			font-size:$LandscapeLarger;
 		}
 	}
 	#submit {
@@ -226,7 +234,7 @@ button, input[type="submit"] {
 		padding-bottom:17px;
 		margin-top:6px;
 		margin-bottom:6px;
-		font-size:1.8em;
+		font-size:$LandscapeLarge;
 		border-radius:32px 32px 32px 32px;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
@@ -237,8 +245,76 @@ button, input[type="submit"] {
 			padding-bottom:20px;
 			margin-top:9px;
 			margin-bottom:9px;
-			font-size:1.8em;
+			font-size:$LandscapeLarge;
 			border-radius:32px 32px 32px 32px;
 		}
 	}
+}
+
+main, footer {
+	background:none !important;
+}
+
+footer {
+	font-size:$LandscapeSmall;
+	@include WidthMargins(90%, 5%, 5%);
+	text-align:center;
+}
+
+.index-table thead, .user-info thead, .sold-table thead {
+	display:none;
+}
+
+.index-table, .user-info, .sold-table {
+	width:100%;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		@include WidthMargins(95% !important, -2%, 0%);
+		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
+		font-size:$LandscapeNormal;
+		display:inline-block;
+		margin-top:5px;
+		margin-bottom:5px;
+		text-align:center;
+		padding:5px;
+	}
+}
+
+main h2 {
+	font-size:$LandscapeLarge;
+	text-align:center;
+}
+
+main h3 {
+	font-size:$LandscapeLarger;
+	text-align:center;
+}
+
+.user-info tbody tr td, .user-info thead tr td {
+	font-size:$LandscapeNormal !important;
+	text-align:center;
+	display:inline-block !important;
+	@include WidthMargins(95% !important, -2%, 2%);
+	padding:6px !important;
+}
+
+.album-editor .cover, #account .avatar, .settings-form .cover {
+	@include WidthMargins(90%, 5%, 5%);
+}
+
+.album-editor .cover img, #account .avatar img, .settings-form .cover img {
+	@include WidthMargins(50%, 25%, 25%);
+	opacity:1;
+}
+
+#account .bio {
+	@include WidthMargins(96%, -1%, 4%);
+	margin-top:6px;
+	margin-bottom:7px;
+	font-size:$LandscapeNormal !important;
+	padding:5px;
+	padding-top:9px;
+	padding-bottom:9px;
 }

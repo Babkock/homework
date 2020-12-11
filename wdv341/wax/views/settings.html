@@ -24,6 +24,17 @@
 			</tr>
 		</tbody></table>
 		<br />
+		<h2>Change Email Address</h2>
+		<p>Change your WaXchange email address.</p>
+		<table class="main-user-info"><tbody>
+			<tr>
+				<td><label><b>New Email Address:</b></label></td>
+				<td>
+					<input type="text" name="email" v-model="userinfo.email" placeholder="user@example.com" @blur="userinfo.email = $event.target.value" />
+				</td>
+			</tr>
+		</tbody></table>
+
 		<h2>Change Country</h2>
 		<p>Change the country that appears on your profile.</p>
 		<table class="main-user-info"><tbody>
