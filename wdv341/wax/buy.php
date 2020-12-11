@@ -26,8 +26,34 @@ try {
 				$album = new Album(intval($_GET['id']));
 				$album->read();
 				$album->purchase($_SESSION['current_user']);
+				$uid = Methods::getIdFromName($_SESSION['current_user']);
+				$curr = Methods::currencySymbol($album->getCurrency());
+				$p = number_format((float)$album->getPrice(), 2, ".", "");
 
-				$buy->error("<h3>You have purchased " . $album->getArtist() . " - " . $album->getTitle() . " for $" . $album->price . "! Thank you for your business.</h3>\n<p class=\"success\">This release is now in your collection. <a href=\"index\">View your collection here.</a></p>");
+				$sid = $album->getSellerId();
+				$posted = date("F j, Y", strtotime($album->getPosted()));
+				$sell = new User($sid);
+				$sell->read();
+
+				$to = $sell->getEmail();
+				$subject = $_SESSION['current_user'] . " purchased your album " . $album->getArtist() . " - " . $album->getTitle() . " on WaXchange!";
+				$message = "<h1>Cha-ching! Pay day!</h1>";
+				$message .= "<h3>Buyer: <a href=\"https://tannerbabcock.com/homework/wdv341/wax/user?id=" . $uid . "\" title=\"WaXchange\" alt=\"WaXchange\">" . $_SESSION['current_user'] . "</a></h3>";
+				$message .= "<h3>Sale: " . $curr . $p "</h3>";
+				$message .= "<p>I bet you're happy right now! Congratulations on making a sale on WaXchange music marketplace. You posted this album for sale <b>" . $posted . "</b>.</p>";
+				$message .= "<center><a href=\"https://tannerbabcock.com/homework/wdv341/wax/index\" title=\"Dashboard\" alt=\"Dashboard\">WaXchange Dashboard</a></center>";
+
+				$header = "From:tanner@tannerbabcock.com \r\n";
+				$header .= "Cc:" . $_POST['email'] . " \r\n";
+				$header .= "MIME-Version: 1.0\r\n";
+				$header .= "Content-type: text/html\r\n";
+
+				if (mail($to, $subject, $message, $header) == false) {
+					$buy->error("<h3>This album has been purchased, but there was a problem sending the seller an email.</h3>");
+				}
+				else {
+					$buy->error("<h3>You have purchased " . $album->getArtist() . " - " . $album->getTitle() . " for $" . $album->price . "! Thank you for your business.</h3>\n<p class=\"success\">This release is now in your collection. <a href=\"index\">View your collection here.</a></p>");
+				}
 			}
 		}
 		exit();

@@ -40,6 +40,10 @@ $TextBright: #efefef;
 $TextLink: #88cc88;
 $TextHover: #99ff99;
 
+$MobileNormal: 1.75em;
+$MobileLarge: 2em;
+$MobileBig: 1.95em;
+
 @mixin WidthMargins($w, $l, $r) {
 	width:$w;
 	margin-left:$l;

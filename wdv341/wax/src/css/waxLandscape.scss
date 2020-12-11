@@ -144,3 +144,82 @@ button, input[type="submit"] {
 	margin-top:5px;
 	margin-bottom:5px;
 }
+
+.search-bar {
+	@include Flex(column, wrap);
+	margin-top:2px;
+	margin-bottom:2px;
+	#search {
+		@include Appearance();
+		@include WidthMargins(90%, 5%, 5%);
+		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		padding-right:7px;
+		padding-left:13px;
+		padding-top:9px;
+		padding-bottom:9px;
+		margin-top:6px;
+		margin-bottom:6px;
+		border-bottom:1px solid rgba(0,0,0,0) !important;
+		border-radius:32px 32px 32px 32px;
+		font-size:1.61em;
+		transition:background, background-color, border, color 0.2s ease 0s;
+		&:hover {
+			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			padding-right:9px;
+			padding-left:15px;
+			padding-top:11px;
+			padding-bottom:11px;
+			margin-top:8px;
+			margin-bottom:8px;
+			border-bottom:1px solid rgba(0,0,0,0) !important;
+			border-radius:32px 32px 32px 32px;
+			font-size:1.61em;
+		}
+	}
+	#stype, #scountry {
+		@include WidthMargins(95%, 2%, 2%);
+		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
+		padding:7px;
+		padding-top:10px;
+		padding-bottom:10px;
+		margin-top:6px;
+		margin-bottom:6px;
+		border-radius:32px 32px 32px 32px;
+		font-size:1.71em;
+		transition:background, background-color, border, color 0.2s ease 0s;
+		&:hover {
+			@include BackBorderColor(#20754d, 2px solid #202020 !important, $TextBright !important);
+			padding:7px;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin-top:6px;
+			margin-bottom:6px;
+			border-radius:32px 32px 32px 32px;
+			font-size:1.71em;
+		}
+	}
+	#submit {
+		@include Appearance();
+		@include WidthMargins(98%, 0%, 2%);
+		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		padding:9px;
+		padding-top:17px;
+		padding-bottom:17px;
+		margin-top:6px;
+		margin-bottom:6px;
+		font-size:1.8em;
+		border-radius:32px 32px 32px 32px;
+		transition:background, background-color, border, color 0.2s ease 0s;
+		&:hover {
+			@include WidthMargins(98%, 0%, 2%);
+			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			padding:10px;
+			padding-top:20px;
+			padding-bottom:20px;
+			margin-top:9px;
+			margin-bottom:9px;
+			font-size:1.8em;
+			border-radius:32px 32px 32px 32px;
+		}
+	}
+}
