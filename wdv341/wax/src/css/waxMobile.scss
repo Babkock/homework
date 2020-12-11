@@ -37,24 +37,26 @@ header {
 	h1 {
 		margin-bottom:4px;
 		a.small {
-			font-size:$MobileLarge;
+			font-size:$MobileLarger;
 			width:100%;
 			float:right;
 			margin-top:7px;
 			margin-bottom:7px;
 			color:#dfc8c8 !important;
 			&:hover {
+				font-size:$MobileLarger !important;
 				color:$TextBright !important;
 			}
 		}
 		a:first-child {
 			width:100%;
-			font-size:$MobileLarger;
+			font-size:$MobileLarge;
 			float:left;
 			margin-top:7px;
 			margin-bottom:7px;
 			color:#dfc8c8 !important;
 			&:hover {
+				font-size:$MobileLarge !important;
 				color:$TextBright !important;
 			}
 		}
@@ -71,11 +73,10 @@ header {
 			li {
 				@include WidthMargins(92%, 0, 0);
 				float:left;
-				border:3px solid gray;
-				font-size:$MobileLarger;
+				font-size:$MobileLarge;
 				margin-top:9px;
 				margin-bottom:9px;
-				background-color:#106510;
+				@include BackBorderColor($MobileNavBg, 3px solid gray, $TextLight);
 				transition:background-color, border 0.2s ease 0s;
 				a {
 					display:block;
@@ -84,17 +85,17 @@ header {
 					padding-top:18px;
 					padding-bottom:18px;
 					height:auto;
-					font-size:$MobileLarger;
-					color:$TextLight;
+					font-size:$MobileLarge;
+					color:$TextLight !important;
 					transition:color 0.2s ease 0s;
 					&:hover {
-						font-size:1.95em;
+						font-size:$MobileLarge;
+						color:$TextBright !important;
 					}
 				}
 				&:hover {
-					background-color:#6a3010;
-					font-size:$MobileLarger;
-					border:3px solid white;
+					@include BackBorderColor($MobileNavBgHover, 3px solid white, $TextBright !important);
+					font-size:$MobileLarge;
 				}
 			}
 		}
@@ -106,10 +107,10 @@ div.album {
 	margin-top:8px;
 	margin-bottom:8px;
 	h2 {
-		font-size:$MobileLarge;
+		font-size:$MobileLarger;
 	}
 	h3 {
-		font-size:$MobileLarger;
+		font-size:$MobileLarge;
 	}
 	div .alb-info {
 		@include Flex(column, wrap);
@@ -140,8 +141,8 @@ div.album {
 		background:none !important;
 		background-color:rgba(0,0,0,0) !important;
 		border:0 !important;
-		font-size:1.82em !important;
-		color:#efefef;
+		font-size:$MobileNormal !important;
+		color:$TextBright;
 	}
 }
 
@@ -320,12 +321,12 @@ footer {
 }
 
 main h2 {
-	font-size:$MobileLarge;
+	font-size:$MobileLargest;
 	text-align:center;
 }
 
 main h3 {
-	font-size:$MobileLarger;
+	font-size:$MobileLarge;
 	text-align:center;
 }
 

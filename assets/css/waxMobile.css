@@ -18,31 +18,31 @@ header { width: 100%; text-align: center; background: none !important; }
 
 header h1 { margin-bottom: 4px; }
 
-header h1 a.small { font-size: 2em; width: 100%; float: right; margin-top: 7px; margin-bottom: 7px; color: #dfc8c8 !important; }
+header h1 a.small { font-size: 2.2em; width: 100%; float: right; margin-top: 7px; margin-bottom: 7px; color: #dfc8c8 !important; }
 
-header h1 a.small:hover { color: #efefef !important; }
+header h1 a.small:hover { font-size: 2.2em !important; color: #efefef !important; }
 
-header h1 a:first-child { width: 100%; font-size: 2.2em; float: left; margin-top: 7px; margin-bottom: 7px; color: #dfc8c8 !important; }
+header h1 a:first-child { width: 100%; font-size: 2em; float: left; margin-top: 7px; margin-bottom: 7px; color: #dfc8c8 !important; }
 
-header h1 a:first-child:hover { color: #efefef !important; }
+header h1 a:first-child:hover { font-size: 2em !important; color: #efefef !important; }
 
 header nav { width: 100%; margin-left: 0; margin-right: 0; background: none !important; text-align: center; display: block; border: 0 !important; }
 
 header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
 
-header nav ul li { width: 92%; margin-left: 0; margin-right: 0; float: left; border: 3px solid gray; font-size: 2.2em; margin-top: 9px; margin-bottom: 9px; background-color: #106510; transition: background-color, border 0.2s ease 0s; }
+header nav ul li { width: 92%; margin-left: 0; margin-right: 0; float: left; font-size: 2em; margin-top: 9px; margin-bottom: 9px; background: #102079; background-color: #102079; border: 3px solid gray; color: #dfdfdf; transition: background-color, border 0.2s ease 0s; }
 
-header nav ul li a { display: block; width: 100%; margin-left: 0; margin-right: 0; padding: 10px; padding-top: 18px; padding-bottom: 18px; height: auto; font-size: 2.2em; color: #dfdfdf; transition: color 0.2s ease 0s; }
+header nav ul li a { display: block; width: 100%; margin-left: 0; margin-right: 0; padding: 10px; padding-top: 18px; padding-bottom: 18px; height: auto; font-size: 2em; color: #dfdfdf !important; transition: color 0.2s ease 0s; }
 
-header nav ul li a:hover { font-size: 1.95em; }
+header nav ul li a:hover { font-size: 2em; color: #efefef !important; }
 
-header nav ul li:hover { background-color: #6a3010; font-size: 2.2em; border: 3px solid white; }
+header nav ul li:hover { background: #207474; background-color: #207474; border: 3px solid white; color: #efefef !important; font-size: 2em; }
 
 div.album { width: 95%; margin-left: -1%; margin-right: 3%; margin-top: 8px; margin-bottom: 8px; }
 
-div.album h2 { font-size: 2em; }
+div.album h2 { font-size: 2.2em; }
 
-div.album h3 { font-size: 2.2em; }
+div.album h3 { font-size: 2em; }
 
 div.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap; }
 
@@ -54,7 +54,7 @@ div.album div p { font-size: 1.85em; margin-top: 5px; margin-bottom: 5px; }
 
 .track-list tbody, .track-list tbody tr { width: 100%; }
 
-.track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.82em !important; color: #efefef; }
+.track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.85em !important; color: #efefef; }
 
 button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.85em !important; color: #dfdfdf !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
 
@@ -98,9 +98,9 @@ footer { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.7em; text-a
 
 .index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 95% !important; margin-left: -2%; margin-right: 0%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 3px solid black; color: #dfdfdf; font-size: 1.85em; display: inline-block; margin-top: 8px; margin-bottom: 8px; text-align: center; padding: 7px; }
 
-main h2 { font-size: 2em; text-align: center; }
+main h2 { font-size: 2.4em; text-align: center; }
 
-main h3 { font-size: 2.2em; text-align: center; }
+main h3 { font-size: 2em; text-align: center; }
 
 .user-info tbody tr td, .user-info thead tr td { font-size: 1.85em !important; text-align: center; display: inline-block !important; width: 95% !important; margin-left: -2%; margin-right: 2%; padding: 9px !important; }
 
