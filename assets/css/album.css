@@ -19,7 +19,7 @@ div.album .cover img { width: 80%; margin-left: 10%; margin-right: 10%; margin-t
 }
 div.album .cover img:hover { margin-top: 4px; opacity: 1;
 }
-div.album.sold { filter: grayscale(50%);
+#browse .albums-box .album.sold { filter: grayscale(50%);
 }
 .track-list { width: 100%; text-align: left;
 }

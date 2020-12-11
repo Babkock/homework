@@ -1,6 +1,6 @@
 <main id="contact">
 	<form action="" method="post" class="contact-form" enctype="multipart/form-data">
-		<h3>Contact WaXchange:</h3>
+		<h2>Contact WaXchange</h2>
 		<p><i>(Don't worry, we won't spam you!)</i></p>
 		<table class="contact-fields"><tbody>
 			<tr>
@@ -24,9 +24,10 @@
 		</tbody></table>
 		<h3>Message:</h3>
 		<textarea v-model="message.message" id="message" name="message" cols=70 rows=4 @blur="message.biography = $event.target.value"></textarea>
-		<br />
 		<div class="buttons">
-			<button class="go" @click="$event.preventDefault(); SubmitMessage()" :disabled="sent === true">Send Message</button>
+			<p>
+				<button class="go" @click="$event.preventDefault(); SubmitMessage()" :disabled="sent === true">Send Message</button>
+			</p>
 		</div>
 	</form>
 	<div class="ajax-area" v-html="ajaxResult">

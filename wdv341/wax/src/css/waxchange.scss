@@ -30,7 +30,7 @@ a:hover {
 	text-decoration:none;
 }
 
-#account, #settings {
+#account, #settings, #home h2, #home h3 {
 	text-align:center;
 }
 
@@ -219,7 +219,7 @@ select {
 	padding:8px;
 	width:90%;
 	font-size:1.14em;
-	transition:background, background-color, border, color 0.2s ease 0s;
+	transition:background, border, text 0.2s ease 0s;
 	&:hover {
 		@include BackBorderColor($BgLight, $BorderLight, $TextBright);
 	}

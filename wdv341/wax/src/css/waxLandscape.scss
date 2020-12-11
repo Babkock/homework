@@ -40,5 +40,9 @@ header {
 		text-align:center;
 		display:block;
 		border:2px solid black;
+		ul {
+			list-style-type:none;
+			width:100%;
+		}
 	}
 }

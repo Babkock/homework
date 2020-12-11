@@ -41,7 +41,7 @@ try {
 			$buyer = $r['username'];
 			if (isset($_GET['mode'])) {
 				if (strcmp($_GET['mode'], "sold") == 0) {
-					$st = $db->prepare("SELECT * FROM `albums` WHERE `seller`=:seller AND `purchased` IS NOT NULL");
+					$st = $db->prepare("SELECT * FROM `albums` WHERE `seller`=:seller AND `purchased` IS NOT NULL ORDER BY `purchased` DESC");
 					$st->bindParam(":seller", $seller);
 				}
 				else if (strcmp($_GET['mode'], "inventory") == 0) {

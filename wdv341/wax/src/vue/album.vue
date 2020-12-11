@@ -403,9 +403,10 @@ div.album {
 			}
 		}
 	}
-	&.sold {
-		filter:grayscale(50%);
-	}
+}
+
+#browse .albums-box .album.sold {
+	filter:grayscale(50%);
 }
 
 .track-list {

@@ -19,3 +19,5 @@ header { width: 100%; text-align: center; }
 header h1 { font-size: 1.8em; }
 
 header nav { width: 100%; text-align: center; display: block; border: 2px solid black; }
+
+header nav ul { list-style-type: none; width: 100%; }

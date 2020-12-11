@@ -30,7 +30,6 @@ try {
 				$st = $db->prepare("SELECT * FROM `albums` ORDER BY `price` DESC LIMIT 6");
 			}
 			else if (strcmp($_GET['mode'], "purchased") == 0) {
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
 				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
 				$buyer = $_SESSION['current_user'];
 				$st->bindParam(":buyer", $buyer);
@@ -39,7 +38,6 @@ try {
 				if (!isset($_GET['a'])) {
 					exit("{ \"error\": \"The artist mode must have an additional 'a' argument\" }");
 				}
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
 				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
 				$artist = ucwords($_GET['a']);
 
@@ -268,11 +266,11 @@ EOF;
 					$encodeartist = urlencode($row['artist']);
 
 					if (strlen($row['buyer']) > 1) {
-						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to " . $row['buyer'] . "</h3>";
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to <a href=\"user?id=" . $row['buyerid'] . "\">" . $row['buyer'] . "</a></h3>";
 						$buybutton = "";
 					}
 					else {
-						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from " . $row['seller'] . "</h3>";
+						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from <a href=\"user?id=" . $row['sellerid'] . "\">" . $row['seller'] . "</a></h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
 
@@ -494,11 +492,11 @@ EOF;
 					$encodeartist = urlencode($row['artist']);
 
 					if (strlen($row['buyer']) > 1) {
-						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to " . $row['buyer'] . "</h3>";
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to <a href=\"user?id=" . $row['buyerid'] . "\">" . $row['buyer'] . "</a></h3>";
 						$buybutton = "";
 					}
 					else {
-						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from " . $row['seller'] . "</h3>";
+						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from <a href=\"user?id=" . $row['sellerid'] . "\">" . $row['seller'] . "</a></h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
 
