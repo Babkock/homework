@@ -154,4 +154,4 @@ input[type="file"] { width: 98%; }
 
 .album-editor .cover img, #account .avatar img, .settings-form .cover img { width: 50%; margin-left: 25%; margin-right: 25%; opacity: 1; }
 
-#account .bio { width: 97%; margin-left: 0%; margin-right: 0%; margin-top: 6px; margin-bottom: 7px; font-size: 1.85em !important; padding: 8px; padding-top: 14px; padding-bottom: 14px; }
+#account .bio { width: 97%; margin-left: 0%; margin-right: 0%; margin-top: 8px; margin-bottom: 9px; font-size: 1.85em !important; padding: 10px; padding-top: 14px; padding-bottom: 14px; }

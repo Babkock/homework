@@ -307,7 +307,7 @@ footer {
 	font-size:$LandscapeNormal !important;
 	text-align:center;
 	display:inline-block !important;
-	@include WidthMargins(96% !important, -2%, 2%);
+	@include WidthMargins(97% !important, 1%, 1%);
 	padding:6px !important;
 }
 
@@ -350,14 +350,14 @@ input[type="file"] {
 }
 
 .buttons p button {
-	@include WidthMargins(97%, -2%, 1%);
+	@include WidthMargins(97%, -1%, 1%);
 	margin-top:6px;
 	margin-bottom:6px;
 	padding:10px;
 	padding-top:12px;
 	padding-bottom:12px;
 	&:hover {
-		@include WidthMargins(97%, -2%, 1%);
+		@include WidthMargins(97%, -1%, 1%);
 		margin-top:6px;
 		margin-bottom:6px;
 		padding:10px;

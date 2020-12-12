@@ -91,7 +91,7 @@ let app = new Vue({
 			else {
 				this.ajaxResult = "<p class=\"success\">Your album is being processed...</p>";
 			}
-			if ((this.album.title == null) || (this.album.artist == null) || (this.album.price == null) || (this.album.media == null) || (this.album.label == null) || (this.album.currency == null) || (this.album.country == null) || (this.album.year == null)) {
+			if ((this.album.title.length == 0) || (this.album.artist.length == 0) || (this.album.price == 0) || (this.album.media.length == 0) || (this.album.label.length == 0) || (this.album.currency.length == 0) || (this.album.country.length == 0) || (this.album.year === "")) {
 				this.ajaxResult = "<p class=\"error\">One or more fields are empty.</p>";
 			}
 			else {
