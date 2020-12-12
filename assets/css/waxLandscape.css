@@ -8,7 +8,7 @@
 */
 * { box-shadow: 0 !important; }
 
-body { background: radial-gradient(circle, #772077, #6d3010); color: #cfcfcf; width: 100%; font-size: 1.65em; font-family: "Arial" !important; overflow-x: hidden; }
+body { background: radial-gradient(circle, #774030, #6d3010); color: #cfcfcf; width: 100%; font-size: 1.65em; font-family: "Arial" !important; overflow-x: hidden; }
 
 .container { width: 94%; margin-left: 3%; margin-right: 3%; }
 

@@ -127,7 +127,6 @@ else {
 		?>
 		<main id="events-form">
 			<form action="inputEvent" method="post" enctype="multipart/form-data">
-				<center><p class="success">The event was submitted successfully! <a href="selectEvents">View the Events Table here.</a></p></center>
 				<h2>Editing Event "<?php echo $name; ?>"</h2>
 				<div class="formFlex">
 					<label for="event_id">Event ID:</label>
