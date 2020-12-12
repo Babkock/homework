@@ -471,6 +471,10 @@ input[type="file"] {
 	opacity:1;
 }
 
+.cover[style="width: 40%; margin-left: 30%; margin-right: 30%;"] {
+	@include WidthMargins(90% !important, 5% !important, 5% !important);
+}
+
 #account .bio {
 	@include WidthMargins(97%, 0%, 0%);
 	margin-top:8px;
