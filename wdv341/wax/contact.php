@@ -17,7 +17,10 @@ try {
 			exit("<p class=\"error\">The email address is invalid.</p>");
 		}
 		else {
-			$to = "tanner.a.babcock@gmail.com";
+			$admin = new User(1);
+			$admin->read();
+
+			$to = $admin->getEmail();
 			$subject = "WaXchange Message: " . $_POST['subject'];
 			$message = "<h1>" . $_POST['subject'] . "</h1>";
 			$message .= "<h2>From <a href=\"mailto:" . $_POST['email'] . "\">" . $_POST['fullname'] . "</a></h2>";

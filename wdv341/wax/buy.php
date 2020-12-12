@@ -28,7 +28,7 @@ try {
 				$album->purchase($_SESSION['current_user']);
 				$uid = Methods::getIdFromName($_SESSION['current_user']);
 				$curr = Methods::currencySymbol($album->getCurrency());
-				$p = number_format((float)$album->getPrice(), 2, ".", "");
+				$p = number_format((float)$album->price, 2, ".", "");
 
 				$sid = $album->getSellerId();
 				$posted = date("F j, Y", strtotime($album->getPosted()));
