@@ -274,8 +274,8 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 			padding:10px;
 			padding-top:20px;
 			padding-bottom:20px;
-			margin-top:11px;
-			margin-bottom:11px;
+			margin-top:12px;
+			margin-bottom:12px;
 			font-size:$MobileLarge !important;
 			border-radius:40px 40px 40px 40px;
 		}
@@ -390,12 +390,13 @@ footer {
 	}
 	tbody tr td {
 		display:inline-block;
+		@include WidthMargins(99% !important, 0%, 0%);
 		background:none !important;
 		font-size:$MobileNormal !important;
 		margin-top:6px;
 		margin-bottom:6px;
-		text-align:center;
-		padding:10px;
+		text-align:center !important;
+		padding:12px;
 	}
 	tr.year td input[type="text"] {
 		width:98%;
@@ -432,6 +433,7 @@ input[type="file"] {
 	td {
 		display:inline-block;
 		@include WidthMargins(97%, 0, 0);
+		background:none !important;
 		margin-top:5px;
 		margin-bottom:5px;
 		text-align:center;
