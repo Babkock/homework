@@ -82,17 +82,17 @@ input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="
 
 .search-bar #submit:hover { width: 98%; margin-left: 0%; margin-right: 2%; background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding: 10px; padding-top: 20px; padding-bottom: 20px; margin-top: 11px; margin-bottom: 11px; font-size: 2em !important; border-radius: 40px 40px 40px 40px; }
 
-.login-form table, .register-form table, .settings-form table, .contact-fields { width: 100% !important; }
+.login-form table, .register-form table, .settings-form table, .contact-fields { width: 99% !important; margin-left: 0% !important; margin-right: 0% !important; }
 
 .login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr, .contact-fields tbody, .contact-fields tbody tr { width: 100% !important; }
 
-.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: center; margin-top: 8px; margin-bottom: 8px; }
+.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: center; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em; }
 
-.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 100%; margin-left: 0%; margin-right: 0%; display: inline-block; font-size: 1.95em; text-align: center; padding: 9px; margin-top: 8px; margin-bottom: 8px; }
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 95% !important; margin-left: 0% !important; margin-right: 0% !important; display: inline-block; font-size: 1.95em; text-align: center; padding: 9px; margin-top: 10px; margin-bottom: 10px; }
 
 header, main, footer { background: none !important; }
 
-footer { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.7em; text-align: center; }
+footer { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.7em; text-align: center; box-shadow: none !important; }
 
 .index-table thead, .user-info thead, .sold-table thead { display: none; }
 
@@ -102,7 +102,9 @@ footer { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.7em; text-a
 
 .index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 96% !important; margin-left: -2%; margin-right: 0%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 3px solid black; color: #dfdfdf; font-size: 1.85em; display: inline-block; margin-top: 8px; margin-bottom: 8px; text-align: center; padding: 7px; }
 
-main { border: 0 !important; background: rgba(10, 10, 10, 0.2); box-shadow: 0 !important; }
+main { box-shadow: none !important; }
+
+main { width: 97%; margin-left: -1%; margin-right: 2%; border: 0 !important; background: rgba(10, 10, 10, 0.2); box-shadow: none !important; }
 
 main h2 { font-size: 2.4em; text-align: center; }
 
@@ -110,9 +112,43 @@ main h3 { font-size: 2em; text-align: center; }
 
 footer { border: 0 !important; box-shadow: 0 !important; }
 
-.user-info tbody tr td, .user-info thead tr td { font-size: 1.85em !important; text-align: center; display: inline-block !important; width: 96% !important; margin-left: -2%; margin-right: 2%; padding: 9px !important; }
+.user-info tbody tr td, .user-info thead tr td { font-size: 1.85em !important; text-align: center; display: inline-block !important; width: 96% !important; margin-left: -1%; margin-right: 2%; padding: 9px !important; }
 
 .user-info tbody tr td:first-child { text-align: center !important; }
+
+.album-editor table { width: 98%; margin-left: -1%; margin-right: 2%; }
+
+.album-editor table tbody, .album-editor table tbody tr { width: 100%; }
+
+.main-album-info { width: 98%; margin-left: -1%; margin-right: 2%; }
+
+.main-album-info tbody, .main-album-info tbody tr { width: 100%; }
+
+.main-album-info tbody tr td:nth-child(2) { text-align: center; }
+
+.main-album-info tbody tr td { display: inline-block; background: none !important; font-size: 1.85em !important; margin-top: 6px; margin-bottom: 6px; text-align: center; padding: 10px; }
+
+.main-album-info tr.year td input[type="text"] { width: 98%; text-align: left; }
+
+input[type="file"] { width: 98%; }
+
+.buttons p button { width: 97%; margin-left: -2%; margin-right: 1%; margin-top: 9px; margin-bottom: 9px; padding: 14px; padding-top: 17px; padding-bottom: 17px; }
+
+.buttons p button:hover { width: 97%; margin-left: -2%; margin-right: 1%; margin-top: 9px; margin-bottom: 9px; padding: 14px; padding-top: 17px; padding-bottom: 17px; }
+
+.track td:first-child { text-align: center !important; font-size: 1.85em !important; }
+
+.track td { display: inline-block; width: 97%; margin-left: 0; margin-right: 0; margin-top: 5px; margin-bottom: 5px; text-align: center; font-size: 1.85em !important; }
+
+.users-table { width: 100%; }
+
+.users-table thead { display: none !important; }
+
+.users-table tbody, .users-table tbody tr { width: 100%; }
+
+.users-table tbody tr td:first-child { text-align: center; }
+
+.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 9px; font-size: 1.85em !important; margin-top: 7px; margin-bottom: 7px; }
 
 .album-editor .cover, #account .avatar, .settings-form .cover { width: 90%; margin-left: 5%; margin-right: 5%; }
 
