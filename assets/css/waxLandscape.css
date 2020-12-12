@@ -8,7 +8,7 @@
 */
 * { box-shadow: 0 !important; }
 
-body { background: radial-gradient(circle, #207720, #6d3010); color: #ccfefe; width: 100%; font-size: 1.65em; font-family: "Arial" !important; overflow-x: hidden; }
+body { background: radial-gradient(circle, #772077, #6d3010); color: #cfcfcf; width: 100%; font-size: 1.65em; font-family: "Arial" !important; overflow-x: hidden; }
 
 .container { width: 94%; margin-left: 3%; margin-right: 3%; }
 
@@ -36,17 +36,17 @@ header nav ul li a:hover { color: #efefef !important; display: block; width: 100
 
 header nav ul li:hover { border: 2px solid white; background-color: #207474; font-size: 1.79em; }
 
-.album { width: 95%; margin-left: -1%; margin-right: 3%; margin-top: 8px; margin-bottom: 8px; }
+div.album { width: 49%; margin-left: -1%; margin-right: 1%; margin-top: 10px; margin-bottom: 10px; }
 
-.album h2 { font-size: 1.75em; }
+div.album h2 { font-size: 1.75em; }
 
-.album h3 { font-size: 1.72em; }
+div.album h3 { font-size: 1.72em; }
 
-.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap; }
+div.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap; }
 
-.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; text-align: center; font-size: 1.65em !important; margin-top: 5px; margin-bottom: 7px; background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; }
+div.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; text-align: center; font-size: 1.65em !important; margin-top: 5px; margin-bottom: 7px; background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; }
 
-.album div p { font-size: 1.65em !important; }
+div.album div p { font-size: 1.65em !important; }
 
 .track-list { width: 100%; }
 
@@ -66,7 +66,7 @@ button:active, input[type="submit"]:active { font-size: 1.65em !important; color
 
 .search-bar #search:hover { background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding-right: 9px; padding-left: 15px; padding-top: 11px; padding-bottom: 11px; margin-top: 8px; margin-bottom: 8px; border-bottom: 1px solid rgba(0, 0, 0, 0) !important; border-radius: 32px 32px 32px 32px; font-size: 1.61em; }
 
-.search-bar #stype, .search-bar #scountry { width: 95%; margin-left: 0%; margin-right: 0%; background: #10653d; background-color: #10653d; border: 2px solid black !important; color: #dfdfdf !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; border-radius: 32px 32px 32px 32px; font-size: 1.79em; transition: background, background-color, border, color 0.2s ease 0s; }
+.search-bar #stype, .search-bar #scountry { width: 97% !important; margin-left: 0%; margin-right: 0%; background: #10653d; background-color: #10653d; border: 2px solid black !important; color: #dfdfdf !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; border-radius: 32px 32px 32px 32px; font-size: 1.79em; transition: background, background-color, border, color 0.2s ease 0s; }
 
 .search-bar #stype:hover, .search-bar #scountry:hover { background: #20754d; background-color: #20754d; border: 2px solid #202020 !important; color: #efefef !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; border-radius: 32px 32px 32px 32px; font-size: 1.79em; }
 
@@ -74,7 +74,7 @@ button:active, input[type="submit"]:active { font-size: 1.65em !important; color
 
 .search-bar #submit:hover { width: 98%; margin-left: 0%; margin-right: 2%; background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding: 10px; padding-top: 20px; padding-bottom: 20px; margin-top: 9px; margin-bottom: 9px; font-size: 1.86em; border-radius: 32px 32px 32px 32px; }
 
-main, footer { background: none !important; }
+main, footer { background: none !important; box-shadow: 0 !important; }
 
 footer { font-size: 1.55em; width: 90%; margin-left: 5%; margin-right: 5%; text-align: center; }
 
@@ -86,11 +86,15 @@ footer { font-size: 1.55em; width: 90%; margin-left: 5%; margin-right: 5%; text-
 
 .index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 95% !important; margin-left: -2%; margin-right: 0%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 3px solid black; color: #dfdfdf; font-size: 1.65em; display: inline-block; margin-top: 5px; margin-bottom: 5px; text-align: center; padding: 5px; }
 
+main { border: 0 !important; box-shadow: 0 !important; background: rgba(10, 10, 10, 0.3); }
+
 main h2 { font-size: 1.86em; text-align: center; }
 
 main h3 { font-size: 1.79em; text-align: center; }
 
-.user-info tbody tr td, .user-info thead tr td { font-size: 1.65em !important; text-align: center; display: inline-block !important; width: 95% !important; margin-left: -2%; margin-right: 2%; padding: 6px !important; }
+footer { border: 0 !important; box-shadow: 0 !important; }
+
+.user-info tbody tr td, .user-info thead tr td { font-size: 1.65em !important; text-align: center; display: inline-block !important; width: 96% !important; margin-left: -2%; margin-right: 2%; padding: 6px !important; }
 
 .user-info tbody tr td:first-child { text-align: center !important; }
 

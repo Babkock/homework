@@ -10,7 +10,7 @@
 * { box-shadow:0 !important; }
 
 body {
-	background:radial-gradient(circle, #207720, #6d3010);
+	background:radial-gradient(circle, #772077, #6d3010);
 	color:white;
 	width:100%;
 	font-size:$MobileNormal;
@@ -37,13 +37,15 @@ header {
 	text-align:center;
 	background:none !important;
 	h1 {
-		margin-bottom:4px;
+		text-align:center;
+		margin-top:5px;
+		margin-bottom:5px;
 		a.small {
 			font-size:$MobileLarger;
 			width:100%;
 			float:right;
-			margin-top:7px;
-			margin-bottom:7px;
+			margin-top:9px;
+			margin-bottom:9px;
 			color:#dfc8c8 !important;
 			&:hover {
 				font-size:$MobileLarger !important;
@@ -54,8 +56,8 @@ header {
 			width:100%;
 			font-size:$MobileLarge;
 			float:left;
-			margin-top:7px;
-			margin-bottom:7px;
+			margin-top:9px;
+			margin-bottom:9px;
 			color:#dfc8c8 !important;
 			&:hover {
 				font-size:$MobileLarge !important;
@@ -73,11 +75,11 @@ header {
 			@include Flex(column, wrap);
 			width:100%;
 			li {
-				@include WidthMargins(92%, 0, 0);
+				@include WidthMargins(96%, 0, 0);
 				float:left;
 				font-size:$MobileLarge;
-				margin-top:9px;
-				margin-bottom:9px;
+				margin-top:11px;
+				margin-bottom:11px;
 				@include BackBorderColor($MobileNavBg, 3px solid gray, $TextLight);
 				transition:background-color, border 0.2s ease 0s;
 				a {
@@ -106,8 +108,8 @@ header {
 
 div.album {
 	@include WidthMargins(95%, -1%, 3%);
-	margin-top:8px;
-	margin-bottom:8px;
+	margin-top:12px;
+	margin-bottom:12px;
 	h2 {
 		font-size:$MobileLarger;
 	}
@@ -120,8 +122,8 @@ div.album {
 			@include WidthMargins(98%, 1%, 1%);
 			text-align:center;
 			font-size:$MobileNormal !important;
-			margin-top:6px;
-			margin-bottom:8px;
+			margin-top:4px;
+			margin-bottom:4px;
 			background:none;
 			background-color:rgba(0,0,0,0);
 			border:0 !important;
@@ -202,6 +204,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 
 .search-bar {
 	@include Flex(column, wrap);
+	@include WidthMargins(98%, 0%, 0%);
 	margin-top:4px;
 	margin-bottom:4px;
 	#search {
@@ -231,8 +234,8 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 			font-size:$LandscapeLarger;
 		}
 	}
-	#stype, #scountry {
-		@include WidthMargins(95%, 2%, 2%);
+	#stype, #country {
+		@include WidthMargins(96% !important, 2%, 2%);
 		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
 		padding:9px;
 		padding-top:12px;
@@ -246,20 +249,20 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 			padding:9px;
 			padding-top:12px;
 			padding-bottom:12px;
-			margin-top:9px;
-			margin-bottom:9px;
+			margin-top:10px;
+			margin-bottom:10px;
 			font-size:$MobileNormal !important;
 		}
 	}
 	#submit {
 		@include Appearance();
-		@include WidthMargins(98%, 0%, 2%);
+		@include WidthMargins(98%, -1%, 2%);
 		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
 		padding:10px;
 		padding-top:20px;
 		padding-bottom:20px;
-		margin-top:11px;
-		margin-bottom:11px;
+		margin-top:12px;
+		margin-bottom:12px;
 		font-size:$MobileLarge !important;
 		border-radius:40px 40px 40px 40px;
 		transition:background, background-color, border, color 0.2s ease 0s;
@@ -318,7 +321,7 @@ footer {
 		width:100%;
 	}
 	tbody tr td {
-		@include WidthMargins(95% !important, -2%, 0%);
+		@include WidthMargins(96% !important, -2%, 0%);
 		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
 		font-size:$MobileNormal;
 		display:inline-block;
@@ -329,21 +332,29 @@ footer {
 	}
 }
 
-main h2 {
-	font-size:$MobileLargest;
-	text-align:center;
+main {
+	border:0 !important;
+	background:rgba(10, 10, 10, 0.2);
+	box-shadow:0 !important;
+	h2 {
+		font-size:$MobileLargest;
+		text-align:center;
+	}
+	h3 {
+		font-size:$MobileLarge;
+		text-align:center;
+	}
 }
-
-main h3 {
-	font-size:$MobileLarge;
-	text-align:center;
+footer {
+	border:0 !important;
+	box-shadow:0 !important;
 }
 
 .user-info tbody tr td, .user-info thead tr td {
 	font-size:$MobileNormal !important;
 	text-align:center;
 	display:inline-block !important;
-	@include WidthMargins(95% !important, -2%, 2%);
+	@include WidthMargins(96% !important, -2%, 2%);
 	padding:9px !important;
 }
 .user-info tbody tr td:first-child {

@@ -368,9 +368,7 @@ export default {
 @import "../css/variables.scss";
 
 .albums-box {
-	display:flex;
-	flex-direction:row;
-	flex-wrap:wrap;
+	@include Flex(row, wrap);
 	justify-content:center;
 }
 
@@ -382,6 +380,7 @@ div.album {
 	padding:7px;
 	text-align:center;
 	float:left;
+	transition:background, background-color, border, color 0.2s ease 0s;
 	h2, h3, p {
 		text-align:center;
 	}
@@ -397,11 +396,16 @@ div.album {
 			@include WidthMargins(80%, 10%, 10%);
 			margin-top:4px;
 			opacity:0.9;
+			transition:opacity 0.2s ease 0s;
 			&:hover {
 				margin-top:4px;
 				opacity:1;
 			}
 		}
+	}
+	&:hover {
+		@include BackBorderColor($BgTransDark, 1px solid #888888, $TextLight);
+
 	}
 }
 
@@ -427,9 +431,7 @@ button.expand {
 }
 
 .alb-info {
-	display:flex;
-	flex-direction:row;
-	flex-wrap:nowrap;
+	@include Flex(row, nowrap);
 	width:98%;
 	margin-top:6px;
 	div {

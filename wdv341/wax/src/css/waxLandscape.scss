@@ -10,8 +10,8 @@
 * { box-shadow:0 !important; }
 
 body {
-	background:radial-gradient(circle, #207720, #6d3010);
-	color:#ccfefe;
+	background:radial-gradient(circle, #772077, #6d3010);
+	color:$TextNormal;
 	width:100%;
 	font-size:$LandscapeNormal;
 	font-family:"Arial" !important;
@@ -102,10 +102,10 @@ header {
 	}
 }
 
-.album {
-	@include WidthMargins(95%, -1%, 3%);
-	margin-top:8px;
-	margin-bottom:8px;
+div.album {
+	@include WidthMargins(49%, -1%, 1%);
+	margin-top:10px;
+	margin-bottom:10px;
 	h2 {
 		font-size:1.75em;
 	}
@@ -140,14 +140,14 @@ header {
 		background-color:rgba(0,0,0,0) !important;
 		border:0 !important;
 		font-size:$LandscapeSmaller;
-		color:#efefef;
+		color:$TextBright;
 	}
 }
 
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
-	font-size:1.65em !important;
-	color:#dfdfdf;
+	font-size:$LandscapeNormal !important;
+	color:$TextLight;
 	padding:6px;
 	padding-top:8px;
 	padding-bottom:8px;
@@ -155,8 +155,8 @@ button, input[type="submit"] {
 	margin-bottom:5px;
 	transition:background-color, color 0.2s ease 0s;
 	&:hover {
-		font-size:1.65em !important;
-		color:#efefef;
+		font-size:$LandscapeNormal !important;
+		color:$TextBright;
 		padding:6px;
 		padding-top:8px;
 		padding-bottom:8px;
@@ -164,8 +164,8 @@ button, input[type="submit"] {
 		margin-bottom:5px;
 	}
 	&:active {
-		font-size:1.65em !important;
-		color:#cfcfcf !important;
+		font-size:$LandscapeNormal !important;
+		color:$TextNormal !important;
 		padding:6px;
 		padding-top:8px;
 		padding-bottom:8px;
@@ -206,7 +206,7 @@ button, input[type="submit"] {
 		}
 	}
 	#stype, #scountry {
-		@include WidthMargins(95%, 0%, 0%);
+		@include WidthMargins(97% !important, 0%, 0%);
 		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
 		padding:7px;
 		padding-top:10px;
@@ -255,6 +255,7 @@ button, input[type="submit"] {
 
 main, footer {
 	background:none !important;
+	box-shadow:0 !important;
 }
 
 footer {
@@ -284,21 +285,29 @@ footer {
 	}
 }
 
-main h2 {
-	font-size:$LandscapeLarge;
-	text-align:center;
+main {
+	border:0 !important;
+	box-shadow:0 !important;
+	background:rgba(10, 10, 10, 0.3);
+	h2 {
+		font-size:$LandscapeLarge;
+		text-align:center;
+	}
+	h3 {
+		font-size:$LandscapeLarger;
+		text-align:center;
+	}
 }
-
-main h3 {
-	font-size:$LandscapeLarger;
-	text-align:center;
+footer {
+	border:0 !important;
+	box-shadow:0 !important;
 }
 
 .user-info tbody tr td, .user-info thead tr td {
 	font-size:$LandscapeNormal !important;
 	text-align:center;
 	display:inline-block !important;
-	@include WidthMargins(95% !important, -2%, 2%);
+	@include WidthMargins(96% !important, -2%, 2%);
 	padding:6px !important;
 }
 
