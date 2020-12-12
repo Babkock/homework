@@ -110,6 +110,7 @@ div.album {
 	@include WidthMargins(97%, 1%, 1%);
 	margin-top:12px;
 	margin-bottom:12px;
+	padding-bottom:14px;
 	h2 {
 		font-size:$MobileLarger;
 	}

@@ -36,7 +36,7 @@ header nav ul li a:hover { color: #efefef !important; display: block; width: 100
 
 header nav ul li:hover { border: 2px solid white; background-color: #207474; font-size: 1.81em; }
 
-div.album { width: 48%; margin-left: 1%; margin-right: 1%; margin-top: 10px; margin-bottom: 10px; }
+div.album { width: 48%; margin-left: 1%; margin-right: 1%; margin-top: 10px; margin-bottom: 10px; padding-top: 12px; }
 
 div.album h2 { font-size: 1.75em; }
 
