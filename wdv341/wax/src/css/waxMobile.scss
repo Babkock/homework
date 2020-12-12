@@ -152,14 +152,16 @@ div.album {
 
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
+	@include BackBorderColor($ButtonMobile !important, 1px solid rgba(0,0,0,0), $TextLight);
 	font-size:$MobileNormal !important;
-	color:$TextLight !important;
 	padding:9px;
 	padding-top:12px;
 	padding-bottom:12px;
 	margin-top:8px;
 	margin-bottom:8px;
+	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
+		@include BackBorderColor($ButtonMobileHover !important, 1px solid rgba(0,0,0,0), $TextBright);
 		color:$TextBright !important;
 		font-size:$MobileNormal !important;
 		padding:9px;
@@ -204,12 +206,12 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 
 .search-bar {
 	@include Flex(column, wrap);
-	@include WidthMargins(98%, 0%, 0%);
+	@include WidthMargins(98%, 1%, 0%);
 	margin-top:4px;
 	margin-bottom:4px;
 	#search {
 		@include Appearance();
-		@include WidthMargins(100%, 0, 0);
+		@include WidthMargins(98%, 0, 0);
 		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
 		padding-right:9px;
 		padding-left:16px;
@@ -235,7 +237,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		}
 	}
 	#stype, #country {
-		@include WidthMargins(96% !important, 2%, 2%);
+		@include WidthMargins(96% !important, 1%, 2%);
 		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
 		padding:9px;
 		padding-top:12px;
@@ -256,7 +258,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	}
 	#submit {
 		@include Appearance();
-		@include WidthMargins(98%, -1%, 2%);
+		@include WidthMargins(98%, 0%, 1%);
 		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
 		padding:10px;
 		padding-top:20px;
@@ -267,7 +269,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		border-radius:40px 40px 40px 40px;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
-			@include WidthMargins(98%, 0%, 2%);
+			@include WidthMargins(98%, 0%, 1%);
 			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
 			padding:10px;
 			padding-top:20px;
@@ -351,6 +353,9 @@ main {
 		font-size:$MobileLarge;
 		text-align:center;
 	}
+	p {
+		font-size:1.85em;
+	}
 }
 footer {
 	border:0 !important;
@@ -376,7 +381,7 @@ footer {
 }
 
 .main-album-info {
-	@include WidthMargins(98%, -1%, 2%);
+	@include WidthMargins(98%, 1%, 1%);
 	tbody, tbody tr {
 		width:100%;
 	}
@@ -403,14 +408,14 @@ input[type="file"] {
 }
 
 .buttons p button {
-	@include WidthMargins(97%, -2%, 1%);
+	@include WidthMargins(97%, 1%, 1%);
 	margin-top:9px;
 	margin-bottom:9px;
 	padding:14px;
 	padding-top:17px;
 	padding-bottom:17px;
 	&:hover {
-		@include WidthMargins(97%, -2%, 1%);
+		@include WidthMargins(97%, 1%, 1%);
 		margin-top:9px;
 		margin-bottom:9px;
 		padding:14px;
@@ -473,3 +478,18 @@ input[type="file"] {
 	padding-top:14px;
 	padding-bottom:14px;
 }
+
+.ajax-area {
+	@include WidthMargins(97%, 0%, 0%);
+	margin-top:7px;
+	margin-bottom:7px;
+	p.error {
+		font-size:$MobileNormal !important;
+		padding:6px;
+	}
+	p.success {
+		font-size:$MobileNormal !important;
+		padding:6px;
+	}
+}
+

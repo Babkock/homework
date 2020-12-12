@@ -23,6 +23,8 @@ $BgDelete: rgba(80, 10, 10, 0.3);
 $BgButton: #662020;
 $BgButtonHover: #106640;
 $BgButtonActive: #20206f;
+$ButtonMobile: #bb7500;
+$ButtonMobileHover: #00ba53;
 $BgLight: #181818;
 $BgError: #661010;
 $BgSuccess: green;
@@ -45,18 +47,18 @@ $TextBright: #efefef;
 $TextLink: #88cc88;
 $TextHover: #99ff99;
 
-$MobileSmall: 1.7em;
-$MobileSmaller: 1.75em;
-$MobileNormal: 1.85em;
+$MobileSmall: 1.79em;
+$MobileSmaller: 1.83em;
+$MobileNormal: 1.95em;
 $MobileLargest: 2.4em;
 $MobileLarger: 2.2em;
 $MobileLarge: 2em;
 
-$LandscapeNormal: 1.65em;
-$LandscapeSmall: 1.55em;
-$LandscapeSmaller: 1.6em;
-$LandscapeLarger: 1.79em;
-$LandscapeLarge: 1.86em;
+$LandscapeNormal: 1.75em;
+$LandscapeSmall: 1.65em;
+$LandscapeSmaller: 1.7em;
+$LandscapeLarger: 1.81em;
+$LandscapeLarge: 1.92em;
 
 @mixin WidthMargins($w, $l, $r) {
 	width:$w;

@@ -147,7 +147,7 @@ div.album {
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
 	font-size:$LandscapeNormal !important;
-	color:$TextLight;
+	@include BackBorderColor($ButtonMobile !important, 1px solid rgba(0,0,0,0), $TextLight);
 	padding:6px;
 	padding-top:8px;
 	padding-bottom:8px;
@@ -156,7 +156,7 @@ button, input[type="submit"] {
 	transition:background-color, color 0.2s ease 0s;
 	&:hover {
 		font-size:$LandscapeNormal !important;
-		color:$TextBright;
+		@include BackBorderColor($ButtonMobileHover !important, 1px solid rgba(0,0,0,0), $TextBright);
 		padding:6px;
 		padding-top:8px;
 		padding-bottom:8px;

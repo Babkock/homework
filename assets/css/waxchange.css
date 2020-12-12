@@ -14,13 +14,15 @@
 */
 body { background: url("/homework/wdv341/wax/img/bigbg.jpg"); color: white; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
 
+*:focus, *:active { outline: 0 !important; }
+
 .container { width: 90%; margin-left: 5%; margin-right: 5%; }
 
 a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; transition: color 0.2s ease 0s; }
 
 a:hover { color: #99ff99; text-decoration: none; }
 
-#account, #settings, #home h2, #home h3 { text-align: center; }
+#account, #settings, #home h2, #home h3, #users h2 { text-align: center; }
 
 header { width: 100%; text-align: center; display: block; }
 
@@ -116,7 +118,7 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 .album-editor .cover img:hover, #account .avatar img:hover, .settings-form .cover img:hover { opacity: 1; }
 
-#account .bio { display: block; width: 80%; margin-left: 10%; margin-right: 10%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 3px; margin-bottom: 3px; padding: 5px; padding-top: 13px; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #dfdfdf; }
+#account .bio { display: block; width: 98%; margin-left: 0%; margin-right: 1%; height: auto; min-height: 40px; font-size: 1.12em; font-family: "Arial" !important; margin-top: 5px; margin-bottom: 5px; padding: 7px; padding-top: 13px; padding-bottom: 13px; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #dfdfdf; }
 
 #account .bio p { font-size: 1.12em; }
 

@@ -125,7 +125,7 @@ EOF;
 
 				if (isset($_SESSION['current_user'])) {
 					if (strcmp($_SESSION['current_user'], $row['username']) == 0)
-						$button = "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>";
+						$button = "<div class=\"buttons\">\n\t<p>\n\t\t<button class=\"buy edit\" @click=\"EditAlbum(al.id)\">Edit Release</button>\n\t\t<button class=\"buy delete\" @click=\"DeleteAlbum(al.id)\">Delete Release</button>\n\t</p>\n</div>";
 					else
 						$button = "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>";
 				}

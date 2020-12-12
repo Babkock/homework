@@ -15,6 +15,10 @@ body {
 	overflow-x:hidden;
 }
 
+*:focus, *:active {
+	outline:0 !important;
+}
+
 .container {
 	@include WidthMargins(90%, 5%, 5%);
 }
@@ -30,7 +34,7 @@ a:hover {
 	text-decoration:none;
 }
 
-#account, #settings, #home h2, #home h3 {
+#account, #settings, #home h2, #home h3, #users h2 {
 	text-align:center;
 }
 
@@ -308,15 +312,16 @@ textarea {
 
 #account .bio {
 	display:block;
-	@include WidthMargins(80%, 10%, 10%);
+	@include WidthMargins(98%, 0%, 1%);
 	height:auto;
 	min-height:40px;
 	font-size:1.12em;
 	font-family:"Arial" !important;
-	margin-top:3px;
-	margin-bottom:3px;
-	padding:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+	padding:7px;
 	padding-top:13px;
+	padding-bottom:13px;
 	@include BackBorderColor($BgTrans, $BorderDark, $TextLight);
 	p {
 		font-size:1.12em;

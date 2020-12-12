@@ -110,7 +110,7 @@ try {
 		}
 	}
 	else {
-		$editor = new Page("header_user", "album_editor");
+		$editor = new Page("header_user", "editor");
 		$editor->script("waxAlbumEditor.min.js");
 
 		if (isset($_GET['id'])) {

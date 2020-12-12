@@ -39,7 +39,7 @@ try {
 				$subject = $_SESSION['current_user'] . " purchased your album " . $album->getArtist() . " - " . $album->getTitle() . " on WaXchange!";
 				$message = "<h1>Cha-ching! Pay day!</h1>";
 				$message .= "<h3>Buyer: <a href=\"https://tannerbabcock.com/homework/wdv341/wax/user?id=" . $uid . "\" title=\"WaXchange\" alt=\"WaXchange\">" . $_SESSION['current_user'] . "</a></h3>";
-				$message .= "<h3>Sale: " . $curr . $p "</h3>";
+				$message .= "<h3>Sale: " . $curr . $p . "</h3>";
 				$message .= "<p>I bet you're happy right now! Congratulations on making a sale on WaXchange music marketplace. You posted this album for sale <b>" . $posted . "</b>.</p>";
 				$message .= "<center><a href=\"https://tannerbabcock.com/homework/wdv341/wax/index\" title=\"Dashboard\" alt=\"Dashboard\">WaXchange Dashboard</a></center>";
 
@@ -61,7 +61,7 @@ try {
 	else {
 		$buy = new Page("header_user", "buy");
 		$buy->setTitle("Buying {{ALBUM_TITLE}}");
-		$buy->setDescription("This is the purchase confirmation page for the album {{ALBUM_ARTIST}} - {{ALBUM_TITLE}}. It costs $ {{ALBUM_PRICE}}.");
+		$buy->setDescription("This is the purchase confirmation page for the album {{ALBUM_ARTIST}} - {{ALBUM_TITLE}}.");
 		if (!isset($_GET['id'])) {
 			$buy->error("<p class=\"error\">No 'id' argument given.</p>");
 			exit();
@@ -100,8 +100,7 @@ EOF;
 			$buy->hreplacea([
 				"USERID" => $uid,
 				"ALBUM_TITLE" => $row['title'],
-				"ALBUM_ARTIST" => $row['artist'],
-				"ALBUM_PRICE" => $row['price']
+				"ALBUM_ARTIST" => $row['artist']
 			]);
 			$buy->replacea([
 				"USERNAME" => $_SESSION['current_user'],
