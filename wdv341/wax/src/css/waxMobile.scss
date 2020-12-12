@@ -107,7 +107,7 @@ header {
 }
 
 div.album {
-	@include WidthMargins(95%, -1%, 3%);
+	@include WidthMargins(97%, 1%, 1%);
 	margin-top:12px;
 	margin-bottom:12px;
 	h2 {
@@ -361,7 +361,7 @@ footer {
 	font-size:$MobileNormal !important;
 	text-align:center;
 	display:inline-block !important;
-	@include WidthMargins(96% !important, -1%, 2%);
+	@include WidthMargins(97% !important, 0% !important, 2% !important);
 	padding:9px !important;
 }
 .user-info tbody tr td:first-child {
@@ -465,7 +465,7 @@ input[type="file"] {
 }
 
 #account .bio {
-	@include WidthMargins(96%, -1%, 4%);
+	@include WidthMargins(97%, 0%, 0%);
 	margin-top:6px;
 	margin-bottom:7px;
 	font-size:$MobileNormal !important;

@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-	@include WidthMargins(94%, 3%, 3%);
+	@include WidthMargins(98%, 1%, 1%);
 }
 
 a, a:visited, a:link, a:active {
@@ -103,7 +103,7 @@ header {
 }
 
 div.album {
-	@include WidthMargins(49%, -1%, 1%);
+	@include WidthMargins(48%, 1%, 1%);
 	margin-top:10px;
 	margin-bottom:10px;
 	h2 {
