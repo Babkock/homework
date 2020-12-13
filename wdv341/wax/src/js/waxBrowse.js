@@ -29,6 +29,31 @@ Vue.mixin({
 
 		Register() {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
+		},
+
+		ConditionExpand(cond) {
+			let co = "";
+			switch (cond) {
+				case "m":
+					co = "Mint";
+					break;
+				case "nm":
+					co = "Near Mint";
+					break;
+				case "vg":
+					co = "Very Good";
+					break;
+				case "g":
+					co = "Good";
+					break;
+				case "f":
+					co = "Fair";
+					break;
+				case "p":
+					co = "Poor";
+					break;
+			}
+			return co;
 		}
 	}
 })
@@ -64,67 +89,67 @@ let app = new Vue({
 			let userId = new FormData();
 			userId.append("id", this.id);
 
-				if (mode === "newest") {
-					this.$http.post("browse?mode=" + mode, userId).then((response) => {
+			if (mode === "newest") {
+				this.$http.post("browse?mode=" + mode, userId).then((response) => {
+					this.primary = response.data;
+				}, () => {
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					console.error("Couldn't fetch albums with mode 'newest'.");
+				});
+			}
+			else if (mode === "expensive") {
+				this.$http.post("browse?mode=" + mode, userId).then((response) => {
+					this.secondary = response.data;
+				}, () => {
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					console.error("Couldn't fetch albums with mode 'expensive'.");
+				});
+			}
+			else if (mode === "purchased") {
+				this.$http.post("browse?mode=" + mode, userId).then((response) => {
+					this.tertiary = response.data;
+				}, () => {
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					console.error("Couldn't fetch albums with mode 'purchased'.");
+				});
+			}
+			else if (mode === "artist") {
+				if (this.country.length > 1) {
+					this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist) + "&c=" + this.country, userId).then((response) => {
 						this.primary = response.data;
 					}, () => {
 						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-						console.error("Couldn't fetch albums with mode 'newest'.");
-					});
-				}
-				else if (mode === "expensive") {
-					this.$http.post("browse?mode=" + mode, userId).then((response) => {
-						this.secondary = response.data;
-					}, () => {
-						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-						console.error("Couldn't fetch albums with mode 'expensive'.");
-					});
-				}
-				else if (mode === "purchased") {
-					this.$http.post("browse?mode=" + mode, userId).then((response) => {
-						this.tertiary = response.data;
-					}, () => {
-						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-						console.error("Couldn't fetch albums with mode 'purchased'.");
-					});
-				}
-				else if (mode === "artist") {
-					if (this.country.length > 1) {
-						this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist) + "&c=" + this.country, userId).then((response) => {
-							this.primary = response.data;
-						}, () => {
-							this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-							console.error("Couldn't fetch albums with mode 'artist', artist '" + this.artist + "'' and country '" + this.country + "'");
-						});
-					}
-					else {
-						this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist), userId).then((response) => {
-							this.primary = response.data;
-						}, () => {
-							this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-							console.error("Couldn't fetch albums with mode 'artist'.");
-						});
-					}
-				}
-				else if (mode === "album") {
-					this.$http.post("browse?mode=" + mode + "&b=" + encodeURI(this.album), userId).then((response) => {
-						this.primary = response.data;
-					}, () => {
-						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-						console.error("Couldn't fetch albums with mode 'album'.");
-					});
-				}
-				else if (mode === "country") {
-					this.$http.post("browse?mode=" + mode + "&c=" + this.country, userId).then((response) => {
-						this.primary = response.data;
-					}, () => {
-						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
-						console.error("Couldn't fetch albums with mode 'country'.");
+						console.error("Couldn't fetch albums with mode 'artist', artist '" + this.artist + "'' and country '" + this.country + "'");
 					});
 				}
 				else {
-					console.error("FetchAlbums() argument error");
+					this.$http.post("browse?mode=" + mode + "&a=" + encodeURI(this.artist), userId).then((response) => {
+						this.primary = response.data;
+					}, () => {
+						this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+						console.error("Couldn't fetch albums with mode 'artist'.");
+					});
 				}
+			}
+			else if (mode === "album") {
+				this.$http.post("browse?mode=" + mode + "&b=" + encodeURI(this.album), userId).then((response) => {
+					this.primary = response.data;
+				}, () => {
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					console.error("Couldn't fetch albums with mode 'album'.");
+				});
+			}
+			else if (mode === "country") {
+				this.$http.post("browse?mode=" + mode + "&c=" + this.country, userId).then((response) => {
+					this.primary = response.data;
+				}, () => {
+					this.ajaxError = "<p class=\"error\">Couldn't fetch albums from the server.</p>";
+					console.error("Couldn't fetch albums with mode 'country'.");
+				});
+			}
+			else {
+				console.error("FetchAlbums() argument error");
+			}
 
 		}
 	},

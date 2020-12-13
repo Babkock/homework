@@ -6,3 +6,162 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
+* { box-shadow: 0 !important; }
+
+body { background: radial-gradient(circle, #774030, #6d3010); color: #cfcfcf; width: 100%; font-size: 1.75em; font-family: "Arial" !important; overflow-x: hidden; }
+
+.container { width: 100%; margin-left: 0%; margin-right: 0%; }
+
+a, a:visited, a:link, a:active { color: #30de40; text-decoration: none; }
+
+a:hover { color: #40ee50; text-decoration: none; }
+
+header { width: 100%; text-align: center; background: none !important; }
+
+header h1 { text-align: center; margin-top: 4px; margin-bottom: 4px; }
+
+header h1 a.small { font-size: 1.81em; width: 100%; float: right; margin-top: 9px; margin-bottom: 9px; color: #dfc8c8 !important; }
+
+header h1 a.small:hover { font-size: 1.81em !important; color: #efefef !important; }
+
+header h1 a:first-child { width: 100%; font-size: 1.92em; float: left; margin-top: 9px; margin-bottom: 9px; color: #dfc8c8 !important; }
+
+header h1 a:first-child:hover { font-size: 2em !important; color: #efefef !important; }
+
+header nav { width: 100%; margin-left: 0; margin-right: 0; background: none !important; text-align: center; display: block; border: 0 !important; }
+
+header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
+
+header nav ul li { width: 95%; margin-left: 0%; margin-right: 0%; float: left; border: 2px solid gray; font-size: 1.81em; margin-top: 7px; margin-bottom: 7px; background-color: #102079; transition: background-color, border 0.2s ease 0s; }
+
+header nav ul li a { color: #dfdfdf !important; display: inline-block; width: 100%; padding: 8px; padding-top: 10px; padding-bottom: 10px; height: auto; font-size: 1.81em; transition: color 0.2s ease 0s; }
+
+header nav ul li a:hover { color: #efefef !important; display: block; width: 100%; padding: 8px; padding-top: 10px; padding-bottom: 10px; height: auto; font-size: 1.81em; }
+
+header nav ul li:hover { border: 2px solid white; background-color: #207474; font-size: 1.81em; }
+
+div.album { width: 48%; margin-left: 0%; margin-right: 0%; margin-top: 10px; margin-bottom: 10px; padding-top: 12px; }
+
+div.album h2 { font-size: 1.75em; }
+
+div.album h3 { font-size: 1.72em; }
+
+div.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap; }
+
+div.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; text-align: center; font-size: 1.75em !important; margin-top: 5px; margin-bottom: 7px; background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; }
+
+div.album div p { font-size: 1.75em !important; }
+
+.track-list { width: 100%; }
+
+.track-list tbody, .track-list tbody tr { width: 100%; }
+
+.track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.7em; color: #efefef; }
+
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.75em !important; background: #bb7500 !important; background-color: #bb7500 !important; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; transition: background-color, color 0.2s ease 0s; }
+
+button:hover, input[type="submit"]:hover { font-size: 1.75em !important; background: #00ba53 !important; background-color: #00ba53 !important; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+
+button:active, input[type="submit"]:active { font-size: 1.75em !important; color: #cfcfcf !important; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+
+input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #131313; background-color: #131313; border: 3px solid black; color: #dfdfdf; font-size: 1.75em !important; padding: 5px; padding-top: 7px; padding-bottom: 7px; margin-top: 5px; margin-bottom: 5px; transition: background, background-color, border, color 0.2s ease 0s; }
+
+input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="password"]:hover { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #171717; background-color: #171717; border: 3px solid #202020; color: #efefef; font-size: 1.75em !important; padding: 5px; padding-top: 7px; padding-bottom: 7px; margin-top: 5px; margin-bottom: 5px; }
+
+.search-bar { display: flex; flex-direction: column; flex-wrap: wrap; margin-top: 3px; margin-bottom: 3px; }
+
+.search-bar #search { appearance: none; -moz-appearance: none; width: 90%; margin-left: 5%; margin-right: 5%; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #dfdfdf !important; padding-right: 7px; padding-left: 13px; padding-top: 9px; padding-bottom: 9px; margin-top: 6px; margin-bottom: 6px; border-bottom: 1px solid rgba(0, 0, 0, 0) !important; border-radius: 32px 32px 32px 32px; font-size: 1.81em; transition: background, background-color, border, color 0.2s ease 0s; }
+
+.search-bar #search:hover { background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding-right: 7px; padding-left: 13px; padding-top: 9px; padding-bottom: 9px; margin-top: 6px; margin-bottom: 6px; border-bottom: 1px solid rgba(0, 0, 0, 0) !important; border-radius: 32px 32px 32px 32px; font-size: 1.81em; }
+
+.search-bar #stype, .search-bar #country { width: 97% !important; margin-left: 0%; margin-right: 0%; background: #10653d; background-color: #10653d; border: 2px solid black !important; color: #dfdfdf !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; border-radius: 32px 32px 32px 32px; font-size: 1.81em; transition: background, background-color, border, color 0.2s ease 0s; }
+
+.search-bar #stype:hover, .search-bar #country:hover { background: #20754d; background-color: #20754d; border: 2px solid #202020 !important; color: #efefef !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; border-radius: 32px 32px 32px 32px; font-size: 1.81em; }
+
+.search-bar #submit { appearance: none; -moz-appearance: none; width: 98%; margin-left: 0%; margin-right: 2%; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #dfdfdf !important; padding: 9px; padding-top: 17px; padding-bottom: 17px; margin-top: 9px; margin-bottom: 9px; font-size: 1.92em; border-radius: 32px 32px 32px 32px; transition: background, background-color, border, color 0.2s ease 0s; }
+
+.search-bar #submit:hover { width: 98%; margin-left: 0%; margin-right: 2%; background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding: 9px; padding-top: 17px; padding-bottom: 17px; margin-top: 9px; margin-bottom: 9px; font-size: 1.92em; border-radius: 32px 32px 32px 32px; }
+
+.login-form table, .register-form table, .settings-form table, .contact-fields { width: 99% !important; margin-left: 0% !important; margin-right: 0% !important; }
+
+.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr, .contact-fields tbody, .contact-fields tbody tr { width: 100% !important; }
+
+.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: center; margin-top: 8px; margin-bottom: 8px; font-size: 1.81em; }
+
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 95% !important; margin-left: 0% !important; margin-right: 0% !important; display: inline-block; font-size: 1.81em; text-align: center; padding: 6px; margin-top: 8px; margin-bottom: 8px; }
+
+header, main, footer { background: none !important; }
+
+footer { background: none !important; font-size: 1.65em; width: 90%; margin-left: 5%; margin-right: 5%; text-align: center; box-shadow: none !important; }
+
+.index-table thead, .user-info thead, .sold-table thead { display: none; }
+
+.index-table, .user-info, .sold-table { width: 100%; }
+
+.index-table tbody, .index-table tbody tr, .user-info tbody, .user-info tbody tr, .sold-table tbody, .sold-table tbody tr { width: 100%; }
+
+.index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 97% !important; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #dfdfdf; font-size: 1.75em; display: inline-block; margin-top: 5px; margin-bottom: 5px; text-align: center; padding: 5px; }
+
+main { box-shadow: none !important; }
+
+main { width: 97%; margin-left: -1%; margin-right: 2%; border: 0 !important; box-shadow: none !important; background: rgba(10, 10, 10, 0.2); }
+
+main h2 { font-size: 1.92em; text-align: center; }
+
+main h3 { font-size: 1.81em; text-align: center; }
+
+main p { font-size: 1.85em; }
+
+footer { border: 0 !important; box-shadow: none !important; }
+
+.user-info tbody tr td, .user-info thead tr td { font-size: 1.75em !important; text-align: center; display: inline-block !important; width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 6px !important; }
+
+.user-info tbody tr td:first-child { text-align: center !important; }
+
+.album-editor table { width: 98%; margin-left: -1%; margin-right: 2%; }
+
+.album-editor table tbody, .album-editor table tbody tr { width: 100%; }
+
+.main-album-info { width: 98%; margin-left: -1%; margin-right: 2%; }
+
+.main-album-info tbody, .main-album-info tbody tr { width: 100%; }
+
+.main-album-info tbody tr td:nth-child(2) { text-align: center; }
+
+.main-album-info tbody tr td { display: inline-block; width: 99% !important; margin-left: 0%; margin-right: 0%; background: none !important; font-size: 1.75em !important; margin-top: 5px; margin-bottom: 5px; text-align: center; padding: 8px; }
+
+.main-album-info tr.year td input[type="text"] { width: 98%; text-align: left; }
+
+input[type="file"] { width: 98%; }
+
+.buttons p button { width: 97%; margin-left: -1%; margin-right: 1%; margin-top: 6px; margin-bottom: 6px; padding: 10px; padding-top: 12px; padding-bottom: 12px; }
+
+.buttons p button:hover { width: 97%; margin-left: -1%; margin-right: 1%; margin-top: 6px; margin-bottom: 6px; padding: 10px; padding-top: 12px; padding-bottom: 12px; }
+
+.track td:first-child { text-align: center !important; font-size: 1.75em !important; }
+
+.track td { display: inline-block; background: none !important; width: 97%; margin-left: 1%; margin-right: 1%; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; text-align: center; font-size: 1.75em !important; }
+
+.users-table { width: 100%; }
+
+.users-table thead { display: none !important; }
+
+.users-table tbody, .users-table tbody tr { width: 100%; }
+
+.users-table tbody tr td:first-child { text-align: center; }
+
+.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 7px; font-size: 1.75em !important; margin-top: 5px; margin-bottom: 5px; }
+
+.album-editor .cover, #account .avatar, .settings-form .cover { width: 90%; margin-left: 5%; margin-right: 5%; }
+
+.album-editor .cover img, #account .avatar img, .settings-form .cover img { width: 50%; margin-left: 25%; margin-right: 25%; opacity: 1; }
+
+.cover[style="width: 40%; margin-left: 30%; margin-right: 30%;"] { width: 90% !important; margin-left: 5% !important; margin-right: 5% !important; }
+
+#account .bio { width: 97%; margin-left: -1%; margin-right: 3%; margin-top: 7px; margin-bottom: 8px; font-size: 1.75em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; }
+
+#settings .avatar img { width: 70%; margin-left: 15%; margin-right: 15%; border: 2px solid #101010; }
+
+textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-width: 92%; font-size: 1.95em !important; height: 190px; min-height: 190px; max-height: 190px; padding: 7px; margin-top: 4px; margin-bottom: 4px; }
+
+.settings-form .main-user-info tbody tr td { background: none !important; }

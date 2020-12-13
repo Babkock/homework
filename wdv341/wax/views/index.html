@@ -5,17 +5,58 @@
 	<div class="ajax-error" v-if="ajaxError.length > 1" v-html="ajaxError">
 
 	</div>
-	<div class="purchases" v-if="purchased.length > 0">
+	<div class="purchases" v-if="purchased != null">
 		<h2>Your Purchases:</h2>
-		<ul>
-			<li v-for="(al, index) in purchased" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a></li>
-		</ul>
+		<table class="index-table pur"><thead>
+			<tr>
+				<td><b>Artist - <i>Title</i></b></td>
+				<td><b>Price</b></td>
+				<td><b>Seller</b></td>
+				<td><b>Date Purchased</b></td>
+			</tr>
+		</thead><tbody>
+			<tr v-for="(al, index) in purchased" :key="index">
+				<td>
+					<a :href="AlbumHref(al.id)" title="View this release" alt="View this release">{{ al.artist }} - <i>{{ al.title }}</i></a>
+				</td>
+				<td>
+					<span class="price"><span v-html="CurrencySymbol(al.currency)"></span>{{ al.price }}</span>
+				</td>
+				<td>
+					{{ al.seller }}
+				</td>
+				<td>
+					<span v-text="NicePurchased(al.purchased)"></span>
+				</td>
+			</tr>
+		</tbody></table>
 	</div>
-	<div class="inventory" v-if="inventory.length > 0">
+	<div class="inventory" v-if="inventory != null">
 		<h2>Your Inventory:</h2>
-		<ul>
-			<li v-for="(al, index) in inventory" :key="index"><a :href="albumhref(al.id)">{{ al.artist }} - {{ al.title }}</a> &bull; <a :href="edithref(al.id)">(Edit)</a></li>
-		</ul>
+		<table class="index-table inv"><thead>
+			<tr>
+				<td><b>Artist - <i>Title</i></b></td>
+				<td><b>Price</b></td>
+				<td><b>Buyer</b></td>
+				<td><b>Edit</b></td>
+			</tr>
+		</thead><tbody>
+			<tr v-for="(al, index) in inventory" :key="index">
+				<td>
+					<a :href="AlbumHref(al.id)" title="View this release" alt="View this release">{{ al.artist }} - <i>{{ al.title }}</i></a>
+				</td>
+				<td>
+					<span class="price"><span v-html="CurrencySymbol(al.currency)"></span>{{ al.price }}</span>
+				</td>
+				<td>
+					<span v-if="al.buyer != null">{{ al.buyer }}</span>
+				</td>
+				<td>
+					<button class="edit" @click="EditBtn(al.id)" title="Edit this release" alt="Edit this release">Edit</button> &bull;
+					<button class="edit" @click="DeleteBtn(al.id)" title="Delete this release" alt="Delete this release">Delete</button>
+				</td>
+			</tr>
+		</tbody></table>
 	</div>
 	{{ENDIF}}
 	{{IF_NOT_LOGGED_IN}}

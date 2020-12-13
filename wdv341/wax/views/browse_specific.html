@@ -1,26 +1,44 @@
 <main id="browse">
-	<search-box :sartist="artist" :salbum="album" :scountry="country"></search-box>
+	<search-box :sartist="artist" :salbum="album" :scountry="country" @ainput="artist = $event" @binput="album = $event" @cinput="country = $event"></search-box>
 	<input type="hidden" name="id" id="userid" value="{{USERID}}" />
 	<div class="ajax-area" v-html="ajaxError">
 
 	</div>
 	<center><h2 v-html="heading"></h2></center>
 	<div class="albums-box" v-if="primary.length > 0">
-		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :apurchased="al.purchased" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
 				{{BUYBUTTON}}
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b v-text="ConditionExpand(al.cond)"></b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b v-text="al.year"></b>
+					</div>
+				</div>
 			</template>
 			<template slot="tracklist">
-				<ol v-if="al.tracklist.length > 0">
-					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
-				</ol>
-				<p><b>{{ al.label }}</b></p>
+				<table class="track-list" v-if="al.tracklist.length > 0"><tbody>
+					<tr v-for="(tr, index) in al.tracklist">
+						<td>{{ index + 1 }}.</td>
+						<td>{{ tr.title }}</td>
+						<td>{{ tr.length }}</td>
+					</tr>
+				</tbody></table>
+				<p><b>&copy; &copysr; {{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>

@@ -48,12 +48,61 @@ let app = new Vue({
 			}
 		},
 
-		albumhref(i) {
+		AlbumHref(i) {
 			return "browse?id=" + i;
 		},
 
-		edithref(i) {
-			return "album?id=" + i;
+		NicePurchased(d) {
+			let jsDate = new Date(Date.parse(d.replace(/[-]/g,'/')));
+			return jsDate.toDateString();
+		},
+
+		EditBtn(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
+		},
+
+		DeleteBtn(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/delete?id=" + i;
+		},
+
+		CurrencySymbol(c) {
+			let cu = "";
+			switch (c.toLowerCase()) {
+				case "usd": case "cad": case "aud": case "mxn":
+					cu = "$";
+					break;
+				case "gbp":
+					cu = "&pound;";
+					break;
+				case "eur":
+					cu = "&euro;";
+					break;
+				case "rub":
+					cu = "&#x20bd;";
+					break;
+				case "dkk": case "sek": case "isk": case "nok":
+					cu = "kr.";
+					break;
+				case "chf":
+					cu = "CHF";
+					break;
+				case "jpy": case "cny":
+					cu = "&yen;";
+					break;
+				case "ang":
+					cu = "&fnof;";
+					break;
+				case "krw":
+					cu = "&#8361;";
+					break;
+				case "pln":
+					cu = "z&lstrok;";
+					break;
+				default:
+					cu = "?";
+					break;
+			}
+			return cu;
 		}
 	},
 

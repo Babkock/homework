@@ -10,6 +10,21 @@
 				<td><label><b>Seller</b>:</label></td>
 				<td>{{USERNAME}}</td>
 			</tr>
+			<tr v-if="album.buyer.length > 1">
+				<td><label><b>Buyer</b>:</label></td>
+				<td v-text="album.buyer"></td>
+			</tr>
+			<tr v-if="album.posted.length > 1">
+				<td><label><b>Date Posted</b>:</label></td>
+				<td v-text="NicePosted(album.posted)"></td>
+			</tr>
+			<tr v-if="album.purchased.length > 1">
+				<td><label><b>Date Purchased</b>:</label></td>
+				<td v-text="NicePosted(album.purchased)"></td>
+			</tr>
+		</tbody></table>
+		<br />
+		<table class="main-album-info"><tbody>
 			<tr is="input-row" labe="Album Title" title="The title of the album. Do not include any additional information about the edition, such as 'Live' or [20th Anniversary]." name="title" :value="album.title" plchold="Album Title" @input="album.title = $event" ></tr>
 			<tr is="input-row" labe="Artist" title="The artist who made the album. Just use 'One &amp; Two' for collaborations." name="artist" :value="album.artist" plchold="Album Artist" @input="album.artist = $event"></tr>
 			<tr>
@@ -19,7 +34,7 @@
 			<tr>
 				<td><label for="media"><b>Media</b>:</label></td>
 				<td>
-					<select title="What is the physical medium for this album?" alt="What is the physical medium for this album?" name="media" v-model="album.media">
+					<select title="The physical medium of the music." alt="The physical medium of the music." name="media" v-model="album.media">
 						<option value="" selected>Select Media</option>
 						<option value="Vinyl" {{VINYL_SELECT}}>Vinyl</option>
 						<option value="CD" {{CD_SELECT}}>CD</option>
@@ -27,13 +42,39 @@
 					</select>
 				</td>
 			</tr>
-			<tr is="input-row" labe="Price" title="The price of the album, in USD." name="price" :value="album.price" plchold="XX.XX" maxlen="5" size="5" @input="album.price = $event"></tr>
+			<tr is="input-row" labe="Price" title="The price of the album." name="price" :value="album.price" plchold="XX.XX" maxlen="6" size="6" @input="album.price = parseFloat($event)"></tr>
+			<tr>
+				<td><label for="currency"><b>Currency</b>:</label></td>
+				<td>
+					<select title="What currency goes with this price?" alt="What currency goes with this price?" name="currency" v-model="album.currency">
+						<option value="" selected>Select Currency</option>
+						<option value="usd">US Dollars</option>
+						<option value="cad">Canadian Dollars</option>
+						<option value="aud">Australian Dollars</option>
+						<option value="mxn">Mexican Pesos</option>
+						<option value="gbp">GB Pounds</option>
+						<option value="eur">Euros</option>
+						<option value="rub">Russian Rubles</option>
+						<option value="dkk">Danish Krone</option>
+						<option value="sek">Swedish Krona</option>
+						<option value="isk">Iceland Krona</option>
+						<option value="pln">Poland Zloty</option>
+						<option value="krw">Korean Won</option>
+						<option value="jpy">Japanese Yen</option>
+						<option value="nok">Norweigan Krone</option>
+						<option value="ang">Dutch Guilders</option>
+						<option value="cny">Chinese Yuan Renminbi</option>
+						<option value="chf">Swiss Francs</option>
+					</select>
+				</td>
+			</tr>
+			<tr is="input-row" labe="Release Year" title="The year the album was released." name="year" :value="album.year" maxlen="4" size="4" plchold="YYYY" @input="album.year = parseInt($event)"></tr>
 			<tr is="input-row" labe="Record Label" title="The record label that released the album." name="label" :value="album.label" plchold="Records Records" @input="album.label = $event"></tr>
 			<tr>
 				<td><label for="country"><b>Country</b>:</label></td>
 				<td>
 					<select v-model="album.country" @change="album.country = $event.target.value" title="What country is this package being shipped from?" alt="What country is this package being shipped from?">
-						<option value="">Choose a Country</option>
+						<option value="">Select Country</option>
 						<option value="us">United States</option>
 						<option value="ca">Canada</option>
 						<option value="mx">Mexico</option>
@@ -69,6 +110,20 @@
 						<option value="ba">Bosnia and Herzegovina</option>
 						<option value="in">India</option>
 						<option value="hu">Hungary</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="cond"><b>Condition</b>:</label></td>
+				<td>
+					<select title="What is the physical condition of this item?" alt="What is the physical condition of this album?" name="cond" v-model="album.cond">
+						<option value="" selected>Select Condition</option>
+						<option value="m" {{M_SELECT}}>Mint</option>
+						<option value="nm" {{NM_SELECT}}>Near Mint</option>
+						<option value="vg" {{VG_SELECT}}>Very Good</option>
+						<option value="g" {{G_SELECT}}>Good</option>
+						<option value="f" {{F_SELECT}}>Fair</option>
+						<option value="p" {{P_SELECT}}>Poor</option>
 					</select>
 				</td>
 			</tr>

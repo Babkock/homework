@@ -1,22 +1,41 @@
 <template>
-	<div class="album" :id="myid">
-<!-- <div :class="alclass" :id="myid"> -->
+	<div :class="alclass" :id="myid">
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
 		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
-		<button @click="ToggleAlbumDetails()" v-text="expandText"></button>
+		<button class="expand" @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
-			<!--
-			<h3 v-if="abuyer === ''"><span :title="currencyExpand(acurrency)" class="price"><span v-html="currencySymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
-			<h3 v-else><span :title="currencyExpand(acurrency)" class="price"><span v-html="currencySymbol(acurrency)"></span>{{ aprice }}</span> from <a :href="buyerhref" v-text="abuyer"></a></h3>
-			-->
+			<h3 v-if="apurchased === 'n'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
+			<h3 v-else>Sold for <span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> to <a :href="buyerhref" v-text="abuyer"></a></h3>
 			<slot name="info"></slot>
+			<div class="alb-info">
+				<div class="prop">
+					Country:
+				</div>
+				<div class="val">
+					<b class="country" v-text="countryexpand"></b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Date Posted:
+				</div>
+				<div class="val">
+					<b class="date" v-text="niceposted"></b>
+				</div>
+			</div>
+			<div class="alb-info" v-if="apurchased !== 'n'">
+				<div class="prop">
+					Date Purchased:
+				</div>
+				<div class="val">
+					<b class="date" v-text="nicepurchased"></b>
+				</div>
+			</div>
 			<h3>Tracklist:</h3>
 			<slot name="tracklist">
 			</slot>
-			<p><b>Posted</b>: <span class="date" v-text="niceposted"></span></p>
-			<p><b>Country</b>: <span class="acountry" v-text="countryexpand"></span></p>
 		</div>
 	</div>
 </template>
@@ -43,8 +62,7 @@ export default {
 		acountry: {
 			type: String,
 			default: "us"
-		}
-		/*,
+		},
 		aprice: {
 			type: String,
 			required: true
@@ -63,12 +81,16 @@ export default {
 		},
 		abuyer: {
 			type: String,
-			required: true
+			default: ""
 		},
 		abuyerid: {
 			type: Number,
+			default: null
+		},
+		apurchased: {
+			type: String,
 			required: true
-		} */
+		}
 	},
 
 	data: () => {
@@ -92,11 +114,16 @@ export default {
 		},
 
 		niceposted: function() {
-			let jsDate = new Date(Date.parse(this.aposted.replace(/[-]/g,'/')));
+			let jsDate = new Date(Date.parse(this.aposted.replace(/[-]/g, '/')));
 			return jsDate.toDateString();
 		},
 
-		/* sellerhref: function() {
+		nicepurchased: function() {
+			let jsDate = new Date(Date.parse(this.apurchased.replace(/[-]/g, '/')));
+			return jsDate.toDateString();
+		},
+
+		sellerhref: function() {
 			return "user?id=" + this.asellerid;
 		},
 
@@ -105,9 +132,8 @@ export default {
 		},
 
 		alclass: function() {
-			return ((this.abuyer.length > 1) ? "album" : "album sold");
+			return ((this.apurchased !== "n") ? "album sold" : "album");
 		},
-		*/
 
 		countryexpand: function() {
 			let c = "";
@@ -221,8 +247,7 @@ export default {
 			return c;
 		},
 
-		/*
-		currencyExpand: function() {
+		currencyexpand: function() {
 			let c = "";
 			switch (this.acurrency.toLowerCase()) {
 				case "usd":
@@ -274,7 +299,7 @@ export default {
 					c = "Australian Dollars";
 					break;
 				case "chf":
-					c = "Swiss Franc";
+					c = "Swiss Francs";
 					break;
 				case "btc":
 					c = "Bitcoin";
@@ -286,17 +311,20 @@ export default {
 			return c;
 		},
 
-		currencySymbol: function() {
+		currencysymbol: function() {
 			let c = "";
 			switch (this.acurrency.toLowerCase()) {
 				case "usd": case "cad": case "aud": case "mxn":
 					c = "$";
 					break;
 				case "gbp":
-					c = "£";
+					c = "&pound;";
+					break;
+				case "eur":
+					c = "&euro;";
 					break;
 				case "rub":
-					c = "₽";
+					c = "&#x20bd;";
 					break;
 				case "dkk": case "sek": case "isk": case "nok":
 					c = "kr.";
@@ -305,26 +333,26 @@ export default {
 					c = "CHF";
 					break;
 				case "jpy": case "cny":
-					c = "¥";
+					c = "&yen;";
 					break;
 				case "ang":
-					c = "ƒ";
+					c = "&fnof;";
 					break;
 				case "krw":
-					c = "₩";
+					c = "&#8361;";
 					break;
 				case "pln":
-					c = "zł";
+					c = "z&lstrok;";
 					break;
 				case "btc":
-					c = "₿";
+					c = "BTC";
 					break;
 				default:
 					c = "?";
 					break;
 			}
 			return c;
-		} */
+		}
 	},
 
 	methods: {
@@ -340,9 +368,7 @@ export default {
 @import "../css/variables.scss";
 
 .albums-box {
-	display:flex;
-	flex-direction:row;
-	flex-wrap:wrap;
+	@include Flex(row, wrap);
 	justify-content:center;
 }
 
@@ -350,10 +376,11 @@ div.album {
 	@include WidthMargins(30.5%, 3px, 3px);
 	margin-top:6px;
 	margin-bottom:7px;
-	@include BackBorderColor(rgba(30, 30, 30, 0.3), 1px solid gray, #dfdfdf);
+	@include BackBorderColor($LiBg, 1px solid gray, $TextLight);
 	padding:7px;
 	text-align:center;
 	float:left;
+	transition:background, background-color, border, color 0.2s ease 0s;
 	h2, h3, p {
 		text-align:center;
 	}
@@ -369,11 +396,58 @@ div.album {
 			@include WidthMargins(80%, 10%, 10%);
 			margin-top:4px;
 			opacity:0.9;
+			transition:opacity 0.2s ease 0s;
 			&:hover {
 				margin-top:4px;
 				opacity:1;
 			}
 		}
+	}
+	&:hover {
+		@include BackBorderColor($BgTransDark, 1px solid #888888, $TextLight);
+
+	}
+}
+
+#browse .albums-box .album.sold {
+	filter:grayscale(50%);
+}
+
+.track-list {
+	width:100%;
+	text-align:left;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		@include BackBorderColor($BgSlight, 1px solid $BgTransDark, $TextLight);
+		padding:6px;
+		font-size:1.12em;
+	}
+}
+
+button.expand {
+	width:90%;
+}
+
+.alb-info {
+	@include Flex(row, nowrap);
+	width:98%;
+	margin-top:6px;
+	div {
+		@include BackBorderColor($BgSlight, 1px solid $BgTransDark, $TextLight);
+		padding:5px;
+		padding-top:7px;
+	}
+	.prop {
+		@include WidthMargins(48%, 1%, 1%);
+		font-size:1.1em;
+		text-align:right;
+	}
+	.val {
+		@include WidthMargins(49%, 1%, 0%);
+		font-size:1.09em;
+		text-align:left;
 	}
 }
 </style>

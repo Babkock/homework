@@ -26,13 +26,13 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	|-------------|--------------|------------------------------------------|
 	| price       | FLOAT        | The price of the album, set by the user. |
 	|-------------|--------------|------------------------------------------|
-	| seller      | VARCHAR(80)  | The user who is selling this album.      |
+	| seller      | VARCHAR(70)  | The user who is selling this album.      |
 	|-------------|--------------|------------------------------------------|
-	| buyer       | VARCHAR(80)  | The user who bought the album, or NULL.  |
+	| buyer       | VARCHAR(70)  | The user who bought the album, or NULL.  |
 	|-------------|--------------|------------------------------------------|
 	| image       | VARCHAR(50)  | The image file for the album cover.      |
 	|-------------|--------------|------------------------------------------|
-	| label       | VARCHAR(90)  | Record label that released the album.    |
+	| label       | VARCHAR(80)  | Record label that released the album.    |
 	|-------------|--------------|------------------------------------------|
 	| posted      | DATE         | The date the album was posted for sale.  |
 	|-------------|--------------|------------------------------------------|
@@ -44,7 +44,7 @@ $passkey = file_get_contents(__DIR__ . "/./passkey.txt");
 	_______________________________________________________________________________________________________
 	| year        | INT(11)      | The year the album was released.                                       |
 	|-------------|--------------|------------------------------------------------------------------------|
-	| condition   | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor).    |
+	| cond        | VARCHAR(3)   | The physical condition of the album, from "m" (Mint) to "p" (Poor).    |
 	|-------------|--------------|------------------------------------------------------------------------|
 	| currency    | VARCHAR(3)   | The currency the seller expects to be paid in.                         |
 	|-------------|--------------|------------------------------------------------------------------------|
@@ -62,22 +62,20 @@ class Album {
 	private $title;
 	private $media;
 	private $discs;
-	private $tracklist;
-	private $buyer;
+	public $price;
 	private $seller;
+	private $buyer;
 	private $image;
 	private $label;
 	private $posted;
-	public $price;
 	public $country;
-	/*
+	private $tracklist;
 	private $year;
-	private $condition;
+	private $cond;
 	private $currency;
 	private $purchased;
 	private $sellerid;
 	private $buyerid;
-	*/
 
 	public function __construct($id = 0) {
 		if (strcmp(gettype($id), "integer") != 0) {
@@ -117,35 +115,33 @@ class Album {
 	public function setLabel($l) { $this->label = $l; }
 	public function getPosted() { return $this->posted; }
 	public function setPosted($p) { $this->posted = $p; }
-	/*
 	public function getYear() { return $this->year; }
 	public function setYear($y) { $this->year = $y; }
-	public function getCondition() { return $this->condition; }
-	public function setCondition($c) {
+	public function getCond() { return $this->cond; }
+	public function setCond($c) {
 		if ((strlen($c) > 3) || (strlen($c) < 1)) {
 			exit("<p class=\"error\">Condition field must be at least 1, and no more than 3 characters.</p>");
 		}
-		$this->condition = $c;
+		$this->cond = $c;
 	}
 	public function getCurrency() { return $this->currency; }
 	public function setCurrency($c) { $this->currency = $c; }
 	public function getPurchased() { return $this->purchased; }
 	public function setPurchased($p) { $this->purchased = $p; }
 	public function getSellerId() { return $this->sellerid; }
-	public function setSellerId($s) { $this->seller = $s; }
+	public function setSellerId($s) { $this->sellerid = $s; }
 	public function getBuyerId() { return $this->buyerid; }
 	public function setBuyerId($b) { $this->buyerid = $b; }
-	*/
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
 			if (strcmp($k, "artist") == 0) { $this->artist = $v; }
-			if (strcmp($k, "title") == 0) { $this->setTitle($v); }
+			if (strcmp($k, "title") == 0) { $this->title = $v; }
 			if (strcmp($k, "media") == 0) { $this->media = $v; }
-			if (strcmp($k, "discs") == 0) { $this->setDiscs($v); }
+			if (strcmp($k, "discs") == 0) { $this->discs = $v; }
 			if (strcmp($k, "price") == 0) { $this->price = $v; }			
-			if (strcmp($k, "seller") == 0) { $this->seller = $v; }
-			if (strcmp($k, "buyer") == 0) { $this->buyer = $v; }
+			if (strcmp($k, "seller") == 0) { $this->setSeller($v); }
+			if (strcmp($k, "buyer") == 0) { $this->setBuyer($v); }
 			if (strcmp($k, "image") == 0) { $this->image = $v; }
 			if (strcmp($k, "label") == 0) { $this->label = $v; }
 			if (strcmp($k, "posted") == 0) { $this->setPosted($v); }
@@ -158,14 +154,12 @@ class Album {
 					array_push($this->tracklist, [$track->title, $track->length]);
 				}
 			}
-			/*
 			if (strcmp($k, "year") == 0) { $this->year = $v; }
-			if (strcmp($k, "condition") == 0) { $this->condition = $v; }
+			if (strcmp($k, "cond") == 0) { $this->cond = $v; }
 			if (strcmp($k, "currency") == 0) { $this->currency = $v; }
 			if (strcmp($k, "purchased") == 0) { $this->purchased = $v; }
 			if (strcmp($k, "sellerid") == 0) { $this->sellerid = $v; }
 			if (strcmp($k, "buyerid") == 0) { $this->buyerid = $v; }
-			*/
 		}
 	}
 
@@ -184,14 +178,12 @@ class Album {
 		$arr['posted'] = $this->posted;
 		$arr['country'] = $this->country;
 		$arr['tracklist'] = $this->tracklist;
-		/*
 		$arr['year'] = $this->year;
-		$arr['condition'] = $this->condition;
+		$arr['cond'] = $this->cond;
 		$arr['currency'] = $this->currency;
 		$arr['purchased'] = $this->purchased;
 		$arr['sellerid'] = $this->sellerid;
 		$arr['buyerid'] = $this->buyerid;
-		*/
 		return $arr;
 	}
 
@@ -211,14 +203,12 @@ class Album {
 		$this->posted = $b->posted;
 		$this->country = $b->country;
 		$this->tracklist = [];
-		/*
 		$this->year = $b->year;
-		$this->condition = $b->condition;
+		$this->cond = $b->cond;
 		$this->currency = $b->currency;
 		$this->purchased = $b->purchased;
 		$this->sellerid = $b->sellerid;
 		$this->buyerid = $b->buyerid;
-		*/
 
 		foreach ($b->tracklist as $track) {
 			array_push($this->tracklist, [$track->title, $track->length]);
@@ -238,47 +228,40 @@ class Album {
 			"title" => $row['title'],
 			"media" => $row['media'],
 			"discs" => $row['discs'],
-			"price" => $row['price'],
+			"price" => number_format((float)$row['price'], 2, ".", ""),
 			"seller" => $row['seller'],
 			"buyer" => $row['buyer'],
 			"image" => $row['image'],
 			"label" => $row['label'],
 			"posted" => $row['posted'],
 			"country" => $row['country'],
-			"tracklist" => $row['tracklist']
-			/*
+			"tracklist" => $row['tracklist'],
 			"year" => $row['year'],
-			"condition" => $row['condition'],
+			"cond" => $row['cond'],
 			"currency" => $row['currency'],
 			"purchased" => $row['purchased'],
 			"sellerid" => $row['sellerid'],
 			"buyerid" => $row['buyerid']
-			*/
 		]);
 	}
 
 	public function write() {
 		global $db;
 
-		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, :buyer, :image, :label, NOW(), :country, :tracklist)");
-		// $st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, NULL, :image, :label, NOW(), :country, :tracklist, :year, :condition, :currency, :releasetype, :sellerid, NULL)");
+		$st = $db->prepare("INSERT INTO `albums` VALUES (id, :artist, :title, :media, :discs, :price, :seller, '', :image, :label, NOW(), :country, :tracklist, :year, :cond, :currency, NULL, :sellerid, 0)");
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
 		$st->bindParam(":media", $this->media);
 		$st->bindParam(":discs", $this->discs);
 		$st->bindParam(":price", $this->price);
 		$st->bindParam(":seller", $this->seller);
-		$st->bindParam(":buyer", $this->buyer);
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":country", $this->country);
-		/*
 		$st->bindParam(":year", $this->year);
-		$st->bindParam(":condition", $this->condition);
+		$st->bindParam(":cond", $this->cond);
 		$st->bindParam(":currency", $this->currency);
 		$st->bindParam(":sellerid", $this->sellerid);
-		$st->bindParam(":buyerid", $this->buyerid);
-		*/
 
 		$tlJson = "[";
 		$t = 0;
@@ -301,8 +284,7 @@ class Album {
 	public function update() {
 		global $db;
 
-		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist WHERE `id`=:id LIMIT 1");
-		// $st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `condition`=:condition, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
+		$st = $db->prepare("UPDATE `albums` SET `artist`=:artist, `title`=:title, `media`=:media, `discs`=:discs, `price`=:price, `seller`=:seller, `buyer`=:buyer, `image`=:image, `label`=:label, `posted`=:posted, `country`=:country, `tracklist`=:tracklist, `year`=:year, `cond`=:cond, `currency`=:currency, `purchased`=:purchased, `sellerid`=:sellerid, `buyerid`=:buyerid WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":artist", $this->artist);
 		$st->bindParam(":title", $this->title);
@@ -315,14 +297,6 @@ class Album {
 		$st->bindParam(":label", $this->label);
 		$st->bindParam(":posted", $this->posted);
 		$st->bindParam(":country", $this->country);
-		/*
-		$st->bindParam(":year", $this->year);
-		$st->bindParam(":condition", $this->condition);
-		$st->bindParam(":currency", $this->currency);
-		$st->bindParam(":purchased", $this->purchased);
-		$st->bindParam(":sellerid", $this->sellerid);
-		$st->bindParam(":buyerid", $this->buyerid);
-		*/
 
 		$tlJson = "[";
 		$t = 0;
@@ -337,8 +311,13 @@ class Album {
 			$t++;
 		}
 		$tlJson .= "]";
-		$this->posted = date("Y-m-d", mktime());
 		$st->bindParam(":tracklist", $tlJson);
+		$st->bindParam(":year", $this->year);
+		$st->bindParam(":cond", $this->cond);
+		$st->bindParam(":currency", $this->currency);
+		$st->bindParam(":purchased", $this->purchased);
+		$st->bindParam(":sellerid", $this->sellerid);
+		$st->bindParam(":buyerid", $this->buyerid);
 		$st->execute();
 	}
 
@@ -346,16 +325,25 @@ class Album {
 		global $db;
 
 		$bid = Methods::getIdFromName($buyer);
-		$this->setBuyer($buyer);
-		// $this->setBuyerId($bid);
+		$this->buyer = $buyer;
+		$this->buyerid = intval($bid);
+
+		$sid = Methods::getIdFromName($this->seller);
+		$user = new User(intval($sid));
+		$user->read();
+
+		$user->incrementSales();
+		$user->update();
+
+		$this->purchased = date("Y-m-d", mktime());
 		$this->update();
 	}
 
-	public static function delete($id = 0) {
+	public function delete() {
 		global $db;
 
 		$st = $db->prepare("DELETE FROM `albums` WHERE `id`=:id LIMIT 1");
-		$st->bindParam(":id", $id);
+		$st->bindParam(":id", $this->id);
 		$st->execute();
 	}
 } /* class Album */
@@ -365,7 +353,7 @@ class Album {
 	_________________________________________________________________________
 	| id          | INT(11)      | The unique ID of the user.               |
 	|-------------|--------------|------------------------------------------|
-	| username    | VARCHAR(80)  | The user's name.                         |
+	| username    | VARCHAR(70)  | The user's name.                         |
 	|-------------|--------------|------------------------------------------|
 	| password    | VARCHAR(64)  | SHA256 Hash of the user's password.      |
 	|-------------|--------------|------------------------------------------|
@@ -375,13 +363,15 @@ class Album {
 	|_____________|______________|__________________________________________|
 
 	_________________________________________________________________________________________
-	| image       | VARCHAR(50)  | The image URL of the user's avatar.                      |
+	| image       | VARCHAR(85)  | The image URL for the user's avatar.                     |
 	|-------------|--------------|----------------------------------------------------------|
-	| biography   | TEXT         | The user's custom biography.                             |
+	| biography   | TEXT         | The user's custom biography for their profile page.      |
 	|-------------|--------------|----------------------------------------------------------|
 	| registered  | DATE         | The date the user registered.                            |
 	|-------------|--------------|----------------------------------------------------------|
 	| showemail   | INT(11)      | The user's preference on public email visibility, (0-2). |
+	|-------------|--------------|----------------------------------------------------------|
+	| sales       | INT(11)      | The number of releases this user has sold.               |
 	|_____________|______________|__________________________________________________________|
 */
 
@@ -391,12 +381,11 @@ class User {
 	private $password;
 	private $email;
 	private $country;
-	/*
 	private $image;
 	private $biography;
 	private $registered;
 	private $showemail;
-	*/
+	private $sales;
 
 	public function __construct($id = 0) {
 		if (strcmp(gettype($id), "integer") != 0) {
@@ -414,7 +403,6 @@ class User {
 	public function setEmail($e) { $this->email = $e; }
 	public function getCountry() { return $this->country; }
 	public function setCountry($c) { $this->country = $c; }
-	/*
 	public function getImage() { return $this->image; }
 	public function setImage($i) { $this->image = $i; }
 	public function getBiography() { return $this->biography; }
@@ -423,7 +411,10 @@ class User {
 	public function setRegistered($r) { $this->registered = $r; }
 	public function getShowEmail() { return $this->showemail; }
 	public function setShowEmail($s) { $this->showemail = $s; }
-	*/
+	public function getSales() { return $this->sales; }
+	public function setSales($s) { $this->sales = $s; }
+	public function incrementSales() { $this->sales++; }
+	public function decrementSales() { $this->sales--; }
 
 	public function seta($arr) {
 		foreach ($arr as $k => $v) {
@@ -431,12 +422,11 @@ class User {
 			if (strcmp($k, "password") == 0) { $this->password = $v; }
 			if (strcmp($k, "email") == 0) { $this->email = $v; }
 			if (strcmp($k, "country") == 0) { $this->country = $v; }
-			/*
 			if (strcmp($k, "image") == 0) { $this->image = $v; }
 			if (strcmp($k, "biography") == 0) { $this->biography = $v; }
 			if (strcmp($k, "registered") == 0) { $this->registered = $v; }
 			if (strcmp($k, "showemail") == 0) { $this->showemail = $v; }
-			*/
+			if (strcmp($k, "sales") == 0) { $this->sales = $v; }
 		}
 	}
 
@@ -447,12 +437,11 @@ class User {
 		$arr['password'] = $this->password;
 		$arr['email'] = $this->email;
 		$arr['country'] = $this->country;
-		/*
 		$arr['image'] = $this->image;
 		$arr['biography'] = $this->biography;
 		$arr['registered'] = $this->registered;
 		$arr['showemail'] = $this->showemail;
-		*/
+		$arr['sales'] = $this->sales;
 		return $arr;
 	}
 
@@ -470,38 +459,33 @@ class User {
 	public function write() {
 		global $db;
 
-		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country)");
-		// $st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, :image, :biography, NOW(), 0)");
+		$st = $db->prepare("INSERT INTO `users` VALUES (id, :username, :password, :email, :country, NULL, :biography, NOW(), 1, 0)");
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
-		/*
-		$st->bindParam(":image", $this->image);
 		$st->bindParam(":biography", $this->biography);
-		*/
 		$st->execute();
 	}
 
 	public function update() {
 		global $db;
 
-		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country WHERE `id`=:id LIMIT 1");
-		// $st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `image`=:image, `biography`=:biography, `registered`=registered, `showemail`=:showemail");
+		$st = $db->prepare("UPDATE `users` SET `username`=:username, `password`=:password, `email`=:email, `country`=:country, `image`=:image, `biography`=:biography, `showemail`=:showemail, `sales`=:sales WHERE `id`=:id LIMIT 1");
 		$st->bindParam(":id", $this->id);
 		$st->bindParam(":username", $this->username);
 		$st->bindParam(":password", $this->password);
 		$st->bindParam(":email", $this->email);
 		$st->bindParam(":country", $this->country);
-		/*
 		$st->bindParam(":image", $this->image);
 		$st->bindParam(":biography", $this->biography);
 		$st->bindParam(":showemail", $this->showemail);
-		*/
+		$st->bindParam(":sales", $this->sales);
+		
 		$st->execute();
 	}
 
-	public static function delete($id = 0) {
+	public function delete() {
 		global $db;
 
 		$st = $db->prepare("DELETE FROM `users` WHERE `id`=:id LIMIT 1");
@@ -516,12 +500,15 @@ class Page {
 	private $footer;
 	private $title;
 
-	public function __construct($head, $cont) {
-		if (!isset($head) || !isset($cont)) {
-			exit("<p class=\"error\">No file for loading</p>");
-		}
-		$this->header = file_get_contents(__DIR__ . "/../views/{$head}.html");
-		$this->content = file_get_contents(__DIR__ . "/../views/{$cont}.html");
+	public function __construct($head = "", $cont = "") {
+		if (!isset($head) || empty($head))
+			$this->header = "";
+		else
+			$this->header = file_get_contents(__DIR__ . "/../views/{$head}.html");
+		if (!isset($cont) || empty($cont))
+			$this->content = "";
+		else
+			$this->content = file_get_contents(__DIR__ . "/../views/{$cont}.html");
 		$this->footer = file_get_contents(__DIR__ . "/../views/footer.html");
 	}
 
@@ -561,35 +548,42 @@ class Page {
 	}
 
 	public function error($message) {
-		$this->header = "";
+		if (isset($_SESSION['current_user'])) {
+			$this->header = file_get_contents(__DIR__ . "/../views/header_user.html");
+			$uid = Methods::getIdFromName($_SESSION['current_user']);
+			$this->hreplace("USERID", $uid);
+			$this->setTitle("WaXchange");
+		}
+		else {
+			$this->header = file_get_contents(__DIR__ . "/../views/header_guest.html");
+			$this->setTitle("WaXchange");
+		}
+
 		$this->footer = "";
 		$this->content = <<<EOF
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>WaXchange &bull; Error</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
-		<link rel="icon" href="/images/favicon.png" />
-	</head>
-	<body>
-		<div class="container">
-			<header>
-				<h1><a href="index" title="Your Dashboard" alt="Your Dashboard">WaXchange</a></h1>
-			</header>
 			<main id="error">
 				{$message}
 			</main>
 			<footer>
 				<p><a href="about" title="What is WaXchange?" alt="What is WaXchange?">About WaXchange</a> &bull; <a href="contact" title="Contact WaXchange Staff" alt="Contact WaXchange staff">Contact</a> &bull; <a href="user" title="View list of WaXchange users" alt="View list of WaXchange users">Users</a></p>
 				<p><a href="/homework/index?c=wdv341">&rarr; Return to WDV341 Homework &larr;</a></p>
-				<p>Copyright &copy; 2020 Tanner Babcock.
+				<p>Copyright &copy; 2020 Tanner Babcock.</p>
 			</footer>
 		</div>
 	</body>
 </html>
 EOF;
 		$this->output();
+	}
+
+	public function ogImage($url) {
+		$w = @\getimagesize($url)[0];
+		$h = @\getimagesize($url)[1];
+		$this->hreplacea([
+			"OGIMAGE" => $url,
+			"OGWIDTH" => "" . $w,
+			"OGHEIGHT" => "" . $h
+		]);
 	}
 
 	public function script($s) {
@@ -716,14 +710,126 @@ class Methods {
 	public static function currencyExpand($c) {
 		$cu = "";
 		switch ($c) {
-
+			case "usd":
+				$cu = "US Dollars";
+				break;
+			case "cad":
+				$cu = "Canadian Dollars";
+				break;
+			case "mxn":
+				$cu = "Mexican Pesos";
+				break;
+			case "gbp":
+				$cu = "GB Pounds";
+				break;
+			case "rub":
+				$cu = "Russian Rubles";
+				break;
+			case "dkk":
+				$cu = "Danish Krone";
+				break;
+			case "sek":
+				$cu = "Swedish Krona";
+				break;
+			case "isk":
+				$cu = "Iceland Krona";
+				break;
+			case "eur":
+				$cu = "Euros";
+				break;
+			case "pln":
+				$cu = "Poland Zloty";
+				break;
+			case "krw":
+				$cu = "Korean Won";
+				break;
+			case "jpy":
+				$cu = "Japanese Yen";
+				break;
+			case "nok":
+				$cu = "Norweigan Krone";
+				break;
+			case "ang":
+				$cu = "Dutch Guilders";
+				break;
+			case "cny":
+				$cu = "Chinese Yuan Renminbi";
+				break;
+			case "aud":
+				$cu = "Australian Dollars";
+				break;
+			case "chf":
+				$cu = "Swiss Francs";
+				break;
+			case "btc":
+				$cu = "Bitcoin";
+				break;
+			default:
+				$cu = "Unknown Currency";
+				break;
 		}
+		return $cu;
+	}
+
+	public static function currencySymbol($c) {
+		$cu = "";
+		switch ($c) {
+			case "usd": case "cad": case "aud": case "mxn":
+				$cu = "$";
+				break;
+			case "gbp":
+				$cu = "&pound;";
+				break;
+			case "eur":
+				$cu = "&euro;";
+				break;
+			case "rub":
+				$cu = "&#x20bd;";
+				break;
+			case "dkk": case "nok": case "sek": case "isk":
+				$cu = "kr.";
+				break;
+			case "chf":
+				$cu = "CHF";
+				break;
+			case "jpy": case "cny":
+				$cu = "&yen;";
+				break;
+			case "ang":
+				$cu = "&fnof;";
+				break;
+			case "krw":
+				$cu = "&#8361;";
+				break;
+			case "pln":
+				$cu = "z&lstrok;";
+				break;
+		}
+		return $cu;
 	}
 
 	public static function conditionExpand($c) {
 		$co = "";
 		switch ($c) {
-
+			case "m":
+				$co = "Mint";
+				break;
+			case "nm":
+				$co = "Near Mint";
+				break;
+			case "vg":
+				$co = "Very Good";
+				break;
+			case "g":
+				$co = "Good";
+				break;
+			case "f":
+				$co = "Fair";
+				break;
+			case "p":
+				$co = "Poor";
+				break;
 		}
+		return $co;
 	}
 } /* class Methods */

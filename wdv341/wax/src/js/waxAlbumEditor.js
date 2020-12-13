@@ -43,7 +43,13 @@ let app = new Vue({
 				label: "{{ALBUM_LABEL}}",
 				posted: "{{ALBUM_POSTED}}", // date
 				country: "{{ALBUM_COUNTRY}}",
-				tracklist: "{{ALBUM_TRACKLIST}}" // JS object
+				tracklist: "{{ALBUM_TRACKLIST}}", // JS object
+				year: "{{ALBUM_YEAR}}",  // int
+				cond: "{{ALBUM_COND}}",
+				currency: "{{ALBUM_CURRENCY}}",
+				purchased: "{{ALBUM_PURCHASED}}", // date
+				sellerid: "{{SELLERID}}",  // int
+				buyerid: "{{BUYERID}}"   // int
 			}
 		};
 	},
@@ -71,6 +77,12 @@ let app = new Vue({
 			this.tracksButton = ((this.showingTracks === true) ? "Hide Tracks" : "Show Tracks");
 		},
 
+		/* Format a date string */
+		NicePosted(d) {
+			let jsDate = new Date(Date.parse(d.replace(/[-]/g,'/')));
+			return jsDate.toDateString();
+		},
+
 		/* Submit the entire Album form */
 		SubmitAlbum() {
 			if (this.file) {
@@ -79,29 +91,34 @@ let app = new Vue({
 			else {
 				this.ajaxResult = "<p class=\"success\">Your album is being processed...</p>";
 			}
-			let formData = new FormData();
-
-			if (this.file) {
-				formData.append("image", this.$refs.image.files[0]);
-			}
-			formData.append("albumJson", JSON.stringify(this.album));
-
-			let editMode = document.querySelector("#mode").value;
-			if (editMode === "new") {
-				this.$http.post("album", formData).then((response) => {
-					this.ajaxResult = response.data;
-				}, () => {
-					this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
-					console.error("Could not write() album '" + this.album.title + "' with mode 'new'");
-				});
+			if ((this.album.title.length == 0) || (this.album.artist.length == 0) || (this.album.price == 0) || (this.album.media.length == 0) || (this.album.label.length == 0) || (this.album.currency.length == 0) || (this.album.country.length == 0) || (this.album.year === "")) {
+				this.ajaxResult = "<p class=\"error\">One or more fields are empty.</p>";
 			}
 			else {
-				this.$http.post("album?id=" + this.album.id, formData).then((response) => {
-					this.ajaxResult = response.data;
-				}, () => {
-					this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
-					console.error("Could not update() album '" + this.album.title + "' with mode 'edit'");
-				});
+				let formData = new FormData();
+
+				if (this.file) {
+					formData.append("image", this.$refs.image.files[0]);
+				}
+				formData.append("albumJson", JSON.stringify(this.album));
+
+				let editMode = document.querySelector("#mode").value;
+				if (editMode === "new") {
+					this.$http.post("album", formData).then((response) => {
+						this.ajaxResult = response.data;
+					}, () => {
+						this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
+						console.error("Could not write() album '" + this.album.title + "' with mode 'new'");
+					});
+				}
+				else {
+					this.$http.post("album?id=" + this.album.id, formData).then((response) => {
+						this.ajaxResult = response.data;
+					}, () => {
+						this.ajaxResult = "<p class=\"error\">Communication with the server failed. Please try again later.</p>";
+						console.error("Could not update() album '" + this.album.title + "' with mode 'edit'");
+					});
+				}
 			}
 		}
 	}

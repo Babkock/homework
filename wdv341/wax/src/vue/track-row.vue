@@ -53,9 +53,14 @@ export default {
 @import "../css/variables.scss";
 
 .track {
+	td {
+		padding:4px;
+		background:rgba(10, 10, 10, 0.3);
+	}
 	td:first-child {
 		font-size:1.14em !important;
 		text-align:right;
+		padding-right:7px;
 	}
 	td:nth-child(2) {
 		text-align:center;

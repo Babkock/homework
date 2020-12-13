@@ -1,0 +1,60 @@
+<main id="delete">
+	<form action="delete?id={{ALBUM_ID}}" method="post" class="delete-form" enctype="multipart/form-data">
+		<div class="album">
+			<div class="cover">
+				<img src="{{ALBUM_IMAGE}}" />
+			</div>
+			<h2><a href="{{ARTIST_HREF}}">{{ALBUM_ARTIST}}</a> - <a href="{{ALBUM_HREF}}"><i>{{ALBUM_TITLE}}</i></a></h2>
+			<h3>{{ALBUM_DISCS}} x <span class="media">{{ALBUM_MEDIA}}</span></h3>
+			<h3><span class="price">{{CURRENCY_SYMBOL}}{{ALBUM_PRICE}}</span> from <a href="user?id={{USERID}}">{{ALBUM_SELLER}}</a></h3>
+			<div class="alb-info">
+				<div class="prop">
+					Condition:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_COND}}</b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Year:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_YEAR}}</b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Country:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_COUNTRY}}</b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Date Posted:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_POSTED}}</b>
+				</div>
+			</div>
+			<h3>Tracklist</h3>
+			{{TRACKLIST}}
+			<p><b>&copy; &copysr; {{ALBUM_YEAR}} {{ALBUM_LABEL}}</b></p>
+		</div>
+		<div class="confirm">
+			<h2>Delete this album?</h2>
+			<p>This action cannot be undone. Once you delete this release, it will be <b style="color:red"><i>permanently</i> removed</b> from all areas of the website. Now and forever. There's no going back.</p>
+			<h3><span class="price">{{CURRENCY_SYMBOL}}{{ALBUM_PRICE}}</span></h3>
+			<div class="buttons">
+				<p>
+					<input type="submit" name="choice" value="Delete Album" title="Are you sure??" alt="Are you sure??" />&nbsp;&nbsp;&nbsp;&nbsp;
+					&bull;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="submit" name="choice" value="Cancel" title="Yeah, maybe not, huh?" alt="Yeah, maybe not, huh?" />
+				</p>
+			</div>
+		</div>
+	</form>
+</main>
+

@@ -4,10 +4,20 @@
 		<title>{{TITLE}}</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="{{DESCRIPTION}}" />
+		<meta property="og:title" content="{{TITLE}}" />
+		<meta property="og:description" content="{{DESCRIPTION}}" />
+		<meta property="og:image" content="{{OGIMAGE}}" />
+		<meta property="og:image:width" content="{{OGWIDTH}}" />
+		<meta property="og:image:height" content="{{OGHEIGHT}}" />
+		<link rel="icon" href="/homework/wdv341/wax/img/album/default.png" />
 		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" />
 		<link rel="stylesheet" href="/homework/assets/css/album.css" />
 		<link rel="stylesheet" href="/homework/assets/css/search-box.css" />
-		<link rel="icon" href="/images/favicon.png" />
+		<link rel="stylesheet" href="/homework/assets/css/waxMobile.css" media="screen and (max-width: 700px)" />
+		<link rel="stylesheet" href="/homework/assets/css/waxchange.css" media="only screen and (min-width: 769px)" />
+		<link rel="stylesheet" href="/homework/assets/css/waxLandscape.css" media="only screen and (orientation: landscape) and (min-width:768px)(max-width:1024px)" />
+		<link rel="stylesheet" href="/homework/assets/css/waxLandscape.css" media="only screen and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)" />
+		<link rel="stylesheet" href="/homework/assets/css/waxMobile.css" media="only screen and (orientation: portrait)" />
 		<script src="https://unpkg.com/vue@2.6.11"></script>
 		<script src="https://unpkg.com/vue-resource@1.5.1"></script>
 	</head>

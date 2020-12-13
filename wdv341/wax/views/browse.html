@@ -5,62 +5,118 @@
 
 	</div>
 	<center><h2>Newest Releases:</h2></center>
-	<div class="albums-box" v-if="primary.length > 0">
-		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+	<div class="albums-box" v-if="primary != null">
+		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :apurchased="al.purchased" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
 				{{BUYBUTTON}}
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b v-text="ConditionExpand(al.cond)"></b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b v-text="al.year"></b>
+					</div>
+				</div>
 			</template>
 			<template slot="tracklist">
-				<ol v-if="al.tracklist.length > 0">
-					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
-				</ol>
-				<p><b>{{ al.label }}</b></p>
+				<table class="track-list" v-if="al.tracklist.length > 0"><tbody>
+					<tr v-for="(tr, index) in al.tracklist">
+						<td>{{ index + 1 }}.</td>
+						<td>{{ tr.title }}</td>
+						<td>{{ tr.length }}</td>
+					</tr>
+				</tbody></table>
+				<p><b>&copy; &copysr; {{ al.year }} {{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>
 	<center><h2>Most Expensive Releases:</h2></center>
-	<div class="albums-box" v-if="secondary.length > 0">
-		<album v-for="(al, index) in secondary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :key="index">
+	<div class="albums-box" v-if="secondary != null">
+		<album v-for="(al, index) in secondary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :apurchased="al.purchased" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>Sold for <span class="price">${{ al.price }}</span> to {{ al.buyer }}</h3>
 				{{BUYBUTTON}}
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b v-text="ConditionExpand(al.cond)"></b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b v-text="al.year"></b>
+					</div>
+				</div>
 			</template>
 			<template slot="tracklist">
-				<ol v-if="al.tracklist.length > 0">
-					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
-				</ol>
-				<p><b>{{ al.label }}</b></p>
+				<table class="track-list" v-if="al.tracklist.length > 0"><tbody>
+					<tr v-for="(tr, index) in al.tracklist">
+						<td>{{ index + 1 }}.</td>
+						<td>{{ tr.title }}</td>
+						<td>{{ tr.length }}</td>
+					</tr>
+				</tbody></table>
+				<p><b>&copy; &copysr; {{ al.year }} {{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>
+	{{IF_LOGGED_IN}}
 	<center><h2>Your Collection:</h2></center>
-	<div class="albums-box" v-if="tertiary.length > 0">
-		<album v-for="(al, index) in tertiary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :country="al.country" :key="index">
+	<div class="albums-box" v-if="tertiary != null">
+		<album v-for="(al, index) in tertiary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :country="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :apurchased="al.purchased" :key="index">
 			<template slot="img">
 				<img :src="al.image" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
-				<h3 v-if="al.buyer === ''"><span class="price">${{ al.price }}</span> from {{ al.seller }}</h3>
-				<h3 v-else>You bought this for <span class="price">${{ al.price }}</span></h3>
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b v-text="ConditionExpand(al.cond)"></b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b v-text="al.year"></b>
+					</div>
+				</div>
 			</template>
 			<template slot="tracklist">
-				<ol v-if="al.tracklist.length > 0">
-					<li v-for="tr in al.tracklist">{{ tr.title }} <i>({{ tr.length }})</i></li>
-				</ol>
-				<p><b>{{ al.label }}</b></p>
+				<table class="track-list" v-if="al.tracklist.length > 0"><tbody>
+					<tr v-for="(tr, index) in al.tracklist">
+						<td>{{ index + 1 }}.</td>
+						<td>{{ tr.title }}</td>
+						<td>{{ tr.length }}</td>
+					</tr>
+				</tbody></table>
+				<p><b>&copy; &copysr; {{ al.year }} {{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>
+	{{ENDIF}}
 </main>

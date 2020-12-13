@@ -5,7 +5,9 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-.track td:first-child { font-size: 1.14em !important; text-align: right;
+.track td { padding: 4px; background: rgba(10, 10, 10, 0.3);
+}
+.track td:first-child { font-size: 1.14em !important; text-align: right; padding-right: 7px;
 }
 .track td:nth-child(2) { text-align: center; width: 90% !important;
 }

@@ -1,0 +1,55 @@
+<main id="buy">
+	<form action="buy?id={{ALBUM_ID}}" method="post" class="buy-form" enctype="multipart/form-data">
+		<input type="hidden" value="{{USERNAME}}" name="buyer" />
+		<div class="album">
+			<div class="cover">
+				<img src="{{ALBUM_IMAGE}}" />
+			</div>
+			<h2><a href="{{ARTIST_HREF}}">{{ALBUM_ARTIST}}</a> - <a href="{{ALBUM_HREF}}"><i>{{ALBUM_TITLE}}</i></a></h2>
+			<h3>{{ALBUM_DISCS}} x <span class="media">{{ALBUM_MEDIA}}</span></h3>
+			<h3><span class="price">{{CURRENCY_SYMBOL}}{{ALBUM_PRICE}}</span> from <a href="{{SELLER_HREF}}">{{ALBUM_SELLER}}</a></h3>
+			<div class="alb-info">
+				<div class="prop">
+					Condition:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_COND}}</b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Year:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_YEAR}}</b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Country:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_COUNTRY}}</b>
+				</div>
+			</div>
+			<div class="alb-info">
+				<div class="prop">
+					Date Posted:
+				</div>
+				<div class="val">
+					<b>{{ALBUM_POSTED}}</b>
+				</div>
+			</div>
+			<h3>Tracklist</h3>
+			{{TRACKLIST}}
+			<p><b>&copy; &copysr; {{ALBUM_YEAR}} {{ALBUM_LABEL}}</b></p>
+		</div>
+		<div class="confirm">
+			<h2>Buy this album?</h2>
+			<p><i>(Not really, it's not real money.)</i> This album, <i>{{ALBUM_TITLE}}</i> will be added to your collection.</p>
+			<h3><span class="price">{{CURRENCY_SYMBOL}}{{ALBUM_PRICE}}</span></h3>
+			<input type="submit" name="choice" value="Buy This Album" />
+		</div>
+	</form>
+</main>
+

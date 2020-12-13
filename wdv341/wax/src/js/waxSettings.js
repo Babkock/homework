@@ -22,8 +22,10 @@ let app = new Vue({
 				oldpassword: "",
 				newpassword: "",
 				newpassword2: "",
-				showemail: "",
-				biography: "{{BIOGRAPHY}}"
+				country: "{{COUNTRY}}",
+				showemail: "{{SHOWEMAIL}}",
+				biography: "{{BIOGRAPHY}}",
+				email: "{{OLDEMAIL}}"
 			},
 			ajaxResult: ""
 		};
@@ -37,7 +39,7 @@ let app = new Vue({
 			else {
 				this.ajaxResult = "<p class=\"success\">Your preferences are being saved...</p>";
 			}
-			if ((this.newpassword.length > 0) && (this.newpassword !== this.newpassword2)) {
+			if ((this.userinfo.newpassword.length > 0) && (this.userinfo.newpassword !== this.userinfo.newpassword2)) {
 				this.ajaxResult = "<p class=\"error\">The two passwords do not match.</p>";
 			}
 			else {
@@ -46,11 +48,18 @@ let app = new Vue({
 				if (this.file) {
 					formData.append("image", this.$refs.image.files[0]);
 				}
-				formData.append("oldpassword", this.oldpassword);
-				formData.append("newpassword", this.newpassword);
-				formData.append("newpassword2", this.newpassword2);
-				formData.append("showemail", this.showemail);
-				formData.append("biography", this.biography);
+				formData.append("oldpassword", this.userinfo.oldpassword);
+				formData.append("newpassword", this.userinfo.newpassword);
+				formData.append("country", this.userinfo.country);
+				if (this.userinfo.showemail === "one")
+					formData.append("showemail", 1);
+				else if (this.userinfo.showemail === "two")
+					formData.append("showemail", 2);
+				else if (this.userinfo.showemail === "three")
+					formData.append("showemail", 3);
+				
+				formData.append("biography", this.userinfo.biography);
+				formData.append("email", this.userinfo.email);
 				this.$http.post("settings", formData).then((response) => {
 					this.ajaxResult = response.data;
 					this.saved = true;

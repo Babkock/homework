@@ -6,3 +6,168 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
+* { box-shadow: 0 !important; }
+
+body { background: radial-gradient(circle, #774030, #6d3010); color: white; width: 100%; font-size: 1.95em; font-family: "Arial" !important; overflow-x: hidden; }
+
+.container { width: 100%; margin-left: 0%; margin-right: 0%; }
+
+a, a:visited, a:link, a:active { color: #30de40; text-decoration: none; }
+
+a:hover { color: #40ee50; text-decoration: none; }
+
+header { width: 100%; text-align: center; background: none !important; }
+
+header h1 { text-align: center; margin-top: 5px; margin-bottom: 5px; }
+
+header h1 a.small { font-size: 2.2em; width: 100%; float: right; margin-top: 9px; margin-bottom: 9px; color: #dfc8c8 !important; }
+
+header h1 a.small:hover { font-size: 2.2em !important; color: #efefef !important; }
+
+header h1 a:first-child { width: 100%; font-size: 2em; float: left; margin-top: 9px; margin-bottom: 9px; color: #dfc8c8 !important; }
+
+header h1 a:first-child:hover { font-size: 2em !important; color: #efefef !important; }
+
+header nav { width: 100%; margin-left: 0; margin-right: 0; background: none !important; text-align: center; display: block; border: 0 !important; }
+
+header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
+
+header nav ul li { width: 96%; margin-left: 0; margin-right: 0; float: left; font-size: 2em; margin-top: 11px; margin-bottom: 11px; background: #102079; background-color: #102079; border: 3px solid gray; color: #dfdfdf; transition: background-color, border 0.2s ease 0s; }
+
+header nav ul li a { display: block; width: 100%; margin-left: 0; margin-right: 0; padding: 10px; padding-top: 18px; padding-bottom: 18px; height: auto; font-size: 2em; color: #dfdfdf !important; transition: color 0.2s ease 0s; }
+
+header nav ul li a:hover { font-size: 2em; color: #efefef !important; }
+
+header nav ul li:hover { background: #207474; background-color: #207474; border: 3px solid white; color: #efefef !important; font-size: 2em; }
+
+div.album { width: 97%; margin-left: 1%; margin-right: 1%; margin-top: 12px; margin-bottom: 12px; padding-bottom: 14px; }
+
+div.album h2 { font-size: 2em; }
+
+div.album h3 { font-size: 2.2em; }
+
+div.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap; }
+
+div.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; text-align: center; font-size: 1.95em !important; margin-top: 4px; margin-bottom: 4px; background: none; background-color: rgba(0, 0, 0, 0); border: 0 !important; }
+
+div.album div p { font-size: 1.95em; margin-top: 5px; margin-bottom: 5px; }
+
+.track-list { width: 100%; }
+
+.track-list tbody, .track-list tbody tr { width: 100%; }
+
+.track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.95em !important; color: #efefef; padding: 8px; }
+
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; background: #bb7500 !important; background-color: #bb7500 !important; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; font-size: 1.95em !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; transition: background, background-color, border, color 0.2s ease 0s; }
+
+button:hover, input[type="submit"]:hover { background: #00ba53 !important; background-color: #00ba53 !important; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; color: #efefef !important; font-size: 1.95em !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
+
+button:active, input[type="submit"]:active { color: #cfcfcf !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
+
+input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #131313; background-color: #131313; border: 3px solid black; color: #dfdfdf; font-size: 1.95em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 7px; margin-bottom: 7px; transition: background, background-color, border, color 0.2s ease 0s; }
+
+input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="password"]:hover { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #171717; background-color: #171717; border: 3px solid #202020; color: #efefef; font-size: 1.95em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 7px; margin-bottom: 7px; }
+
+.search-bar { display: flex; flex-direction: column; flex-wrap: wrap; width: 98%; margin-left: 1%; margin-right: 0%; margin-top: 4px; margin-bottom: 4px; }
+
+.search-bar #search { appearance: none; -moz-appearance: none; width: 98%; margin-left: 0; margin-right: 0; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #dfdfdf !important; padding-right: 9px; padding-left: 16px; padding-top: 13px; padding-bottom: 13px; margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0) !important; border-radius: 40px 40px 40px 40px; font-size: 1.81em; transition: background, background-color, border, color 0.2s ease 0s; }
+
+.search-bar #search:hover { background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding-right: 9px; padding-left: 16px; padding-top: 13px; padding-bottom: 13px; margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0) !important; border-radius: 40px 40px 40px 40px; font-size: 1.81em; }
+
+.search-bar #stype, .search-bar #country { width: 96% !important; margin-left: 1%; margin-right: 2%; background: #10653d; background-color: #10653d; border: 2px solid black !important; color: #dfdfdf !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; transition: background, background-color, border, color 0.2s ease 0s; }
+
+.search-bar #stype:hover, .search-bar #country:hover { background: #20754d; background-color: #20754d; border: 2px solid #202020 !important; color: #efefef !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em !important; }
+
+.search-bar #submit { appearance: none; -moz-appearance: none; width: 98%; margin-left: 0%; margin-right: 1%; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #dfdfdf !important; padding: 10px; padding-top: 20px; padding-bottom: 20px; margin-top: 12px; margin-bottom: 12px; font-size: 2em !important; border-radius: 40px 40px 40px 40px; transition: background, background-color, border, color 0.2s ease 0s; }
+
+.search-bar #submit:hover { width: 98%; margin-left: 0%; margin-right: 1%; background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding: 10px; padding-top: 20px; padding-bottom: 20px; margin-top: 12px; margin-bottom: 12px; font-size: 2em !important; border-radius: 40px 40px 40px 40px; }
+
+.login-form table, .register-form table, .settings-form table, .contact-fields { width: 99% !important; margin-left: 0% !important; margin-right: 0% !important; }
+
+.login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr, .contact-fields tbody, .contact-fields tbody tr { width: 100% !important; }
+
+.login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: center; margin-top: 10px; margin-bottom: 10px; font-size: 1.95em; }
+
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 95% !important; margin-left: 0% !important; margin-right: 0% !important; display: inline-block; font-size: 1.95em; text-align: center; padding: 9px; margin-top: 10px; margin-bottom: 10px; }
+
+header, main, footer { background: none !important; }
+
+footer { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.79em; text-align: center; box-shadow: none !important; }
+
+.index-table thead, .user-info thead, .sold-table thead { display: none; }
+
+.index-table, .user-info, .sold-table { width: 100%; }
+
+.index-table tbody, .index-table tbody tr, .user-info tbody, .user-info tbody tr, .sold-table tbody, .sold-table tbody tr { width: 100%; }
+
+.index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 97% !important; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 3px solid black; color: #dfdfdf; font-size: 1.95em; display: inline-block; margin-top: 8px; margin-bottom: 8px; text-align: center; padding: 7px; }
+
+main { box-shadow: none !important; }
+
+main { width: 97%; margin-left: -1%; margin-right: 2%; border: 0 !important; background: rgba(10, 10, 10, 0.2); box-shadow: none !important; }
+
+main h2 { font-size: 2.4em; text-align: center; }
+
+main h3 { font-size: 2em; text-align: center; }
+
+main p { font-size: 1.85em; }
+
+footer { border: 0 !important; box-shadow: none !important; }
+
+.user-info tbody tr td, .user-info thead tr td { font-size: 1.95em !important; text-align: center; display: inline-block !important; width: 97% !important; margin-left: 0% !important; margin-right: 2% !important; padding: 9px !important; }
+
+.user-info tbody tr td:first-child { text-align: center !important; }
+
+.album-editor table { width: 98%; margin-left: -1%; margin-right: 2%; }
+
+.album-editor table tbody, .album-editor table tbody tr { width: 100%; }
+
+.main-album-info { width: 98%; margin-left: 1%; margin-right: 1%; }
+
+.main-album-info tbody, .main-album-info tbody tr { width: 100%; }
+
+.main-album-info tbody tr td:nth-child(2) { text-align: center; }
+
+.main-album-info tbody tr td { display: inline-block; width: 99% !important; margin-left: 0%; margin-right: 0%; background: none !important; font-size: 1.95em !important; margin-top: 6px; margin-bottom: 6px; text-align: center !important; padding: 12px; }
+
+.main-album-info tr.year td input[type="text"] { width: 98%; text-align: left; }
+
+input[type="file"] { width: 98%; }
+
+.buttons p button { width: 97%; margin-left: 1%; margin-right: 1%; margin-top: 9px; margin-bottom: 9px; padding: 14px; padding-top: 17px; padding-bottom: 17px; }
+
+.buttons p button:hover { width: 97%; margin-left: 1%; margin-right: 1%; margin-top: 9px; margin-bottom: 9px; padding: 14px; padding-top: 17px; padding-bottom: 17px; }
+
+.track td:first-child { text-align: center !important; font-size: 1.95em !important; }
+
+.track td { display: inline-block; width: 97%; margin-left: 0; margin-right: 0; background: none !important; margin-top: 5px; margin-bottom: 5px; text-align: center; font-size: 1.95em !important; }
+
+.users-table { width: 100%; }
+
+.users-table thead { display: none !important; }
+
+.users-table tbody, .users-table tbody tr { width: 100%; }
+
+.users-table tbody tr td:first-child { text-align: center; }
+
+.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 9px; font-size: 1.95em !important; margin-top: 7px; margin-bottom: 7px; }
+
+.album-editor .cover, #account .avatar, .settings-form .cover { width: 90%; margin-left: 5%; margin-right: 5%; }
+
+.album-editor .cover img, #account .avatar img, .settings-form .cover img { width: 50%; margin-left: 25%; margin-right: 25%; opacity: 1; }
+
+.cover[style="width: 40%; margin-left: 30%; margin-right: 30%;"] { width: 90% !important; margin-left: 5% !important; margin-right: 5% !important; }
+
+#account .bio { width: 97%; margin-left: 0%; margin-right: 0%; margin-top: 8px; margin-bottom: 9px; font-size: 1.95em !important; padding: 10px; padding-top: 14px; padding-bottom: 14px; }
+
+.ajax-area { width: 97%; margin-left: 0%; margin-right: 0%; margin-top: 7px; margin-bottom: 7px; }
+
+.ajax-area p.error { font-size: 1.95em !important; padding: 6px; }
+
+.ajax-area p.success { font-size: 1.95em !important; padding: 6px; }
+
+#settings .avatar img { width: 70%; margin-left: 15%; margin-right: 15%; border: 2px solid #101010; }
+
+textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-width: 92%; font-size: 1.95em !important; height: 240px; min-height: 240px; max-height: 240px; padding: 10px; margin-top: 8px; margin-bottom: 8px; }
+
+.settings-form .main-user-info tbody tr td { background: none !important; }

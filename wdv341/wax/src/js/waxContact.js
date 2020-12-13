@@ -16,7 +16,8 @@ let app = new Vue({
 	data: () => {
 		return {
 			ajaxResult: "",
-			info: {
+			sent: false,
+			message: {
 				fullname: "",
 				email: "",
 				subject: "",
@@ -26,6 +27,19 @@ let app = new Vue({
 	},
 
 	methods: {
-		
+		SubmitMessage() {
+			let formData = new FormData();
+			formData.append("fullname", this.message.fullname);
+			formData.append("email", this.message.email);
+			formData.append("subject", this.message.subject);
+			formData.append("message", this.message.message);
+			this.$http.post("contact", formData).then((response) => {
+				this.sent = true;
+				this.ajaxResult = response.data;
+			}, () => {
+				this.ajaxResult = "<p class=\"error\">Communication with the server failed.</p>";
+				console.error("Could not send message with name '" + this.message.fullname + "'");
+			});
+		}
 	}
 })

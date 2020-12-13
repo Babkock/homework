@@ -6,3 +6,517 @@
 	Copyright (c) 2020 Tanner Babcock.
 */
 @import "variables.scss";
+
+* { box-shadow:0 !important; }
+
+body {
+	background:radial-gradient(circle, #774030, #6d3010);
+	color:$TextNormal;
+	width:100%;
+	font-size:$LandscapeNormal;
+	font-family:"Arial" !important;
+	overflow-x:hidden;
+}
+
+.container {
+	@include WidthMargins(100%, 0%, 0%);
+}
+
+a, a:visited, a:link, a:active {
+	color:$MobileLink;
+	text-decoration:none;
+}
+
+a:hover {
+	color:$MobileLinkHover;
+	text-decoration:none;
+}
+
+header {
+	width:100%;
+	text-align:center;
+	background:none !important;
+	h1 {
+		text-align:center;
+		margin-top:4px;
+		margin-bottom:4px;
+		a.small {
+			font-size:$LandscapeLarger;
+			width:100%;
+			float:right;
+			margin-top:9px;
+			margin-bottom:9px;
+			color:#dfc8c8 !important;
+			&:hover {
+				font-size:$LandscapeLarger !important;
+				color:$TextBright !important;
+			}
+		}
+		a:first-child {
+			width:100%;
+			font-size:$LandscapeLarge;
+			float:left;
+			margin-top:9px;
+			margin-bottom:9px;
+			color:#dfc8c8 !important;
+			&:hover {
+				font-size:$MobileLarge !important;
+				color:$TextBright !important;
+			}
+		}
+	}
+	nav {
+		@include WidthMargins(100%, 0, 0);
+		background:none !important;
+		text-align:center;
+		display:block;
+		border:0 !important;
+		ul {
+			@include Flex(column, wrap);
+			width:100%;
+			li {
+				@include WidthMargins(95%, 0%, 0%);
+				float:left;
+				border:2px solid gray;
+				font-size:$LandscapeLarger;
+				margin-top:7px;
+				margin-bottom:7px;
+				background-color:$MobileNavBg;
+				transition:background-color, border 0.2s ease 0s;
+				a {
+					color:$TextLight !important;
+					display:inline-block;
+					width:100%;
+					padding:8px;
+					padding-top:10px;
+					padding-bottom:10px;
+					height:auto;
+					font-size:$LandscapeLarger;
+					transition:color 0.2s ease 0s;
+					&:hover {
+						color:$TextBright !important;
+						display:block;
+						width:100%;
+						padding:8px;
+						padding-top:10px;
+						padding-bottom:10px;
+						height:auto;
+						font-size:$LandscapeLarger;
+					}
+				}
+				&:hover {
+					border:2px solid white;
+					background-color:$MobileNavBgHover;
+					font-size:$LandscapeLarger;
+				}
+			}
+		}
+	}
+}
+
+div.album {
+	@include WidthMargins(48%, 0%, 0%);
+	margin-top:10px;
+	margin-bottom:10px;
+	padding-top:12px;
+	h2 {
+		font-size:1.75em;
+	}
+	h3 {
+		font-size:1.72em;
+	}
+	div .alb-info {
+		@include Flex(column, wrap);
+		div {
+			@include WidthMargins(98%, 1%, 1%);
+			text-align:center;
+			font-size:$LandscapeNormal !important;
+			margin-top:5px;
+			margin-bottom:7px;
+			background:none !important;
+			background-color:rgba(0,0,0,0) !important;
+			border:0 !important;
+		}
+	}
+	div p {
+		font-size:$LandscapeNormal !important;
+	}
+}
+
+.track-list {
+	width:100%;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		background:none !important;
+		background-color:rgba(0,0,0,0) !important;
+		border:0 !important;
+		font-size:$LandscapeSmaller;
+		color:$TextBright;
+	}
+}
+
+button, input[type="submit"] {
+	@include WidthMargins(90%, 5%, 5%);
+	font-size:$LandscapeNormal !important;
+	@include BackBorderColor($ButtonMobile !important, 1px solid rgba(0,0,0,0), $TextLight);
+	padding:6px;
+	padding-top:8px;
+	padding-bottom:8px;
+	margin-top:5px;
+	margin-bottom:5px;
+	transition:background-color, color 0.2s ease 0s;
+	&:hover {
+		font-size:$LandscapeNormal !important;
+		@include BackBorderColor($ButtonMobileHover !important, 1px solid rgba(0,0,0,0), $TextBright);
+		padding:6px;
+		padding-top:8px;
+		padding-bottom:8px;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+	&:active {
+		font-size:$LandscapeNormal !important;
+		color:$TextNormal !important;
+		padding:6px;
+		padding-top:8px;
+		padding-bottom:8px;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+}
+
+input[type="text"], input[type="number"], select, input[type="password"] {
+	@include Appearance();
+	@include WidthMargins(98%, 1%, 1%);
+	@include BackBorderColor(#131313, 3px solid black, $TextLight);
+	font-size:$LandscapeNormal !important;
+	padding:5px;
+	padding-top:7px;
+	padding-bottom:7px;
+	margin-top:5px;
+	margin-bottom:5px;
+	transition:background, background-color, border, color 0.2s ease 0s;
+	&:hover {
+		@include Appearance();
+		@include WidthMargins(98%, 1%, 1%);
+		@include BackBorderColor(#171717, 3px solid #202020, $TextBright);
+		font-size:$LandscapeNormal !important;
+		padding:5px;
+		padding-top:7px;
+		padding-bottom:7px;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+}
+
+.search-bar {
+	@include Flex(column, wrap);
+	margin-top:3px;
+	margin-bottom:3px;
+	#search {
+		@include Appearance();
+		@include WidthMargins(90%, 5%, 5%);
+		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		padding-right:7px;
+		padding-left:13px;
+		padding-top:9px;
+		padding-bottom:9px;
+		margin-top:6px;
+		margin-bottom:6px;
+		border-bottom:1px solid rgba(0,0,0,0) !important;
+		border-radius:32px 32px 32px 32px;
+		font-size:$LandscapeLarger;
+		transition:background, background-color, border, color 0.2s ease 0s;
+		&:hover {
+			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			padding-right:7px;
+			padding-left:13px;
+			padding-top:9px;
+			padding-bottom:9px;
+			margin-top:6px;
+			margin-bottom:6px;
+			border-bottom:1px solid rgba(0,0,0,0) !important;
+			border-radius:32px 32px 32px 32px;
+			font-size:$LandscapeLarger;
+		}
+	}
+	#stype, #country {
+		@include WidthMargins(97% !important, 0%, 0%);
+		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
+		padding:7px;
+		padding-top:10px;
+		padding-bottom:10px;
+		margin-top:6px;
+		margin-bottom:6px;
+		border-radius:32px 32px 32px 32px;
+		font-size:$LandscapeLarger;
+		transition:background, background-color, border, color 0.2s ease 0s;
+		&:hover {
+			@include BackBorderColor(#20754d, 2px solid #202020 !important, $TextBright !important);
+			padding:7px;
+			padding-top:10px;
+			padding-bottom:10px;
+			margin-top:6px;
+			margin-bottom:6px;
+			border-radius:32px 32px 32px 32px;
+			font-size:$LandscapeLarger;
+		}
+	}
+	#submit {
+		@include Appearance();
+		@include WidthMargins(98%, 0%, 2%);
+		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		padding:9px;
+		padding-top:17px;
+		padding-bottom:17px;
+		margin-top:9px;
+		margin-bottom:9px;
+		font-size:$LandscapeLarge;
+		border-radius:32px 32px 32px 32px;
+		transition:background, background-color, border, color 0.2s ease 0s;
+		&:hover {
+			@include WidthMargins(98%, 0%, 2%);
+			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			padding:9px;
+			padding-top:17px;
+			padding-bottom:17px;
+			margin-top:9px;
+			margin-bottom:9px;
+			font-size:$LandscapeLarge;
+			border-radius:32px 32px 32px 32px;
+		}
+	}
+}
+
+.login-form table, .register-form table, .settings-form table, .contact-fields {
+	@include WidthMargins(99% !important, 0% !important, 0% !important);
+	tbody, tbody tr {
+		width:100% !important;
+	}
+	tbody tr td:first-child {
+		text-align:center;
+		margin-top:8px;
+		margin-bottom:8px;
+		font-size:$LandscapeLarger;
+	}
+	tbody tr td {
+		@include WidthMargins(95% !important, 0% !important, 0% !important);
+		display:inline-block;
+		font-size:$LandscapeLarger;
+		text-align:center;
+		padding:6px;
+		margin-top:8px;
+		margin-bottom:8px;
+	}
+}
+
+header, main, footer {
+	background:none !important;
+}
+
+footer {
+	background:none !important;
+	font-size:$LandscapeSmall;
+	@include WidthMargins(90%, 5%, 5%);
+	text-align:center;
+	box-shadow:none !important;
+}
+
+.index-table thead, .user-info thead, .sold-table thead {
+	display:none;
+}
+
+.index-table, .user-info, .sold-table {
+	width:100%;
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td {
+		@include WidthMargins(97% !important, 1%, 1%);
+		@include BackBorderColor($BgTrans, 2px solid black, $TextLight);
+		font-size:$LandscapeNormal;
+		display:inline-block;
+		margin-top:5px;
+		margin-bottom:5px;
+		text-align:center;
+		padding:5px;
+	}
+}
+
+main {
+	box-shadow:none !important;
+}
+
+main {
+	@include WidthMargins(97%, -1%, 2%);
+	border:0 !important;
+	box-shadow:none !important;
+	background:rgba(10, 10, 10, 0.2);
+	h2 {
+		font-size:$LandscapeLarge;
+		text-align:center;
+	}
+	h3 {
+		font-size:$LandscapeLarger;
+		text-align:center;
+	}
+	p {
+		font-size:1.85em;
+	}
+}
+
+footer {
+	border:0 !important;
+	box-shadow:none !important;
+}
+
+.user-info tbody tr td, .user-info thead tr td {
+	font-size:$LandscapeNormal !important;
+	text-align:center;
+	display:inline-block !important;
+	@include WidthMargins(97% !important, 1%, 1%);
+	padding:6px !important;
+}
+
+.user-info tbody tr td:first-child {
+	text-align:center !important;
+}
+
+.album-editor table {
+	@include WidthMargins(98%, -1%, 2%);
+	tbody, tbody tr {
+		width:100%;
+	}
+}
+
+.main-album-info {
+	@include WidthMargins(98%, -1%, 2%);
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td:nth-child(2) {
+		text-align:center;
+	}
+	tbody tr td {
+		display:inline-block;
+		@include WidthMargins(99% !important, 0%, 0%);
+		background:none !important;
+		font-size:$LandscapeNormal !important;
+		margin-top:5px;
+		margin-bottom:5px;
+		text-align:center;
+		padding:8px;
+	}
+	tr.year td input[type="text"] {
+		width:98%;
+		text-align:left;
+	}
+}
+
+input[type="file"] {
+	width:98%;
+}
+
+.buttons p button {
+	@include WidthMargins(97%, -1%, 1%);
+	margin-top:6px;
+	margin-bottom:6px;
+	padding:10px;
+	padding-top:12px;
+	padding-bottom:12px;
+	&:hover {
+		@include WidthMargins(97%, -1%, 1%);
+		margin-top:6px;
+		margin-bottom:6px;
+		padding:10px;
+		padding-top:12px;
+		padding-bottom:12px;
+	}
+}
+
+.track {
+	td:first-child {
+		text-align:center !important;
+		font-size:$LandscapeNormal !important;
+	}
+	td {
+		display:inline-block;
+		background:none !important;
+		@include WidthMargins(97%, 1%, 1%);
+		padding:8px;
+		padding-top:10px;
+		padding-bottom:10px;
+		margin-top:6px;
+		margin-bottom:6px;
+		text-align:center;
+		font-size:$LandscapeNormal !important;
+	}
+}
+
+.users-table {
+	width:100%;
+	thead {
+		display:none !important;
+	}
+	tbody, tbody tr {
+		width:100%;
+	}
+	tbody tr td:first-child {
+		text-align:center;
+	}
+	tbody tr td {
+		display:inline-block;
+		@include WidthMargins(98%, 0, 0);
+		padding:7px;
+		font-size:$LandscapeNormal !important;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+}
+
+.album-editor .cover, #account .avatar, .settings-form .cover {
+	@include WidthMargins(90%, 5%, 5%);
+}
+
+.album-editor .cover img, #account .avatar img, .settings-form .cover img {
+	@include WidthMargins(50%, 25%, 25%);
+	opacity:1;
+}
+
+.cover[style="width: 40%; margin-left: 30%; margin-right: 30%;"] {
+	@include WidthMargins(90% !important, 5% !important, 5% !important);
+}
+
+#account .bio {
+	@include WidthMargins(97%, -1%, 3%);
+	margin-top:7px;
+	margin-bottom:8px;
+	font-size:$LandscapeNormal !important;
+	padding:8px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#settings .avatar img {
+	@include WidthMargins(70%, 15%, 15%);
+	border:2px solid #101010;
+}
+
+textarea {
+	@include WidthMargins(92%, 4%, 4%);
+	min-width:92%;
+	max-width:92%;
+	font-size:$MobileNormal !important;
+	height:190px;
+	min-height:190px;
+	max-height:190px;
+	padding:7px;
+	margin-top:4px;
+	margin-bottom:4px;
+}
+
+.settings-form .main-user-info tbody tr td {
+	background:none !important;
+}

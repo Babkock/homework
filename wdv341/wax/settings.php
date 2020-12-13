@@ -14,26 +14,32 @@ try {
 		if ((!isset($_POST['showemail'])) && (!isset($_POST['biography'])) && (!isset($_FILES['image']))) {
 			exit("<p class=\"error\">You did not make any changes.</p>");
 		}
+		else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			exit("<p class=\"error\">You entered an invalid email address.</p>");
+		}
 		$uid = Methods::getIdFromName($_SESSION['current_user']);
-		$user = new User($uid);
+		$user = new User(intval($uid));
 		$user->read();
 
-		if (isset($_POST['showemail'])) {
-			if ($user->getShowEmail() != intval($_POST['showemail']))
-				$user->setShowEmail(intval($_POST['showemail']));
-		}
+		$user->setShowEmail($_POST['showemail']);
+		$user->setEmail($_POST['email']);
+
 		if (isset($_POST['biography'])) {
-			if (strcmp($user->getBiography(), $_POST['biography']) != 0)
-				$user->setBiography(substr($_POST['biography'], 0, 600));
+			$user->setBiography(substr($_POST['biography'], 0, 700));
 		}
 		if (isset($_POST['country'])) {
 			if (strlen($_POST['country']) > 1)
 				$user->setCountry($_POST['country']);
 		}
+		if (isset($_POST['newpassword'])) {
+			$user->setPassword(hash("sha256", $_POST['newpassword']));
+		}
 
 		if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
 			$filetype = $_FILES['image']['type'];
-			$filename = "img/user/" . $_SESSION['current_user'] . $filetype;			
+			$oldname = $_FILES['image']['name'];
+			$ext = pathinfo($oldname, PATHINFO_EXTENSION);
+			$filename = "img/user/" . $_SESSION['current_user'] . "." . $ext;
 			$filesize = $_FILES['image']['size'];
 
 			$validtypes = [
@@ -42,8 +48,6 @@ try {
 				"png" => "image/png",
 				"gif" => "image/gif"
 			];
-
-			$ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 			if (!array_key_exists($ext, $validtypes)) {
 				exit("<p class=\"error\">That file type is not allowed. Only JPEG, PNG, and GIF images are allowed.</p>");
@@ -65,9 +69,9 @@ try {
 		$user->update();
 
 		if (isset($_FILES['image']))
-			exit("<p class=\"success\">Your new avatar was uploaded, and your changes were saved.</p>");
+			exit("<p class=\"success\">Your new avatar was uploaded, and your changes were saved. <a href=\"user?id=" . $user->getId() . "\">View your public profile here.</a></p>");
 		else
-			exit("<p class=\"success\">Your changes were saved.</p>");
+			exit("<p class=\"success\">Your changes were saved. <a href=\"user?id=" . $user->getId() . "\">View your public profile here.</a></p>");
 	}
 	else {
 		$settings = new Page("header_user", "settings");
@@ -86,32 +90,38 @@ try {
 
 		$country = Methods::countryExpand($row['country']);
 
-		switch ($row['showemail']) {
+		switch (intval($row['showemail'])) {
 			case 1:
 				$settings->replacea([
 					"HIDE_SELECT" => "selected",
 					"ABSTRACT_SELECT" => "",
-					"SHOW_SELECT" => ""
+					"SHOW_SELECT" => "",
+					"SHOWEMAIL" => "one"
 				]);
 				break;
 			case 2:
 				$settings->replacea([
 					"HIDE_SELECT" => "",
 					"ABSTRACT_SELECT" => "selected",
-					"SHOW_SELECT" => ""
+					"SHOW_SELECT" => "",
+					"SHOWEMAIL" => "two"
 				]);
 				break;
 			case 3:
 				$settings->replacea([
 					"HIDE_SELECT" => "",
 					"ABSTRACT_SELECT" => "",
-					"SHOW_SELECT" => "selected"
+					"SHOW_SELECT" => "selected",
+					"SHOWEMAIL" => "three"
 				]);
 				break;
 		}
 		$settings->replacea([
-			"BIOGRAPHY" => $row['biography'],
+			"USERID" => $uid,
+			"BIOGRAPHY" => addslashes($row['biography']),
+			"OLDEMAIL" => $row['email'],
 			"USERIMG" => $row['image'] ?? "img/user/default.jpg",
+			"COUNTRY" => $row['country'],
 			"USER_COUNTRY" => $country
 		]);
 

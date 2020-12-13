@@ -30,8 +30,7 @@ try {
 				$st = $db->prepare("SELECT * FROM `albums` ORDER BY `price` DESC LIMIT 6");
 			}
 			else if (strcmp($_GET['mode'], "purchased") == 0) {
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `posted` DESC LIMIT 6");
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `buyer`=:buyer ORDER BY `purchased` DESC LIMIT 6");
 				$buyer = $_SESSION['current_user'];
 				$st->bindParam(":buyer", $buyer);
 			}
@@ -39,8 +38,7 @@ try {
 				if (!isset($_GET['a'])) {
 					exit("{ \"error\": \"The artist mode must have an additional 'a' argument\" }");
 				}
-				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `title` ASC");
-				// $st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
+				$st = $db->prepare("SELECT * FROM `albums` WHERE `artist`=:artist ORDER BY `year` DESC");
 				$artist = ucwords($_GET['a']);
 
 				$st->bindParam(":artist", $artist);
@@ -75,6 +73,8 @@ try {
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				if ($x > 0)
 					$out .= ",\n";
+				$pur = ((strlen($row['purchased']) > 1) ? $row['purchased'] : "n");
+				$price = number_format((float)$row['price'], 2, ".", "");
 				$out .= <<<EOF
 				{
 					"id": {$row['id']},
@@ -82,13 +82,19 @@ try {
 					"title": "{$row['title']}",
 					"media": "{$row['media']}",
 					"discs": {$row['discs']},
-					"price": {$row['price']},
+					"price": "{$price}",
 					"seller": "{$row['seller']}",
 					"buyer": "{$row['buyer']}",
 					"image": "{$row['image']}",
 					"label": "{$row['label']}",
 					"posted": "{$row['posted']}",
 					"country": "{$row['country']}",
+					"year": {$row['year']},
+					"cond": "{$row['cond']}",
+					"currency": "{$row['currency']}",
+					"purchased": "{$pur}",
+					"sellerid": {$row['sellerid']},
+					"buyerid": {$row['buyerid']},
 					"tracklist": {$row['tracklist']}
 				}
 EOF;
@@ -129,15 +135,10 @@ EOF;
 			if (isset($_GET['a'])) {       // artist
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$artist = ucwords($_GET['a']);
 
-				if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "Artist: " . $artist . ", Country: " . $country;
-				}
-				else {
-					$heading = "Artist: " . $artist;
-				}
+				$heading = "Artist: " . $artist;
 
 				$browse->replacea([
 					"USERID" => "0",
@@ -156,16 +157,11 @@ EOF;
 			else if (isset($_GET['b'])) {  // album
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$album = ucwords($_GET['b']);
 
-				if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "<i>" . $album . "</i>, Country: " . $country;
-				}
-				else {
-					$heading = "<i>" . $album . "</i>";
-				}
-
+				$heading = "<i>" . $album . "</i>";
+				
 				$browse->replacea([
 					"USERID" => "0",
 					"HEADING" => $heading,
@@ -183,6 +179,7 @@ EOF;
 			else if (isset($_GET['c'])) {  // country
 				$browse = new Page("header_guest", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$country = Methods::countryExpand($_GET['c']);
 
 				$browse->replacea([
@@ -222,29 +219,58 @@ EOF;
 					$st->execute();
 
 					$row = $st->fetch(PDO::FETCH_ASSOC);
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
+
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
 					$tl = json_decode($row['tracklist']);
-					$tlout = "<ol>";
+					$tlout = "<table class=\"track-list\"><tbody>";
+					$x = 1;
 
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
-						<li>{$v->title} <i>($v->length)</i></li>
+						<tr>
+							<td>{$x}.</td>
+							<td>{$v->title}</td>
+							<td>{$v->length}</td>
+						</tr>
 EOF;
+						$x++;
 					}
 
-					$tlout .= "</ol>";
+					$tlout .= "</tbody></table>";
 					$posted = date("F j, Y", strtotime($row['posted']));
-					$price = "$" . $row['price'];
+
+					if (strlen($row['purchased']) > 1) {
+						$purchased = date("F j, Y", strtotime($row['purchased']));
+						$prow = <<<EOF
+					<div class="alb-info">
+						<div class="prop">
+							Date Purchased:
+						</div>
+						<div class="val">
+							<b>{$purchased}</b>
+						</div>
+					</div>
+EOF;
+					}
+					else {
+						$prow = "";
+					}
+
+					$price = number_format((float)$row['price'], 2, ".", "");
+					$sprice = Methods::currencySymbol($row['currency']) . $price;
+					$condition = Methods::conditionExpand($row['cond']);
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
+
 					if (strlen($row['buyer']) > 1) {
-						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to <a href=\"user?id=" . $row['buyerid'] . "\">" . $row['buyer'] . "</a></h3>";
 						$buybutton = "";
 					}
 					else {
-						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
+						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from <a href=\"user?id=" . $row['sellerid'] . "\">" . $row['seller'] . "</a></h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
 
@@ -260,11 +286,42 @@ EOF;
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				{$sellbuy}
 				{$buybutton}
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b>{$condition}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b>{$row['year']}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Country:
+					</div>
+					<div class="val">
+						<b>{$country}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Date Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
+					</div>
+				</div>
+				{$prow}
 				<h3>Tracklist:</h3>
 				{$tlout}
-				<p>Posted: {$posted}</p>
-				<p>Country: <b>{$country}</b></p>
-				<p><b>{$row['label']}</b></p>
+				<p><b>&copy; &copysr; {$row['year']} {$row['label']}</b></p>
 			</div>
 		</album>
 	</div>
@@ -277,7 +334,10 @@ EOF;
 				}
 				else {
 					$browse = new Page("header_guest", "browse");
+					$browse->setContent(Methods::snip("{{IF_LOGGED_IN}}", "{{ENDIF}}", $browse->getContent()));
+
 					$browse->script("waxBrowse.min.js");
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 					$browse->replacea([
 						"USERID" => "0",
 						"HEADING" => "",
@@ -300,18 +360,15 @@ EOF;
 
 			if (isset($_GET['a'])) {    // artist
 				$browse = new Page("header_user", "browse_specific");
+				$browse->replace("IF_LOGGED_IN");
+				$browse->replace("ENDIF");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$browse->hreplace("USERID", "" . $uid);
 				$artist = ucwords($_GET['a']);
 
-				/* if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "Artist: " . $artist . ", Country: " . $country;
-				}
-				else { */
-					$heading = "Artist: " . $artist;
-				// }
-
+				$heading = "Artist: " . $artist;
+				
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => $heading,
@@ -329,17 +386,12 @@ EOF;
 			else if (isset($_GET['b'])) {    // album
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$browse->hreplace("USERID", "" . $uid);
 				$album = ucwords($_GET['b']);
 
-				/* if (isset($_GET['c'])) {
-					$country = Methods::countryExpand($_GET['c']);
-					$heading = "<i>" . $album . "</i>, Country: " . $country;
-				}
-				else { */
-					$heading = "<i>" . $album . "</i>";
-				// }
-
+				$heading = "<i>" . $album . "</i>";
+				
 				$browse->replacea([
 					"USERID" => "" . $uid,
 					"HEADING" => $heading,
@@ -357,6 +409,7 @@ EOF;
 			else if (isset($_GET['c'])) {   // country
 				$browse = new Page("header_user", "browse_specific");
 				$browse->script("waxBrowse.min.js");
+				$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 				$country = Methods::countryExpand($_GET['c']);
 
 				$browse->hreplace("USERID", "" . $uid);
@@ -396,29 +449,58 @@ EOF;
 					$st->execute();
 
 					$row = $st->fetch(PDO::FETCH_ASSOC);
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
 					$country = Methods::countryExpand($row['country']);
 
 					$browse->setDescription("WaXchange album #" . $_GET['id'] . ": " . $row['artist'] . " - " . $row['title'] . ", for sale from " . $row['seller'] . " in " . $country . ". This is an individual listing.");
-					$tlout = "<ol>";
+					$tlout = "<table class=\"track-list\"><tbody>";
 					$tl = json_decode($row['tracklist']);
 
+					$x = 1;
 					foreach ($tl as $k => $v) {
 						$tlout .= <<<EOF
-						<li>{$v->title} <i>($v->length)</i></li>
+						<tr>
+							<td>{$x}.</td>
+							<td>{$v->title}</td>
+							<td>{$v->length}</td>
+						</tr>
 EOF;
+						$x++;
 					}
 
-					$tlout .= "</ol>";
-					$price = "$" . $row['price'];
+					$tlout .= "</tbody></table>";
+
+					$price = number_format((float)$row['price'], 2, ".", "");
+					$sprice = Methods::currencySymbol($row['currency']) . $price;
+					$condition = Methods::conditionExpand($row['cond']);
+
+					if (strlen($row['purchased']) > 1) {
+						$purchased = date("F j, Y", strtotime($row['purchased']));
+						$prow = <<<EOF
+				<div class="alb-info">
+					<div class="prop">
+						Date Purchased:
+					</div>
+					<div class="val">
+						<b>{$purchased}</b>
+					</div>
+				</div>
+EOF;
+					}
+					else {
+						$prow = "";
+					}
+					
 					$posted = date("F j, Y", strtotime($row['posted']));
 					$encodealbum = urlencode($row['title']);
 					$encodeartist = urlencode($row['artist']);
+
 					if (strlen($row['buyer']) > 1) {
-						$sellbuy = "<h3>Sold for <span class=\"price\">" . $price . "</span> to " . $row['buyer'] . "</h3>";
+						$sellbuy = "<h3>Sold for <span class=\"price\">" . $sprice . "</span> to <a href=\"user?id=" . $row['buyerid'] . "\">" . $row['buyer'] . "</a></h3>";
 						$buybutton = "";
 					}
 					else {
-						$sellbuy = "<h3><span class=\"price\">" . $price . "</span> from " . $row['seller'] . "</h3>";
+						$sellbuy = "<h3><span class=\"price\">" . $sprice . "</span> from <a href=\"user?id=" . $row['sellerid'] . "\">" . $row['seller'] . "</a></h3>";
 						$buybutton = "<button class=\"buy\" @click=\"BuyAlbum(" . $row['id'] . ")\">Buy This Album</button>";
 					}
 
@@ -434,11 +516,42 @@ EOF;
 				<h2>{$row['discs']} x <span class="media">{$row['media']}</span></h2>
 				{$sellbuy}
 				{$buybutton}
+				<div class="alb-info">
+					<div class="prop">
+						Condition:
+					</div>
+					<div class="val">
+						<b>{$condition}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Year:
+					</div>
+					<div class="val">
+						<b>{$row['year']}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Country:
+					</div>
+					<div class="val">
+						<b>{$country}</b>
+					</div>
+				</div>
+				<div class="alb-info">
+					<div class="prop">
+						Date Posted:
+					</div>
+					<div class="val">
+						<b>{$posted}</b>
+					</div>
+				</div>
+				{$prow}
 				<h3>Tracklist:</h3>
 				{$tlout}
-				<p>Posted: {$posted}</p>
-				<p>Country: <b>{$country}</b></p>
-				<p><b>{$row['label']}</b></p>
+				<p><b>&copy; &copysr; {$row['year']} {$row['label']}</b></p>
 			</div>
 		</album>
 	</div>
@@ -452,6 +565,7 @@ EOF;
 				else {
 					$browse = new Page("header_user", "browse");
 					$browse->script("waxBrowse.min.js");
+					$browse->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
 					$browse->hreplace("USERID", "" . $uid);
 					$browse->replacea([
 						"USERID" => "0",

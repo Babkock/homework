@@ -40,7 +40,11 @@ try {
 			$seller = $r['username'];
 			$buyer = $r['username'];
 			if (isset($_GET['mode'])) {
-				if (strcmp($_GET['mode'], "inventory") == 0) {
+				if (strcmp($_GET['mode'], "sold") == 0) {
+					$st = $db->prepare("SELECT * FROM `albums` WHERE `seller`=:seller AND `purchased` IS NOT NULL ORDER BY `purchased` DESC");
+					$st->bindParam(":seller", $seller);
+				}
+				else if (strcmp($_GET['mode'], "inventory") == 0) {
 					$st = $db->prepare("SELECT * FROM `albums` WHERE `seller`=:seller ORDER BY `posted` DESC");
 					$st->bindParam(":seller", $seller);
 				}
@@ -62,6 +66,8 @@ try {
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
 				if ($x > 0)
 					$out .= ",\n";
+				$pur = ((strlen($row['purchased']) > 1) ? $row['purchased'] : "n");
+				$price = number_format((float)$row['price'], 2, ".", "");
 				$out .= <<<EOF
 				{
 					"id": {$row['id']},
@@ -69,13 +75,19 @@ try {
 					"title": "{$row['title']}",
 					"media": "{$row['media']}",
 					"discs": {$row['discs']},
-					"price": {$row['price']},
+					"price": "{$price}",
 					"seller": "{$row['seller']}",
 					"buyer": "{$row['buyer']}",
 					"image": "{$row['image']}",
 					"label": "{$row['label']}",
 					"posted": "{$row['posted']}",
 					"country": "{$row['country']}",
+					"year": "{$row['year']}",
+					"cond": "{$row['cond']}",
+					"currency": "{$row['currency']}",
+					"purchased": "{$pur}",
+					"sellerid": {$row['sellerid']},
+					"buyerid": {$row['buyerid']},
 					"tracklist": {$row['tracklist']}
 				}
 EOF;
@@ -98,7 +110,7 @@ EOF;
 			$userpage->setTitle("{{USERNAME}} &bull; WaXchange");
 			$userpage->setDescription("This is the account page for user {{USERNAME}} on WaXchange.");
 
-			$st = $db->prepare("SELECT `id`, `username`, `email`, `country` FROM `users` WHERE `id`=:id LIMIT 1");
+			$st = $db->prepare("SELECT * FROM `users` WHERE `id`=:id LIMIT 1");
 			$st->bindParam(":id", intval($_GET['id']));
 			$st->execute();
 
@@ -108,14 +120,41 @@ EOF;
 				exit();
 			}
 			else {
+				$userpage->ogImage("https://tannerbabcock.com/homework/wdv341/wax/" . $row['image']);
 				$userpage->hreplace("USERNAME", $row['username']);
+
+				if (isset($_SESSION['current_user'])) {
+					if (strcmp($_SESSION['current_user'], $row['username']) == 0)
+						$button = "<button class=\"buy edit\" @click=\"EditAlbum(al.id)\">Edit Release</button>&nbsp;&nbsp;&nbsp;&nbsp;\n\t\t<button class=\"buy delete\" @click=\"DeleteAlbum(al.id)\">Delete Release</button>";
+					else
+						$button = "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>";
+				}
+				else {
+					$button = "<button class=\"buy\" @click=\"Register()\">Buy This Album</button>";
+				}
+
+				$semail = "";
+
+				if (intval($row['showemail']) == 1)
+					$semail = "<b>Hidden</b>";
+				else if (intval($row['showemail']) == 2) {
+					$email = str_replace(".", " dot ", str_replace("@", " at ", $row['email']));
+					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $email . "</a>";
+				}
+				else if (intval($row['showemail']) == 3) {
+					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</a>";
+				}
+
 				$userpage->replacea([
 					"USERID" => $row['id'],
 					"USERNAME" => $row['username'],
-					"USEREMAIL" => $row['email'],
+					"USEREMAIL" => $semail,
 					"USERIMG" => $row['image'] ?? "img/user/default.jpg",
 					"USERCOUNTRY" => Methods::countryExpand($row['country']),
-					"EDITBUTTON" => ((strcmp($_SESSION['current_user'], $row['username']) == 0) ? "<button class=\"buy\" @click=\"EditAlbum(al.id)\">Edit Release</button>" : "<button class=\"buy\" @click=\"BuyAlbum(al.id)\">Buy This Album</button>")
+					"BIOGRAPHY" => $row['biography'],
+					"REGISTERED" => date("F j, Y", strtotime($row['registered'])),
+					"SALES" => $row['sales'],
+					"EDITBUTTON" => $button
 				]);
 
 				if (isset($_SESSION['current_user'])) {
@@ -133,31 +172,32 @@ EOF;
 		else {
 			$userpage->setTitle("WaXchange &bull; Users");
 			$userpage->setDescription("This is the complete list of users on WaXchange music marketplace.");
-			$st = $db->prepare("SELECT `username`, `id`, `email` FROM `users` ORDER BY `id` ASC");
-			// $st = $db->prepare("SELECT `username`, `id`, `email`, `showemail` FROM `users` ORDER BY `id` ASC");
+			$userpage->ogImage("https://tannerbabcock.com/homework/wdv341/wax/img/bigbg.jpg");
+			$st = $db->prepare("SELECT `username`, `id`, `email`, `showemail`, `registered` FROM `users` ORDER BY `id` ASC");
 			$st->execute();
 
 			$out = "<main id=\"users\">\n\t<h2>Users on WaXchange</h2>\n\t<table class=\"users-table\">\n\t"; 
-			$out .= "<thead><tr><td><b>ID</b></td><td><b>Username</b></td><td><b>Email Address</b></td></tr></thead>\n\t<tbody>\n";
-
-			// if ($row['showemail'] == 1)
-			//     $semail = "Hidden";
-			// else if ($row['showemail'] == 2) {
-			//     $email = "<a href=\"mailto:" . $row['email'] . "\">""
-			//     $semail = str_replace(".", " dot ", str_replace("@", " at ", $email));
-			// }
-			// else if ($row['showemail'] == 3)
-			//     $semail = $row['email']
-			// else
-			//     $semail = "Hidden";
-			//
+			$out .= "<thead><tr><td><b>ID</b></td><td><b>Username</b></td><td><b>Email Address</b></td><td><b>Date Registered</b></td></tr></thead>\n\t<tbody>\n";
 
 			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+				$reg = date("F j, Y", strtotime($row['registered']));
+				if ($row['showemail'] == 1)
+					$semail = "<b>Hidden</b>";
+				else if ($row['showemail'] == 2) {
+					$email = str_replace(".", " dot ", str_replace("@", " at ", $row['email']));
+					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $email . "</a>";
+				}
+				else if ($row['showemail'] == 3)
+					$semail = "<a href=\"mailto:" . $row['email'] . "\">" . $row['email'] . "</a>";
+				else
+					$semail = "<b>Hidden</b>";
+
 				$out .= <<<EOF
 		<tr>
 			<td>{$row['id']}</td>
 			<td><a href="user?id={$row['id']}">{$row['username']}</a></td>
-			<td><a href="mailto:{$row['email']}">{$row['email']}</a></td>
+			<td>{$semail}</td>
+			<td>{$reg}</td>
 		</tr>
 EOF;
 			}

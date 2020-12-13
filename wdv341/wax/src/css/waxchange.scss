@@ -1,4 +1,6 @@
 /*
+	waxchange.scss
+
 	WaXchange
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
@@ -6,11 +8,15 @@
 @import "variables.scss";
 
 body {
-	background:radial-gradient(circle, rgba(47,50,121,1) 0%, rgba(128,38,38,1) 100%);
+	background:url('/homework/wdv341/wax/img/bigbg.jpg');
 	color:white;
 	width:100%;
 	font-family:"Arial" !important;
 	overflow-x:hidden;
+}
+
+*:focus, *:active {
+	outline:0 !important;
 }
 
 .container {
@@ -18,17 +24,17 @@ body {
 }
 
 a, a:visited, a:link, a:active {
-	color:#88cc88;
+	color:$TextLink;
 	text-decoration:none;
 	transition:color 0.2s ease 0s;
 }
 
 a:hover {
-	color:#99ff99;
+	color:$TextHover;
 	text-decoration:none;
 }
 
-#account, #settings {
+#account, #settings, #home h2, #home h3, #users h2 {
 	text-align:center;
 }
 
@@ -37,6 +43,13 @@ header {
 	text-align:center;
 	display:block;
 	h1 {
+		a {
+			color:#101010 !important;
+			text-shadow:2px 2px #cfcfcf;
+			&:hover {
+				color:#802626 !important;
+			}
+		}
 		a.small {
 			font-size:1.11em;
 			float:right;
@@ -54,6 +67,8 @@ header {
 		flex-wrap:nowrap;
 		flex-direction:row;
 		justify-content:center;
+		background:radial-gradient(circle, $Grad1, $Grad2);
+		border:2px solid black;
 		ul {
 			list-style-type:none;
 			width:100%;
@@ -66,7 +81,8 @@ header {
 				@include WidthMargins(23%, 2px, 2px);
 				float:left;
 				border:1px solid gray;
-				background:rgba(30, 30, 40, 0.3);
+				background:$LiBg;
+				transition:background, border, 0.2s ease 0s;
 				a {
 					display:block;
 					width:96%;
@@ -84,11 +100,13 @@ header {
 }
 
 main {
-	@include WidthMargins(98%, 1%, 1%);
-	padding:8px;
+	@include WidthMargins(97%, 1%, 1%);
+	padding:10px;
 	border:2px solid #000;
-	background:rgba(30, 30, 30, 0.4);
 	margin-top:10px;
+	min-height:270px;
+	height:auto;
+	box-shadow:3px 3px rgba(0, 0, 0, 0.5);
 }
 
 #error {
@@ -98,7 +116,7 @@ main {
 	margin-bottom:10px;
 }
 
-.login-form table, .register-form table, .settings-form table {
+.login-form table, .register-form table, .settings-form table, .contact-fields {
 	@include WidthMargins(80%, 10%, 10%);
 	tbody, tbody tr {
 		width:100%;
@@ -117,8 +135,16 @@ main {
 	}
 }
 
+.contact-form p {
+	text-align:center;
+}
+
 form h2, form h3 {
 	text-align:center;
+}
+
+main, footer {
+	background:radial-gradient(circle, $Grad1Trans, $Grad2Trans);
 }
 
 label {
@@ -137,9 +163,9 @@ label {
 	}
 }
 
-.buy-form {
+.buy-form, .delete-form {
 	display:flex;
-	background:rgba(10, 80, 10, 0.3);
+	background:$BgBuy;
 	padding-top:10px;
 	padding-bottom:10px;
 	.album {
@@ -148,21 +174,26 @@ label {
 	}
 }
 
+.delete-form {
+	background:$BgDelete !important;
+	color:#cd0202;
+}
+
 button, input[type="submit"] {
 	@include Appearance();
-	@include BackBorderColor(#662020, 1px solid rgba(0,0,0,0), #dfdfdf);
+	@include BackBorderColor($BgButton, $BorderButton, $TextBright);
 	border-radius:24px 24px 24px 24px;
 	padding:9px;
 	font-size:1.15em;
 	box-shadow:2px 2px black;
 	transition:background, color, box-shadow 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor(#106640, 1px solid rgba(0,0,0,0), #efefef);
+		@include BackBorderColor($BgButtonHover, $BorderButton, #efefef);
 		box-shadow:2px 2px black;
 		padding:9px;
 	}
 	&:active {
-		@include BackBorderColor(#20206f, 1px solid rgba(0,0,0,0), #cfcfcf);
+		@include BackBorderColor($BgButtonActive, $BorderButton, $TextNormal);
 		box-shadow:-1px -1px black;
 		padding:9px;
 	}
@@ -170,13 +201,13 @@ button, input[type="submit"] {
 
 input[type="text"], input[type="password"], input[type="number"] {
 	@include Appearance();
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor($BgDark, $BorderDark, #e7e7e7);
 	padding:8px;
 	width:90%;
 	font-size:1.14em;
 	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor(#181818, 2px solid #202020, #efefef);
+		@include BackBorderColor($BgLight, $BorderLight, $TextBright);
 		font-size:1.14em;
 	}
 	&:active {
@@ -186,33 +217,33 @@ input[type="text"], input[type="password"], input[type="number"] {
 }
 
 select {
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor($BgDark, 2px solid black, $TextLight);
 	appearance:auto !important;
 	-moz-appearance:auto !important;
 	padding:8px;
 	width:90%;
 	font-size:1.14em;
-	transition:background, background-color, border, color 0.2s ease 0s;
+	transition:background, border, text 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor(#181818, 2px solid #202020, #efefef);
+		@include BackBorderColor($BgLight, $BorderLight, $TextBright);
 	}
 }
 
-.ajax-area {
+.ajax-area, .login-error {
 	display:block;
 	text-align:center;
 	@include WidthMargins(90%, 5%, 5%);
 	margin-top:10px;
 	margin-bottom:10px;
 	p.success {
-		@include BackBorderColor(green, 1px solid lime, white);
+		@include BackBorderColor($BgSuccess, $BorderSuccess, white);
 		padding:8px;
 		display:block;
 		font-size:1.12em;
 		text-align:center;
 	}
 	p.error {
-		@include BackBorderColor(#661010, 1px solid red, red);
+		@include BackBorderColor($BgError, $BorderError, red);
 		padding:8px;
 		display:block;
 		font-size:1.12em;
@@ -231,9 +262,12 @@ p.success {
 footer {
 	display:block;
 	text-align:center;
-	margin-top:5px;
 	margin-bottom:5px;
-	width:100%;
+	@include WidthMargins(50%, 24%, 24%);
+	padding-top:10px;
+	padding-left:11px;
+	padding-bottom:9px;
+	box-shadow:3px 3px rgba(0, 0, 0, 0.8);
 }
 
 span.price {
@@ -255,16 +289,16 @@ textarea {
 	min-height:90px;
 	font-family:"Arial" !important;
 	@include Appearance();
-	@include BackBorderColor(#141414, 2px solid black, #cfcfcf);
+	@include BackBorderColor($BgDark, $BorderDark, $TextBright);
 	padding:6px;
 	font-size:1.14em;
 	text-align:left;
 	&:hover {
-		@include BackBorderColor(#191919, 2px solid #242424, #efefef);
+		@include BackBorderColor(#191919, $BorderBright, $TextBright);
 	}
 }
 
-.album-editor .cover, #account .avatar {
+.album-editor .cover, #account .avatar, .settings-form .cover {
 	@include WidthMargins(50%, 25%, 25%);
 	img {
 		@include WidthMargins(40%, 30%, 30%);
@@ -278,16 +312,17 @@ textarea {
 
 #account .bio {
 	display:block;
-	@include WidthMargins(80%, 10%, 10%);
+	@include WidthMargins(98%, 0%, 1%);
 	height:auto;
 	min-height:40px;
 	font-size:1.12em;
 	font-family:"Arial" !important;
-	margin-top:3px;
-	margin-bottom:3px;
-	padding:5px;
-	@include BackBorderColor(rgba(10, 10, 10, 0.3), 2px solid black, #cfcfcf);
-	border-radius:25px 25px 25px 25px;
+	margin-top:5px;
+	margin-bottom:5px;
+	padding:7px;
+	padding-top:13px;
+	padding-bottom:13px;
+	@include BackBorderColor($BgTrans, $BorderDark, $TextLight);
 	p {
 		font-size:1.12em;
 	}
@@ -303,18 +338,61 @@ textarea {
 		width:100%;
 	}
 	tbody tr td, thead tr td {
-		width:32%;
-		padding:5px;
+		width:24%;
+		padding:4px;
 		font-size:1.13em;
-		@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid black, #efefef);
+		@include BackBorderColor($BgTrans, 1px solid black, $TextBright);
+	}
+	tbody tr td:first-child, thead tr td:first-child {
+		text-align:right;
+	}
+}
+
+.index-table, .user-info, .sold-table {
+	width:100%;
+	tbody, tbody tr, thead, thead tr {
+		width:100%;
+	}
+	tbody tr td, thead tr td {
+		padding:4px;
+		font-size:1.13em;
+		@include BackBorderColor($BgTrans, 1px solid black, #e5e5e5);
+	}
+}
+.index-table.inv tbody tr td, .index-table.inv thead tr td {
+	width:24%;
+}
+.index-table.pur tbody tr td, .index-table.pur thead tr td {
+	width:24%;
+}
+.sold-table tbody tr td, .sold-table thead tr td {
+	width:32%;
+}
+.user-info tbody tr td {
+	width:49%;
+	padding:5px !important;
+	font-size:1.14em !important;
+	text-align:left;
+	&:first-child {
+		text-align:right;
 	}
 }
 
 .confirm {
 	float:right;
 	@include WidthMargins(60%, 1%, 1%);
-	@include BackBorderColor(rgba(10, 10, 10, 0.3), 1px solid gray, #dfdfdf);
+	@include BackBorderColor($BgTrans, 1px solid gray, #ffffff);
 	padding:10px;
 	font-size:1.13em;
 	text-align:center;
+}
+
+#settings .avatar img {
+	@include WidthMargins(40%, 30%, 30%);
+	border:1px solid #101010;
+	margin-bottom:5px;
+}
+
+.settings-form .main-user-info tbody tr td {
+	background:$BgTrans;
 }

@@ -33,16 +33,13 @@ try {
 					"label" => $json->label,
 					"posted" => $json->posted,
 					"country" => $json->country,
-					"tracklist" => $tl
-					/*
-					"year" => $json->year,
+					"tracklist" => $tl,
+					"year" => intval($json->year),
 					"currency" => $json->currency,
-					"condition" => $json->condition,
+					"cond" => $json->cond,
 					"purchased" => $json->purchased,
-					"releasetype" => $json->releasetype,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
-					*/
 				]);
 
 				$album->update();
@@ -97,26 +94,23 @@ try {
 					"label" => $json->label,
 					"posted" => $json->posted,
 					"country" => $json->country,
-					"tracklist" => $tl
-					/*
-					"year" => $json->year,
+					"tracklist" => $tl,
+					"year" => intval($json->year),
 					"currency" => $json->currency,
-					"condition" => $json->condition,
+					"cond" => $json->cond,
 					"purchased" => $json->purchased,
-					"releasetype" => $json->releasetype,
 					"sellerid" => $json->sellerid,
 					"buyerid" => $json->buyerid
-					*/
 				]);
 
 				$album->write();
 
-				exit("<p class=\"success\">Your album was uploaded successfully!</p>");
+				exit("<p class=\"success\">Your album was uploaded successfully! <a href=\"index\">Go back to your Dashboard.</a></p>");
 			}
 		}
 	}
 	else {
-		$editor = new Page("header_user", "album_editor");
+		$editor = new Page("header_user", "editor");
 		$editor->script("waxAlbumEditor.min.js");
 
 		if (isset($_GET['id'])) {
@@ -125,9 +119,12 @@ try {
 			$alb = new Album(intval($_GET['id']));
 			$alb->read();
 
-			$uid = Methods::getIdFromName($_SESSION['current_user']);
+			if (strcmp($alb->getSeller(), $_SESSION['current_user']) != 0) {
+				$editor->error("<h2>You can not edit an album that you did not post.</h2>");
+				exit();
+			}
 
-			$editor->hreplace("USERID", $uid);
+			$editor->hreplace("USERID", $alb->getSellerId());
 			$editor->replacea([
 				"ALBUM_TITLE" => $alb->getTitle(),
 				"ALBUM_MEDIA" => $alb->getMedia(),
@@ -137,8 +134,17 @@ try {
 				"ALBUM_POSTED" => $alb->getPosted(),
 				"ALBUM_IMAGE" => $alb->getImage(),
 				"ALBUM_COUNTRY" => $alb->country,
+				"ALBUM_CURRENCY" => $alb->getCurrency(),
+				"ALBUM_COND" => $alb->getCond(),
+				"M_SELECT" => ((strcmp($alb->getCond(), "m") == 0) ? "selected" : ""),
+				"NM_SELECT" => ((strcmp($alb->getCond(), "nm") == 0) ? "selected" : ""),
+				"VG_SELECT" => ((strcmp($alb->getCond(), "vg") == 0) ? "selected" : ""),
+				"G_SELECT" => ((strcmp($alb->getCond(), "g") == 0) ? "selected" : ""),
+				"F_SELECT" => ((strcmp($alb->getCond(), "f") == 0) ? "selected" : ""),
+				"P_SELECT" => ((strcmp($alb->getCond(), "p") == 0) ? "selected" : ""),
+				"ALBUM_PURCHASED" => $alb->getPurchased(),
 				"USERNAME" => $_SESSION['current_user'],
-				"USERID" => $uid,
+				"USERID" => $alb->getSellerId(),
 				"EDITMODE" => "edit",
 				"VINYL_SELECT" => ((strcmp($alb->getMedia(), "Vinyl") == 0) ? "selected" : ""),
 				"CASSETTE_SELECT" => ((strcmp($alb->getMedia(), "Cassette") == 0) ? "selected" : ""),
@@ -147,6 +153,9 @@ try {
 			]);
 
 			$editor->setContent(str_replace("\"{{ALBUM_ID}}\"", "" . $alb->getId(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{ALBUM_YEAR}}\"", "" . $alb->getYear(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{SELLERID}}\"", "" . $alb->getSellerId(), $editor->getContent()));
+			$editor->setContent(str_replace("\"{{BUYERID}}\"", "" . $alb->getBuyerId(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "" . $alb->getDiscs(), $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "" . $alb->price, $editor->getContent()));
 			$editor->setContent(str_replace("\"{{UPLOADED}}\"", "true", $editor->getContent()));
@@ -183,6 +192,17 @@ EOF;
 				"ALBUM_POSTED" => "",
 				"ALBUM_IMAGE" => "",
 				"ALBUM_COUNTRY" => "",
+				"ALBUM_YEAR" => "",
+				"ALBUM_CURRENCY" => "",
+				"ALBUM_COND" => "",
+				"M_SELECT" => "",
+				"NM_SELECT" => "",
+				"VG_SELECT" => "",
+				"G_SELECT" => "",
+				"F_SELECT" => "",
+				"P_SELECT" => "",
+				"BUYERID" => "",
+				"ALBUM_PURCHASED" => "",
 				"USERNAME" => $_SESSION['current_user'],
 				"USERID" => $uid,
 				"EDITMODE" => "new",
@@ -196,6 +216,7 @@ EOF;
 			$editor->setContent(str_replace("\"{{ALBUM_DISCS}}\"", "1", $editor->getContent()));
 			$editor->setContent(str_replace("\"{{ALBUM_PRICE}}\"", "5.99", $editor->getContent()));
 			$editor->setContent(str_replace("\"{{UPLOADED}}\"", "false", $editor->getContent()));
+			$editor->setContent(str_replace("\"{{SELLERID}}\"", $uid, $editor->getContent()));
 			$tl = <<<EOF
 		[
 			{
