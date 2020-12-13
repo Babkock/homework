@@ -169,3 +169,5 @@ input[type="file"] { width: 98%; }
 #settings .avatar img { width: 70%; margin-left: 15%; margin-right: 15%; border: 2px solid #101010; }
 
 textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-width: 92%; font-size: 1.95em !important; height: 240px; min-height: 240px; max-height: 240px; padding: 10px; margin-top: 8px; margin-bottom: 8px; }
+
+.main-user-info tbody tr td { background: none !important; }
