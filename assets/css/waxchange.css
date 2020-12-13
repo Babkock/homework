@@ -152,4 +152,4 @@ textarea:hover { background: #191919; background-color: #191919; border: 2px sol
 
 #settings .avatar img { width: 40%; margin-left: 30%; margin-right: 30%; border: 1px solid #101010; margin-bottom: 5px; }
 
-.main-user-info tbody tr td { background: rgba(10, 10, 10, 0.3); }
+.settings-form .main-user-info tbody tr td { background: rgba(10, 10, 10, 0.3); }
