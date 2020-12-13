@@ -74,11 +74,11 @@ header {
 			li {
 				@include WidthMargins(97%, 0%, 0%);
 				float:left;
-				border:2px solid gray;
 				font-size:$LandscapeLarger;
 				@include Margins(7px, 7px);
-				background-color:$MobileNavBg;
-				transition:background-color, border 0.2s ease 0s;
+				background:linear-gradient($MobileNavBg, $MobileNavBgGrad) !important;
+				border:2px solid gray;
+				transition:background, background-color, border 0.2s ease 0s;
 				a {
 					color:$TextLight !important;
 					display:inline-block;
@@ -98,8 +98,8 @@ header {
 					}
 				}
 				&:hover {
-					border:2px solid white;
-					background-color:$MobileNavBgHover;
+					border:2px solid $TextLight;
+					background:linear-gradient($MobileNavBgHoverGrad, $MobileNavBgHover) !important;
 					font-size:$LandscapeLarger;
 				}
 			}
@@ -108,9 +108,10 @@ header {
 }
 
 div.album {
-	@include WidthMargins(48%, 0%, 0%);
+	@include WidthMargins(48%, 2px, 2px);
 	@include Margins(10px, 10px);
 	padding-top:12px;
+	padding-bottom:12px;
 	h2 {
 		font-size:1.75em;
 	}
@@ -453,7 +454,10 @@ input[type="file"] {
 		display:inline-block;
 		@include WidthMargins(98%, 0, 0);
 		padding:7px;
+		padding-top:10px;
+		padding-bottom:10px;
 		font-size:$LandscapeNormal !important;
+		text-align:center;
 		@include Margins(5px, 5px);
 	}
 }
@@ -504,4 +508,8 @@ textarea {
 .index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) {
 	@include BackBorderColor(none !important, none !important, $TextLight);
 	width:99%;
+}
+
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td {
+	background:none !important;
 }

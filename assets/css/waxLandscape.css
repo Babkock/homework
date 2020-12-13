@@ -38,15 +38,15 @@ header nav { width: 100%; margin-left: 0; margin-right: 0; background: none !imp
 
 header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
 
-header nav ul li { width: 97%; margin-left: 0%; margin-right: 0%; float: left; border: 2px solid gray; font-size: 1.81em; margin-top: 7px; margin-bottom: 7px; background-color: #102079; transition: background-color, border 0.2s ease 0s; }
+header nav ul li { width: 97%; margin-left: 0%; margin-right: 0%; float: left; font-size: 1.81em; margin-top: 7px; margin-bottom: 7px; background: linear-gradient(#203089, #12227b) !important; border: 2px solid gray; transition: background, background-color, border 0.2s ease 0s; }
 
 header nav ul li a { color: #dfdfdf !important; display: inline-block; width: 100%; padding: 8px; padding-top: 11px; padding-bottom: 11px; height: auto; font-size: 1.81em; transition: color 0.2s ease 0s; }
 
 header nav ul li a:hover { color: #efefef !important; display: block; width: 100%; height: auto; font-size: 1.81em; }
 
-header nav ul li:hover { border: 2px solid white; background-color: #207474; font-size: 1.81em; }
+header nav ul li:hover { border: 2px solid #dfdfdf; background: linear-gradient(#217474, #308383) !important; font-size: 1.81em; }
 
-div.album { width: 48%; margin-left: 0%; margin-right: 0%; margin-top: 10px; margin-bottom: 10px; padding-top: 12px; }
+div.album { width: 48%; margin-left: 2px; margin-right: 2px; margin-top: 10px; margin-bottom: 10px; padding-top: 12px; padding-bottom: 12px; }
 
 div.album h2 { font-size: 1.75em; }
 
@@ -158,7 +158,7 @@ input[type="file"] { width: 98%; }
 
 .users-table tbody tr td:first-child { text-align: center; }
 
-.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 7px; font-size: 1.75em !important; margin-top: 5px; margin-bottom: 5px; }
+.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 7px; padding-top: 10px; padding-bottom: 10px; font-size: 1.75em !important; text-align: center; margin-top: 5px; margin-bottom: 5px; }
 
 .album-editor .cover, #account .avatar, .settings-form .cover { width: 90%; margin-left: 5%; margin-right: 5%; }
 
@@ -175,3 +175,5 @@ textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-wi
 .settings-form .main-user-info tbody tr td { background: none !important; }
 
 .index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) { background: none !important; background-color: none !important; border: none !important; color: #dfdfdf; width: 99%; }
+
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { background: none !important; }

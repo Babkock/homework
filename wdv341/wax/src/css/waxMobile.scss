@@ -76,8 +76,10 @@ header {
 				float:left;
 				font-size:$MobileLarge;
 				@include Margins(11px, 11px);
-				@include BackBorderColor($MobileNavBg, 3px solid gray, $TextLight);
-				transition:background-color, border 0.2s ease 0s;
+				background:linear-gradient($MobileNavBg, $MobileNavBgGrad) !important;
+				border:3px solid gray;
+				color:$TextLight;
+				transition:background, background-color, border 0.2s ease 0s;
 				a {
 					display:block;
 					@include WidthMargins(100%, 0, 0);
@@ -94,7 +96,8 @@ header {
 					}
 				}
 				&:hover {
-					@include BackBorderColor($MobileNavBgHover, 3px solid white, $TextBright !important);
+					background:linear-gradient($MobileNavBgHoverGrad, $MobileNavBgHover) !important;
+					border:3px solid #dfdfdf;
 					font-size:$MobileLarge;
 				}
 			}
@@ -442,7 +445,10 @@ input[type="file"] {
 		display:inline-block;
 		@include WidthMargins(98%, 0, 0);
 		padding:9px;
+		padding-top:12px;
+		padding-bottom:12px;
 		font-size:$MobileNormal !important;
+		text-align:center;
 		@include Margins(7px, 7px);
 	}
 }
@@ -506,4 +512,8 @@ textarea {
 .index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) {
 	@include BackBorderColor(none !important, none !important, rgba(0,0,0,0));
 	width:99%;
+}
+
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td {
+	background:none !important;
 }

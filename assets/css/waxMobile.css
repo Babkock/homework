@@ -38,13 +38,13 @@ header nav { width: 100%; margin-left: 0; margin-right: 0; background: none !imp
 
 header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
 
-header nav ul li { width: 96%; margin-left: 0; margin-right: 0; float: left; font-size: 2em; margin-top: 11px; margin-bottom: 11px; background: #102079; background-color: #102079; border: 3px solid gray; color: #dfdfdf; transition: background-color, border 0.2s ease 0s; }
+header nav ul li { width: 96%; margin-left: 0; margin-right: 0; float: left; font-size: 2em; margin-top: 11px; margin-bottom: 11px; background: linear-gradient(#203089, #12227b) !important; border: 3px solid gray; color: #dfdfdf; transition: background, background-color, border 0.2s ease 0s; }
 
 header nav ul li a { display: block; width: 100%; margin-left: 0; margin-right: 0; padding: 10px; padding-top: 19px; padding-bottom: 19px; height: auto; font-size: 2em; color: #dfdfdf !important; transition: color 0.2s ease 0s; }
 
 header nav ul li a:hover { font-size: 2em; color: #efefef !important; }
 
-header nav ul li:hover { background: #207474; background-color: #207474; border: 3px solid white; color: #efefef !important; font-size: 2em; }
+header nav ul li:hover { background: linear-gradient(#217474, #308383) !important; border: 3px solid #dfdfdf; font-size: 2em; }
 
 div.album { width: 97%; margin-left: 1%; margin-right: 1%; margin-top: 12px; margin-bottom: 12px; padding-bottom: 14px; }
 
@@ -158,7 +158,7 @@ input[type="file"] { width: 98%; }
 
 .users-table tbody tr td:first-child { text-align: center; }
 
-.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 9px; font-size: 1.95em !important; margin-top: 7px; margin-bottom: 7px; }
+.users-table tbody tr td { display: inline-block; width: 98%; margin-left: 0; margin-right: 0; padding: 9px; padding-top: 12px; padding-bottom: 12px; font-size: 1.95em !important; text-align: center; margin-top: 7px; margin-bottom: 7px; }
 
 .album-editor .cover, #account .avatar, .settings-form .cover { width: 90%; margin-left: 5%; margin-right: 5%; }
 
@@ -181,3 +181,5 @@ textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-wi
 .settings-form .main-user-info tbody tr td { background: none !important; }
 
 .index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) { background: none !important; background-color: none !important; border: none !important; color: rgba(0, 0, 0, 0); width: 99%; }
+
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { background: none !important; }
