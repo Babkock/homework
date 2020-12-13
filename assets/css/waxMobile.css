@@ -64,15 +64,15 @@ div.album div p { font-size: 1.95em; margin-top: 5px; margin-bottom: 5px; }
 
 .track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.95em !important; color: #efefef; padding: 8px; }
 
-button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; background: linear-gradient(#bb7510, #995500) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909; font-size: 1.95em !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; transition: background, background-color, border, color 0.2s ease 0s; }
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; background: linear-gradient(#cb8510, #b97500) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909; font-size: 1.95em !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; transition: background, background-color, border, color 0.2s ease 0s; }
 
-button:hover, input[type="submit"]:hover { background: linear-gradient(#10ba53, #009a33) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; font-size: 1.95em !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
+button:hover, input[type="submit"]:hover { background: linear-gradient(#00ba53, #10ca63) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; font-size: 1.95em !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
 
-button:active, input[type="submit"]:active { background: linear-gradient(#10ba53, #009a33) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
+button:active, input[type="submit"]:active { background: linear-gradient(#00ba53, #10ca63) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; padding: 9px; padding-top: 12px; padding-bottom: 12px; margin-top: 8px; margin-bottom: 8px; }
 
 input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #131313; background-color: #131313; border: 3px solid black; color: #dfdfdf; font-size: 1.95em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 7px; margin-bottom: 7px; transition: background, background-color, border, color 0.2s ease 0s; }
 
-input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="password"]:hover { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #171717; background-color: #171717; border: 3px solid #202020; color: #efefef; font-size: 1.95em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 7px; margin-bottom: 7px; }
+input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="password"]:hover { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #161616; background-color: #161616; border: 3px solid #202020; color: #efefef; font-size: 1.95em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 7px; margin-bottom: 7px; }
 
 .search-bar { display: flex; flex-direction: column; flex-wrap: wrap; width: 98%; margin-left: 1%; margin-right: 0%; margin-top: 5px; margin-bottom: 5px; }
 

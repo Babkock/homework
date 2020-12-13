@@ -152,7 +152,7 @@ div.album {
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
 	font-size:$LandscapeNormal !important;
-	background:linear-gradient($ButtonMobile, $ButtonMobileGrad);
+	background:linear-gradient($ButtonMobile, $ButtonMobileGrad) !important;
 	border:1px solid rgba(0,0,0,0);
 	color:$TextDark;
 	padding:6px;
@@ -162,7 +162,7 @@ button, input[type="submit"] {
 	transition:background-color, color 0.2s ease 0s;
 	&:hover {
 		font-size:$LandscapeNormal !important;
-		background:linear-gradient($ButtonMobileHover, $ButtonMobileHoverGrad);
+		background:linear-gradient($ButtonMobileHoverGrad, $ButtonMobileHover) !important;
 		border:1px solid rgba(0,0,0,0);
 		color:$TextDark;
 		padding:6px;
@@ -172,7 +172,7 @@ button, input[type="submit"] {
 	}
 	&:active {
 		font-size:$LandscapeNormal !important;
-		background:linear-gradient($ButtonMobileHover, $ButtonMobileHoverGrad);
+		background:linear-gradient($ButtonMobileHoverGrad, $ButtonMobileHover) !important;
 		border:1px solid rgba(0,0,0,0);
 		color:$TextDark !important;
 		padding:6px;
@@ -185,7 +185,7 @@ button, input[type="submit"] {
 input[type="text"], input[type="number"], select, input[type="password"] {
 	@include Appearance();
 	@include WidthMargins(98%, 1%, 1%);
-	@include BackBorderColor(#131313, 3px solid black, $TextLight);
+	@include BackBorderColor($BgInput, 3px solid black, $TextLight);
 	font-size:$LandscapeNormal !important;
 	padding:5px;
 	padding-top:7px;
@@ -195,7 +195,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	&:hover {
 		@include Appearance();
 		@include WidthMargins(98%, 1%, 1%);
-		@include BackBorderColor(#171717, 3px solid #202020, $TextBright);
+		@include BackBorderColor($BgInputHover, 3px solid #202020, $TextBright);
 		font-size:$LandscapeNormal !important;
 		padding:5px;
 		padding-top:7px;
@@ -210,7 +210,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	#search {
 		@include Appearance();
 		@include WidthMargins(90%, 5%, 5%);
-		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		@include BackBorderColor($BgInput, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
 		padding-right:7px;
 		padding-left:13px;
 		padding-top:9px;
@@ -221,7 +221,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		font-size:$LandscapeLarger;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
-			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			@include BackBorderColor($BgInputHover, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
 			padding-right:7px;
 			padding-left:13px;
 			padding-top:9px;
@@ -255,7 +255,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	#submit {
 		@include Appearance();
 		@include WidthMargins(98%, 0%, 2%);
-		@include BackBorderColor(#131313, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		@include BackBorderColor($BgInput, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
 		padding:9px;
 		padding-top:17px;
 		padding-bottom:17px;
@@ -265,7 +265,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include WidthMargins(98%, 0%, 2%);
-			@include BackBorderColor(#161616, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			@include BackBorderColor($BgInputHover, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
 			padding:9px;
 			padding-top:17px;
 			padding-bottom:17px;
