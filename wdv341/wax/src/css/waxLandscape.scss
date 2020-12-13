@@ -19,7 +19,7 @@ body {
 }
 
 .container {
-	@include WidthMargins(98%, 1%, 1%);
+	@include WidthMargins(100%, 0%, 0%);
 }
 
 a, a:visited, a:link, a:active {
@@ -42,23 +42,35 @@ header {
 		margin-bottom:4px;
 		a.small {
 			font-size:$LandscapeLarger;
-			width:40%;
+			width:100%;
 			float:right;
-			margin-left:5%;
+			margin-top:9px;
+			margin-bottom:9px;
+			color:#dfc8c8 !important;
+			&:hover {
+				font-size:$LandscapeLarger !important;
+				color:$TextBright !important;
+			}
 		}
 		a:first-child {
+			width:100%;
 			font-size:$LandscapeLarge;
 			float:left;
-			width:50%;
-			margin-right:5%;
+			margin-top:9px;
+			margin-bottom:9px;
+			color:#dfc8c8 !important;
+			&:hover {
+				font-size:$MobileLarge !important;
+				color:$TextBright !important;
+			}
 		}
 	}
 	nav {
-		width:100%;
+		@include WidthMargins(100%, 0, 0);
 		background:none !important;
 		text-align:center;
 		display:block;
-		border:2px solid black;
+		border:0 !important;
 		ul {
 			@include Flex(column, wrap);
 			width:100%;
@@ -103,7 +115,7 @@ header {
 }
 
 div.album {
-	@include WidthMargins(48%, 1%, 1%);
+	@include WidthMargins(48%, 0%, 0%);
 	margin-top:10px;
 	margin-bottom:10px;
 	padding-top:12px;
@@ -206,7 +218,7 @@ button, input[type="submit"] {
 			font-size:$LandscapeLarger;
 		}
 	}
-	#stype, #scountry {
+	#stype, #country {
 		@include WidthMargins(97% !important, 0%, 0%);
 		@include BackBorderColor(#10653d, 2px solid black !important, $TextLight !important);
 		padding:7px;
@@ -284,11 +296,14 @@ footer {
 }
 
 main {
+	box-shadow:none !important;
+}
+
+main {
 	@include WidthMargins(97%, -1%, 2%);
 	border:0 !important;
 	box-shadow:none !important;
-	padding:10px;
-	background:rgba(10, 10, 10, 0.3);
+	background:rgba(10, 10, 10, 0.2);
 	h2 {
 		font-size:$LandscapeLarge;
 		text-align:center;
