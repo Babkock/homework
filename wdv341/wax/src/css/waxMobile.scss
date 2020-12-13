@@ -10,8 +10,8 @@
 * { box-shadow:0 !important; }
 
 body {
-	background:radial-gradient(circle, #774030, #6d3010);
-	color:white;
+	background:radial-gradient(circle, $MobileGrad1, $MobileGrad2);
+	color:$TextNormal;
 	width:100%;
 	font-size:$MobileNormal;
 	font-family:"Arial" !important;
@@ -82,8 +82,8 @@ header {
 					display:block;
 					@include WidthMargins(100%, 0, 0);
 					padding:10px;
-					padding-top:18px;
-					padding-bottom:18px;
+					padding-top:19px;
+					padding-bottom:19px;
 					height:auto;
 					font-size:$MobileLarge;
 					color:$TextLight !important;
@@ -126,8 +126,7 @@ div.album {
 	}
 	div p {
 		font-size:$MobileNormal;
-		margin-top:5px;
-		margin-bottom:5px;
+		@include Margins(5px, 5px);
 	}
 }
 
@@ -148,7 +147,9 @@ div.album {
 
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
-	@include BackBorderColor($ButtonMobile !important, 1px solid rgba(0,0,0,0), $TextLight);
+	background:linear-gradient($ButtonMobile, $ButtonMobileGrad) !important;
+	border:1px solid rgba(0,0,0,0);
+	color:$TextDark;
 	font-size:$MobileNormal !important;
 	padding:9px;
 	padding-top:12px;
@@ -156,8 +157,9 @@ button, input[type="submit"] {
 	@include Margins(8px, 8px);
 	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
-		@include BackBorderColor($ButtonMobileHover !important, 1px solid rgba(0,0,0,0), $TextBright);
-		color:$TextBright !important;
+		background:linear-gradient($ButtonMobileHover, $ButtonMobileHoverGrad) !important;
+		border:1px solid rgba(0,0,0,0);
+		color:$TextDark !important;
 		font-size:$MobileNormal !important;
 		padding:9px;
 		padding-top:12px;
@@ -165,7 +167,9 @@ button, input[type="submit"] {
 		@include Margins(8px, 8px);
 	}
 	&:active {
-		color:$TextNormal !important;
+		background:linear-gradient($ButtonMobileHover, $ButtonMobileHoverGrad) !important;
+		border:1px solid rgba(0,0,0,0);
+		color:$TextDark !important;
 		padding:9px;
 		padding-top:12px;
 		padding-bottom:12px;
@@ -311,9 +315,11 @@ footer {
 		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
 		font-size:$MobileNormal;
 		display:inline-block;
-		@include Margins(8px, 8px);
+		@include Margins(9px, 9px);
 		text-align:center;
 		padding:7px;
+		padding-top:11px;
+		padding-bottom:11px;
 	}
 }
 
@@ -339,7 +345,7 @@ main {
 	}
 }
 footer {
-	border:0 !important;
+	border:none !important;
 	box-shadow:none !important;
 }
 
@@ -365,6 +371,9 @@ footer {
 	@include WidthMargins(98%, 1%, 1%);
 	tbody, tbody tr {
 		width:100%;
+	}
+	tbody tr td:first-child {
+		text-align:center;
 	}
 	tbody tr td:nth-child(2) {
 		text-align:center;
@@ -452,7 +461,7 @@ input[type="file"] {
 }
 
 #account .bio {
-	@include WidthMargins(97%, 0%, 0%);
+	@include WidthMargins(97%, 1%, 2%);
 	@include Margins(8px, 9px);
 	font-size:$MobileNormal !important;
 	padding:10px;
@@ -461,7 +470,7 @@ input[type="file"] {
 }
 
 .ajax-area {
-	@include WidthMargins(97%, 0%, 0%);
+	@include WidthMargins(97%, 1%, 2%);
 	@include Margins(7px, 7px);
 	p.error {
 		font-size:$MobileNormal !important;
@@ -492,4 +501,9 @@ textarea {
 
 .settings-form .main-user-info tbody tr td {
 	background:none !important;
+}
+
+.index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) {
+	@include BackBorderColor(none !important, none !important, rgba(0,0,0,0));
+	width:99%;
 }

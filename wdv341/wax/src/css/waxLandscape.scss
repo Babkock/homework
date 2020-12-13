@@ -10,7 +10,7 @@
 * { box-shadow:0 !important; }
 
 body {
-	background:radial-gradient(circle, #774030, #6d3010);
+	background:radial-gradient(circle, $MobileGrad1, $MobileGrad2);
 	color:$TextNormal;
 	width:100%;
 	font-size:$LandscapeNormal;
@@ -72,7 +72,7 @@ header {
 			@include Flex(column, wrap);
 			width:100%;
 			li {
-				@include WidthMargins(95%, 0%, 0%);
+				@include WidthMargins(97%, 0%, 0%);
 				float:left;
 				border:2px solid gray;
 				font-size:$LandscapeLarger;
@@ -84,8 +84,8 @@ header {
 					display:inline-block;
 					width:100%;
 					padding:8px;
-					padding-top:10px;
-					padding-bottom:10px;
+					padding-top:11px;
+					padding-bottom:11px;
 					height:auto;
 					font-size:$LandscapeLarger;
 					transition:color 0.2s ease 0s;
@@ -93,9 +93,6 @@ header {
 						color:$TextBright !important;
 						display:block;
 						width:100%;
-						padding:8px;
-						padding-top:10px;
-						padding-bottom:10px;
 						height:auto;
 						font-size:$LandscapeLarger;
 					}
@@ -154,7 +151,9 @@ div.album {
 button, input[type="submit"] {
 	@include WidthMargins(90%, 5%, 5%);
 	font-size:$LandscapeNormal !important;
-	@include BackBorderColor($ButtonMobile !important, 1px solid rgba(0,0,0,0), $TextLight);
+	background:linear-gradient($ButtonMobile, $ButtonMobileGrad);
+	border:1px solid rgba(0,0,0,0);
+	color:$TextDark;
 	padding:6px;
 	padding-top:8px;
 	padding-bottom:8px;
@@ -162,7 +161,9 @@ button, input[type="submit"] {
 	transition:background-color, color 0.2s ease 0s;
 	&:hover {
 		font-size:$LandscapeNormal !important;
-		@include BackBorderColor($ButtonMobileHover !important, 1px solid rgba(0,0,0,0), $TextBright);
+		background:linear-gradient($ButtonMobileHover, $ButtonMobileHoverGrad);
+		border:1px solid rgba(0,0,0,0);
+		color:$TextDark;
 		padding:6px;
 		padding-top:8px;
 		padding-bottom:8px;
@@ -170,7 +171,9 @@ button, input[type="submit"] {
 	}
 	&:active {
 		font-size:$LandscapeNormal !important;
-		color:$TextNormal !important;
+		background:linear-gradient($ButtonMobileHover, $ButtonMobileHoverGrad);
+		border:1px solid rgba(0,0,0,0);
+		color:$TextDark !important;
 		padding:6px;
 		padding-top:8px;
 		padding-bottom:8px;
@@ -318,9 +321,11 @@ footer {
 		@include BackBorderColor($BgTrans, 2px solid black, $TextLight);
 		font-size:$LandscapeNormal;
 		display:inline-block;
-		@include Margins(5px, 5px);
+		@include Margins(9px, 9px);
 		text-align:center;
 		padding:5px;
+		padding-top:8px;
+		padding-bottom:8px;
 	}
 }
 
@@ -375,6 +380,9 @@ footer {
 	tbody, tbody tr {
 		width:100%;
 	}
+	tbody tr td:first-child {
+		text-align:center;
+	}
 	tbody tr td:nth-child(2) {
 		text-align:center;
 	}
@@ -384,7 +392,7 @@ footer {
 		background:none !important;
 		font-size:$LandscapeNormal !important;
 		@include Margins(5px, 5px);
-		text-align:center;
+		text-align:center !important;
 		padding:8px;
 	}
 	tr.year td input[type="text"] {
@@ -464,7 +472,7 @@ input[type="file"] {
 }
 
 #account .bio {
-	@include WidthMargins(97%, -1%, 3%);
+	@include WidthMargins(97%, 1%, 2%);
 	@include Margins(7px, 8px);
 	font-size:$LandscapeNormal !important;
 	padding:8px;
@@ -491,4 +499,9 @@ textarea {
 
 .settings-form .main-user-info tbody tr td {
 	background:none !important;
+}
+
+.index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) {
+	@include BackBorderColor(none !important, none !important, $TextLight);
+	width:99%;
 }

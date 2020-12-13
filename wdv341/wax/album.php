@@ -51,7 +51,7 @@ try {
 				$json = json_decode($_POST['albumJson']);
 
 				if ((isset($_FILES['image'])) && ($_FILES['image']['error'] == 0)) {
-					$filename = $_FILES['image']['name'];
+					$filename = explode("/", $json->image)[2];
 					$filetype = $_FILES['image']['type'];
 					$filesize = $_FILES['image']['size'];
 

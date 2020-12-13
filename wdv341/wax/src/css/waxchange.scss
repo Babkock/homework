@@ -9,7 +9,7 @@
 
 body {
 	background:url('/homework/wdv341/wax/img/bigbg.jpg');
-	color:white;
+	color:$TextNormal;
 	width:100%;
 	font-family:"Arial" !important;
 	overflow-x:hidden;
@@ -123,6 +123,7 @@ main {
 	}
 	tbody tr td {
 		width:50% !important;
+		background:rgba(10, 10, 10, 0.3);
 		padding:7px;
 	}
 	tbody tr td:first-child {

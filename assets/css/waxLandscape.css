@@ -14,7 +14,7 @@
 */
 * { box-shadow: 0 !important; }
 
-body { background: radial-gradient(circle, #774030, #6d3010); color: #cfcfcf; width: 100%; font-size: 1.75em; font-family: "Arial" !important; overflow-x: hidden; }
+body { background: radial-gradient(circle, #705544, #782040); color: #cfcfcf; width: 100%; font-size: 1.75em; font-family: "Arial" !important; overflow-x: hidden; }
 
 .container { width: 100%; margin-left: 0%; margin-right: 0%; }
 
@@ -38,11 +38,11 @@ header nav { width: 100%; margin-left: 0; margin-right: 0; background: none !imp
 
 header nav ul { display: flex; flex-direction: column; flex-wrap: wrap; width: 100%; }
 
-header nav ul li { width: 95%; margin-left: 0%; margin-right: 0%; float: left; border: 2px solid gray; font-size: 1.81em; margin-top: 7px; margin-bottom: 7px; background-color: #102079; transition: background-color, border 0.2s ease 0s; }
+header nav ul li { width: 97%; margin-left: 0%; margin-right: 0%; float: left; border: 2px solid gray; font-size: 1.81em; margin-top: 7px; margin-bottom: 7px; background-color: #102079; transition: background-color, border 0.2s ease 0s; }
 
-header nav ul li a { color: #dfdfdf !important; display: inline-block; width: 100%; padding: 8px; padding-top: 10px; padding-bottom: 10px; height: auto; font-size: 1.81em; transition: color 0.2s ease 0s; }
+header nav ul li a { color: #dfdfdf !important; display: inline-block; width: 100%; padding: 8px; padding-top: 11px; padding-bottom: 11px; height: auto; font-size: 1.81em; transition: color 0.2s ease 0s; }
 
-header nav ul li a:hover { color: #efefef !important; display: block; width: 100%; padding: 8px; padding-top: 10px; padding-bottom: 10px; height: auto; font-size: 1.81em; }
+header nav ul li a:hover { color: #efefef !important; display: block; width: 100%; height: auto; font-size: 1.81em; }
 
 header nav ul li:hover { border: 2px solid white; background-color: #207474; font-size: 1.81em; }
 
@@ -64,11 +64,11 @@ div.album div p { font-size: 1.75em !important; }
 
 .track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.7em; color: #efefef; }
 
-button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.75em !important; background: #bb7500 !important; background-color: #bb7500 !important; border: 1px solid rgba(0, 0, 0, 0); color: #dfdfdf; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; transition: background-color, color 0.2s ease 0s; }
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.75em !important; background: linear-gradient(#bb7510, #995500); border: 1px solid rgba(0, 0, 0, 0); color: #090909; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; transition: background-color, color 0.2s ease 0s; }
 
-button:hover, input[type="submit"]:hover { font-size: 1.75em !important; background: #00ba53 !important; background-color: #00ba53 !important; border: 1px solid rgba(0, 0, 0, 0); color: #efefef; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+button:hover, input[type="submit"]:hover { font-size: 1.75em !important; background: linear-gradient(#10ba53, #009a33); border: 1px solid rgba(0, 0, 0, 0); color: #090909; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
 
-button:active, input[type="submit"]:active { font-size: 1.75em !important; color: #cfcfcf !important; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+button:active, input[type="submit"]:active { font-size: 1.75em !important; background: linear-gradient(#10ba53, #009a33); border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
 
 input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #131313; background-color: #131313; border: 3px solid black; color: #dfdfdf; font-size: 1.75em !important; padding: 5px; padding-top: 7px; padding-bottom: 7px; margin-top: 5px; margin-bottom: 5px; transition: background, background-color, border, color 0.2s ease 0s; }
 
@@ -106,7 +106,7 @@ footer { background: none !important; font-size: 1.65em; width: 90%; margin-left
 
 .index-table tbody, .index-table tbody tr, .user-info tbody, .user-info tbody tr, .sold-table tbody, .sold-table tbody tr { width: 100%; }
 
-.index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 97% !important; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #dfdfdf; font-size: 1.75em; display: inline-block; margin-top: 5px; margin-bottom: 5px; text-align: center; padding: 5px; }
+.index-table tbody tr td, .user-info tbody tr td, .sold-table tbody tr td { width: 97% !important; margin-left: 1%; margin-right: 1%; background: rgba(10, 10, 10, 0.3); background-color: rgba(10, 10, 10, 0.3); border: 2px solid black; color: #dfdfdf; font-size: 1.75em; display: inline-block; margin-top: 9px; margin-bottom: 9px; text-align: center; padding: 5px; padding-top: 8px; padding-bottom: 8px; }
 
 main { box-shadow: none !important; }
 
@@ -132,9 +132,11 @@ footer { border: 0 !important; box-shadow: none !important; }
 
 .main-album-info tbody, .main-album-info tbody tr { width: 100%; }
 
+.main-album-info tbody tr td:first-child { text-align: center; }
+
 .main-album-info tbody tr td:nth-child(2) { text-align: center; }
 
-.main-album-info tbody tr td { display: inline-block; width: 99% !important; margin-left: 0%; margin-right: 0%; background: none !important; font-size: 1.75em !important; margin-top: 5px; margin-bottom: 5px; text-align: center; padding: 8px; }
+.main-album-info tbody tr td { display: inline-block; width: 99% !important; margin-left: 0%; margin-right: 0%; background: none !important; font-size: 1.75em !important; margin-top: 5px; margin-bottom: 5px; text-align: center !important; padding: 8px; }
 
 .main-album-info tr.year td input[type="text"] { width: 98%; text-align: left; }
 
@@ -164,10 +166,12 @@ input[type="file"] { width: 98%; }
 
 .cover[style="width: 40%; margin-left: 30%; margin-right: 30%;"] { width: 90% !important; margin-left: 5% !important; margin-right: 5% !important; }
 
-#account .bio { width: 97%; margin-left: -1%; margin-right: 3%; margin-top: 7px; margin-bottom: 8px; font-size: 1.75em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; }
+#account .bio { width: 97%; margin-left: 1%; margin-right: 2%; margin-top: 7px; margin-bottom: 8px; font-size: 1.75em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; }
 
 #settings .avatar img { width: 70%; margin-left: 15%; margin-right: 15%; border: 2px solid #101010; }
 
 textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-width: 92%; font-size: 1.95em !important; height: 190px; min-height: 190px; max-height: 190px; padding: 7px; margin-top: 4px; margin-bottom: 4px; }
 
 .settings-form .main-user-info tbody tr td { background: none !important; }
+
+.index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) { background: none !important; background-color: none !important; border: none !important; color: #dfdfdf; width: 99%; }

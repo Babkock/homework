@@ -12,7 +12,7 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-body { background: url("/homework/wdv341/wax/img/bigbg.jpg"); color: white; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
+body { background: url("/homework/wdv341/wax/img/bigbg.jpg"); color: #cfcfcf; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
 
 *:focus, *:active { outline: 0 !important; }
 
@@ -52,7 +52,7 @@ main { width: 97%; margin-left: 1%; margin-right: 1%; padding: 10px; border: 2px
 
 .login-form table tbody, .login-form table tbody tr, .register-form table tbody, .register-form table tbody tr, .settings-form table tbody, .settings-form table tbody tr, .contact-fields tbody, .contact-fields tbody tr { width: 100%; }
 
-.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 50% !important; padding: 7px; }
+.login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { width: 50% !important; background: rgba(10, 10, 10, 0.3); padding: 7px; }
 
 .login-form table tbody tr td:first-child, .register-form table tbody tr td:first-child, .settings-form table tbody tr td:first-child, .contact-fields tbody tr td:first-child { text-align: right; }
 
