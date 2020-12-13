@@ -327,7 +327,7 @@ footer {
 		width:100%;
 	}
 	tbody tr td {
-		@include WidthMargins(96% !important, -2%, 0%);
+		@include WidthMargins(97% !important, 1%, 1%);
 		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
 		font-size:$MobileNormal;
 		display:inline-block;
@@ -508,8 +508,13 @@ input[type="file"] {
 
 textarea {
 	@include WidthMargins(92%, 4%, 4%);
+	min-width:92%;
+	max-width:92%;
 	font-size:$MobileNormal !important;
 	height:240px;
 	min-height:240px;
 	max-height:240px;
+	padding:10px;
+	margin-top:8px;
+	margin-bottom:8px;
 }

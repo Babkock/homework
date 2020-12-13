@@ -187,6 +187,30 @@ button, input[type="submit"] {
 	}
 }
 
+input[type="text"], input[type="number"], select, input[type="password"] {
+	@include Appearance();
+	@include WidthMargins(98%, 1%, 1%);
+	@include BackBorderColor(#131313, 3px solid black, $TextLight);
+	font-size:$LandscapeNormal !important;
+	padding:5px;
+	padding-top:7px;
+	padding-bottom:7px;
+	margin-top:5px;
+	margin-bottom:5px;
+	transition:background, background-color, border, color 0.2s ease 0s;
+	&:hover {
+		@include Appearance();
+		@include WidthMargins(98%, 1%, 1%);
+		@include BackBorderColor(#171717, 3px solid #202020, $TextBright);
+		font-size:$LandscapeNormal !important;
+		padding:5px;
+		padding-top:7px;
+		padding-bottom:7px;
+		margin-top:5px;
+		margin-bottom:5px;
+	}
+}
+
 .search-bar {
 	@include Flex(column, wrap);
 	margin-top:3px;
@@ -266,6 +290,32 @@ button, input[type="submit"] {
 	}
 }
 
+.login-form table, .register-form table, .settings-form table, .contact-fields {
+	@include WidthMargins(99% !important, 0% !important, 0% !important);
+	tbody, tbody tr {
+		width:100% !important;
+	}
+	tbody tr td:first-child {
+		text-align:center;
+		margin-top:8px;
+		margin-bottom:8px;
+		font-size:$LandscapeLarger;
+	}
+	tbody tr td {
+		@include WidthMargins(95% !important, 0% !important, 0% !important);
+		display:inline-block;
+		font-size:$LandscapeLarger;
+		text-align:center;
+		padding:6px;
+		margin-top:8px;
+		margin-bottom:8px;
+	}
+}
+
+header, main, footer {
+	background:none !important;
+}
+
 footer {
 	background:none !important;
 	font-size:$LandscapeSmall;
@@ -284,8 +334,8 @@ footer {
 		width:100%;
 	}
 	tbody tr td {
-		@include WidthMargins(95% !important, -2%, 0%);
-		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
+		@include WidthMargins(97% !important, 1%, 1%);
+		@include BackBorderColor($BgTrans, 2px solid black, $TextLight);
 		font-size:$LandscapeNormal;
 		display:inline-block;
 		margin-top:5px;
@@ -311,6 +361,9 @@ main {
 	h3 {
 		font-size:$LandscapeLarger;
 		text-align:center;
+	}
+	p {
+		font-size:1.85em;
 	}
 }
 
@@ -443,4 +496,22 @@ input[type="file"] {
 	padding:8px;
 	padding-top:10px;
 	padding-bottom:10px;
+}
+
+#settings .avatar img {
+	@include WidthMargins(70%, 15%, 15%);
+	border:2px solid #101010;
+}
+
+textarea {
+	@include WidthMargins(92%, 4%, 4%);
+	min-width:92%;
+	max-width:92%;
+	font-size:$MobileNormal !important;
+	height:190px;
+	min-height:190px;
+	max-height:190px;
+	padding:7px;
+	margin-top:4px;
+	margin-bottom:4px;
 }
