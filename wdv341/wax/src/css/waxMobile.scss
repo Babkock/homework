@@ -38,14 +38,12 @@ header {
 	background:none !important;
 	h1 {
 		text-align:center;
-		margin-top:5px;
-		margin-bottom:5px;
+		@include Margins(5px, 5px);
 		a.small {
 			font-size:$MobileLarger;
 			width:100%;
 			float:right;
-			margin-top:9px;
-			margin-bottom:9px;
+			@include Margins(5px, 5px);
 			color:#dfc8c8 !important;
 			&:hover {
 				font-size:$MobileLarger !important;
@@ -56,8 +54,7 @@ header {
 			width:100%;
 			font-size:$MobileLarge;
 			float:left;
-			margin-top:9px;
-			margin-bottom:9px;
+			@include Margins(9px, 9px);
 			color:#dfc8c8 !important;
 			&:hover {
 				font-size:$MobileLarge !important;
@@ -78,8 +75,7 @@ header {
 				@include WidthMargins(96%, 0, 0);
 				float:left;
 				font-size:$MobileLarge;
-				margin-top:11px;
-				margin-bottom:11px;
+				@include Margins(11px, 11px);
 				@include BackBorderColor($MobileNavBg, 3px solid gray, $TextLight);
 				transition:background-color, border 0.2s ease 0s;
 				a {
@@ -108,8 +104,7 @@ header {
 
 div.album {
 	@include WidthMargins(97%, 1%, 1%);
-	margin-top:12px;
-	margin-bottom:12px;
+	@include Margins(12px, 12px);
 	padding-bottom:14px;
 	h2 {
 		font-size:$MobileLarge;
@@ -123,8 +118,7 @@ div.album {
 			@include WidthMargins(98%, 1%, 1%);
 			text-align:center;
 			font-size:$MobileNormal !important;
-			margin-top:4px;
-			margin-bottom:4px;
+			@include Margins(4px, 4px);
 			background:none;
 			background-color:rgba(0,0,0,0);
 			border:0 !important;
@@ -159,8 +153,7 @@ button, input[type="submit"] {
 	padding:9px;
 	padding-top:12px;
 	padding-bottom:12px;
-	margin-top:8px;
-	margin-bottom:8px;
+	@include Margins(8px, 8px);
 	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
 		@include BackBorderColor($ButtonMobileHover !important, 1px solid rgba(0,0,0,0), $TextBright);
@@ -169,16 +162,14 @@ button, input[type="submit"] {
 		padding:9px;
 		padding-top:12px;
 		padding-bottom:12px;
-		margin-top:8px;
-		margin-bottom:8px;
+		@include Margins(8px, 8px);
 	}
 	&:active {
 		color:$TextNormal !important;
 		padding:9px;
 		padding-top:12px;
 		padding-bottom:12px;
-		margin-top:8px;
-		margin-bottom:8px;
+		@include Margins(8px, 8px);
 	}
 }
 
@@ -190,8 +181,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	padding:8px;
 	padding-top:10px;
 	padding-bottom:10px;
-	margin-top:7px;
-	margin-bottom:7px;
+	@include Margins(7px, 7px);
 	transition:background, background-color, border, color 0.2s ease 0s;
 	&:hover {
 		@include Appearance();
@@ -201,16 +191,14 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		padding:8px;
 		padding-top:10px;
 		padding-bottom:10px;
-		margin-top:7px;
-		margin-bottom:7px;
+		@include Margins(7px, 7px);
 	}
 }
 
 .search-bar {
 	@include Flex(column, wrap);
 	@include WidthMargins(98%, 1%, 0%);
-	margin-top:4px;
-	margin-bottom:4px;
+	@include Margins(5px, 5px);
 	#search {
 		@include Appearance();
 		@include WidthMargins(98%, 0, 0);
@@ -219,8 +207,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		padding-left:16px;
 		padding-top:13px;
 		padding-bottom:13px;
-		margin-top:10px;
-		margin-bottom:10px;
+		@include Margins(10px, 10px);
 		border-bottom:1px solid rgba(0,0,0,0) !important;
 		border-radius:40px 40px 40px 40px;
 		font-size:$LandscapeLarger;
@@ -231,8 +218,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 			padding-left:16px;
 			padding-top:13px;
 			padding-bottom:13px;
-			margin-top:10px;
-			margin-bottom:10px;
+			@include Margins(10px, 10px);
 			border-bottom:1px solid rgba(0,0,0,0) !important;
 			border-radius:40px 40px 40px 40px;
 			font-size:$LandscapeLarger;
@@ -244,8 +230,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		padding:9px;
 		padding-top:12px;
 		padding-bottom:12px;
-		margin-top:10px;
-		margin-bottom:10px;
+		@include Margins(10px, 10px);
 		font-size:$MobileNormal !important;
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
@@ -253,8 +238,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 			padding:9px;
 			padding-top:12px;
 			padding-bottom:12px;
-			margin-top:10px;
-			margin-bottom:10px;
+			@include Margins(10px, 10px);
 			font-size:$MobileNormal !important;
 		}
 	}
@@ -265,8 +249,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		padding:10px;
 		padding-top:20px;
 		padding-bottom:20px;
-		margin-top:12px;
-		margin-bottom:12px;
+		@include Margins(12px, 12px);
 		font-size:$MobileLarge !important;
 		border-radius:40px 40px 40px 40px;
 		transition:background, background-color, border, color 0.2s ease 0s;
@@ -276,8 +259,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 			padding:10px;
 			padding-top:20px;
 			padding-bottom:20px;
-			margin-top:12px;
-			margin-bottom:12px;
+			@include Margins(12px, 12px);
 			font-size:$MobileLarge !important;
 			border-radius:40px 40px 40px 40px;
 		}
@@ -291,8 +273,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	}
 	tbody tr td:first-child {
 		text-align:center;
-		margin-top:10px;
-		margin-bottom:10px;
+		@include Margins(10px, 10px);
 		font-size:1.95em;
 	}
 	tbody tr td {
@@ -301,8 +282,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		font-size:1.95em;
 		text-align:center;
 		padding:9px;
-		margin-top:10px;
-		margin-bottom:10px;
+		@include Margins(10px, 10px);
 	}
 }
 
@@ -331,8 +311,7 @@ footer {
 		@include BackBorderColor($BgTrans, 3px solid black, $TextLight);
 		font-size:$MobileNormal;
 		display:inline-block;
-		margin-top:8px;
-		margin-bottom:8px;
+		@include Margins(8px, 8px);
 		text-align:center;
 		padding:7px;
 	}
@@ -395,8 +374,7 @@ footer {
 		@include WidthMargins(99% !important, 0%, 0%);
 		background:none !important;
 		font-size:$MobileNormal !important;
-		margin-top:6px;
-		margin-bottom:6px;
+		@include Margins(6px, 6px);
 		text-align:center !important;
 		padding:12px;
 	}
@@ -412,15 +390,13 @@ input[type="file"] {
 
 .buttons p button {
 	@include WidthMargins(97%, 1%, 1%);
-	margin-top:9px;
-	margin-bottom:9px;
+	@include Margins(9px, 9px);
 	padding:14px;
 	padding-top:17px;
 	padding-bottom:17px;
 	&:hover {
 		@include WidthMargins(97%, 1%, 1%);
-		margin-top:9px;
-		margin-bottom:9px;
+		@include Margins(9px, 9px);
 		padding:14px;
 		padding-top:17px;
 		padding-bottom:17px;
@@ -436,8 +412,7 @@ input[type="file"] {
 		display:inline-block;
 		@include WidthMargins(97%, 0, 0);
 		background:none !important;
-		margin-top:5px;
-		margin-bottom:5px;
+		@include Margins(5px, 5px);
 		text-align:center;
 		font-size:$MobileNormal !important;
 	}
@@ -459,8 +434,7 @@ input[type="file"] {
 		@include WidthMargins(98%, 0, 0);
 		padding:9px;
 		font-size:$MobileNormal !important;
-		margin-top:7px;
-		margin-bottom:7px;
+		@include Margins(7px, 7px);
 	}
 }
 
@@ -479,8 +453,7 @@ input[type="file"] {
 
 #account .bio {
 	@include WidthMargins(97%, 0%, 0%);
-	margin-top:8px;
-	margin-bottom:9px;
+	@include Margins(8px, 9px);
 	font-size:$MobileNormal !important;
 	padding:10px;
 	padding-top:14px;
@@ -489,8 +462,7 @@ input[type="file"] {
 
 .ajax-area {
 	@include WidthMargins(97%, 0%, 0%);
-	margin-top:7px;
-	margin-bottom:7px;
+	@include Margins(7px, 7px);
 	p.error {
 		font-size:$MobileNormal !important;
 		padding:6px;
@@ -515,8 +487,7 @@ textarea {
 	min-height:240px;
 	max-height:240px;
 	padding:10px;
-	margin-top:8px;
-	margin-bottom:8px;
+	@include Margins(8px, 8px);
 }
 
 .settings-form .main-user-info tbody tr td {

@@ -157,8 +157,7 @@ label {
 	p {
 		button {
 			@include WidthMargins(20%, 4%, 4%);
-			margin-top:3px;
-			margin-bottom:3px;
+			@include Margins(3px, 3px);
 		}
 	}
 }
@@ -233,8 +232,7 @@ select {
 	display:block;
 	text-align:center;
 	@include WidthMargins(90%, 5%, 5%);
-	margin-top:10px;
-	margin-bottom:10px;
+	@include Margins(10px, 10px);
 	p.success {
 		@include BackBorderColor($BgSuccess, $BorderSuccess, white);
 		padding:8px;
@@ -317,8 +315,7 @@ textarea {
 	min-height:40px;
 	font-size:1.12em;
 	font-family:"Arial" !important;
-	margin-top:5px;
-	margin-bottom:5px;
+	@include Margins(5px, 5px);
 	padding:7px;
 	padding-top:13px;
 	padding-bottom:13px;

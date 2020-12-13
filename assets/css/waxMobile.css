@@ -1,4 +1,10 @@
-/* waxMobile.scss WaXchange November - December 2020 Copyright (c) 2020 Tanner Babcock. */
+/*
+	waxMobile.scss
+
+	WaXchange
+	November - December 2020
+	Copyright (c) 2020 Tanner Babcock.
+*/
 /*
 	variables.scss
 
@@ -20,7 +26,7 @@ header { width: 100%; text-align: center; background: none !important; }
 
 header h1 { text-align: center; margin-top: 5px; margin-bottom: 5px; }
 
-header h1 a.small { font-size: 2.2em; width: 100%; float: right; margin-top: 9px; margin-bottom: 9px; color: #dfc8c8 !important; }
+header h1 a.small { font-size: 2.2em; width: 100%; float: right; margin-top: 5px; margin-bottom: 5px; color: #dfc8c8 !important; }
 
 header h1 a.small:hover { font-size: 2.2em !important; color: #efefef !important; }
 
@@ -68,7 +74,7 @@ input[type="text"], input[type="number"], select, input[type="password"] { appea
 
 input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="password"]:hover { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #171717; background-color: #171717; border: 3px solid #202020; color: #efefef; font-size: 1.95em !important; padding: 8px; padding-top: 10px; padding-bottom: 10px; margin-top: 7px; margin-bottom: 7px; }
 
-.search-bar { display: flex; flex-direction: column; flex-wrap: wrap; width: 98%; margin-left: 1%; margin-right: 0%; margin-top: 4px; margin-bottom: 4px; }
+.search-bar { display: flex; flex-direction: column; flex-wrap: wrap; width: 98%; margin-left: 1%; margin-right: 0%; margin-top: 5px; margin-bottom: 5px; }
 
 .search-bar #search { appearance: none; -moz-appearance: none; width: 98%; margin-left: 0; margin-right: 0; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #dfdfdf !important; padding-right: 9px; padding-left: 16px; padding-top: 13px; padding-bottom: 13px; margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid rgba(0, 0, 0, 0) !important; border-radius: 40px 40px 40px 40px; font-size: 1.81em; transition: background, background-color, border, color 0.2s ease 0s; }
 
