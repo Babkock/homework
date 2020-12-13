@@ -108,7 +108,7 @@ header {
 }
 
 div.album {
-	@include WidthMargins(48%, 2px, 2px);
+	@include WidthMargins(48%, 0px, 0px);
 	@include Margins(10px, 10px);
 	padding-top:12px;
 	padding-bottom:12px;
@@ -255,7 +255,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	#submit {
 		@include Appearance();
 		@include WidthMargins(98%, 0%, 2%);
-		@include BackBorderColor($BgInput, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		@include BackBorderColor($BgInput, 1px solid rgba(0,0,0,0) !important, $TextDark !important);
 		padding:9px;
 		padding-top:17px;
 		padding-bottom:17px;
@@ -265,7 +265,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include WidthMargins(98%, 0%, 2%);
-			@include BackBorderColor($BgInputHover, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			@include BackBorderColor($BgInputHover, 1px solid rgba(0,0,0,0) !important, $TextDark !important);
 			padding:9px;
 			padding-top:17px;
 			padding-bottom:17px;

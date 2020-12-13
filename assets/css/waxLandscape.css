@@ -46,7 +46,7 @@ header nav ul li a:hover { color: #efefef !important; display: block; width: 100
 
 header nav ul li:hover { border: 2px solid #dfdfdf; background: linear-gradient(#217474, #308383) !important; font-size: 1.81em; }
 
-div.album { width: 48%; margin-left: 2px; margin-right: 2px; margin-top: 10px; margin-bottom: 10px; padding-top: 12px; padding-bottom: 12px; }
+div.album { width: 48%; margin-left: 0px; margin-right: 0px; margin-top: 10px; margin-bottom: 10px; padding-top: 12px; padding-bottom: 12px; }
 
 div.album h2 { font-size: 1.75em; }
 
@@ -64,11 +64,11 @@ div.album div p { font-size: 1.75em !important; }
 
 .track-list tbody tr td { background: none !important; background-color: rgba(0, 0, 0, 0) !important; border: 0 !important; font-size: 1.7em; color: #efefef; }
 
-button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.75em !important; background: linear-gradient(#cb8510, #b97500) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; transition: background-color, color 0.2s ease 0s; }
+button, input[type="submit"] { width: 90%; margin-left: 5%; margin-right: 5%; font-size: 1.75em !important; background: linear-gradient(#db9510, #c98500) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; transition: background-color, color 0.2s ease 0s; }
 
-button:hover, input[type="submit"]:hover { font-size: 1.75em !important; background: linear-gradient(#00ba53, #10ca63) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+button:hover, input[type="submit"]:hover { font-size: 1.75em !important; background: linear-gradient(#00ca63, #10da73) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
 
-button:active, input[type="submit"]:active { font-size: 1.75em !important; background: linear-gradient(#00ba53, #10ca63) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
+button:active, input[type="submit"]:active { font-size: 1.75em !important; background: linear-gradient(#00ca63, #10da73) !important; border: 1px solid rgba(0, 0, 0, 0); color: #090909 !important; padding: 6px; padding-top: 8px; padding-bottom: 8px; margin-top: 5px; margin-bottom: 5px; }
 
 input[type="text"], input[type="number"], select, input[type="password"] { appearance: none; -moz-appearance: none; width: 98%; margin-left: 1%; margin-right: 1%; background: #131313; background-color: #131313; border: 3px solid black; color: #dfdfdf; font-size: 1.75em !important; padding: 5px; padding-top: 7px; padding-bottom: 7px; margin-top: 5px; margin-bottom: 5px; transition: background, background-color, border, color 0.2s ease 0s; }
 
@@ -84,9 +84,9 @@ input[type="text"]:hover, input[type="number"]:hover, select:hover, input[type="
 
 .search-bar #stype:hover, .search-bar #country:hover { background: #20754d; background-color: #20754d; border: 2px solid #202020 !important; color: #efefef !important; padding: 7px; padding-top: 10px; padding-bottom: 10px; margin-top: 6px; margin-bottom: 6px; border-radius: 32px 32px 32px 32px; font-size: 1.81em; }
 
-.search-bar #submit { appearance: none; -moz-appearance: none; width: 98%; margin-left: 0%; margin-right: 2%; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #dfdfdf !important; padding: 9px; padding-top: 17px; padding-bottom: 17px; margin-top: 9px; margin-bottom: 9px; font-size: 1.92em; border-radius: 32px 32px 32px 32px; transition: background, background-color, border, color 0.2s ease 0s; }
+.search-bar #submit { appearance: none; -moz-appearance: none; width: 98%; margin-left: 0%; margin-right: 2%; background: #131313; background-color: #131313; border: 1px solid rgba(0, 0, 0, 0) !important; color: #090909 !important; padding: 9px; padding-top: 17px; padding-bottom: 17px; margin-top: 9px; margin-bottom: 9px; font-size: 1.92em; border-radius: 32px 32px 32px 32px; transition: background, background-color, border, color 0.2s ease 0s; }
 
-.search-bar #submit:hover { width: 98%; margin-left: 0%; margin-right: 2%; background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #efefef !important; padding: 9px; padding-top: 17px; padding-bottom: 17px; margin-top: 9px; margin-bottom: 9px; font-size: 1.92em; border-radius: 32px 32px 32px 32px; }
+.search-bar #submit:hover { width: 98%; margin-left: 0%; margin-right: 2%; background: #161616; background-color: #161616; border: 1px solid rgba(0, 0, 0, 0) !important; color: #090909 !important; padding: 9px; padding-top: 17px; padding-bottom: 17px; margin-top: 9px; margin-bottom: 9px; font-size: 1.92em; border-radius: 32px 32px 32px 32px; }
 
 .login-form table, .register-form table, .settings-form table, .contact-fields { width: 99% !important; margin-left: 0% !important; margin-right: 0% !important; }
 

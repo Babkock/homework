@@ -252,7 +252,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 	#submit {
 		@include Appearance();
 		@include WidthMargins(98%, 0%, 1%);
-		@include BackBorderColor($BgInput, 1px solid rgba(0,0,0,0) !important, $TextLight !important);
+		@include BackBorderColor($BgInput, 1px solid rgba(0,0,0,0) !important, $TextDark !important);
 		padding:10px;
 		padding-top:20px;
 		padding-bottom:20px;
@@ -262,7 +262,7 @@ input[type="text"], input[type="number"], select, input[type="password"] {
 		transition:background, background-color, border, color 0.2s ease 0s;
 		&:hover {
 			@include WidthMargins(98%, 0%, 1%);
-			@include BackBorderColor($BgInputHover, 1px solid rgba(0,0,0,0) !important, $TextBright !important);
+			@include BackBorderColor($BgInputHover, 1px solid rgba(0,0,0,0) !important, $TextDark !important);
 			padding:10px;
 			padding-top:20px;
 			padding-bottom:20px;
