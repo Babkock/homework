@@ -75,7 +75,7 @@ header {
 			@include Flex(column, wrap);
 			width:100%;
 			li {
-				@include WidthMargins(92%, 0, 0);
+				@include WidthMargins(95%, 0%, 0%);
 				float:left;
 				border:2px solid gray;
 				font-size:$LandscapeLarger;
@@ -401,6 +401,7 @@ footer {
 	}
 	tbody tr td {
 		display:inline-block;
+		@include WidthMargins(99% !important, 0%, 0%);
 		background:none !important;
 		font-size:$LandscapeNormal !important;
 		margin-top:5px;

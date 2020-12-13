@@ -83,3 +83,8 @@ $LandscapeLarge: 1.92em;
 	flex-direction:$dir;
 	flex-wrap:$wr;
 }
+
+@mixin Margins($top, $bottom) {
+	margin-top:$top;
+	margin-bottom:$bottom;
+}
