@@ -106,7 +106,7 @@ header {
 }
 
 div.album {
-	@include WidthMargins(97%, 1%, 1%);
+	@include WidthMargins(97%, 0%, 1%);
 	@include Margins(12px, 12px);
 	padding-bottom:14px;
 	h2 {
@@ -130,6 +130,49 @@ div.album {
 	div p {
 		font-size:$MobileNormal;
 		@include Margins(5px, 5px);
+	}
+}
+
+.alb-info {
+	@include Flex(column !important, wrap !important);
+	.prop {
+		@include WidthMargins(97% !important, 1%, 1%);
+		padding:7px;
+		padding-top:9px;
+		padding-bottom:9px;
+		@include Margins(7px, 7px);
+		text-align:center;
+		background:none !important;
+		background-color:none !important;
+		border:none !important;
+	}
+	.val {
+		@include WidthMargins(97% !important, 1%, 1%);
+		padding:7px;
+		padding-top:9px;
+		padding-bottom:9px;
+		@include Margins(7px, 7px);
+		text-align:center;
+		background:none !important;
+		background-color:none !important;
+		border:none !important;
+	}
+}
+
+.confirm {
+	float:left;
+	@include WidthMargins(97%, -1%, 1%);
+	background:none !important;
+	background-color:none !important;
+	border:none !important;
+}
+
+.buy-form, .delete-form {
+	background:none !important;
+	@include Flex(column, nowrap);
+	.album {
+		float:left;
+		@include WidthMargins(97%, -1%, 1%);
 	}
 }
 

@@ -46,7 +46,7 @@ header nav ul li a:hover { font-size: 2em; color: #efefef !important; }
 
 header nav ul li:hover { background: linear-gradient(#217474, #308383) !important; border: 3px solid #dfdfdf; font-size: 2em; }
 
-div.album { width: 97%; margin-left: 1%; margin-right: 1%; margin-top: 12px; margin-bottom: 12px; padding-bottom: 14px; }
+div.album { width: 97%; margin-left: 0%; margin-right: 1%; margin-top: 12px; margin-bottom: 12px; padding-bottom: 14px; }
 
 div.album h2 { font-size: 2em; }
 
@@ -57,6 +57,18 @@ div.album div .alb-info { display: flex; flex-direction: column; flex-wrap: wrap
 div.album div .alb-info div { width: 98%; margin-left: 1%; margin-right: 1%; text-align: center; font-size: 1.95em !important; margin-top: 4px; margin-bottom: 4px; background: none; background-color: rgba(0, 0, 0, 0); border: 0 !important; }
 
 div.album div p { font-size: 1.95em; margin-top: 5px; margin-bottom: 5px; }
+
+.alb-info { display: flex; flex-direction: column !important; flex-wrap: wrap !important; }
+
+.alb-info .prop { width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 7px; padding-top: 9px; padding-bottom: 9px; margin-top: 7px; margin-bottom: 7px; text-align: center; background: none !important; background-color: none !important; border: none !important; }
+
+.alb-info .val { width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 7px; padding-top: 9px; padding-bottom: 9px; margin-top: 7px; margin-bottom: 7px; text-align: center; background: none !important; background-color: none !important; border: none !important; }
+
+.confirm { float: left; width: 97%; margin-left: -1%; margin-right: 1%; background: none !important; background-color: none !important; border: none !important; }
+
+.buy-form, .delete-form { background: none !important; display: flex; flex-direction: column; flex-wrap: nowrap; }
+
+.buy-form .album, .delete-form .album { float: left; width: 97%; margin-left: -1%; margin-right: 1%; }
 
 .track-list { width: 100%; }
 

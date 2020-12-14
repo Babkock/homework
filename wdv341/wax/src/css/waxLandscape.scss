@@ -108,7 +108,7 @@ header {
 }
 
 div.album {
-	@include WidthMargins(48%, 0px, 0px);
+	@include WidthMargins(97%, 0%, 1%);
 	@include Margins(10px, 10px);
 	padding-top:12px;
 	padding-bottom:12px;
@@ -132,6 +132,50 @@ div.album {
 	}
 	div p {
 		font-size:$LandscapeNormal !important;
+	}
+}
+
+
+.alb-info {
+	@include Flex(column !important, wrap !important);
+	.prop {
+		@include WidthMargins(97% !important, 1%, 1%);
+		padding:5px;
+		padding-top:7px;
+		padding-bottom:7px;
+		@include Margins(5px, 5px);
+		text-align:center;
+		background:none !important;
+		background-color:none !important;
+		border:none !important;
+	}
+	.val {
+		@include WidthMargins(97% !important, 1%, 1%);
+		padding:5px;
+		padding-top:7px;
+		padding-bottom:7px;
+		@include Margins(5px, 5px);
+		text-align:center;
+		background:none !important;
+		background-color:none !important;
+		border:none !important;
+	}
+}
+
+.confirm {
+	float:left;
+	@include WidthMargins(97%, -1%, 1%);
+	background:none !important;
+	background-color:none !important;
+	border:none !important;
+}
+
+.buy-form, .delete-form {
+	background:none !important;
+	@include Flex(column, nowrap);
+	.album {
+		float:left;
+		@include WidthMargins(97%, -1%, 1%);
 	}
 }
 
