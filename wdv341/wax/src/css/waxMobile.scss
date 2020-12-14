@@ -140,6 +140,7 @@ div.album {
 		padding:7px;
 		padding-top:9px;
 		padding-bottom:9px;
+		font-size:$MobileNormal !important;
 		@include Margins(7px, 7px);
 		text-align:center;
 		background:none !important;
@@ -151,6 +152,7 @@ div.album {
 		padding:7px;
 		padding-top:9px;
 		padding-bottom:9px;
+		font-size:$MobileNormal !important;
 		@include Margins(7px, 7px);
 		text-align:center;
 		background:none !important;

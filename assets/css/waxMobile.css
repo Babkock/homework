@@ -60,9 +60,9 @@ div.album div p { font-size: 1.95em; margin-top: 5px; margin-bottom: 5px; }
 
 .alb-info { display: flex; flex-direction: column !important; flex-wrap: wrap !important; }
 
-.alb-info .prop { width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 7px; padding-top: 9px; padding-bottom: 9px; margin-top: 7px; margin-bottom: 7px; text-align: center; background: none !important; background-color: none !important; border: none !important; }
+.alb-info .prop { width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 7px; padding-top: 9px; padding-bottom: 9px; font-size: 1.95em !important; margin-top: 7px; margin-bottom: 7px; text-align: center; background: none !important; background-color: none !important; border: none !important; }
 
-.alb-info .val { width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 7px; padding-top: 9px; padding-bottom: 9px; margin-top: 7px; margin-bottom: 7px; text-align: center; background: none !important; background-color: none !important; border: none !important; }
+.alb-info .val { width: 97% !important; margin-left: 1%; margin-right: 1%; padding: 7px; padding-top: 9px; padding-bottom: 9px; font-size: 1.95em !important; margin-top: 7px; margin-bottom: 7px; text-align: center; background: none !important; background-color: none !important; border: none !important; }
 
 .confirm { float: left; width: 97%; margin-left: -1%; margin-right: 1%; background: none !important; background-color: none !important; border: none !important; }
 

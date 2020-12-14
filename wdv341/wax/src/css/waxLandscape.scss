@@ -143,6 +143,7 @@ div.album {
 		padding:5px;
 		padding-top:7px;
 		padding-bottom:7px;
+		font-size:$LandscapeNormal !important;
 		@include Margins(5px, 5px);
 		text-align:center;
 		background:none !important;
@@ -154,6 +155,7 @@ div.album {
 		padding:5px;
 		padding-top:7px;
 		padding-bottom:7px;
+		font-size:$LandscapeNormal !important;
 		@include Margins(5px, 5px);
 		text-align:center;
 		background:none !important;
