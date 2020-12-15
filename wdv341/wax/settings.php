@@ -31,7 +31,7 @@ try {
 			if (strlen($_POST['country']) > 1)
 				$user->setCountry($_POST['country']);
 		}
-		if (isset($_POST['newpassword'])) {
+		if ((isset($_POST['newpassword'])) && (strlen($_POST['newpassword']) > 2)) {
 			$user->setPassword(hash("sha256", $_POST['newpassword']));
 		}
 

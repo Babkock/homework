@@ -32,7 +32,7 @@ try {
 
 				$sid = $album->getSellerId();
 				$posted = date("F j, Y", strtotime($album->getPosted()));
-				$sell = new User($sid);
+				$sell = new User(intval($sid));
 				$sell->read();
 
 				$to = $sell->getEmail();
