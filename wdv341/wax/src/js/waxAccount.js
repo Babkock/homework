@@ -21,6 +21,10 @@ Vue.mixin({
 		EditAlbum(i) {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
 		},
+
+		DeleteAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/delete?id=" + i;
+		}
 		
 		Register() {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
