@@ -24,7 +24,7 @@ Vue.mixin({
 
 		DeleteAlbum(i) {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/delete?id=" + i;
-		}
+		},
 		
 		Register() {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
