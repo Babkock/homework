@@ -34,7 +34,7 @@ a:hover {
 	text-decoration:none;
 }
 
-#account, #settings, #home h2, #home h3, #users h2 {
+#account, #settings, #home h2, #home h3, #users h2, #about h2 {
 	text-align:center;
 }
 
@@ -211,7 +211,7 @@ input[type="text"], input[type="password"], input[type="number"] {
 		font-size:1.14em;
 	}
 	&:active {
-		@include BackBorderColor(#1c1c1c, 2px solid #242424, #f9f9f9);
+		@includec BackBorderColor(#1c1c1c, 2px solid #242424, #f9f9f9);
 		font-size:1.14em;
 	}
 }

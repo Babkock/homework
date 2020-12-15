@@ -22,7 +22,7 @@ a, a:visited, a:link, a:active { color: #88cc88; text-decoration: none; transiti
 
 a:hover { color: #99ff99; text-decoration: none; }
 
-#account, #settings, #home h2, #home h3, #users h2 { text-align: center; }
+#account, #settings, #home h2, #home h3, #users h2, #about h2 { text-align: center; }
 
 header { width: 100%; text-align: center; display: block; }
 
@@ -86,7 +86,7 @@ input[type="text"], input[type="password"], input[type="number"] { appearance: n
 
 input[type="text"]:hover, input[type="password"]:hover, input[type="number"]:hover { background: #181818; background-color: #181818; border: 2px solid #202020; color: #efefef; font-size: 1.14em; }
 
-input[type="text"]:active, input[type="password"]:active, input[type="number"]:active { background: #1c1c1c; background-color: #1c1c1c; border: 2px solid #242424; color: #f9f9f9; font-size: 1.14em; }
+input[type="text"]:active, input[type="password"]:active, input[type="number"]:active { @includec BackBorderColor(#1c1c1c, 2px solid #242424, #f9f9f9); font-size: 1.14em; }
 
 select { background: #141414; background-color: #141414; border: 2px solid black; color: #dfdfdf; appearance: auto !important; -moz-appearance: auto !important; padding: 8px; width: 90%; font-size: 1.14em; transition: background, border, text 0.2s ease 0s; }
 

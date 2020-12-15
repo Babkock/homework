@@ -189,3 +189,5 @@ textarea { width: 92%; margin-left: 4%; margin-right: 4%; min-width: 92%; max-wi
 .index-table.inv tbody tr td:nth-child(3), .index-table.inv tbody tr td:nth-child(4) { background: none !important; background-color: none !important; border: none !important; color: #dfdfdf; width: 99%; }
 
 .login-form table tbody tr td, .register-form table tbody tr td, .settings-form table tbody tr td, .contact-fields tbody tr td { background: none !important; }
+
+#about h2 { text-align: center; }
