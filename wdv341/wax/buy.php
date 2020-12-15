@@ -117,6 +117,7 @@ EOF;
 				"ALBUM_LABEL" => $row['label'],
 				"ALBUM_COUNTRY" => Methods::countryExpand($row['country']),
 				"ALBUM_SELLER" => $row['seller'],
+				"SELLER_HREF" => "user?id=" . $row['sellerid'],
 				"TRACKLIST" => $tlout,
 				"ALBUM_YEAR" => $row['year'],
 				"ALBUM_COND" => Methods::conditionExpand($row['cond']),

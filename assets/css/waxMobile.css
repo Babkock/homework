@@ -68,7 +68,7 @@ div.album div p { font-size: 1.95em; margin-top: 5px; margin-bottom: 5px; }
 
 .buy-form, .delete-form { background: none !important; display: flex; flex-direction: column; flex-wrap: nowrap; }
 
-.buy-form .album, .delete-form .album { float: left; width: 97%; margin-left: -1%; margin-right: 1%; }
+.buy-form .album, .delete-form .album { float: left; width: 97%; margin-left: 0%; margin-right: 1%; }
 
 .track-list { width: 100%; }
 

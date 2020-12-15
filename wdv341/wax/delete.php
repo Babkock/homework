@@ -38,9 +38,8 @@ try {
 				$del->error("<h3>You have deleted " . $album->getArtist() . " - " . $album->getTitle() . "</h3>\n<p class=\"success\">This album is permanently deleted from the marketplace. If it was in someone's collection, it has been removed from their collection.</p>");
 			}
 		}
-		else if (strcmp($_POST['choice'], "Cancel") == 0) {
+		else if (strcmp($_POST['choice'], "Cancel") == 0)
 			header('Location: index');
-		}
 		exit();
 	}
 	else {
@@ -87,7 +86,6 @@ EOF;
 					$x++;
 				}
 				$tlout .= "</tbody></table>";
-				$sid = Methods::getIdFromName($row['seller']);
 				$price = number_format((float)$row['price'], 2, ".", "");
 
 				$del->hreplacea([
@@ -107,7 +105,7 @@ EOF;
 					"ALBUM_IMAGE" => $row['image'],
 					"ALBUM_MEDIA" => $row['media'],
 					"ALBUM_SELLER" => $row['seller'],
-					"SELLER_HREF" => "user?id=" . $sid,
+					"SELLER_HREF" => "user?id=" . $row['sellerid'],
 					"ALBUM_POSTED" => date("F j, Y", strtotime($row['posted'])),
 					"ALBUM_COUNTRY" => Methods::countryExpand($row['country']),
 					"TRACKLIST" => $tlout,

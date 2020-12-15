@@ -177,7 +177,7 @@ div.album {
 	@include Flex(column, nowrap);
 	.album {
 		float:left;
-		@include WidthMargins(97%, -1%, 1%);
+		@include WidthMargins(97%, 0%, 1%);
 	}
 }
 
