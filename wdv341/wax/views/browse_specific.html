@@ -8,7 +8,7 @@
 	<div class="albums-box" v-if="primary.length > 0">
 		<album v-for="(al, index) in primary" :myid="al.id" :aartist="al.artist" :atitle="al.title" :aposted="al.posted" :acountry="al.country" :aprice="al.price" :acurrency="al.currency" :aseller="al.seller" :asellerid="al.sellerid" :abuyer="al.buyer" :abuyerid="al.buyerid" :apurchased="al.purchased" :key="index">
 			<template slot="img">
-				<img :src="al.image" />
+				<img :src="al.image" :title="al.title" :alt="al.title" />
 			</template>
 			<template slot="info">
 				<h2>{{ al.discs }} x <span class="media" v-text="al.media"></span></h2>
@@ -38,7 +38,7 @@
 						<td>{{ tr.length }}</td>
 					</tr>
 				</tbody></table>
-				<p><b>&copy; &copysr; {{ al.label }}</b></p>
+				<p><b>&copy; &copysr; {{ al.year }} {{ al.label }}</b></p>
 			</template>
 		</album>
 	</div>

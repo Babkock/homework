@@ -119,6 +119,10 @@ var app = new Vue({
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/album?id=" + i;
 		},
 
+		DeleteAlbum(i) {
+			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/delete?id=" + i;
+		},
+
 		Register() {
 			window.location.href = "https://tannerbabcock.com/homework/wdv341/wax/register";
 		}
@@ -279,7 +283,7 @@ EOF;
 	<div class="albums-box">
 		<div class="album" style="width:100%;">
 			<div class="cover" style="width:40%; margin-left:30%; margin-right:30%;">
-				<img src="{$row['image']}" />
+				<img src="{$row['image']}" title="{$row['title']}" alt="{$row['title']}" />
 			</div>
 			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
 			<div>
@@ -509,7 +513,7 @@ EOF;
 	<div class="albums-box">
 		<div class="album" style="width:100%;">
 			<div class="cover" style="width:40%; margin-left:30%; margin-right:30%;">
-				<img src="{$row['image']}" />
+				<img src="{$row['image']}" title="{$row['title']}" alt="{$row['title']}" />
 			</div>
 			<h2><a href="browse?a={$encodeartist}">{$row['artist']}</a> - <i><a href="browse?b={$encodealbum}">{$row['title']}</a></i></h2>
 			<div>

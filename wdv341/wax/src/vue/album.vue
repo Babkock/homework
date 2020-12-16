@@ -3,11 +3,11 @@
 		<div class="cover">
 			<slot name="img"></slot>
 		</div>
-		<h2><a :href="idhref">#</a> <a :href="artisthref" v-text="aartist"></a> - <i><a :href="albumhref" v-text="atitle"></a></i></h2>
+		<h2><a :href="idhref" title="Permalink to this listing" alt="Permalink to this listing">#</a> <a :href="artisthref" v-text="aartist" title="See all by this artist" alt="See all by this artist"></a> - <i><a :href="albumhref" v-text="atitle" title="See all copies of this album" alt="See all copies of this album"></a></i></h2>
 		<button class="expand" @click="ToggleAlbumDetails()" v-text="expandText"></button>
 		<div v-if="showingExtra">
-			<h3 v-if="apurchased === 'n'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller"></a></h3>
-			<h3 v-else>Sold for <span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> to <a :href="buyerhref" v-text="abuyer"></a></h3>
+			<h3 v-if="apurchased === 'n'"><span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> from <a :href="sellerhref" v-text="aseller" title="The user who is selling this album" alt="The user who is selling this album"></a></h3>
+			<h3 v-else>Sold for <span class="price" :title="currencyexpand" :alt="currencyexpand"><span v-html="currencysymbol"></span>{{ aprice }}</span> to <a :href="buyerhref" v-text="abuyer" title="The user who bought this album" alt="The user who bought this album"></a></h3>
 			<slot name="info"></slot>
 			<div class="alb-info">
 				<div class="prop">

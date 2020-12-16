@@ -2,7 +2,7 @@
 	<input type="hidden" name="mode" id="mode" value="{{EDITMODE}}" />
 	<form action="" class="album-editor" method="post" enctype="multipart/form-data">
 		<div class="cover" v-if="uploaded && (album.image.length > 1)">
-			<img :src="album.image" />
+			<img :src="album.image" :title="album.title" :alt="album.title" />
 		</div>
 		<h2 v-html="editMsg"></h2>
 		<table class="main-album-info"><tbody>
@@ -141,7 +141,7 @@
 		<div class="buttons">
 			<p>
 				<button @click="$event.preventDefault(); AddTrack()" title="Add a track to the end of this list" alt="Add a track to the end of this list">Add Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
-				<button @click="$event.preventDefault(); RemoveTrack()" title="Remove a track from the end of this list" alt="Remove a track from the end of this list">Remove Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button @click="$event.preventDefault(); RemoveTrack()" title="Remove a track from the end of this list" alt="Remove a track from the end of this list">Remove Last Track</button>&nbsp;&nbsp;&nbsp;&nbsp;
 				<button @click="$event.preventDefault(); ToggleTracks()" title="Show/Hide the track listing" alt="Show/Hide the track listing" v-text="tracksButton"></button>
 			</p>
 		</div>
