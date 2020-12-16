@@ -44,7 +44,7 @@ try {
 				$message .= "<center><a href=\"https://tannerbabcock.com/homework/wdv341/wax/index\" title=\"Dashboard\" alt=\"Dashboard\">WaXchange Dashboard</a></center>";
 
 				$header = "From:tanner@tannerbabcock.com \r\n";
-				$header .= "Cc:" . $_POST['email'] . " \r\n";
+				$header .= "Cc:" . $sell->getEmail() . " \r\n";
 				$header .= "MIME-Version: 1.0\r\n";
 				$header .= "Content-type: text/html\r\n";
 
@@ -52,7 +52,7 @@ try {
 					$buy->error("<h3>This album has been purchased, but there was a problem sending the seller an email.</h3>");
 				}
 				else {
-					$buy->error("<h3>You have purchased " . $album->getArtist() . " - " . $album->getTitle() . " for $" . $album->price . "! Thank you for your business.</h3>\n<p class=\"success\">This release is now in your collection. <a href=\"index\">View your collection here.</a></p>");
+					$buy->error("<center><h2>You have purchased " . $album->getArtist() . " - " . $album->getTitle() . " for $" . $album->price . "! Thank you for your business.</h3>\n<p class=\"success\">This release is now in your collection. <a href=\"index\">View your collection here.</a></p></center>");
 				}
 			}
 		}

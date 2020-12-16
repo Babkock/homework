@@ -8,7 +8,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="description" content="The Awesome Recipe Editor for the Awesome Recipes app. This page can edit existing recipes or start new ones." />
-	<title>Awesome Recipe Editor</title>
+	<title>Awesome Recipes &bull; Editor</title>
 	<link rel="icon" type="image/png" href="/images/favicon.png" />
 	<link rel="stylesheet" href="/homework/assets/css/recipesProject.css" />
 	<link rel="stylesheet" href="/homework/assets/css/ingredient.css" />
@@ -73,7 +73,7 @@
 					<label><b>Upload Image:</b></label>
 					<input ref="image" type="file" name="image" @change="file = true" title="Upload an image file" alt="Upload an image file" />
 				</div>
-				<center>
+				<center v-if="!uploaded">
 					<button class="upload" @click="$event.preventDefault(); UploadFile(imageFilename)" title="Click this button to upload your image to use in the recipe." alt="Click this button to upload your image to use in the recipe.">Upload</button><br />
 					<p><i>Only JPEG, PNG, GIF formats accepted. Maximum file size 2 MB.</i></p>
 				</center>
