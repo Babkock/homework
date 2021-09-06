@@ -1,0 +1,20 @@
+image: node:latest
+
+stages:
+  - build
+
+cache:
+  paths:
+    - wdv341/wax/node_modules/
+    - wdv321/recipes/node_modules/
+
+build-job:
+  stage: build
+  script:
+    - cd wdv341/wax
+    - npm install
+    - npm run build
+    - cd ../../wdv321/recipes
+    - npm install
+    - npm run build
+
