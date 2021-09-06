@@ -1,17 +1,5 @@
-/*
-	waxchange.scss
-
-	WaXchange
-	November - December 2020
-	Copyright (c) 2020 Tanner Babcock.
-*/
-/*
-	variables.scss
-
-	WaXchange
-	November - December 2020
-	Copyright (c) 2020 Tanner Babcock.
-*/
+/* waxchange.scss WaXchange November - December 2020 Copyright (c) 2020 Tanner Babcock. */
+/* variables.scss WaXchange November - December 2020 Copyright (c) 2020 Tanner Babcock. */
 body { background: url("/homework/wdv341/wax/img/bigbg.jpg"); color: #cfcfcf; width: 100%; font-family: "Arial" !important; overflow-x: hidden; }
 
 *:focus, *:active { outline: 0 !important; }

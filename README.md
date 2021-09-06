@@ -15,12 +15,12 @@ Classes with work here:
 
 ![WaXchange PHP Project](https://raw.githubusercontent.com/Babkock/homework/master/img/waxchange.png)
 
-**[WaXchange](https://tannerbabcock.com/homework/wdv341/wax/index)** is a physical music marketplace, similar to Discogs or Boomkat. It uses a MySQL database, has a multi-user login system, relies heavily on AJAX calls, and is capable of facilitating transactions and interactions between users. The front end uses Vue.js and Webpack, like Awesome Recipes does. [Browse the source code here](https://github.com/Babkock/homework/tree/master/wdv341/wax). This application is responsive, and has complete mobile styles in SCSS.
+**[WaXchange](https://tannerbabcock.com/homework/wdv341/wax/index)** is a physical music marketplace, similar to Discogs or Boomkat. It uses a MySQL database, has a multi-user login system, relies heavily on AJAX calls, and is capable of facilitating transactions and interactions between users. The front end uses Vue.js and Webpack, like Awesome Recipes does. [Browse the source code here](https://gitlab.com/Babkock/homework/-/tree/master/wdv341/wax). This application is responsive, and has complete mobile styles in SCSS.
 
 ## [Awesome Recipes: JavaScript](https://tannerbabcock.com/homework/wdv321/recipes/home.html)
 
 ![Awesome Recipes: JavaScript Project](https://raw.githubusercontent.com/Babkock/homework/master/img/recipes.png)
 
-**[Awesome Recipes](https://tannerbabcock.com/homework/wdv321/recipes/home.html)** is a recipe manager written in Vue.js. It uses local storage, it features Webpack and SASS for compiling assets, and it is completely responsive (meaning it works fine on mobile). This was my final project for Advanced JavaScript. [Browse the source code here](https://github.com/Babkock/homework/tree/master/wdv321/recipes).
+**[Awesome Recipes](https://tannerbabcock.com/homework/wdv321/recipes/home.html)** is a recipe manager written in Vue.js. It uses local storage, it features Webpack and SASS for compiling assets, and it is completely responsive (meaning it works fine on mobile). This was my final project for Advanced JavaScript. [Browse the source code here](https://gitlab.com/Babkock/homework/-/tree/master/wdv321/recipes).
 
-[Looking for Python?](https://github.com/Babkock/python)
+[Looking for Python?](https://gitlab.com/Babkock/python)

@@ -6,14 +6,13 @@
 	src/css  =>  assets/css
 	src/js   =>  assets/js
 */
-const env = require("../../../env.json");
 const path = require("path");
 const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
 const config = require("./package.json");
 
 module.exports = {
-	mode: process.env.NODE_ENV,
+	mode: "production",
 	entry: {
 		display: "./src/js/display.js",
 		editor: "./src/js/editor.js",

@@ -3,14 +3,13 @@
 	November - December 2020
 	Copyright (c) 2020 Tanner Babcock.
 */
-const env = require("../../../env.json");
 const path = require("path");
 const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
 const config = require("./package.json");
 
 module.exports = {
-	mode: process.env.NODE_ENV,
+	mode: "production",
 	entry: {
 		waxAccount: "./src/js/waxAccount.js",
 		waxAlbumEditor: "./src/js/waxAlbumEditor.js",

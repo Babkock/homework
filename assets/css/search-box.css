@@ -1,10 +1,4 @@
-/*
-	variables.scss
-
-	WaXchange
-	November - December 2020
-	Copyright (c) 2020 Tanner Babcock.
-*/
+/* variables.scss WaXchange November - December 2020 Copyright (c) 2020 Tanner Babcock. */
 .search-bar { display: block; width: 92%; margin-left: 4%; margin-right: 4%;
 }
 .search-bar #search { width: 50%; appearance: none; -moz-appearance: none; background: #101010; background-color: #101010; border: 2px solid black; color: #cfcfcf; padding: 7px; padding-left: 11px; font-size: 1.4em; border-radius: 24px 0px 0px 24px; border-bottom: 3px solid black;

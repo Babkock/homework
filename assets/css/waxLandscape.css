@@ -1,17 +1,5 @@
-/*
-	waxLandscape.scss
-
-	WaXchange
-	November - December 2020
-	Copyright (c) 2020 Tanner Babcock.
-*/
-/*
-	variables.scss
-
-	WaXchange
-	November - December 2020
-	Copyright (c) 2020 Tanner Babcock.
-*/
+/* waxLandscape.scss WaXchange November - December 2020 Copyright (c) 2020 Tanner Babcock. */
+/* variables.scss WaXchange November - December 2020 Copyright (c) 2020 Tanner Babcock. */
 * { box-shadow: 0 !important; }
 
 body { background: radial-gradient(circle, #705544, #782040); color: #cfcfcf; width: 100%; font-size: 1.75em; font-family: "Arial" !important; overflow-x: hidden; }
