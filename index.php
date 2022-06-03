@@ -1,5 +1,6 @@
 <?php
-/* HOMEWORK
+/*
+ * HOMEWORK
  *
  *      /homework/index
  *
