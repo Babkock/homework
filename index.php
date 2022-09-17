@@ -11,7 +11,7 @@ require_once("../resources/lib/TBcom.php");
 require_once("../resources/lib/Log.php");
 
 $hw = new Build\Page("homework.header", "homework.index", "homework.footer");
-$hw->init("Tanner Babcock {{CLASS}}", "Homework assignments {{CLASS2}} for Tanner Babcock.", Codes\Portfolio);
+$hw->init("Tanner Babcock {{CLASS}}", "Homework assignments {{CLASS2}} for Tanner Babcock.", Codes\Home);
 
 $hw->middle->replace("EMAIL", "tababcock@dmacc.edu");
 
