@@ -1,0 +1,19 @@
+image: node:latest
+
+cache:
+    paths:
+      - wdv341/wax/node_modules
+      - wdv321/recipes/node_modules
+
+test:
+    script:
+      - cd wdv341
+      - cd wax
+      - npm install
+      - npm run build
+      - cd ..
+      - cd ..
+      - cd wdv321
+      - cd recipes
+      - npm install
+      - npm run build
