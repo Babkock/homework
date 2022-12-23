@@ -6,6 +6,8 @@ cache:
       - wdv321/recipes/node_modules
 
 test:
+    before_script:
+      - apt update && apt install -y python2
     script:
       - cd wdv341
       - cd wax
