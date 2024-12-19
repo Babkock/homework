@@ -4,7 +4,7 @@
  *
  *      /homework/index
  *
- * Copyright (c) 2017-2021 Tanner Babcock.
+ *  Copyright (c) 2017-2026 Tanner Babcock.
 */
 namespace TBcom;
 require_once("../resources/lib/TBcom.php");
