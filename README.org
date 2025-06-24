@@ -26,4 +26,7 @@ Web development assignments for several classes. These homework assignments can 
 
 [[https://tannerbabcock.com/homework/wdv321/recipes/home.html][Awesome Recipes]] is a recipe manager written in Vue.js. It uses local storage, it features Webpack and SASS for compiling assets, and it is completely responsive (meaning it works fine on mobile). This was my final project for Advanced JavaScript. [[https://gitlab.com/tbhomework/homework/-/tree/master/wdv321/recipes][Browse the source code here]].
 
-[[https://gitlab.com/Babkock/python][Looking for Python?]]
+[[https://github.com/Babkock/python][Looking for Python?]]
+[[https://github.com/Babkock/cis152][Data Structures]]
+[[https://github.com/Babkock/cis164][Advanced C++]]
+

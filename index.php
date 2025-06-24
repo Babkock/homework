@@ -1,14 +1,16 @@
 <?php
 /*
- * HOMEWORK
+ *  HOMEWORK
  *
  *      /homework/index
  *
- *  Copyright (c) 2017-2026 Tanner Babcock.
+ *   Copyright (c) 2017-2026 Tanner Babcock.
 */
 namespace TBcom;
 require_once("../resources/lib/TBcom.php");
 require_once("../resources/lib/Log.php");
+// this part of the website is special as it is linked to
+// by various academic things, and my Github
 
 $hw = new Build\Page("homework.header", "homework.index", "homework.footer");
 $hw->init("Tanner Babcock {{CLASS}}", "Homework assignments {{CLASS2}} for Tanner Babcock.", Codes\Home);
@@ -125,4 +127,3 @@ else {
 }
 
 $hw->output();
-
